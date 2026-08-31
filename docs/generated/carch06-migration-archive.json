@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "files": [
+    {
+      "path": "development/migration/aoo_DFMJ-3.8.8/file-map.csv",
+      "sha256": "dc48d0069bbdfb3a6be122d7d8f53335d6d0a9e23c5cc60453d1cad857391e71"
+    },
+    {
+      "path": "development/migration/aoo_DFMJ-3.8.8/module-map.json",
+      "sha256": "2d80334a35011c8ad1210fdb1ca740ffea26de46f96ffd0b1994fa2adf3a6943"
+    },
+    {
+      "path": "development/migration/aoo_DFMJ-3.8.8/source-project/package-lock.json",
+      "sha256": "068a291f9b2cedfa1d1b939436b357e8b307b8f63a89c960c236cc587c430e4c"
+    },
+    {
+      "path": "development/migration/aoo_DFMJ-3.8.8/source-project/package.json",
+      "sha256": "42767bac08aaa3639160a109e6ef004a09beaa77699cdf35ffd89af7ebcf2778"
+    },
+    {
+      "path": "development/migration/aoo_DFMJ-3.8.8/source-project/settings/v2/packages/builder.json",
+      "sha256": "a3e1a8df580b6ebec15ad16c9bbef785806567bfbc093821852bb3606028e702"
+    },
+    {
+      "path": "development/migration/aoo_DFMJ-3.8.8/source-project/settings/v2/packages/cocos-service.json",
+      "sha256": "3168fc33d51f6ac53821ae618c9c22d9c371ff5d195b83c355962a9b734a9602"
+    },
+    {
+      "path": "development/migration/aoo_DFMJ-3.8.8/source-project/settings/v2/packages/device.json",
+      "sha256": "93af91e0b90038cedc84d08651f845e1c2e2ae460321c19f083c27a178e451f8"
+    },
+    {
+      "path": "development/migration/aoo_DFMJ-3.8.8/source-project/settings/v2/packages/engine.json",
+      "sha256": "ee1737cd6ce06016f0aa0b3d79dbe53f15a2c3fca4b75e80b4aabb9e575dd2c2"
+    },
+    {
+      "path": "development/migration/aoo_DFMJ-3.8.8/source-project/settings/v2/packages/information.json",
+      "sha256": "f538de1164cea519e4f91cdc8b8567e0d061b9311dc5ef0b1fde3328905b41ec"
+    },
+    {
+      "path": "development/migration/aoo_DFMJ-3.8.8/source-project/settings/v2/packages/program.json",
+      "sha256": "d914f9f19ffe02724337936d8c7907798c8666566902b78243eb1aa8da0baedd"
+    },
+    {
+      "path": "development/migration/aoo_DFMJ-3.8.8/source-project/settings/v2/packages/project.json",
+      "sha256": "86e60258fc615fe023aef88ff8d66f6e8cf0c784fcef5c02d75b08a42b204241"
+    },
+    {
+      "path": "development/migration/aoo_DFMJ-3.8.8/source-project/tsconfig.json",
+      "sha256": "5c4eb5ea0c38da0e44217a21231043fe6c6bc2599a7576947cb2d97b42b7427f"
+    }
+  ],
+  "checks": {
+    "renamedArchive": true,
+    "outsideAssets": true,
+    "developmentExcluded": true,
+    "brandIsolated": true
+  },
+  "brandHits": [
+
+  ]
+}

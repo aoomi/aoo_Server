@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "developmentDefaults": [
+
+  ],
+  "legacyRuntimeConfigs": [
+    "assets/Common/Config/Legacy/assets/jsonData/gameCreate.json",
+    "assets/Common/Config/Legacy/assets/jsonData/roomcost.json",
+    "assets/Common/Config/Legacy/assets/njpdk/jsonData/gameCreate.json",
+    "assets/Common/Config/Legacy/assets/njpdk/jsonData/roomcost.json",
+    "assets/Games/Mahjong/Packs/Pack01/Config/Legacy/hzmj-source/jsonData/gameCreate.json",
+    "assets/Games/Mahjong/Packs/Pack01/Config/Legacy/hzmj-source/jsonData/roomcost.json",
+    "assets/Games/Poker/Packs/Pack01/Config/Legacy/assets/njpdk/jsonData/gameCreate.json",
+    "assets/Games/Poker/Packs/Pack01/Config/Legacy/assets/njpdk/jsonData/roomcost.json"
+  ],
+  "databaseAuthorityPresent": true,
+  "uniqueGenerationChain": false,
+  "passed": false
+}

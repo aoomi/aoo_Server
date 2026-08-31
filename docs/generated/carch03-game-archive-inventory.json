@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "archiveFiles": 0,
+  "exactlyMigrated": 0,
+  "unmigrated": 0,
+  "inventory": "docs/generated/carch03-game-archive-inventory.tsv",
+  "inventorySha256": "061c774b8f2860347f70612b298f7ee689b7479da525c735a3e0c5781c8d7dda",
+  "verdict": "passed"
+}

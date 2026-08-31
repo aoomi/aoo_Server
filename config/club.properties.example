@@ -1,0 +1,5 @@
+# Bootstrap `club` production assembly. Secrets must be injected by the workload.
+club.http.port=8094
+club.database.url=jdbc:mysql://127.0.0.1:3306/aoo?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC
+club.database.user=aoo_club
+# club.database.password is intentionally omitted; inject CLUB_DATABASE_PASSWORD.

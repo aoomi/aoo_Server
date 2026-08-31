@@ -1,0 +1,5 @@
+{
+  "schemaVersion": 1,
+  "policy": "Only exact finding IDs under read-only documentation or migration-evidence paths are eligible. Production/config/build entries are ignored even if added here.",
+  "entries": []
+}

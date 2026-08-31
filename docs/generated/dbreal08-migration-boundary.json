@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "task": "DBREAL08",
+  "passed": true,
+  "migrationCount": 117,
+  "duplicateCreateOwners": {
+  },
+  "boundary": {
+    "emptySchema": "apply all ordered migrations and record immutable checksums",
+    "trackedExistingSchema": "verify historical checksums and apply only missing versions",
+    "untrackedExistingSchema": "fail closed; reconcile through isolated staging before adoption"
+  },
+  "integrationEvidence": {
+    "passed": true,
+    "mode": "real MySQL empty-schema apply followed by existing-schema no-op upgrade",
+    "outputTail": "flyway-migration-apply: passed\nflyway-migration-apply: passed\nfresh-migration-verification: passed (29 tables)"
+  },
+  "checks": {
+    "no_duplicate_create_owners": true,
+    "history_table_and_checksum": true,
+    "existing_untracked_schema_fails_closed": true,
+    "distributed_apply_lock": true,
+    "fresh_and_upgrade_share_runner": true,
+    "real_empty_and_upgrade_test_passed": true
+  }
+}

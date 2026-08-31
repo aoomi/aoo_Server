@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "files": [
+    {
+      "path": "node_modules/.package-map.json",
+      "sha256": "7b5ce76f7a79fa10e1362ca3026a284c269578dac66d5f661989c4807cf0513a"
+    },
+    {
+      "path": "node_modules/.pnpm-workspace-state-v1.json",
+      "sha256": "619fcdfa930e87a994506cfbcb92d94f6e24e77effeec142c5367759abbcdb9d"
+    }
+  ],
+  "toolsMentioningNodeModules": [
+    "tools/AooBrandBoundaryCheck.java",
+    "tools/audit_legacy_entry_equivalence.rb",
+    "tools/inventory_build_entries.sh",
+    "tools/freeze_audit_baseline.rb",
+    "tools/audit_side_effect_equivalence.rb",
+    "tools/audit_precondition_equivalence.rb",
+    "tools/audit_database_runtime_mapping.rb",
+    "tools/aoo-build-version.rb"
+  ],
+  "checks": {
+    "clientIgnored": true,
+    "releaseIgnored": true,
+    "outsideAssets": true,
+    "onlyPackageManagerState": true
+  },
+  "passed": true
+}

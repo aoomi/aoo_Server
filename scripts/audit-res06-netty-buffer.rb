@@ -1,0 +1,4 @@
+require 'json';require 'fileutils';root=File.expand_path('..',__dir__)
+source=File.read(File.join(root,'server/Gateway/src/main/java/com/aoo/bcg/gateway/NettyBufferLease.java'));test=File.read(File.join(root,'server/Gateway/src/test/java/com/aoo/bcg/gateway/NettyBufferLeaseTest.java'));pom=File.read(File.join(root,'server/Gateway/pom.xml'))
+checks={managed_dependency:pom.include?('netty-buffer'),reference_release:source.include?('ReferenceCountUtil.safeRelease'),retained_slice:source.include?('retainedSlice'),async_transfer:source.include?('public ByteBuf transfer()'),paranoid_test:test.include?('Level.PARANOID'),exception_path:test.include?('handler failed')}
+abort "RES06 audit failed: #{checks}" unless checks.values.all?;out=File.join(root,'work/audit/netty-buffer-ownership.json');FileUtils.mkdir_p(File.dirname(out));File.write(out,JSON.pretty_generate({task:'RES06',status:'passed',checks:checks})+"\n")

@@ -1,0 +1,149 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "serialNumber": "urn:uuid:aoo-archived-third-party-20260823",
+  "version": 1,
+  "metadata": {
+    "component": {
+      "type": "application",
+      "name": "aoo-server-archived-third-party",
+      "version": "1.0.0-SNAPSHOT"
+    },
+    "properties": [
+      {
+        "name": "aoo.distributionScope",
+        "value": "reference-only"
+      }
+    ]
+  },
+  "components": [
+    {
+      "type": "library",
+      "bom-ref": "reference/legacy-2.22/third-party-maven-repository/com/aoo/legacy/kernel/1.0.0/kernel-1.0.0.jar",
+      "group": "com.aoo.legacy",
+      "name": "kernel",
+      "version": "1.0.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "068f9bc2c38a79d1b7012ddd401f1b7a4da023e38e2216f54313da4e091ca5ee"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "NOASSERTION"
+          }
+        }
+      ],
+      "purl": "pkg:maven/com.aoo.legacy/kernel@1.0.0",
+      "scope": "excluded",
+      "properties": [
+        {
+          "name": "aoo.runtimeReachable",
+          "value": "false"
+        },
+        {
+          "name": "aoo.archivePath",
+          "value": "reference/legacy-2.22/third-party-maven-repository/com/aoo/legacy/kernel/1.0.0/kernel-1.0.0.jar"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "reference/legacy-2.22/third-party-maven-repository/com/aoo/legacy/nettosphere/3.2.2-qh/nettosphere-3.2.2-qh.jar",
+      "group": "com.aoo.legacy",
+      "name": "nettosphere",
+      "version": "3.2.2-qh",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "59421e4b5f135af98d407cc02716e239bdd28789c9fffb02cd3cc76a0ff45eb9"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "purl": "pkg:maven/com.aoo.legacy/nettosphere@3.2.2-qh",
+      "scope": "excluded",
+      "properties": [
+        {
+          "name": "aoo.runtimeReachable",
+          "value": "false"
+        },
+        {
+          "name": "aoo.archivePath",
+          "value": "reference/legacy-2.22/third-party-maven-repository/com/aoo/legacy/nettosphere/3.2.2-qh/nettosphere-3.2.2-qh.jar"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "bom-ref": "reference/upstream/org.atmosphere/nettosphere/3.2.2/nettosphere-3.2.2-sources.jar",
+      "group": "org.atmosphere",
+      "name": "nettosphere",
+      "version": "3.2.2",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "015b7e7779b983ab958d99dca400d5e2bbb46fa7082dfd2dcf710e46f196cf3e"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "purl": "pkg:maven/org.atmosphere/nettosphere@3.2.2?classifier=sources",
+      "scope": "excluded",
+      "properties": [
+        {
+          "name": "aoo.runtimeReachable",
+          "value": "false"
+        },
+        {
+          "name": "aoo.archivePath",
+          "value": "reference/upstream/org.atmosphere/nettosphere/3.2.2/nettosphere-3.2.2-sources.jar"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "reference/upstream/org.atmosphere/nettosphere/3.2.2/nettosphere-3.2.2.jar",
+      "group": "org.atmosphere",
+      "name": "nettosphere",
+      "version": "3.2.2",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "a175430d4b302cf5501256f6e007b5d84370655c0aa64324e7123acf8867b98e"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "purl": "pkg:maven/org.atmosphere/nettosphere@3.2.2",
+      "scope": "excluded",
+      "properties": [
+        {
+          "name": "aoo.runtimeReachable",
+          "value": "false"
+        },
+        {
+          "name": "aoo.archivePath",
+          "value": "reference/upstream/org.atmosphere/nettosphere/3.2.2/nettosphere-3.2.2.jar"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "checks": {
+    "fixedDefaultTimestamp": true,
+    "releaseTimestamp": true,
+    "releaseRevision": true,
+    "noAbsoluteWorkspaceInGeneratedEvidence": true
+  },
+  "pollutedGeneratedEvidence": [
+
+  ]
+}

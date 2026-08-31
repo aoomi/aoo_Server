@@ -1,0 +1,87 @@
+{
+  "schemaVersion": 1,
+  "implementationHits": [
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/aqmj/AqmjSceneBootstrap.ts",
+      "line": 52
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/bdjhmj/BdjhmjSceneBootstrap.ts",
+      "line": 52
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/bamj/BamjSceneBootstrap.ts",
+      "line": 52
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/ak159mj/Ak159mjSceneBootstrap.ts",
+      "line": 53
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/hzmj/HzmjSceneBootstrap.ts",
+      "line": 41
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/hzmj/HzmjSceneBootstrap.ts",
+      "line": 79
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/hzmj/HzmjSceneBootstrap.ts",
+      "line": 82
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/ahhnmj/AhhnmjSceneBootstrap.ts",
+      "line": 52
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/asmj/AsmjSceneBootstrap.ts",
+      "line": 52
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/aymj/AymjSceneBootstrap.ts",
+      "line": 52
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/a3pk/A3pkSceneBootstrap.ts",
+      "line": 35
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/aydss/AydssSceneBootstrap.ts",
+      "line": 24
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/aycp/AycpSceneBootstrap.ts",
+      "line": 24
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/ahmj/AhmjSceneBootstrap.ts",
+      "line": 52
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/scjymj/ScjymjSceneBootstrap.ts",
+      "line": 96
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/afmj/AfmjSceneBootstrap.ts",
+      "line": 52
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/ahhbmj/AhhbmjSceneBootstrap.ts",
+      "line": 53
+    },
+    {
+      "path": "assets/Games/Mahjong/Packs/Pack01/Code/Runtime/hzmj/HzmjSceneBootstrap.ts",
+      "line": 41
+    },
+    {
+      "path": "assets/Games/Mahjong/Packs/Pack01/Code/Runtime/hzmj/HzmjSceneBootstrap.ts",
+      "line": 79
+    },
+    {
+      "path": "assets/Games/Mahjong/Packs/Pack01/Code/Runtime/hzmj/HzmjSceneBootstrap.ts",
+      "line": 82
+    }
+  ],
+  "notchRoundedCornerHomeIndicatorBrowserToolbarMatrix": false,
+  "passed": false
+}

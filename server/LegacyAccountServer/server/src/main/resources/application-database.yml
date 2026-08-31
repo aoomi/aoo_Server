@@ -1,0 +1,54 @@
+spring:
+  datasource:
+    druid:
+      filter:
+        slf4j:
+          statementExecutableSqlLogEnable: true
+          statementLogEnabled: true
+    game:
+      type: com.alibaba.druid.pool.DruidDataSource
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://127.0.0.1:3306/clark_game_new?useUnicode=true&characterEncoding=utf8&tcpRcvBuf=1024000&autoReconnect=true&failOverReadOnly=false
+      username: ${ACCOUNT_DB_USER:root}
+      password: ${ACCOUNT_DB_PASSWORD:}
+      initial-size: 5
+      max-active: 20
+      min-idle: 5
+      max-wait: 60000
+      pool-prepared-statements: true
+      max-pool-prepared-statement-per-connection-size: 20
+      validation-query: SELECT 1
+      validation-query-timeout: 30000
+      test-on-borrow: false
+      test-on-return: false
+      test-while-idle: true
+    log:
+      type: com.alibaba.druid.pool.DruidDataSource
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://127.0.0.1:3306/clark_log_new?useUnicode=true&characterEncoding=utf8&tcpRcvBuf=1024000&autoReconnect=true&failOverReadOnly=false
+      username: ${ACCOUNT_LOG_DB_USER:root}
+      password: ${ACCOUNT_LOG_DB_PASSWORD:}
+      initial-size: 5
+      max-active: 20
+      min-idle: 5
+      max-wait: 60000
+      pool-prepared-statements: true
+      max-pool-prepared-statement-per-connection-size: 20
+      validation-query: SELECT 1
+      validation-query-timeout: 30000
+      test-on-borrow: false
+      test-on-return: false
+      test-while-idle: true
+  jpa:
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: server.aoo.dao.config.jpa.MySQL5DialectUTF8
+        format_sql: true
+        jdbc:
+          batch_size: 50
+          batch_versioned_data: true
+        order_inserts: true
+        order_updates: true
+    hibernate:
+      ddl-auto: update

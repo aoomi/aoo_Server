@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "policy": "config/package-layout.json",
+  "checks": {
+    "thinJar": true,
+    "applicationFirst": true,
+    "forbidsShade": true,
+    "classpathParity": true,
+    "serviceLoaderSafe": true,
+    "updateAuthority": true,
+    "vulnerabilityPolicy": true
+  },
+  "passed": true
+}

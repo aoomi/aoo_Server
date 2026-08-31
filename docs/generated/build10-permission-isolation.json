@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "checks": {
+    "defaultReadOnly": true,
+    "buildReadOnly": true,
+    "protectedReleaseEnvironment": true,
+    "oidcOnlyInSignJob": true,
+    "noProductionDataCredentials": true
+  },
+  "externalVerification": "protected environment reviewer policy must be verified in hosting platform"
+}

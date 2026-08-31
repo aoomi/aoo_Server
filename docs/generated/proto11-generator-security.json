@@ -1,0 +1,10 @@
+{
+  "security_tests": true,
+  "generation_still_passes": true,
+  "fixed_input": true,
+  "exact_output_allowlist": true,
+  "symlink_rejected": true,
+  "bounded_input": true,
+  "no_external_command_in_generator": true,
+  "passed": true
+}

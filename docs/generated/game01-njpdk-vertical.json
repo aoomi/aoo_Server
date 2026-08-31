@@ -1,0 +1,14 @@
+{
+  "task": "GAME01",
+  "status": "blocked-real-three-player-set-end",
+  "completed": {
+    "moduleBuildAndProviderTest": true,
+    "authoritativeOperationValidation": true,
+    "trusteeOperationPath": true,
+    "setEndDetection": true
+  },
+  "unresolved": [
+    "no repeatable real three-player full-round test proves trustee progression through SNJPDK_SetEnd",
+    "previous real three-client run timed out after initial opPos synchronization"
+  ]
+}

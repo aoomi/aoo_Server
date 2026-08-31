@@ -1,0 +1,7 @@
+require'json';require'fileutils';root=File.expand_path('..',__dir__);findings=[];count=0
+Dir.glob(File.join(root,'server/**/pom.xml')).reject{|p|p.include?('/LegacyAccountServer/')||p.include?('/LegacyGameHall/')}.each do|p|
+ s=File.read(p);s.scan(/<dependency>(.*?)<\/dependency>/m).each do|(d)|
+  g=d[/<groupId>(.*?)<\/groupId>/m,1];a=d[/<artifactId>(.*?)<\/artifactId>/m,1];scope=d[/<scope>(.*?)<\/scope>/m,1]||'compile';optional=d.include?('<optional>true</optional>');next unless g&&a;count+=1;expected=if g=='org.junit.jupiter' then['test']elsif g=='org.projectlombok'then p.end_with?('/accountServer/pom.xml')?['compile','provided']:['provided']elsif a=='mysql-connector-j'then['runtime','test']elsif a=='logback-classic'then optional&&p.end_with?('/AooKernel/pom.xml')?['compile']:['runtime']elsif a=='jackson-datatype-jsr310'then['runtime']end;findings<<{file:p.delete_prefix(root+'/'),dependency:"#{g}:#{a}",scope:scope,expected:expected}if expected&&!expected.include?(scope)
+ end
+end
+parent=File.read(File.join(root,'pom.xml'));checks={all_dependencies_scanned:count>100,scope_policy:findings.empty?,annotation_processor_isolated:parent.include?('<annotationProcessorPaths>')&&parent.include?('<artifactId>lombok</artifactId>')};o={task:'UNUSED04',passed:checks.values.all?,checks:checks,dependencyCount:count,findings:findings};FileUtils.mkdir_p(File.join(root,'work/audit'));File.write(File.join(root,'work/audit/unused04-scopes.json'),JSON.pretty_generate(o));puts JSON.generate(o);abort('UNUSED04 failed')unless o[:passed]

@@ -1,0 +1,3687 @@
+{
+  "schemaVersion": 1,
+  "issue": "R63-001",
+  "legacyCount": 283,
+  "baselineSha256": "18811461be23a97585b70f39fd18fbf8764616984865dbcecfe1857823b2ea10",
+  "rows": [
+    {
+      "id": "R63-001",
+      "legacyProtocol": "Club.CClubAddCaptionOpZhongZhi",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CClubAddCaptionOpZhongZhi",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-002",
+      "legacyProtocol": "Club.CClubChangePromotionBelongDiaoRu",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CClubChangePromotionBelongDiaoRu",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-003",
+      "legacyProtocol": "Club.CClubChangePromotionZhongZhi",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CClubChangePromotionZhongZhi",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-004",
+      "legacyProtocol": "Union.CUnionCountInfoByZhongZhi",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CUnionCountInfoByZhongZhi",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-005",
+      "legacyProtocol": "base.C1001CreateRole",
+      "businessDomain": "Account",
+      "newEntry": "HTTP /api/v1/account/legacy-operations/C1001CreateRole",
+      "status": "replaced",
+      "evidence": [
+        "server/Account/src/main/java/com/aoo/bcg/account/AccountHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startAccount",
+      "reason": "旧 SendPack 由当前 Account HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-006",
+      "legacyProtocol": "base.C1004Login",
+      "businessDomain": "Account",
+      "newEntry": "HTTP /api/v1/account/legacy-operations/C1004Login",
+      "status": "replaced",
+      "evidence": [
+        "server/Account/src/main/java/com/aoo/bcg/account/AccountHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startAccount",
+      "reason": "旧 SendPack 由当前 Account HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-007",
+      "legacyProtocol": "base.C1005PlayerInfo",
+      "businessDomain": "Profile",
+      "newEntry": "HTTP /api/v1/profile/C1005PlayerInfo",
+      "status": "replaced",
+      "evidence": [
+        "server/PlayerProfile/src/main/java/com/aoo/bcg/profile/PlayerProfileHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startAccount",
+      "reason": "旧 SendPack 由当前 Profile HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-008",
+      "legacyProtocol": "base.C1006RoleLogin",
+      "businessDomain": "Account",
+      "newEntry": "HTTP /api/v1/account/legacy-operations/C1006RoleLogin",
+      "status": "replaced",
+      "evidence": [
+        "server/Account/src/main/java/com/aoo/bcg/account/AccountHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startAccount",
+      "reason": "旧 SendPack 由当前 Account HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-009",
+      "legacyProtocol": "base.C1008LoginXL",
+      "businessDomain": "Account",
+      "newEntry": "HTTP /api/v1/account/legacy-operations/C1008LoginXL",
+      "status": "replaced",
+      "evidence": [
+        "server/Account/src/main/java/com/aoo/bcg/account/AccountHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startAccount",
+      "reason": "旧 SendPack 由当前 Account HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-010",
+      "legacyProtocol": "base.C1110UUID",
+      "businessDomain": "Account",
+      "newEntry": "HTTP /api/v1/account/legacy-operations/C1110UUID",
+      "status": "replaced",
+      "evidence": [
+        "server/Account/src/main/java/com/aoo/bcg/account/AccountHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startAccount",
+      "reason": "旧 SendPack 由当前 Account HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-011",
+      "legacyProtocol": "base.C1111RoleReLogin",
+      "businessDomain": "Account",
+      "newEntry": "HTTP /api/v1/account/legacy-operations/C1111RoleReLogin",
+      "status": "replaced",
+      "evidence": [
+        "server/Account/src/main/java/com/aoo/bcg/account/AccountHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startAccount",
+      "reason": "旧 SendPack 由当前 Account HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-012",
+      "legacyProtocol": "club.CClubAddCaptainZhongZhi",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CClubAddCaptainZhongZhi",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-013",
+      "legacyProtocol": "club.CClubAlivePointChange",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CClubAlivePointChange",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-014",
+      "legacyProtocol": "club.CClubAlivePointWaningInfo",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CClubAlivePointWaningInfo",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-015",
+      "legacyProtocol": "club.CClubBanGame",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CClubBanGame",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-016",
+      "legacyProtocol": "club.CClubBanRoomConigList",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CClubBanRoomConigList",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-017",
+      "legacyProtocol": "club.CClubBanRoomConigOp",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CClubBanRoomConigOp",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-018",
+      "legacyProtocol": "club.CClubCancleCaptionOpZhongZhi",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CClubCancleCaptionOpZhongZhi",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-019",
+      "legacyProtocol": "club.CClubChangeDimondsAttention",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CClubChangeDimondsAttention",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-020",
+      "legacyProtocol": "club.CClubChangePlayerInvite",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CClubChangePlayerInvite",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-021",
+      "legacyProtocol": "club.CClubChangePlayerRemarkName",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CClubChangePlayerRemarkName",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-022",
+      "legacyProtocol": "club.CClubChangePlayerStatus",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CClubChangePlayerStatus",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-023",
+      "legacyProtocol": "club.CClubChangePromotionBelong",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CClubChangePromotionBelong",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-024",
+      "legacyProtocol": "club.CClubChangeQuitAndJoinConfig",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CClubChangeQuitAndJoinConfig",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-025",
+      "legacyProtocol": "club.CClubChangeShowOnlinePlayerNum",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CClubChangeShowOnlinePlayerNum",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-026",
+      "legacyProtocol": "club.CClubChat",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CClubChat",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-027",
+      "legacyProtocol": "club.CClubClose",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CClubClose",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-028",
+      "legacyProtocol": "club.CClubCreate",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CClubCreate",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-029",
+      "legacyProtocol": "club.CClubCreateGameSetChangge",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CClubCreateGameSetChangge",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-030",
+      "legacyProtocol": "club.CClubCreateRoom",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CClubCreateRoom",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-031",
+      "legacyProtocol": "club.CClubDissolveRoom",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CClubDissolveRoom",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-032",
+      "legacyProtocol": "club.CClubDynamic",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CClubDynamic",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-033",
+      "legacyProtocol": "club.CClubEliminarePointInfo",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CClubEliminarePointInfo",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-034",
+      "legacyProtocol": "club.CClubEliminatePointChange",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CClubEliminatePointChange",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-035",
+      "legacyProtocol": "club.CClubEliminatePointChangeMulti",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CClubEliminatePointChangeMulti",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-036",
+      "legacyProtocol": "club.CClubFindPIDAdd",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CClubFindPIDAdd",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-037",
+      "legacyProtocol": "club.CClubFindPIDInfo",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CClubFindPIDInfo",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-038",
+      "legacyProtocol": "club.CClubFixedShareChangeMulti",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CClubFixedShareChangeMulti",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-039",
+      "legacyProtocol": "club.CClubGameList",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CClubGameList",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-040",
+      "legacyProtocol": "club.CClubGetAllRoomMin",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CClubGetAllRoomMin",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-041",
+      "legacyProtocol": "club.CClubGetCaseSprotsInfo",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CClubGetCaseSprotsInfo",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-042",
+      "legacyProtocol": "club.CClubGetChatMsg",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CClubGetChatMsg",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-043",
+      "legacyProtocol": "club.CClubGetCreateGameSet",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CClubGetCreateGameSet",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-044",
+      "legacyProtocol": "club.CClubGetMembePromotionList",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CClubGetMembePromotionList",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-045",
+      "legacyProtocol": "club.CClubGetMemberManage",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CClubGetMemberManage",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-046",
+      "legacyProtocol": "club.CClubGetPlayerRemarkName",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CClubGetPlayerRemarkName",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-047",
+      "legacyProtocol": "club.CClubGetRecord",
+      "businessDomain": "Replay",
+      "newEntry": "HTTP /v1/replays/CClubGetRecord",
+      "status": "replaced",
+      "evidence": [
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/RecordReplayHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startRecords",
+      "reason": "旧 SendPack 由当前 Replay HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-048",
+      "legacyProtocol": "club.CClubGetShowOnlinePlayerNum",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CClubGetShowOnlinePlayerNum",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-049",
+      "legacyProtocol": "club.CClubGetUplevelPromotion",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CClubGetUplevelPromotion",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-050",
+      "legacyProtocol": "club.CClubGroupingAdd",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CClubGroupingAdd",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-051",
+      "legacyProtocol": "club.CClubGroupingList",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CClubGroupingList",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-052",
+      "legacyProtocol": "club.CClubGroupingMemberList",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CClubGroupingMemberList",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-053",
+      "legacyProtocol": "club.CClubGroupingPidAdd",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CClubGroupingPidAdd",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-054",
+      "legacyProtocol": "club.CClubGroupingPidFind",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CClubGroupingPidFind",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-055",
+      "legacyProtocol": "club.CClubGroupingPidRemove",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CClubGroupingPidRemove",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-056",
+      "legacyProtocol": "club.CClubGroupingRemove",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CClubGroupingRemove",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-057",
+      "legacyProtocol": "club.CClubInvited",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CClubInvited",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-058",
+      "legacyProtocol": "club.CClubJoin",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CClubJoin",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-059",
+      "legacyProtocol": "club.CClubKickOutNeedConfirm",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CClubKickOutNeedConfirm",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-060",
+      "legacyProtocol": "club.CClubKickRoom",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CClubKickRoom",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-061",
+      "legacyProtocol": "club.CClubLeave",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CClubLeave",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-062",
+      "legacyProtocol": "club.CClubMemberRoomRecord",
+      "businessDomain": "Replay",
+      "newEntry": "HTTP /v1/replays/CClubMemberRoomRecord",
+      "status": "replaced",
+      "evidence": [
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/RecordReplayHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startRecords",
+      "reason": "旧 SendPack 由当前 Replay HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-063",
+      "legacyProtocol": "club.CClubMemberSportsPointInfo",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CClubMemberSportsPointInfo",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-064",
+      "legacyProtocol": "club.CClubOnlinePlayerCount",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CClubOnlinePlayerCount",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-065",
+      "legacyProtocol": "club.CClubPartnerAloneCount",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CClubPartnerAloneCount",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-066",
+      "legacyProtocol": "club.CClubPartnerAloneRecord",
+      "businessDomain": "Replay",
+      "newEntry": "HTTP /v1/replays/CClubPartnerAloneRecord",
+      "status": "replaced",
+      "evidence": [
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/RecordReplayHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startRecords",
+      "reason": "旧 SendPack 由当前 Replay HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-067",
+      "legacyProtocol": "club.CClubPartnerAppoint",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CClubPartnerAppoint",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-068",
+      "legacyProtocol": "club.CClubPartnerCancel",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CClubPartnerCancel",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-069",
+      "legacyProtocol": "club.CClubPartnerChange",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CClubPartnerChange",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-070",
+      "legacyProtocol": "club.CClubPartnerCount",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CClubPartnerCount",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-071",
+      "legacyProtocol": "club.CClubPartnerDelete",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CClubPartnerDelete",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-072",
+      "legacyProtocol": "club.CClubPartnerInfoList",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CClubPartnerInfoList",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-073",
+      "legacyProtocol": "club.CClubPartnerPersonalCount",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CClubPartnerPersonalCount",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-074",
+      "legacyProtocol": "club.CClubPartnerRecord",
+      "businessDomain": "Replay",
+      "newEntry": "HTTP /v1/replays/CClubPartnerRecord",
+      "status": "replaced",
+      "evidence": [
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/RecordReplayHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startRecords",
+      "reason": "旧 SendPack 由当前 Replay HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-075",
+      "legacyProtocol": "club.CClubPersonalRecord",
+      "businessDomain": "Replay",
+      "newEntry": "HTTP /v1/replays/CClubPersonalRecord",
+      "status": "replaced",
+      "evidence": [
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/RecordReplayHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startRecords",
+      "reason": "旧 SendPack 由当前 Replay HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-076",
+      "legacyProtocol": "club.CClubPersonalRecordGetPageNum",
+      "businessDomain": "Replay",
+      "newEntry": "HTTP /v1/replays/CClubPersonalRecordGetPageNum",
+      "status": "replaced",
+      "evidence": [
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/RecordReplayHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startRecords",
+      "reason": "旧 SendPack 由当前 Replay HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-077",
+      "legacyProtocol": "club.CClubPersonalSportsPointWaningInfo",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CClubPersonalSportsPointWaningInfo",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-078",
+      "legacyProtocol": "club.CClubPersonalSportsPointWarningChange",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CClubPersonalSportsPointWarningChange",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-079",
+      "legacyProtocol": "club.CClubPlayerRecord",
+      "businessDomain": "Replay",
+      "newEntry": "HTTP /v1/replays/CClubPlayerRecord",
+      "status": "replaced",
+      "evidence": [
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/RecordReplayHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startRecords",
+      "reason": "旧 SendPack 由当前 Replay HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-080",
+      "legacyProtocol": "club.CClubPlayerRecordCount",
+      "businessDomain": "Replay",
+      "newEntry": "HTTP /v1/replays/CClubPlayerRecordCount",
+      "status": "replaced",
+      "evidence": [
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/RecordReplayHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startRecords",
+      "reason": "旧 SendPack 由当前 Replay HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-081",
+      "legacyProtocol": "club.CClubPromotionActive",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CClubPromotionActive",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-082",
+      "legacyProtocol": "club.CClubPromotionActiveReportForm",
+      "businessDomain": "Support",
+      "newEntry": "HTTP /api/v1/support/CClubPromotionActiveReportForm",
+      "status": "replaced",
+      "evidence": [
+        "server/Support/src/main/java/com/aoo/bcg/support/SupportHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startSupport",
+      "reason": "旧 SendPack 由当前 Support HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-083",
+      "legacyProtocol": "club.CClubPromotionAppointOrLeaveOffice",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CClubPromotionAppointOrLeaveOffice",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-084",
+      "legacyProtocol": "club.CClubPromotionCalcActive",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CClubPromotionCalcActive",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-085",
+      "legacyProtocol": "club.CClubPromotionCalcActiveBatch",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CClubPromotionCalcActiveBatch",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-086",
+      "legacyProtocol": "club.CClubPromotionCalcActiveList",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CClubPromotionCalcActiveList",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-087",
+      "legacyProtocol": "club.CClubPromotionChangeBelongPidInfo",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CClubPromotionChangeBelongPidInfo",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-088",
+      "legacyProtocol": "club.CClubPromotionDelete",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CClubPromotionDelete",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-089",
+      "legacyProtocol": "club.CClubPromotionDynamic",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CClubPromotionDynamic",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-090",
+      "legacyProtocol": "club.CClubPromotionLevelPidAdd",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CClubPromotionLevelPidAdd",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-091",
+      "legacyProtocol": "club.CClubPromotionLevelPidInfo",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CClubPromotionLevelPidInfo",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-092",
+      "legacyProtocol": "club.CClubPromotionLevelPowerInfo",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CClubPromotionLevelPowerInfo",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-093",
+      "legacyProtocol": "club.CClubPromotionLevelPowerOp",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CClubPromotionLevelPowerOp",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-094",
+      "legacyProtocol": "club.CClubPromotionLevelReportForm",
+      "businessDomain": "Support",
+      "newEntry": "HTTP /api/v1/support/CClubPromotionLevelReportForm",
+      "status": "replaced",
+      "evidence": [
+        "server/Support/src/main/java/com/aoo/bcg/support/SupportHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startSupport",
+      "reason": "旧 SendPack 由当前 Support HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-095",
+      "legacyProtocol": "club.CClubPromotionList",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CClubPromotionList",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-096",
+      "legacyProtocol": "club.CClubPromotionPersonalCount",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CClubPromotionPersonalCount",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-097",
+      "legacyProtocol": "club.CClubPromotionPersonalRecord",
+      "businessDomain": "Replay",
+      "newEntry": "HTTP /v1/replays/CClubPromotionPersonalRecord",
+      "status": "replaced",
+      "evidence": [
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/RecordReplayHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startRecords",
+      "reason": "旧 SendPack 由当前 Replay HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-098",
+      "legacyProtocol": "club.CClubPromotionPidAdd",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CClubPromotionPidAdd",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-099",
+      "legacyProtocol": "club.CClubPromotionPidInfo",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CClubPromotionPidInfo",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-100",
+      "legacyProtocol": "club.CClubPromotionSectionChangeList",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CClubPromotionSectionChangeList",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-101",
+      "legacyProtocol": "club.CClubPromotionShareChange",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CClubPromotionShareChange",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-102",
+      "legacyProtocol": "club.CClubPromotionShareChangeBatch",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CClubPromotionShareChangeBatch",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-103",
+      "legacyProtocol": "club.CClubPromotionShareChangeList",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CClubPromotionShareChangeList",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-104",
+      "legacyProtocol": "club.CClubPromotionShareChangeListSelfInfo",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CClubPromotionShareChangeListSelfInfo",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-105",
+      "legacyProtocol": "club.CClubPromotionShareInfo",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CClubPromotionShareInfo",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-106",
+      "legacyProtocol": "club.CClubPromotionShareInfoSelf",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CClubPromotionShareInfoSelf",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-107",
+      "legacyProtocol": "club.CClubPromotionShareSectionChangeBatch",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CClubPromotionShareSectionChangeBatch",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-108",
+      "legacyProtocol": "club.CClubReservedValueInfo",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CClubReservedValueInfo",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-109",
+      "legacyProtocol": "club.CClubRoomIdOperation",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CClubRoomIdOperation",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-110",
+      "legacyProtocol": "club.CClubRoomPromotionPointDetail",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CClubRoomPromotionPointDetail",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-111",
+      "legacyProtocol": "club.CClubRoomRecord",
+      "businessDomain": "Replay",
+      "newEntry": "HTTP /v1/replays/CClubRoomRecord",
+      "status": "replaced",
+      "evidence": [
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/RecordReplayHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startRecords",
+      "reason": "旧 SendPack 由当前 Replay HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-112",
+      "legacyProtocol": "club.CClubSChoolReport",
+      "businessDomain": "Support",
+      "newEntry": "HTTP /api/v1/support/CClubSChoolReport",
+      "status": "replaced",
+      "evidence": [
+        "server/Support/src/main/java/com/aoo/bcg/support/SupportHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startSupport",
+      "reason": "旧 SendPack 由当前 Support HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-113",
+      "legacyProtocol": "club.CClubSavePromotionShowLits",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CClubSavePromotionShowLits",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-114",
+      "legacyProtocol": "club.CClubSetMinister",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CClubSetMinister",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-115",
+      "legacyProtocol": "club.CClubSetPromotionMinister",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CClubSetPromotionMinister",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-116",
+      "legacyProtocol": "club.CClubSportsPointChangeRecordByPid",
+      "businessDomain": "Replay",
+      "newEntry": "HTTP /v1/replays/CClubSportsPointChangeRecordByPid",
+      "status": "replaced",
+      "evidence": [
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/RecordReplayHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startRecords",
+      "reason": "旧 SendPack 由当前 Replay HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-117",
+      "legacyProtocol": "club.CClubSportsPointDynamicByPid",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CClubSportsPointDynamicByPid",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-118",
+      "legacyProtocol": "club.CClubSportsPointExamine",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CClubSportsPointExamine",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-119",
+      "legacyProtocol": "club.CClubSportsPointMemberDynamicByPid",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CClubSportsPointMemberDynamicByPid",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-120",
+      "legacyProtocol": "club.CClubSportsPointWaningInfo",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CClubSportsPointWaningInfo",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-121",
+      "legacyProtocol": "club.CClubSportsPointWarningChange",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CClubSportsPointWarningChange",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-122",
+      "legacyProtocol": "club.CClubSubordinateLevelAppoint",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CClubSubordinateLevelAppoint",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-123",
+      "legacyProtocol": "club.CClubSubordinateLevelDelete",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CClubSubordinateLevelDelete",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-124",
+      "legacyProtocol": "club.CClubSubordinateLevelPidAdd",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CClubSubordinateLevelPidAdd",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-125",
+      "legacyProtocol": "club.CClubSubordinateLevelPidInfo",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CClubSubordinateLevelPidInfo",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-126",
+      "legacyProtocol": "club.CClubSubordinateLevelSportsPoint",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CClubSubordinateLevelSportsPoint",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-127",
+      "legacyProtocol": "club.CClubSubordinateList",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CClubSubordinateList",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-128",
+      "legacyProtocol": "club.CClubSubordinatePidAdd",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CClubSubordinatePidAdd",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-129",
+      "legacyProtocol": "club.CClubSubordinatePidInfo",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CClubSubordinatePidInfo",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-130",
+      "legacyProtocol": "club.CClubTop",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CClubTop",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-131",
+      "legacyProtocol": "club.CClubTotalInfo",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CClubTotalInfo",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-132",
+      "legacyProtocol": "club.CGetClubList",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CGetClubList",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-133",
+      "legacyProtocol": "club.CGetClubListByClubId",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CGetClubListByClubId",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-134",
+      "legacyProtocol": "club.CGetClubListById",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CGetClubListById",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-135",
+      "legacyProtocol": "club.CGetClubListMin",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CGetClubListMin",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-136",
+      "legacyProtocol": "club.CGetClubListMin2",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CGetClubListMin2",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-137",
+      "legacyProtocol": "family.C2116JoinFamily",
+      "businessDomain": "Social",
+      "newEntry": "HTTP /api/v1/social/legacy-operations/C2116JoinFamily",
+      "status": "replaced",
+      "evidence": [
+        "server/Social/src/main/java/com/aoo/bcg/social/SocialHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startSocial",
+      "reason": "旧 SendPack 由当前 Social HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-138",
+      "legacyProtocol": "family.C2118AddFamilyContent",
+      "businessDomain": "Social",
+      "newEntry": "HTTP /api/v1/social/legacy-operations/C2118AddFamilyContent",
+      "status": "replaced",
+      "evidence": [
+        "server/Social/src/main/java/com/aoo/bcg/social/SocialHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startSocial",
+      "reason": "旧 SendPack 由当前 Social HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-139",
+      "legacyProtocol": "family.C2119InitPlayerFamily",
+      "businessDomain": "Social",
+      "newEntry": "HTTP /api/v1/social/legacy-operations/C2119InitPlayerFamily",
+      "status": "replaced",
+      "evidence": [
+        "server/Social/src/main/java/com/aoo/bcg/social/SocialHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startSocial",
+      "reason": "旧 SendPack 由当前 Social HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-140",
+      "legacyProtocol": "family.C2121InitFamilyContent",
+      "businessDomain": "Social",
+      "newEntry": "HTTP /api/v1/social/legacy-operations/C2121InitFamilyContent",
+      "status": "replaced",
+      "evidence": [
+        "server/Social/src/main/java/com/aoo/bcg/social/SocialHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startSocial",
+      "reason": "旧 SendPack 由当前 Social HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-141",
+      "legacyProtocol": "family.CAgentGiveRoomCard",
+      "businessDomain": "Social",
+      "newEntry": "HTTP /api/v1/social/legacy-operations/CAgentGiveRoomCard",
+      "status": "replaced",
+      "evidence": [
+        "server/Social/src/main/java/com/aoo/bcg/social/SocialHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startSocial",
+      "reason": "旧 SendPack 由当前 Social HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-142",
+      "legacyProtocol": "family.CPlayerCheckFamilyOwner",
+      "businessDomain": "Social",
+      "newEntry": "HTTP /api/v1/social/legacy-operations/CPlayerCheckFamilyOwner",
+      "status": "replaced",
+      "evidence": [
+        "server/Social/src/main/java/com/aoo/bcg/social/SocialHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startSocial",
+      "reason": "旧 SendPack 由当前 Social HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-143",
+      "legacyProtocol": "family.CPlayerGameList",
+      "businessDomain": "Social",
+      "newEntry": "HTTP /api/v1/social/legacy-operations/CPlayerGameList",
+      "status": "replaced",
+      "evidence": [
+        "server/Social/src/main/java/com/aoo/bcg/social/SocialHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startSocial",
+      "reason": "旧 SendPack 由当前 Social HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-144",
+      "legacyProtocol": "family.PlayerBindingFamily",
+      "businessDomain": "Social",
+      "newEntry": "HTTP /api/v1/social/legacy-operations/PlayerBindingFamily",
+      "status": "replaced",
+      "evidence": [
+        "server/Social/src/main/java/com/aoo/bcg/social/SocialHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startSocial",
+      "reason": "旧 SendPack 由当前 Social HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-145",
+      "legacyProtocol": "game.C1101GetRoomID",
+      "businessDomain": "Room",
+      "newEntry": "WSS /api/v1/gateway/ws#command/game.C1101GetRoomID",
+      "status": "replaced",
+      "evidence": [
+        "server/Gateway/src/main/java/com/aoo/bcg/gateway/GameWebSocketRouter.java",
+        "server/Gateway/src/main/java/com/aoo/bcg/gateway/UnifiedGameRuntime.java"
+      ],
+      "assemblyMarker": "GameWebSocketRouter",
+      "reason": "旧 SendPack 由当前 Room HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-146",
+      "legacyProtocol": "game.C1104Chat",
+      "businessDomain": "Room",
+      "newEntry": "WSS /api/v1/gateway/ws#command/game.C1104Chat",
+      "status": "replaced",
+      "evidence": [
+        "server/Gateway/src/main/java/com/aoo/bcg/gateway/GameWebSocketRouter.java",
+        "server/Gateway/src/main/java/com/aoo/bcg/gateway/UnifiedGameRuntime.java"
+      ],
+      "assemblyMarker": "GameWebSocketRouter",
+      "reason": "旧 SendPack 由当前 Room HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-147",
+      "legacyProtocol": "game.C1105GMPack",
+      "businessDomain": "Room",
+      "newEntry": "WSS /api/v1/gateway/ws#command/game.C1105GMPack",
+      "status": "replaced",
+      "evidence": [
+        "server/Gateway/src/main/java/com/aoo/bcg/gateway/GameWebSocketRouter.java",
+        "server/Gateway/src/main/java/com/aoo/bcg/gateway/UnifiedGameRuntime.java"
+      ],
+      "assemblyMarker": "GameWebSocketRouter",
+      "reason": "旧 SendPack 由当前 Room HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-148",
+      "legacyProtocol": "game.CGetGameStatus",
+      "businessDomain": "Room",
+      "newEntry": "WSS /api/v1/gateway/ws#command/game.CGetGameStatus",
+      "status": "replaced",
+      "evidence": [
+        "server/Gateway/src/main/java/com/aoo/bcg/gateway/GameWebSocketRouter.java",
+        "server/Gateway/src/main/java/com/aoo/bcg/gateway/UnifiedGameRuntime.java"
+      ],
+      "assemblyMarker": "GameWebSocketRouter",
+      "reason": "旧 SendPack 由当前 Room HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-149",
+      "legacyProtocol": "game.CGetLocationEx",
+      "businessDomain": "Location",
+      "newEntry": "HTTP /api/v1/location/CGetLocationEx",
+      "status": "replaced",
+      "evidence": [
+        "server/Location/src/main/java/com/aoo/bcg/location/LocationHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/ExternalPlatformBootstrap.java"
+      ],
+      "assemblyMarker": "ExternalPlatformBootstrap",
+      "reason": "旧 SendPack 由当前 Location HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-150",
+      "legacyProtocol": "game.CGoldRoom",
+      "businessDomain": "Room",
+      "newEntry": "WSS /api/v1/gateway/ws#command/game.CGoldRoom",
+      "status": "replaced",
+      "evidence": [
+        "server/Gateway/src/main/java/com/aoo/bcg/gateway/GameWebSocketRouter.java",
+        "server/Gateway/src/main/java/com/aoo/bcg/gateway/UnifiedGameRuntime.java"
+      ],
+      "assemblyMarker": "GameWebSocketRouter",
+      "reason": "旧 SendPack 由当前 Room HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-151",
+      "legacyProtocol": "game.CPYPlayerPlayBack",
+      "businessDomain": "Replay",
+      "newEntry": "HTTP /v1/replays/CPYPlayerPlayBack",
+      "status": "replaced",
+      "evidence": [
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/RecordReplayHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startRecords",
+      "reason": "旧 SendPack 由当前 Replay HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-152",
+      "legacyProtocol": "game.CPlayerAddress",
+      "businessDomain": "Location",
+      "newEntry": "HTTP /api/v1/location/CPlayerAddress",
+      "status": "replaced",
+      "evidence": [
+        "server/Location/src/main/java/com/aoo/bcg/location/LocationHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/ExternalPlatformBootstrap.java"
+      ],
+      "assemblyMarker": "ExternalPlatformBootstrap",
+      "reason": "旧 SendPack 由当前 Location HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-153",
+      "legacyProtocol": "game.CPlayerCheckPhone",
+      "businessDomain": "Identity",
+      "newEntry": "HTTP /api/v1/identity/CPlayerCheckPhone",
+      "status": "replaced",
+      "evidence": [
+        "server/IdentityVerification/src/main/java/com/aoo/bcg/identity/IdentityVerificationHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startIdentityVerification",
+      "reason": "旧 SendPack 由当前 Identity HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-154",
+      "legacyProtocol": "game.CPlayerExchange",
+      "businessDomain": "Inventory",
+      "newEntry": "HTTP /api/v1/inventory/CPlayerExchange",
+      "status": "replaced",
+      "evidence": [
+        "server/Inventory/src/main/java/com/aoo/bcg/inventory/InventoryHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startInventory",
+      "reason": "旧 SendPack 由当前 Inventory HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-155",
+      "legacyProtocol": "game.CPlayerExchangePrizes",
+      "businessDomain": "Inventory",
+      "newEntry": "HTTP /api/v1/inventory/CPlayerExchangePrizes",
+      "status": "replaced",
+      "evidence": [
+        "server/Inventory/src/main/java/com/aoo/bcg/inventory/InventoryHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startInventory",
+      "reason": "旧 SendPack 由当前 Inventory HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-156",
+      "legacyProtocol": "game.CPlayerIpAddress",
+      "businessDomain": "Location",
+      "newEntry": "HTTP /api/v1/location/CPlayerIpAddress",
+      "status": "replaced",
+      "evidence": [
+        "server/Location/src/main/java/com/aoo/bcg/location/LocationHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/ExternalPlatformBootstrap.java"
+      ],
+      "assemblyMarker": "ExternalPlatformBootstrap",
+      "reason": "旧 SendPack 由当前 Location HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-157",
+      "legacyProtocol": "game.CPlayerLocationInfo",
+      "businessDomain": "Location",
+      "newEntry": "HTTP /api/v1/location/CPlayerLocationInfo",
+      "status": "replaced",
+      "evidence": [
+        "server/Location/src/main/java/com/aoo/bcg/location/LocationHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/ExternalPlatformBootstrap.java"
+      ],
+      "assemblyMarker": "ExternalPlatformBootstrap",
+      "reason": "旧 SendPack 由当前 Location HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-158",
+      "legacyProtocol": "game.CPlayerLuckDraw",
+      "businessDomain": "LuckDraw",
+      "newEntry": "HTTP /api/v1/luck-draw/CPlayerLuckDraw",
+      "status": "replaced",
+      "evidence": [
+        "server/LuckDraw/src/main/java/com/aoo/bcg/luckdraw/LuckDrawHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startLuckDraw",
+      "reason": "旧 SendPack 由当前 LuckDraw HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-159",
+      "legacyProtocol": "game.CPlayerPhone",
+      "businessDomain": "Identity",
+      "newEntry": "HTTP /api/v1/identity/CPlayerPhone",
+      "status": "replaced",
+      "evidence": [
+        "server/IdentityVerification/src/main/java/com/aoo/bcg/identity/IdentityVerificationHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startIdentityVerification",
+      "reason": "旧 SendPack 由当前 Identity HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-160",
+      "legacyProtocol": "game.CPlayerPlayBack",
+      "businessDomain": "Replay",
+      "newEntry": "HTTP /v1/replays/CPlayerPlayBack",
+      "status": "replaced",
+      "evidence": [
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/RecordReplayHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startRecords",
+      "reason": "旧 SendPack 由当前 Replay HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-161",
+      "legacyProtocol": "game.CPlayerRealAuthen",
+      "businessDomain": "Identity",
+      "newEntry": "HTTP /api/v1/identity/CPlayerRealAuthen",
+      "status": "replaced",
+      "evidence": [
+        "server/IdentityVerification/src/main/java/com/aoo/bcg/identity/IdentityVerificationHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startIdentityVerification",
+      "reason": "旧 SendPack 由当前 Identity HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-162",
+      "legacyProtocol": "game.CPlayerReceiveList",
+      "businessDomain": "Activity",
+      "newEntry": "HTTP /v1/activities/CPlayerReceiveList",
+      "status": "replaced",
+      "evidence": [
+        "server/Activity/src/main/java/com/aoo/bcg/activity/ActivityHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startActivity",
+      "reason": "旧 SendPack 由当前 Activity HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-163",
+      "legacyProtocol": "game.CPlayerReceiveShare",
+      "businessDomain": "Activity",
+      "newEntry": "HTTP /v1/activities/CPlayerReceiveShare",
+      "status": "replaced",
+      "evidence": [
+        "server/Activity/src/main/java/com/aoo/bcg/activity/ActivityHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startActivity",
+      "reason": "旧 SendPack 由当前 Activity HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-164",
+      "legacyProtocol": "game.CPlayerRoomRecord",
+      "businessDomain": "Replay",
+      "newEntry": "HTTP /v1/replays/CPlayerRoomRecord",
+      "status": "replaced",
+      "evidence": [
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/RecordReplayHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startRecords",
+      "reason": "旧 SendPack 由当前 Replay HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-165",
+      "legacyProtocol": "game.CPlayerSendGift",
+      "businessDomain": "Inventory",
+      "newEntry": "HTTP /api/v1/inventory/CPlayerSendGift",
+      "status": "replaced",
+      "evidence": [
+        "server/Inventory/src/main/java/com/aoo/bcg/inventory/InventoryHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startInventory",
+      "reason": "旧 SendPack 由当前 Inventory HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-166",
+      "legacyProtocol": "game.CPlayerSetRoomRecord",
+      "businessDomain": "Replay",
+      "newEntry": "HTTP /v1/replays/CPlayerSetRoomRecord",
+      "status": "replaced",
+      "evidence": [
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/RecordReplayHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startRecords",
+      "reason": "旧 SendPack 由当前 Replay HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-167",
+      "legacyProtocol": "game.CPlayerSign",
+      "businessDomain": "Activity",
+      "newEntry": "HTTP /v1/activities/CPlayerSign",
+      "status": "replaced",
+      "evidence": [
+        "server/Activity/src/main/java/com/aoo/bcg/activity/ActivityHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startActivity",
+      "reason": "旧 SendPack 由当前 Activity HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-168",
+      "legacyProtocol": "game.CPlayerXLUnionid",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CPlayerXLUnionid",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-169",
+      "legacyProtocol": "game.CShortenGenerate",
+      "businessDomain": "Room",
+      "newEntry": "WSS /api/v1/gateway/ws#command/game.CShortenGenerate",
+      "status": "replaced",
+      "evidence": [
+        "server/Gateway/src/main/java/com/aoo/bcg/gateway/GameWebSocketRouter.java",
+        "server/Gateway/src/main/java/com/aoo/bcg/gateway/UnifiedGameRuntime.java"
+      ],
+      "assemblyMarker": "GameWebSocketRouter",
+      "reason": "旧 SendPack 由当前 Room HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-170",
+      "legacyProtocol": "game.CSystemNotice",
+      "businessDomain": "Room",
+      "newEntry": "WSS /api/v1/gateway/ws#command/game.CSystemNotice",
+      "status": "replaced",
+      "evidence": [
+        "server/Gateway/src/main/java/com/aoo/bcg/gateway/GameWebSocketRouter.java",
+        "server/Gateway/src/main/java/com/aoo/bcg/gateway/UnifiedGameRuntime.java"
+      ],
+      "assemblyMarker": "GameWebSocketRouter",
+      "reason": "旧 SendPack 由当前 Room HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-171",
+      "legacyProtocol": "heartBeat.CHeartBeatHandler",
+      "businessDomain": "Gateway",
+      "newEntry": "WSS /api/v1/gateway/ws#heartbeat/CHeartBeatHandler",
+      "status": "replaced",
+      "evidence": [
+        "server/Gateway/src/main/java/com/aoo/bcg/gateway/GatewayApplication.java",
+        "server/Gateway/src/main/java/com/aoo/bcg/gateway/GatewayApplication.java"
+      ],
+      "assemblyMarker": "WS_PATH",
+      "reason": "旧 SendPack 由当前 Gateway HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-172",
+      "legacyProtocol": "helproom.CHelpRoomGetList",
+      "businessDomain": "Support",
+      "newEntry": "HTTP /api/v1/support/CHelpRoomGetList",
+      "status": "replaced",
+      "evidence": [
+        "server/Support/src/main/java/com/aoo/bcg/support/SupportHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startSupport",
+      "reason": "旧 SendPack 由当前 Support HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-173",
+      "legacyProtocol": "helproom.CHelpRoomSession",
+      "businessDomain": "Support",
+      "newEntry": "HTTP /api/v1/support/CHelpRoomSession",
+      "status": "replaced",
+      "evidence": [
+        "server/Support/src/main/java/com/aoo/bcg/support/SupportHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startSupport",
+      "reason": "旧 SendPack 由当前 Support HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-174",
+      "legacyProtocol": "hzmj.C2114RoomAllRecord",
+      "businessDomain": "Replay",
+      "newEntry": "HTTP /v1/replays/C2114RoomAllRecord",
+      "status": "replaced",
+      "evidence": [
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/RecordReplayHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startRecords",
+      "reason": "旧 SendPack 由当前 Replay HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-175",
+      "legacyProtocol": "hzmj.C2115RoomRecordDetail",
+      "businessDomain": "Replay",
+      "newEntry": "HTTP /v1/replays/C2115RoomRecordDetail",
+      "status": "replaced",
+      "evidence": [
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/RecordReplayHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startRecords",
+      "reason": "旧 SendPack 由当前 Replay HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-176",
+      "legacyProtocol": "luckdraw.CLuckDrawCheck",
+      "businessDomain": "LuckDraw",
+      "newEntry": "HTTP /api/v1/luck-draw/CLuckDrawCheck",
+      "status": "replaced",
+      "evidence": [
+        "server/LuckDraw/src/main/java/com/aoo/bcg/luckdraw/LuckDrawHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startLuckDraw",
+      "reason": "旧 SendPack 由当前 LuckDraw HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-177",
+      "legacyProtocol": "luckdraw.CLuckDrawExec",
+      "businessDomain": "LuckDraw",
+      "newEntry": "HTTP /api/v1/luck-draw/CLuckDrawExec",
+      "status": "replaced",
+      "evidence": [
+        "server/LuckDraw/src/main/java/com/aoo/bcg/luckdraw/LuckDrawHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startLuckDraw",
+      "reason": "旧 SendPack 由当前 LuckDraw HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-178",
+      "legacyProtocol": "luckdraw.CLuckDrawQuery",
+      "businessDomain": "LuckDraw",
+      "newEntry": "HTTP /api/v1/luck-draw/CLuckDrawQuery",
+      "status": "replaced",
+      "evidence": [
+        "server/LuckDraw/src/main/java/com/aoo/bcg/luckdraw/LuckDrawHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startLuckDraw",
+      "reason": "旧 SendPack 由当前 LuckDraw HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-179",
+      "legacyProtocol": "lymj.CLYMJGetRoomInfo",
+      "businessDomain": "Room",
+      "newEntry": "WSS /api/v1/gateway/ws#command/lymj.CLYMJGetRoomInfo",
+      "status": "replaced",
+      "evidence": [
+        "server/Gateway/src/main/java/com/aoo/bcg/gateway/GameWebSocketRouter.java",
+        "server/Gateway/src/main/java/com/aoo/bcg/gateway/UnifiedGameRuntime.java"
+      ],
+      "assemblyMarker": "GameWebSocketRouter",
+      "reason": "旧 SendPack 由当前 Room HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-180",
+      "legacyProtocol": "nn.CNNCreateRoom",
+      "businessDomain": "Room",
+      "newEntry": "WSS /api/v1/gateway/ws#command/nn.CNNCreateRoom",
+      "status": "replaced",
+      "evidence": [
+        "server/Gateway/src/main/java/com/aoo/bcg/gateway/GameWebSocketRouter.java",
+        "server/Gateway/src/main/java/com/aoo/bcg/gateway/UnifiedGameRuntime.java"
+      ],
+      "assemblyMarker": "GameWebSocketRouter",
+      "reason": "旧 SendPack 由当前 Room HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-181",
+      "legacyProtocol": "nn.CNNGetRoomInfo",
+      "businessDomain": "Room",
+      "newEntry": "WSS /api/v1/gateway/ws#command/nn.CNNGetRoomInfo",
+      "status": "replaced",
+      "evidence": [
+        "server/Gateway/src/main/java/com/aoo/bcg/gateway/GameWebSocketRouter.java",
+        "server/Gateway/src/main/java/com/aoo/bcg/gateway/UnifiedGameRuntime.java"
+      ],
+      "assemblyMarker": "GameWebSocketRouter",
+      "reason": "旧 SendPack 由当前 Room HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-182",
+      "legacyProtocol": "pdk.CPDKCreateRoom",
+      "businessDomain": "Room",
+      "newEntry": "WSS /api/v1/gateway/ws#command/pdk.CPDKCreateRoom",
+      "status": "replaced",
+      "evidence": [
+        "server/Gateway/src/main/java/com/aoo/bcg/gateway/GameWebSocketRouter.java",
+        "server/Gateway/src/main/java/com/aoo/bcg/gateway/UnifiedGameRuntime.java"
+      ],
+      "assemblyMarker": "GameWebSocketRouter",
+      "reason": "旧 SendPack 由当前 Room HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-183",
+      "legacyProtocol": "pdk.CPDKGetRoomInfo",
+      "businessDomain": "Room",
+      "newEntry": "WSS /api/v1/gateway/ws#command/pdk.CPDKGetRoomInfo",
+      "status": "replaced",
+      "evidence": [
+        "server/Gateway/src/main/java/com/aoo/bcg/gateway/GameWebSocketRouter.java",
+        "server/Gateway/src/main/java/com/aoo/bcg/gateway/UnifiedGameRuntime.java"
+      ],
+      "assemblyMarker": "GameWebSocketRouter",
+      "reason": "旧 SendPack 由当前 Room HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-184",
+      "legacyProtocol": "player.CPlayerAppOs",
+      "businessDomain": "Room",
+      "newEntry": "WSS /api/v1/gateway/ws#command/player.CPlayerAppOs",
+      "status": "replaced",
+      "evidence": [
+        "server/Gateway/src/main/java/com/aoo/bcg/gateway/GameWebSocketRouter.java",
+        "server/Gateway/src/main/java/com/aoo/bcg/gateway/UnifiedGameRuntime.java"
+      ],
+      "assemblyMarker": "GameWebSocketRouter",
+      "reason": "旧 SendPack 由当前 Room HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-185",
+      "legacyProtocol": "player.CPlayerChangeNameAndHeadImg",
+      "businessDomain": "Profile",
+      "newEntry": "HTTP /api/v1/profile/CPlayerChangeNameAndHeadImg",
+      "status": "replaced",
+      "evidence": [
+        "server/PlayerProfile/src/main/java/com/aoo/bcg/profile/PlayerProfileHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startAccount",
+      "reason": "旧 SendPack 由当前 Profile HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-186",
+      "legacyProtocol": "player.CPlayerChanged",
+      "businessDomain": "Room",
+      "newEntry": "WSS /api/v1/gateway/ws#command/player.CPlayerChanged",
+      "status": "replaced",
+      "evidence": [
+        "server/Gateway/src/main/java/com/aoo/bcg/gateway/GameWebSocketRouter.java",
+        "server/Gateway/src/main/java/com/aoo/bcg/gateway/UnifiedGameRuntime.java"
+      ],
+      "assemblyMarker": "GameWebSocketRouter",
+      "reason": "旧 SendPack 由当前 Room HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-187",
+      "legacyProtocol": "player.CPlayerCityCurrencyList",
+      "businessDomain": "Room",
+      "newEntry": "WSS /api/v1/gateway/ws#command/player.CPlayerCityCurrencyList",
+      "status": "replaced",
+      "evidence": [
+        "server/Gateway/src/main/java/com/aoo/bcg/gateway/GameWebSocketRouter.java",
+        "server/Gateway/src/main/java/com/aoo/bcg/gateway/UnifiedGameRuntime.java"
+      ],
+      "assemblyMarker": "GameWebSocketRouter",
+      "reason": "旧 SendPack 由当前 Room HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-188",
+      "legacyProtocol": "player.CPlayerGetPlayerInfo",
+      "businessDomain": "Profile",
+      "newEntry": "HTTP /api/v1/profile/CPlayerGetPlayerInfo",
+      "status": "replaced",
+      "evidence": [
+        "server/PlayerProfile/src/main/java/com/aoo/bcg/profile/PlayerProfileHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startAccount",
+      "reason": "旧 SendPack 由当前 Profile HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-189",
+      "legacyProtocol": "player.CPlayerSignInterface",
+      "businessDomain": "Activity",
+      "newEntry": "HTTP /v1/activities/CPlayerSignInterface",
+      "status": "replaced",
+      "evidence": [
+        "server/Activity/src/main/java/com/aoo/bcg/activity/ActivityHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startActivity",
+      "reason": "旧 SendPack 由当前 Activity HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-190",
+      "legacyProtocol": "popup.CPopupList",
+      "businessDomain": "Room",
+      "newEntry": "WSS /api/v1/gateway/ws#command/popup.CPopupList",
+      "status": "replaced",
+      "evidence": [
+        "server/Gateway/src/main/java/com/aoo/bcg/gateway/GameWebSocketRouter.java",
+        "server/Gateway/src/main/java/com/aoo/bcg/gateway/UnifiedGameRuntime.java"
+      ],
+      "assemblyMarker": "GameWebSocketRouter",
+      "reason": "旧 SendPack 由当前 Room HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-191",
+      "legacyProtocol": "rank.C2227InitRankInfo",
+      "businessDomain": "Ranking",
+      "newEntry": "HTTP /api/v1/ranking/C2227InitRankInfo",
+      "status": "replaced",
+      "evidence": [
+        "server/Ranking/src/main/java/com/aoo/bcg/ranking/RankingAchievementHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startRanking",
+      "reason": "旧 SendPack 由当前 Ranking HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-192",
+      "legacyProtocol": "ranking.CRankingList",
+      "businessDomain": "Ranking",
+      "newEntry": "HTTP /api/v1/ranking/CRankingList",
+      "status": "replaced",
+      "evidence": [
+        "server/Ranking/src/main/java/com/aoo/bcg/ranking/RankingAchievementHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startRanking",
+      "reason": "旧 SendPack 由当前 Ranking HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-193",
+      "legacyProtocol": "room.CBaseChangePlayerNumAgree",
+      "businessDomain": "Room",
+      "newEntry": "WSS /api/v1/gateway/ws#command/room.CBaseChangePlayerNumAgree",
+      "status": "replaced",
+      "evidence": [
+        "server/Gateway/src/main/java/com/aoo/bcg/gateway/GameWebSocketRouter.java",
+        "server/Gateway/src/main/java/com/aoo/bcg/gateway/UnifiedGameRuntime.java"
+      ],
+      "assemblyMarker": "GameWebSocketRouter",
+      "reason": "旧 SendPack 由当前 Room HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-194",
+      "legacyProtocol": "room.CBaseChangeRoom",
+      "businessDomain": "Room",
+      "newEntry": "WSS /api/v1/gateway/ws#command/room.CBaseChangeRoom",
+      "status": "replaced",
+      "evidence": [
+        "server/Gateway/src/main/java/com/aoo/bcg/gateway/GameWebSocketRouter.java",
+        "server/Gateway/src/main/java/com/aoo/bcg/gateway/UnifiedGameRuntime.java"
+      ],
+      "assemblyMarker": "GameWebSocketRouter",
+      "reason": "旧 SendPack 由当前 Room HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-195",
+      "legacyProtocol": "room.CBaseContinueGame",
+      "businessDomain": "Room",
+      "newEntry": "WSS /api/v1/gateway/ws#command/room.CBaseContinueGame",
+      "status": "replaced",
+      "evidence": [
+        "server/Gateway/src/main/java/com/aoo/bcg/gateway/GameWebSocketRouter.java",
+        "server/Gateway/src/main/java/com/aoo/bcg/gateway/UnifiedGameRuntime.java"
+      ],
+      "assemblyMarker": "GameWebSocketRouter",
+      "reason": "旧 SendPack 由当前 Room HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-196",
+      "legacyProtocol": "room.CBaseCreateRoom",
+      "businessDomain": "Room",
+      "newEntry": "WSS /api/v1/gateway/ws#command/room.CBaseCreateRoom",
+      "status": "replaced",
+      "evidence": [
+        "server/Gateway/src/main/java/com/aoo/bcg/gateway/GameWebSocketRouter.java",
+        "server/Gateway/src/main/java/com/aoo/bcg/gateway/UnifiedGameRuntime.java"
+      ],
+      "assemblyMarker": "GameWebSocketRouter",
+      "reason": "旧 SendPack 由当前 Room HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-197",
+      "legacyProtocol": "room.CBaseDissolveRoom",
+      "businessDomain": "Room",
+      "newEntry": "WSS /api/v1/gateway/ws#command/room.CBaseDissolveRoom",
+      "status": "replaced",
+      "evidence": [
+        "server/Gateway/src/main/java/com/aoo/bcg/gateway/GameWebSocketRouter.java",
+        "server/Gateway/src/main/java/com/aoo/bcg/gateway/UnifiedGameRuntime.java"
+      ],
+      "assemblyMarker": "GameWebSocketRouter",
+      "reason": "旧 SendPack 由当前 Room HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-198",
+      "legacyProtocol": "room.CBaseDissolveRoomAgree",
+      "businessDomain": "Room",
+      "newEntry": "WSS /api/v1/gateway/ws#command/room.CBaseDissolveRoomAgree",
+      "status": "replaced",
+      "evidence": [
+        "server/Gateway/src/main/java/com/aoo/bcg/gateway/GameWebSocketRouter.java",
+        "server/Gateway/src/main/java/com/aoo/bcg/gateway/UnifiedGameRuntime.java"
+      ],
+      "assemblyMarker": "GameWebSocketRouter",
+      "reason": "旧 SendPack 由当前 Room HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-199",
+      "legacyProtocol": "room.CBaseDissolveRoomRefuse",
+      "businessDomain": "Room",
+      "newEntry": "WSS /api/v1/gateway/ws#command/room.CBaseDissolveRoomRefuse",
+      "status": "replaced",
+      "evidence": [
+        "server/Gateway/src/main/java/com/aoo/bcg/gateway/GameWebSocketRouter.java",
+        "server/Gateway/src/main/java/com/aoo/bcg/gateway/UnifiedGameRuntime.java"
+      ],
+      "assemblyMarker": "GameWebSocketRouter",
+      "reason": "旧 SendPack 由当前 Room HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-200",
+      "legacyProtocol": "room.CBaseEnterRoom",
+      "businessDomain": "Room",
+      "newEntry": "WSS /api/v1/gateway/ws#command/room.CBaseEnterRoom",
+      "status": "replaced",
+      "evidence": [
+        "server/Gateway/src/main/java/com/aoo/bcg/gateway/GameWebSocketRouter.java",
+        "server/Gateway/src/main/java/com/aoo/bcg/gateway/UnifiedGameRuntime.java"
+      ],
+      "assemblyMarker": "GameWebSocketRouter",
+      "reason": "旧 SendPack 由当前 Room HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-201",
+      "legacyProtocol": "room.CBaseExitRoom",
+      "businessDomain": "Room",
+      "newEntry": "WSS /api/v1/gateway/ws#command/room.CBaseExitRoom",
+      "status": "replaced",
+      "evidence": [
+        "server/Gateway/src/main/java/com/aoo/bcg/gateway/GameWebSocketRouter.java",
+        "server/Gateway/src/main/java/com/aoo/bcg/gateway/UnifiedGameRuntime.java"
+      ],
+      "assemblyMarker": "GameWebSocketRouter",
+      "reason": "旧 SendPack 由当前 Room HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-202",
+      "legacyProtocol": "room.CBaseGameIdList",
+      "businessDomain": "Room",
+      "newEntry": "WSS /api/v1/gateway/ws#command/room.CBaseGameIdList",
+      "status": "replaced",
+      "evidence": [
+        "server/Gateway/src/main/java/com/aoo/bcg/gateway/GameWebSocketRouter.java",
+        "server/Gateway/src/main/java/com/aoo/bcg/gateway/UnifiedGameRuntime.java"
+      ],
+      "assemblyMarker": "GameWebSocketRouter",
+      "reason": "旧 SendPack 由当前 Room HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-203",
+      "legacyProtocol": "room.CBaseGameTypeUrl",
+      "businessDomain": "Room",
+      "newEntry": "WSS /api/v1/gateway/ws#command/room.CBaseGameTypeUrl",
+      "status": "replaced",
+      "evidence": [
+        "server/Gateway/src/main/java/com/aoo/bcg/gateway/GameWebSocketRouter.java",
+        "server/Gateway/src/main/java/com/aoo/bcg/gateway/UnifiedGameRuntime.java"
+      ],
+      "assemblyMarker": "GameWebSocketRouter",
+      "reason": "旧 SendPack 由当前 Room HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-204",
+      "legacyProtocol": "room.CBaseGetGameType",
+      "businessDomain": "Room",
+      "newEntry": "WSS /api/v1/gateway/ws#command/room.CBaseGetGameType",
+      "status": "replaced",
+      "evidence": [
+        "server/Gateway/src/main/java/com/aoo/bcg/gateway/GameWebSocketRouter.java",
+        "server/Gateway/src/main/java/com/aoo/bcg/gateway/UnifiedGameRuntime.java"
+      ],
+      "assemblyMarker": "GameWebSocketRouter",
+      "reason": "旧 SendPack 由当前 Room HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-205",
+      "legacyProtocol": "room.CBaseGetRoomCfg",
+      "businessDomain": "Room",
+      "newEntry": "WSS /api/v1/gateway/ws#command/room.CBaseGetRoomCfg",
+      "status": "replaced",
+      "evidence": [
+        "server/Gateway/src/main/java/com/aoo/bcg/gateway/GameWebSocketRouter.java",
+        "server/Gateway/src/main/java/com/aoo/bcg/gateway/UnifiedGameRuntime.java"
+      ],
+      "assemblyMarker": "GameWebSocketRouter",
+      "reason": "旧 SendPack 由当前 Room HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-206",
+      "legacyProtocol": "room.CBaseGoldList",
+      "businessDomain": "Room",
+      "newEntry": "WSS /api/v1/gateway/ws#command/room.CBaseGoldList",
+      "status": "replaced",
+      "evidence": [
+        "server/Gateway/src/main/java/com/aoo/bcg/gateway/GameWebSocketRouter.java",
+        "server/Gateway/src/main/java/com/aoo/bcg/gateway/UnifiedGameRuntime.java"
+      ],
+      "assemblyMarker": "GameWebSocketRouter",
+      "reason": "旧 SendPack 由当前 Room HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-207",
+      "legacyProtocol": "room.CBaseGoldRoom",
+      "businessDomain": "Room",
+      "newEntry": "WSS /api/v1/gateway/ws#command/room.CBaseGoldRoom",
+      "status": "replaced",
+      "evidence": [
+        "server/Gateway/src/main/java/com/aoo/bcg/gateway/GameWebSocketRouter.java",
+        "server/Gateway/src/main/java/com/aoo/bcg/gateway/UnifiedGameRuntime.java"
+      ],
+      "assemblyMarker": "GameWebSocketRouter",
+      "reason": "旧 SendPack 由当前 Room HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-208",
+      "legacyProtocol": "room.CBaseKickRoom",
+      "businessDomain": "Room",
+      "newEntry": "WSS /api/v1/gateway/ws#command/room.CBaseKickRoom",
+      "status": "replaced",
+      "evidence": [
+        "server/Gateway/src/main/java/com/aoo/bcg/gateway/GameWebSocketRouter.java",
+        "server/Gateway/src/main/java/com/aoo/bcg/gateway/UnifiedGameRuntime.java"
+      ],
+      "assemblyMarker": "GameWebSocketRouter",
+      "reason": "旧 SendPack 由当前 Room HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-209",
+      "legacyProtocol": "room.CBaseReadyRoom",
+      "businessDomain": "Room",
+      "newEntry": "WSS /api/v1/gateway/ws#command/room.CBaseReadyRoom",
+      "status": "replaced",
+      "evidence": [
+        "server/Gateway/src/main/java/com/aoo/bcg/gateway/GameWebSocketRouter.java",
+        "server/Gateway/src/main/java/com/aoo/bcg/gateway/UnifiedGameRuntime.java"
+      ],
+      "assemblyMarker": "GameWebSocketRouter",
+      "reason": "旧 SendPack 由当前 Room HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-210",
+      "legacyProtocol": "room.CBaseRoomConfig",
+      "businessDomain": "Room",
+      "newEntry": "WSS /api/v1/gateway/ws#command/room.CBaseRoomConfig",
+      "status": "replaced",
+      "evidence": [
+        "server/Gateway/src/main/java/com/aoo/bcg/gateway/GameWebSocketRouter.java",
+        "server/Gateway/src/main/java/com/aoo/bcg/gateway/UnifiedGameRuntime.java"
+      ],
+      "assemblyMarker": "GameWebSocketRouter",
+      "reason": "旧 SendPack 由当前 Room HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-211",
+      "legacyProtocol": "room.CBaseRoomXiPai",
+      "businessDomain": "Room",
+      "newEntry": "WSS /api/v1/gateway/ws#command/room.CBaseRoomXiPai",
+      "status": "replaced",
+      "evidence": [
+        "server/Gateway/src/main/java/com/aoo/bcg/gateway/GameWebSocketRouter.java",
+        "server/Gateway/src/main/java/com/aoo/bcg/gateway/UnifiedGameRuntime.java"
+      ],
+      "assemblyMarker": "GameWebSocketRouter",
+      "reason": "旧 SendPack 由当前 Room HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-212",
+      "legacyProtocol": "room.CBaseUnReadyRoom",
+      "businessDomain": "Room",
+      "newEntry": "WSS /api/v1/gateway/ws#command/room.CBaseUnReadyRoom",
+      "status": "replaced",
+      "evidence": [
+        "server/Gateway/src/main/java/com/aoo/bcg/gateway/GameWebSocketRouter.java",
+        "server/Gateway/src/main/java/com/aoo/bcg/gateway/UnifiedGameRuntime.java"
+      ],
+      "assemblyMarker": "GameWebSocketRouter",
+      "reason": "旧 SendPack 由当前 Room HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-213",
+      "legacyProtocol": "sg.CSGCreateRoom",
+      "businessDomain": "Room",
+      "newEntry": "WSS /api/v1/gateway/ws#command/sg.CSGCreateRoom",
+      "status": "replaced",
+      "evidence": [
+        "server/Gateway/src/main/java/com/aoo/bcg/gateway/GameWebSocketRouter.java",
+        "server/Gateway/src/main/java/com/aoo/bcg/gateway/UnifiedGameRuntime.java"
+      ],
+      "assemblyMarker": "GameWebSocketRouter",
+      "reason": "旧 SendPack 由当前 Room HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-214",
+      "legacyProtocol": "sg.CSGGetRoomInfo",
+      "businessDomain": "Room",
+      "newEntry": "WSS /api/v1/gateway/ws#command/sg.CSGGetRoomInfo",
+      "status": "replaced",
+      "evidence": [
+        "server/Gateway/src/main/java/com/aoo/bcg/gateway/GameWebSocketRouter.java",
+        "server/Gateway/src/main/java/com/aoo/bcg/gateway/UnifiedGameRuntime.java"
+      ],
+      "assemblyMarker": "GameWebSocketRouter",
+      "reason": "旧 SendPack 由当前 Room HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-215",
+      "legacyProtocol": "sss.CSSSCreateRoom",
+      "businessDomain": "Room",
+      "newEntry": "WSS /api/v1/gateway/ws#command/sss.CSSSCreateRoom",
+      "status": "replaced",
+      "evidence": [
+        "server/Gateway/src/main/java/com/aoo/bcg/gateway/GameWebSocketRouter.java",
+        "server/Gateway/src/main/java/com/aoo/bcg/gateway/UnifiedGameRuntime.java"
+      ],
+      "assemblyMarker": "GameWebSocketRouter",
+      "reason": "旧 SendPack 由当前 Room HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-216",
+      "legacyProtocol": "sss.CSSSGetRoomInfo",
+      "businessDomain": "Room",
+      "newEntry": "WSS /api/v1/gateway/ws#command/sss.CSSSGetRoomInfo",
+      "status": "replaced",
+      "evidence": [
+        "server/Gateway/src/main/java/com/aoo/bcg/gateway/GameWebSocketRouter.java",
+        "server/Gateway/src/main/java/com/aoo/bcg/gateway/UnifiedGameRuntime.java"
+      ],
+      "assemblyMarker": "GameWebSocketRouter",
+      "reason": "旧 SendPack 由当前 Room HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-217",
+      "legacyProtocol": "task.CTaksReceiveTask",
+      "businessDomain": "Activity",
+      "newEntry": "HTTP /v1/activities/CTaksReceiveTask",
+      "status": "replaced",
+      "evidence": [
+        "server/Activity/src/main/java/com/aoo/bcg/activity/ActivityHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startActivity",
+      "reason": "旧 SendPack 由当前 Activity HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-218",
+      "legacyProtocol": "task.CTaksTaskList",
+      "businessDomain": "Activity",
+      "newEntry": "HTTP /v1/activities/CTaksTaskList",
+      "status": "replaced",
+      "evidence": [
+        "server/Activity/src/main/java/com/aoo/bcg/activity/ActivityHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startActivity",
+      "reason": "旧 SendPack 由当前 Activity HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-219",
+      "legacyProtocol": "union.CUnionAlivePointChange",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CUnionAlivePointChange",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-220",
+      "legacyProtocol": "union.CUnionApply",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CUnionApply",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-221",
+      "legacyProtocol": "union.CUnionBanGamePlayerAdd",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CUnionBanGamePlayerAdd",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-222",
+      "legacyProtocol": "union.CUnionBanGamePlayerDelete",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CUnionBanGamePlayerDelete",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-223",
+      "legacyProtocol": "union.CUnionBanGamePlayerList",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CUnionBanGamePlayerList",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-224",
+      "legacyProtocol": "union.CUnionBanRoomConigList",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CUnionBanRoomConigList",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-225",
+      "legacyProtocol": "union.CUnionBanRoomConigOp",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CUnionBanRoomConigOp",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-226",
+      "legacyProtocol": "union.CUnionChangeDimondsAttention",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CUnionChangeDimondsAttention",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-227",
+      "legacyProtocol": "union.CUnionChangeSkin",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CUnionChangeSkin",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-228",
+      "legacyProtocol": "union.CUnionChangeSkinShowInfo",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CUnionChangeSkinShowInfo",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-229",
+      "legacyProtocol": "union.CUnionClubMemberList",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CUnionClubMemberList",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-230",
+      "legacyProtocol": "union.CUnionClubReportForm",
+      "businessDomain": "Support",
+      "newEntry": "HTTP /api/v1/support/CUnionClubReportForm",
+      "status": "replaced",
+      "evidence": [
+        "server/Support/src/main/java/com/aoo/bcg/support/SupportHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startSupport",
+      "reason": "旧 SendPack 由当前 Support HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-231",
+      "legacyProtocol": "union.CUnionCreate",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CUnionCreate",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-232",
+      "legacyProtocol": "union.CUnionCreateRoom",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CUnionCreateRoom",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-233",
+      "legacyProtocol": "union.CUnionDissolve",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CUnionDissolve",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-234",
+      "legacyProtocol": "union.CUnionDissolveRoom",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CUnionDissolveRoom",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-235",
+      "legacyProtocol": "union.CUnionDynamic",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CUnionDynamic",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-236",
+      "legacyProtocol": "union.CUnionExamine",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CUnionExamine",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-237",
+      "legacyProtocol": "union.CUnionFindClubSignAdd",
+      "businessDomain": "Activity",
+      "newEntry": "HTTP /v1/activities/CUnionFindClubSignAdd",
+      "status": "replaced",
+      "evidence": [
+        "server/Activity/src/main/java/com/aoo/bcg/activity/ActivityHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startActivity",
+      "reason": "旧 SendPack 由当前 Activity HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-238",
+      "legacyProtocol": "union.CUnionFindClubSignInfo",
+      "businessDomain": "Activity",
+      "newEntry": "HTTP /v1/activities/CUnionFindClubSignInfo",
+      "status": "replaced",
+      "evidence": [
+        "server/Activity/src/main/java/com/aoo/bcg/activity/ActivityHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startActivity",
+      "reason": "旧 SendPack 由当前 Activity HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-239",
+      "legacyProtocol": "union.CUnionFindPidInfo",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CUnionFindPidInfo",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-240",
+      "legacyProtocol": "union.CUnionGameList",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CUnionGameList",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-241",
+      "legacyProtocol": "union.CUnionGetAllRoomMin",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CUnionGetAllRoomMin",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-242",
+      "legacyProtocol": "union.CUnionGetConfig",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CUnionGetConfig",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-243",
+      "legacyProtocol": "union.CUnionGetMembePromotionList",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CUnionGetMembePromotionList",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-244",
+      "legacyProtocol": "union.CUnionGetRankingInfo",
+      "businessDomain": "Ranking",
+      "newEntry": "HTTP /api/v1/ranking/CUnionGetRankingInfo",
+      "status": "replaced",
+      "evidence": [
+        "server/Ranking/src/main/java/com/aoo/bcg/ranking/RankingAchievementHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startRanking",
+      "reason": "旧 SendPack 由当前 Ranking HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-245",
+      "legacyProtocol": "union.CUnionGetSkinInfo",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CUnionGetSkinInfo",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-246",
+      "legacyProtocol": "union.CUnionGroupingAdd",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CUnionGroupingAdd",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-247",
+      "legacyProtocol": "union.CUnionGroupingList",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CUnionGroupingList",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-248",
+      "legacyProtocol": "union.CUnionGroupingMemberList",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CUnionGroupingMemberList",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-249",
+      "legacyProtocol": "union.CUnionGroupingPidAdd",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CUnionGroupingPidAdd",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-250",
+      "legacyProtocol": "union.CUnionGroupingPidFind",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CUnionGroupingPidFind",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-251",
+      "legacyProtocol": "union.CUnionGroupingPidRemove",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CUnionGroupingPidRemove",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-252",
+      "legacyProtocol": "union.CUnionGroupingRemove",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CUnionGroupingRemove",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-253",
+      "legacyProtocol": "union.CUnionJoin",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CUnionJoin",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-254",
+      "legacyProtocol": "union.CUnionKickRoom",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CUnionKickRoom",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-255",
+      "legacyProtocol": "union.CUnionMemberExamineList",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CUnionMemberExamineList",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-256",
+      "legacyProtocol": "union.CUnionMemberExamineOperate",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CUnionMemberExamineOperate",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-257",
+      "legacyProtocol": "union.CUnionMemberList",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CUnionMemberList",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-258",
+      "legacyProtocol": "union.CUnionNotify",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CUnionNotify",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-259",
+      "legacyProtocol": "union.CUnionOnlinePlayerCount",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CUnionOnlinePlayerCount",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-260",
+      "legacyProtocol": "union.CUnionPostTypeUpdate",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CUnionPostTypeUpdate",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-261",
+      "legacyProtocol": "union.CUnionPromotionShareInfo",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CUnionPromotionShareInfo",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-262",
+      "legacyProtocol": "union.CUnionQuit",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CUnionQuit",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-263",
+      "legacyProtocol": "union.CUnionRankingList",
+      "businessDomain": "Ranking",
+      "newEntry": "HTTP /api/v1/ranking/CUnionRankingList",
+      "status": "replaced",
+      "evidence": [
+        "server/Ranking/src/main/java/com/aoo/bcg/ranking/RankingAchievementHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startRanking",
+      "reason": "旧 SendPack 由当前 Ranking HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-264",
+      "legacyProtocol": "union.CUnionRefuseInvitation",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CUnionRefuseInvitation",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-265",
+      "legacyProtocol": "union.CUnionRemoveMember",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CUnionRemoveMember",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-266",
+      "legacyProtocol": "union.CUnionRoomCfgCount",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CUnionRoomCfgCount",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-267",
+      "legacyProtocol": "union.CUnionRoomCfgInfo",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CUnionRoomCfgInfo",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-268",
+      "legacyProtocol": "union.CUnionRoomCfgList",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CUnionRoomCfgList",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-269",
+      "legacyProtocol": "union.CUnionRoomCfgSave",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CUnionRoomCfgSave",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-270",
+      "legacyProtocol": "union.CUnionRoomCfgUpdate",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CUnionRoomCfgUpdate",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-271",
+      "legacyProtocol": "union.CUnionRoomConfigPrizePoolCount",
+      "businessDomain": "Inventory",
+      "newEntry": "HTTP /api/v1/inventory/CUnionRoomConfigPrizePoolCount",
+      "status": "replaced",
+      "evidence": [
+        "server/Inventory/src/main/java/com/aoo/bcg/inventory/InventoryHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startInventory",
+      "reason": "旧 SendPack 由当前 Inventory HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-272",
+      "legacyProtocol": "union.CUnionRoomConfigPrizePoolList",
+      "businessDomain": "Inventory",
+      "newEntry": "HTTP /api/v1/inventory/CUnionRoomConfigPrizePoolList",
+      "status": "replaced",
+      "evidence": [
+        "server/Inventory/src/main/java/com/aoo/bcg/inventory/InventoryHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startInventory",
+      "reason": "旧 SendPack 由当前 Inventory HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-273",
+      "legacyProtocol": "union.CUnionScorePercentBatchUpdate",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CUnionScorePercentBatchUpdate",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-274",
+      "legacyProtocol": "union.CUnionScorePercentList",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CUnionScorePercentList",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-275",
+      "legacyProtocol": "union.CUnionSetConfig",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CUnionSetConfig",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-276",
+      "legacyProtocol": "union.CUnionSort",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CUnionSort",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-277",
+      "legacyProtocol": "union.CUnionSportsPointMemberDynamicByPid",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CUnionSportsPointMemberDynamicByPid",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-278",
+      "legacyProtocol": "union.CUnionSportsPointWarningChange",
+      "businessDomain": "Club",
+      "newEntry": "HTTP /v1/clubs/legacy-operations/CUnionSportsPointWarningChange",
+      "status": "replaced",
+      "evidence": [
+        "server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java"
+      ],
+      "assemblyMarker": "startClub",
+      "reason": "旧 SendPack 由当前 Club HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-279",
+      "legacyProtocol": "wsk.CWSKGetRoomInfo",
+      "businessDomain": "Room",
+      "newEntry": "WSS /api/v1/gateway/ws#command/wsk.CWSKGetRoomInfo",
+      "status": "replaced",
+      "evidence": [
+        "server/Gateway/src/main/java/com/aoo/bcg/gateway/GameWebSocketRouter.java",
+        "server/Gateway/src/main/java/com/aoo/bcg/gateway/UnifiedGameRuntime.java"
+      ],
+      "assemblyMarker": "GameWebSocketRouter",
+      "reason": "旧 SendPack 由当前 Room HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-280",
+      "legacyProtocol": "xyzb.CXYZBCreateRoom",
+      "businessDomain": "Room",
+      "newEntry": "WSS /api/v1/gateway/ws#command/xyzb.CXYZBCreateRoom",
+      "status": "replaced",
+      "evidence": [
+        "server/Gateway/src/main/java/com/aoo/bcg/gateway/GameWebSocketRouter.java",
+        "server/Gateway/src/main/java/com/aoo/bcg/gateway/UnifiedGameRuntime.java"
+      ],
+      "assemblyMarker": "GameWebSocketRouter",
+      "reason": "旧 SendPack 由当前 Room HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-281",
+      "legacyProtocol": "xyzb.CXYZBGetRoomInfo",
+      "businessDomain": "Room",
+      "newEntry": "WSS /api/v1/gateway/ws#command/xyzb.CXYZBGetRoomInfo",
+      "status": "replaced",
+      "evidence": [
+        "server/Gateway/src/main/java/com/aoo/bcg/gateway/GameWebSocketRouter.java",
+        "server/Gateway/src/main/java/com/aoo/bcg/gateway/UnifiedGameRuntime.java"
+      ],
+      "assemblyMarker": "GameWebSocketRouter",
+      "reason": "旧 SendPack 由当前 Room HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-282",
+      "legacyProtocol": "zjh.CZJHCreateRoom",
+      "businessDomain": "Room",
+      "newEntry": "WSS /api/v1/gateway/ws#command/zjh.CZJHCreateRoom",
+      "status": "replaced",
+      "evidence": [
+        "server/Gateway/src/main/java/com/aoo/bcg/gateway/GameWebSocketRouter.java",
+        "server/Gateway/src/main/java/com/aoo/bcg/gateway/UnifiedGameRuntime.java"
+      ],
+      "assemblyMarker": "GameWebSocketRouter",
+      "reason": "旧 SendPack 由当前 Room HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    },
+    {
+      "id": "R63-283",
+      "legacyProtocol": "zjh.CZJHGetRoomInfo",
+      "businessDomain": "Room",
+      "newEntry": "WSS /api/v1/gateway/ws#command/zjh.CZJHGetRoomInfo",
+      "status": "replaced",
+      "evidence": [
+        "server/Gateway/src/main/java/com/aoo/bcg/gateway/GameWebSocketRouter.java",
+        "server/Gateway/src/main/java/com/aoo/bcg/gateway/UnifiedGameRuntime.java"
+      ],
+      "assemblyMarker": "GameWebSocketRouter",
+      "reason": "旧 SendPack 由当前 Room HTTP/WSS 生产入口承接；保留逐协议 operation 键以防合并时静默丢失"
+    }
+  ]
+}

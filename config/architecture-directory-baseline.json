@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "countedExtensions": [".java", ".xml", ".properties", ".yml", ".yaml"],
+  "maximumFiles": {
+    "server/AooKernel": 35,
+    "server/GameSPI": 137,
+    "server/GameCommon": 344,
+    "server/Mahjong": 41,
+    "server/Poker": 52,
+    "server/LongCard": 21,
+    "server/WordCard": 72,
+    "server/Families": 12,
+    "server/Gateway": 53,
+    "server/ConfigCenter": 38,
+    "server/Billing": 44,
+    "server/gameServer": 1287,
+    "server/Bootstrap": 13
+  }
+}

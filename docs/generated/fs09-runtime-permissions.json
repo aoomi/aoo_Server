@@ -1,0 +1,12 @@
+{
+  "task": "FS09",
+  "status": "pending-deployment-verification",
+  "passedLocally": true,
+  "deploymentCommand": "ruby tools/verify-runtime-permissions.rb \"$AOO_RUNTIME_ROOT\"",
+  "policy": {
+    "directories": "0750 or stricter",
+    "files": "0640 or stricter",
+    "secrets": "0600"
+  },
+  "manualEvidenceRequired": "run command against each staging/production persistent volume and attach output"
+}

@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "checks": {
+    "allowlistPassed": true,
+    "reactorModulesOnly": true,
+    "topLevelTargetJarOnly": true,
+    "noRecursiveHistoricalSweep": true,
+    "legacyTargetsForbidden": true
+  },
+  "passed": true
+}

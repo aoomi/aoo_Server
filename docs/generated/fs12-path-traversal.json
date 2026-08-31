@@ -1,0 +1,15 @@
+{
+  "task": "FS12",
+  "passed": true,
+  "checks": {
+    "normalized_containment": true,
+    "absolute_rejected": true,
+    "windows_separator_rejected": true,
+    "encoded_traversal_rejected": true,
+    "symlink_component_rejected": true,
+    "uploads_use_resolver": true,
+    "archives_use_resolver": true,
+    "replay_publication_scoped": true,
+    "tests_passed": true
+  }
+}

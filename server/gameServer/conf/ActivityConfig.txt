@@ -1,0 +1,47 @@
+[{
+	"id": 1,
+	"title": "人脉榜专场赛（积分制）",
+	"type": 1,
+	"beginTime": 1559373017,
+	"endTime": 1561878617,
+	"beginIntervalTime":1559318417,
+	"endIntervalTime":1561907417,
+	"prize": [{
+		"ranking": 1,
+		"content":"第一名将获得OPPO A5手机兑换券一枚"
+	},{
+		"ranking": 50,
+		"eMailRewards": [{
+			"prizeType": 12,
+			"count": 1
+		}]
+	}],
+	"content": "10月26日～11月4日，每晚8点～9点，时间到则自动摊牌对奖解散,免费及参赛券,每邀请一名玩家将免费获得一张参赛券，邀请玩家越多（参赛券越多）就离第一名越近,第一名将获得OPPO A5手机兑换券一枚，前50名将获得一张终极大奖赛的入场券一张",
+	"url": "",
+	"timeType": 2,
+	"createTime": 0,
+	"state": 1
+}, {
+	"id": 2,
+	"title": "拼手气终极大奖赛",
+	"type": 2,
+	"beginTime": 1548950400,
+	"endTime": 1549209599,
+	"beginIntervalTime":1548950400,
+	"endIntervalTime":1549209599,	
+	"prize": [{
+		"ranking": 1,
+		"content":"第一名奖励48888元“弹个车”奔驰GLA200专用抵用券"
+	},{
+		"ranking": 2,
+		"content":"第二名奖励iPhone Xs Max手机兑换券一张"
+	},{
+		"ranking": 3,
+		"content":"第三名奖励iPad mini4 7.9平板兑换券一张"
+	}],
+	"content": "大奖赛2月1日～3日，三天的累计榜单,参赛券,第一名奖励48888元“弹个车”奔驰GLA200专用抵用券，第二名奖励iPhone Xs Max手机兑换券一张，第三名奖励iPad mini4 7.9平板兑换券一张。",
+	"url": "",
+	"timeType": 2,
+	"createTime": 0,
+	"state": 1
+}]

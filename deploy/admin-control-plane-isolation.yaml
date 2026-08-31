@@ -1,0 +1,21 @@
+apiVersion: aoo.io/v1
+kind: ServiceIsolationPolicy
+metadata:
+  name: admin-control-plane
+spec:
+  processArtifact: admin-api
+  bindAddress: 127.0.0.1
+  ingress:
+    allowIdentities: [admin-reverse-proxy]
+    denyIdentities: [player-gateway, game-server, public-internet]
+  egress:
+    allowServices: [admin-database, config-center, billing-ledger, audit-outbox]
+    denyServices: [player-websocket]
+  authentication:
+    bearerSecretRef: env:ADMIN_API_TOKEN
+    operatorHeader: X-Admin-Id
+    permissionRequired: true
+  deployment:
+    shareProcessWithPlayerPlane: false
+    shareListenerWithPlayerPlane: false
+    independentArtifact: true

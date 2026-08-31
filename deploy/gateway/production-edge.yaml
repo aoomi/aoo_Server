@@ -1,0 +1,40 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: aoo-player-edge
+  namespace: aoo-production
+  annotations:
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/proxy-connect-timeout: "3"
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "15"
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "15"
+    nginx.ingress.kubernetes.io/proxy-next-upstream: "error timeout http_502 http_503 http_504"
+    nginx.ingress.kubernetes.io/proxy-next-upstream-tries: "2"
+spec:
+  ingressClassName: nginx
+  tls:
+    - hosts: [api.production.invalid]
+      secretName: aoo-player-edge-tls
+  rules:
+    - host: api.production.invalid
+      http:
+        paths:
+          - {path: /api/v2/gateway, pathType: Prefix, backend: {service: {name: aoo-gateway, port: {name: http}}}}
+          - {path: /api/v2/account, pathType: Prefix, backend: {service: {name: aoo-account, port: {name: http}}}}
+          - {path: /api/v1/location, pathType: Prefix, backend: {service: {name: aoo-external, port: {name: http}}}}
+          - {path: /v1/activities, pathType: Prefix, backend: {service: {name: aoo-activity, port: {name: http}}}}
+          - {path: /v1/luck-draw, pathType: Prefix, backend: {service: {name: aoo-luckdraw, port: {name: http}}}}
+          - {path: /v1/rankings, pathType: Prefix, backend: {service: {name: aoo-ranking, port: {name: http}}}}
+          - {path: /v1/achievements, pathType: Prefix, backend: {service: {name: aoo-ranking, port: {name: http}}}}
+          - {path: /v1/player-profile, pathType: Prefix, backend: {service: {name: aoo-player, port: {name: http}}}}
+          - {path: /v1/inventory, pathType: Prefix, backend: {service: {name: aoo-inventory, port: {name: http}}}}
+          - {path: /v1/store, pathType: Prefix, backend: {service: {name: aoo-inventory, port: {name: http}}}}
+          - {path: /v1/history, pathType: Prefix, backend: {service: {name: aoo-records, port: {name: http}}}}
+          - {path: /v1/replays, pathType: Prefix, backend: {service: {name: aoo-records, port: {name: http}}}}
+---
+apiVersion: v1
+kind: ConfigMap
+metadata: {name: aoo-player-runtime-endpoints, namespace: aoo-production}
+data:
+  runtime-config.json: |
+    {"apiBaseUrl":"https://api.production.invalid/","requestTimeoutMs":8000,"requestMaxRetries":2}

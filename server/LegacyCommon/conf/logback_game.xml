@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <jmxConfigurator/>
+    <turboFilter class="ch.qos.logback.classic.turbo.DuplicateMessageFilter">
+        <AllowedRepetitions>3</AllowedRepetitions>
+        <CacheSize>4096</CacheSize>
+    </turboFilter>
+    <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>[%d{yy-MM-dd HH:mm:ss.SSS}][%thread]%level:%msg%n</pattern>
+        </encoder>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <onMatch>DENY</onMatch>
+            <onMismatch>ACCEPT</onMismatch>
+        </filter>
+    </appender>
+
+    <appender name="stderr" class="ch.qos.logback.core.ConsoleAppender">
+        <target>System.err</target>
+        <encoder>
+            <pattern>[%d{yy-MM-dd HH:mm:ss.SSS}][%thread]%level:%msg%n</pattern>
+        </encoder>
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>ERROR</level>
+        </filter>
+    </appender>
+
+
+    <appender name="file_out" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>./logs/game${game_sid}/all_%d{yyyy-MM-dd}.log</fileNamePattern>
+            <!--            <fileNamePattern>${log.path}.%d{yyyy-MM-dd}.log</fileNamePattern>-->
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>[%d{yyyy-MM-dd HH:mm:ss.SSS}][%thread]%level:%msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="file_err" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>./logs/game${game_sid}/.%d{yyyy-MM-dd}.log</fileNamePattern>
+            <!--            <fileNamePattern>${log.path}.%d{yyyy-MM-dd}.log</fileNamePattern>-->
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS}[%thread]%level:%msg%n</pattern>
+        </encoder>
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>ERROR</level>
+        </filter>
+    </appender>
+
+    <!-- 	<appender name="scribe" class="com.mg.server.logger.scribe.ScribeFormatedAppender">
+            <encoding>utf-8</encoding>
+            <host>10.0.0.14</host>需要更改，指向同机房公共的scribe日志代理服务器
+            <port>1463</port>
+            <encoder>
+                <Pattern>Game%6property{game_sid}|[%d{yyyy-MM-dd HH:mm:ss.SSS}][%thread]%level:%msg</Pattern>
+            </encoder>
+        </appender> -->
+    <appender name="sports_point" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>./logs/game${game_sid}/sports_point_%d{yyyy-MM-dd}.log</fileNamePattern>
+            <!--            <fileNamePattern>${log.path}.sports_point_%d{yyyy-MM-dd}.log</fileNamePattern>-->
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>[%d{yyyy-MM-dd HH:mm:ss.SSS}][%thread]%level:%msg%n</pattern>
+        </encoder>
+    </appender>
+    <appender name="sports_point_all" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>./logs/game${game_sid}/sports_point_all_%d{yyyy-MM-dd}.log</fileNamePattern>
+            <!--            <fileNamePattern>${log.path}.sports_point_all_%d{yyyy-MM-dd}.log</fileNamePattern>-->
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>[%d{yyyy-MM-dd HH:mm:ss.SSS}][%thread]%level:%msg%n</pattern>
+        </encoder>
+    </appender>
+    <logger name="SportsPoint" level="ERROR"
+            additivity="false">
+        <appender-ref ref="sports_point"/>
+    </logger>
+    <logger name="SportsPointAll" level="ERROR"
+            additivity="false">
+        <appender-ref ref="sports_point_all"/>
+    </logger>
+
+    <logger name="aoo.heartbeat" level="WARN"/>
+    <logger name="aoo.polling" level="WARN"/>
+    <logger name="aoo.game.event" level="INFO"/>
+    <logger name="CommLog" level="INFO">
+        <appender-ref ref="stdout"/>
+        <appender-ref ref="stderr"/>
+        <appender-ref ref="file_out"/>
+        <appender-ref ref="file_err"/>
+        <!-- <appender-ref ref="scribe"/> -->
+    </logger>
+    <root>
+        <level value="INFO"/>
+    </root>
+</configuration>

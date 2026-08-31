@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "repository": "work/build06/39913/repo-2",
+  "toolchain": "../.toolchains/jdk-26.0.2.1.jdk/Contents/Home",
+  "checks": {
+    "offlineBuildPassed": true,
+    "isolatedRepository": true,
+    "noPersonalM2": true,
+    "controlledToolchain": true
+  },
+  "stderr": ""
+}

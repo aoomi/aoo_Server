@@ -1,0 +1,14 @@
+{
+  "task": "FS10",
+  "passed": true,
+  "checks": {
+    "same_directory_temporary": true,
+    "checksum_before_publish": true,
+    "fsync": true,
+    "atomic_replace": true,
+    "cleanup_on_failure": true,
+    "config_uses_shared_publisher": true,
+    "replay_uses_shared_publisher": true,
+    "tests_passed": true
+  }
+}

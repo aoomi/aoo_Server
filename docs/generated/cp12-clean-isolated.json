@@ -1,0 +1,88 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-23T09:02:48Z",
+  "task": "CP12",
+  "repository": "work/audit/cp12-m2",
+  "reactorModules": 23,
+  "jarModules": 22,
+  "freshJars": {
+    "server/AooKernel": [
+      "aoo-kernel-1.0.0-SNAPSHOT.jar"
+    ],
+    "server/GameSPI": [
+      "game-spi-1.0.0-SNAPSHOT.jar"
+    ],
+    "server/GameCommon": [
+      "game-common-1.0.0-SNAPSHOT.jar"
+    ],
+    "server/Mahjong": [
+      "game-category-mahjong-1.0.0-SNAPSHOT.jar"
+    ],
+    "server/Poker": [
+      "game-category-poker-1.0.0-SNAPSHOT.jar"
+    ],
+    "server/LongCard": [
+      "game-category-long-card-1.0.0-SNAPSHOT.jar"
+    ],
+    "server/WordCard": [
+      "game-category-word-card-1.0.0-SNAPSHOT.jar"
+    ],
+    "server/Families": [
+      "game-families-1.0.0-SNAPSHOT.jar"
+    ],
+    "server/Gateway": [
+      "game-gateway-1.0.0-SNAPSHOT.jar"
+    ],
+    "server/ConfigCenter": [
+      "game-config-center-1.0.0-SNAPSHOT.jar"
+    ],
+    "server/AdminApi": [
+      "admin-api-1.0.0-SNAPSHOT.jar"
+    ],
+    "server/Billing": [
+      "game-billing-1.0.0-SNAPSHOT.jar"
+    ],
+    "server/gameServer": [
+      "game-server-framework-1.0.0-SNAPSHOT.jar"
+    ],
+    "server/CDXZMJ": [
+      "cdxzmj-1.0.0-SNAPSHOT.jar"
+    ],
+    "server/NJPDK": [
+      "njpdk-1.0.0-SNAPSHOT.jar"
+    ],
+    "server/SCJYMJ": [
+      "scjymj-1.0.0-SNAPSHOT.jar"
+    ],
+    "server/XCPDK": [
+      "xcpdk-1.0.0-SNAPSHOT.jar"
+    ],
+    "server/ZJH": [
+      "zjh-1.0.0-SNAPSHOT.jar"
+    ],
+    "server/ZYPK": [
+      "zypk-1.0.0-SNAPSHOT.jar"
+    ],
+    "server/Hall": [
+      "game-hall-1.0.0-SNAPSHOT.jar"
+    ],
+    "server/Account": [
+      "account-domain-1.0.0-SNAPSHOT.jar"
+    ],
+    "server/Bootstrap": [
+      "game-bootstrap-1.0.0-SNAPSHOT.jar"
+    ]
+  },
+  "testReports": 185,
+  "testFailures": [
+
+  ],
+  "checks": {
+    "isolatedRepositoryUsed": true,
+    "cleanVerifySucceeded": true,
+    "allReactorJarsFresh": true,
+    "testsExecuted": true,
+    "noTestFailures": true
+  },
+  "passed": true
+}

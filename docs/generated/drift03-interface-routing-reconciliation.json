@@ -1,0 +1,734 @@
+{
+  "schemaVersion": 1,
+  "protocolVersion": "2.0",
+  "count": 36,
+  "rows": [
+    {
+      "msgId": "account.login",
+      "endpoint": "/api/v2/account/login",
+      "transport": "HTTPS",
+      "direction": "client_to_server",
+      "fields": [
+        "clientVersion",
+        "credential",
+        "deviceId",
+        "loginType"
+      ],
+      "errors": [
+        1001,
+        1002,
+        2001,
+        2002
+      ],
+      "auth": "anonymous",
+      "ownerPattern": "/api/v2/account/*",
+      "generatedRegistry": true,
+      "documented": true,
+      "owned": true
+    },
+    {
+      "msgId": "account.login_compat",
+      "endpoint": "/api/v2/account/login_compat",
+      "transport": "HTTPS",
+      "direction": "client_to_server",
+      "fields": [
+        "action",
+        "clientVersion",
+        "deviceId",
+        "payload"
+      ],
+      "errors": [
+        1001,
+        1002,
+        2001,
+        2002
+      ],
+      "auth": "anonymous",
+      "ownerPattern": "/api/v2/account/*",
+      "generatedRegistry": true,
+      "documented": true,
+      "owned": true
+    },
+    {
+      "msgId": "account.ws_ticket",
+      "endpoint": "/api/v2/account/ws_ticket",
+      "transport": "HTTPS",
+      "direction": "client_to_server",
+      "fields": [
+        "deviceId"
+      ],
+      "errors": [
+        1001,
+        1003,
+        2003
+      ],
+      "auth": "access_token",
+      "ownerPattern": "/api/v2/account/*",
+      "generatedRegistry": true,
+      "documented": true,
+      "owned": true
+    },
+    {
+      "msgId": "account.session_dispatch",
+      "endpoint": "account.session_dispatch",
+      "transport": "WSS",
+      "direction": "client_to_server",
+      "fields": [
+        "action",
+        "payload"
+      ],
+      "errors": [
+        1001,
+        1003,
+        2001,
+        2003
+      ],
+      "auth": "ws_ticket",
+      "ownerPattern": "account.*",
+      "generatedRegistry": true,
+      "documented": true,
+      "owned": true
+    },
+    {
+      "msgId": "hall.dispatch",
+      "endpoint": "hall.dispatch",
+      "transport": "WSS",
+      "direction": "client_to_server",
+      "fields": [
+        "action",
+        "payload"
+      ],
+      "errors": [
+        1001,
+        1003,
+        2003
+      ],
+      "auth": "session",
+      "ownerPattern": "hall.*",
+      "generatedRegistry": true,
+      "documented": true,
+      "owned": true
+    },
+    {
+      "msgId": "club.dispatch",
+      "endpoint": "club.dispatch",
+      "transport": "WSS",
+      "direction": "client_to_server",
+      "fields": [
+        "action",
+        "clubId",
+        "payload"
+      ],
+      "errors": [
+        1001,
+        1003,
+        6001,
+        6002
+      ],
+      "auth": "session",
+      "ownerPattern": "club.*",
+      "generatedRegistry": true,
+      "documented": true,
+      "owned": true
+    },
+    {
+      "msgId": "common.room.dispatch",
+      "endpoint": "common.room.dispatch",
+      "transport": "WSS",
+      "direction": "client_to_server",
+      "fields": [
+        "action",
+        "lastServerSeq",
+        "payload",
+        "reconnectToken"
+      ],
+      "errors": [
+        1001,
+        1003,
+        3001,
+        3002,
+        3003
+      ],
+      "auth": "room_session",
+      "ownerPattern": "common.*",
+      "generatedRegistry": true,
+      "documented": true,
+      "owned": true
+    },
+    {
+      "msgId": "common.room.state_push",
+      "endpoint": "common.room.state_push",
+      "transport": "WSS",
+      "direction": "server_to_client",
+      "fields": [
+
+      ],
+      "errors": [
+
+      ],
+      "auth": "room_session",
+      "ownerPattern": "common.*",
+      "generatedRegistry": true,
+      "documented": true,
+      "owned": true
+    },
+    {
+      "msgId": "account.session_push",
+      "endpoint": "account.session_push",
+      "transport": "WSS",
+      "direction": "server_to_client",
+      "fields": [
+
+      ],
+      "errors": [
+
+      ],
+      "auth": "session",
+      "ownerPattern": "account.*",
+      "generatedRegistry": true,
+      "documented": true,
+      "owned": true
+    },
+    {
+      "msgId": "hall.state_push",
+      "endpoint": "hall.state_push",
+      "transport": "WSS",
+      "direction": "server_to_client",
+      "fields": [
+
+      ],
+      "errors": [
+
+      ],
+      "auth": "session",
+      "ownerPattern": "hall.*",
+      "generatedRegistry": true,
+      "documented": true,
+      "owned": true
+    },
+    {
+      "msgId": "club.state_push",
+      "endpoint": "club.state_push",
+      "transport": "WSS",
+      "direction": "server_to_client",
+      "fields": [
+
+      ],
+      "errors": [
+
+      ],
+      "auth": "session",
+      "ownerPattern": "club.*",
+      "generatedRegistry": true,
+      "documented": true,
+      "owned": true
+    },
+    {
+      "msgId": "poker.njpdk.state_push",
+      "endpoint": "poker.njpdk.state_push",
+      "transport": "WSS",
+      "direction": "server_to_client",
+      "fields": [
+
+      ],
+      "errors": [
+
+      ],
+      "auth": "room_session",
+      "ownerPattern": "poker.*",
+      "generatedRegistry": true,
+      "documented": true,
+      "owned": true
+    },
+    {
+      "msgId": "mahjong.xuezhan.state_push",
+      "endpoint": "mahjong.xuezhan.state_push",
+      "transport": "WSS",
+      "direction": "server_to_client",
+      "fields": [
+
+      ],
+      "errors": [
+
+      ],
+      "auth": "room_session",
+      "ownerPattern": "mahjong.*",
+      "generatedRegistry": true,
+      "documented": true,
+      "owned": true
+    },
+    {
+      "msgId": "game.state_push",
+      "endpoint": "game.state_push",
+      "transport": "WSS",
+      "direction": "server_to_client",
+      "fields": [
+
+      ],
+      "errors": [
+
+      ],
+      "auth": "room_session",
+      "ownerPattern": "game.*",
+      "generatedRegistry": true,
+      "documented": true,
+      "owned": true
+    },
+    {
+      "msgId": "common.room.compat_state_push",
+      "endpoint": "common.room.compat_state_push",
+      "transport": "WSS",
+      "direction": "server_to_client",
+      "fields": [
+
+      ],
+      "errors": [
+
+      ],
+      "auth": "room_session",
+      "ownerPattern": "common.*",
+      "generatedRegistry": true,
+      "documented": true,
+      "owned": true
+    },
+    {
+      "msgId": "poker.njpdk.dispatch",
+      "endpoint": "poker.njpdk.dispatch",
+      "transport": "WSS",
+      "direction": "client_to_server",
+      "fields": [
+        "action",
+        "payload"
+      ],
+      "errors": [
+        1001,
+        3001,
+        4001,
+        4002
+      ],
+      "auth": "room_session",
+      "ownerPattern": "poker.*",
+      "generatedRegistry": true,
+      "documented": true,
+      "owned": true
+    },
+    {
+      "msgId": "mahjong.xuezhan.dispatch",
+      "endpoint": "mahjong.xuezhan.dispatch",
+      "transport": "WSS",
+      "direction": "client_to_server",
+      "fields": [
+        "action",
+        "payload"
+      ],
+      "errors": [
+        1001,
+        3001,
+        4001,
+        4002
+      ],
+      "auth": "room_session",
+      "ownerPattern": "mahjong.*",
+      "generatedRegistry": true,
+      "documented": true,
+      "owned": true
+    },
+    {
+      "msgId": "longcard.aydss.dispatch",
+      "endpoint": "longcard.aydss.dispatch",
+      "transport": "WSS",
+      "direction": "client_to_server",
+      "fields": [
+        "action",
+        "command",
+        "payload"
+      ],
+      "errors": [
+        1001,
+        3001,
+        4001,
+        4002
+      ],
+      "auth": "room_session",
+      "ownerPattern": "longcard.*",
+      "generatedRegistry": true,
+      "documented": true,
+      "owned": false
+    },
+    {
+      "msgId": "game.dispatch",
+      "endpoint": "game.dispatch",
+      "transport": "WSS",
+      "direction": "client_to_server",
+      "fields": [
+        "action",
+        "gameId",
+        "payload"
+      ],
+      "errors": [
+        1001,
+        3001,
+        4001,
+        4002
+      ],
+      "auth": "room_session",
+      "ownerPattern": "game.*",
+      "generatedRegistry": true,
+      "documented": true,
+      "owned": true
+    },
+    {
+      "msgId": "account.token_refresh",
+      "endpoint": "/api/v2/account/token_refresh",
+      "transport": "HTTPS",
+      "direction": "client_to_server",
+      "fields": [
+        "deviceId",
+        "refreshToken",
+        "sessionId"
+      ],
+      "errors": [
+        1001,
+        2003,
+        2004
+      ],
+      "auth": "refresh_token",
+      "ownerPattern": "/api/v2/account/*",
+      "generatedRegistry": true,
+      "documented": true,
+      "owned": true
+    },
+    {
+      "msgId": "room.create",
+      "endpoint": "/api/v2/room/create",
+      "transport": "HTTPS",
+      "direction": "client_to_server",
+      "fields": [
+        "clubId",
+        "gameId",
+        "paymentMode",
+        "roomProfileVersion",
+        "ruleSnapshotId"
+      ],
+      "errors": [
+        1001,
+        3002,
+        5001,
+        6002
+      ],
+      "auth": "access_token",
+      "ownerPattern": "/api/v2/room/*",
+      "generatedRegistry": true,
+      "documented": true,
+      "owned": true
+    },
+    {
+      "msgId": "room.join",
+      "endpoint": "/api/v2/room/join",
+      "transport": "HTTPS",
+      "direction": "client_to_server",
+      "fields": [
+        "roomId"
+      ],
+      "errors": [
+        3001,
+        3002,
+        3003,
+        6002
+      ],
+      "auth": "access_token",
+      "ownerPattern": "/api/v2/room/*",
+      "generatedRegistry": true,
+      "documented": true,
+      "owned": true
+    },
+    {
+      "msgId": "room.seat",
+      "endpoint": "room.seat",
+      "transport": "WSS",
+      "direction": "client_to_server",
+      "fields": [
+        "action",
+        "payload",
+        "seatId"
+      ],
+      "errors": [
+        3001,
+        3002,
+        3003
+      ],
+      "auth": "room_session",
+      "ownerPattern": "room.*",
+      "generatedRegistry": true,
+      "documented": true,
+      "owned": true
+    },
+    {
+      "msgId": "room.leave",
+      "endpoint": "room.leave",
+      "transport": "WSS",
+      "direction": "client_to_server",
+      "fields": [
+        "action",
+        "payload"
+      ],
+      "errors": [
+        3001,
+        3003
+      ],
+      "auth": "room_session",
+      "ownerPattern": "room.*",
+      "generatedRegistry": true,
+      "documented": true,
+      "owned": true
+    },
+    {
+      "msgId": "room.dissolve_apply",
+      "endpoint": "room.dissolve_apply",
+      "transport": "WSS",
+      "direction": "client_to_server",
+      "fields": [
+        "action",
+        "payload",
+        "reasonCode"
+      ],
+      "errors": [
+        3001,
+        3003,
+        3004
+      ],
+      "auth": "room_session",
+      "ownerPattern": "room.*",
+      "generatedRegistry": true,
+      "documented": true,
+      "owned": true
+    },
+    {
+      "msgId": "room.dissolve_vote",
+      "endpoint": "room.dissolve_vote",
+      "transport": "WSS",
+      "direction": "client_to_server",
+      "fields": [
+        "action",
+        "agree",
+        "payload",
+        "voteId"
+      ],
+      "errors": [
+        3001,
+        3004
+      ],
+      "auth": "room_session",
+      "ownerPattern": "room.*",
+      "generatedRegistry": true,
+      "documented": true,
+      "owned": true
+    },
+    {
+      "msgId": "room.reconnect",
+      "endpoint": "room.reconnect",
+      "transport": "WSS",
+      "direction": "client_to_server",
+      "fields": [
+        "action",
+        "lastServerSeq",
+        "payload",
+        "reconnectToken",
+        "roomId"
+      ],
+      "errors": [
+        3001,
+        3005
+      ],
+      "auth": "room_session",
+      "ownerPattern": "room.*",
+      "generatedRegistry": true,
+      "documented": true,
+      "owned": true
+    },
+    {
+      "msgId": "game.action",
+      "endpoint": "game.action",
+      "transport": "WSS",
+      "direction": "client_to_server",
+      "fields": [
+        "action",
+        "actionId",
+        "expectedStateVersion",
+        "intent",
+        "payload",
+        "playVersion"
+      ],
+      "errors": [
+        3001,
+        4001,
+        4002,
+        4003
+      ],
+      "auth": "room_session",
+      "ownerPattern": "game.*",
+      "generatedRegistry": true,
+      "documented": true,
+      "owned": true
+    },
+    {
+      "msgId": "game.round_settlement",
+      "endpoint": "game.round_settlement",
+      "transport": "WSS",
+      "direction": "server_to_client",
+      "fields": [
+
+      ],
+      "errors": [
+
+      ],
+      "auth": "room_session",
+      "ownerPattern": "game.*",
+      "generatedRegistry": true,
+      "documented": true,
+      "owned": true
+    },
+    {
+      "msgId": "game.final_settlement",
+      "endpoint": "game.final_settlement",
+      "transport": "WSS",
+      "direction": "server_to_client",
+      "fields": [
+
+      ],
+      "errors": [
+
+      ],
+      "auth": "room_session",
+      "ownerPattern": "game.*",
+      "generatedRegistry": true,
+      "documented": true,
+      "owned": true
+    },
+    {
+      "msgId": "replay.query",
+      "endpoint": "/api/v2/replay/query",
+      "transport": "HTTPS",
+      "direction": "client_to_server",
+      "fields": [
+        "roomId"
+      ],
+      "errors": [
+        1003,
+        3001,
+        6002
+      ],
+      "auth": "access_token",
+      "ownerPattern": "/api/v2/replay/*",
+      "generatedRegistry": true,
+      "documented": true,
+      "owned": true
+    },
+    {
+      "msgId": "replay.perspective_page",
+      "endpoint": "replay.perspective_page",
+      "transport": "WSS",
+      "direction": "client_to_server",
+      "fields": [
+        "action",
+        "afterSequence",
+        "limit",
+        "payload",
+        "roomId",
+        "setId"
+      ],
+      "errors": [
+        1001,
+        1003,
+        3001,
+        3003
+      ],
+      "auth": "session",
+      "ownerPattern": "replay.*",
+      "generatedRegistry": true,
+      "documented": true,
+      "owned": true
+    },
+    {
+      "msgId": "club.member_page",
+      "endpoint": "/api/v2/club/member_page",
+      "transport": "HTTPS",
+      "direction": "client_to_server",
+      "fields": [
+        "clubId",
+        "cursor",
+        "limit"
+      ],
+      "errors": [
+        1001,
+        6001,
+        6002
+      ],
+      "auth": "access_token",
+      "ownerPattern": "/api/v2/club/*",
+      "generatedRegistry": true,
+      "documented": true,
+      "owned": true
+    },
+    {
+      "msgId": "hall.game_catalog",
+      "endpoint": "/api/v2/hall/game_catalog",
+      "transport": "HTTPS",
+      "direction": "client_to_server",
+      "fields": [
+        "cityCode",
+        "clientVersion",
+        "provinceCode"
+      ],
+      "errors": [
+        1001,
+        1004
+      ],
+      "auth": "access_token",
+      "ownerPattern": "/api/v2/hall/*",
+      "generatedRegistry": true,
+      "documented": true,
+      "owned": true
+    },
+    {
+      "msgId": "system.heartbeat",
+      "endpoint": "system.heartbeat",
+      "transport": "WSS",
+      "direction": "bidirectional",
+      "fields": [
+        "clientTime"
+      ],
+      "errors": [
+
+      ],
+      "auth": "session",
+      "ownerPattern": "system.*",
+      "generatedRegistry": true,
+      "documented": true,
+      "owned": true
+    },
+    {
+      "msgId": "system.kick_out",
+      "endpoint": "system.kick_out",
+      "transport": "WSS",
+      "direction": "server_to_client",
+      "fields": [
+
+      ],
+      "errors": [
+
+      ],
+      "auth": "session",
+      "ownerPattern": "system.*",
+      "generatedRegistry": true,
+      "documented": true,
+      "owned": true
+    }
+  ],
+  "checks": {
+    "generatedRegistryMatches": true,
+    "documentationMatches": true,
+    "ownershipMatches": false,
+    "completeContractMetadata": true
+  }
+}

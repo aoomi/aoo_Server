@@ -1,0 +1,14 @@
+{
+  "task": "GAME04",
+  "status": "blocked-component-and-full-round",
+  "completed": {
+    "moduleBuildAndThreeTests": true,
+    "authoritativeRestore": true,
+    "serviceRegistration": true
+  },
+  "unresolved": [
+    "no published component index binds SCJYMJ rule/flow/scoring versions",
+    "no complete real multi-player round covers all Jianyang scoring branches",
+    "staged-source equivalence has no executable comparison evidence"
+  ]
+}

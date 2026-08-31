@@ -1,0 +1,454 @@
+{
+  "schemaVersion": 1,
+  "activeReactorModuleCount": 23,
+  "activeReactorModules": [
+    {
+      "path": "server/AooKernel",
+      "artifactId": "aoo-kernel",
+      "dependencies": [
+        "junit-jupiter",
+        "logback-classic",
+        "slf4j-api"
+      ]
+    },
+    {
+      "path": "server/GameSPI",
+      "artifactId": "game-spi",
+      "dependencies": [
+        "junit-jupiter"
+      ]
+    },
+    {
+      "path": "server/GameCommon",
+      "artifactId": "game-common",
+      "dependencies": [
+        "game-spi",
+        "jackson-databind",
+        "jackson-datatype-jsr310",
+        "junit-jupiter",
+        "mysql-connector-j",
+        "rocketmq-client",
+        "slf4j-api"
+      ]
+    },
+    {
+      "path": "server/Mahjong",
+      "artifactId": "game-category-mahjong",
+      "dependencies": [
+        "game-common",
+        "game-spi",
+        "jackson-databind",
+        "junit-jupiter"
+      ]
+    },
+    {
+      "path": "server/Poker",
+      "artifactId": "game-category-poker",
+      "dependencies": [
+        "game-common",
+        "game-spi",
+        "jackson-databind",
+        "junit-jupiter"
+      ]
+    },
+    {
+      "path": "server/LongCard",
+      "artifactId": "game-category-long-card",
+      "dependencies": [
+        "junit-jupiter"
+      ]
+    },
+    {
+      "path": "server/WordCard",
+      "artifactId": "game-category-word-card",
+      "dependencies": [
+        "junit-jupiter"
+      ]
+    },
+    {
+      "path": "server/Families",
+      "artifactId": "game-families",
+      "dependencies": [
+        "game-category-long-card",
+        "game-category-mahjong",
+        "game-category-poker",
+        "game-category-word-card",
+        "game-spi",
+        "junit-jupiter"
+      ]
+    },
+    {
+      "path": "server/Gateway",
+      "artifactId": "game-gateway",
+      "dependencies": [
+        "game-common",
+        "game-spi",
+        "junit-jupiter",
+        "netty-buffer",
+        "netty-common"
+      ]
+    },
+    {
+      "path": "server/ConfigCenter",
+      "artifactId": "game-config-center",
+      "dependencies": [
+        "game-common",
+        "game-families",
+        "jackson-databind",
+        "junit-jupiter"
+      ]
+    },
+    {
+      "path": "server/AdminApi",
+      "artifactId": "admin-api",
+      "dependencies": [
+        "game-billing",
+        "game-common",
+        "game-config-center",
+        "jackson-databind",
+        "jackson-datatype-jsr310",
+        "junit-jupiter",
+        "mysql-connector-j",
+        "mysql-connector-j"
+      ]
+    },
+    {
+      "path": "server/Billing",
+      "artifactId": "game-billing",
+      "dependencies": [
+        "game-common",
+        "junit-jupiter",
+        "mysql-connector-j"
+      ]
+    },
+    {
+      "path": "server/Games",
+      "artifactId": "games",
+      "dependencies": [
+        "cdxzmj",
+        "njpdk",
+        "scjymj",
+        "xcpdk",
+        "zjh",
+        "zypk"
+      ]
+    },
+    {
+      "path": "server/gameServer",
+      "artifactId": "game-server-framework",
+      "dependencies": [
+        "aoo-kernel",
+        "bson",
+        "byte-buddy",
+        "commons-codec",
+        "commons-collections4",
+        "commons-dbutils",
+        "commons-lang3",
+        "commons-pool2",
+        "disruptor",
+        "druid",
+        "ehcache",
+        "fastjson",
+        "fastjson2",
+        "flyway-core",
+        "flyway-mysql",
+        "game-common",
+        "game-gateway",
+        "game-spi",
+        "gson",
+        "guava",
+        "ip2region",
+        "jackson-databind",
+        "jedis",
+        "joda-time",
+        "kryo",
+        "logback-classic",
+        "lombok",
+        "mina-core",
+        "mongodb-driver-core",
+        "mongodb-driver-sync",
+        "mysql-connector-j",
+        "netty-buffer",
+        "netty-codec-base",
+        "netty-codec-http",
+        "netty-common",
+        "netty-handler",
+        "netty-transport",
+        "protobuf-java",
+        "quartz",
+        "rocketmq-client",
+        "rocketmq-common",
+        "slf4j-api"
+      ]
+    },
+    {
+      "path": "server/CDXZMJ",
+      "artifactId": "cdxzmj",
+      "dependencies": [
+        "aoo-kernel",
+        "commons-lang3",
+        "game-category-mahjong",
+        "game-server-framework",
+        "game-spi",
+        "gson",
+        "junit-jupiter",
+        "lombok"
+      ]
+    },
+    {
+      "path": "server/NJPDK",
+      "artifactId": "njpdk",
+      "dependencies": [
+        "aoo-kernel",
+        "commons-collections4",
+        "commons-lang3",
+        "fastjson",
+        "game-category-poker",
+        "game-common",
+        "game-server-framework",
+        "game-spi",
+        "gson",
+        "junit-jupiter"
+      ]
+    },
+    {
+      "path": "server/SCJYMJ",
+      "artifactId": "scjymj",
+      "dependencies": [
+        "commons-lang3",
+        "game-category-mahjong",
+        "game-server-framework",
+        "game-spi",
+        "gson",
+        "junit-jupiter"
+      ]
+    },
+    {
+      "path": "server/XCPDK",
+      "artifactId": "xcpdk",
+      "dependencies": [
+        "commons-collections",
+        "commons-lang3",
+        "game-category-poker",
+        "game-common",
+        "game-server-framework",
+        "game-spi",
+        "gson",
+        "junit-jupiter"
+      ]
+    },
+    {
+      "path": "server/ZJH",
+      "artifactId": "zjh",
+      "dependencies": [
+        "game-category-poker",
+        "game-common",
+        "game-server-framework",
+        "game-spi",
+        "jackson-databind",
+        "junit-jupiter"
+      ]
+    },
+    {
+      "path": "server/ZYPK",
+      "artifactId": "zypk",
+      "dependencies": [
+        "game-category-poker",
+        "game-common",
+        "game-server-framework",
+        "game-spi",
+        "jackson-databind",
+        "junit-jupiter"
+      ]
+    },
+    {
+      "path": "server/Hall",
+      "artifactId": "game-hall",
+      "dependencies": [
+        "account-domain",
+        "game-common",
+        "game-config-center",
+        "game-spi",
+        "junit-jupiter"
+      ]
+    },
+    {
+      "path": "server/Account",
+      "artifactId": "account-domain",
+      "dependencies": [
+        "game-billing",
+        "game-common",
+        "junit-jupiter"
+      ]
+    },
+    {
+      "path": "server/Bootstrap",
+      "artifactId": "game-bootstrap",
+      "dependencies": [
+        "game-billing",
+        "game-common",
+        "game-config-center",
+        "game-hall",
+        "game-spi",
+        "games",
+        "jackson-databind",
+        "junit-jupiter"
+      ]
+    }
+  ],
+  "inactiveMavenModules": [
+    {
+      "path": "server/LegacyAccountServer/commdef",
+      "artifactId": "commdef",
+      "dependencies": [
+        "common",
+        "commons-lang3",
+        "gson",
+        "lombok"
+      ],
+      "classification": "legacy-quarantine-not-reactor"
+    },
+    {
+      "path": "server/LegacyAccountServer/common",
+      "artifactId": "common",
+      "dependencies": [
+        "commons-codec",
+        "commons-collections4",
+        "commons-lang3",
+        "disruptor",
+        "fastjson",
+        "gson",
+        "guava",
+        "jakarta.servlet-api",
+        "joda-time",
+        "kryo",
+        "lombok",
+        "netty-common",
+        "okhttp-jvm",
+        "redisson",
+        "slf4j-api",
+        "spring-beans",
+        "spring-boot",
+        "spring-boot-starter-test",
+        "spring-context",
+        "spring-core",
+        "spring-data-redis",
+        "spring-web"
+      ],
+      "classification": "legacy-quarantine-not-reactor"
+    },
+    {
+      "path": "server/LegacyAccountServer/dao",
+      "artifactId": "dao",
+      "dependencies": [
+        "commdef",
+        "common",
+        "commons-collections4",
+        "commons-dbutils",
+        "commons-lang3",
+        "druid",
+        "druid-spring-boot-starter",
+        "fastjson",
+        "guava",
+        "jackson-databind",
+        "jprotobuf",
+        "lombok",
+        "mongodb-driver-sync",
+        "mysql-connector-j",
+        "redisson",
+        "redisson-spring-data-41",
+        "spring-boot-starter-data-jpa",
+        "spring-boot-starter-data-mongodb",
+        "spring-boot-starter-data-redis",
+        "spring-boot-starter-validation"
+      ],
+      "classification": "legacy-quarantine-not-reactor"
+    },
+    {
+      "path": "server/LegacyAccountServer/hall",
+      "artifactId": "hall",
+      "dependencies": [
+        "commdef",
+        "server"
+      ],
+      "classification": "legacy-quarantine-not-reactor"
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall",
+      "artifactId": "package_hall",
+      "dependencies": [
+        "hall"
+      ],
+      "classification": "legacy-quarantine-not-reactor"
+    },
+    {
+      "path": "server/LegacyAccountServer",
+      "artifactId": "account_server",
+      "dependencies": [
+
+      ],
+      "classification": "legacy-quarantine-not-reactor"
+    },
+    {
+      "path": "server/LegacyAccountServer/server",
+      "artifactId": "server",
+      "dependencies": [
+        "commdef",
+        "common",
+        "commons-collections4",
+        "commons-lang3",
+        "dao",
+        "disruptor",
+        "druid",
+        "druid-spring-boot-starter",
+        "gson",
+        "guava",
+        "jackson-annotations",
+        "lombok",
+        "mysql-connector-j",
+        "okhttp-jvm",
+        "rocketmq-client",
+        "spring-boot-starter-data-jpa",
+        "spring-boot-starter-data-redis",
+        "spring-boot-starter-web"
+      ],
+      "classification": "legacy-quarantine-not-reactor"
+    },
+    {
+      "path": "server/LegacyGameHall",
+      "artifactId": "legacy-game-hall-quarantine",
+      "dependencies": [
+        "aoo-kernel",
+        "commons-collections4",
+        "game-server-framework"
+      ],
+      "classification": "legacy-quarantine-not-reactor"
+    }
+  ],
+  "antBuildEntries": [
+    {
+      "path": "server/CDXZMJ/build.xml",
+      "classification": "legacy-non-production-build-entry"
+    },
+    {
+      "path": "server/LegacyCommDef/build.xml",
+      "classification": "legacy-non-production-build-entry"
+    },
+    {
+      "path": "server/LegacyCommon/build.xml",
+      "classification": "legacy-non-production-build-entry"
+    },
+    {
+      "path": "server/LegacyGameHall/build.xml",
+      "classification": "legacy-non-production-build-entry"
+    },
+    {
+      "path": "server/gameServer/build.xml",
+      "classification": "legacy-non-production-build-entry"
+    }
+  ],
+  "dependencyDirectionViolations": [
+
+  ],
+  "policy": "Only modules listed by the root Maven reactor are production modules. Other Maven and Ant entries are inventory-only legacy quarantine until their dedicated removal tasks close."
+}

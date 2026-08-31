@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-24T14:51:42Z",
+  "task": "TOOL06",
+  "passed": true,
+  "assurance": {
+    "staticSourceGates": [
+      "tools/check_hidden_card_boundaries.rb",
+      "tools/check_game_random_boundaries.rb",
+      "tools/check_gameplay_security_boundaries.rb"
+    ],
+    "executableTests": [
+      "PerspectiveDispatcherTest",
+      "SeededGameRandomSourceTest",
+      "PokerAuthoritativeSessionTest",
+      "GameWebSocketRouterTest",
+      "SecureWsTicketServiceTest"
+    ],
+    "guarantees": [
+      "opponent hidden cards are redacted at the authoritative session boundary",
+      "private perspective payloads reach only their authenticated owner",
+      "server-owned seeded randomness is deterministic and auditable",
+      "write requests are idempotent and execute/commit exactly once",
+      "forged room/version, reused tickets, wrong Origin and excessive ticket lifetime are rejected"
+    ]
+  },
+  "results": [
+    {
+      "command": "ruby tools/check_hidden_card_boundaries.rb",
+      "passed": true,
+      "exitCode": 0,
+      "stdout": "hidden-card-boundaries: passed\n",
+      "stderr": ""
+    },
+    {
+      "command": "ruby tools/check_game_random_boundaries.rb",
+      "passed": true,
+      "exitCode": 0,
+      "stdout": "game-random-boundaries: passed\n",
+      "stderr": ""
+    },
+    {
+      "command": "ruby tools/check_gameplay_security_boundaries.rb",
+      "passed": true,
+      "exitCode": 0,
+      "stdout": "gameplay-security-boundaries: passed\n",
+      "stderr": ""
+    },
+    {
+      "command": "./mvnw -Dexec.skip=true -pl server/GameCommon,server/Poker,server/Gateway -am -Dtest=PerspectiveDispatcherTest,SeededGameRandomSourceTest,PokerAuthoritativeSessionTest,GameWebSocketRouterTest,SecureWsTicketServiceTest -Dsurefire.failIfNoSpecifiedTests=false test",
+      "passed": true,
+      "exitCode": 0,
+      "stdout": "[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s -- in com.aoo.bcg.gateway.SecureWsTicketServiceTest\n[INFO] \n[INFO] Results:\n[INFO] \n[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0\n[INFO] \n[INFO] ------------------------------------------------------------------------\n[INFO] Reactor Summary for Aoo Server 1.0.0-SNAPSHOT:\n[INFO] \n[INFO] Aoo Server ......................................... SUCCESS [  0.335 s]\n[INFO] Aoo Game SPI ....................................... SUCCESS [  2.227 s]\n[INFO] game-common ........................................ SUCCESS [  2.331 s]\n[INFO] game-category-poker ................................ SUCCESS [  0.859 s]\n[INFO] game-gateway ....................................... SUCCESS [  0.774 s]\n[INFO] ------------------------------------------------------------------------\n[INFO] BUILD SUCCESS\n[INFO] ------------------------------------------------------------------------\n[INFO] Total time:  6.720 s\n[INFO] Finished at: 2026-08-24T22:51:42+08:00\n[INFO] ------------------------------------------------------------------------\n",
+      "stderr": "WARNING: A terminally deprecated method in sun.misc.Unsafe has been called\nWARNING: sun.misc.Unsafe::objectFieldOffset has been called by lombok.permit.Permit\nWARNING: Please consider reporting this to the maintainers of class lombok.permit.Permit\nWARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release\nSLF4J(W): No SLF4J providers were found.\nSLF4J(W): Defaulting to no-operation (NOP) logger implementation\nSLF4J(W): See https://www.slf4j.org/codes.html#noProviders for further details.\n"
+    }
+  ]
+}

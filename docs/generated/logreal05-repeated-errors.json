@@ -1,0 +1,2069 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-23T10:18:57Z",
+  "summary": {
+    "errorLines": 5489,
+    "uniqueFingerprints": 177,
+    "repeatedFingerprints": 131
+  },
+  "policy": "Fingerprint aggregation is diagnostic. Every group is assigned a root-cause class, owner and regression gate; reproduction-required groups cannot close a defect by log evidence alone.",
+  "groups": [
+    {
+      "fingerprint": "234c6fb0fe5a96c0",
+      "count": 1003,
+      "signature": "[<time>][disruptor-pool-<n>]ERROR:PlayerCityCurrency cityRoomCardChange Pid:<n>,cityId:<n>",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log",
+        "logs/game7103/all_2026-08-23.log",
+        "logs/game990516/all_2026-08-22.log",
+        "logs/game990516/all_2026-08-23.log"
+      ]
+    },
+    {
+      "fingerprint": "6bcae9e18d04265e",
+      "count": 529,
+      "signature": "[<time>][schedule-pool-<n>]ERROR:[AbsBaseTaskRoom]:[GameType[Id=<n>,Name=cdxzmj,Type=<n>]] roomId:<n> error:cannot register replay participants",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game990516/all_2026-08-22.log"
+      ]
+    },
+    {
+      "fingerprint": "dec7f6523afd87c2",
+      "count": 529,
+      "signature": "[<time>][schedule-pool-<n>]ERROR:startTimer:cannot register replay participants (business.global.replay.LegacyReplayParticipantRegistry---->LegacyReplayParticipantRegistry.java---->grantAll---><n>)(business.global.mj.AbsMJSetRoom---->AbsMJSetRoom.java---->notify2SetStart---><n>)(business.global.mj.cdxzmj.CDXZMJRoomSet---->CDXZMJRoomSet.java---->setStateInit---><n>)(business.global.mj.template.MJTemplateRoomSet---->MJTemplateRoomSet.java---->initSetState---><n>)(business.global.mj.template.MJTemplateRoomSet---->MJTemplateRoomSet.java----><init>---><n>)(business.global.mj.cdxzmj.CDXZMJRoomSet---->CDXZMJRoomSet.java----><init>---><n>)(business.global.mj.cdxzmj.CDXZMJRoom---->CDXZMJRoom.java---->newMJRoomSet---><n>)(business.global.mj.template.MJTemplateRoom---->MJTemplateRoom.java---->startNewSet---><n>)(business.global.room.task.NoneTaskRoom---->NoneTaskRoom.java---->update---><n>)(business.global.room.task.AbsBaseTaskRoom---->AbsBaseTaskRoom.java---->lambda$startTimer$<n>---><n>)(java.util.concurrent.Executors$RunnableAdapter---->Executors.java---->call---><n>)(java.util.concurrent.FutureTask---->FutureTask.java---->runAndReset---><n>)(java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask---->ScheduledThreadPoolExecutor.java---->run---><n>)(java.util.concurrent.ThreadPoolExecutor---->ThreadPoolExecutor.java---->runWorker---><n>)(java.util.concurrent.ThreadPoolExecutor$Worker---->ThreadPoolExecutor.java---->run---><n>)(java.lang.Thread---->Thread.java---->run---><n>)",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game990516/all_2026-08-22.log"
+      ]
+    },
+    {
+      "fingerprint": "7256f1ff1f542f81",
+      "count": 499,
+      "signature": "[<time>][disruptor-pool-<n>]ERROR:bindPlayer set ip pid;<n>,ip:<ip>",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log",
+        "logs/game7103/all_2026-08-23.log",
+        "logs/game990516/all_2026-08-22.log",
+        "logs/game990516/all_2026-08-23.log"
+      ]
+    },
+    {
+      "fingerprint": "f01c232f8d04760b",
+      "count": 462,
+      "signature": "[<n>-<n>-<n> <n>:<n>:<n>.<n>][disruptor-pool-<n>]ERROR:PlayerCityCurrency cityRoomCardChange Pid:<n>,cityId:<n>",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game516/local-console.log",
+        "logs/game7103/local-console.log",
+        "logs/hall/local-console.log"
+      ]
+    },
+    {
+      "fingerprint": "58812d1cdd702c3a",
+      "count": 229,
+      "signature": "[<n>-<n>-<n> <n>:<n>:<n>.<n>][disruptor-pool-<n>]ERROR:bindPlayer set ip pid;<n>,ip:<ip>",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game516/local-console.log",
+        "logs/game7103/local-console.log",
+        "logs/hall/local-console.log"
+      ]
+    },
+    {
+      "fingerprint": "88a00fbf2dc246ae",
+      "count": 214,
+      "signature": "[<time>][schedule-pool-<n>]ERROR:[AbsBaseTaskRoom]:[GameType[Id=<n>,Name=njpdk,Type=<n>]] roomId:<n> error:cannot register replay participants",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log"
+      ]
+    },
+    {
+      "fingerprint": "eda8c08fd06cdac9",
+      "count": 214,
+      "signature": "[<time>][schedule-pool-<n>]ERROR:startTimer:cannot register replay participants (business.global.replay.LegacyReplayParticipantRegistry---->LegacyReplayParticipantRegistry.java---->grantAll---><n>)(business.global.pk.njpdk.NJPDKRoomSet---->NJPDKRoomSet.java---->startSet---><n>)(business.global.pk.njpdk.NJPDKRoomSet---->NJPDKRoomSet.java----><init>---><n>)(business.global.pk.njpdk.NJPDKRoom---->NJPDKRoom.java---->createSet---><n>)(business.global.pk.njpdk.NJPDKRoom---->NJPDKRoom.java---->startNewSet---><n>)(business.global.room.task.NoneTaskRoom---->NoneTaskRoom.java---->update---><n>)(business.global.room.task.AbsBaseTaskRoom---->AbsBaseTaskRoom.java---->lambda$startTimer$<n>---><n>)(java.util.concurrent.Executors$RunnableAdapter---->Executors.java---->call---><n>)(java.util.concurrent.FutureTask---->FutureTask.java---->runAndReset---><n>)(java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask---->ScheduledThreadPoolExecutor.java---->run---><n>)(java.util.concurrent.ThreadPoolExecutor---->ThreadPoolExecutor.java---->runWorker---><n>)(java.util.concurrent.ThreadPoolExecutor$Worker---->ThreadPoolExecutor.java---->run---><n>)(java.lang.Thread---->Thread.java---->run---><n>)",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log"
+      ]
+    },
+    {
+      "fingerprint": "77b337e7d20305f7",
+      "count": 179,
+      "signature": "[<time>][schedule-pool-<n>]ERROR:gainCityRoomCard pid:<n>,cityId:<n>",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-23.log",
+        "logs/game990516/all_2026-08-23.log"
+      ]
+    },
+    {
+      "fingerprint": "14d558965fe7cab7",
+      "count": 155,
+      "signature": "Caused by: org.apache.rocketmq.remoting.exception.RemotingConnectException: connect to <ip> failed",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log"
+      ]
+    },
+    {
+      "fingerprint": "56fac38a11e5c2a2",
+      "count": 152,
+      "signature": "org.apache.rocketmq.client.exception.MQClientException: create new topic failed",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log"
+      ]
+    },
+    {
+      "fingerprint": "c25cadfb433d0373",
+      "count": 135,
+      "signature": "[<time>][NioProcessor-<n>]ERROR:messageReceived rejected websocket Origin from client:/<ip>",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log",
+        "logs/game7103/all_2026-08-23.log"
+      ]
+    },
+    {
+      "fingerprint": "80845bcbfb15e55e",
+      "count": 123,
+      "signature": "[<time>][disruptor-pool-<n>]ERROR:gainCityRoomCard pid:<n>,cityId:<n>",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log",
+        "logs/game7103/all_2026-08-23.log"
+      ]
+    },
+    {
+      "fingerprint": "40113230bb7baa08",
+      "count": 88,
+      "signature": "[<n>-<n>-<n> <n>:<n>:<n>.<n>][schedule-pool-<n>]ERROR:gainCityRoomCard pid:<n>,cityId:<n>",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game516/local-console.log",
+        "logs/game7103/local-console.log"
+      ]
+    },
+    {
+      "fingerprint": "208d448137a88116",
+      "count": 82,
+      "signature": "[<time>][main]ERROR:redis time <n> ms key=shareGoldNoKey_no method=sadd",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log",
+        "logs/game7103/all_2026-08-23.log",
+        "logs/game990051/all_2026-08-22.log",
+        "logs/game990516/all_2026-08-22.log",
+        "logs/game990516/all_2026-08-23.log",
+        "logs/game990629/all_2026-08-22.log"
+      ]
+    },
+    {
+      "fingerprint": "0459d6bf7fad8c8b",
+      "count": 70,
+      "signature": "<n>:<n>:<n>,<n> |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [SportsPointAll] to ERROR",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/f03-runtime/cdxzmj-fixed.log",
+        "logs/f03-runtime/cdxzmj.log",
+        "logs/f03-runtime/hall-final.log",
+        "logs/f03-runtime/hall-fixed.log",
+        "logs/f03-runtime/hall-pool-fixed.log",
+        "logs/f03-runtime/hall.log",
+        "logs/f03-runtime/njpdk-fixed.log",
+        "logs/f03-runtime/njpdk.log",
+        "logs/game516/local-console.log",
+        "logs/game7103/local-console.log",
+        "logs/hall/local-console.log"
+      ]
+    },
+    {
+      "fingerprint": "8b17b9ea97cc5002",
+      "count": 70,
+      "signature": "<n>:<n>:<n>,<n> |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [SportsPoint] to ERROR",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/f03-runtime/cdxzmj-fixed.log",
+        "logs/f03-runtime/cdxzmj.log",
+        "logs/f03-runtime/hall-final.log",
+        "logs/f03-runtime/hall-fixed.log",
+        "logs/f03-runtime/hall-pool-fixed.log",
+        "logs/f03-runtime/hall.log",
+        "logs/f03-runtime/njpdk-fixed.log",
+        "logs/f03-runtime/njpdk.log",
+        "logs/game516/local-console.log",
+        "logs/game7103/local-console.log",
+        "logs/hall/local-console.log"
+      ]
+    },
+    {
+      "fingerprint": "0da28ec8bbded347",
+      "count": 68,
+      "signature": "[<n>-<n>-<n> <n>:<n>:<n>.<n>][NioProcessor-<n>]ERROR:messageReceived rejected websocket Origin from client:/<ip>",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/f03-runtime/hall-final.log",
+        "logs/f03-runtime/hall-fixed.log",
+        "logs/f03-runtime/hall-pool-fixed.log",
+        "logs/hall/local-console.log"
+      ]
+    },
+    {
+      "fingerprint": "c2cdebd9ef78ba01",
+      "count": 58,
+      "signature": "[<n>-<n>-<n> <n>:<n>:<n>.<n>][disruptor-pool-<n>]ERROR:gainCityRoomCard pid:<n>,cityId:<n>",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/hall/local-console.log"
+      ]
+    },
+    {
+      "fingerprint": "3f92cf11d2eec231",
+      "count": 55,
+      "signature": "[<n>-<n>-<n> <n>:<n>:<n>.<n>][main]ERROR:redis time <n> ms key=shareGoldNoKey_no method=sadd",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/f03-runtime/cdxzmj-fixed.log",
+        "logs/f03-runtime/cdxzmj.log",
+        "logs/f03-runtime/hall-final.log",
+        "logs/f03-runtime/hall-fixed.log",
+        "logs/f03-runtime/hall-pool-fixed.log",
+        "logs/f03-runtime/hall.log",
+        "logs/f03-runtime/njpdk-fixed.log",
+        "logs/f03-runtime/njpdk.log",
+        "logs/game516/local-console.log",
+        "logs/game7103/local-console.log",
+        "logs/hall/local-console.log"
+      ]
+    },
+    {
+      "fingerprint": "e41c0571dcb72368",
+      "count": 45,
+      "signature": "[<time>][Thread-<n>]ERROR:Service core.network.client2game.ClientAcceptor on ip <ip>, port <n>, closed!",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log",
+        "logs/game7103/all_2026-08-23.log",
+        "logs/game990051/all_2026-08-22.log",
+        "logs/game990516/all_2026-08-22.log",
+        "logs/game990629/all_2026-08-22.log"
+      ]
+    },
+    {
+      "fingerprint": "cab93211e62d550c",
+      "count": 28,
+      "signature": "[<time>][main]ERROR:file not .jar :lib",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log",
+        "logs/game990051/all_2026-08-22.log",
+        "logs/game990516/all_2026-08-22.log",
+        "logs/game990629/all_2026-08-22.log"
+      ]
+    },
+    {
+      "fingerprint": "cbbcf6c7ad8a52f2",
+      "count": 19,
+      "signature": "[<n>-<n>-<n> <n>:<n>:<n>.<n>][main]ERROR:file not .jar :lib",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/f03-runtime/cdxzmj.log",
+        "logs/f03-runtime/hall.log",
+        "logs/f03-runtime/njpdk.log",
+        "logs/game516/local-console.log",
+        "logs/game7103/local-console.log",
+        "logs/hall/local-console.log"
+      ]
+    },
+    {
+      "fingerprint": "1b851666f4a810cd",
+      "count": 15,
+      "signature": "Exception in thread \"Druid-ConnectionPool-Create-<n>\" java.lang.ArrayIndexOutOfBoundsException: Index <n> out of bounds for length <n>",
+      "rootCauseClass": "programming-defect",
+      "owner": "module-owner",
+      "regressionGate": "unit-test",
+      "files": [
+        "logs/f03-runtime/hall-final.log",
+        "logs/game516/local-console.log",
+        "logs/game7103/local-console.log",
+        "logs/hall/local-console.log"
+      ]
+    },
+    {
+      "fingerprint": "e5e9117c9cdbad2a",
+      "count": 15,
+      "signature": "[<time>][Thread-<n>]ERROR:killJava error:destroy of current process not allowed",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log",
+        "logs/game7103/all_2026-08-23.log",
+        "logs/game990051/all_2026-08-22.log",
+        "logs/game990516/all_2026-08-22.log",
+        "logs/game990629/all_2026-08-22.log"
+      ]
+    },
+    {
+      "fingerprint": "75fce757abe8a43b",
+      "count": 14,
+      "signature": "[<time>][schedule-pool-<n>]ERROR:startTimer:null (java.util.AbstractList---->AbstractList.java---->remove---><n>)(java.util.AbstractList$Itr---->AbstractList.java---->remove---><n>)(java.util.AbstractList---->AbstractList.java---->removeRange---><n>)(java.util.AbstractList---->AbstractList.java---->clear---><n>)(jsproto.c2s.cclass.RoomEndResult---->RoomEndResult.java---->clear---><n>)(business.global.room.base.AbsBaseRoom---->AbsBaseRoom.java---->clear---><n>)(business.global.mj.template.MJTemplateRoom---->MJTemplateRoom.java---->clearEndRoom---><n>)(business.global.room.task.AbsBaseTaskRoom---->AbsBaseTaskRoom.java---->lambda$startTimer$<n>---><n>)(java.util.concurrent.Executors$RunnableAdapter---->Executors.java---->call---><n>)(java.util.concurrent.FutureTask---->FutureTask.java---->runAndReset---><n>)(java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask---->ScheduledThreadPoolExecutor.java---->run---><n>)(java.util.concurrent.ThreadPoolExecutor---->ThreadPoolExecutor.java---->runWorker---><n>)(java.util.concurrent.ThreadPoolExecutor$Worker---->ThreadPoolExecutor.java---->run---><n>)(java.lang.Thread---->Thread.java---->run---><n>)",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game990516/all_2026-08-23.log"
+      ]
+    },
+    {
+      "fingerprint": "025fb6028a288583",
+      "count": 12,
+      "signature": "[<n>-<n>-<n> <n>:<n>:<n>.<n>][Thread-<n>]ERROR:Service core.network.client2game.ClientAcceptor on ip <ip>, port <n>, closed!",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/f03-runtime/cdxzmj-fixed.log",
+        "logs/f03-runtime/cdxzmj.log",
+        "logs/f03-runtime/hall-final.log",
+        "logs/f03-runtime/hall-fixed.log",
+        "logs/f03-runtime/hall-pool-fixed.log",
+        "logs/f03-runtime/hall.log",
+        "logs/f03-runtime/njpdk-fixed.log",
+        "logs/f03-runtime/njpdk.log"
+      ]
+    },
+    {
+      "fingerprint": "04f61192d4f41fce",
+      "count": 9,
+      "signature": "[<time>][PLAYER-thread-<n>]ERROR:buffer = MessageBuffer{executor=null}",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log",
+        "logs/game990516/all_2026-08-22.log"
+      ]
+    },
+    {
+      "fingerprint": "c8a8246a78a782ee",
+      "count": 9,
+      "signature": "[<time>][PLAYER-thread-<n>]ERROR:{}",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log",
+        "logs/game990516/all_2026-08-22.log"
+      ]
+    },
+    {
+      "fingerprint": "8d89b9eed616c6d6",
+      "count": 8,
+      "signature": "Exception in thread \"ConsoleTaskDealThread\" java.lang.NullPointerException: Cannot invoke \"String.trim()\" because the return value of \"java.io.BufferedReader.readLine()\" is null",
+      "rootCauseClass": "programming-defect",
+      "owner": "module-owner",
+      "regressionGate": "unit-test",
+      "files": [
+        "logs/game516/local-console.log",
+        "logs/game7103/local-console.log",
+        "logs/hall/local-console.log"
+      ]
+    },
+    {
+      "fingerprint": "e9292927266303bf",
+      "count": 8,
+      "signature": "[<time>][ConsumeMessageThread_game_app_group_7]ERROR:Cannot invoke \"business.shareplayer.SharePlayer.getPlayerBO()\" because \"sharePlayer\" is null",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log",
+        "logs/game7103/all_2026-08-23.log"
+      ]
+    },
+    {
+      "fingerprint": "14fedc36df65da12",
+      "count": 7,
+      "signature": "[<time>][ConsumeMessageThread_game_app_group_20]ERROR:Cannot invoke \"business.shareplayer.SharePlayer.getPlayerBO()\" because \"sharePlayer\" is null",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log",
+        "logs/game7103/all_2026-08-23.log"
+      ]
+    },
+    {
+      "fingerprint": "593667137f81d250",
+      "count": 7,
+      "signature": "[<time>][ConsumeMessageThread_game_app_group_8]ERROR:Cannot invoke \"business.shareplayer.SharePlayer.getPlayerBO()\" because \"sharePlayer\" is null",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log",
+        "logs/game7103/all_2026-08-23.log"
+      ]
+    },
+    {
+      "fingerprint": "b43e259fba1c9114",
+      "count": 7,
+      "signature": "[<time>][Thread-<n>]ERROR:gainCityRoomCard pid:<n>,cityId:<n>",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log",
+        "logs/game7103/all_2026-08-23.log",
+        "logs/game990516/all_2026-08-22.log"
+      ]
+    },
+    {
+      "fingerprint": "d83a54ad8fa90029",
+      "count": 7,
+      "signature": "[<time>][ConsumeMessageThread_game_app_group_12]ERROR:Cannot invoke \"business.shareplayer.SharePlayer.getPlayerBO()\" because \"sharePlayer\" is null",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log",
+        "logs/game7103/all_2026-08-23.log"
+      ]
+    },
+    {
+      "fingerprint": "de1f2195750140b1",
+      "count": 7,
+      "signature": "[<time>][ConsumeMessageThread_game_app_group_19]ERROR:Cannot invoke \"business.shareplayer.SharePlayer.getPlayerBO()\" because \"sharePlayer\" is null",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log",
+        "logs/game7103/all_2026-08-23.log"
+      ]
+    },
+    {
+      "fingerprint": "429a8fbecb2af128",
+      "count": 6,
+      "signature": "[<time>][STT-Default-<n>]ERROR:bindPlayer set ip pid;<n>,ip:<ip>",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-23.log"
+      ]
+    },
+    {
+      "fingerprint": "5726473b89fdbc3a",
+      "count": 6,
+      "signature": "[<n>-<n>-<n> <n>:<n>:<n>.<n>][schedule-pool-<n>]ERROR:startTimer:null (java.util.AbstractList---->AbstractList.java---->remove---><n>)(java.util.AbstractList$Itr---->AbstractList.java---->remove---><n>)(java.util.AbstractList---->AbstractList.java---->removeRange---><n>)(java.util.AbstractList---->AbstractList.java---->clear---><n>)(jsproto.c2s.cclass.RoomEndResult---->RoomEndResult.java---->clear---><n>)(business.global.room.base.AbsBaseRoom---->AbsBaseRoom.java---->clear---><n>)(business.global.mj.template.MJTemplateRoom---->MJTemplateRoom.java---->clearEndRoom---><n>)(business.global.room.task.AbsBaseTaskRoom---->AbsBaseTaskRoom.java---->lambda$startTimer$<n>---><n>)(java.util.concurrent.Executors$RunnableAdapter---->Executors.java---->call---><n>)(java.util.concurrent.FutureTask---->FutureTask.java---->runAndReset---><n>)(java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask---->ScheduledThreadPoolExecutor.java---->run---><n>)(java.util.concurrent.ThreadPoolExecutor---->ThreadPoolExecutor.java---->runWorker---><n>)(java.util.concurrent.ThreadPoolExecutor$Worker---->ThreadPoolExecutor.java---->run---><n>)(java.lang.Thread---->Thread.java---->run---><n>)",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game516/local-console.log"
+      ]
+    },
+    {
+      "fingerprint": "5d026a391f79c842",
+      "count": 6,
+      "signature": "[<time>][ConsumeMessageThread_game_app_group_11]ERROR:Cannot invoke \"business.shareplayer.SharePlayer.getPlayerBO()\" because \"sharePlayer\" is null",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log",
+        "logs/game7103/all_2026-08-23.log"
+      ]
+    },
+    {
+      "fingerprint": "78bf4afb519cadb2",
+      "count": 6,
+      "signature": "[<time>][ConsumeMessageThread_game_app_group_6]ERROR:Cannot invoke \"business.shareplayer.SharePlayer.getPlayerBO()\" because \"sharePlayer\" is null",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log",
+        "logs/game7103/all_2026-08-23.log"
+      ]
+    },
+    {
+      "fingerprint": "91e57cbf667cbc56",
+      "count": 6,
+      "signature": "[<time>][ConsumeMessageThread_game_app_group_9]ERROR:Cannot invoke \"business.shareplayer.SharePlayer.getPlayerBO()\" because \"sharePlayer\" is null",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log",
+        "logs/game7103/all_2026-08-23.log"
+      ]
+    },
+    {
+      "fingerprint": "bf8edd5487953993",
+      "count": 6,
+      "signature": "[<time>][ConsumeMessageThread_game_app_group_2]ERROR:Cannot invoke \"business.shareplayer.SharePlayer.getPlayerBO()\" because \"sharePlayer\" is null",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log",
+        "logs/game7103/all_2026-08-23.log"
+      ]
+    },
+    {
+      "fingerprint": "cb48be95f657a4e0",
+      "count": 6,
+      "signature": "[<time>][ConsumeMessageThread_game_app_group_3]ERROR:Cannot invoke \"business.shareplayer.SharePlayer.getPlayerBO()\" because \"sharePlayer\" is null",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log",
+        "logs/game7103/all_2026-08-23.log"
+      ]
+    },
+    {
+      "fingerprint": "e978506baca2b698",
+      "count": 6,
+      "signature": "[<time>][ConsumeMessageThread_game_app_group_17]ERROR:Cannot invoke \"business.shareplayer.SharePlayer.getPlayerBO()\" because \"sharePlayer\" is null",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log",
+        "logs/game7103/all_2026-08-23.log"
+      ]
+    },
+    {
+      "fingerprint": "0342210fc745fc73",
+      "count": 5,
+      "signature": "[<time>][ConsumeMessageThread_game_app_group_18]ERROR:Cannot invoke \"business.shareplayer.SharePlayer.getPlayerBO()\" because \"sharePlayer\" is null",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-23.log"
+      ]
+    },
+    {
+      "fingerprint": "31591ac148a09188",
+      "count": 5,
+      "signature": "[<n>-<n>-<n> <n>:<n>:<n>.<n>][disruptor-pool-<n>]ERROR:handle [0xprotocol.v2.dispatch] request failed, reason: room does not exist: <n>",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/local-console.log"
+      ]
+    },
+    {
+      "fingerprint": "333f23bb88634c6b",
+      "count": 5,
+      "signature": "[<time>][ConsumeMessageThread_game_app_group_10]ERROR:Cannot invoke \"business.shareplayer.SharePlayer.getPlayerBO()\" because \"sharePlayer\" is null",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log",
+        "logs/game7103/all_2026-08-23.log"
+      ]
+    },
+    {
+      "fingerprint": "440b8ddcd85392d2",
+      "count": 5,
+      "signature": "[<time>][ConsumeMessageThread_game_app_group_15]ERROR:Cannot invoke \"business.shareplayer.SharePlayer.getPlayerBO()\" because \"sharePlayer\" is null",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log",
+        "logs/game7103/all_2026-08-23.log"
+      ]
+    },
+    {
+      "fingerprint": "4e908492a3b6cc7e",
+      "count": 5,
+      "signature": "Exception in thread \"ConsoleTaskDealThread\" [<n>-<n>-<n> <n>:<n>:<n>.<n>][main]INFO:=================检查到版本标识一致===================",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game516/local-console.log",
+        "logs/game7103/local-console.log",
+        "logs/hall/local-console.log"
+      ]
+    },
+    {
+      "fingerprint": "a9bf1859e36888fb",
+      "count": 5,
+      "signature": "[<time>][disruptor-pool-<n>]ERROR:handle [0xprotocol.v2.dispatch] request failed, reason: room does not exist: <n>",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-23.log"
+      ]
+    },
+    {
+      "fingerprint": "270c9b63872b5900",
+      "count": 4,
+      "signature": "[<time>][ConsumeMessageThread_game_app_group_1]ERROR:Cannot invoke \"business.shareplayer.SharePlayer.getPlayerBO()\" because \"sharePlayer\" is null",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log",
+        "logs/game7103/all_2026-08-23.log"
+      ]
+    },
+    {
+      "fingerprint": "329cb3737ae3b358",
+      "count": 4,
+      "signature": "[<n>-<n>-<n> <n>:<n>:<n>.<n>][disruptor-pool-<n>]ERROR:CreateRoom:[business.global.pk.njpdk.NJPDKRoom] error:mutable payload type requires a DTO record: jsproto.c2s.cclass.room.BaseRoomConfigure",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/local-console.log"
+      ]
+    },
+    {
+      "fingerprint": "3c10b8bc528b7d50",
+      "count": 4,
+      "signature": "[<time>][Task_Worker-<n>]ERROR:Failed to connect to <ip>.",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log"
+      ]
+    },
+    {
+      "fingerprint": "4196fef45f37b203",
+      "count": 4,
+      "signature": "redis.clients.jedis.exceptions.JedisConnectionException: Failed to connect to <ip>.",
+      "rootCauseClass": "redis-latency",
+      "owner": "platform-data",
+      "regressionGate": "integration-test",
+      "files": [
+        "logs/game7103/all_2026-08-22.log"
+      ]
+    },
+    {
+      "fingerprint": "4280e8e3230f48e3",
+      "count": 4,
+      "signature": "[<time>][ConsumeMessageThread_game_app_group_14]ERROR:Cannot invoke \"business.shareplayer.SharePlayer.getPlayerBO()\" because \"sharePlayer\" is null",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log",
+        "logs/game7103/all_2026-08-23.log"
+      ]
+    },
+    {
+      "fingerprint": "4cc2c435539e2789",
+      "count": 4,
+      "signature": "[<n>-<n>-<n> <n>:<n>:<n>.<n>][STT-Default-<n>]ERROR:bindPlayer set ip pid;<n>,ip:<ip>",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/local-console.log"
+      ]
+    },
+    {
+      "fingerprint": "afe34f1dcf223eac",
+      "count": 4,
+      "signature": "[<time>][ConsumeMessageThread_game_app_group_4]ERROR:Cannot invoke \"business.shareplayer.SharePlayer.getPlayerBO()\" because \"sharePlayer\" is null",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log",
+        "logs/game7103/all_2026-08-23.log"
+      ]
+    },
+    {
+      "fingerprint": "d2fb84fb21a545ac",
+      "count": 4,
+      "signature": "[<time>][disruptor-pool-<n>]ERROR:CreateRoom:[business.global.pk.njpdk.NJPDKRoom] error:mutable payload type requires a DTO record: jsproto.c2s.cclass.room.BaseRoomConfigure",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-23.log"
+      ]
+    },
+    {
+      "fingerprint": "07197f6ab93aeced",
+      "count": 3,
+      "signature": "[<time>][STT-Default-<n>]ERROR:账号服务器(http://<ip>/JavaServerPack)返回({\"Code\":<n>,\"AccountID\":<n>}),验证解析失败",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-23.log"
+      ]
+    },
+    {
+      "fingerprint": "0df655c165439872",
+      "count": 3,
+      "signature": "[<time>][main]ERROR:RocketMQ topic create failed: localplayeradd",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log"
+      ]
+    },
+    {
+      "fingerprint": "10f21149d5b745bc",
+      "count": 3,
+      "signature": "[<time>][main]ERROR:RocketMQ topic create failed: IP_SERVER_NODE_SET_NOTIFY",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log"
+      ]
+    },
+    {
+      "fingerprint": "2264f943e237ff02",
+      "count": 3,
+      "signature": "[<time>][main]ERROR:RocketMQ topic create failed: REGISTRY_NOTIFY",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log"
+      ]
+    },
+    {
+      "fingerprint": "28c66d8711e1cb62",
+      "count": 3,
+      "signature": "[<time>][main]ERROR:RocketMQ topic create failed: playercreate",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log"
+      ]
+    },
+    {
+      "fingerprint": "31bdf287a7eec1c6",
+      "count": 3,
+      "signature": "[<n>-<n>-<n> <n>:<n>:<n>.<n>][main]ERROR:redis time <n> ms key=HALL method=sadd",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/f03-runtime/hall-fixed.log",
+        "logs/hall/local-console.log"
+      ]
+    },
+    {
+      "fingerprint": "31f111d219b33ebe",
+      "count": 3,
+      "signature": "[<time>][main]ERROR:RocketMQ topic create failed: ongmexitroom",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log"
+      ]
+    },
+    {
+      "fingerprint": "32a7592808319024",
+      "count": 3,
+      "signature": "[<time>][main]ERROR:RocketMQ topic create failed: clubupdatememberbonotify",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log"
+      ]
+    },
+    {
+      "fingerprint": "33191b973f2e9aeb",
+      "count": 3,
+      "signature": "[<n>-<n>-<n> <n>:<n>:<n>.<n>][NioProcessor-<n>]ERROR:messageReceived invalid websocket handshake from oldClientIP:<ip>",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/f03-runtime/hall-fixed.log",
+        "logs/f03-runtime/hall.log"
+      ]
+    },
+    {
+      "fingerprint": "46b4581f611c5ff1",
+      "count": 3,
+      "signature": "[<time>][main]ERROR:RocketMQ topic create failed: HTTP_RELOAD_DICTIONARIES_CONFIG",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log"
+      ]
+    },
+    {
+      "fingerprint": "5076dcb9bf4fcf6f",
+      "count": 3,
+      "signature": "[<time>][ConsumeMessageThread_game_app_group_13]ERROR:Cannot invoke \"business.shareplayer.SharePlayer.getPlayerBO()\" because \"sharePlayer\" is null",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log",
+        "logs/game7103/all_2026-08-23.log"
+      ]
+    },
+    {
+      "fingerprint": "54f41d74aa56b18f",
+      "count": 3,
+      "signature": "[<time>][main]ERROR:RocketMQ topic create failed: clubdeletememberbonotify",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log"
+      ]
+    },
+    {
+      "fingerprint": "5aec75189cb1bba2",
+      "count": 3,
+      "signature": "[<time>][main]ERROR:RocketMQ topic create failed: localroomremove",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log"
+      ]
+    },
+    {
+      "fingerprint": "5c35a87af34bee97",
+      "count": 3,
+      "signature": "[<time>][main]ERROR:RocketMQ topic create failed: kickoutserver",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log"
+      ]
+    },
+    {
+      "fingerprint": "5f169fa9255fe804",
+      "count": 3,
+      "signature": "[<time>][NioProcessor-<n>]ERROR:messageReceived invalid websocket handshake from oldClientIP:<ip>",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log"
+      ]
+    },
+    {
+      "fingerprint": "64edf18a2625bb46",
+      "count": 3,
+      "signature": "[<time>][main]ERROR:RocketMQ topic create failed: dissolveroomnotify",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log"
+      ]
+    },
+    {
+      "fingerprint": "6a7fa747b555f7bd",
+      "count": 3,
+      "signature": "Exception in thread \"main\" java.lang.IllegalStateException: service readiness failed: databaseConnectionAndSchema: cannot inspect production database schema: Key 'idx_outbox_claim' doesn't exist in table 'aoo_outbox'",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game516/local-console.log",
+        "logs/hall/local-console.log"
+      ]
+    },
+    {
+      "fingerprint": "6e71764b25aa2371",
+      "count": 3,
+      "signature": "[<time>][main]ERROR:RocketMQ topic create failed: localroomadd",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log"
+      ]
+    },
+    {
+      "fingerprint": "7862823e354ba6d7",
+      "count": 3,
+      "signature": "[<time>][main]ERROR:redis time <n> ms key=shareCurrencyKey_no method=sadd",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game990051/all_2026-08-22.log",
+        "logs/game990516/all_2026-08-22.log"
+      ]
+    },
+    {
+      "fingerprint": "789a75680f9a4f7b",
+      "count": 3,
+      "signature": "[<time>][main]ERROR:RocketMQ topic create failed: httpreloadconfig",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log"
+      ]
+    },
+    {
+      "fingerprint": "79a564cfe93259be",
+      "count": 3,
+      "signature": "[<time>][main]ERROR:RocketMQ topic create failed: playerbannedloginnotify",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log"
+      ]
+    },
+    {
+      "fingerprint": "7b2c7e39d2cadbd9",
+      "count": 3,
+      "signature": "[<time>][main]ERROR:redis time <n> ms key=shareRoomNoKey_no method=sadd",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game990051/all_2026-08-22.log",
+        "logs/game990516/all_2026-08-22.log"
+      ]
+    },
+    {
+      "fingerprint": "7cba32fe7477654e",
+      "count": 3,
+      "signature": "[<time>][main]ERROR:RocketMQ topic create failed: STOP_SHARE_NODE",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log"
+      ]
+    },
+    {
+      "fingerprint": "83df631e6efaf927",
+      "count": 3,
+      "signature": "[<time>][main]ERROR:RocketMQ topic create failed: HALL-TOPIC-<n>",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log"
+      ]
+    },
+    {
+      "fingerprint": "86f9c2def0bf996e",
+      "count": 3,
+      "signature": "[<n>-<n>-<n> <n>:<n>:<n>.<n>][STT-Default-<n>]ERROR:账号服务器(http://<ip>/JavaServerPack)返回({\"Code\":<n>,\"AccountID\":<n>}),验证解析失败",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/hall/local-console.log"
+      ]
+    },
+    {
+      "fingerprint": "87574139dd7c0254",
+      "count": 3,
+      "signature": "[<time>][main]ERROR:RocketMQ topic create failed: clubkicknotify",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log"
+      ]
+    },
+    {
+      "fingerprint": "8a9e70140004c952",
+      "count": 3,
+      "signature": "[<time>][ConsumeMessageThread_game_app_group_5]ERROR:Cannot invoke \"business.shareplayer.SharePlayer.getPlayerBO()\" because \"sharePlayer\" is null",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log",
+        "logs/game7103/all_2026-08-23.log"
+      ]
+    },
+    {
+      "fingerprint": "8f654ccee3d10e01",
+      "count": 3,
+      "signature": "[<time>][main]ERROR:RocketMQ topic create failed: HTTP_RELOAD_BAN_CITY_CONFIG",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log"
+      ]
+    },
+    {
+      "fingerprint": "9121605cc3893b96",
+      "count": 3,
+      "signature": "[<time>][main]ERROR:redis time <n> ms key=HALL method=sadd",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log",
+        "logs/game7103/all_2026-08-23.log"
+      ]
+    },
+    {
+      "fingerprint": "93c329322fb2cf1d",
+      "count": 3,
+      "signature": "[<time>][main]ERROR:RocketMQ topic create failed: unionkicknotify",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log"
+      ]
+    },
+    {
+      "fingerprint": "9b54ab83181c777f",
+      "count": 3,
+      "signature": "[<time>][main]ERROR:RocketMQ topic create failed: localclubmemberremove",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log"
+      ]
+    },
+    {
+      "fingerprint": "9d5e263b03616823",
+      "count": 3,
+      "signature": "[<time>][main]ERROR:RocketMQ topic create failed: localonlineplayeradd",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log"
+      ]
+    },
+    {
+      "fingerprint": "9f75037102403c56",
+      "count": 3,
+      "signature": "java.lang.IllegalStateException: org.apache.rocketmq.remoting.exception.RemotingConnectException: connect to <ip> failed",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log"
+      ]
+    },
+    {
+      "fingerprint": "a0ac04cf9188616f",
+      "count": 3,
+      "signature": "[<time>][main]ERROR:getConnection fail:clark_game",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log"
+      ]
+    },
+    {
+      "fingerprint": "b0d6d9f4df5d91ea",
+      "count": 3,
+      "signature": "[<time>][main]ERROR:RocketMQ topic create failed: urgentmaintainserver",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log"
+      ]
+    },
+    {
+      "fingerprint": "b682887867e4a4af",
+      "count": 3,
+      "signature": "[<time>][main]ERROR:RocketMQ topic create failed: uniondissolveroomnotify",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log"
+      ]
+    },
+    {
+      "fingerprint": "bce1a9615d29ccc2",
+      "count": 3,
+      "signature": "[<time>][main]ERROR:RocketMQ topic create failed: basecontinueroomback",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log"
+      ]
+    },
+    {
+      "fingerprint": "c704987d35bb91c4",
+      "count": 3,
+      "signature": "[<time>][main]ERROR:RocketMQ topic create failed: unionDissolveInitRoom",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log"
+      ]
+    },
+    {
+      "fingerprint": "c710aae429aebe3b",
+      "count": 3,
+      "signature": "[<time>][main]ERROR:RocketMQ topic create failed: localclubmemberadd",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log"
+      ]
+    },
+    {
+      "fingerprint": "c9d219e7634af857",
+      "count": 3,
+      "signature": "[<time>][main]ERROR:RocketMQ topic create failed: baseseatroomback",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log"
+      ]
+    },
+    {
+      "fingerprint": "c9df304c8aa69fbf",
+      "count": 3,
+      "signature": "[<time>][main]ERROR:RocketMQ topic create failed: domaintainserver",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log"
+      ]
+    },
+    {
+      "fingerprint": "ca0ff7263744cfb2",
+      "count": 3,
+      "signature": "[<time>][main]ERROR:RocketMQ topic create failed: setmaintainserver",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log"
+      ]
+    },
+    {
+      "fingerprint": "ce56314f40ecc7f1",
+      "count": 3,
+      "signature": "[<time>][main]ERROR:RocketMQ topic create failed: clubinsertmemberbonotify",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log"
+      ]
+    },
+    {
+      "fingerprint": "d7f6445b00bd8c6f",
+      "count": 3,
+      "signature": "[<time>][main]ERROR:RocketMQ topic create failed: localonlineplayerremove",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log"
+      ]
+    },
+    {
+      "fingerprint": "ddf59a84f75b703e",
+      "count": 3,
+      "signature": "[<time>][main]ERROR:RocketMQ topic create failed: playerpushproto",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log"
+      ]
+    },
+    {
+      "fingerprint": "def40e3da7b249de",
+      "count": 3,
+      "signature": "[<time>][main]ERROR:RocketMQ topic create failed: stopserver",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log"
+      ]
+    },
+    {
+      "fingerprint": "e7eb494989ff6aad",
+      "count": 3,
+      "signature": "[<time>][main]ERROR:RocketMQ topic create failed: basecreateroomback",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log"
+      ]
+    },
+    {
+      "fingerprint": "e81845c5a8b64904",
+      "count": 3,
+      "signature": "[<time>][main]ERROR:RocketMQ topic create failed: SERVER_NOTIFY",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log"
+      ]
+    },
+    {
+      "fingerprint": "eb91d313b4425037",
+      "count": 3,
+      "signature": "[<time>][main]ERROR:RocketMQ topic create failed: baseleaveposback",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log"
+      ]
+    },
+    {
+      "fingerprint": "ebeb94023dc6817a",
+      "count": 3,
+      "signature": "[<time>][main]ERROR:RocketMQ topic create failed: clubdissolveroomnotify",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log"
+      ]
+    },
+    {
+      "fingerprint": "ec8db02403439624",
+      "count": 3,
+      "signature": "[<time>][main]ERROR:RocketMQ topic create failed: baseenterroomback",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log"
+      ]
+    },
+    {
+      "fingerprint": "f09d72efbed37368",
+      "count": 3,
+      "signature": "[<time>][main]ERROR:RocketMQ topic create failed: playerlostconnectnotify",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log"
+      ]
+    },
+    {
+      "fingerprint": "f8db9d77050a0394",
+      "count": 3,
+      "signature": "[<time>][main]ERROR:RocketMQ topic create failed: kickoutgame",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log"
+      ]
+    },
+    {
+      "fingerprint": "fa749cdcb007caaf",
+      "count": 3,
+      "signature": "[<time>][main]ERROR:RocketMQ topic create failed: httpreloadgamelistconfig",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log"
+      ]
+    },
+    {
+      "fingerprint": "fdff0d9a498a758d",
+      "count": 3,
+      "signature": "[<time>][main]ERROR:[GameServer]:[initMq] error:org.apache.rocketmq.remoting.exception.RemotingConnectException: connect to <ip> failed",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log"
+      ]
+    },
+    {
+      "fingerprint": "ff499099cf7472fc",
+      "count": 3,
+      "signature": "[<time>][main]ERROR:RocketMQ topic create failed: roomsportspointnotify",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log"
+      ]
+    },
+    {
+      "fingerprint": "1f4087e4a750dad1",
+      "count": 2,
+      "signature": "[<time>][main]ERROR:RocketMQ topic create failed: baseenterroom629",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log"
+      ]
+    },
+    {
+      "fingerprint": "31cc1ca79ad3055e",
+      "count": 2,
+      "signature": "[<n>-<n>-<n> <n>:<n>:<n>.<n>][disruptor-pool-<n>]ERROR:CreateRoom:[business.global.mj.cdxzmj.CDXZMJRoom] error:mutable payload type requires a DTO record: jsproto.c2s.cclass.room.BaseRoomConfigure",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game516/local-console.log"
+      ]
+    },
+    {
+      "fingerprint": "4c52283828f5de10",
+      "count": 2,
+      "signature": "[<time>][main]ERROR:RocketMQ topic create failed: basecreateroom629",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log"
+      ]
+    },
+    {
+      "fingerprint": "5481cf27cddaaaf8",
+      "count": 2,
+      "signature": "[<time>][main]ERROR:RocketMQ topic create failed: baseenterroom516",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log"
+      ]
+    },
+    {
+      "fingerprint": "6d64c0250e17b6c7",
+      "count": 2,
+      "signature": "[<time>][disruptor-pool-<n>]ERROR:CreateRoom:[business.global.mj.cdxzmj.CDXZMJRoom] error:mutable payload type requires a DTO record: jsproto.c2s.cclass.room.BaseRoomConfigure",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game990516/all_2026-08-23.log"
+      ]
+    },
+    {
+      "fingerprint": "73407d49924f7c64",
+      "count": 2,
+      "signature": "[<time>][disruptor-pool-<n>]ERROR:[PlayerHandler]:[club.cclubcreate] cid:<n> error:Cannot invoke \"java.lang.Integer.intValue()\" because the return value of \"java.lang.reflect.InvocationHandler.invoke(Object, java.lang.reflect.Method, Object[])\" is null",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log"
+      ]
+    },
+    {
+      "fingerprint": "85219c9211d64a51",
+      "count": 2,
+      "signature": "[<time>][main]ERROR:RocketMQ topic create failed: basechangeroom516",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log"
+      ]
+    },
+    {
+      "fingerprint": "8f56d0a69fbe45eb",
+      "count": 2,
+      "signature": "[<time>][disruptor-pool-<n>]ERROR:登录账号(<n>) != session绑定账号ID(<n>)",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-23.log"
+      ]
+    },
+    {
+      "fingerprint": "a7fdd327ec8ee4db",
+      "count": 2,
+      "signature": "[<n>-<n>-<n> <n>:<n>:<n>.<n>][disruptor-pool-<n>]ERROR:登录账号(<n>) != session绑定账号ID(<n>)",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/hall/local-console.log"
+      ]
+    },
+    {
+      "fingerprint": "c2ec2b53df780055",
+      "count": 2,
+      "signature": "[<time>][ConsumeMessageThread_game_app_group_16]ERROR:Cannot invoke \"business.shareplayer.SharePlayer.getPlayerBO()\" because \"sharePlayer\" is null",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-23.log"
+      ]
+    },
+    {
+      "fingerprint": "d401dbe663ccced4",
+      "count": 2,
+      "signature": "[<time>][main]ERROR:RocketMQ topic create failed: basechangeroom629",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log"
+      ]
+    },
+    {
+      "fingerprint": "d571f346ec276909",
+      "count": 2,
+      "signature": "[<time>][main]ERROR:RocketMQ topic create failed: baseexitroom516",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log"
+      ]
+    },
+    {
+      "fingerprint": "dce01388a1b89dcb",
+      "count": 2,
+      "signature": "[<time>][STT-Default-<n>]ERROR:账号服务器(http://<ip>/JavaServerPack)返回({\"code\":\"<n>\",\"message\":\"登陆账号不存在\",\"result\":null}),验证解析失败",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log"
+      ]
+    },
+    {
+      "fingerprint": "e824eb0521da49e8",
+      "count": 2,
+      "signature": "[<time>][main]ERROR:RocketMQ topic create failed: basecreateroom516",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log"
+      ]
+    },
+    {
+      "fingerprint": "f07f0f40304b47d5",
+      "count": 2,
+      "signature": "Exception in thread \"main\" java.lang.NoClassDefFoundError: com/fasterxml/jackson/databind/ObjectMapper",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/hall/local-console.log"
+      ]
+    },
+    {
+      "fingerprint": "f14ae26e7b307126",
+      "count": 2,
+      "signature": "[<time>][main]ERROR:RocketMQ topic create failed: baseexitroom629",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log"
+      ]
+    },
+    {
+      "fingerprint": "f74c7be5ea72d500",
+      "count": 2,
+      "signature": "Exception in thread \"main\" java.lang.IllegalStateException: service readiness failed: databaseConnectionAndSchema: cannot inspect production database schema: database session time zone must be UTC",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/hall/local-console.log"
+      ]
+    },
+    {
+      "fingerprint": "017d6c892058355a",
+      "count": 1,
+      "signature": "[<time>][disruptor-pool-<n>]ERROR:handle [0xprotocol.v2.dispatch] request failed, reason: database operation failed: find idempotency",
+      "rootCauseClass": "database-access",
+      "owner": "platform-data",
+      "regressionGate": "integration-test",
+      "files": [
+        "logs/game7103/all_2026-08-23.log"
+      ]
+    },
+    {
+      "fingerprint": "073238bca117ad35",
+      "count": 1,
+      "signature": "[<time>][ConsumeMessageThread_game_app_group_14]ERROR:[RefSignIn表DailySignIn]活动数目出错,天数出错 DailySignInMaxDay:<n>,DailySignInCount10",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log"
+      ]
+    },
+    {
+      "fingerprint": "0c6b041d5bb15802",
+      "count": 1,
+      "signature": "[<time>][main]ERROR:redis time <n> ms, key=shareAllPlayerKey, method=hgetAll",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log"
+      ]
+    },
+    {
+      "fingerprint": "0e6fa20898f5f798",
+      "count": 1,
+      "signature": "[<time>][Task_Worker-<n>]ERROR:redis time <n> ms, key=shareNodeServerKey hkey=<n>.<n>.<n>.<n> method=hget",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game990629/all_2026-08-22.log"
+      ]
+    },
+    {
+      "fingerprint": "244c2c89d1d18a6b",
+      "count": 1,
+      "signature": "[<time>][disruptor-pool-<n>]ERROR:账号(<n>)没有login",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log"
+      ]
+    },
+    {
+      "fingerprint": "268119e5749c3525",
+      "count": 1,
+      "signature": "[<time>][main]ERROR:RocketMQ topic create failed: cluballministerbyclubnotify",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log"
+      ]
+    },
+    {
+      "fingerprint": "30e653f70aadcd2f",
+      "count": 1,
+      "signature": "[<time>][main]ERROR:redis time <n> ms, key=shareNodeServerKey hkey=<n>.<n>.<n>.<n> method=hget",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log"
+      ]
+    },
+    {
+      "fingerprint": "3ddd57d9231df1f5",
+      "count": 1,
+      "signature": "[<n>-<n>-<n> <n>:<n>:<n>.<n>][main]ERROR:redis time <n> ms, key=shareNodeServerKey hkey=<n>.<n>.<n>.<n> method=hget",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/f03-runtime/njpdk.log"
+      ]
+    },
+    {
+      "fingerprint": "40d90ddef3c1d5fe",
+      "count": 1,
+      "signature": "[<time>][main]ERROR:RocketMQ topic create failed: playerchangenotify",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log"
+      ]
+    },
+    {
+      "fingerprint": "446265f0d77eecd7",
+      "count": 1,
+      "signature": "Exception in thread \"main\" java.lang.IllegalStateException: service readiness failed: databaseConnectionAndSchema: cannot inspect production database schema: unsafe query plan: idempotency-result",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/hall/local-console.log"
+      ]
+    },
+    {
+      "fingerprint": "455811d343fc519c",
+      "count": 1,
+      "signature": "[<time>][ConsumeMessageThread_game_app_group_15]ERROR:[RefSignIn表DailySignIn]活动数目出错,天数出错 DailySignInMaxDay:<n>,DailySignInCount8",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log"
+      ]
+    },
+    {
+      "fingerprint": "4b1ebf205c8ca8a7",
+      "count": 1,
+      "signature": "[<time>][main]ERROR:redis time <n> ms, key=shareOnlinePlayerKey, method=hgetAll",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log"
+      ]
+    },
+    {
+      "fingerprint": "4bae7defb66547ba",
+      "count": 1,
+      "signature": "[<time>][main]ERROR:RocketMQ topic create failed: cluballministerandpidbyclubnotify",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log"
+      ]
+    },
+    {
+      "fingerprint": "4ffb13c506791810",
+      "count": 1,
+      "signature": "Exception in thread \"main\" java.lang.IllegalStateException: service readiness failed: databaseConnectionAndSchema: cannot inspect production database schema: unsafe query plan: club-member-page",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/hall/local-console.log"
+      ]
+    },
+    {
+      "fingerprint": "50586288aa7e8f48",
+      "count": 1,
+      "signature": "[<time>][ConsumeMessageThread_game_app_group_14]ERROR:[RefSignIn表DailySignIn]活动数目出错,天数出错 DailySignInMaxDay:<n>,DailySignInCount9",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log"
+      ]
+    },
+    {
+      "fingerprint": "5535bc8f078a1353",
+      "count": 1,
+      "signature": "Exception in thread \"main\" java.lang.ExceptionInInitializerError",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game516/local-console.log"
+      ]
+    },
+    {
+      "fingerprint": "57c584da062bf4d1",
+      "count": 1,
+      "signature": "Exception in thread \"main\" java.lang.IllegalStateException: service readiness failed: databaseConnectionAndSchema: production database migrations are incomplete: CHECK chk_room_event_identity, CHECK chk_room_event_visibility",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/hall/local-console.log"
+      ]
+    },
+    {
+      "fingerprint": "5e1f1439759306bb",
+      "count": 1,
+      "signature": "at org.ehcache.core.StatusTransitioner$Transition.failed(StatusTransitioner.java:<n>)",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game516/local-console.log"
+      ]
+    },
+    {
+      "fingerprint": "63255e415ffbf727",
+      "count": 1,
+      "signature": "[<time>][ConsumeMessageThread_game_app_group_15]ERROR:[RefSignIn表DailySignIn]活动数目出错,天数出错 DailySignInMaxDay:<n>,DailySignInCount6",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log"
+      ]
+    },
+    {
+      "fingerprint": "6f7f503e6377f90f",
+      "count": 1,
+      "signature": "[<n>-<n>-<n> <n>:<n>:<n>.<n>][main]ERROR:redis time <n> ms, key=shareOnlinePlayerKey, method=hgetAll",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/hall/local-console.log"
+      ]
+    },
+    {
+      "fingerprint": "78c6b8bbc8168447",
+      "count": 1,
+      "signature": "[<time>][ConsumeMessageThread_game_app_group_15]ERROR:[RefSignIn表DailySignIn]活动数目出错,天数出错 DailySignInMaxDay:<n>,DailySignInCount13",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log"
+      ]
+    },
+    {
+      "fingerprint": "7b5c385967439134",
+      "count": 1,
+      "signature": "[<time>][main]ERROR:RocketMQ topic create failed: allhallback",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log"
+      ]
+    },
+    {
+      "fingerprint": "7f4ffaede0d15743",
+      "count": 1,
+      "signature": "[<time>][main]ERROR:RocketMQ topic create failed: UNIONCLUBALLMEMBERNOTIFY",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log"
+      ]
+    },
+    {
+      "fingerprint": "8017cca61db702f0",
+      "count": 1,
+      "signature": "[<time>][ConsumeMessageThread_game_app_group_15]ERROR:[RefSignIn表DailySignIn]活动数目出错,天数出错 DailySignInMaxDay:<n>,DailySignInCount11",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log"
+      ]
+    },
+    {
+      "fingerprint": "842020d9b9e74a1e",
+      "count": 1,
+      "signature": "[<time>][main]ERROR:RocketMQ topic create failed: gamestarttohallnotify",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log"
+      ]
+    },
+    {
+      "fingerprint": "8472692693312cb4",
+      "count": 1,
+      "signature": "[<time>][disruptor-pool-<n>]ERROR:handle [0xprotocol.v2.dispatch] request failed, reason: WsTicketSecret must contain at least <n> characters",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-23.log"
+      ]
+    },
+    {
+      "fingerprint": "8b8ce22b496cd3f9",
+      "count": 1,
+      "signature": "[<time>][main]ERROR:RocketMQ topic create failed: notify2allbyclub",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log"
+      ]
+    },
+    {
+      "fingerprint": "91ab28a0297d6718",
+      "count": 1,
+      "signature": "[<time>][schedule-pool-<n>]ERROR:room.cfg.heitaosanbichu is Error",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log"
+      ]
+    },
+    {
+      "fingerprint": "9fc48d0ac3208bdc",
+      "count": 1,
+      "signature": "[<time>][ConsumeMessageThread_game_app_group_14]ERROR:[RefSignIn表DailySignIn]活动数目出错,天数出错 DailySignInMaxDay:<n>,DailySignInCount4",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log"
+      ]
+    },
+    {
+      "fingerprint": "a69e652b1b360938",
+      "count": 1,
+      "signature": "Exception in thread \"main\" java.lang.IllegalStateException: cannot list recoverable room snapshots",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/hall/local-console.log"
+      ]
+    },
+    {
+      "fingerprint": "ab8ea7a75609535f",
+      "count": 1,
+      "signature": "[<time>][main]ERROR:RocketMQ topic create failed: clubmemberallupdate",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log"
+      ]
+    },
+    {
+      "fingerprint": "b4fc0cb6a65a582f",
+      "count": 1,
+      "signature": "[<time>][ConsumeMessageThread_game_app_group_14]ERROR:[RefSignIn表DailySignIn]活动数目出错,天数出错 DailySignInMaxDay:<n>,DailySignInCount7",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log"
+      ]
+    },
+    {
+      "fingerprint": "ba4a2a2f2686a2bb",
+      "count": 1,
+      "signature": "[<time>][main]ERROR:RocketMQ topic create failed: cluballbyclubminsternotify",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log"
+      ]
+    },
+    {
+      "fingerprint": "bb43e38f945b0b69",
+      "count": 1,
+      "signature": "Exception in thread \"main\" java.lang.IllegalStateException: service readiness failed: databaseConnectionAndSchema: cannot inspect production database schema",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/hall/local-console.log"
+      ]
+    },
+    {
+      "fingerprint": "c2c4bdb301b7433f",
+      "count": 1,
+      "signature": "[<time>][ConsumeMessageThread_game_app_group_15]ERROR:[RefSignIn表DailySignIn]活动数目出错,天数出错 DailySignInMaxDay:<n>,DailySignInCount12",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log"
+      ]
+    },
+    {
+      "fingerprint": "c4312427e54507f1",
+      "count": 1,
+      "signature": "[<time>][main]ERROR:升级数据库失败，原因Cannot invoke \"core.db.service.DBVersionInfoBOService.setSourceName(String)\" because \"this.dbVersionInfoBOService\" is null",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log"
+      ]
+    },
+    {
+      "fingerprint": "c45888c170d19306",
+      "count": 1,
+      "signature": "[<n>-<n>-<n> <n>:<n>:<n>.<n>][main]ERROR:升级数据库失败，原因Cannot invoke \"core.db.service.DBVersionInfoBOService.setSourceName(String)\" because \"this.dbVersionInfoBOService\" is null",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/hall/local-console.log"
+      ]
+    },
+    {
+      "fingerprint": "c90d47e45c46f81f",
+      "count": 1,
+      "signature": "[<time>][main]ERROR:RocketMQ topic create failed: notify2AllByUnion",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log"
+      ]
+    },
+    {
+      "fingerprint": "d856cfc9dc0a6135",
+      "count": 1,
+      "signature": "[<time>][main]ERROR:升级数据库失败，请确认数据库连接配置，原因Cannot read the array length because \"args\" is null",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log"
+      ]
+    },
+    {
+      "fingerprint": "dadc6eb8d086f4df",
+      "count": 1,
+      "signature": "[<time>][ConsumeMessageThread_game_app_group_14]ERROR:[RefSignIn表DailySignIn]活动数目出错,天数出错 DailySignInMaxDay:<n>,DailySignInCount5",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log"
+      ]
+    },
+    {
+      "fingerprint": "eb0c5ffa15a041fb",
+      "count": 1,
+      "signature": "[<time>][ConsumeMessageThread_game_app_group_15]ERROR:[RefSignIn表DailySignIn]活动数目出错,天数出错 DailySignInMaxDay:<n>,DailySignInCount4",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log"
+      ]
+    },
+    {
+      "fingerprint": "eed658f1f495301b",
+      "count": 1,
+      "signature": "java.lang.IllegalStateException: database operation failed: find idempotency",
+      "rootCauseClass": "database-access",
+      "owner": "platform-data",
+      "regressionGate": "integration-test",
+      "files": [
+        "logs/game7103/all_2026-08-23.log"
+      ]
+    },
+    {
+      "fingerprint": "ef08276479c5043b",
+      "count": 1,
+      "signature": "Exception in thread \"main\" java.lang.IllegalStateException: service readiness failed: databaseConnectionAndSchema: cannot inspect production database schema: unsafe query plan: outbox-claim",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/hall/local-console.log"
+      ]
+    },
+    {
+      "fingerprint": "f27390fa0abd14e5",
+      "count": 1,
+      "signature": "[<time>][disruptor-pool-<n>]ERROR:CreateRoom:[business.global.pk.njpdk.NJPDKRoom] error:null",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game7103/all_2026-08-22.log"
+      ]
+    },
+    {
+      "fingerprint": "f82fe50936272ffc",
+      "count": 1,
+      "signature": "[<n>-<n>-<n> <n>:<n>:<n>.<n>][main]ERROR:redis time <n> ms, key=shareAllPlayerKey, method=hgetAll",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/f03-runtime/hall.log"
+      ]
+    },
+    {
+      "fingerprint": "fd50e387fd1df8ed",
+      "count": 1,
+      "signature": "[<time>][Task_Worker-<n>]ERROR:redis time <n> ms, key=shareOnlinePlayerKey, method=hlen",
+      "rootCauseClass": "unclassified-runtime-error",
+      "owner": "observability",
+      "regressionGate": "reproduction-required",
+      "files": [
+        "logs/game990629/all_2026-08-22.log"
+      ]
+    }
+  ]
+}

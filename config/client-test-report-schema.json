@@ -1,0 +1,5 @@
+{
+  "schemaVersion": 1,
+  "required": ["sourceRevision", "clientAssetSha256", "backendVersion", "creatorVersion", "browser", "testSuite", "startedAt", "finishedAt", "result"],
+  "policy": "Every generated Client test report must have an adjacent <report>.metadata.json file and reports without matching current execution metadata are non-authoritative."
+}

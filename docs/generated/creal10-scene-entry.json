@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "totalScenes": 13,
+  "scenes": [
+    "assets/Games/Common/Scenes/GameRoom2D.scene",
+    "assets/Games/Common/Scenes/GameRoom3D.scene",
+    "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/scenes/hzmjLaunchScene.scene",
+    "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/scenes/hzmjLoginScene.scene",
+    "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/scenes/hzmjMainScene.scene",
+    "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/scenes/hzmjScene.scene",
+    "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/scenes/hzmjVideoScene.scene",
+    "assets/Login/Prefab/Scenes/Bootstrap.scene",
+    "assets/Login/Prefab/Scenes/launchScene.scene",
+    "assets/Login/Prefab/Scenes/loginScene.scene",
+    "assets/Login/Prefab/Scenes/mainScene.scene",
+    "assets/Login/Prefab/Scenes/reloadScene.scene",
+    "assets/Login/Prefab/scene/loginScene.scene"
+  ],
+  "duplicateSceneNames": {
+    "loginScene.scene": [
+      "assets/Login/Prefab/Scenes/loginScene.scene",
+      "assets/Login/Prefab/scene/loginScene.scene"
+    ]
+  },
+  "bootstrapImplementations": [
+    "assets/Common/Code/Runtime/bootstrap/LoginScreenBootstrap.ts",
+    "assets/Common/Code/Runtime/CompatibilityApp/bootstrap/LoginScreenBootstrap.ts",
+    "assets/Login/Code/Runtime/bootstrap/LoginScreenBootstrap.ts"
+  ],
+  "sceneLoaderFiles": [
+    "assets/Lobby/Code/Runtime/LegacyLobbyScreen.ts",
+    "assets/Common/Code/Runtime/bootstrap/LoginScreenBootstrap.ts",
+    "assets/Common/Code/Runtime/CompatibilityApp/bootstrap/LoginScreenBootstrap.ts",
+    "assets/Common/Code/Runtime/CompatibilityApp/lobby/LegacyLobbyScreen.ts",
+    "assets/Login/Code/Runtime/bootstrap/LoginScreenBootstrap.ts"
+  ],
+  "checks": {
+    "uniqueSceneNames": false,
+    "singleBootstrapImplementation": false,
+    "sourceLaunchSceneConfigured": false,
+    "transitionFallbackTests": false
+  },
+  "verdict": "blocked-scene-entry-convergence"
+}

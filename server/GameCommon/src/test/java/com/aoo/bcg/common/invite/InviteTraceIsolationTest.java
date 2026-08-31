@@ -1,0 +1,3 @@
+package com.aoo.bcg.common.invite;
+import java.time.Instant;import java.util.ArrayList;import org.junit.jupiter.api.Test;import static org.junit.jupiter.api.Assertions.*;
+class InviteTraceIsolationTest{@Test void telemetryFieldsCannotGrantAdmission(){var events=new ArrayList<InviteTraceEvent>();InviteTelemetry telemetry=events::add;telemetry.record(new InviteTraceEvent("trace","invite",1,InviteTraceEvent.Stage.JOIN_ATTEMPTED,"wechat","claimed_admin",Instant.now()));var denied=new InviteAdmissionPolicy().decide(new InviteAdmissionPolicy.Context(true,true,true,false,0,true,false,true,false,true,false,true));assertFalse(denied.allowed());assertEquals("PRIVATE_ACCESS_REQUIRED",denied.code());assertEquals(1,events.size());}}

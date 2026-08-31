@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "locks": [
+    {
+      "path": "pnpm-lock.yaml",
+      "sha256": "17c814b167307942d3609c7b9d916ceddb85839573ab39baa114e30edb132a1a"
+    }
+  ],
+  "packageManager": "pnpm@11.19.0",
+  "engines": {
+    "cocos": "3.8.8",
+    "node": "20.10.0",
+    "pnpm": "11.19.0"
+  },
+  "checks": {
+    "singleLock": true,
+    "packageManager": true,
+    "nodePinned": true,
+    "pnpmPinned": true,
+    "lockVersion": true
+  },
+  "passed": true
+}

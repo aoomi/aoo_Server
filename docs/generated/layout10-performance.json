@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "requiredMetrics": [
+    "layoutRecalculationMs",
+    "frameRate",
+    "memory",
+    "touchLatency"
+  ],
+  "measuredProfiles": [
+
+  ],
+  "passed": false
+}

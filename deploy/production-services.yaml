@@ -1,0 +1,29 @@
+apiVersion: aoo/v1
+kind: ProductionServiceCatalog
+runtime:
+  javaRelease: 25
+  validationJdk: 26.0.2.1
+externalFacilities: [mysql, redis, rocketmq]
+managedFacilities:
+  - {name: mongodb, image: "mongo:8.0.29-noble", serverVersion: "8.0.29", port: 27017, manifest: deploy/ops/kubernetes/mongodb.yaml}
+services:
+  - name: account
+    module: server/LegacyAccountServer/server
+    ports: [{name: http, containerPort: 904}]
+    readiness: {type: http, port: 904, path: /health, initialDelaySeconds: 30, timeoutSeconds: 5}
+    resources: {cpuRequest: 500m, cpuLimit: "2", memoryRequest: 512Mi, memoryLimit: 2Gi}
+  - name: hall
+    module: server/LegacyGameHall
+    ports: [{name: wss, containerPort: 9998}, {name: http, containerPort: 9888}]
+    readiness: {type: tcp, port: 9998, initialDelaySeconds: 30, timeoutSeconds: 5}
+    resources: {cpuRequest: 500m, cpuLimit: "2", memoryRequest: 512Mi, memoryLimit: 2Gi}
+  - name: njpdk
+    module: server/NJPDK
+    ports: [{name: wss, containerPort: 9996}, {name: http, containerPort: 9886}]
+    readiness: {type: tcp, port: 9996, initialDelaySeconds: 30, timeoutSeconds: 5}
+    resources: {cpuRequest: 500m, cpuLimit: "2", memoryRequest: 512Mi, memoryLimit: 2Gi}
+  - name: cdxzmj
+    module: server/CDXZMJ
+    ports: [{name: wss, containerPort: 19996}, {name: http, containerPort: 19886}]
+    readiness: {type: tcp, port: 19996, initialDelaySeconds: 30, timeoutSeconds: 5}
+    resources: {cpuRequest: 500m, cpuLimit: "2", memoryRequest: 512Mi, memoryLimit: 2Gi}

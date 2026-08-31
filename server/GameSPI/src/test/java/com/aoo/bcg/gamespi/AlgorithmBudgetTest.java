@@ -1,0 +1,3 @@
+package com.aoo.bcg.gamespi;
+import static org.junit.jupiter.api.Assertions.*;import java.time.Duration;import org.junit.jupiter.api.Test;
+class AlgorithmBudgetTest{@Test void boundsInputStepsAndDepth(){assertThrows(IllegalArgumentException.class,()->AlgorithmBudget.start(55,54,10,2,Duration.ofSeconds(1)));var steps=AlgorithmBudget.start(10,54,2,2,Duration.ofSeconds(1));steps.step();steps.step();assertThrows(AlgorithmBudget.BudgetExceededException.class,steps::step);var depth=AlgorithmBudget.start(1,54,10,1,Duration.ofSeconds(1));try(var ignored=depth.enter()){assertThrows(AlgorithmBudget.BudgetExceededException.class,depth::enter);}assertDoesNotThrow(depth::step);}}

@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "domain": "Lobby",
+  "directCalls": {
+    "localStorage": [
+      {
+        "path": "assets/Lobby/Code/Runtime/LegacyLobbyScreen.ts",
+        "line": 914
+      }
+    ],
+    "bundle": [
+      {
+        "path": "assets/Lobby/Code/Runtime/LegacyCreateRoomController.ts",
+        "line": 312
+      },
+      {
+        "path": "assets/Lobby/Code/Runtime/LegacyGameCatalogController.ts",
+        "line": 177
+      },
+      {
+        "path": "assets/Lobby/Code/Runtime/LegacyRegionController.ts",
+        "line": 346
+      }
+    ],
+    "websocket": [
+
+    ],
+    "native": [
+
+    ],
+    "fetch": [
+
+    ]
+  },
+  "centralized": false,
+  "passed": false
+}

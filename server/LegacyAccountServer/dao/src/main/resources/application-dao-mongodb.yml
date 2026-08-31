@@ -1,0 +1,29 @@
+spring:
+  datasource:
+    druid:
+      mongodb-game:
+        address: 127.0.0.1:27017
+        database: ${ACCOUNT_MONGODB_DATABASE:clark_mongodb}
+        username: ${ACCOUNT_MONGODB_USER:}
+        password: ${ACCOUNT_MONGODB_PASSWORD:}
+      mongodb-pool:
+        min-connections-per-host: 10
+        max-connections-per-host: 100
+        threads-allowed-to-block-for-connection-multiplier: 5
+        server-selection-timeout: 30000
+        max-wait-time: 120000
+        max-connection-idel-time: 0
+        max-connection-life-time: 0
+        connect-timeout: 10000
+        socket-timeout: 0
+        socket-keep-alive: false
+        ssl-enabled: false
+        ssl-invalid-host-name-allowed: false
+        always-use-m-beans: false
+        heartbeat-socket-timeout: 20000
+        heartbeat-connect-timeout: 20000
+        min-heartbeat-frequency: 500
+        heartbeat-frequency: 10000
+        local-threshold: 15
+        authentication-database: auth_dev
+

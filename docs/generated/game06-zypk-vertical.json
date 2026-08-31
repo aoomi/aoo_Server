@@ -1,0 +1,15 @@
+{
+  "task": "GAME06",
+  "status": "blocked-runtime-restore-and-client",
+  "completed": {
+    "moduleBuildAndSixteenTests": true,
+    "serverOnlyStateRestore": true,
+    "perspectiveReconnect": true,
+    "settlementProvider": true
+  },
+  "unresolved": [
+    "provider cannot expose restoreAuthoritativeSession because ZYPKTable is not an AuthoritativeGameSession",
+    "no client UI/protocol integration test covers all actions",
+    "no production full multiplayer flow and failover recovery test"
+  ]
+}

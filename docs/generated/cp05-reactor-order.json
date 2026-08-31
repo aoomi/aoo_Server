@@ -1,0 +1,246 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-23T08:11:44Z",
+  "task": "CP05",
+  "reactorModules": 23,
+  "internalDependencies": 64,
+  "unresolvedInternalDependencies": [
+
+  ],
+  "buildSuccess": true,
+  "buildFailure": false,
+  "packagedJarModules": 22,
+  "expectedJarModules": 22,
+  "passed": true,
+  "modules": [
+    {
+      "modulePath": "server/AooKernel",
+      "artifactId": "aoo-kernel",
+      "packaging": "jar",
+      "dependencies": [
+
+      ]
+    },
+    {
+      "modulePath": "server/GameSPI",
+      "artifactId": "game-spi",
+      "packaging": "jar",
+      "dependencies": [
+
+      ]
+    },
+    {
+      "modulePath": "server/GameCommon",
+      "artifactId": "game-common",
+      "packaging": "jar",
+      "dependencies": [
+        "game-spi"
+      ]
+    },
+    {
+      "modulePath": "server/Mahjong",
+      "artifactId": "game-category-mahjong",
+      "packaging": "jar",
+      "dependencies": [
+        "game-spi",
+        "game-common"
+      ]
+    },
+    {
+      "modulePath": "server/Poker",
+      "artifactId": "game-category-poker",
+      "packaging": "jar",
+      "dependencies": [
+        "game-spi",
+        "game-common"
+      ]
+    },
+    {
+      "modulePath": "server/LongCard",
+      "artifactId": "game-category-long-card",
+      "packaging": "jar",
+      "dependencies": [
+
+      ]
+    },
+    {
+      "modulePath": "server/WordCard",
+      "artifactId": "game-category-word-card",
+      "packaging": "jar",
+      "dependencies": [
+
+      ]
+    },
+    {
+      "modulePath": "server/Families",
+      "artifactId": "game-families",
+      "packaging": "jar",
+      "dependencies": [
+        "game-category-mahjong",
+        "game-category-poker",
+        "game-category-long-card",
+        "game-category-word-card",
+        "game-spi"
+      ]
+    },
+    {
+      "modulePath": "server/Gateway",
+      "artifactId": "game-gateway",
+      "packaging": "jar",
+      "dependencies": [
+        "game-spi",
+        "game-common"
+      ]
+    },
+    {
+      "modulePath": "server/ConfigCenter",
+      "artifactId": "game-config-center",
+      "packaging": "jar",
+      "dependencies": [
+        "game-common",
+        "game-families"
+      ]
+    },
+    {
+      "modulePath": "server/AdminApi",
+      "artifactId": "admin-api",
+      "packaging": "jar",
+      "dependencies": [
+        "game-config-center",
+        "game-billing",
+        "game-common"
+      ]
+    },
+    {
+      "modulePath": "server/Billing",
+      "artifactId": "game-billing",
+      "packaging": "jar",
+      "dependencies": [
+        "game-common"
+      ]
+    },
+    {
+      "modulePath": "server/Games",
+      "artifactId": "games",
+      "packaging": "pom",
+      "dependencies": [
+        "cdxzmj",
+        "njpdk",
+        "scjymj",
+        "xcpdk",
+        "zjh",
+        "zypk"
+      ]
+    },
+    {
+      "modulePath": "server/gameServer",
+      "artifactId": "game-server-framework",
+      "packaging": "jar",
+      "dependencies": [
+        "aoo-kernel",
+        "game-common",
+        "game-gateway",
+        "game-spi"
+      ]
+    },
+    {
+      "modulePath": "server/CDXZMJ",
+      "artifactId": "cdxzmj",
+      "packaging": "jar",
+      "dependencies": [
+        "game-spi",
+        "game-category-mahjong",
+        "game-server-framework",
+        "aoo-kernel"
+      ]
+    },
+    {
+      "modulePath": "server/NJPDK",
+      "artifactId": "njpdk",
+      "packaging": "jar",
+      "dependencies": [
+        "game-spi",
+        "game-common",
+        "game-category-poker",
+        "game-server-framework",
+        "aoo-kernel"
+      ]
+    },
+    {
+      "modulePath": "server/SCJYMJ",
+      "artifactId": "scjymj",
+      "packaging": "jar",
+      "dependencies": [
+        "game-spi",
+        "game-category-mahjong",
+        "game-server-framework"
+      ]
+    },
+    {
+      "modulePath": "server/XCPDK",
+      "artifactId": "xcpdk",
+      "packaging": "jar",
+      "dependencies": [
+        "game-spi",
+        "game-common",
+        "game-category-poker",
+        "game-server-framework"
+      ]
+    },
+    {
+      "modulePath": "server/ZJH",
+      "artifactId": "zjh",
+      "packaging": "jar",
+      "dependencies": [
+        "game-spi",
+        "game-common",
+        "game-category-poker",
+        "game-server-framework"
+      ]
+    },
+    {
+      "modulePath": "server/ZYPK",
+      "artifactId": "zypk",
+      "packaging": "jar",
+      "dependencies": [
+        "game-spi",
+        "game-common",
+        "game-category-poker",
+        "game-server-framework"
+      ]
+    },
+    {
+      "modulePath": "server/Hall",
+      "artifactId": "game-hall",
+      "packaging": "jar",
+      "dependencies": [
+        "game-common",
+        "game-spi",
+        "game-config-center",
+        "account-domain"
+      ]
+    },
+    {
+      "modulePath": "server/Account",
+      "artifactId": "account-domain",
+      "packaging": "jar",
+      "dependencies": [
+        "game-common",
+        "game-billing"
+      ]
+    },
+    {
+      "modulePath": "server/Bootstrap",
+      "artifactId": "game-bootstrap",
+      "packaging": "jar",
+      "dependencies": [
+        "game-common",
+        "game-billing",
+        "game-spi",
+        "game-config-center",
+        "game-hall",
+        "games"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+# MQ 队列批准
+rocketmq:
+  name-server: 127.0.0.1:9876
+  producer:
+    #发送消息失败重试次数，默认0
+    retryTimesWhenSendFailed: 0
+    group: producer_game_app_group_hall
+  consumer:
+    group: consumer_game_app_group_hall

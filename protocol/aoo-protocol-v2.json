@@ -1,0 +1,1410 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "aoo-protocol-v2",
+  "title": "Aoo Protocol V2",
+  "protocolVersion": "2.0",
+  "transport": {
+    "http": "HTTPS",
+    "realtime": "WSS",
+    "compatibilityEvent": "protocol.v2.dispatch",
+    "pushEvent": "protocol.v2.push"
+  },
+  "requiredRequestFields": [
+    "protocolVersion",
+    "msgId",
+    "kind",
+    "requestId",
+    "seq",
+    "timestamp",
+    "traceId",
+    "body"
+  ],
+  "requiredResponseFields": [
+    "protocolVersion",
+    "msgId",
+    "kind",
+    "requestId",
+    "seq",
+    "timestamp",
+    "traceId",
+    "code",
+    "message",
+    "body"
+  ],
+  "errorCodeRanges": {
+    "COMMON": "1000-1999",
+    "ACCOUNT": "2000-2999",
+    "ROOM": "3000-3999",
+    "GAME": "4000-4999",
+    "BILLING": "5000-5999",
+    "CLUB": "6000-6999"
+  },
+  "successCode": 0,
+  "messages": [
+    {
+      "msgId": "account.login",
+      "kind": "req",
+      "direction": "client_to_server",
+      "transport": "HTTPS",
+      "version": "2.0",
+      "stage": "M1",
+      "auth": "anonymous",
+      "write": true,
+      "idempotency": "required",
+      "request": {
+        "type": "object",
+        "required": [
+          "loginType",
+          "credential",
+          "deviceId"
+        ],
+        "properties": {
+          "loginType": "string",
+          "credential": "string",
+          "deviceId": "string",
+          "clientVersion": "string"
+        }
+      },
+      "response": {
+        "type": "object",
+        "required": [
+          "accessToken",
+          "refreshToken",
+          "userId",
+          "wsTicket"
+        ],
+        "properties": {
+          "accessToken": "string",
+          "refreshToken": "string",
+          "userId": "string",
+          "wsTicket": "string"
+        }
+      },
+      "errors": [
+        1001,
+        1002,
+        2001,
+        2002
+      ]
+    },
+    {
+      "msgId": "account.login_compat",
+      "kind": "req",
+      "direction": "client_to_server",
+      "transport": "HTTPS",
+      "version": "2.0",
+      "stage": "M1",
+      "auth": "anonymous",
+      "write": true,
+      "idempotency": "required",
+      "request": {
+        "type": "object",
+        "required": [
+          "action",
+          "payload",
+          "deviceId"
+        ],
+        "properties": {
+          "action": "string",
+          "payload": "object",
+          "deviceId": "string",
+          "clientVersion": "string"
+        }
+      },
+      "response": {
+        "type": "object",
+        "required": [
+          "payload",
+          "wsTicket"
+        ],
+        "properties": {
+          "payload": "object",
+          "wsTicket": "string"
+        }
+      },
+      "errors": [
+        1001,
+        1002,
+        2001,
+        2002
+      ]
+    },
+    {
+      "msgId": "account.ws_ticket",
+      "kind": "req",
+      "direction": "client_to_server",
+      "transport": "HTTPS",
+      "version": "2.0",
+      "stage": "M1",
+      "auth": "access_token",
+      "write": true,
+      "idempotency": "required",
+      "request": {
+        "type": "object",
+        "required": [
+          "deviceId"
+        ],
+        "properties": {
+          "deviceId": "string"
+        }
+      },
+      "response": {
+        "type": "object",
+        "required": [
+          "wsTicket",
+          "expiresInSeconds"
+        ],
+        "properties": {
+          "wsTicket": "string",
+          "expiresInSeconds": "integer"
+        }
+      },
+      "errors": [
+        1001,
+        1003,
+        2003
+      ]
+    },
+    {
+      "msgId": "account.session_dispatch",
+      "kind": "req",
+      "direction": "client_to_server",
+      "transport": "WSS",
+      "version": "2.0",
+      "stage": "M1",
+      "auth": "ws_ticket",
+      "write": true,
+      "idempotency": "required",
+      "request": {
+        "type": "object",
+        "required": [
+          "action",
+          "payload"
+        ],
+        "properties": {
+          "action": "string",
+          "payload": "object"
+        }
+      },
+      "response": {
+        "type": "object",
+        "required": [
+          "payload"
+        ],
+        "properties": {
+          "payload": "object"
+        }
+      },
+      "errors": [
+        1001,
+        1003,
+        2001,
+        2003
+      ]
+    },
+    {
+      "msgId": "hall.dispatch",
+      "kind": "req",
+      "direction": "client_to_server",
+      "transport": "WSS",
+      "version": "2.0",
+      "stage": "M2",
+      "auth": "session",
+      "write": false,
+      "idempotency": "optional",
+      "request": {
+        "type": "object",
+        "required": [
+          "action",
+          "payload"
+        ],
+        "properties": {
+          "action": "string",
+          "payload": "object"
+        }
+      },
+      "response": {
+        "type": "object",
+        "required": [
+          "payload"
+        ],
+        "properties": {
+          "payload": "object",
+          "stateVersion": "integer"
+        }
+      },
+      "errors": [
+        1001,
+        1003,
+        2003
+      ]
+    },
+    {
+      "msgId": "club.dispatch",
+      "kind": "req",
+      "direction": "client_to_server",
+      "transport": "WSS",
+      "version": "2.0",
+      "stage": "M3",
+      "auth": "session",
+      "write": true,
+      "idempotency": "required",
+      "request": {
+        "type": "object",
+        "required": [
+          "action",
+          "payload",
+          "clubId"
+        ],
+        "properties": {
+          "action": "string",
+          "payload": "object",
+          "clubId": "string"
+        }
+      },
+      "response": {
+        "type": "object",
+        "required": [
+          "payload"
+        ],
+        "properties": {
+          "payload": "object",
+          "stateVersion": "integer"
+        }
+      },
+      "errors": [
+        1001,
+        1003,
+        6001,
+        6002
+      ]
+    },
+    {
+      "msgId": "common.room.dispatch",
+      "kind": "req",
+      "direction": "client_to_server",
+      "transport": "WSS",
+      "version": "2.0",
+      "stage": "M4",
+      "auth": "room_session",
+      "write": true,
+      "idempotency": "required",
+      "request": {
+        "type": "object",
+        "required": [
+          "action",
+          "payload"
+        ],
+        "properties": {
+          "action": "string",
+          "payload": "object",
+          "lastServerSeq": "integer",
+          "reconnectToken": "string"
+        }
+      },
+      "response": {
+        "type": "object",
+        "required": [
+          "payload",
+          "stateVersion"
+        ],
+        "properties": {
+          "payload": "object",
+          "stateVersion": "integer",
+          "serverSeq": "integer"
+        }
+      },
+      "errors": [
+        1001,
+        1003,
+        3001,
+        3002,
+        3003
+      ]
+    },
+    {
+      "msgId": "common.room.state_push",
+      "kind": "push",
+      "direction": "server_to_client",
+      "transport": "WSS",
+      "version": "2.0",
+      "stage": "M4",
+      "auth": "room_session",
+      "write": false,
+      "idempotency": "none",
+      "request": {
+        "type": "object",
+        "required": [],
+        "properties": {}
+      },
+      "response": {
+        "type": "object",
+        "required": [
+          "payload",
+          "stateVersion",
+          "serverSeq"
+        ],
+        "properties": {
+          "payload": "object",
+          "stateVersion": "integer",
+          "serverSeq": "integer"
+        }
+      },
+      "errors": []
+    },
+    {
+      "kind": "push",
+      "direction": "server_to_client",
+      "transport": "WSS",
+      "version": "2.0",
+      "stage": "M1",
+      "auth": "session",
+      "write": false,
+      "idempotency": "none",
+      "request": {
+        "type": "object",
+        "required": [],
+        "properties": {}
+      },
+      "response": {
+        "type": "object",
+        "required": [
+          "action",
+          "payload"
+        ],
+        "properties": {
+          "action": "string",
+          "payload": "object"
+        }
+      },
+      "errors": [],
+      "msgId": "account.session_push"
+    },
+    {
+      "kind": "push",
+      "direction": "server_to_client",
+      "transport": "WSS",
+      "version": "2.0",
+      "stage": "M2",
+      "auth": "session",
+      "write": false,
+      "idempotency": "none",
+      "request": {
+        "type": "object",
+        "required": [],
+        "properties": {}
+      },
+      "response": {
+        "type": "object",
+        "required": [
+          "action",
+          "payload"
+        ],
+        "properties": {
+          "action": "string",
+          "payload": "object"
+        }
+      },
+      "errors": [],
+      "msgId": "hall.state_push"
+    },
+    {
+      "kind": "push",
+      "direction": "server_to_client",
+      "transport": "WSS",
+      "version": "2.0",
+      "stage": "M3",
+      "auth": "session",
+      "write": false,
+      "idempotency": "none",
+      "request": {
+        "type": "object",
+        "required": [],
+        "properties": {}
+      },
+      "response": {
+        "type": "object",
+        "required": [
+          "action",
+          "payload"
+        ],
+        "properties": {
+          "action": "string",
+          "payload": "object"
+        }
+      },
+      "errors": [],
+      "msgId": "club.state_push"
+    },
+    {
+      "kind": "push",
+      "direction": "server_to_client",
+      "transport": "WSS",
+      "version": "2.0",
+      "stage": "M5",
+      "auth": "room_session",
+      "write": false,
+      "idempotency": "none",
+      "request": {
+        "type": "object",
+        "required": [],
+        "properties": {}
+      },
+      "response": {
+        "type": "object",
+        "required": [
+          "action",
+          "payload"
+        ],
+        "properties": {
+          "action": "string",
+          "payload": "object"
+        }
+      },
+      "errors": [],
+      "msgId": "poker.njpdk.state_push"
+    },
+    {
+      "kind": "push",
+      "direction": "server_to_client",
+      "transport": "WSS",
+      "version": "2.0",
+      "stage": "M6",
+      "auth": "room_session",
+      "write": false,
+      "idempotency": "none",
+      "request": {
+        "type": "object",
+        "required": [],
+        "properties": {}
+      },
+      "response": {
+        "type": "object",
+        "required": [
+          "action",
+          "payload"
+        ],
+        "properties": {
+          "action": "string",
+          "payload": "object"
+        }
+      },
+      "errors": [],
+      "msgId": "mahjong.xuezhan.state_push"
+    },
+    {
+      "kind": "push",
+      "direction": "server_to_client",
+      "transport": "WSS",
+      "version": "2.0",
+      "stage": "M7",
+      "auth": "room_session",
+      "write": false,
+      "idempotency": "none",
+      "request": {
+        "type": "object",
+        "required": [],
+        "properties": {}
+      },
+      "response": {
+        "type": "object",
+        "required": [
+          "action",
+          "payload"
+        ],
+        "properties": {
+          "action": "string",
+          "payload": "object"
+        }
+      },
+      "errors": [],
+      "msgId": "game.state_push"
+    },
+    {
+      "kind": "push",
+      "direction": "server_to_client",
+      "transport": "WSS",
+      "version": "2.0",
+      "stage": "M4",
+      "auth": "room_session",
+      "write": false,
+      "idempotency": "none",
+      "request": {
+        "type": "object",
+        "required": [],
+        "properties": {}
+      },
+      "response": {
+        "type": "object",
+        "required": [
+          "action",
+          "payload"
+        ],
+        "properties": {
+          "action": "string",
+          "payload": "object"
+        }
+      },
+      "errors": [],
+      "msgId": "common.room.compat_state_push"
+    },
+    {
+      "msgId": "poker.njpdk.dispatch",
+      "kind": "req",
+      "direction": "client_to_server",
+      "transport": "WSS",
+      "version": "2.0",
+      "stage": "M5",
+      "auth": "room_session",
+      "write": true,
+      "idempotency": "required",
+      "request": {
+        "type": "object",
+        "required": [
+          "action",
+          "payload"
+        ],
+        "properties": {
+          "action": "string",
+          "payload": "object"
+        }
+      },
+      "response": {
+        "type": "object",
+        "required": [
+          "payload",
+          "stateVersion"
+        ],
+        "properties": {
+          "payload": "object",
+          "stateVersion": "integer"
+        }
+      },
+      "errors": [
+        1001,
+        3001,
+        4001,
+        4002
+      ]
+    },
+    {
+      "msgId": "mahjong.xuezhan.dispatch",
+      "kind": "req",
+      "direction": "client_to_server",
+      "transport": "WSS",
+      "version": "2.0",
+      "stage": "M6",
+      "auth": "room_session",
+      "write": true,
+      "idempotency": "required",
+      "request": {
+        "type": "object",
+        "required": [
+          "action",
+          "payload"
+        ],
+        "properties": {
+          "action": "string",
+          "payload": "object"
+        }
+      },
+      "response": {
+        "type": "object",
+        "required": [
+          "payload",
+          "stateVersion"
+        ],
+        "properties": {
+          "payload": "object",
+          "stateVersion": "integer"
+        }
+      },
+      "errors": [
+        1001,
+        3001,
+        4001,
+        4002
+      ]
+    },
+    {
+      "msgId": "longcard.aycp.dispatch",
+      "kind": "req",
+      "direction": "client_to_server",
+      "transport": "WSS",
+      "version": "2.0",
+      "stage": "M7",
+      "auth": "room_session",
+      "write": true,
+      "idempotency": "required",
+      "request": {
+        "type": "object",
+        "required": [
+          "command",
+          "action",
+          "payload"
+        ],
+        "properties": {
+          "command": "string",
+          "action": "string",
+          "payload": "object"
+        }
+      },
+      "response": {
+        "type": "object",
+        "required": [
+          "payload",
+          "stateVersion"
+        ],
+        "properties": {
+          "payload": "object",
+          "stateVersion": "integer"
+        }
+      },
+      "errors": [
+        1001,
+        3001,
+        4001,
+        4002
+      ]
+    },
+    {
+      "msgId": "longcard.aydss.dispatch",
+      "kind": "req",
+      "direction": "client_to_server",
+      "transport": "WSS",
+      "version": "2.0",
+      "stage": "M7",
+      "auth": "room_session",
+      "write": true,
+      "idempotency": "required",
+      "request": {
+        "type": "object",
+        "required": [
+          "command",
+          "action",
+          "payload"
+        ],
+        "properties": {
+          "command": "string",
+          "action": "string",
+          "payload": "object"
+        }
+      },
+      "response": {
+        "type": "object",
+        "required": [
+          "payload",
+          "stateVersion"
+        ],
+        "properties": {
+          "payload": "object",
+          "stateVersion": "integer"
+        }
+      },
+      "errors": [
+        1001,
+        3001,
+        4001,
+        4002
+      ]
+    },
+    {
+      "msgId": "game.dispatch",
+      "kind": "req",
+      "direction": "client_to_server",
+      "transport": "WSS",
+      "version": "2.0",
+      "stage": "M7",
+      "auth": "room_session",
+      "write": true,
+      "idempotency": "required",
+      "request": {
+        "type": "object",
+        "required": [
+          "action",
+          "payload",
+          "gameId"
+        ],
+        "properties": {
+          "action": "string",
+          "payload": "object",
+          "gameId": "string"
+        }
+      },
+      "response": {
+        "type": "object",
+        "required": [
+          "payload",
+          "stateVersion"
+        ],
+        "properties": {
+          "payload": "object",
+          "stateVersion": "integer"
+        }
+      },
+      "errors": [
+        1001,
+        3001,
+        4001,
+        4002
+      ]
+    },
+    {
+      "msgId": "account.token_refresh",
+      "kind": "req",
+      "direction": "client_to_server",
+      "transport": "HTTPS",
+      "version": "2.0",
+      "stage": "M8",
+      "auth": "refresh_token",
+      "write": true,
+      "idempotency": "required",
+      "request": {
+        "type": "object",
+        "required": [
+          "sessionId",
+          "deviceId",
+          "refreshToken"
+        ],
+        "properties": {
+          "sessionId": "string",
+          "deviceId": "string",
+          "refreshToken": "string"
+        }
+      },
+      "response": {
+        "type": "object",
+        "required": [
+          "accessToken",
+          "refreshToken",
+          "expiresInSeconds"
+        ],
+        "properties": {
+          "accessToken": "string",
+          "refreshToken": "string",
+          "expiresInSeconds": "integer"
+        }
+      },
+      "errors": [
+        1001,
+        2003,
+        2004
+      ]
+    },
+    {
+      "msgId": "room.create",
+      "kind": "req",
+      "direction": "client_to_server",
+      "transport": "HTTPS",
+      "version": "2.0",
+      "stage": "M8",
+      "auth": "access_token",
+      "write": true,
+      "idempotency": "required",
+      "request": {
+        "type": "object",
+        "required": [
+          "gameId",
+          "roomProfileVersion",
+          "ruleSnapshotId",
+          "paymentMode"
+        ],
+        "properties": {
+          "gameId": "string",
+          "roomProfileVersion": "string",
+          "ruleSnapshotId": "string",
+          "paymentMode": "string",
+          "clubId": "string"
+        }
+      },
+      "response": {
+        "type": "object",
+        "required": [
+          "roomId",
+          "roomSessionToken",
+          "ruleSnapshotId"
+        ],
+        "properties": {
+          "roomId": "string",
+          "roomSessionToken": "string",
+          "ruleSnapshotId": "string"
+        }
+      },
+      "errors": [
+        1001,
+        3002,
+        5001,
+        6002
+      ]
+    },
+    {
+      "msgId": "room.join",
+      "kind": "req",
+      "direction": "client_to_server",
+      "transport": "HTTPS",
+      "version": "2.0",
+      "stage": "M8",
+      "auth": "access_token",
+      "write": true,
+      "idempotency": "required",
+      "request": {
+        "type": "object",
+        "required": [
+          "roomId"
+        ],
+        "properties": {
+          "roomId": "string"
+        }
+      },
+      "response": {
+        "type": "object",
+        "required": [
+          "roomSessionToken",
+          "playVersion",
+          "ruleSnapshotId"
+        ],
+        "properties": {
+          "roomSessionToken": "string",
+          "playVersion": "string",
+          "ruleSnapshotId": "string"
+        }
+      },
+      "errors": [
+        3001,
+        3002,
+        3003,
+        6002
+      ]
+    },
+    {
+      "msgId": "room.seat",
+      "kind": "req",
+      "direction": "client_to_server",
+      "transport": "WSS",
+      "version": "2.0",
+      "stage": "M8",
+      "auth": "room_session",
+      "write": true,
+      "idempotency": "required",
+      "request": {
+        "type": "object",
+        "required": [
+          "action",
+          "payload",
+          "seatId"
+        ],
+        "properties": {
+          "action": "string",
+          "payload": "object",
+          "seatId": "integer"
+        }
+      },
+      "response": {
+        "type": "object",
+        "required": [
+          "stateVersion",
+          "serverSeq"
+        ],
+        "properties": {
+          "stateVersion": "integer",
+          "serverSeq": "integer"
+        }
+      },
+      "errors": [
+        3001,
+        3002,
+        3003
+      ]
+    },
+    {
+      "msgId": "room.leave",
+      "kind": "req",
+      "direction": "client_to_server",
+      "transport": "WSS",
+      "version": "2.0",
+      "stage": "M8",
+      "auth": "room_session",
+      "write": true,
+      "idempotency": "required",
+      "request": {
+        "type": "object",
+        "required": [
+          "action",
+          "payload"
+        ],
+        "properties": {
+          "action": "string",
+          "payload": "object"
+        }
+      },
+      "response": {
+        "type": "object",
+        "required": [
+          "left"
+        ],
+        "properties": {
+          "left": "boolean"
+        }
+      },
+      "errors": [
+        3001,
+        3003
+      ]
+    },
+    {
+      "msgId": "room.dissolve_apply",
+      "kind": "req",
+      "direction": "client_to_server",
+      "transport": "WSS",
+      "version": "2.0",
+      "stage": "M8",
+      "auth": "room_session",
+      "write": true,
+      "idempotency": "required",
+      "request": {
+        "type": "object",
+        "required": [
+          "action",
+          "payload",
+          "reasonCode"
+        ],
+        "properties": {
+          "action": "string",
+          "payload": "object",
+          "reasonCode": "string"
+        }
+      },
+      "response": {
+        "type": "object",
+        "required": [
+          "voteId",
+          "expiresAt"
+        ],
+        "properties": {
+          "voteId": "string",
+          "expiresAt": "integer"
+        }
+      },
+      "errors": [
+        3001,
+        3003,
+        3004
+      ]
+    },
+    {
+      "msgId": "room.dissolve_vote",
+      "kind": "req",
+      "direction": "client_to_server",
+      "transport": "WSS",
+      "version": "2.0",
+      "stage": "M8",
+      "auth": "room_session",
+      "write": true,
+      "idempotency": "required",
+      "request": {
+        "type": "object",
+        "required": [
+          "action",
+          "payload",
+          "voteId",
+          "agree"
+        ],
+        "properties": {
+          "action": "string",
+          "payload": "object",
+          "voteId": "string",
+          "agree": "boolean"
+        }
+      },
+      "response": {
+        "type": "object",
+        "required": [
+          "accepted",
+          "stateVersion"
+        ],
+        "properties": {
+          "accepted": "boolean",
+          "stateVersion": "integer"
+        }
+      },
+      "errors": [
+        3001,
+        3004
+      ]
+    },
+    {
+      "msgId": "room.reconnect",
+      "kind": "req",
+      "direction": "client_to_server",
+      "transport": "WSS",
+      "version": "2.0",
+      "stage": "M8",
+      "auth": "room_session",
+      "write": false,
+      "idempotency": "optional",
+      "request": {
+        "type": "object",
+        "required": [
+          "action",
+          "payload",
+          "roomId",
+          "lastServerSeq",
+          "reconnectToken"
+        ],
+        "properties": {
+          "action": "string",
+          "payload": "object",
+          "roomId": "string",
+          "lastServerSeq": "integer",
+          "reconnectToken": "string"
+        }
+      },
+      "response": {
+        "type": "object",
+        "required": [
+          "viewerSnapshot",
+          "events",
+          "serverSeq",
+          "hasMore"
+        ],
+        "properties": {
+          "viewerSnapshot": "object",
+          "events": "array",
+          "serverSeq": "integer",
+          "hasMore": "boolean"
+        }
+      },
+      "errors": [
+        3001,
+        3005
+      ]
+    },
+    {
+      "msgId": "game.action",
+      "kind": "req",
+      "direction": "client_to_server",
+      "transport": "WSS",
+      "version": "2.0",
+      "stage": "M8",
+      "auth": "room_session",
+      "write": true,
+      "idempotency": "required",
+      "request": {
+        "type": "object",
+        "required": [
+          "action",
+          "payload",
+          "actionId",
+          "playVersion",
+          "expectedStateVersion",
+          "intent"
+        ],
+        "properties": {
+          "action": "string",
+          "payload": "object",
+          "actionId": "string",
+          "playVersion": "string",
+          "expectedStateVersion": "integer",
+          "intent": "object"
+        }
+      },
+      "response": {
+        "type": "object",
+        "required": [
+          "accepted",
+          "stateVersion",
+          "serverSeq"
+        ],
+        "properties": {
+          "accepted": "boolean",
+          "stateVersion": "integer",
+          "serverSeq": "integer"
+        }
+      },
+      "errors": [
+        3001,
+        4001,
+        4002,
+        4003
+      ]
+    },
+    {
+      "msgId": "game.round_settlement",
+      "kind": "push",
+      "direction": "server_to_client",
+      "transport": "WSS",
+      "version": "2.0",
+      "stage": "M8",
+      "auth": "room_session",
+      "write": false,
+      "idempotency": "none",
+      "request": {
+        "type": "object",
+        "required": [],
+        "properties": {}
+      },
+      "response": {
+        "type": "object",
+        "required": [
+          "settlementBusinessId",
+          "roundNo",
+          "resultProfileId",
+          "playerEntries"
+        ],
+        "properties": {
+          "settlementBusinessId": "string",
+          "roundNo": "integer",
+          "resultProfileId": "string",
+          "playerEntries": "array"
+        }
+      },
+      "errors": []
+    },
+    {
+      "msgId": "game.final_settlement",
+      "kind": "push",
+      "direction": "server_to_client",
+      "transport": "WSS",
+      "version": "2.0",
+      "stage": "M8",
+      "auth": "room_session",
+      "write": false,
+      "idempotency": "none",
+      "request": {
+        "type": "object",
+        "required": [],
+        "properties": {}
+      },
+      "response": {
+        "type": "object",
+        "required": [
+          "settlementBusinessId",
+          "resultProfileId",
+          "playerEntries"
+        ],
+        "properties": {
+          "settlementBusinessId": "string",
+          "resultProfileId": "string",
+          "playerEntries": "array"
+        }
+      },
+      "errors": []
+    },
+    {
+      "msgId": "replay.query",
+      "kind": "req",
+      "direction": "client_to_server",
+      "transport": "HTTPS",
+      "version": "2.0",
+      "stage": "M8",
+      "auth": "access_token",
+      "write": false,
+      "idempotency": "optional",
+      "request": {
+        "type": "object",
+        "required": [
+          "roomId"
+        ],
+        "properties": {
+          "roomId": "string"
+        }
+      },
+      "response": {
+        "type": "object",
+        "required": [
+          "viewerReplay",
+          "viewType"
+        ],
+        "properties": {
+          "viewerReplay": "object",
+          "viewType": "string"
+        }
+      },
+      "errors": [
+        1003,
+        3001,
+        6002
+      ]
+    },
+    {
+      "msgId": "replay.perspective_page",
+      "kind": "req",
+      "direction": "client_to_server",
+      "transport": "WSS",
+      "version": "2.0",
+      "stage": "M8",
+      "auth": "session",
+      "write": false,
+      "idempotency": "optional",
+      "request": {
+        "type": "object",
+        "required": [
+          "action",
+          "payload",
+          "roomId",
+          "setId"
+        ],
+        "properties": {
+          "action": "string",
+          "payload": "object",
+          "roomId": "string",
+          "setId": "integer",
+          "afterSequence": "integer",
+          "limit": "integer"
+        }
+      },
+      "response": {
+        "type": "object",
+        "required": [
+          "items",
+          "nextSequence",
+          "hasMore"
+        ],
+        "properties": {
+          "items": "array",
+          "nextSequence": "integer",
+          "hasMore": "boolean"
+        }
+      },
+      "errors": [
+        1001,
+        1003,
+        3001,
+        3003
+      ]
+    },
+    {
+      "msgId": "club.member_page",
+      "kind": "req",
+      "direction": "client_to_server",
+      "transport": "HTTPS",
+      "version": "2.0",
+      "stage": "M8",
+      "auth": "access_token",
+      "write": false,
+      "idempotency": "optional",
+      "request": {
+        "type": "object",
+        "required": [
+          "clubId",
+          "limit"
+        ],
+        "properties": {
+          "clubId": "string",
+          "cursor": "string",
+          "limit": "integer"
+        }
+      },
+      "response": {
+        "type": "object",
+        "required": [
+          "items",
+          "hasMore"
+        ],
+        "properties": {
+          "items": "array",
+          "nextCursor": "string",
+          "hasMore": "boolean"
+        }
+      },
+      "errors": [
+        1001,
+        6001,
+        6002
+      ]
+    },
+    {
+      "msgId": "hall.catalog",
+      "kind": "req",
+      "direction": "client_to_server",
+      "transport": "HTTPS",
+      "version": "2.0",
+      "stage": "M8",
+      "auth": "access_token",
+      "write": false,
+      "idempotency": "optional",
+      "request": {
+        "type": "object",
+        "required": [
+          "clientVersion"
+        ],
+        "properties": {
+          "regionCode": "string",
+          "clientVersion": "string"
+        }
+      },
+      "response": {
+        "type": "object",
+        "required": [
+          "games"
+        ],
+        "properties": {
+          "games": "array"
+        }
+      },
+      "errors": [
+        1001,
+        1004
+      ]
+    },
+    {
+      "msgId": "system.heartbeat",
+      "kind": "system",
+      "direction": "bidirectional",
+      "transport": "WSS",
+      "version": "2.0",
+      "stage": "M7",
+      "auth": "session",
+      "write": false,
+      "idempotency": "none",
+      "request": {
+        "type": "object",
+        "required": [
+          "clientTime"
+        ],
+        "properties": {
+          "clientTime": "integer"
+        }
+      },
+      "response": {
+        "type": "object",
+        "required": [
+          "serverTime"
+        ],
+        "properties": {
+          "serverTime": "integer"
+        }
+      },
+      "errors": []
+    },
+    {
+      "msgId": "system.kick_out",
+      "kind": "system",
+      "direction": "server_to_client",
+      "transport": "WSS",
+      "version": "2.0",
+      "stage": "M7",
+      "auth": "session",
+      "write": false,
+      "idempotency": "none",
+      "request": {
+        "type": "object",
+        "required": [],
+        "properties": {}
+      },
+      "response": {
+        "type": "object",
+        "required": [
+          "reasonCode"
+        ],
+        "properties": {
+          "reasonCode": "string",
+          "message": "string"
+        }
+      },
+      "errors": []
+    }
+  ],
+  "messageRegistryVersion": 1,
+  "reservedMessageIds": []
+}

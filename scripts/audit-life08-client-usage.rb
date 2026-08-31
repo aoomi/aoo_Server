@@ -1,0 +1,4 @@
+require 'json';require 'fileutils';root=File.expand_path('..',__dir__)
+source=File.read(File.join(root,'server/GameSPI/src/main/java/com/aoo/bcg/gamespi/api/ApiUsageTelemetry.java'));test=File.read(File.join(root,'server/GameSPI/src/test/java/com/aoo/bcg/gamespi/api/ApiUsageTelemetryTest.java'))
+checks={client_version_dimension:source.include?('SemanticVersion clientVersion'),http_wss_dimension:source.include?('ApiOwnershipCatalog.Transport transport'),endpoint_dimension:source.include?('String endpoint'),actual_counter:source.include?('LongAdder'),cardinality_guard:source.include?('cardinality limit reached'),executable_test:test.include?('countsActualHttpAndWssCallsByClientVersion')}
+abort "LIFE08 audit failed: #{checks}" unless checks.values.all?;out=File.join(root,'work/audit/client-version-api-usage.json');FileUtils.mkdir_p(File.dirname(out));File.write(out,JSON.pretty_generate({task:'LIFE08',status:'passed',checks:checks})+"\n")

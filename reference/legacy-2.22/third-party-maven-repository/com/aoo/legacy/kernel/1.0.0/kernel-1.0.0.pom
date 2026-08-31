@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.aoo.legacy</groupId>
+  <artifactId>kernel</artifactId>
+  <version>1.0.0</version>
+  <packaging>jar</packaging>
+  <name>Aoo legacy kernel compatibility bridge</name>
+  <description>Private compatibility artifact retained until BaseServer and BaseTask APIs are migrated to source.</description>
+</project>

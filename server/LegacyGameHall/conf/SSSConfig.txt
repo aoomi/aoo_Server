@@ -1,0 +1,28 @@
+#花色  0,1,2,3 
+huase = [0,1,2,3]
+#是否鬼牌 0：没,1：有
+gui = 1
+#人数
+setCount = 8
+#0：所有特殊牌型
+#SShunZi(85, "三顺子",3), 
+#STongHua(86, "三同花",3), 
+#LDuiBan(87, "六对半",4), 
+#WDuiSanChong(88, "五对三冲",5),  
+#STaoSanTiao(89, "四套三条",8), 
+#CYiSe(90, "凑一色",10), 
+#QXiao(91, "全小",12), 
+#LIULIUDASHUAN(92, "六六大顺",13), //新增
+#QDa(93, "全大",15), 
+#SFenTianXia(94, "三分天下",16), 
+#//	LIULIUDASHUAN(93, "六六大顺",20), 
+#STongHuaShun(95, "三同花顺",18), 
+#SErHuangzu(96, "十二皇族",24), 
+#//	SANHUANWUDI(96, "三皇五帝",26), 
+#YTiaoLong(97, "一条龙",26), 
+#QIXINGLIANZHU(98, "七星连珠",38), 
+#BAXIANGGUOHAI(99, "八仙过海",48), 
+#ZZunQinLong(100,"至尊清龙",52);
+special = 97
+#特殊牌列表
+specialList = [85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100]

@@ -1,0 +1,11 @@
+{
+  "task": "MIGREAL11",
+  "checks": {
+    "fencingToken": true,
+    "distributedClaim": true,
+    "deadLetter": true,
+    "alert": true,
+    "boundedRetention": true
+  },
+  "status": "passed"
+}

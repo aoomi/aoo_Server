@@ -1,0 +1,20 @@
+{
+  "task": "MIGREAL12",
+  "status": "blocked-legacy-writes",
+  "completed": {
+    "canonicalCatalog": true,
+    "globalAndScopedBalances": true,
+    "idempotentFencedLedger": true,
+    "realMysqlConcurrentNoDoubleSpend": true
+  },
+  "unresolved": {
+    "legacyMutationEntrypoints": [
+      "server/gameServer/src/business/player/feature/PlayerCurrency.java",
+      "server/gameServer/src/business/player/feature/PlayerCityCurrency.java",
+      "server/gameServer/src/business/player/feature/PlayerRecharge.java",
+      "server/gameServer/src/business/global/family/Family.java",
+      "server/gameServer/src/business/player/PlayerMgr.java"
+    ],
+    "reason": "legacy runtime still mutates PlayerBO and city-currency tables outside BillingService; falsely declaring convergence would permit split-brain balances"
+  }
+}

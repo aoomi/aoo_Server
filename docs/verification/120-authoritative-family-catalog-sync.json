@@ -1,0 +1,24 @@
+{
+  "generatedAt": "2026-08-26T02:58:10.396Z",
+  "catalogEntries": 528,
+  "authorityEntries": 528,
+  "changedFamilyMappings": 528,
+  "familyCounts": {
+    "UNCLASSIFIED_MISSING_SOURCE": 2,
+    "long-card:regional": 4,
+    "mahjong:lai-zi": 121,
+    "mahjong:standard": 206,
+    "mahjong:tui-dao-hu": 13,
+    "mahjong:xue-liu": 9,
+    "mahjong:xue-zhan": 13,
+    "poker:510k": 70,
+    "poker:betting": 6,
+    "poker:climbing": 16,
+    "poker:compare-hand": 8,
+    "poker:generic-card-round": 6,
+    "poker:landlord": 10,
+    "poker:pao-de-kuai": 28,
+    "poker:trick-taking": 6,
+    "word-card:pao-hu-zi": 10
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-24T14:51:59Z",
+  "task": "TOOL07",
+  "passed": false,
+  "entrypoint": "com.aoo.bcg.bootstrap.BootstrapAPP/loadRegistry",
+  "scope": [
+    "current Bootstrap provider discovery and 533-game catalog",
+    "production ServiceLoader provider assembly without duplicate registrations",
+    "runtime room creation/resolution lifecycle",
+    "authoritative poker and mahjong command execution with state assertions"
+  ],
+  "exclusions": [
+    "legacy build/*.jar class-loading scripts",
+    "fixed success output",
+    "external production infrastructure"
+  ],
+  "command": "./mvnw -Dexec.skip=true -pl server/Bootstrap,server/Gateway,server/Poker,server/Mahjong -am -Dtest=BootstrapAPPTest,GameProviderServiceLoaderTest,CatalogLifecycleContractTest,RuntimeGameRoomRegistryTest,PokerAuthoritativeSessionTest,MahjongAuthoritativeSessionTest -Dsurefire.failIfNoSpecifiedTests=false test",
+  "exitCode": 1,
+  "testSummary": [
+    "[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.160 s -- in com.aoo.bcg.mahjong.MahjongAuthoritativeSessionTest",
+    "[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0",
+    "[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.075 s -- in com.aoo.bcg.poker.PokerAuthoritativeSessionTest",
+    "[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0",
+    "[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.025 s -- in com.aoo.bcg.gateway.RuntimeGameRoomRegistryTest",
+    "[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0",
+    "[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.025 s -- in com.aoo.bcg.bootstrap.GameProviderServiceLoaderTest",
+    "[ERROR] Tests run: 3, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.059 s <<< FAILURE! -- in com.aoo.bcg.bootstrap.CatalogLifecycleContractTest",
+    "[ERROR] Tests run: 3, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.072 s <<< FAILURE! -- in com.aoo.bcg.bootstrap.BootstrapAPPTest",
+    "[ERROR] Tests run: 7, Failures: 3, Errors: 0, Skipped: 0",
+    "[INFO] BUILD FAILURE"
+  ],
+  "stdoutTail": "[INFO] game-media ......................................... SUCCESS [  0.006 s]\n[INFO] Aoo Social and Notification ........................ SUCCESS [  0.019 s]\n[INFO] Aoo Share Invite Link .............................. SUCCESS [  0.008 s]\n[INFO] Spectator and Game Share API ....................... SUCCESS [  0.015 s]\n[INFO] Aoo Game Server Framework .......................... SUCCESS [  9.600 s]\n[INFO] Chengdu Xuezhan Mahjong ............................ SUCCESS [  0.610 s]\n[INFO] Neijiang Paodekuai ................................. SUCCESS [  0.635 s]\n[INFO] Sichuan Jianyang Mahjong ........................... SUCCESS [  0.564 s]\n[INFO] Xuancheng Paodekuai ................................ SUCCESS [  0.575 s]\n[INFO] Huanle Bipai (ZJH) ................................. SUCCESS [  0.400 s]\n[INFO] Ziyou Poker (ZYPK) ................................. SUCCESS [  0.487 s]\n[INFO] game-external-integration .......................... SUCCESS [  0.013 s]\n[INFO] Aoo Location and Collusion Risk .................... SUCCESS [  0.011 s]\n[INFO] Aoo Room Safety and Reports ........................ SUCCESS [  0.029 s]\n[INFO] Privacy Data Rights ................................ SUCCESS [  0.009 s]\n[INFO] Player Profile ..................................... SUCCESS [  0.011 s]\n[INFO] Player Gifting API ................................. SUCCESS [  0.010 s]\n[INFO] Aoo Telemetry Risk API ............................. SUCCESS [  0.010 s]\n[INFO] Aoo Identity Verification API ...................... SUCCESS [  0.010 s]\n[INFO] Aoo Game Bootstrap ................................. FAILURE [  0.961 s]\n[INFO] ------------------------------------------------------------------------\n[INFO] BUILD FAILURE\n[INFO] ------------------------------------------------------------------------\n[INFO] Total time:  16.177 s\n[INFO] Finished at: 2026-08-24T22:51:59+08:00\n[INFO] ------------------------------------------------------------------------\n[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.5.4:test (default-test) on project game-bootstrap: There are test failures.\n[ERROR] \n[ERROR] See /Users/aoo/Code/Game/BCG/Aoo/Server/server/Bootstrap/target/surefire-reports for the individual test results.\n[ERROR] See dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.\n[ERROR] -> [Help 1]\n[ERROR] \n[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.\n[ERROR] Re-run Maven using the -X switch to enable full debug logging.\n[ERROR] \n[ERROR] For more information about the errors and possible solutions, please read the following articles:\n[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException\n[ERROR] \n[ERROR] After correcting the problems, you can resume the build with the command\n[ERROR]   mvn <args> -rf :game-bootstrap\n",
+  "stderrTail": "WARNING: A terminally deprecated method in sun.misc.Unsafe has been called\nWARNING: sun.misc.Unsafe::objectFieldOffset has been called by lombok.permit.Permit\nWARNING: Please consider reporting this to the maintainers of class lombok.permit.Permit\nWARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release\n"
+}

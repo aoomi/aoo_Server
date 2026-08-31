@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "generatedDirectories": [
+    {
+      "path": "build",
+      "exists": true,
+      "files": 5614
+    },
+    {
+      "path": "library",
+      "exists": true,
+      "files": 36518
+    },
+    {
+      "path": "temp",
+      "exists": true,
+      "files": 17066
+    }
+  ],
+  "cleanCreatorImportEvidence": false,
+  "cleanBuildEquivalence": false,
+  "cleanTestEquivalence": false,
+  "passed": false
+}

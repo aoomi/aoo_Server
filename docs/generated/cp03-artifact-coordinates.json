@@ -1,0 +1,334 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-27T12:27:20Z",
+  "task": "CP03",
+  "pomCount": 53,
+  "coordinateCount": 53,
+  "coordinateConflicts": [
+
+  ],
+  "artifactIdConflicts": [
+
+  ],
+  "passed": true,
+  "artifacts": [
+    {
+      "path": "pom.xml",
+      "groupId": "com.aoo.bcg",
+      "artifactId": "aoo-server-parent",
+      "version": "${revision}"
+    },
+    {
+      "path": "server/Account/pom.xml",
+      "groupId": "com.aoo.bcg",
+      "artifactId": "account-domain",
+      "version": "${revision}"
+    },
+    {
+      "path": "server/Activity/pom.xml",
+      "groupId": "com.aoo.bcg",
+      "artifactId": "activity-mission",
+      "version": "${revision}"
+    },
+    {
+      "path": "server/AdminApi/pom.xml",
+      "groupId": "com.aoo.bcg",
+      "artifactId": "admin-api",
+      "version": "${revision}"
+    },
+    {
+      "path": "server/AooKernel/pom.xml",
+      "groupId": "com.aoo.bcg",
+      "artifactId": "aoo-kernel",
+      "version": "${revision}"
+    },
+    {
+      "path": "server/Billing/pom.xml",
+      "groupId": "com.aoo.bcg",
+      "artifactId": "game-billing",
+      "version": "${revision}"
+    },
+    {
+      "path": "server/Bootstrap/pom.xml",
+      "groupId": "com.aoo.bcg",
+      "artifactId": "game-bootstrap",
+      "version": "${revision}"
+    },
+    {
+      "path": "server/CDXZMJ/pom.xml",
+      "groupId": "com.aoo.bcg",
+      "artifactId": "cdxzmj",
+      "version": "${revision}"
+    },
+    {
+      "path": "server/Club/pom.xml",
+      "groupId": "com.aoo.bcg",
+      "artifactId": "club-backend",
+      "version": "${revision}"
+    },
+    {
+      "path": "server/ConfigCenter/pom.xml",
+      "groupId": "com.aoo.bcg",
+      "artifactId": "game-config-center",
+      "version": "${revision}"
+    },
+    {
+      "path": "server/ExternalIntegration/pom.xml",
+      "groupId": "com.aoo.bcg",
+      "artifactId": "game-external-integration",
+      "version": "${revision}"
+    },
+    {
+      "path": "server/Families/pom.xml",
+      "groupId": "com.aoo.bcg",
+      "artifactId": "game-families",
+      "version": "${revision}"
+    },
+    {
+      "path": "server/GameCommon/pom.xml",
+      "groupId": "com.aoo.bcg",
+      "artifactId": "game-common",
+      "version": "${revision}"
+    },
+    {
+      "path": "server/GameSPI/pom.xml",
+      "groupId": "com.aoo.bcg",
+      "artifactId": "game-spi",
+      "version": "${revision}"
+    },
+    {
+      "path": "server/Games/pom.xml",
+      "groupId": "com.aoo.bcg",
+      "artifactId": "games",
+      "version": "${revision}"
+    },
+    {
+      "path": "server/Gateway/pom.xml",
+      "groupId": "com.aoo.bcg",
+      "artifactId": "game-gateway",
+      "version": "${revision}"
+    },
+    {
+      "path": "server/Gifting/pom.xml",
+      "groupId": "com.aoo.bcg",
+      "artifactId": "player-gifting",
+      "version": "${revision}"
+    },
+    {
+      "path": "server/Hall/pom.xml",
+      "groupId": "com.aoo.bcg",
+      "artifactId": "game-hall",
+      "version": "${revision}"
+    },
+    {
+      "path": "server/IdentityVerification/pom.xml",
+      "groupId": "com.aoo.bcg",
+      "artifactId": "identity-verification",
+      "version": "${revision}"
+    },
+    {
+      "path": "server/Inventory/pom.xml",
+      "groupId": "com.aoo.bcg",
+      "artifactId": "inventory-store",
+      "version": "${revision}"
+    },
+    {
+      "path": "server/LegacyAccountServer/commdef/pom.xml",
+      "groupId": "account_server",
+      "artifactId": "commdef",
+      "version": "0.0.1"
+    },
+    {
+      "path": "server/LegacyAccountServer/common/pom.xml",
+      "groupId": "account_server",
+      "artifactId": "common",
+      "version": "0.0.1"
+    },
+    {
+      "path": "server/LegacyAccountServer/dao/pom.xml",
+      "groupId": "account_server",
+      "artifactId": "dao",
+      "version": "0.0.1"
+    },
+    {
+      "path": "server/LegacyAccountServer/hall/pom.xml",
+      "groupId": "account_server",
+      "artifactId": "hall",
+      "version": "0.0.1"
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/pom.xml",
+      "groupId": "account_server",
+      "artifactId": "package_hall",
+      "version": "1.0-protobuf"
+    },
+    {
+      "path": "server/LegacyAccountServer/pom.xml",
+      "groupId": "account_server",
+      "artifactId": "account_server",
+      "version": "0.0.1"
+    },
+    {
+      "path": "server/LegacyAccountServer/server/pom.xml",
+      "groupId": "account_server",
+      "artifactId": "server",
+      "version": "0.0.1"
+    },
+    {
+      "path": "server/LegacyGameHall/pom.xml",
+      "groupId": "com.aoo.bcg",
+      "artifactId": "legacy-game-hall-quarantine",
+      "version": "${revision}"
+    },
+    {
+      "path": "server/Location/pom.xml",
+      "groupId": "com.aoo.bcg",
+      "artifactId": "location-risk",
+      "version": "${revision}"
+    },
+    {
+      "path": "server/LongCard/pom.xml",
+      "groupId": "com.aoo.bcg",
+      "artifactId": "game-category-long-card",
+      "version": "${revision}"
+    },
+    {
+      "path": "server/LuckDraw/pom.xml",
+      "groupId": "com.aoo.bcg",
+      "artifactId": "luck-draw-api",
+      "version": "${revision}"
+    },
+    {
+      "path": "server/Mahjong/pom.xml",
+      "groupId": "com.aoo.bcg",
+      "artifactId": "game-category-mahjong",
+      "version": "${revision}"
+    },
+    {
+      "path": "server/Matchmaking/pom.xml",
+      "groupId": "com.aoo.bcg",
+      "artifactId": "matchmaking-tournament",
+      "version": "${revision}"
+    },
+    {
+      "path": "server/Media/pom.xml",
+      "groupId": "com.aoo.bcg",
+      "artifactId": "game-media",
+      "version": "${revision}"
+    },
+    {
+      "path": "server/NJPDK/pom.xml",
+      "groupId": "com.aoo.bcg",
+      "artifactId": "njpdk",
+      "version": "${revision}"
+    },
+    {
+      "path": "server/PlayerProfile/pom.xml",
+      "groupId": "com.aoo.bcg",
+      "artifactId": "player-profile",
+      "version": "${revision}"
+    },
+    {
+      "path": "server/Poker/pom.xml",
+      "groupId": "com.aoo.bcg",
+      "artifactId": "game-category-poker",
+      "version": "${revision}"
+    },
+    {
+      "path": "server/Privacy/pom.xml",
+      "groupId": "com.aoo.bcg",
+      "artifactId": "privacy-data-rights",
+      "version": "${revision}"
+    },
+    {
+      "path": "server/Ranking/pom.xml",
+      "groupId": "com.aoo.bcg",
+      "artifactId": "ranking-achievement",
+      "version": "${revision}"
+    },
+    {
+      "path": "server/Referral/pom.xml",
+      "groupId": "com.aoo.bcg",
+      "artifactId": "referral-agent-api",
+      "version": "${revision}"
+    },
+    {
+      "path": "server/RoomSafety/pom.xml",
+      "groupId": "com.aoo.bcg",
+      "artifactId": "room-safety",
+      "version": "${revision}"
+    },
+    {
+      "path": "server/SCJYMJ/pom.xml",
+      "groupId": "com.aoo.bcg",
+      "artifactId": "scjymj",
+      "version": "${revision}"
+    },
+    {
+      "path": "server/Share/pom.xml",
+      "groupId": "com.aoo.bcg",
+      "artifactId": "share-invite-link",
+      "version": "${revision}"
+    },
+    {
+      "path": "server/Social/pom.xml",
+      "groupId": "com.aoo.bcg",
+      "artifactId": "game-social",
+      "version": "${revision}"
+    },
+    {
+      "path": "server/Spectator/pom.xml",
+      "groupId": "com.aoo.bcg",
+      "artifactId": "spectator-game-share",
+      "version": "${revision}"
+    },
+    {
+      "path": "server/Support/pom.xml",
+      "groupId": "com.aoo.bcg",
+      "artifactId": "player-support",
+      "version": "${revision}"
+    },
+    {
+      "path": "server/Telemetry/pom.xml",
+      "groupId": "com.aoo.bcg",
+      "artifactId": "telemetry-risk",
+      "version": "${revision}"
+    },
+    {
+      "path": "server/VersionNotice/pom.xml",
+      "groupId": "com.aoo.bcg",
+      "artifactId": "version-notice",
+      "version": "${revision}"
+    },
+    {
+      "path": "server/WordCard/pom.xml",
+      "groupId": "com.aoo.bcg",
+      "artifactId": "game-category-word-card",
+      "version": "${revision}"
+    },
+    {
+      "path": "server/XCPDK/pom.xml",
+      "groupId": "com.aoo.bcg",
+      "artifactId": "xcpdk",
+      "version": "${revision}"
+    },
+    {
+      "path": "server/ZJH/pom.xml",
+      "groupId": "com.aoo.bcg",
+      "artifactId": "zjh",
+      "version": "${revision}"
+    },
+    {
+      "path": "server/ZYPK/pom.xml",
+      "groupId": "com.aoo.bcg",
+      "artifactId": "zypk",
+      "version": "${revision}"
+    },
+    {
+      "path": "server/gameServer/pom.xml",
+      "groupId": "com.aoo.bcg",
+      "artifactId": "game-server-framework",
+      "version": "${revision}"
+    }
+  ]
+}

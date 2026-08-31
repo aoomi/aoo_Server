@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-24T10:44:08Z",
+  "task": "LARGE07",
+  "passed": false,
+  "thresholdBytes": 5242880,
+  "repository": "",
+  "lfsVersion": "",
+  "largeBinaries": [
+
+  ],
+  "checks": {
+    "gitRepository": false,
+    "gitLfsInstalled": false,
+    "lfsPatternsDeclared": false,
+    "largeBinaryInventory": false,
+    "cleanCheckoutIntegrityProof": false
+  },
+  "blockers": [
+    "Aoo directory is not a Git worktree in the supplied workspace",
+    "git-lfs is not available",
+    "adding LFS attributes without pointer migration and clean-clone verification would corrupt checkout expectations"
+  ]
+}

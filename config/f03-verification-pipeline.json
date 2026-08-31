@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "stages": [
+    {
+      "id": "runtime-workload",
+      "owner": "tools/f03_local_protocol_smoke.py",
+      "responsibility": "exercise account, hall, club and create/exit room protocol assertions",
+      "evidence": "workload/protocol-smoke.log"
+    },
+    {
+      "id": "deep-room-workload",
+      "owner": "tools/f03_two_player_room_smoke.py",
+      "responsibility": "exercise two-player create, join, ready and authoritative deal assertions",
+      "evidence": "workload/two-player-smoke.log"
+    },
+    {
+      "id": "dependency-fault-injection",
+      "owner": "tools/f03_fault_injection.sh",
+      "responsibility": "interrupt MySQL, Redis and RocketMQ and assert bounded failure and recovery",
+      "evidence": "fault-injection.log"
+    },
+    {
+      "id": "authority-recovery",
+      "owner": "tools/f03_v2_authority_recovery_smoke.py",
+      "responsibility": "compare persisted authoritative state before and after node recovery",
+      "evidence": "f03-v2-authority-recovery.json"
+    },
+    {
+      "id": "resource-soak-sampling",
+      "owner": "tools/account-soak-24h.sh",
+      "responsibility": "sample process, port, dependencies, memory, threads and file descriptors",
+      "evidence": "metrics.csv"
+    },
+    {
+      "id": "evidence-finalization",
+      "owner": "tools/finalize_f03_soak.py",
+      "responsibility": "validate duration and workload completeness and aggregate final status",
+      "evidence": "final-report.json"
+    },
+    {
+      "id": "evidence-orchestration",
+      "owner": "tools/f03_auto_finalize.sh",
+      "responsibility": "wait for sampling completion, invoke finalizers and checksum immutable evidence",
+      "evidence": "evidence-sha256.txt"
+    }
+  ]
+}

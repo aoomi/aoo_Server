@@ -1,0 +1,6 @@
+{
+  "schemaVersion": 1,
+  "required": ["fixtureVersion", "gameId", "playVersion", "scenario", "input", "expected"],
+  "forbiddenKeyPatterns": ["password", "accessToken", "refreshToken", "privateKey", "productionAccount"],
+  "policy": "Fixtures use synthetic identities only and must declare the exact game/play version they verify."
+}

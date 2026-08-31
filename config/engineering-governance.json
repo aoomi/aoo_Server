@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "authoritativeVersions": {
+    "java": "25",
+    "maven": "3.9.16",
+    "node": "24",
+    "npm": "11",
+    "cocosCreator": "3.8.8"
+  },
+  "buildDefaults": {
+    "encoding": "UTF-8",
+    "timezone": "UTC",
+    "locale": "en_US",
+    "jvm": ["-Dfile.encoding=UTF-8", "-Duser.timezone=UTC", "-XX:+ExitOnOutOfMemoryError", "-XX:MaxRAMPercentage=75.0"]
+  },
+  "capacityPolicy": {
+    "mode": "ratchet",
+    "newJavaFileMaxLines": 1200,
+    "legacyOversizedJavaFilesMax": 21,
+    "legacyLargestJavaFileMaxLines": 11011,
+    "embeddedBinaryFilesMax": 2,
+    "newRegistryDecisionPoints": 40,
+    "directoryFileGrowthPercent": 5,
+    "redisKeyMaxBytes": 256,
+    "redisCollectionMaxElements": 100000,
+    "redisDefaultTtlSeconds": 604800
+  },
+  "requiredEvidence": [
+    "direct-dependency-owner-and-usage",
+    "official-compatibility-source",
+    "transitive-dependency-graph",
+    "license-and-cve-scan",
+    "native-platform-matrix",
+    "dependency-removal-differential",
+    "generated-source-reproducibility",
+    "database-migration-risk-and-rollback"
+  ],
+  "releasePolicy": {
+    "branch": "main",
+    "versionFormat": "semver",
+    "minimumCoreApprovals": 2,
+    "databaseMigration": {"ordered": true, "checksumRequired": true, "rollbackRequired": true, "lockRiskReviewRequired": true},
+    "artifactProvenanceRequired": true,
+    "sbomRequired": true,
+    "highSeverityCveAllowed": 0
+  },
+  "environmentSchema": {
+    "AOO_ENV": {"required": true, "type": "enum", "values": ["development", "test", "staging", "production"]},
+    "AOO_CONFIG_REF": {"required": true, "type": "secret-reference"},
+    "AOO_DB_REF": {"required": true, "type": "secret-reference"},
+    "AOO_REDIS_REF": {"required": true, "type": "secret-reference"},
+    "AOO_MQ_REF": {"required": true, "type": "secret-reference"}
+  },
+  "legacyExceptions": {
+    "policy": "Existing violations are frozen; additions require an owner, expiry, compatibility proof and security review.",
+    "allowNewLocalJars": false,
+    "allowFileRepositories": false,
+    "allowDynamicVersions": false,
+    "allowGeneratedSourcesInSourceTree": false
+  }
+}

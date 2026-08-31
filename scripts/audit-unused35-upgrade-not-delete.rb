@@ -1,0 +1,9 @@
+#!/usr/bin/env ruby
+require 'json';require 'pathname'
+root=Pathname(__dir__).join('..').expand_path
+poms=Dir[root.join('**/pom.xml').to_s].reject{|p|p.include?('/target/')}.map{|p|File.read(p)}.join("\n")
+legacy_active={disruptor342:poms.include?('<version>3.4.2</version>'),gson286:poms.include?('<version>2.8.6</version>'),joda210:poms.include?('<version>2.10.')||poms.include?('<version>2.9.'),okhttp3:poms.match?(/<okhttp.version>3\./),rocketmq4:poms.match?(/<rocketmq.version>4\./),mina20:poms.match?(/<mina.version>2\.0\./)}
+current={disruptor:poms.include?('<version>4.0.0</version>'),gson:poms.include?('<gson.version>2.14.0</gson.version>'),joda:poms.include?('<version>2.14.3</version>'),okhttp:poms.include?('<okhttp.version>5.3.0</okhttp.version>'),rocketmq:poms.include?('<rocketmq.version>5.5.0</rocketmq.version>'),mina:poms.include?('<mina.version>2.2.9</mina.version>')}
+matrix=root.join('docs/依赖等价替代证明矩阵.md').read
+checks={noLegacyVersionOnActiveMavenClasspath:legacy_active.values.none?,usefulCapabilitiesHaveCurrentVersions:current.values.all?,partialReplacementsRetained:matrix.include?('并存隔离')&&matrix.include?('不得删除旧能力'),convergenceEnforced:root.join('pom.xml').read.include?('<dependencyConvergence/>')}
+errors=checks.reject{|_,v|v}.keys;report={task:'UNUSED35',status:errors.empty? ? 'passed':'failed',checks:checks,legacyVersionsOnActiveClasspath:legacy_active,currentControlledVersions:current,policy:'Useful legacy capabilities are upgraded to compatible controlled versions; incomplete replacements remain isolated rather than deleted.',errors:errors};root.join('work/audit/unused35-upgrade-not-delete.json').write(JSON.pretty_generate(report)+"\n");abort("UNUSED35 failed: #{errors.join(', ')}")unless errors.empty?;puts 'UNUSED35 passed: useful compatibility capabilities upgraded rather than deleted'

@@ -1,0 +1,20 @@
+sources:
+  kubernetes_logs: {type: kubernetes_logs}
+transforms:
+  production_only:
+    type: filter
+    inputs: [kubernetes_logs]
+    condition: '.kubernetes.pod_namespace == "aoo-production"'
+  redact:
+    type: remap
+    inputs: [production_only]
+    source: |
+      del(.password)
+      del(.token)
+      del(.authorization)
+      .traceId = string!(.traceId ?? .trace_id ?? "missing")
+sinks:
+  stdout:
+    type: console
+    inputs: [redact]
+    encoding: {codec: json}

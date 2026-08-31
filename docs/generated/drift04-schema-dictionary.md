@@ -1,0 +1,94 @@
+# Aoo 数据库对象字典
+
+> 自动生成，禁止手工编辑。覆盖 `database/original` 原始基线与 `database/migrations` 增量迁移。
+
+| SQL 文件 | DDL/约束条目数 |
+|---|---:|
+| `database/migrations/V20260822_01__business_closure.sql` | 9 |
+| `database/migrations/V20260822_02__admin_control_plane.sql` | 2 |
+| `database/migrations/V20260822_03__game_profile_publication.sql` | 4 |
+| `database/migrations/V20260822_04_1__room_recovery.sql` | 3 |
+| `database/migrations/V20260822_04_2__currency_balance.sql` | 2 |
+| `database/migrations/V20260822_04_3__outbox_retry.sql` | 1 |
+| `database/migrations/V20260822_04__admin_permissions.sql` | 1 |
+| `database/migrations/V20260822_05__ledger_reconciliation_indexes.sql` | 1 |
+| `database/migrations/V20260822_06__million_member_club_indexes.sql` | 1 |
+| `database/migrations/V20260822_07__ten_million_player_indexes.sql` | 1 |
+| `database/migrations/V20260822_08__perspective_replay.sql` | 2 |
+| `database/migrations/V20260822_09__replay_retention.sql` | 2 |
+| `database/migrations/V20260822_10__perspective_room_events.sql` | 1 |
+| `database/migrations/V20260822_11__consumed_events.sql` | 1 |
+| `database/migrations/V20260822_12__consumed_event_claim.sql` | 1 |
+| `database/migrations/V20260822_13__room_event_visibility_identity.sql` | 1 |
+| `database/migrations/V20260822_14__scalable_club_members.sql` | 1 |
+| `database/migrations/V20260822_15__account_login_index.sql` | 1 |
+| `database/migrations/V20260823_01__room_event_business_identity.sql` | 2 |
+| `database/migrations/V20260823_02__outbox_claim_dlq_lifecycle.sql` | 1 |
+| `database/migrations/V20260823_03__consumed_event_repeatable_result.sql` | 1 |
+| `database/migrations/V20260823_04__consumer_dead_letter_replay.sql` | 2 |
+| `database/migrations/V20260823_05__idempotency_result_model.sql` | 1 |
+| `database/migrations/V20260823_06__idempotency_business_scope.sql` | 1 |
+| `database/migrations/V20260823_07__snapshot_state_version.sql` | 1 |
+| `database/migrations/V20260823_08__outbox_schema_version.sql` | 1 |
+| `database/migrations/V20260823_09__immutable_room_event_history.sql` | 2 |
+| `database/migrations/V20260823_10__connection_generation.sql` | 2 |
+| `database/migrations/V20260823_11__required_business_semantics.sql` | 7 |
+| `database/migrations/V20260823_12__play_member_template_business_keys.sql` | 4 |
+| `database/migrations/V20260823_13__enforced_domain_checks.sql` | 20 |
+| `database/migrations/V20260823_14__query_shape_indexes.sql` | 5 |
+| `database/migrations/V20260823_15__canonical_column_types.sql` | 18 |
+| `database/migrations/V20260823_16__utc_millisecond_time.sql` | 3 |
+| `database/migrations/V20260823_17__distributed_id_ownership.sql` | 2 |
+| `database/migrations/V20260823_18__club_aggregate_concurrency.sql` | 7 |
+| `database/migrations/V20260823_19__canonical_storage_layout.sql` | 8 |
+| `database/migrations/V20260823_20__account_login_unique_index.sql` | 1 |
+| `database/migrations/V20260823_21__consumed_event_fenced_lease.sql` | 1 |
+| `database/migrations/V20260823_22__versioned_replay_archive.sql` | 3 |
+| `database/migrations/V20260823_23__ledger_reconciliation_dimensions.sql` | 1 |
+| `database/migrations/V20260823_24__admin_rbac_audit.sql` | 4 |
+| `database/migrations/V20260823_25__outbox_fencing_and_retention.sql` | 1 |
+| `database/migrations/V20260823_26__currency_catalog_and_authority.sql` | 7 |
+| `database/migrations/V20260824_01__game_catalog_component_model.sql` | 105 |
+| `database/migrations/V20260824_02__immutable_game_release_index.sql` | 56 |
+| `database/migrations/V20260824_03__data_governance_controls.sql` | 101 |
+| `database/migrations/V20260824_04__database_operational_safety.sql` | 63 |
+| `database/migrations/V20260824_05__database_integrity_gates.sql` | 0 |
+| `database/migrations/V20260824_06__governance_workflow_procedures.sql` | 0 |
+| `database/migrations/V20260824_07__ledger_scope_and_score_precision.sql` | 8 |
+| `database/migrations/V20260824_08__concurrency_soft_delete_and_route_contracts.sql` | 6 |
+| `database/migrations/V20260824_21__admin_security_nonce.sql` | 1 |
+| `database/migrations/V20260824_24__edge_runtime_state_guards.sql` | 11 |
+| `database/migrations/V20260824_30__club_backend_consistency.sql` | 8 |
+| `database/migrations/V20260824_31__admin_sensitive_export.sql` | 9 |
+| `database/migrations/V20260824_32__external_platform_identity_and_risk.sql` | 8 |
+| `database/migrations/V20260824_34__billing_payment_api.sql` | 9 |
+| `database/migrations/V20260824_35__record_replay_api.sql` | 5 |
+| `database/migrations/V20260824_36__hall_catalog_room_api.sql` | 12 |
+| `database/migrations/V20260824_38__account_session_api.sql` | 7 |
+| `database/migrations/V20260824_39__social_notification_api.sql` | 15 |
+| `database/migrations/V20260824_40__player_support_api.sql` | 6 |
+| `database/migrations/V20260824_41__media_upload_api.sql` | 16 |
+| `database/migrations/V20260824_42__version_notice_update_api.sql` | 15 |
+| `database/migrations/V20260824_43__matchmaking_tournament.sql` | 13 |
+| `database/migrations/V20260824_44__inventory_store_api.sql` | 8 |
+| `database/migrations/V20260824_45__ranking_achievement.sql` | 5 |
+| `database/migrations/V20260824_46__privacy_data_rights_api.sql` | 9 |
+| `database/migrations/V20260824_47__telemetry_risk_api.sql` | 10 |
+| `database/migrations/V20260824_48__share_invite_link_api.sql` | 3 |
+| `database/migrations/V20260824_49__identity_verification_api.sql` | 5 |
+| `database/migrations/V20260824_50__player_profile_api.sql` | 5 |
+| `database/migrations/V20260824_51__activity_mission_api.sql` | 13 |
+| `database/migrations/V20260824_52__spectator_game_share_api.sql` | 8 |
+| `database/migrations/V20260824_53__referral_agent_api.sql` | 5 |
+| `database/migrations/V20260824_54__player_gifting_api.sql` | 9 |
+| `database/migrations/V20260824_55__canonical_game_configuration_repository.sql` | 2 |
+| `database/migrations/V20260824_56__gateway_ws_ticket.sql` | 3 |
+| `database/migrations/V20260824_57__luck_draw_api.sql` | 11 |
+| `database/migrations/V20260824_60__support_live_session.sql` | 9 |
+| `database/migrations/V20260824_73__risk_admission_authority.sql` | 4 |
+| `database/original/clark_game_qh.sql` | 90 |
+| `database/original/clark_log_qh.sql` | 225 |
+| `database/original/db_zle.sql` | 30 |
+| `database/original/db_zle_qh.sql` | 112 |
+
+汇总：表 665、变更 101、索引 4、约束 412。逐对象、来源行和 DDL 摘要见同名 JSON。

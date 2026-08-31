@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "serverEvidence": "docs/generated/cp12-clean-isolated.json",
+  "clientGeneratedDirectories": [
+    "build",
+    "library",
+    "temp"
+  ],
+  "checks": {
+    "serverCleanIsolatedVerify": true,
+    "lockedRepository": true,
+    "allReactorJarsFresh": true,
+    "clientCleanCreatorRebuild": false,
+    "equivalentReleasePackageHash": false
+  },
+  "passed": false
+}

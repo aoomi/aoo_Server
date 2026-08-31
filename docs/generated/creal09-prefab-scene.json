@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "total": 1626,
+  "prefabs": 1616,
+  "scenes": 10,
+  "parseErrors": [
+
+  ],
+  "uuid": {
+    "metaUuids": 33634,
+    "directReferences": 145675,
+    "engineBuiltinReferences": 21836,
+    "missingDirectReferences": 0,
+    "duplicateMetaUuids": 0,
+    "metaParseErrors": 0
+  },
+  "ui": {
+    "interactiveComponents": 4899,
+    "serializedBindings": 0,
+    "scriptFilesWithClickSites": 125,
+    "clickSites": 457,
+    "candidateFilesWithoutBackendClosure": 19,
+    "fakeSites": 11,
+    "candidateFixedSuccessFiles": 0
+  },
+  "creatorOpenSaveEvidence": false,
+  "verdict": "awaiting-creator-and-ui-closure"
+}

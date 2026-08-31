@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-27T12:27:20Z",
+  "task": "CP02",
+  "resourceRoots": [
+    "server/Billing/src/main/resources",
+    "server/Bootstrap/src/main/resources",
+    "server/CDXZMJ/src/main/resources",
+    "server/Hall/src/main/resources",
+    "server/LegacyAccountServer/common/src/main/resources",
+    "server/LegacyAccountServer/dao/src/main/resources",
+    "server/LegacyAccountServer/hall/src/main/resources",
+    "server/LegacyAccountServer/package_hall/src/main/resources",
+    "server/LegacyAccountServer/server/src/main/resources",
+    "server/LongCard/src/main/resources",
+    "server/Mahjong/src/main/resources",
+    "server/NJPDK/src/main/resources",
+    "server/Poker/src/main/resources",
+    "server/Ranking/src/main/resources",
+    "server/SCJYMJ/src/main/resources",
+    "server/WordCard/src/main/resources",
+    "server/XCPDK/src/main/resources",
+    "server/ZJH/src/main/resources",
+    "server/ZYPK/src/main/resources"
+  ],
+  "uniqueResourcePaths": 21,
+  "duplicatePaths": 1,
+  "mergeablePaths": 1,
+  "blockingCollisions": [
+
+  ],
+  "duplicates": [
+    {
+      "resourcePath": "META-INF/services/com.aoo.bcg.gamespi.GameProvider",
+      "mergeable": true,
+      "entries": [
+        {
+          "path": "server/CDXZMJ/src/main/resources/META-INF/services/com.aoo.bcg.gamespi.GameProvider",
+          "sha256": "9a583ea250c193f7983d6f1727ef038263aa32cdb0decb11e45f2dfb4bec8e87"
+        },
+        {
+          "path": "server/NJPDK/src/main/resources/META-INF/services/com.aoo.bcg.gamespi.GameProvider",
+          "sha256": "7cf6f6869d4fa25e447a7be6409ee798cba583897c75076de55b6aa53f4f8163"
+        },
+        {
+          "path": "server/SCJYMJ/src/main/resources/META-INF/services/com.aoo.bcg.gamespi.GameProvider",
+          "sha256": "3cda33ad19a9e1b0c296bcee4912ba05120c7b0eb6126227a3d31a1447d7a746"
+        },
+        {
+          "path": "server/XCPDK/src/main/resources/META-INF/services/com.aoo.bcg.gamespi.GameProvider",
+          "sha256": "c6c4ee66357f7f84972beb4e3c2dd1c0a187a3ba2f123176e1ba06130d3f35b0"
+        },
+        {
+          "path": "server/ZJH/src/main/resources/META-INF/services/com.aoo.bcg.gamespi.GameProvider",
+          "sha256": "a5301ad163b7cc7bc042ece59476025f9ee079d44a03ba2f2d3c5819d05deefc"
+        },
+        {
+          "path": "server/ZYPK/src/main/resources/META-INF/services/com.aoo.bcg.gamespi.GameProvider",
+          "sha256": "b4269740cf3c71cc55d18c42636bc4388f0a11ea9f6ce9bef60f4f9f346ed859"
+        }
+      ]
+    }
+  ],
+  "passed": true,
+  "policy": "Only META-INF/services entries may share a path; their packaged merge completeness is enforced separately by CP07."
+}

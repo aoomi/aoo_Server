@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "total": 44641,
+  "classifications": {
+    "RUNTIME_CONFIG": 361,
+    "RESOURCE_DATA": 36,
+    "GENERATED_CACHE": 44200,
+    "DEVELOPMENT_TEST": 12,
+    "CONFIG_SOURCE": 3,
+    "ARCHIVED_REFERENCE": 8,
+    "PROJECT_TOOLCHAIN": 2,
+    "EDITOR_PROFILE": 19
+  },
+  "inventorySha256": "8d068dde1175de1d14e02c4a3be6014decbb4360c6e6b32c5a18e9cc32b23dc8",
+  "unclassified": [
+
+  ]
+}

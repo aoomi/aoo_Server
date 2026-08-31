@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "files": [
+    {
+      "path": "assets/Common/Config/Legacy/assets/jsonData/roomcost.json",
+      "bytes": 5062218,
+      "sha256": "7d96f4cecdd11af0509af75a4188fe4c7b906cf748f7a35986660e3b4a48d38f"
+    },
+    {
+      "path": "assets/Common/Config/Legacy/assets/njpdk/jsonData/roomcost.json",
+      "bytes": 2330,
+      "sha256": "3f0f57b7e319b69c691afde9fbb340732edad50f090b5cd1489eed0f376d1eef"
+    },
+    {
+      "path": "assets/Games/Mahjong/Packs/Pack01/Config/Legacy/hzmj-source/jsonData/roomcost.json",
+      "bytes": 2822,
+      "sha256": "364aa309d05730507bf46d5d376c09ddaa624fcf93192c2b5c752399c1a9e1f6"
+    },
+    {
+      "path": "assets/Games/Poker/Packs/Pack01/Config/Legacy/assets/njpdk/jsonData/roomcost.json",
+      "bytes": 2330,
+      "sha256": "3f0f57b7e319b69c691afde9fbb340732edad50f090b5cd1489eed0f376d1eef"
+    }
+  ],
+  "uniqueHashes": 3,
+  "databaseBillingClosure": false,
+  "passed": false
+}

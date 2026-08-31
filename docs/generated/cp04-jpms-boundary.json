@@ -1,0 +1,407 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-27T12:27:20Z",
+  "task": "CP04",
+  "reactorModules": 42,
+  "moduleNameConflicts": [
+
+  ],
+  "splitPackages": [
+
+  ],
+  "shadedModules": [
+
+  ],
+  "passed": true,
+  "modules": [
+    {
+      "modulePath": "server/AooKernel",
+      "artifactId": "aoo-kernel",
+      "automaticModuleName": "aoo.kernel",
+      "packages": [
+        "BaseCommon",
+        "BaseServer",
+        "BaseTask.AsynTask",
+        "BaseTask.SyncTask",
+        "BaseThread",
+        "ConsoleTask"
+      ]
+    },
+    {
+      "modulePath": "server/GameSPI",
+      "artifactId": "game-spi",
+      "automaticModuleName": "game.spi",
+      "packages": [
+        "com.aoo.bcg.gamespi",
+        "com.aoo.bcg.gamespi.api",
+        "com.aoo.bcg.gamespi.fsm",
+        "com.aoo.bcg.gamespi.protocol",
+        "com.aoo.bcg.gamespi.resource",
+        "com.aoo.bcg.gamespi.time"
+      ]
+    },
+    {
+      "modulePath": "server/GameCommon",
+      "artifactId": "game-common",
+      "automaticModuleName": "game.common",
+      "packages": [
+        "com.aoo.bcg.common.authority",
+        "com.aoo.bcg.common.cache",
+        "com.aoo.bcg.common.club",
+        "com.aoo.bcg.common.concurrency",
+        "com.aoo.bcg.common.config",
+        "com.aoo.bcg.common.dissolve",
+        "com.aoo.bcg.common.error",
+        "com.aoo.bcg.common.event",
+        "com.aoo.bcg.common.id",
+        "com.aoo.bcg.common.idempotency",
+        "com.aoo.bcg.common.invite",
+        "com.aoo.bcg.common.lifecycle",
+        "com.aoo.bcg.common.mapping",
+        "com.aoo.bcg.common.math",
+        "com.aoo.bcg.common.metrics",
+        "com.aoo.bcg.common.observability",
+        "com.aoo.bcg.common.operations",
+        "com.aoo.bcg.common.paging",
+        "com.aoo.bcg.common.persistence",
+        "com.aoo.bcg.common.perspective",
+        "com.aoo.bcg.common.privacy",
+        "com.aoo.bcg.common.random",
+        "com.aoo.bcg.common.readiness",
+        "com.aoo.bcg.common.reconnect",
+        "com.aoo.bcg.common.recovery",
+        "com.aoo.bcg.common.repair",
+        "com.aoo.bcg.common.replay",
+        "com.aoo.bcg.common.resource",
+        "com.aoo.bcg.common.retry",
+        "com.aoo.bcg.common.room",
+        "com.aoo.bcg.common.security",
+        "com.aoo.bcg.common.serialization",
+        "com.aoo.bcg.common.session",
+        "com.aoo.bcg.common.settlement",
+        "com.aoo.bcg.common.time",
+        "com.aoo.bcg.common.transaction",
+        "com.aoo.bcg.common.trustee",
+        "com.aoo.bcg.common.turn",
+        "core.club",
+        "core.replay"
+      ]
+    },
+    {
+      "modulePath": "server/Mahjong",
+      "artifactId": "game-category-mahjong",
+      "automaticModuleName": "game.category.mahjong",
+      "packages": [
+        "com.aoo.bcg.mahjong"
+      ]
+    },
+    {
+      "modulePath": "server/Poker",
+      "artifactId": "game-category-poker",
+      "automaticModuleName": "game.category.poker",
+      "packages": [
+        "com.aoo.bcg.poker"
+      ]
+    },
+    {
+      "modulePath": "server/LongCard",
+      "artifactId": "game-category-long-card",
+      "automaticModuleName": "game.category.long.card",
+      "packages": [
+        "com.aoo.bcg.longcard"
+      ]
+    },
+    {
+      "modulePath": "server/WordCard",
+      "artifactId": "game-category-word-card",
+      "automaticModuleName": "game.category.word.card",
+      "packages": [
+        "com.aoo.bcg.wordcard"
+      ]
+    },
+    {
+      "modulePath": "server/Families",
+      "artifactId": "game-families",
+      "automaticModuleName": "game.families",
+      "packages": [
+        "com.aoo.bcg.families"
+      ]
+    },
+    {
+      "modulePath": "server/Club",
+      "artifactId": "club-backend",
+      "automaticModuleName": "club.backend",
+      "packages": [
+        "com.aoo.bcg.club"
+      ]
+    },
+    {
+      "modulePath": "server/Gateway",
+      "artifactId": "game-gateway",
+      "automaticModuleName": "game.gateway",
+      "packages": [
+        "com.aoo.bcg.gateway"
+      ]
+    },
+    {
+      "modulePath": "server/ConfigCenter",
+      "artifactId": "game-config-center",
+      "automaticModuleName": "game.config.center",
+      "packages": [
+        "com.aoo.bcg.config"
+      ]
+    },
+    {
+      "modulePath": "server/AdminApi",
+      "artifactId": "admin-api",
+      "automaticModuleName": "admin.api",
+      "packages": [
+        "com.aoo.bcg.admin"
+      ]
+    },
+    {
+      "modulePath": "server/Billing",
+      "artifactId": "game-billing",
+      "automaticModuleName": "game.billing",
+      "packages": [
+        "com.aoo.bcg.billing"
+      ]
+    },
+    {
+      "modulePath": "server/Referral",
+      "artifactId": "referral-agent-api",
+      "automaticModuleName": "referral.agent.api",
+      "packages": [
+        "com.aoo.bcg.referral"
+      ]
+    },
+    {
+      "modulePath": "server/Inventory",
+      "artifactId": "inventory-store",
+      "automaticModuleName": "inventory.store",
+      "packages": [
+        "com.aoo.bcg.inventory"
+      ]
+    },
+    {
+      "modulePath": "server/Activity",
+      "artifactId": "activity-mission",
+      "automaticModuleName": "activity.mission",
+      "packages": [
+        "com.aoo.bcg.activity"
+      ]
+    },
+    {
+      "modulePath": "server/LuckDraw",
+      "artifactId": "luck-draw-api",
+      "automaticModuleName": "luck.draw.api",
+      "packages": [
+        "com.aoo.bcg.luckdraw"
+      ]
+    },
+    {
+      "modulePath": "server/Ranking",
+      "artifactId": "ranking-achievement",
+      "automaticModuleName": "ranking.achievement",
+      "packages": [
+        "com.aoo.bcg.ranking"
+      ]
+    },
+    {
+      "modulePath": "server/Matchmaking",
+      "artifactId": "matchmaking-tournament",
+      "automaticModuleName": "matchmaking.tournament",
+      "packages": [
+        "com.aoo.bcg.matchmaking"
+      ]
+    },
+    {
+      "modulePath": "server/Support",
+      "artifactId": "player-support",
+      "automaticModuleName": "player.support",
+      "packages": [
+        "com.aoo.bcg.support"
+      ]
+    },
+    {
+      "modulePath": "server/VersionNotice",
+      "artifactId": "version-notice",
+      "automaticModuleName": "version.notice",
+      "packages": [
+        "com.aoo.bcg.version"
+      ]
+    },
+    {
+      "modulePath": "server/Media",
+      "artifactId": "game-media",
+      "automaticModuleName": "game.media",
+      "packages": [
+        "com.aoo.bcg.media"
+      ]
+    },
+    {
+      "modulePath": "server/Social",
+      "artifactId": "game-social",
+      "automaticModuleName": "game.social",
+      "packages": [
+        "com.aoo.bcg.social"
+      ]
+    },
+    {
+      "modulePath": "server/Share",
+      "artifactId": "share-invite-link",
+      "automaticModuleName": "share.invite.link",
+      "packages": [
+        "com.aoo.bcg.share"
+      ]
+    },
+    {
+      "modulePath": "server/Spectator",
+      "artifactId": "spectator-game-share",
+      "automaticModuleName": "spectator.game.share",
+      "packages": [
+        "com.aoo.bcg.spectator"
+      ]
+    },
+    {
+      "modulePath": "server/gameServer",
+      "artifactId": "game-server-framework",
+      "automaticModuleName": "game.server.framework",
+      "packages": [
+
+      ]
+    },
+    {
+      "modulePath": "server/NJPDK",
+      "artifactId": "njpdk",
+      "automaticModuleName": "njpdk",
+      "packages": [
+
+      ]
+    },
+    {
+      "modulePath": "server/SCJYMJ",
+      "artifactId": "scjymj",
+      "automaticModuleName": "scjymj",
+      "packages": [
+
+      ]
+    },
+    {
+      "modulePath": "server/XCPDK",
+      "artifactId": "xcpdk",
+      "automaticModuleName": "xcpdk",
+      "packages": [
+
+      ]
+    },
+    {
+      "modulePath": "server/ZJH",
+      "artifactId": "zjh",
+      "automaticModuleName": "zjh",
+      "packages": [
+
+      ]
+    },
+    {
+      "modulePath": "server/ZYPK",
+      "artifactId": "zypk",
+      "automaticModuleName": "zypk",
+      "packages": [
+
+      ]
+    },
+    {
+      "modulePath": "server/Hall",
+      "artifactId": "game-hall",
+      "automaticModuleName": "game.hall",
+      "packages": [
+        "com.aoo.bcg.hall",
+        "com.aoo.bcg.hall.http",
+        "com.aoo.bcg.hall.room"
+      ]
+    },
+    {
+      "modulePath": "server/Account",
+      "artifactId": "account-domain",
+      "automaticModuleName": "account.domain",
+      "packages": [
+        "com.aoo.bcg.account",
+        "com.aoo.bcg.account.callback",
+        "com.aoo.bcg.account.wechat"
+      ]
+    },
+    {
+      "modulePath": "server/ExternalIntegration",
+      "artifactId": "game-external-integration",
+      "automaticModuleName": "game.external.integration",
+      "packages": [
+        "com.aoo.bcg.external"
+      ]
+    },
+    {
+      "modulePath": "server/Location",
+      "artifactId": "location-risk",
+      "automaticModuleName": "location.risk",
+      "packages": [
+        "com.aoo.bcg.location"
+      ]
+    },
+    {
+      "modulePath": "server/RoomSafety",
+      "artifactId": "room-safety",
+      "automaticModuleName": "room.safety",
+      "packages": [
+        "com.aoo.bcg.roomsafety"
+      ]
+    },
+    {
+      "modulePath": "server/Privacy",
+      "artifactId": "privacy-data-rights",
+      "automaticModuleName": "privacy.data.rights",
+      "packages": [
+        "com.aoo.bcg.privacy"
+      ]
+    },
+    {
+      "modulePath": "server/PlayerProfile",
+      "artifactId": "player-profile",
+      "automaticModuleName": "player.profile",
+      "packages": [
+        "com.aoo.bcg.profile"
+      ]
+    },
+    {
+      "modulePath": "server/Gifting",
+      "artifactId": "player-gifting",
+      "automaticModuleName": "player.gifting",
+      "packages": [
+        "com.aoo.bcg.gifting"
+      ]
+    },
+    {
+      "modulePath": "server/Telemetry",
+      "artifactId": "telemetry-risk",
+      "automaticModuleName": "telemetry.risk",
+      "packages": [
+        "com.aoo.bcg.telemetry"
+      ]
+    },
+    {
+      "modulePath": "server/IdentityVerification",
+      "artifactId": "identity-verification",
+      "automaticModuleName": "identity.verification",
+      "packages": [
+        "com.aoo.bcg.identity"
+      ]
+    },
+    {
+      "modulePath": "server/Bootstrap",
+      "artifactId": "game-bootstrap",
+      "automaticModuleName": "game.bootstrap",
+      "packages": [
+        "com.aoo.bcg.bootstrap"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-23T09:08:44Z",
+  "task": "PROTO01",
+  "canonicalSource": "protocol/aoo-protocol-v2.json",
+  "protocolVersion": "2.0",
+  "messageCount": 35,
+  "errorCodeRanges": {
+    "COMMON": "1000-1999",
+    "ACCOUNT": "2000-2999",
+    "ROOM": "3000-3999",
+    "GAME": "4000-4999",
+    "BILLING": "5000-5999",
+    "CLUB": "6000-6999"
+  },
+  "checks": {
+    "singleCanonicalSource": true,
+    "schemaIdentity": true,
+    "versionDeclared": true,
+    "envelopeFieldsDeclared": true,
+    "errorRangesDeclared": true,
+    "messagesComplete": true,
+    "messageIdsUnique": true,
+    "governanceNamesSource": true
+  },
+  "passed": true
+}

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="gameServer" default="end" basedir=".">
+	<property name="build.dir" location="build" />
+	<property name="src.dir" location="build/src" />
+	<property name="bconf.dir" location="build/conf" />
+	<property name="classes.dir" value="build/classes" />
+	<property name="tolib.dir" value="build/lib" />
+	<property name="common.dir" location="../common" />
+	<property name="lib.dir" location="../common/lib" />
+	<property name="commdef.dir" location="../commdef" />
+	<property name="conf.dir" location="conf" />
+	<property name="robots.dir" location="robots.txt" />
+	<property name="main-class" value="core.server.GameServer" />
+	<property name="jar.file" value="build/gameServer.jar" />
+	<path id="classpath">
+		<fileset dir="${lib.dir}">
+			<include name="**/*.jar" />
+		</fileset>
+	</path>
+    <target name="clean" description="清理所有">
+        <delete dir="${build.dir}"/>
+    	<echo level="info">构建开始</echo>
+    </target>
+	
+    <target name="init" depends="clean" description="初始化,建立目录,复制文件">
+    	<mkdir dir="${build.dir}"/>
+    	<mkdir dir="${classes.dir}"/>
+    	<mkdir dir="${src.dir}"/>
+    	<copy todir="${src.dir}">
+	        <fileset dir=".">
+	            <include name="**/*.java" />
+	        </fileset>
+    	</copy>
+    	<copy todir="${src.dir}">
+	        <fileset dir="${commdef.dir}/src">
+	            <include name="**/*.java" />
+	        </fileset>
+    	</copy>
+    	<copy todir="${src.dir}">
+	        <fileset dir="${common.dir}/src">
+	            <include name="**/*.java" />
+	        </fileset>
+    	</copy>
+    	<copy todir="${bconf.dir}">
+    		 <fileset dir="${conf.dir}"/>
+    	</copy>
+        <copy file="${robots.dir}" todir="${build.dir}"/>
+    	<echo level="info">前期创建复制完毕</echo>
+    </target>
+    <target name="compile" depends="init" description="编译">
+        <javac includeantruntime="on" srcdir="${src.dir}" destdir="${classes.dir}" classpathref="classpath" source="1.8" target="1.8"  verbose="no" failonerror="on">
+        	<compilerarg line="-encoding UTF-8 "/> 
+        </javac>
+    	<echo level="info">编译完毕</echo>
+    </target>
+	
+    <target name="jar" depends="compile" description="打包类文件">
+    	<pathconvert property="mf.classpath" pathsep=" "> 
+    		<mapper>
+	    		<chainedmapper>
+	    			<flattenmapper />
+	    		    <globmapper from="*" to="lib/*" />
+	    		</chainedmapper>
+    		</mapper>
+            <path refid="classpath" /> 
+    	</pathconvert> 
+        <jar jarfile="${jar.file}" >
+            <fileset dir="${classes.dir}" includes="**/*.*" />
+        	<manifest> 
+               <attribute name="Main-Class" value="${main-class}"/> 
+               <attribute name="Class-Path" value="${mf.classpath}"/> 
+            </manifest> 
+        </jar>
+    	<copy todir="${tolib.dir}" flatten="true">
+	        <fileset dir="${lib.dir}">
+	            <include name="**/*.jar" />
+	        	<type type="file"/>
+	        </fileset>
+    	</copy>
+    	<echo level="info">打包完毕</echo>
+    </target>
+	
+    <target name="end" depends="jar" description="清理,删除临时目录">
+        <delete dir="${classes.dir}" />
+    	<delete dir="${src.dir}" />
+        <echo level="info">清理完毕</echo>
+    </target>
+	
+    <!--target name="run" depends="compile" description="运行">
+        <java classname="powerwind.Sample" fork="yes" dir="${basedir}">
+            <classpath refid="run.classpath" />
+            <arg line="1" />
+        </java>
+    </target-->
+</project>

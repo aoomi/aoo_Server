@@ -1,0 +1,29 @@
+apiVersion: aoo.io/v1
+kind: ConfigAccessPolicy
+metadata:
+  name: admin-api-runtime
+spec:
+  identity: admin-api
+  role: SERVICE_READER
+  readablePrefixes: ["/aoo/services/admin-api/"]
+  writablePrefixes: []
+---
+apiVersion: aoo.io/v1
+kind: ConfigAccessPolicy
+metadata:
+  name: game-server-runtime
+spec:
+  identity: game-server
+  role: SERVICE_READER
+  readablePrefixes: ["/aoo/services/game-server/", "/aoo/play-releases/"]
+  writablePrefixes: []
+---
+apiVersion: aoo.io/v1
+kind: ConfigAccessPolicy
+metadata:
+  name: release-publisher
+spec:
+  identity: ci-release-publisher
+  role: RELEASE_PUBLISHER
+  readablePrefixes: ["/aoo/releases/"]
+  writablePrefixes: ["/aoo/releases/", "/aoo/play-releases/"]

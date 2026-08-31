@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "task": "DBREAL11",
+  "passed": true,
+  "migrationCount": 117,
+  "invalidUtf8Files": [
+
+  ],
+  "bomFiles": [
+
+  ],
+  "delimiterErrors": [
+
+  ],
+  "integrationEvidence": {
+    "passed": true,
+    "targetVersion": "8.0.46",
+    "characterSet": "utf8mb4",
+    "collation": "utf8mb4_0900_ai_ci",
+    "sessionTimeZone": "+00:00",
+    "sqlMode": "STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION",
+    "unicodeRoundTrip": true,
+    "migrationOutputTail": "flyway-migration-apply: passed\nflyway-migration-apply: passed\nfresh-migration-verification: passed (29 tables)",
+    "queryError": ""
+  },
+  "checks": {
+    "all_migrations_valid_utf8": true,
+    "no_utf8_bom": true,
+    "delimiter_pairs_balanced": true,
+    "runner_forces_utf8mb4": true,
+    "runner_forces_utc_session": true,
+    "runner_forces_strict_sql_mode": true,
+    "real_target_mysql_full_execution": true
+  }
+}

@@ -1,0 +1,125 @@
+{
+  "schemaVersion": 1,
+  "domain": "Club",
+  "directCalls": {
+    "localStorage": [
+      {
+        "path": "assets/Club/Code/Runtime/LegacyClubEntryController.ts",
+        "line": 142
+      },
+      {
+        "path": "assets/Club/Code/Runtime/LegacyClubEntryController.ts",
+        "line": 347
+      },
+      {
+        "path": "assets/Club/Code/Runtime/LegacyClubMainController.ts",
+        "line": 348
+      },
+      {
+        "path": "assets/Club/Code/Runtime/LegacyClubMainController.ts",
+        "line": 351
+      },
+      {
+        "path": "assets/Club/Code/Runtime/LegacyClubMainController.ts",
+        "line": 357
+      },
+      {
+        "path": "assets/Club/Code/Runtime/LegacyClubMainController.ts",
+        "line": 358
+      },
+      {
+        "path": "assets/Club/Code/Runtime/LegacyClubMainController.ts",
+        "line": 365
+      },
+      {
+        "path": "assets/Club/Code/Runtime/LegacyClubMainController.ts",
+        "line": 366
+      },
+      {
+        "path": "assets/Club/Code/Runtime/LegacyClubMainController.ts",
+        "line": 467
+      },
+      {
+        "path": "assets/Club/Code/Runtime/LegacyClubMainController.ts",
+        "line": 496
+      },
+      {
+        "path": "assets/Club/Code/Runtime/LegacyClubMainController.ts",
+        "line": 518
+      },
+      {
+        "path": "assets/Club/Code/Runtime/LegacyClubMainController.ts",
+        "line": 638
+      },
+      {
+        "path": "assets/Club/Code/Runtime/LegacyUnionInfoPopupController.ts",
+        "line": 26
+      },
+      {
+        "path": "assets/Club/Code/Runtime/LegacyUnionInfoPopupController.ts",
+        "line": 34
+      },
+      {
+        "path": "assets/Club/Code/Runtime/LegacyUnionManagerController.ts",
+        "line": 110
+      },
+      {
+        "path": "assets/Club/Code/Runtime/LegacyUnionPLSetController.ts",
+        "line": 52
+      },
+      {
+        "path": "assets/Club/Code/Runtime/LegacyUnionPLSetController.ts",
+        "line": 120
+      }
+    ],
+    "bundle": [
+      {
+        "path": "assets/Club/Code/Runtime/LegacyClubEntryController.ts",
+        "line": 191
+      },
+      {
+        "path": "assets/Club/Code/Runtime/LegacyClubEntryController.ts",
+        "line": 198
+      },
+      {
+        "path": "assets/Club/Code/Runtime/LegacyClubMainController.ts",
+        "line": 118
+      },
+      {
+        "path": "assets/Club/Code/Runtime/LegacyClubMainController.ts",
+        "line": 128
+      },
+      {
+        "path": "assets/Club/Code/Runtime/LegacyClubMainController.ts",
+        "line": 413
+      },
+      {
+        "path": "assets/Club/Code/Runtime/LegacyClubMainController.ts",
+        "line": 435
+      },
+      {
+        "path": "assets/Club/Code/Runtime/LegacyClubPlayerRecordController.ts",
+        "line": 24
+      },
+      {
+        "path": "assets/Club/Code/Runtime/LegacyUnionManagerController.ts",
+        "line": 44
+      },
+      {
+        "path": "assets/Club/Code/Runtime/LegacyUnionZhongzhiRankController.ts",
+        "line": 27
+      }
+    ],
+    "websocket": [
+
+    ],
+    "native": [
+
+    ],
+    "fetch": [
+
+    ]
+  },
+  "centralized": false,
+  "passed": false
+}

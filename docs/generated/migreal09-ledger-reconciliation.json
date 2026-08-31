@@ -1,0 +1,11 @@
+{
+  "rows": 1000000,
+  "combinedIndex": "idx_ledger_reconcile_window",
+  "statusIndex": "idx_ledger_status_window",
+  "channelIndex": "idx_ledger_channel_window",
+  "samples": 5000,
+  "p95Ms": 0.521,
+  "p99Ms": 0.804,
+  "mysqlVersion": "8.0.46",
+  "status": "passed"
+}

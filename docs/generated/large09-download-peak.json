@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "task": "LARGE09",
+  "passed": false,
+  "scenario": {
+    "bundles": [
+      "common-prefab",
+      "lobby-prefab"
+    ],
+    "perConnectionBytesPerSecond": 2097152,
+    "transport": "loopback HTTP throttled response",
+    "files": 2482
+  },
+  "metrics": {
+    "downloadedBytes": 21542345,
+    "diskBytes": 21542345,
+    "elapsedSeconds": 18.913,
+    "peakPythonBytes": 3011903,
+    "averageBytesPerSecond": 1139046
+  },
+  "checks": {
+    "actualHttpTransfer": true,
+    "contentIntegrity": true,
+    "streamingMemoryPeakUnder32MiB": true,
+    "timeoutUnder30Seconds": true,
+    "cdnCacheHeadersVerified": false,
+    "retryAndResumeVerified": false,
+    "diskCapacityPreflight": false
+  },
+  "blockers": [
+    "No CDN deployment/cache-header endpoint is configured",
+    "No resumable range/retry test or pre-download disk capacity contract exists"
+  ]
+}

@@ -1,0 +1,211 @@
+{
+  "schemaVersion": 1,
+  "pairs": 22,
+  "checks": {
+    "pairsPresent": true,
+    "allAtlasPresent": true,
+    "allTexturesPresent": true,
+    "allUuidLinksCorrect": true
+  },
+  "rows": [
+    {
+      "skeleton": "Common/Spine/Legacy/assets/njpdk/animation/spine/boom/skeleton.json.meta",
+      "atlas": "Common/Atlas/Legacy/assets/njpdk/animation/spine/boom/skeleton.atlas",
+      "atlasExists": true,
+      "textureExists": true,
+      "configuredAtlasUuid": "16d67633-127c-4726-ad43-7ec657845116",
+      "actualAtlasUuid": "16d67633-127c-4726-ad43-7ec657845116",
+      "linked": true
+    },
+    {
+      "skeleton": "Common/Spine/Legacy/assets/njpdk/animation/spine/guan/skeleton.json.meta",
+      "atlas": "Common/Atlas/Legacy/assets/njpdk/animation/spine/guan/skeleton.atlas",
+      "atlasExists": true,
+      "textureExists": true,
+      "configuredAtlasUuid": "d1d8d99d-133b-4d84-97f1-bdec941c38e3",
+      "actualAtlasUuid": "d1d8d99d-133b-4d84-97f1-bdec941c38e3",
+      "linked": true
+    },
+    {
+      "skeleton": "Common/Spine/Legacy/assets/njpdk/animation/spine/liandui/skeleton.json.meta",
+      "atlas": "Common/Atlas/Legacy/assets/njpdk/animation/spine/liandui/skeleton.atlas",
+      "atlasExists": true,
+      "textureExists": true,
+      "configuredAtlasUuid": "9e63cdfe-ed89-4dcb-a01e-7b7f08b6a3e9",
+      "actualAtlasUuid": "9e63cdfe-ed89-4dcb-a01e-7b7f08b6a3e9",
+      "linked": true
+    },
+    {
+      "skeleton": "Common/Spine/Legacy/assets/njpdk/animation/spine/ligth/skeleton.json.meta",
+      "atlas": "Common/Atlas/Legacy/assets/njpdk/animation/spine/ligth/skeleton.atlas",
+      "atlasExists": true,
+      "textureExists": true,
+      "configuredAtlasUuid": "71f9af4c-b5d5-4bc7-bcff-b463755c0427",
+      "actualAtlasUuid": "71f9af4c-b5d5-4bc7-bcff-b463755c0427",
+      "linked": true
+    },
+    {
+      "skeleton": "Common/Spine/Legacy/assets/njpdk/animation/spine/pine/skeleton.json.meta",
+      "atlas": "Common/Atlas/Legacy/assets/njpdk/animation/spine/pine/skeleton.atlas",
+      "atlasExists": true,
+      "textureExists": true,
+      "configuredAtlasUuid": "21152d16-9ee1-4657-b153-cdfea063b425",
+      "actualAtlasUuid": "21152d16-9ee1-4657-b153-cdfea063b425",
+      "linked": true
+    },
+    {
+      "skeleton": "Common/Spine/Legacy/assets/njpdk/animation/spine/sandaier/skeleton.json.meta",
+      "atlas": "Common/Atlas/Legacy/assets/njpdk/animation/spine/sandaier/skeleton.atlas",
+      "atlasExists": true,
+      "textureExists": true,
+      "configuredAtlasUuid": "0c3b18b3-8a86-4040-8853-6499f4601871",
+      "actualAtlasUuid": "0c3b18b3-8a86-4040-8853-6499f4601871",
+      "linked": true
+    },
+    {
+      "skeleton": "Common/Spine/Legacy/assets/njpdk/animation/spine/sandaiyi/skeleton.json.meta",
+      "atlas": "Common/Atlas/Legacy/assets/njpdk/animation/spine/sandaiyi/skeleton.atlas",
+      "atlasExists": true,
+      "textureExists": true,
+      "configuredAtlasUuid": "28ef8963-36f1-4bcd-a2f3-fb776081de38",
+      "actualAtlasUuid": "28ef8963-36f1-4bcd-a2f3-fb776081de38",
+      "linked": true
+    },
+    {
+      "skeleton": "Common/Spine/Legacy/assets/njpdk/animation/spine/shunzi/skeleton.json.meta",
+      "atlas": "Common/Atlas/Legacy/assets/njpdk/animation/spine/shunzi/skeleton.atlas",
+      "atlasExists": true,
+      "textureExists": true,
+      "configuredAtlasUuid": "a8ff5c59-ffe2-4a14-bb2a-6a29fd66466a",
+      "actualAtlasUuid": "a8ff5c59-ffe2-4a14-bb2a-6a29fd66466a",
+      "linked": true
+    },
+    {
+      "skeleton": "Common/Spine/Legacy/assets/njpdk/animation/spine/sidaier/skeleton.json.meta",
+      "atlas": "Common/Atlas/Legacy/assets/njpdk/animation/spine/sidaier/skeleton.atlas",
+      "atlasExists": true,
+      "textureExists": true,
+      "configuredAtlasUuid": "b8f5b6e0-2cfe-49fc-9980-72392ed682c2",
+      "actualAtlasUuid": "b8f5b6e0-2cfe-49fc-9980-72392ed682c2",
+      "linked": true
+    },
+    {
+      "skeleton": "Common/Spine/Legacy/assets/njpdk/animation/spine/sidaisan/skeleton.json.meta",
+      "atlas": "Common/Atlas/Legacy/assets/njpdk/animation/spine/sidaisan/skeleton.atlas",
+      "atlasExists": true,
+      "textureExists": true,
+      "configuredAtlasUuid": "5a04731e-8858-46c8-b656-af7953d574e2",
+      "actualAtlasUuid": "5a04731e-8858-46c8-b656-af7953d574e2",
+      "linked": true
+    },
+    {
+      "skeleton": "Common/Spine/Legacy/assets/njpdk/animation/spine/sidaiyi/skeleton.json.meta",
+      "atlas": "Common/Atlas/Legacy/assets/njpdk/animation/spine/sidaiyi/skeleton.atlas",
+      "atlasExists": true,
+      "textureExists": true,
+      "configuredAtlasUuid": "98c183c8-7e1d-4954-bd32-7c68ccf1b608",
+      "actualAtlasUuid": "98c183c8-7e1d-4954-bd32-7c68ccf1b608",
+      "linked": true
+    },
+    {
+      "skeleton": "Games/Poker/Packs/Pack01/Spine/Legacy/assets/njpdk/animation/spine/boom/skeleton.json.meta",
+      "atlas": "Games/Poker/Packs/Pack01/Atlas/Legacy/assets/njpdk/animation/spine/boom/skeleton.atlas",
+      "atlasExists": true,
+      "textureExists": true,
+      "configuredAtlasUuid": "4bcf4367-c344-485d-8ec9-7fe3c5022621",
+      "actualAtlasUuid": "4bcf4367-c344-485d-8ec9-7fe3c5022621",
+      "linked": true
+    },
+    {
+      "skeleton": "Games/Poker/Packs/Pack01/Spine/Legacy/assets/njpdk/animation/spine/guan/skeleton.json.meta",
+      "atlas": "Games/Poker/Packs/Pack01/Atlas/Legacy/assets/njpdk/animation/spine/guan/skeleton.atlas",
+      "atlasExists": true,
+      "textureExists": true,
+      "configuredAtlasUuid": "3b0c947e-092e-441e-9780-566db137d42f",
+      "actualAtlasUuid": "3b0c947e-092e-441e-9780-566db137d42f",
+      "linked": true
+    },
+    {
+      "skeleton": "Games/Poker/Packs/Pack01/Spine/Legacy/assets/njpdk/animation/spine/liandui/skeleton.json.meta",
+      "atlas": "Games/Poker/Packs/Pack01/Atlas/Legacy/assets/njpdk/animation/spine/liandui/skeleton.atlas",
+      "atlasExists": true,
+      "textureExists": true,
+      "configuredAtlasUuid": "66231248-b0c7-4fa8-b64f-dbd176a8e1d9",
+      "actualAtlasUuid": "66231248-b0c7-4fa8-b64f-dbd176a8e1d9",
+      "linked": true
+    },
+    {
+      "skeleton": "Games/Poker/Packs/Pack01/Spine/Legacy/assets/njpdk/animation/spine/ligth/skeleton.json.meta",
+      "atlas": "Games/Poker/Packs/Pack01/Atlas/Legacy/assets/njpdk/animation/spine/ligth/skeleton.atlas",
+      "atlasExists": true,
+      "textureExists": true,
+      "configuredAtlasUuid": "12439a8f-7264-4b6f-8aa8-6503094cf9a6",
+      "actualAtlasUuid": "12439a8f-7264-4b6f-8aa8-6503094cf9a6",
+      "linked": true
+    },
+    {
+      "skeleton": "Games/Poker/Packs/Pack01/Spine/Legacy/assets/njpdk/animation/spine/pine/skeleton.json.meta",
+      "atlas": "Games/Poker/Packs/Pack01/Atlas/Legacy/assets/njpdk/animation/spine/pine/skeleton.atlas",
+      "atlasExists": true,
+      "textureExists": true,
+      "configuredAtlasUuid": "fb3d12d7-1757-4b8b-8b38-ed6d187233ac",
+      "actualAtlasUuid": "fb3d12d7-1757-4b8b-8b38-ed6d187233ac",
+      "linked": true
+    },
+    {
+      "skeleton": "Games/Poker/Packs/Pack01/Spine/Legacy/assets/njpdk/animation/spine/sandaier/skeleton.json.meta",
+      "atlas": "Games/Poker/Packs/Pack01/Atlas/Legacy/assets/njpdk/animation/spine/sandaier/skeleton.atlas",
+      "atlasExists": true,
+      "textureExists": true,
+      "configuredAtlasUuid": "b95fbf91-5eb2-44bd-8ff6-7b5d96079b87",
+      "actualAtlasUuid": "b95fbf91-5eb2-44bd-8ff6-7b5d96079b87",
+      "linked": true
+    },
+    {
+      "skeleton": "Games/Poker/Packs/Pack01/Spine/Legacy/assets/njpdk/animation/spine/sandaiyi/skeleton.json.meta",
+      "atlas": "Games/Poker/Packs/Pack01/Atlas/Legacy/assets/njpdk/animation/spine/sandaiyi/skeleton.atlas",
+      "atlasExists": true,
+      "textureExists": true,
+      "configuredAtlasUuid": "c609ab3b-f6ad-4be7-94ea-7cdd196fa12c",
+      "actualAtlasUuid": "c609ab3b-f6ad-4be7-94ea-7cdd196fa12c",
+      "linked": true
+    },
+    {
+      "skeleton": "Games/Poker/Packs/Pack01/Spine/Legacy/assets/njpdk/animation/spine/shunzi/skeleton.json.meta",
+      "atlas": "Games/Poker/Packs/Pack01/Atlas/Legacy/assets/njpdk/animation/spine/shunzi/skeleton.atlas",
+      "atlasExists": true,
+      "textureExists": true,
+      "configuredAtlasUuid": "b22d1987-3e2d-44c0-92dc-2baa03d67663",
+      "actualAtlasUuid": "b22d1987-3e2d-44c0-92dc-2baa03d67663",
+      "linked": true
+    },
+    {
+      "skeleton": "Games/Poker/Packs/Pack01/Spine/Legacy/assets/njpdk/animation/spine/sidaier/skeleton.json.meta",
+      "atlas": "Games/Poker/Packs/Pack01/Atlas/Legacy/assets/njpdk/animation/spine/sidaier/skeleton.atlas",
+      "atlasExists": true,
+      "textureExists": true,
+      "configuredAtlasUuid": "8f50f9f7-7d14-4150-ae4b-bbe0bd7eb509",
+      "actualAtlasUuid": "8f50f9f7-7d14-4150-ae4b-bbe0bd7eb509",
+      "linked": true
+    },
+    {
+      "skeleton": "Games/Poker/Packs/Pack01/Spine/Legacy/assets/njpdk/animation/spine/sidaisan/skeleton.json.meta",
+      "atlas": "Games/Poker/Packs/Pack01/Atlas/Legacy/assets/njpdk/animation/spine/sidaisan/skeleton.atlas",
+      "atlasExists": true,
+      "textureExists": true,
+      "configuredAtlasUuid": "e8b01273-04ac-4d29-81e7-fd8f3ad70f65",
+      "actualAtlasUuid": "e8b01273-04ac-4d29-81e7-fd8f3ad70f65",
+      "linked": true
+    },
+    {
+      "skeleton": "Games/Poker/Packs/Pack01/Spine/Legacy/assets/njpdk/animation/spine/sidaiyi/skeleton.json.meta",
+      "atlas": "Games/Poker/Packs/Pack01/Atlas/Legacy/assets/njpdk/animation/spine/sidaiyi/skeleton.atlas",
+      "atlasExists": true,
+      "textureExists": true,
+      "configuredAtlasUuid": "a8fa1391-ae67-4e04-8ceb-d263bb453429",
+      "actualAtlasUuid": "a8fa1391-ae67-4e04-8ceb-d263bb453429",
+      "linked": true
+    }
+  ],
+  "creatorImporterConsoleEvidence": false
+}

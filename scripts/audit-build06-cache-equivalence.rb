@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby
+require'json';require'digest';require'open3';require'fileutils';root=File.expand_path('..',__dir__);jdk=File.expand_path('../.toolchains/jdk-26.0.2.1.jdk/Contents/Home',root);base=File.join(root,'work/build06',Process.pid.to_s);FileUtils.mkdir_p(base)
+env={'JAVA_HOME'=>jdk,'PATH'=>"#{jdk}/bin:#{ENV['PATH']}"};runs=[]
+2.times do|i|
+ repo=File.join(base,"repo-#{i+1}");args=['./mvnw','-q','-Dexec.skip=true','-DskipTests',"-Dmaven.repo.local=#{repo}",'-pl','server/GameSPI','-am','package'];stdout,stderr,status=Open3.capture3(env,*args,chdir:root);jars=Dir.glob(File.join(root,'server/{GameSPI}/target/*.jar')).reject{|p|p.end_with?('-sources.jar','-javadoc.jar')}.to_h{|p|[File.basename(p),Digest::SHA256.file(p).hexdigest]};runs<<{isolatedRepository:repo.delete_prefix(root+'/'),passed:status.success?,artifacts:jars,stderr:stderr.lines.last(20).join.strip};abort("BUILD06 run #{i+1} failed")unless status.success?
+end
+checks={bothBuildsPassed:runs.all?{|r|r[:passed]},identicalArtifacts:runs[0][:artifacts]==runs[1][:artifacts],isolatedRepositories:runs.map{|r|r[:isolatedRepository]}.uniq.length==2};report={schemaVersion:1,runs:runs,checks:checks};out=File.join(root,'docs/generated/build06-cache-equivalence.json');FileUtils.mkdir_p(File.dirname(out));File.write(out,JSON.pretty_generate(report)+"\n");abort("BUILD06 failed: #{checks}")unless checks.values.all?;puts 'BUILD06 PASS: isolated cache builds are equivalent'

@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "requiredSurfaces": [
+    "lobbyCreate",
+    "clubTemplate",
+    "roomRules",
+    "ledger",
+    "errorMessage"
+  ],
+  "endToEndCoverage": false,
+  "passed": false
+}

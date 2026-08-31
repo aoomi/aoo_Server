@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "declarations": "config/large-file-declarations.json",
+  "scopes": ["Server", "Client", "Admin"],
+  "excludedSegments": [".git", "target", "build", "work", "reference", "node_modules", "library", "temp", "logs", "docs/generated"],
+  "thresholds": {
+    ".sql": 10485760,
+    ".json": 1048576,
+    ".prefab": 1048576,
+    ".png": 524288,
+    ".jpg": 524288,
+    ".jpeg": 524288,
+    ".webp": 524288,
+    ".mp3": 524288,
+    ".wav": 524288,
+    ".ogg": 524288,
+    ".ttf": 2097152,
+    ".otf": 2097152,
+    ".bin": 2097152,
+    ".jar": 2097152,
+    "default": 1048576
+  },
+  "requiredDeclarationFields": ["path", "sha256", "bytes", "maximumBytes", "purpose", "compression", "loadingStrategy", "owner"]
+}

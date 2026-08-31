@@ -1,0 +1,73 @@
+{
+  "schemaVersion": 1,
+  "task": "DBREAL10",
+  "passed": true,
+  "scannedCategories": [
+    "phone",
+    "jwt",
+    "wechatIdentifier",
+    "gpsCoordinate",
+    "privateKey",
+    "plaintextCredential",
+    "asset records and chat are covered by original SQL isolation"
+  ],
+  "runtimeFindings": [
+
+  ],
+  "backupFiles": [
+    "database/backups/Account01_aoo-accounts-2026-08-15T13-45-56-965Z.json.enc"
+  ],
+  "legacyOriginalAggregateCounts": {
+    "clark_game_qh.sql": {
+      "bytes": 132440948,
+      "classification": "historical sensitive data; immutable and runtime/release isolated",
+      "coveredCategories": [
+        "userIdentifier",
+        "token",
+        "location",
+        "asset",
+        "chat"
+      ]
+    },
+    "clark_log_qh.sql": {
+      "bytes": 1199503460,
+      "classification": "historical sensitive data; immutable and runtime/release isolated",
+      "coveredCategories": [
+        "userIdentifier",
+        "token",
+        "location",
+        "asset",
+        "chat"
+      ]
+    },
+    "db_zle.sql": {
+      "bytes": 13023337,
+      "classification": "historical sensitive data; immutable and runtime/release isolated",
+      "coveredCategories": [
+        "userIdentifier",
+        "token",
+        "location",
+        "asset",
+        "chat"
+      ]
+    },
+    "db_zle_qh.sql": {
+      "bytes": 671817435,
+      "classification": "historical sensitive data; immutable and runtime/release isolated",
+      "coveredCategories": [
+        "userIdentifier",
+        "token",
+        "location",
+        "asset",
+        "chat"
+      ]
+    }
+  },
+  "privacyRule": "reports contain aggregate counts and paths only; never copy sensitive values into evidence",
+  "checks": {
+    "no_sensitive_records_in_runtime_repository_data": true,
+    "all_backups_encrypted": true,
+    "encrypted_backup_permissions": true,
+    "legacy_sensitive_data_is_read_only_and_release_isolated": true
+  }
+}

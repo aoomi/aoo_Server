@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "hits": [
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/aypdk/AypdkSwitchCoordinator.ts",
+      "line": 349
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/config/RuntimeEndpoints.ts",
+      "line": 14
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/config/RuntimeEndpoints.ts",
+      "line": 29
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/config/RuntimeEndpoints.ts",
+      "line": 33
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/config/RuntimeEndpoints.ts",
+      "line": 35
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/network/LegacyWebSocketClient.ts",
+      "line": 75
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/njpdk/LegacyNJPdkSwitchCoordinator.ts",
+      "line": 343
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/platform/LegacyShareService.ts",
+      "line": 55
+    },
+    {
+      "path": "assets/Common/Code/Runtime/config/RuntimeEndpoints.ts",
+      "line": 14
+    },
+    {
+      "path": "assets/Common/Code/Runtime/config/RuntimeEndpoints.ts",
+      "line": 29
+    },
+    {
+      "path": "assets/Common/Code/Runtime/config/RuntimeEndpoints.ts",
+      "line": 33
+    },
+    {
+      "path": "assets/Common/Code/Runtime/config/RuntimeEndpoints.ts",
+      "line": 35
+    },
+    {
+      "path": "assets/Common/Code/Runtime/network/LegacyWebSocketClient.ts",
+      "line": 69
+    },
+    {
+      "path": "assets/Common/Code/Runtime/network/ProtocolHttpClient.ts",
+      "line": 73
+    },
+    {
+      "path": "assets/Common/Code/Runtime/platform/LegacyShareService.ts",
+      "line": 55
+    },
+    {
+      "path": "assets/Games/Poker/Packs/Pack01/Code/Runtime/njpdk/LegacyNJPdkSwitchCoordinator.ts",
+      "line": 343
+    }
+  ],
+  "passed": false
+}

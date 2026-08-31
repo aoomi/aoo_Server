@@ -1,0 +1,3321 @@
+{
+  "schemaVersion": 1,
+  "jars": [
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/HikariCP-7.0.2.jar",
+      "bytes": 172312,
+      "sha256": "f1e612fa27345be3107a85431e8a8aeb205c15364ab2f2d411e40a9d7bb08095",
+      "repositoryCoordinates": [
+        {
+          "groupId": "com.zaxxer",
+          "artifactId": "HikariCP",
+          "version": "7.0.2"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/angus-activation-2.0.3.jar",
+      "bytes": 26729,
+      "sha256": "a6bd35c538cf90fff941ad6258c40c08fca0b5c9c3f536c657114f27ce0527a7",
+      "repositoryCoordinates": [
+        {
+          "groupId": "org.eclipse.angus",
+          "artifactId": "angus-activation",
+          "version": "2.0.3"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/animal-sniffer-annotations-1.26.jar",
+      "bytes": 3189,
+      "sha256": "342f4d815eae69bb980620d0a622862709be37d38f47577675b42c739a962da9",
+      "repositoryCoordinates": [
+        {
+          "groupId": "org.codehaus.mojo",
+          "artifactId": "animal-sniffer-annotations",
+          "version": "1.26"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/annotations-13.0.jar",
+      "bytes": 17536,
+      "sha256": "ace2a10dc8e2d5fd34925ecac03e4988b2c0f851650c94b8cef49ba1bd111478",
+      "repositoryCoordinates": [
+        {
+          "groupId": "org.jetbrains",
+          "artifactId": "annotations",
+          "version": "13.0"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/annotations-4.1.1.4.jar",
+      "bytes": 3120,
+      "sha256": "ba734e1e84c09d615af6a09d33034b4f0442f8772dec120efb376d86a565ae15",
+      "repositoryCoordinates": [
+        {
+          "groupId": "com.google.android",
+          "artifactId": "annotations",
+          "version": "4.1.1.4"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/annotations-api-6.0.53.jar",
+      "bytes": 15268,
+      "sha256": "253829d3c12b7381d1044fc22c6436cff025fe0d459e4a329413e560a7d0dd13",
+      "repositoryCoordinates": [
+        {
+          "groupId": "org.apache.tomcat",
+          "artifactId": "annotations-api",
+          "version": "6.0.53"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/antlr4-runtime-4.13.2.jar",
+      "bytes": 326307,
+      "sha256": "dd3e8a13a2d669bf84fb8d834de35ce4875f27157698d206241ec8488aadcaf7",
+      "repositoryCoordinates": [
+        {
+          "groupId": "org.antlr",
+          "artifactId": "antlr4-runtime",
+          "version": "4.13.2"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/aspectjweaver-1.9.25.1.jar",
+      "bytes": 2190661,
+      "sha256": "4fe86fdc18faea571f29129c70eaad5d121363504a06d7907be88f6c60ba3116",
+      "repositoryCoordinates": [
+        {
+          "groupId": "org.aspectj",
+          "artifactId": "aspectjweaver",
+          "version": "1.9.25.1"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/bson-5.10.0.jar",
+      "bytes": 531686,
+      "sha256": "1b0a3d8830e89574557cd4067f73d17b72e6e30d8699c529044abe79bd7f0edf",
+      "repositoryCoordinates": [
+        {
+          "groupId": "org.mongodb",
+          "artifactId": "bson",
+          "version": "5.10.0"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/bson-record-codec-5.8.0.jar",
+      "bytes": 11796,
+      "sha256": "7ff03630fcb12395324f540f5df163130b7be6a9f4c0ab49e38a53d61f634df2",
+      "repositoryCoordinates": [
+        {
+          "groupId": "org.mongodb",
+          "artifactId": "bson-record-codec",
+          "version": "5.8.0"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/byte-buddy-1.18.10.jar",
+      "bytes": 4655898,
+      "sha256": "8b31f4ea806afaa900b67bffd8498760d1f65464f4c2ea78cdbda2f3e633898b",
+      "repositoryCoordinates": [
+        {
+          "groupId": "net.bytebuddy",
+          "artifactId": "byte-buddy",
+          "version": "1.18.10"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/cache-api-1.1.1.jar",
+      "bytes": 51281,
+      "sha256": "9f34e007edfa82a7b2a2e1b969477dcf5099ce7f4f926fb54ce7e27c4a0cd54b",
+      "repositoryCoordinates": [
+        {
+          "groupId": "javax.cache",
+          "artifactId": "cache-api",
+          "version": "1.1.1"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/classmate-1.7.3.jar",
+      "bytes": 68249,
+      "sha256": "75fbda45456f123fb6e2028a6189442d8d0730b357adce4c0a6d7e789f70669b",
+      "repositoryCoordinates": [
+        {
+          "groupId": "com.fasterxml",
+          "artifactId": "classmate",
+          "version": "1.7.3"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/commdef-0.0.1.jar",
+      "bytes": 48240,
+      "sha256": "bffec2532bbb44cc4322411addea96c2395ee614f875e14cd76fc72c1d05eea0",
+      "repositoryCoordinates": [
+
+      ],
+      "reactorArtifacts": [
+        "server/LegacyAccountServer/commdef/target/commdef-0.0.1.jar"
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/common-0.0.1.jar",
+      "bytes": 149629,
+      "sha256": "16791b37918d6697b8b9c54a3139243f6ef207b3725476b7ad6ad9bb0e11405c",
+      "repositoryCoordinates": [
+
+      ],
+      "reactorArtifacts": [
+        "server/LegacyAccountServer/common/target/common-0.0.1.jar"
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/commons-beanutils-1.11.0.jar",
+      "bytes": 246806,
+      "sha256": "9e44ba68ec9a3f21286fa2a8bbb003b735c0f69101bb43144b79f4f8aaa74709",
+      "repositoryCoordinates": [
+        {
+          "groupId": "commons-beanutils",
+          "artifactId": "commons-beanutils",
+          "version": "1.11.0"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/commons-codec-1.21.0.jar",
+      "bytes": 402494,
+      "sha256": "4da851cb6abfb98bfe9eb77c5e5fc47f5414fa28b94e21b7fd9a646705dc167f",
+      "repositoryCoordinates": [
+        {
+          "groupId": "commons-codec",
+          "artifactId": "commons-codec",
+          "version": "1.21.0"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/commons-collections-3.2.2.jar",
+      "bytes": 588337,
+      "sha256": "eeeae917917144a68a741d4c0dff66aa5c5c5fd85593ff217bced3fc8ca783b8",
+      "repositoryCoordinates": [
+        {
+          "groupId": "commons-collections",
+          "artifactId": "commons-collections",
+          "version": "3.2.2"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/commons-collections4-4.6.0.jar",
+      "bytes": 934384,
+      "sha256": "4e0d0896bac5356cead277bac0283f09813e14417e3e84e0c86b573b54d218a3",
+      "repositoryCoordinates": [
+        {
+          "groupId": "org.apache.commons",
+          "artifactId": "commons-collections4",
+          "version": "4.6.0"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/commons-dbutils-1.8.1.jar",
+      "bytes": 88138,
+      "sha256": "e64501edba68fb4e674a3c350955e743b1f55a878c8fd348adf0ebffc008e7b0",
+      "repositoryCoordinates": [
+        {
+          "groupId": "commons-dbutils",
+          "artifactId": "commons-dbutils",
+          "version": "1.8.1"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/commons-digester-2.1.jar",
+      "bytes": 196768,
+      "sha256": "e0b2b980a84fc6533c5ce291f1917b32c507f62bcad64198fff44368c2196a3d",
+      "repositoryCoordinates": [
+        {
+          "groupId": "commons-digester",
+          "artifactId": "commons-digester",
+          "version": "2.1"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/commons-io-2.21.0.jar",
+      "bytes": 585274,
+      "sha256": "7d643a2afea8b058b762aa6fb90e5b256f6c729739f8b3784c3370ddc609e88d",
+      "repositoryCoordinates": [
+        {
+          "groupId": "commons-io",
+          "artifactId": "commons-io",
+          "version": "2.21.0"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/commons-lang3-3.20.0.jar",
+      "bytes": 713862,
+      "sha256": "69e5c9fa35da7a51a5fd2099dfe56a2d8d32cf233e2f6d770e796146440263f4",
+      "repositoryCoordinates": [
+        {
+          "groupId": "org.apache.commons",
+          "artifactId": "commons-lang3",
+          "version": "3.20.0"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/commons-logging-1.3.6.jar",
+      "bytes": 74010,
+      "sha256": "f8ead8943401081dea0aa824b5b1ba40a0e4ed297a572a0f02258150a0b62357",
+      "repositoryCoordinates": [
+        {
+          "groupId": "commons-logging",
+          "artifactId": "commons-logging",
+          "version": "1.3.6"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/commons-validator-1.10.0.jar",
+      "bytes": 202380,
+      "sha256": "0d1600cddc24af7f49b5eb01e31adda3ce3b25f236c8c75eaecdf78428469eb9",
+      "repositoryCoordinates": [
+        {
+          "groupId": "commons-validator",
+          "artifactId": "commons-validator",
+          "version": "1.10.0"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/dao-0.0.1.jar",
+      "bytes": 118743,
+      "sha256": "624b054d95bf09ddd30402acddfe8bc75f00aa8a9071227a8ed669b16119a694",
+      "repositoryCoordinates": [
+
+      ],
+      "reactorArtifacts": [
+        "server/LegacyAccountServer/dao/target/dao-0.0.1.jar"
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/disruptor-4.0.0.jar",
+      "bytes": 85721,
+      "sha256": "c2ba80841541272bc815bcadab910d2d716aa563eca15762450ab4c889440505",
+      "repositoryCoordinates": [
+        {
+          "groupId": "com.lmax",
+          "artifactId": "disruptor",
+          "version": "4.0.0"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/druid-1.2.28.jar",
+      "bytes": 4478226,
+      "sha256": "c4cec3792390a2bbe6020d59be52160fd38d15de0f00dc52702eb91128c695a5",
+      "repositoryCoordinates": [
+        {
+          "groupId": "com.alibaba",
+          "artifactId": "druid",
+          "version": "1.2.28"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/druid-spring-boot-starter-1.2.28.jar",
+      "bytes": 21341,
+      "sha256": "68cd67cfd9893af1a2ded0429f9eedcba4309055988e8037fa519c564068d394",
+      "repositoryCoordinates": [
+        {
+          "groupId": "com.alibaba",
+          "artifactId": "druid-spring-boot-starter",
+          "version": "1.2.28"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/error_prone_annotations-2.50.0.jar",
+      "bytes": 20252,
+      "sha256": "4667724877f1d37a689202da191e23efa7657c62eef93ccdac406eccfe5cdd0a",
+      "repositoryCoordinates": [
+        {
+          "groupId": "com.google.errorprone",
+          "artifactId": "error_prone_annotations",
+          "version": "2.50.0"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/failureaccess-1.0.3.jar",
+      "bytes": 10763,
+      "sha256": "cbfc3906b19b8f55dd7cfd6dfe0aa4532e834250d7f080bd8d211a3e246b59cb",
+      "repositoryCoordinates": [
+        {
+          "groupId": "com.google.guava",
+          "artifactId": "failureaccess",
+          "version": "1.0.3"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/fastjson-2.0.64.jar",
+      "bytes": 198748,
+      "sha256": "655d520f9849abf48b33ef82501490872cdbbc449d0cc4f3dc11500d33676a19",
+      "repositoryCoordinates": [
+        {
+          "groupId": "com.alibaba",
+          "artifactId": "fastjson",
+          "version": "2.0.64"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/fastjson2-2.0.64.jar",
+      "bytes": 2218204,
+      "sha256": "c3de8edf8705981deaf53f344c01544479f6db6925968bf934e3b9ef6f0b1f98",
+      "repositoryCoordinates": [
+        {
+          "groupId": "com.alibaba.fastjson2",
+          "artifactId": "fastjson2",
+          "version": "2.0.64"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/fastjson2-extension-2.0.64.jar",
+      "bytes": 55694,
+      "sha256": "9c680abdccd4a800270fa8ff8778b81b5958e1a1fbaed898d5712d41e03245b4",
+      "repositoryCoordinates": [
+        {
+          "groupId": "com.alibaba.fastjson2",
+          "artifactId": "fastjson2-extension",
+          "version": "2.0.64"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/grpc-api-1.80.0.jar",
+      "bytes": 339467,
+      "sha256": "3af18798cf5d705fb40187d47548345d017df9a22791b9c028d9643441be9759",
+      "repositoryCoordinates": [
+        {
+          "groupId": "io.grpc",
+          "artifactId": "grpc-api",
+          "version": "1.80.0"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/grpc-context-1.80.0.jar",
+      "bytes": 293,
+      "sha256": "74a6fc8e6c9fc873c3683db41bc0ab5869bfd55b733cc62ac63eb276f37b0b0a",
+      "repositoryCoordinates": [
+        {
+          "groupId": "io.grpc",
+          "artifactId": "grpc-context",
+          "version": "1.80.0"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/grpc-core-1.80.0.jar",
+      "bytes": 655220,
+      "sha256": "b617121f33ea79b0cfc26e2e19475e64e0c4161d28c78cf56f7db7bbb9a81fbe",
+      "repositoryCoordinates": [
+        {
+          "groupId": "io.grpc",
+          "artifactId": "grpc-core",
+          "version": "1.80.0"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/grpc-netty-shaded-1.80.0.jar",
+      "bytes": 10724556,
+      "sha256": "331d182ea3b7e2cb2f2442b94bf572a70856b5883a16ea8ebf74d76c0f4c00a8",
+      "repositoryCoordinates": [
+        {
+          "groupId": "io.grpc",
+          "artifactId": "grpc-netty-shaded",
+          "version": "1.80.0"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/grpc-stub-1.80.0.jar",
+      "bytes": 61814,
+      "sha256": "23c04f1c29c210084182dbeca5d3091b200e0dd97cd0bcee086d72f0b9dca2c9",
+      "repositoryCoordinates": [
+        {
+          "groupId": "io.grpc",
+          "artifactId": "grpc-stub",
+          "version": "1.80.0"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/grpc-util-1.80.0.jar",
+      "bytes": 107629,
+      "sha256": "8bfa179dc59e44e46cb8b8642cfd86524a0833801e7c95632d6d4dd5cc532e6e",
+      "repositoryCoordinates": [
+        {
+          "groupId": "io.grpc",
+          "artifactId": "grpc-util",
+          "version": "1.80.0"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/gson-2.14.0.jar",
+      "bytes": 313604,
+      "sha256": "2cbd119bf1961c28788310963dc80ba65f58cdeec1dd139c8bdb1240faa2c36f",
+      "repositoryCoordinates": [
+        {
+          "groupId": "com.google.code.gson",
+          "artifactId": "gson",
+          "version": "2.14.0"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/guava-33.7.1-jre.jar",
+      "bytes": 3057607,
+      "sha256": "796d8e28ac64e83a47c4c5935a8fecc4682650a04bbdead738ef0f5a3a0e6c46",
+      "repositoryCoordinates": [
+        {
+          "groupId": "com.google.guava",
+          "artifactId": "guava",
+          "version": "33.7.1-jre"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/hall-0.0.1.jar",
+      "bytes": 2723,
+      "sha256": "5dd2c46451ebd4a82815cc100cf4ea112a49620449bce06ef8116e98087cd8c7",
+      "repositoryCoordinates": [
+
+      ],
+      "reactorArtifacts": [
+        "server/LegacyAccountServer/hall/target/hall-0.0.1.jar"
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/hibernate-core-7.4.1.Final.jar",
+      "bytes": 15258514,
+      "sha256": "e4bfe7df423f3555f322eefb1ab51f28df439844610ef76c36d92a85d483004e",
+      "repositoryCoordinates": [
+        {
+          "groupId": "org.hibernate.orm",
+          "artifactId": "hibernate-core",
+          "version": "7.4.1.Final"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/hibernate-models-1.1.1.jar",
+      "bytes": 222526,
+      "sha256": "7cb645f2ebe5fcb63e21d26259cef62d93a1ca77c400bda6992c92cb19826a89",
+      "repositoryCoordinates": [
+        {
+          "groupId": "org.hibernate.models",
+          "artifactId": "hibernate-models",
+          "version": "1.1.1"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/hibernate-validator-9.1.0.Final.jar",
+      "bytes": 1404084,
+      "sha256": "4dea20c780d12e8ad6e1fe7d695460af74f8668df9eb58910991919194412188",
+      "repositoryCoordinates": [
+        {
+          "groupId": "org.hibernate.validator",
+          "artifactId": "hibernate-validator",
+          "version": "9.1.0.Final"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/istack-commons-runtime-4.1.2.jar",
+      "bytes": 25788,
+      "sha256": "7fd6792361f4dd00f8c56af4a20cecc0066deea4a8f3dec38348af23fc2296ee",
+      "repositoryCoordinates": [
+        {
+          "groupId": "com.sun.istack",
+          "artifactId": "istack-commons-runtime",
+          "version": "4.1.2"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/j2objc-annotations-3.1.jar",
+      "bytes": 16762,
+      "sha256": "84d3a150518485f8140ea99b8a985656749629f6433c92b80c75b36aba3b099b",
+      "repositoryCoordinates": [
+        {
+          "groupId": "com.google.j2objc",
+          "artifactId": "j2objc-annotations",
+          "version": "3.1"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/jackson-annotations-2.22.jar",
+      "bytes": 84211,
+      "sha256": "21ddb598807d3a51a876704eb979d9296e1c6a6f47ab1826ff88c6d6a127a2d0",
+      "repositoryCoordinates": [
+        {
+          "groupId": "com.fasterxml.jackson.core",
+          "artifactId": "jackson-annotations",
+          "version": "2.22"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/jackson-core-2.21.4.jar",
+      "bytes": 594183,
+      "sha256": "4b40a06396f239f8de2da57419adde6e94e5edc18a2171d471ea05eeed4e5c2d",
+      "repositoryCoordinates": [
+        {
+          "groupId": "com.fasterxml.jackson.core",
+          "artifactId": "jackson-core",
+          "version": "2.21.4"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/jackson-core-3.2.2.jar",
+      "bytes": 606047,
+      "sha256": "93d9090b8c505b2f942ad85dd5821e8c401bfbafafff11708a3fbe2ef9da18ca",
+      "repositoryCoordinates": [
+        {
+          "groupId": "tools.jackson.core",
+          "artifactId": "jackson-core",
+          "version": "3.2.2"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/jackson-databind-3.2.2.jar",
+      "bytes": 1978326,
+      "sha256": "d27509f990d990fc779a01f3f612005ff6c67dc3bb0a720f5f4d9b2f5c713401",
+      "repositoryCoordinates": [
+        {
+          "groupId": "tools.jackson.core",
+          "artifactId": "jackson-databind",
+          "version": "3.2.2"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/jakarta.activation-api-2.1.4.jar",
+      "bytes": 67380,
+      "sha256": "c9db52100ce6c8aac95cc39075f95720d2e561b11f8051b81c121ad4effd7004",
+      "repositoryCoordinates": [
+        {
+          "groupId": "jakarta.activation",
+          "artifactId": "jakarta.activation-api",
+          "version": "2.1.4"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/jakarta.annotation-api-3.0.0.jar",
+      "bytes": 26378,
+      "sha256": "b01f55552284cfb149411e64eabca75e942d26d2e1786b32914250e4330afaa2",
+      "repositoryCoordinates": [
+        {
+          "groupId": "jakarta.annotation",
+          "artifactId": "jakarta.annotation-api",
+          "version": "3.0.0"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/jakarta.inject-api-2.0.1.jar",
+      "bytes": 10681,
+      "sha256": "f7dc98062fccf14126abb751b64fab12c312566e8cbdc8483598bffcea93af7c",
+      "repositoryCoordinates": [
+        {
+          "groupId": "jakarta.inject",
+          "artifactId": "jakarta.inject-api",
+          "version": "2.0.1"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/jakarta.persistence-api-3.2.0.jar",
+      "bytes": 195939,
+      "sha256": "be8a26b0e75c84c1b7600f759256fbc68d60333d89ec0ce3f784fc3ffa09aa8c",
+      "repositoryCoordinates": [
+        {
+          "groupId": "jakarta.persistence",
+          "artifactId": "jakarta.persistence-api",
+          "version": "3.2.0"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/jakarta.transaction-api-2.0.1.jar",
+      "bytes": 28607,
+      "sha256": "50c0a7c760c13ae6c042acf182b28f0047413db95b4636fb8879bcffab5ba875",
+      "repositoryCoordinates": [
+        {
+          "groupId": "jakarta.transaction",
+          "artifactId": "jakarta.transaction-api",
+          "version": "2.0.1"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/jakarta.validation-api-3.1.1.jar",
+      "bytes": 106136,
+      "sha256": "63ce00156388c365f3ac1be71fcfaf114682fc0c452020b5df6e7ec236e142ab",
+      "repositoryCoordinates": [
+        {
+          "groupId": "jakarta.validation",
+          "artifactId": "jakarta.validation-api",
+          "version": "3.1.1"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/jakarta.xml.bind-api-4.0.5.jar",
+      "bytes": 131219,
+      "sha256": "5e489b6c874c4119e003ff1403db523ee3a8959ec499f3de29e77245efccf216",
+      "repositoryCoordinates": [
+        {
+          "groupId": "jakarta.xml.bind",
+          "artifactId": "jakarta.xml.bind-api",
+          "version": "4.0.5"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/javassist-3.32.0-GA.jar",
+      "bytes": 771960,
+      "sha256": "712ef75bc3406782bb4529b0408cce8155b53f2124c6ae03d2c5fbfa13d62c1c",
+      "repositoryCoordinates": [
+        {
+          "groupId": "org.javassist",
+          "artifactId": "javassist",
+          "version": "3.32.0-GA"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/jaxb-core-4.0.9.jar",
+      "bytes": 139417,
+      "sha256": "6b014df25d22c8446cc2df0a378c5b2137747f197a731d99eb24c756b26f7e8d",
+      "repositoryCoordinates": [
+        {
+          "groupId": "org.glassfish.jaxb",
+          "artifactId": "jaxb-core",
+          "version": "4.0.9"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/jaxb-runtime-4.0.9.jar",
+      "bytes": 922445,
+      "sha256": "93e09b7316b6af68d6e2083e4c297daf28e8957f45d725077af812c0b12c39ab",
+      "repositoryCoordinates": [
+        {
+          "groupId": "org.glassfish.jaxb",
+          "artifactId": "jaxb-runtime",
+          "version": "4.0.9"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/jboss-logging-3.6.3.Final.jar",
+      "bytes": 62672,
+      "sha256": "7c12ee575508f81e22b1db9334b969d0ec54ef0fd1dcba24eeab1a44235fc366",
+      "repositoryCoordinates": [
+        {
+          "groupId": "org.jboss.logging",
+          "artifactId": "jboss-logging",
+          "version": "3.6.3.Final"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/jctools-core-4.0.6.jar",
+      "bytes": 499875,
+      "sha256": "374fb4660436a70ba131e15ca7bab8423424c737898a894fb276841c94bdd962",
+      "repositoryCoordinates": [
+        {
+          "groupId": "org.jctools",
+          "artifactId": "jctools-core",
+          "version": "4.0.6"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/joda-time-2.14.3.jar",
+      "bytes": 638970,
+      "sha256": "43533e9df6431839d0865c897d7d43a9ca75378a52b7f60b3e08b037a5c94986",
+      "repositoryCoordinates": [
+        {
+          "groupId": "joda-time",
+          "artifactId": "joda-time",
+          "version": "2.14.3"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/jodd-util-6.3.0.jar",
+      "bytes": 337658,
+      "sha256": "e5c676715897124101f74900dd1f98ebbcad9da3ab2dffbac6e7712612094427",
+      "repositoryCoordinates": [
+        {
+          "groupId": "org.jodd",
+          "artifactId": "jodd-util",
+          "version": "6.3.0"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/jprotobuf-2.4.23.jar",
+      "bytes": 210499,
+      "sha256": "83bd764d2f260a3b0195b1a898f1a001a2f1b469ca51c9f36eb2238ed31f6b96",
+      "repositoryCoordinates": [
+        {
+          "groupId": "com.baidu",
+          "artifactId": "jprotobuf",
+          "version": "2.4.23"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/jprotobuf-protoparser-1.0.1.jar",
+      "bytes": 84109,
+      "sha256": "7c95868ebcfa96763b5a884c2276eb66334977e47804d85c858195049919dbf6",
+      "repositoryCoordinates": [
+        {
+          "groupId": "com.baidu",
+          "artifactId": "jprotobuf-protoparser",
+          "version": "1.0.1"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/jspecify-1.0.0.jar",
+      "bytes": 3819,
+      "sha256": "1fad6e6be7557781e4d33729d49ae1cdc8fdda6fe477bb0cc68ce351eafdfbab",
+      "repositoryCoordinates": [
+        {
+          "groupId": "org.jspecify",
+          "artifactId": "jspecify",
+          "version": "1.0.0"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/jsr305-3.0.2.jar",
+      "bytes": 19936,
+      "sha256": "766ad2a0783f2687962c8ad74ceecc38a28b9f72a2d085ee438b7813e928d0c7",
+      "repositoryCoordinates": [
+        {
+          "groupId": "com.google.code.findbugs",
+          "artifactId": "jsr305",
+          "version": "3.0.2"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/jul-to-slf4j-2.0.18.jar",
+      "bytes": 6347,
+      "sha256": "cbb7d1aaaa9e871eb1a06594abd911bf97027152976edf1edc315be75239204e",
+      "repositoryCoordinates": [
+        {
+          "groupId": "org.slf4j",
+          "artifactId": "jul-to-slf4j",
+          "version": "2.0.18"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/kotlin-stdlib-2.3.21.jar",
+      "bytes": 1804721,
+      "sha256": "6f64eac736db9434dd6925b4a518b9d1d17177652320c37916cf9ba3ce7d7d7a",
+      "repositoryCoordinates": [
+        {
+          "groupId": "org.jetbrains.kotlin",
+          "artifactId": "kotlin-stdlib",
+          "version": "2.3.21"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/kryo-5.6.2.jar",
+      "bytes": 373885,
+      "sha256": "4e8b1d2f4977187af8a51a957329722dc1cdc56a7c94fbb5a791e82897629cff",
+      "repositoryCoordinates": [
+        {
+          "groupId": "com.esotericsoftware",
+          "artifactId": "kryo",
+          "version": "5.6.2"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/lettuce-core-7.5.2.RELEASE.jar",
+      "bytes": 2595839,
+      "sha256": "86e245a6cfc36a40aaa1f54027e639a70cb4008d12717164041aefe9bbd072c1",
+      "repositoryCoordinates": [
+        {
+          "groupId": "io.lettuce",
+          "artifactId": "lettuce-core",
+          "version": "7.5.2.RELEASE"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar",
+      "bytes": 2199,
+      "sha256": "b372a037d4230aa57fbeffdef30fd6123f9c0c2db85d0aced00c91b974f33f99",
+      "repositoryCoordinates": [
+        {
+          "groupId": "com.google.guava",
+          "artifactId": "listenablefuture",
+          "version": "9999.0-empty-to-avoid-conflict-with-guava"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/log4j-api-2.25.4.jar",
+      "bytes": 351127,
+      "sha256": "c4b642a7f047275215de117e0e3847eb2c7711d84a0aa7433e7b3c096daf341d",
+      "repositoryCoordinates": [
+        {
+          "groupId": "org.apache.logging.log4j",
+          "artifactId": "log4j-api",
+          "version": "2.25.4"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/log4j-to-slf4j-2.25.4.jar",
+      "bytes": 24172,
+      "sha256": "d7b78fc0aaaa5e8ada388b29d718b0ab187e512965bed0b259bb4ab299f13db2",
+      "repositoryCoordinates": [
+        {
+          "groupId": "org.apache.logging.log4j",
+          "artifactId": "log4j-to-slf4j",
+          "version": "2.25.4"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/logback-classic-1.5.34.jar",
+      "bytes": 286757,
+      "sha256": "b65e05076a5c1aadb659b4fe4bc5fee31cb26cd70390292eb03e4a7a24cff10f",
+      "repositoryCoordinates": [
+        {
+          "groupId": "ch.qos.logback",
+          "artifactId": "logback-classic",
+          "version": "1.5.34"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/logback-core-1.5.34.jar",
+      "bytes": 645490,
+      "sha256": "42eda264c0c650c2bec59e66151a88b708a8663dc1b49d788202d53e78b8caae",
+      "repositoryCoordinates": [
+        {
+          "groupId": "ch.qos.logback",
+          "artifactId": "logback-core",
+          "version": "1.5.34"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/lz4-java-1.11.2.jar",
+      "bytes": 897831,
+      "sha256": "8a7458657938e9b692224db83aac458c13abd7a59ab75c3d3b08bd2233a646a2",
+      "repositoryCoordinates": [
+        {
+          "groupId": "at.yawk.lz4",
+          "artifactId": "lz4-java",
+          "version": "1.11.2"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/micrometer-commons-1.17.0.jar",
+      "bytes": 51805,
+      "sha256": "03919dc71e2417ec4b5c254c4ba924963c972e124190f73cdcb68ed51c6eede6",
+      "repositoryCoordinates": [
+        {
+          "groupId": "io.micrometer",
+          "artifactId": "micrometer-commons",
+          "version": "1.17.0"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/micrometer-observation-1.17.0.jar",
+      "bytes": 84304,
+      "sha256": "2fc95a327578d3b2a81c3ff40e646a4a21e46b0153ccbbf91690142bf80d9661",
+      "repositoryCoordinates": [
+        {
+          "groupId": "io.micrometer",
+          "artifactId": "micrometer-observation",
+          "version": "1.17.0"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/minlog-1.3.1.jar",
+      "bytes": 5923,
+      "sha256": "5d4d632cfbebfe0a7644501cc303570b691406181bee65e9916b921c767d7c72",
+      "repositoryCoordinates": [
+        {
+          "groupId": "com.esotericsoftware",
+          "artifactId": "minlog",
+          "version": "1.3.1"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/mongodb-driver-core-5.10.0.jar",
+      "bytes": 1993996,
+      "sha256": "5fa92c726704a7dd3211874e34db6cb7ddfedfd1ad32883b588267ee077829f1",
+      "repositoryCoordinates": [
+        {
+          "groupId": "org.mongodb",
+          "artifactId": "mongodb-driver-core",
+          "version": "5.10.0"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/mongodb-driver-sync-5.10.0.jar",
+      "bytes": 174554,
+      "sha256": "7a89c4e454ea102efaa8b379068f2d24d191f5f68583622c7764d1ce0d970e38",
+      "repositoryCoordinates": [
+        {
+          "groupId": "org.mongodb",
+          "artifactId": "mongodb-driver-sync",
+          "version": "5.10.0"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/mysql-connector-j-9.7.0.jar",
+      "bytes": 2607237,
+      "sha256": "0353648eaa1c91e0f4020c959abf756bc866ffd583df22ae6b6f6e0cbd43eb44",
+      "repositoryCoordinates": [
+        {
+          "groupId": "com.mysql",
+          "artifactId": "mysql-connector-j",
+          "version": "9.7.0"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/netty-all-4.2.17.Final.jar",
+      "bytes": 4926,
+      "sha256": "fd66659c35601336df8c3586bfc504549bbedce29755dac6572287f9443c4237",
+      "repositoryCoordinates": [
+        {
+          "groupId": "io.netty",
+          "artifactId": "netty-all",
+          "version": "4.2.17.Final"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/netty-buffer-4.2.17.Final.jar",
+      "bytes": 378264,
+      "sha256": "0d249178ec0204b35a6ad3e5ac8a6c2ecb3eb496c6cdae40b8eca4fa3cb6a0c7",
+      "repositoryCoordinates": [
+        {
+          "groupId": "io.netty",
+          "artifactId": "netty-buffer",
+          "version": "4.2.17.Final"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/netty-codec-4.2.17.Final.jar",
+      "bytes": 3953,
+      "sha256": "ac76f972446a2f72818441f746d0e73c58519a4687bf680d2b687d7dc5e28e2e",
+      "repositoryCoordinates": [
+        {
+          "groupId": "io.netty",
+          "artifactId": "netty-codec",
+          "version": "4.2.17.Final"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/netty-codec-base-4.2.17.Final.jar",
+      "bytes": 155357,
+      "sha256": "3b92bc3b7d231fa6f4889b2b9281cae6b634428b8121fb1b9b5fccba1543d352",
+      "repositoryCoordinates": [
+        {
+          "groupId": "io.netty",
+          "artifactId": "netty-codec-base",
+          "version": "4.2.17.Final"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/netty-codec-classes-quic-4.2.17.Final.jar",
+      "bytes": 265345,
+      "sha256": "542e718fdd8fa4f6d57bef9f91a5fa01200940cb8b381fd4c21fb5c170276c71",
+      "repositoryCoordinates": [
+        {
+          "groupId": "io.netty",
+          "artifactId": "netty-codec-classes-quic",
+          "version": "4.2.17.Final"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/netty-codec-compression-4.2.17.Final.jar",
+      "bytes": 237078,
+      "sha256": "425b287a1f36986a5c8edd76379a49decdf99d284f3454f3fa607a073bfb2c18",
+      "repositoryCoordinates": [
+        {
+          "groupId": "io.netty",
+          "artifactId": "netty-codec-compression",
+          "version": "4.2.17.Final"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/netty-codec-dns-4.2.17.Final.jar",
+      "bytes": 71407,
+      "sha256": "394f4649a824683735f28b299d0a48caff059ae30e654e2abf8b3f392af4d374",
+      "repositoryCoordinates": [
+        {
+          "groupId": "io.netty",
+          "artifactId": "netty-codec-dns",
+          "version": "4.2.17.Final"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/netty-codec-haproxy-4.2.17.Final.jar",
+      "bytes": 39197,
+      "sha256": "6650894f9c429fc29ad7876092a25cc973e8435d13fa70c0e48aab1ca73a6d37",
+      "repositoryCoordinates": [
+        {
+          "groupId": "io.netty",
+          "artifactId": "netty-codec-haproxy",
+          "version": "4.2.17.Final"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/netty-codec-http-4.2.17.Final.jar",
+      "bytes": 679207,
+      "sha256": "a5bde91ac82ab90579df6559c0bd7ea6ae37460e3f18116ab4122194283b3669",
+      "repositoryCoordinates": [
+        {
+          "groupId": "io.netty",
+          "artifactId": "netty-codec-http",
+          "version": "4.2.17.Final"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/netty-codec-http2-4.2.17.Final.jar",
+      "bytes": 496389,
+      "sha256": "450af97424cf58d2d72ad4d476d9e290f2fdf69fa181c289a6e6dd176bb86a7b",
+      "repositoryCoordinates": [
+        {
+          "groupId": "io.netty",
+          "artifactId": "netty-codec-http2",
+          "version": "4.2.17.Final"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/netty-codec-http3-4.2.17.Final.jar",
+      "bytes": 225995,
+      "sha256": "9fcf9873e31b2899c407b42d320aaf6afeb69807e63d9a865c391b4339fa24c7",
+      "repositoryCoordinates": [
+        {
+          "groupId": "io.netty",
+          "artifactId": "netty-codec-http3",
+          "version": "4.2.17.Final"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/netty-codec-marshalling-4.2.17.Final.jar",
+      "bytes": 20378,
+      "sha256": "ee5ffed638da6b7e2b4567559bd5f78b18f635cdaa4f3b6d23aa27ccf6cb57c2",
+      "repositoryCoordinates": [
+        {
+          "groupId": "io.netty",
+          "artifactId": "netty-codec-marshalling",
+          "version": "4.2.17.Final"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/netty-codec-memcache-4.2.17.Final.jar",
+      "bytes": 48501,
+      "sha256": "7627b976a405de4169d972acf7e170a4dfc27d5a0d6e5e2bcc41ea2cb5f6fef9",
+      "repositoryCoordinates": [
+        {
+          "groupId": "io.netty",
+          "artifactId": "netty-codec-memcache",
+          "version": "4.2.17.Final"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/netty-codec-mqtt-4.2.17.Final.jar",
+      "bytes": 113746,
+      "sha256": "420ddb6d8135165f8755804230033d6b1093da146169c30eb36dbac3ed3b394d",
+      "repositoryCoordinates": [
+        {
+          "groupId": "io.netty",
+          "artifactId": "netty-codec-mqtt",
+          "version": "4.2.17.Final"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/netty-codec-protobuf-4.2.17.Final.jar",
+      "bytes": 15108,
+      "sha256": "44b2fcc4bc1d6c01edafe6ae6c8a7de7c3c5bad59697a93b6b879a45a78a5387",
+      "repositoryCoordinates": [
+        {
+          "groupId": "io.netty",
+          "artifactId": "netty-codec-protobuf",
+          "version": "4.2.17.Final"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/netty-codec-redis-4.2.17.Final.jar",
+      "bytes": 48728,
+      "sha256": "7d72146f09c2e63be307a6a24516e1bc208bc345328b9c59540da131ccf5754c",
+      "repositoryCoordinates": [
+        {
+          "groupId": "io.netty",
+          "artifactId": "netty-codec-redis",
+          "version": "4.2.17.Final"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/netty-codec-smtp-4.2.17.Final.jar",
+      "bytes": 23729,
+      "sha256": "32e30ffe89acda2a457f16cf6f8b366f58d0b4b025563803bb0854962b81de3c",
+      "repositoryCoordinates": [
+        {
+          "groupId": "io.netty",
+          "artifactId": "netty-codec-smtp",
+          "version": "4.2.17.Final"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/netty-codec-socks-4.2.17.Final.jar",
+      "bytes": 133039,
+      "sha256": "6b5760cc512cee1f7515e25010892471f3995045f84cd6c1d1b6e6cee534733c",
+      "repositoryCoordinates": [
+        {
+          "groupId": "io.netty",
+          "artifactId": "netty-codec-socks",
+          "version": "4.2.17.Final"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/netty-codec-stomp-4.2.17.Final.jar",
+      "bytes": 37285,
+      "sha256": "179dd61246bbe15468032a071faa21d392bfeaff9341a80e5ce2b744e509e687",
+      "repositoryCoordinates": [
+        {
+          "groupId": "io.netty",
+          "artifactId": "netty-codec-stomp",
+          "version": "4.2.17.Final"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/netty-codec-xml-4.2.17.Final.jar",
+      "bytes": 23526,
+      "sha256": "c453be5dda52127ac82e4883cf03b3326741ff460a4ceebe9a54b23058537fb1",
+      "repositoryCoordinates": [
+        {
+          "groupId": "io.netty",
+          "artifactId": "netty-codec-xml",
+          "version": "4.2.17.Final"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/netty-common-4.2.17.Final.jar",
+      "bytes": 820948,
+      "sha256": "502aae2a6680e9bca3558a3fa098f06dc4d87340b8b714e925a6d690871c092a",
+      "repositoryCoordinates": [
+        {
+          "groupId": "io.netty",
+          "artifactId": "netty-common",
+          "version": "4.2.17.Final"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/netty-handler-4.2.17.Final.jar",
+      "bytes": 588756,
+      "sha256": "4df11c7520b556c5e2c84b939182699d48fcbb09e97a6bb5e1c0b6835227d126",
+      "repositoryCoordinates": [
+        {
+          "groupId": "io.netty",
+          "artifactId": "netty-handler",
+          "version": "4.2.17.Final"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/netty-handler-proxy-4.2.17.Final.jar",
+      "bytes": 26791,
+      "sha256": "94089bea6ba6f3248725f2bf233aa2bc70ac1547c21b9bdfc7548f710a845aa0",
+      "repositoryCoordinates": [
+        {
+          "groupId": "io.netty",
+          "artifactId": "netty-handler-proxy",
+          "version": "4.2.17.Final"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/netty-handler-ssl-ocsp-4.2.17.Final.jar",
+      "bytes": 29962,
+      "sha256": "6cf70966f679e58c9c5fcb3e85cac30ab112911bdfd0645522bb5ee15ceffc7f",
+      "repositoryCoordinates": [
+        {
+          "groupId": "io.netty",
+          "artifactId": "netty-handler-ssl-ocsp",
+          "version": "4.2.17.Final"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/netty-resolver-4.2.17.Final.jar",
+      "bytes": 32977,
+      "sha256": "7a4b599b9c0c29a505d3b7311f142df883fb27d0f67495a7cbaf533b0e456623",
+      "repositoryCoordinates": [
+        {
+          "groupId": "io.netty",
+          "artifactId": "netty-resolver",
+          "version": "4.2.17.Final"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/netty-resolver-dns-4.2.17.Final.jar",
+      "bytes": 174347,
+      "sha256": "d332481c22136a68c2ee9e45e86212174932587d93a5dd4d201e196828bf9f91",
+      "repositoryCoordinates": [
+        {
+          "groupId": "io.netty",
+          "artifactId": "netty-resolver-dns",
+          "version": "4.2.17.Final"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/netty-resolver-dns-classes-macos-4.2.17.Final.jar",
+      "bytes": 9845,
+      "sha256": "e5708301fe173ce03d31f1a76ac0682d0a7b955451c968314a13e661855b33c5",
+      "repositoryCoordinates": [
+        {
+          "groupId": "io.netty",
+          "artifactId": "netty-resolver-dns-classes-macos",
+          "version": "4.2.17.Final"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/netty-transport-4.2.17.Final.jar",
+      "bytes": 549857,
+      "sha256": "d2409ce3a735cbab4188d0ea5d82abed823a6a07a8389f49af4a9e1243a562bc",
+      "repositoryCoordinates": [
+        {
+          "groupId": "io.netty",
+          "artifactId": "netty-transport",
+          "version": "4.2.17.Final"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/netty-transport-classes-epoll-4.2.17.Final.jar",
+      "bytes": 159936,
+      "sha256": "4e21d8a2e3429d9de967a716d58119f57585786bd2f7213bf5b27770425269de",
+      "repositoryCoordinates": [
+        {
+          "groupId": "io.netty",
+          "artifactId": "netty-transport-classes-epoll",
+          "version": "4.2.17.Final"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/netty-transport-classes-io_uring-4.2.17.Final.jar",
+      "bytes": 196406,
+      "sha256": "c6dafc0fd8514b816b9ba724a031c21de6b0fe3215773feb38b6b0bff15a9f34",
+      "repositoryCoordinates": [
+        {
+          "groupId": "io.netty",
+          "artifactId": "netty-transport-classes-io_uring",
+          "version": "4.2.17.Final"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/netty-transport-classes-kqueue-4.2.17.Final.jar",
+      "bytes": 116820,
+      "sha256": "f0b2dd4757a22345b0b28e2856dc7ee44e5dea256cc520ddc27e4dce4ea9efb3",
+      "repositoryCoordinates": [
+        {
+          "groupId": "io.netty",
+          "artifactId": "netty-transport-classes-kqueue",
+          "version": "4.2.17.Final"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/netty-transport-native-unix-common-4.2.17.Final.jar",
+      "bytes": 46878,
+      "sha256": "e01aa467b9104de54a57c08c290f70b22e53ec97cf5583c87c112170ef5832cc",
+      "repositoryCoordinates": [
+        {
+          "groupId": "io.netty",
+          "artifactId": "netty-transport-native-unix-common",
+          "version": "4.2.17.Final"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/netty-transport-rxtx-4.2.17.Final.jar",
+      "bytes": 18606,
+      "sha256": "2940945bcf9b249ebf06c1c2cefa9266eafdf4abd45dc178a9127e4824208bb0",
+      "repositoryCoordinates": [
+        {
+          "groupId": "io.netty",
+          "artifactId": "netty-transport-rxtx",
+          "version": "4.2.17.Final"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/netty-transport-sctp-4.2.17.Final.jar",
+      "bytes": 53533,
+      "sha256": "5345dabce2cbf10bc9c6a80a8d7beeaa4cd975028aa04f1903a96b8e440529f6",
+      "repositoryCoordinates": [
+        {
+          "groupId": "io.netty",
+          "artifactId": "netty-transport-sctp",
+          "version": "4.2.17.Final"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/netty-transport-udt-4.2.17.Final.jar",
+      "bytes": 33073,
+      "sha256": "bd3d40e949077dd0f0ba62e87db5f0f55afc8fab99d20450ec22c2b84267badb",
+      "repositoryCoordinates": [
+        {
+          "groupId": "io.netty",
+          "artifactId": "netty-transport-udt",
+          "version": "4.2.17.Final"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/objenesis-3.4.jar",
+      "bytes": 49076,
+      "sha256": "95488102feaf2e2858adf6b299353677dac6c15294006f8ed1c5556f8e3cd251",
+      "repositoryCoordinates": [
+        {
+          "groupId": "org.objenesis",
+          "artifactId": "objenesis",
+          "version": "3.4"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/okhttp-jvm-5.3.0.jar",
+      "bytes": 868403,
+      "sha256": "7d6033eea0eb0045615e36bd5a250f2e0320885ffedb99d5c27a85e6f5f2f8ec",
+      "repositoryCoordinates": [
+        {
+          "groupId": "com.squareup.okhttp3",
+          "artifactId": "okhttp-jvm",
+          "version": "5.3.0"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/okio-jvm-3.18.1.jar",
+      "bytes": 392463,
+      "sha256": "b97b640557a650d15411f2be29aef558c4e422a83653cb18ba494311dbed18be",
+      "repositoryCoordinates": [
+        {
+          "groupId": "com.squareup.okio",
+          "artifactId": "okio-jvm",
+          "version": "3.18.1"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/opentelemetry-api-1.62.0.jar",
+      "bytes": 175114,
+      "sha256": "d58143928c049233653e6bf1282ff8a767ebdd5e6a82b3f336158c30e40b431d",
+      "repositoryCoordinates": [
+        {
+          "groupId": "io.opentelemetry",
+          "artifactId": "opentelemetry-api",
+          "version": "1.62.0"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/opentelemetry-common-1.62.0.jar",
+      "bytes": 4458,
+      "sha256": "d6310bebde67d65c1519696728d8604005315ed08ab14071956fc0826fd71815",
+      "repositoryCoordinates": [
+        {
+          "groupId": "io.opentelemetry",
+          "artifactId": "opentelemetry-common",
+          "version": "1.62.0"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/opentelemetry-context-1.62.0.jar",
+      "bytes": 50758,
+      "sha256": "8ec86c3609222b9b6307bf40154c1f1c288d1f18ada0155409e7797adbdbe517",
+      "repositoryCoordinates": [
+        {
+          "groupId": "io.opentelemetry",
+          "artifactId": "opentelemetry-context",
+          "version": "1.62.0"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/opentelemetry-exporter-common-1.62.0.jar",
+      "bytes": 141278,
+      "sha256": "50f84b5b58048f69bd684ec874413944209995e01c177200555c151dabfe1ec9",
+      "repositoryCoordinates": [
+        {
+          "groupId": "io.opentelemetry",
+          "artifactId": "opentelemetry-exporter-common",
+          "version": "1.62.0"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/opentelemetry-exporter-logging-1.62.0.jar",
+      "bytes": 17272,
+      "sha256": "2fa59f0b8b7e6ffbde3dbbafac995fb5191ff00c634bd193aa00093ef2601063",
+      "repositoryCoordinates": [
+        {
+          "groupId": "io.opentelemetry",
+          "artifactId": "opentelemetry-exporter-logging",
+          "version": "1.62.0"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/opentelemetry-exporter-logging-otlp-1.62.0.jar",
+      "bytes": 36107,
+      "sha256": "acdc6d168b451b6a8979b7f53ccfc46f731b385391662452153edfdb5ef5bdff",
+      "repositoryCoordinates": [
+        {
+          "groupId": "io.opentelemetry",
+          "artifactId": "opentelemetry-exporter-logging-otlp",
+          "version": "1.62.0"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/opentelemetry-exporter-otlp-1.62.0.jar",
+      "bytes": 74899,
+      "sha256": "59df47fdc4bef6866ed39eb6a04892c68e28d7938eaeaa21801ac5dd2dcb0d65",
+      "repositoryCoordinates": [
+        {
+          "groupId": "io.opentelemetry",
+          "artifactId": "opentelemetry-exporter-otlp",
+          "version": "1.62.0"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/opentelemetry-exporter-otlp-common-1.62.0.jar",
+      "bytes": 229018,
+      "sha256": "79eaaaf044df15209ee1461b668f7c93547734a793d6cf6ad5e57290d3f8c0ea",
+      "repositoryCoordinates": [
+        {
+          "groupId": "io.opentelemetry",
+          "artifactId": "opentelemetry-exporter-otlp-common",
+          "version": "1.62.0"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/opentelemetry-exporter-prometheus-1.44.1-alpha.jar",
+      "bytes": 26479,
+      "sha256": "0d339f76c0d331ae1edd38765ff249e94efa6116bdcead642459ce76036a4b70",
+      "repositoryCoordinates": [
+        {
+          "groupId": "io.opentelemetry",
+          "artifactId": "opentelemetry-exporter-prometheus",
+          "version": "1.44.1-alpha"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/opentelemetry-exporter-sender-okhttp-1.62.0.jar",
+      "bytes": 33696,
+      "sha256": "8c9b2c4394543c4f28e0a6c66d16259a1bfaf67a47a689fb001bd9a92dafb6ea",
+      "repositoryCoordinates": [
+        {
+          "groupId": "io.opentelemetry",
+          "artifactId": "opentelemetry-exporter-sender-okhttp",
+          "version": "1.62.0"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/opentelemetry-sdk-1.62.0.jar",
+      "bytes": 13010,
+      "sha256": "99d421ea0e5a1ca8e45cb67f1d5db7f0e8a718dd55eeb86c1323597e1f10aed3",
+      "repositoryCoordinates": [
+        {
+          "groupId": "io.opentelemetry",
+          "artifactId": "opentelemetry-sdk",
+          "version": "1.62.0"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/opentelemetry-sdk-common-1.62.0.jar",
+      "bytes": 85065,
+      "sha256": "bf9d13df9a50e49a5db664ba8ebfad79f73f03219d2ac6f6709d432f6896eba0",
+      "repositoryCoordinates": [
+        {
+          "groupId": "io.opentelemetry",
+          "artifactId": "opentelemetry-sdk-common",
+          "version": "1.62.0"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/opentelemetry-sdk-extension-autoconfigure-spi-1.62.0.jar",
+      "bytes": 20581,
+      "sha256": "220c22bcf420faae59b7225c789f572eaa22e7af2304d55508aaf2a3efcfecf8",
+      "repositoryCoordinates": [
+        {
+          "groupId": "io.opentelemetry",
+          "artifactId": "opentelemetry-sdk-extension-autoconfigure-spi",
+          "version": "1.62.0"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/opentelemetry-sdk-logs-1.62.0.jar",
+      "bytes": 79362,
+      "sha256": "51c94329bc8e335ed79027d29d49c075c11b91b39e48679edf590e784a392406",
+      "repositoryCoordinates": [
+        {
+          "groupId": "io.opentelemetry",
+          "artifactId": "opentelemetry-sdk-logs",
+          "version": "1.62.0"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/opentelemetry-sdk-metrics-1.62.0.jar",
+      "bytes": 365132,
+      "sha256": "50b057fbf063f6801f623212f4b51b6a3fefc77837314a1316b2f54894c8b5d4",
+      "repositoryCoordinates": [
+        {
+          "groupId": "io.opentelemetry",
+          "artifactId": "opentelemetry-sdk-metrics",
+          "version": "1.62.0"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/opentelemetry-sdk-trace-1.62.0.jar",
+      "bytes": 145227,
+      "sha256": "fb6c0953b229a6da1db813135ae11a621bf9da56b7356c1e93049ed4b088c232",
+      "repositoryCoordinates": [
+        {
+          "groupId": "io.opentelemetry",
+          "artifactId": "opentelemetry-sdk-trace",
+          "version": "1.62.0"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/perfmark-api-0.27.0.jar",
+      "bytes": 6954,
+      "sha256": "c7b478503ec524e55df19b424d46d27c8a68aeb801664fadd4f069b71f52d0f6",
+      "repositoryCoordinates": [
+        {
+          "groupId": "io.perfmark",
+          "artifactId": "perfmark-api",
+          "version": "0.27.0"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/prometheus-metrics-config-1.5.1.jar",
+      "bytes": 49050,
+      "sha256": "77ac62a4676e82d5428f259da4541b30c9f6dba245d25ed1792e88022ce0f849",
+      "repositoryCoordinates": [
+        {
+          "groupId": "io.prometheus",
+          "artifactId": "prometheus-metrics-config",
+          "version": "1.5.1"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/prometheus-metrics-exporter-common-1.5.1.jar",
+      "bytes": 10588,
+      "sha256": "67e62cfc12b9566a04809fe722f686767ebab8a8951ac03b641ac9d27c1df965",
+      "repositoryCoordinates": [
+        {
+          "groupId": "io.prometheus",
+          "artifactId": "prometheus-metrics-exporter-common",
+          "version": "1.5.1"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/prometheus-metrics-exporter-httpserver-1.5.1.jar",
+      "bytes": 21086,
+      "sha256": "ef35dfe6546daa01715a0b6c888def3fb5084dee4d08d5aa26d11738f2c04c40",
+      "repositoryCoordinates": [
+        {
+          "groupId": "io.prometheus",
+          "artifactId": "prometheus-metrics-exporter-httpserver",
+          "version": "1.5.1"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/prometheus-metrics-exposition-formats-1.5.1.jar",
+      "bytes": 2087643,
+      "sha256": "d21ac460c15baa4949101c72dc59cd80b7c7d359578be68b635fcf8aed057ab9",
+      "repositoryCoordinates": [
+        {
+          "groupId": "io.prometheus",
+          "artifactId": "prometheus-metrics-exposition-formats",
+          "version": "1.5.1"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/prometheus-metrics-exposition-textformats-1.5.1.jar",
+      "bytes": 38073,
+      "sha256": "4b39c6034b2f63865e12a7ef297a5a3d88efa06fcd90c9ff1a5fccfac80289f5",
+      "repositoryCoordinates": [
+        {
+          "groupId": "io.prometheus",
+          "artifactId": "prometheus-metrics-exposition-textformats",
+          "version": "1.5.1"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/prometheus-metrics-model-1.5.1.jar",
+      "bytes": 108511,
+      "sha256": "381d107abe62e353cdefee3f01e0ee4d71631ae155ba528f08c9c5393da1183e",
+      "repositoryCoordinates": [
+        {
+          "groupId": "io.prometheus",
+          "artifactId": "prometheus-metrics-model",
+          "version": "1.5.1"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/protobuf-java-4.36.0.jar",
+      "bytes": 1795058,
+      "sha256": "06515776b10bfed334b610273ffdd8884098a9333cb816314b4e4876bfcd2041",
+      "repositoryCoordinates": [
+        {
+          "groupId": "com.google.protobuf",
+          "artifactId": "protobuf-java",
+          "version": "4.36.0"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/reactive-streams-1.0.4.jar",
+      "bytes": 11640,
+      "sha256": "f75ca597789b3dac58f61857b9ac2e1034a68fa672db35055a8fb4509e325f28",
+      "repositoryCoordinates": [
+        {
+          "groupId": "org.reactivestreams",
+          "artifactId": "reactive-streams",
+          "version": "1.0.4"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/reactor-core-3.8.6.jar",
+      "bytes": 1938752,
+      "sha256": "ffc646b225465efce55d3ea350f1bcd1d27d4a56e912323e316dd8e6d04bff11",
+      "repositoryCoordinates": [
+        {
+          "groupId": "io.projectreactor",
+          "artifactId": "reactor-core",
+          "version": "3.8.6"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/redis-authx-core-0.1.1-beta2.jar",
+      "bytes": 18264,
+      "sha256": "cc56edb08b3df8562cddac108dca61907d21cc4ad04de05e9f5d1b01058390af",
+      "repositoryCoordinates": [
+        {
+          "groupId": "redis.clients.authentication",
+          "artifactId": "redis-authx-core",
+          "version": "0.1.1-beta2"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/redisson-4.7.0.jar",
+      "bytes": 2976404,
+      "sha256": "1b0bc132adbc8063d33cfad952c835c31dc2ab6f8c9cef26a08d7d5eeb1eb799",
+      "repositoryCoordinates": [
+        {
+          "groupId": "org.redisson",
+          "artifactId": "redisson",
+          "version": "4.7.0"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/redisson-spring-data-41-4.7.0.jar",
+      "bytes": 268420,
+      "sha256": "15e7df93281ec9f94770ba37d6e6bc9cd99b3aa61b6aecfa62d7d8ed560813a5",
+      "repositoryCoordinates": [
+        {
+          "groupId": "org.redisson",
+          "artifactId": "redisson-spring-data-41",
+          "version": "4.7.0"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/reflectasm-1.11.9.jar",
+      "bytes": 72265,
+      "sha256": "712b44da79a5b7f47a28cbfcb3d8ecfc872fae349c48aa4d3e38a5d69956afce",
+      "repositoryCoordinates": [
+        {
+          "groupId": "com.esotericsoftware",
+          "artifactId": "reflectasm",
+          "version": "1.11.9"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/reflections-0.9.11.jar",
+      "bytes": 130999,
+      "sha256": "cca88428f8a8919df885105833d45ff07bd26f985f96ee55690551216b58b4a1",
+      "repositoryCoordinates": [
+        {
+          "groupId": "org.reflections",
+          "artifactId": "reflections",
+          "version": "0.9.11"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/rocketmq-client-5.5.0.jar",
+      "bytes": 579661,
+      "sha256": "50a00394c13545f6cc03a6dae3708142d81ca11a34fb60583c3bcc507ca21962",
+      "repositoryCoordinates": [
+        {
+          "groupId": "org.apache.rocketmq",
+          "artifactId": "rocketmq-client",
+          "version": "5.5.0"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/rocketmq-common-5.5.0.jar",
+      "bytes": 362134,
+      "sha256": "74b7942dbc2ac66353717d22c104fcc6bb6e5c65108b1b9120e960e5d7c0b595",
+      "repositoryCoordinates": [
+        {
+          "groupId": "org.apache.rocketmq",
+          "artifactId": "rocketmq-common",
+          "version": "5.5.0"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/rocketmq-logback-classic-1.0.1.jar",
+      "bytes": 939632,
+      "sha256": "5c1a776192eb54ffceb00a8fbb474077bf74982ebf2512b1101485f4c1982386",
+      "repositoryCoordinates": [
+        {
+          "groupId": "io.github.aliyunmq",
+          "artifactId": "rocketmq-logback-classic",
+          "version": "1.0.1"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/rocketmq-remoting-5.5.0.jar",
+      "bytes": 500735,
+      "sha256": "1273e2c5cd49692ac954f36a40251c7c89cbb7c5093a66bfcfbce7ce597dfd95",
+      "repositoryCoordinates": [
+        {
+          "groupId": "org.apache.rocketmq",
+          "artifactId": "rocketmq-remoting",
+          "version": "5.5.0"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/rocketmq-rocksdb-1.0.6.jar",
+      "bytes": 34221488,
+      "sha256": "28944d11fd6e5216b6275eb51eedd253c7f521e565ba44008fe2e5cdca4498a0",
+      "repositoryCoordinates": [
+        {
+          "groupId": "org.apache.rocketmq",
+          "artifactId": "rocketmq-rocksdb",
+          "version": "1.0.6"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/rocketmq-slf4j-api-1.0.1.jar",
+      "bytes": 67736,
+      "sha256": "6ebbefd23c89e5617577100585e2205fe6d91413f7fae7af75e4eb397b1ee895",
+      "repositoryCoordinates": [
+        {
+          "groupId": "io.github.aliyunmq",
+          "artifactId": "rocketmq-slf4j-api",
+          "version": "1.0.1"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/rxjava-3.1.12.jar",
+      "bytes": 2665456,
+      "sha256": "1808a433ef55dcc2965523e512ab914a5d0d727228a2683ed7559d7cccf44e37",
+      "repositoryCoordinates": [
+        {
+          "groupId": "io.reactivex.rxjava3",
+          "artifactId": "rxjava",
+          "version": "3.1.12"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/server-0.0.1.jar",
+      "bytes": 84225,
+      "sha256": "ea92f588b9202be935e8ecabca5d676c7849b7753318cbb5c052df7be678479b",
+      "repositoryCoordinates": [
+
+      ],
+      "reactorArtifacts": [
+        "server/LegacyAccountServer/server/target/server-0.0.1.jar"
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/slf4j-api-2.0.18.jar",
+      "bytes": 69982,
+      "sha256": "44508fd1576500688c790b190acdd16fec4f8c79a3e0b900afd70503cf055f55",
+      "repositoryCoordinates": [
+        {
+          "groupId": "org.slf4j",
+          "artifactId": "slf4j-api",
+          "version": "2.0.18"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/snakeyaml-2.6.jar",
+      "bytes": 340068,
+      "sha256": "c8f7a98e7394adda02f6317249710e4d1b4c7a25aa8c7eace0c2eea52eb8bf85",
+      "repositoryCoordinates": [
+        {
+          "groupId": "org.yaml",
+          "artifactId": "snakeyaml",
+          "version": "2.6"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/spring-aop-7.0.8.jar",
+      "bytes": 426204,
+      "sha256": "1178f039e087884174e2affc46e484f4a8bd7f2a4e011d33dd9137709f740f80",
+      "repositoryCoordinates": [
+        {
+          "groupId": "org.springframework",
+          "artifactId": "spring-aop",
+          "version": "7.0.8"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/spring-aspects-7.0.8.jar",
+      "bytes": 50015,
+      "sha256": "f5e7eb54ff5b6355976977401852c0f0670312aa2f18c153d29ff02943883b06",
+      "repositoryCoordinates": [
+        {
+          "groupId": "org.springframework",
+          "artifactId": "spring-aspects",
+          "version": "7.0.8"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/spring-beans-7.0.8.jar",
+      "bytes": 928037,
+      "sha256": "6ec2e361a8872a71d8b1ff66f1bcb8cfa29fcc437931998919da7cecfb59b45b",
+      "repositoryCoordinates": [
+        {
+          "groupId": "org.springframework",
+          "artifactId": "spring-beans",
+          "version": "7.0.8"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/spring-boot-4.1.0.jar",
+      "bytes": 1391652,
+      "sha256": "b23951a3a7f867e38db4729b8594e1b72374516f386b1dd9cf4d5317d6d3f91f",
+      "repositoryCoordinates": [
+        {
+          "groupId": "org.springframework.boot",
+          "artifactId": "spring-boot",
+          "version": "4.1.0"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/spring-boot-autoconfigure-4.1.0.jar",
+      "bytes": 372738,
+      "sha256": "0fcaa3050ba835ca6b3879f81cd48dc590a6262f53bbf10d2a95c70bf7c048ac",
+      "repositoryCoordinates": [
+        {
+          "groupId": "org.springframework.boot",
+          "artifactId": "spring-boot-autoconfigure",
+          "version": "4.1.0"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/spring-boot-data-commons-4.1.0.jar",
+      "bytes": 30270,
+      "sha256": "44613292a91c231d81d39d05b10550b9988e7dcaf3b931b700e86fb0ac029937",
+      "repositoryCoordinates": [
+        {
+          "groupId": "org.springframework.boot",
+          "artifactId": "spring-boot-data-commons",
+          "version": "4.1.0"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/spring-boot-data-jpa-4.1.0.jar",
+      "bytes": 13998,
+      "sha256": "5c9fe8ee830a45bba829e7bd150aa0633c18d50870561d85299af1e8418daac4",
+      "repositoryCoordinates": [
+        {
+          "groupId": "org.springframework.boot",
+          "artifactId": "spring-boot-data-jpa",
+          "version": "4.1.0"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/spring-boot-data-mongodb-4.1.0.jar",
+      "bytes": 26819,
+      "sha256": "03b2e77644ec0f063aee6baf60fdc9e85cccb5da0818b0b6ee02dfeea528ff61",
+      "repositoryCoordinates": [
+        {
+          "groupId": "org.springframework.boot",
+          "artifactId": "spring-boot-data-mongodb",
+          "version": "4.1.0"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/spring-boot-data-redis-4.1.0.jar",
+      "bytes": 89919,
+      "sha256": "a3cee050807b8e0b437678ab40319930dfcffc7eb1da9bb57bf8e10900967e24",
+      "repositoryCoordinates": [
+        {
+          "groupId": "org.springframework.boot",
+          "artifactId": "spring-boot-data-redis",
+          "version": "4.1.0"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/spring-boot-hibernate-4.1.0.jar",
+      "bytes": 27960,
+      "sha256": "fcdcf4b490a8fa0e6ce466334bc8ae752a80e1ff1c9eb58a101e2fff878a2863",
+      "repositoryCoordinates": [
+        {
+          "groupId": "org.springframework.boot",
+          "artifactId": "spring-boot-hibernate",
+          "version": "4.1.0"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/spring-boot-http-converter-4.1.0.jar",
+      "bytes": 54309,
+      "sha256": "f82c8913ea17a60630a5d26fa006cf79f28c7d920dbbef8760f5bc7053706fea",
+      "repositoryCoordinates": [
+        {
+          "groupId": "org.springframework.boot",
+          "artifactId": "spring-boot-http-converter",
+          "version": "4.1.0"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/spring-boot-jackson-4.1.0.jar",
+      "bytes": 82094,
+      "sha256": "10b6e63a40b257168854093f413eaab8b8a9afb7e989fcc7f6732b42c3f173d1",
+      "repositoryCoordinates": [
+        {
+          "groupId": "org.springframework.boot",
+          "artifactId": "spring-boot-jackson",
+          "version": "4.1.0"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/spring-boot-jdbc-4.1.0.jar",
+      "bytes": 204600,
+      "sha256": "3b5aab97e72d8a15a40546c31365ed2090cf25451e18762add8ed22cbb4ead43",
+      "repositoryCoordinates": [
+        {
+          "groupId": "org.springframework.boot",
+          "artifactId": "spring-boot-jdbc",
+          "version": "4.1.0"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/spring-boot-jpa-4.1.0.jar",
+      "bytes": 30015,
+      "sha256": "cd61301aebef59f3d2874ebd51862ed52d342d8c162874791475486232316d95",
+      "repositoryCoordinates": [
+        {
+          "groupId": "org.springframework.boot",
+          "artifactId": "spring-boot-jpa",
+          "version": "4.1.0"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/spring-boot-mongodb-4.1.0.jar",
+      "bytes": 52008,
+      "sha256": "da678b6e54f488d8e49a94535beaffb42ca4d6e3695bedf3302c41236a3f7a76",
+      "repositoryCoordinates": [
+        {
+          "groupId": "org.springframework.boot",
+          "artifactId": "spring-boot-mongodb",
+          "version": "4.1.0"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/spring-boot-netty-4.1.0.jar",
+      "bytes": 9807,
+      "sha256": "397e145402d1c556b1ac2ea154218ba88a83153adac9a7e5a4534dc6cc7d780c",
+      "repositoryCoordinates": [
+        {
+          "groupId": "org.springframework.boot",
+          "artifactId": "spring-boot-netty",
+          "version": "4.1.0"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/spring-boot-persistence-4.1.0.jar",
+      "bytes": 16030,
+      "sha256": "d9d926224c738bd6152718c078134e3aea1057db4d6a452c37ad120893e0e4d6",
+      "repositoryCoordinates": [
+        {
+          "groupId": "org.springframework.boot",
+          "artifactId": "spring-boot-persistence",
+          "version": "4.1.0"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/spring-boot-servlet-4.1.0.jar",
+      "bytes": 47077,
+      "sha256": "5f694a7c6c357a87032bc92db0e7e0e03b64010f77892e5992c86b10f568a5ae",
+      "repositoryCoordinates": [
+        {
+          "groupId": "org.springframework.boot",
+          "artifactId": "spring-boot-servlet",
+          "version": "4.1.0"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/spring-boot-sql-4.1.0.jar",
+      "bytes": 36056,
+      "sha256": "2826a5380675337f4c5b3e90db02279e68a2c9a7eb2b2ac312828c05fb827a9a",
+      "repositoryCoordinates": [
+        {
+          "groupId": "org.springframework.boot",
+          "artifactId": "spring-boot-sql",
+          "version": "4.1.0"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/spring-boot-starter-4.1.0.jar",
+      "bytes": 4765,
+      "sha256": "40352b3fc0834d5830f66d40100fc8afa8ac73e24a134c7779bd42b72f2d6506",
+      "repositoryCoordinates": [
+        {
+          "groupId": "org.springframework.boot",
+          "artifactId": "spring-boot-starter",
+          "version": "4.1.0"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/spring-boot-starter-data-jpa-4.1.0.jar",
+      "bytes": 4758,
+      "sha256": "9fe4c797d98e10c3761c1ff6bc14fa5ca68bc0e4b9941a951f39b99502f57d56",
+      "repositoryCoordinates": [
+        {
+          "groupId": "org.springframework.boot",
+          "artifactId": "spring-boot-starter-data-jpa",
+          "version": "4.1.0"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/spring-boot-starter-data-mongodb-4.1.0.jar",
+      "bytes": 4773,
+      "sha256": "3e049c9b88647b26ae8273c64fe11bc74da8d744f36be6d1ab1307ee5db4cdfc",
+      "repositoryCoordinates": [
+        {
+          "groupId": "org.springframework.boot",
+          "artifactId": "spring-boot-starter-data-mongodb",
+          "version": "4.1.0"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/spring-boot-starter-data-redis-4.1.0.jar",
+      "bytes": 4782,
+      "sha256": "85d475bcc240f0c8e2a142b0278d6063d11e64522823abe34d92a8c4dfb50c75",
+      "repositoryCoordinates": [
+        {
+          "groupId": "org.springframework.boot",
+          "artifactId": "spring-boot-starter-data-redis",
+          "version": "4.1.0"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/spring-boot-starter-jackson-4.1.0.jar",
+      "bytes": 4738,
+      "sha256": "4214c534cca5c7c7e1cf92db90f178a3dffdede503fb68ac3c0dd905f331431f",
+      "repositoryCoordinates": [
+        {
+          "groupId": "org.springframework.boot",
+          "artifactId": "spring-boot-starter-jackson",
+          "version": "4.1.0"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/spring-boot-starter-jdbc-4.1.0.jar",
+      "bytes": 4766,
+      "sha256": "ce3e3dfdde267f11d21960715967b59713575cab8e5e8b3b00fba6a3bb022c99",
+      "repositoryCoordinates": [
+        {
+          "groupId": "org.springframework.boot",
+          "artifactId": "spring-boot-starter-jdbc",
+          "version": "4.1.0"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/spring-boot-starter-logging-4.1.0.jar",
+      "bytes": 4739,
+      "sha256": "73a6a42d2b6a589bd722aa107800829d0b20b731d94135f53c4b744db8beafbf",
+      "repositoryCoordinates": [
+        {
+          "groupId": "org.springframework.boot",
+          "artifactId": "spring-boot-starter-logging",
+          "version": "4.1.0"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/spring-boot-starter-mongodb-4.1.0.jar",
+      "bytes": 4761,
+      "sha256": "08894d052409a2e3014d4630dcfcbbc0103900559a29e2b0b68c9d12aebe85a3",
+      "repositoryCoordinates": [
+        {
+          "groupId": "org.springframework.boot",
+          "artifactId": "spring-boot-starter-mongodb",
+          "version": "4.1.0"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/spring-boot-starter-tomcat-4.1.0.jar",
+      "bytes": 4761,
+      "sha256": "3e8cbd141ee6f4f2acfaf6320f1951307816f086de426d08eac19ef4a57d7e90",
+      "repositoryCoordinates": [
+        {
+          "groupId": "org.springframework.boot",
+          "artifactId": "spring-boot-starter-tomcat",
+          "version": "4.1.0"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/spring-boot-starter-tomcat-runtime-4.1.0.jar",
+      "bytes": 4742,
+      "sha256": "135fa0b7a4232c64b975f348cab39e2259d36a18e14768f5f213147a4febf68d",
+      "repositoryCoordinates": [
+        {
+          "groupId": "org.springframework.boot",
+          "artifactId": "spring-boot-starter-tomcat-runtime",
+          "version": "4.1.0"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/spring-boot-starter-validation-4.1.0.jar",
+      "bytes": 4764,
+      "sha256": "f4a15a63712f4a097347cae20dca5456be4a7d87a6f2791be3815ecf58638837",
+      "repositoryCoordinates": [
+        {
+          "groupId": "org.springframework.boot",
+          "artifactId": "spring-boot-starter-validation",
+          "version": "4.1.0"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/spring-boot-starter-web-4.1.0.jar",
+      "bytes": 4829,
+      "sha256": "d2732bdc307d3628d680d32758b300972109f499ec8e023bd663cdad002c67c6",
+      "repositoryCoordinates": [
+        {
+          "groupId": "org.springframework.boot",
+          "artifactId": "spring-boot-starter-web",
+          "version": "4.1.0"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/spring-boot-tomcat-4.1.0.jar",
+      "bytes": 125563,
+      "sha256": "011e662eb6f9f4a80c5dacf914cfca8a25a33fcd753736ec453dcf701337dd24",
+      "repositoryCoordinates": [
+        {
+          "groupId": "org.springframework.boot",
+          "artifactId": "spring-boot-tomcat",
+          "version": "4.1.0"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/spring-boot-transaction-4.1.0.jar",
+      "bytes": 21029,
+      "sha256": "5402dfeef5d6633b485d6ce8d1cfb2116c7a55e70f8f5dbd31b69ca43e006f13",
+      "repositoryCoordinates": [
+        {
+          "groupId": "org.springframework.boot",
+          "artifactId": "spring-boot-transaction",
+          "version": "4.1.0"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/spring-boot-validation-4.1.0.jar",
+      "bytes": 15258,
+      "sha256": "38e3409dc8050e14afcfe14b7bb09f10d1077c7fbd33150ba2698d53dd79b4cc",
+      "repositoryCoordinates": [
+        {
+          "groupId": "org.springframework.boot",
+          "artifactId": "spring-boot-validation",
+          "version": "4.1.0"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/spring-boot-web-server-4.1.0.jar",
+      "bytes": 171609,
+      "sha256": "a8541ccbd29f5a8db7e6092fa83463aa4d1c002fac07b8b5babe118ad6c4a3d3",
+      "repositoryCoordinates": [
+        {
+          "groupId": "org.springframework.boot",
+          "artifactId": "spring-boot-web-server",
+          "version": "4.1.0"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/spring-boot-webmvc-4.1.0.jar",
+      "bytes": 175433,
+      "sha256": "ab21735a550cbfefaa4ad6ffbb1a891592580ef05ad729cd2025bc0245862b55",
+      "repositoryCoordinates": [
+        {
+          "groupId": "org.springframework.boot",
+          "artifactId": "spring-boot-webmvc",
+          "version": "4.1.0"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/spring-context-7.0.8.jar",
+      "bytes": 1398484,
+      "sha256": "1eb7d552414ebac00e30ab3e809138d810785f6d2c4271db77cdf0181f308f19",
+      "repositoryCoordinates": [
+        {
+          "groupId": "org.springframework",
+          "artifactId": "spring-context",
+          "version": "7.0.8"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/spring-context-support-7.0.8.jar",
+      "bytes": 177619,
+      "sha256": "9ab80715682c47ad66a1a2c0e9ab2be9ec3d828276f281597f12c5208147b92e",
+      "repositoryCoordinates": [
+        {
+          "groupId": "org.springframework",
+          "artifactId": "spring-context-support",
+          "version": "7.0.8"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/spring-core-7.0.8.jar",
+      "bytes": 2035553,
+      "sha256": "726ba2a5130833644bdf267a55ff26e1f52e8dcc9aa1ffa06904ca9c14619f25",
+      "repositoryCoordinates": [
+        {
+          "groupId": "org.springframework",
+          "artifactId": "spring-core",
+          "version": "7.0.8"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/spring-data-commons-4.1.0.jar",
+      "bytes": 1773391,
+      "sha256": "c9e41d45b30aacc0ce50c4426f0650a3544c066ab5d6d0304840e6f878388c5c",
+      "repositoryCoordinates": [
+        {
+          "groupId": "org.springframework.data",
+          "artifactId": "spring-data-commons",
+          "version": "4.1.0"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/spring-data-jpa-4.1.0.jar",
+      "bytes": 2178660,
+      "sha256": "60b72b0513faecb3ef51f53f35d74de68b193af06dc7c1c66b54e265762bad66",
+      "repositoryCoordinates": [
+        {
+          "groupId": "org.springframework.data",
+          "artifactId": "spring-data-jpa",
+          "version": "4.1.0"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/spring-data-keyvalue-4.1.0.jar",
+      "bytes": 142597,
+      "sha256": "1cab6685ee820428a9fb48eab4a5cb48ddcab1dfdb2467b9afb3c47f5455d19b",
+      "repositoryCoordinates": [
+        {
+          "groupId": "org.springframework.data",
+          "artifactId": "spring-data-keyvalue",
+          "version": "4.1.0"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/spring-data-mongodb-5.1.0.jar",
+      "bytes": 2717203,
+      "sha256": "3b35496217abf69d5f6e54c4a0ca292e4ab48ed10fbafd73b37ccdb08038c637",
+      "repositoryCoordinates": [
+        {
+          "groupId": "org.springframework.data",
+          "artifactId": "spring-data-mongodb",
+          "version": "5.1.0"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/spring-data-redis-4.1.0.jar",
+      "bytes": 2453205,
+      "sha256": "c9f7c6d38c98e4240250c0c3969758b26763c4e0e87726915a71855062ae6cb2",
+      "repositoryCoordinates": [
+        {
+          "groupId": "org.springframework.data",
+          "artifactId": "spring-data-redis",
+          "version": "4.1.0"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/spring-expression-7.0.8.jar",
+      "bytes": 325993,
+      "sha256": "3c97c38ab59c77ee886e08ccf8096f6bb58a1245f68dfed7a40e93f41c435f9a",
+      "repositoryCoordinates": [
+        {
+          "groupId": "org.springframework",
+          "artifactId": "spring-expression",
+          "version": "7.0.8"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/spring-jdbc-7.0.8.jar",
+      "bytes": 480644,
+      "sha256": "7d6bbf130ed919d5f4f01ec0ea771ab59ac3936ab29f50fd3a705c0119871e32",
+      "repositoryCoordinates": [
+        {
+          "groupId": "org.springframework",
+          "artifactId": "spring-jdbc",
+          "version": "7.0.8"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/spring-messaging-7.0.8.jar",
+      "bytes": 613599,
+      "sha256": "0f96694ebb88fed6bf4aef608010c23ee922a476dd71e0fab76ca9ed0eaa70b0",
+      "repositoryCoordinates": [
+        {
+          "groupId": "org.springframework",
+          "artifactId": "spring-messaging",
+          "version": "7.0.8"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/spring-orm-7.0.8.jar",
+      "bytes": 225527,
+      "sha256": "3ff1ad6ab4ebcc7dc9ef02f40aa60790bddead11b0e0fc7f75cb20f41f7d291e",
+      "repositoryCoordinates": [
+        {
+          "groupId": "org.springframework",
+          "artifactId": "spring-orm",
+          "version": "7.0.8"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/spring-oxm-7.0.8.jar",
+      "bytes": 60103,
+      "sha256": "67f91ffb41a94cf0e443f02ee6f740d52e10a84cabae218cdb0de65f87a82172",
+      "repositoryCoordinates": [
+        {
+          "groupId": "org.springframework",
+          "artifactId": "spring-oxm",
+          "version": "7.0.8"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/spring-tx-7.0.8.jar",
+      "bytes": 292080,
+      "sha256": "57e8fdb6de949e7ec2617683fec03af0253bdbdf4bf3d2651a926a94413df283",
+      "repositoryCoordinates": [
+        {
+          "groupId": "org.springframework",
+          "artifactId": "spring-tx",
+          "version": "7.0.8"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/spring-web-7.0.8.jar",
+      "bytes": 2218865,
+      "sha256": "4d4ed7ecb0453d25d735ea27d025ea36b003c3d29cb7d006bedd6d5188a2f5c0",
+      "repositoryCoordinates": [
+        {
+          "groupId": "org.springframework",
+          "artifactId": "spring-web",
+          "version": "7.0.8"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/spring-webmvc-7.0.8.jar",
+      "bytes": 1106847,
+      "sha256": "48f7e1e2d0d46e98ed3fa30d5a64cb1f7ed2aa339a82edcd87289ed8ff216f04",
+      "repositoryCoordinates": [
+        {
+          "groupId": "org.springframework",
+          "artifactId": "spring-webmvc",
+          "version": "7.0.8"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/tomcat-embed-core-11.0.22.jar",
+      "bytes": 3599448,
+      "sha256": "78cd7cd7c104b6b87142c1b0bd902e1ce005b0245c3cefa8a06759148947200b",
+      "repositoryCoordinates": [
+        {
+          "groupId": "org.apache.tomcat.embed",
+          "artifactId": "tomcat-embed-core",
+          "version": "11.0.22"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/tomcat-embed-el-11.0.22.jar",
+      "bytes": 270025,
+      "sha256": "1b34c33b858c141df36c501b4d809e68036c406bca3671a86facae297917c7de",
+      "repositoryCoordinates": [
+        {
+          "groupId": "org.apache.tomcat.embed",
+          "artifactId": "tomcat-embed-el",
+          "version": "11.0.22"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/tomcat-embed-websocket-11.0.22.jar",
+      "bytes": 286650,
+      "sha256": "210e0c7ab194a76cc7283df0be365276091b042369dae125fb477828ba67e922",
+      "repositoryCoordinates": [
+        {
+          "groupId": "org.apache.tomcat.embed",
+          "artifactId": "tomcat-embed-websocket",
+          "version": "11.0.22"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/txw2-4.0.9.jar",
+      "bytes": 73276,
+      "sha256": "d6343e5945d87266ca4e8974a0a2a876e1bd147a00fb65ed3f2e1a3a00f3a82a",
+      "repositoryCoordinates": [
+        {
+          "groupId": "org.glassfish.jaxb",
+          "artifactId": "txw2",
+          "version": "4.0.9"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/zstd-jni-1.5.2-2.jar",
+      "bytes": 5396193,
+      "sha256": "fedeb4c59d9593e84bc0b1cca30c90da7f3452e78d3a1b9d5dd7370efc474b1d",
+      "repositoryCoordinates": [
+        {
+          "groupId": "com.github.luben",
+          "artifactId": "zstd-jni",
+          "version": "1.5.2-2"
+        }
+      ],
+      "reactorArtifacts": [
+
+      ]
+    }
+  ],
+  "jarCount": 222,
+  "unresolved": [
+
+  ],
+  "consistent": true,
+  "passed": true
+}

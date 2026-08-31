@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "currentDocuments": [
+    "前端架构文档.md",
+    "前后端通信文档.md",
+    "前端资源所有权与释放规范.md",
+    "前端公共组件规范.md",
+    "迁移与构建记录.md"
+  ],
+  "archiveDocuments": 48,
+  "referencesFromCurrent": [
+
+  ],
+  "checks": {
+    "priorityDeclared": true,
+    "archiveNonAuthoritative": true,
+    "noCurrentArchiveDependencies": true
+  }
+}

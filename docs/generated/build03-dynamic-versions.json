@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "revision": "1.0.0-SNAPSHOT",
+  "dynamicExternalVersions": [
+    {
+      "file": "pom.xml",
+      "value": "[3.9.16,4.0.0)"
+    },
+    {
+      "file": "pom.xml",
+      "value": "[26,27)"
+    },
+    {
+      "file": "server/LegacyAccountServer/pom.xml",
+      "value": "[3.9.16,4)"
+    },
+    {
+      "file": "server/LegacyAccountServer/pom.xml",
+      "value": "[26,27)"
+    }
+  ],
+  "localClasspathScripts": [
+    "tools/measure_startup_class_memory_baseline.rb",
+    "tools/audit_generated_state_graph.rb",
+    "tools/run_player_scale_benchmark.sh",
+    "tools/run_club_member_scale_benchmark.sh",
+    "tools/run_viewer_identity_chain_smoke.sh",
+    "tools/run_ledger_reconciliation_benchmark.sh",
+    "tools/run_account_login_index_benchmark.sh"
+  ],
+  "checks": {
+    "noDynamicExternalVersions": false,
+    "releaseRevision": false,
+    "noUntrackedLocalClasspath": false
+  },
+  "verdict": "blocked-release-version-and-local-classpath"
+}

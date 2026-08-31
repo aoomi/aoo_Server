@@ -1,0 +1,63 @@
+{
+  "task": "GAME07",
+  "status": "blocked-representative-legacy-boundary",
+  "categoryTests": {
+    "Families": {
+      "files": 1,
+      "passed": true
+    },
+    "Mahjong": {
+      "files": 7,
+      "passed": true
+    },
+    "Poker": {
+      "files": 6,
+      "passed": true
+    },
+    "LongCard": {
+      "files": 2,
+      "passed": true
+    },
+    "WordCard": {
+      "files": 2,
+      "passed": true
+    }
+  },
+  "representativeProviders": {
+    "NJPDK": {
+      "categoryProvider": true,
+      "legacyFactory": true,
+      "authoritativeRestore": true
+    },
+    "XCPDK": {
+      "categoryProvider": true,
+      "legacyFactory": true,
+      "authoritativeRestore": true
+    },
+    "CDXZMJ": {
+      "categoryProvider": true,
+      "legacyFactory": true,
+      "authoritativeRestore": true
+    },
+    "SCJYMJ": {
+      "categoryProvider": true,
+      "legacyFactory": true,
+      "authoritativeRestore": true
+    },
+    "ZJH": {
+      "categoryProvider": true,
+      "legacyFactory": false,
+      "authoritativeRestore": false
+    },
+    "ZYPK": {
+      "categoryProvider": true,
+      "legacyFactory": false,
+      "authoritativeRestore": false
+    }
+  },
+  "unresolved": [
+    "NJPDK, XCPDK, CDXZMJ and SCJYMJ factories still construct legacy rooms alongside common authoritative sessions",
+    "ZJH and ZYPK still expose legacy aggregate handles and lack authoritative restore SPI",
+    "four-layer abstractions therefore are not the sole effective production path"
+  ]
+}

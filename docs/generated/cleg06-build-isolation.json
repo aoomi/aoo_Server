@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "legacyFilesByExtension": {
+    ".meta": 10631,
+    ".ts": 243,
+    ".png": 7983,
+    ".json": 394,
+    ".anim": 179,
+    ".jpg": 54,
+    ".txt": 5,
+    ".bin": 1,
+    ".mp3": 703,
+    ".fnt": 127,
+    ".ttf": 3,
+    ".cer": 1,
+    ".pac": 17,
+    ".plist": 5,
+    ".manifest": 6,
+    ".atlas": 22,
+    ".pem": 1,
+    ".zip": 1
+  },
+  "insideAssets": true,
+  "passed": false
+}

@@ -1,0 +1,4506 @@
+{
+  "0": {
+    "Id": 0,
+    "Name": "hzmj",
+    "Type": 1,
+    "Name_1": "红中麻将",
+    "imgUrl": "btn_hzmj",
+    "imgUrl_1": ""
+  },
+  "5": {
+    "Id": 5,
+    "Name": "fzmj",
+    "Type": 1,
+    "Name_1": "福州麻将",
+    "imgUrl": "btn_fzmj",
+    "imgUrl_1": ""
+  },
+  "11": {
+    "Id": 11,
+    "Name": "ndmj",
+    "Type": 1,
+    "Name_1": "宁德麻将",
+    "imgUrl": "btn_ndmj",
+    "imgUrl_1": ""
+  },
+  "35": {
+    "Id": 35,
+    "Name": "zjmj",
+    "Type": 1,
+    "Name_1": "镇江麻将",
+    "imgUrl": "btn_zjmj",
+    "imgUrl_1": ""
+  },
+  "40": {
+    "Id": 40,
+    "Name": "wzmj",
+    "Type": 1,
+    "Name_1": "万载麻将",
+    "imgUrl": "btn_wzmj",
+    "imgUrl_1": ""
+  },
+  "45": {
+    "Id": 45,
+    "Name": "bdmj",
+    "Type": 1,
+    "Name_1": "保定麻将",
+    "imgUrl": "btn_bdmj",
+    "imgUrl_1": ""
+  },
+  "28": {
+    "Id": 28,
+    "Name": "ytmj",
+    "Type": 1,
+    "Name_1": "鹰潭麻将",
+    "imgUrl": "btn_ytmj",
+    "imgUrl_1": ""
+  },
+  "46": {
+    "Id": 46,
+    "Name": "yxmj",
+    "Type": 1,
+    "Name_1": "宜兴麻将",
+    "imgUrl": "btn_yxmj",
+    "imgUrl_1": ""
+  },
+  "53": {
+    "Id": 53,
+    "Name": "jsyzmj",
+    "Type": 1,
+    "Name_1": "扬中麻将",
+    "imgUrl": "btn_jsyzmj",
+    "imgUrl_1": ""
+  },
+  "58": {
+    "Id": 58,
+    "Name": "hbmj",
+    "Type": 1,
+    "Name_1": "淮滨麻将",
+    "imgUrl": "btn_hbmj",
+    "imgUrl_1": ""
+  },
+  "72": {
+    "Id": 72,
+    "Name": "pxzzmj",
+    "Type": 1,
+    "Name_1": "转转麻将",
+    "imgUrl": "btn_pxzzmj",
+    "imgUrl_1": ""
+  },
+  "75": {
+    "Id": 75,
+    "Name": "px258mj",
+    "Type": 1,
+    "Name_1": "萍乡258麻将",
+    "imgUrl": "btn_px258mj",
+    "imgUrl_1": ""
+  },
+  "76": {
+    "Id": 76,
+    "Name": "yxtdh",
+    "Type": 1,
+    "Name_1": "宜兴推倒胡",
+    "imgUrl": "btn_yxtdh",
+    "imgUrl_1": ""
+  },
+  "81": {
+    "Id": 81,
+    "Name": "wnmj",
+    "Type": 1,
+    "Name_1": "清混麻将",
+    "imgUrl": "btn_wnmj",
+    "imgUrl_1": ""
+  },
+  "82": {
+    "Id": 82,
+    "Name": "wnyh",
+    "Type": 1,
+    "Name_1": "硬胡麻将",
+    "imgUrl": "btn_wnyh",
+    "imgUrl_1": ""
+  },
+  "95": {
+    "Id": 95,
+    "Name": "bdyxmj",
+    "Type": 1,
+    "Name_1": "易县麻将",
+    "imgUrl": "btn_bdyxmj",
+    "imgUrl_1": ""
+  },
+  "36": {
+    "Id": 36,
+    "Name": "dymj",
+    "Type": 1,
+    "Name_1": "丹阳麻将",
+    "imgUrl": "btn_dymj",
+    "imgUrl_1": ""
+  },
+  "42": {
+    "Id": 42,
+    "Name": "ycmj",
+    "Type": 1,
+    "Name_1": "宜春麻将",
+    "imgUrl": "btn_ycmj",
+    "imgUrl_1": ""
+  },
+  "65": {
+    "Id": 65,
+    "Name": "xlqmj",
+    "Type": 1,
+    "Name_1": "西来桥麻将",
+    "imgUrl": "btn_xlqmj",
+    "imgUrl_1": ""
+  },
+  "66": {
+    "Id": 66,
+    "Name": "fdmj",
+    "Type": 1,
+    "Name_1": "福鼎麻将",
+    "imgUrl": "btn_fdmj",
+    "imgUrl_1": ""
+  },
+  "44": {
+    "Id": 44,
+    "Name": "lpmj",
+    "Type": 1,
+    "Name_1": "乐平麻将",
+    "imgUrl": "btn_lpmj",
+    "imgUrl_1": ""
+  },
+  "98": {
+    "Id": 98,
+    "Name": "pbyhmj",
+    "Type": 1,
+    "Name_1": "鄱北硬胡",
+    "imgUrl": "btn_pbyhmj",
+    "imgUrl_1": ""
+  },
+  "56": {
+    "Id": 56,
+    "Name": "zpmj",
+    "Type": 1,
+    "Name_1": "漳浦麻将",
+    "imgUrl": "btn_zpmj",
+    "imgUrl_1": ""
+  },
+  "2": {
+    "Id": 2,
+    "Name": "lymj",
+    "Type": 1,
+    "Name_1": "龙岩麻将",
+    "imgUrl": "btn_lymj",
+    "imgUrl_1": ""
+  },
+  "54": {
+    "Id": 54,
+    "Name": "tdhmj",
+    "Type": 1,
+    "Name_1": "推倒胡",
+    "imgUrl": "btn_tdhmj",
+    "imgUrl_1": ""
+  },
+  "1": {
+    "Id": 1,
+    "Name": "sss",
+    "Type": 2,
+    "Name_1": "自由扑克",
+    "imgUrl": "btn_sss",
+    "imgUrl_1": "模式1是自由sss，模式2是庄家sss"
+  },
+  "7": {
+    "Id": 7,
+    "Name": "pdk",
+    "Type": 2,
+    "Name_1": "跑得快",
+    "imgUrl": "btn_pdk",
+    "imgUrl_1": ""
+  },
+  "26": {
+    "Id": 26,
+    "Name": "gdy",
+    "Type": 2,
+    "Name_1": "干瞪眼",
+    "imgUrl": "btn_gdy",
+    "imgUrl_1": ""
+  },
+  "30": {
+    "Id": 30,
+    "Name": "ddz",
+    "Type": 2,
+    "Name_1": "斗地主",
+    "imgUrl": "btn_ddz",
+    "imgUrl_1": ""
+  },
+  "73": {
+    "Id": 73,
+    "Name": "px6gt",
+    "Type": 2,
+    "Name_1": "萍乡六滚筒",
+    "imgUrl": "btn_px6gt",
+    "imgUrl_1": ""
+  },
+  "74": {
+    "Id": 74,
+    "Name": "px3gt",
+    "Type": 2,
+    "Name_1": "萍乡三滚筒",
+    "imgUrl": "btn_px3gt",
+    "imgUrl_1": ""
+  },
+  "83": {
+    "Id": 83,
+    "Name": "wnpdk",
+    "Type": 2,
+    "Name_1": "万年跑得快",
+    "imgUrl": "btn_wnpdk",
+    "imgUrl_1": "游戏中就叫“跑得快”"
+  },
+  "88": {
+    "Id": 88,
+    "Name": "hbpdk",
+    "Type": 2,
+    "Name_1": "淮滨跑得快",
+    "imgUrl": "btn_hbpdk",
+    "imgUrl_1": ""
+  },
+  "84": {
+    "Id": 84,
+    "Name": "fqpls",
+    "Type": 2,
+    "Name_1": "福清罗松",
+    "imgUrl": "btn_fqpls",
+    "imgUrl_1": "模式1是“经典罗松”，模式2是“王牌罗松”，模式3是“特殊王牌罗松”"
+  },
+  "71": {
+    "Id": 71,
+    "Name": "zjpls",
+    "Type": 2,
+    "Name_1": "镇江配罗宋",
+    "imgUrl": "btn_zjpls",
+    "imgUrl_1": ""
+  },
+  "87": {
+    "Id": 87,
+    "Name": "dx",
+    "Type": 2,
+    "Name_1": "钓蟹",
+    "imgUrl": "btn_dx",
+    "imgUrl_1": ""
+  },
+  "34": {
+    "Id": 34,
+    "Name": "pxcn",
+    "Type": 2,
+    "Name_1": "莆仙吹牛",
+    "imgUrl": "btn_pxcn",
+    "imgUrl_1": ""
+  },
+  "99": {
+    "Id": 99,
+    "Name": "yhzmj",
+    "Type": 1,
+    "Name_1": "鄱阳硬胡子",
+    "imgUrl": "btn_yhzmj",
+    "imgUrl_1": ""
+  },
+  "100": {
+    "Id": 100,
+    "Name": "pnyhmj",
+    "Type": 1,
+    "Name_1": "鄱南硬胡",
+    "imgUrl": "btn_pnyhmj",
+    "imgUrl_1": ""
+  },
+  "101": {
+    "Id": 101,
+    "Name": "sdfjmj",
+    "Type": 1,
+    "Name_1": "四底翻精",
+    "imgUrl": "btn_sdfjmj",
+    "imgUrl_1": ""
+  },
+  "80": {
+    "Id": 80,
+    "Name": "aymj",
+    "Type": 1,
+    "Name_1": "安岳麻将",
+    "imgUrl": "btn_aymj",
+    "imgUrl_1": ""
+  },
+  "14": {
+    "Id": 14,
+    "Name": "xymj",
+    "Type": 1,
+    "Name_1": "仙游麻将",
+    "imgUrl": "btn_xymj",
+    "imgUrl_1": ""
+  },
+  "48": {
+    "Id": 48,
+    "Name": "sgmj",
+    "Type": 1,
+    "Name_1": "韶关麻将",
+    "imgUrl": "btn_sgmj",
+    "imgUrl_1": ""
+  },
+  "77": {
+    "Id": 77,
+    "Name": "aypdk",
+    "Type": 2,
+    "Name_1": "安岳跑得快",
+    "imgUrl": "btn_aypdk",
+    "imgUrl_1": ""
+  },
+  "68": {
+    "Id": 68,
+    "Name": "yxls",
+    "Type": 2,
+    "Name_1": "宜兴罗松",
+    "imgUrl": "btn_yxls",
+    "imgUrl_1": ""
+  },
+  "16": {
+    "Id": 16,
+    "Name": "namj",
+    "Type": 1,
+    "Name_1": "南安麻将",
+    "imgUrl": "btn_namj",
+    "imgUrl_1": ""
+  },
+  "47": {
+    "Id": 47,
+    "Name": "tzmj",
+    "Type": 1,
+    "Name_1": "滕州麻将",
+    "imgUrl": "btn_tzmj",
+    "imgUrl_1": ""
+  },
+  "102": {
+    "Id": 102,
+    "Name": "yxpdk",
+    "Type": 2,
+    "Name_1": "宜兴跑得快",
+    "imgUrl": "btn_yxpdk",
+    "imgUrl_1": ""
+  },
+  "79": {
+    "Id": 79,
+    "Name": "aydss",
+    "Type": 1,
+    "Name_1": "安岳斗十四",
+    "imgUrl": "btn_aydss",
+    "imgUrl_1": ""
+  },
+  "43": {
+    "Id": 43,
+    "Name": "nhmj",
+    "Type": 1,
+    "Name_1": "宁化麻将",
+    "imgUrl": "btn_nhmj",
+    "imgUrl_1": ""
+  },
+  "97": {
+    "Id": 97,
+    "Name": "tcmj",
+    "Type": 1,
+    "Name_1": "太仓麻将",
+    "imgUrl": "btn_tcmj",
+    "imgUrl_1": ""
+  },
+  "51": {
+    "Id": 51,
+    "Name": "bw",
+    "Type": 2,
+    "Name_1": "包王",
+    "imgUrl": "btn_bw",
+    "imgUrl_1": ""
+  },
+  "111": {
+    "Id": 111,
+    "Name": "pypdk",
+    "Type": 2,
+    "Name_1": "鄱阳跑得快",
+    "imgUrl": "btn_pypdk",
+    "imgUrl_1": ""
+  },
+  "6": {
+    "Id": 6,
+    "Name": "qzmj",
+    "Type": 1,
+    "Name_1": "泉州麻将",
+    "imgUrl": "btn_qzmj",
+    "imgUrl_1": ""
+  },
+  "8": {
+    "Id": 8,
+    "Name": "zzmj",
+    "Type": 1,
+    "Name_1": "漳州麻将",
+    "imgUrl": "btn_zzmj",
+    "imgUrl_1": ""
+  },
+  "15": {
+    "Id": 15,
+    "Name": "ssmj",
+    "Type": 1,
+    "Name_1": "石狮麻将",
+    "imgUrl": "btn_ssmj",
+    "imgUrl_1": ""
+  },
+  "110": {
+    "Id": 110,
+    "Name": "jxfzmj",
+    "Type": 1,
+    "Name_1": "抚州麻将",
+    "imgUrl": "btn_jxfzmj",
+    "imgUrl_1": ""
+  },
+  "106": {
+    "Id": 106,
+    "Name": "zjqzmj",
+    "Type": 1,
+    "Name_1": "衢州麻将",
+    "imgUrl": "btn_zjqzmj",
+    "imgUrl_1": ""
+  },
+  "104": {
+    "Id": 104,
+    "Name": "pyzhw",
+    "Type": 2,
+    "Name_1": "鄱阳捉红五",
+    "imgUrl": "btn_pyzhw",
+    "imgUrl_1": ""
+  },
+  "96": {
+    "Id": 96,
+    "Name": "hnxymj",
+    "Type": 1,
+    "Name_1": "信阳麻将",
+    "imgUrl": "btn_hnxymj",
+    "imgUrl_1": ""
+  },
+  "103": {
+    "Id": 103,
+    "Name": "pypp",
+    "Type": 2,
+    "Name_1": "鄱阳皮皮",
+    "imgUrl": "btn_pypp",
+    "imgUrl_1": ""
+  },
+  "23": {
+    "Id": 23,
+    "Name": "hbyxmj",
+    "Type": 1,
+    "Name_1": "阳新麻将",
+    "imgUrl": "btn_hbyxmj",
+    "imgUrl_1": ""
+  },
+  "118": {
+    "Id": 118,
+    "Name": "xhmj",
+    "Type": 1,
+    "Name_1": "兴化麻将",
+    "imgUrl": "btn_xhmj",
+    "imgUrl_1": ""
+  },
+  "120": {
+    "Id": 120,
+    "Name": "xhbbmj",
+    "Type": 1,
+    "Name_1": "兴化白板麻将",
+    "imgUrl": "btn_xhbbmj",
+    "imgUrl_1": ""
+  },
+  "115": {
+    "Id": 115,
+    "Name": "jxfzgp",
+    "Type": 2,
+    "Name_1": "抚州关牌",
+    "imgUrl": "btn_jxfzgp",
+    "imgUrl_1": ""
+  },
+  "60": {
+    "Id": 60,
+    "Name": "wl",
+    "Type": 2,
+    "Name_1": "窝龙",
+    "imgUrl": "btn_wl",
+    "imgUrl_1": ""
+  },
+  "19": {
+    "Id": 19,
+    "Name": "ygmj",
+    "Type": 1,
+    "Name_1": "余干麻将",
+    "imgUrl": "btn_ygmj",
+    "imgUrl_1": ""
+  },
+  "109": {
+    "Id": 109,
+    "Name": "lppdk",
+    "Type": 2,
+    "Name_1": "乐平跑得快",
+    "imgUrl": "btn_lppdk",
+    "imgUrl_1": ""
+  },
+  "116": {
+    "Id": 116,
+    "Name": "jxfzpdk",
+    "Type": 2,
+    "Name_1": "抚州跑得快",
+    "imgUrl": "btn_jxfzpdk",
+    "imgUrl_1": ""
+  },
+  "67": {
+    "Id": 67,
+    "Name": "fddz",
+    "Type": 2,
+    "Name_1": "福鼎打炸",
+    "imgUrl": "btn_fddz",
+    "imgUrl_1": ""
+  },
+  "32": {
+    "Id": 32,
+    "Name": "hamj",
+    "Type": 1,
+    "Name_1": "海安麻将",
+    "imgUrl": "btn_hamj",
+    "imgUrl_1": ""
+  },
+  "117": {
+    "Id": 117,
+    "Name": "zjqzsk",
+    "Type": 2,
+    "Name_1": "衢州双扣",
+    "imgUrl": "btn_zjqzsk",
+    "imgUrl_1": ""
+  },
+  "57": {
+    "Id": 57,
+    "Name": "chmj",
+    "Type": 1,
+    "Name_1": "巢湖麻将",
+    "imgUrl": "btn_chmj",
+    "imgUrl_1": ""
+  },
+  "121": {
+    "Id": 121,
+    "Name": "twmj",
+    "Type": 1,
+    "Name_1": "台湾麻将",
+    "imgUrl": "btn_twmj",
+    "imgUrl_1": ""
+  },
+  "113": {
+    "Id": 113,
+    "Name": "dle",
+    "Type": 2,
+    "Name_1": "大老二",
+    "imgUrl": "btn_dle",
+    "imgUrl_1": ""
+  },
+  "125": {
+    "Id": 125,
+    "Name": "hnzzmj",
+    "Type": 1,
+    "Name_1": "郑州麻将",
+    "imgUrl": "btn_hnzzmj",
+    "imgUrl_1": ""
+  },
+  "127": {
+    "Id": 127,
+    "Name": "za16mj",
+    "Type": 1,
+    "Name_1": "诏安十六张",
+    "imgUrl": "btn_za16mj",
+    "imgUrl_1": ""
+  },
+  "129": {
+    "Id": 129,
+    "Name": "erddz",
+    "Type": 2,
+    "Name_1": "二人斗地主",
+    "imgUrl": "btn_erddz",
+    "imgUrl_1": ""
+  },
+  "52": {
+    "Id": 52,
+    "Name": "jnmj",
+    "Type": 1,
+    "Name_1": "济宁麻将",
+    "imgUrl": "btn_jnmj",
+    "imgUrl_1": ""
+  },
+  "122": {
+    "Id": 122,
+    "Name": "tzkzmj",
+    "Type": 1,
+    "Name_1": "泰州卡子麻将",
+    "imgUrl": "btn_tzkzmj",
+    "imgUrl_1": ""
+  },
+  "114": {
+    "Id": 114,
+    "Name": "pxpdk",
+    "Type": 2,
+    "Name_1": "经典跑得快",
+    "imgUrl": "btn_pxpdk",
+    "imgUrl_1": ""
+  },
+  "130": {
+    "Id": 130,
+    "Name": "hnpdk",
+    "Type": 2,
+    "Name_1": "河南跑得快",
+    "imgUrl": "btn_hnpdk",
+    "imgUrl_1": ""
+  },
+  "132": {
+    "Id": 132,
+    "Name": "tbzfbmj",
+    "Type": 1,
+    "Name_1": "桐柏中发白麻将",
+    "imgUrl": "btn_tbzfbmj",
+    "imgUrl_1": ""
+  },
+  "133": {
+    "Id": 133,
+    "Name": "nykwxmj",
+    "Type": 1,
+    "Name_1": "南阳卡五星麻将",
+    "imgUrl": "btn_nykwxmj",
+    "imgUrl_1": ""
+  },
+  "123": {
+    "Id": 123,
+    "Name": "dczbmj",
+    "Type": 1,
+    "Name_1": "都昌载宝",
+    "imgUrl": "btn_dczbmj",
+    "imgUrl_1": ""
+  },
+  "126": {
+    "Id": 126,
+    "Name": "za13mj",
+    "Type": 1,
+    "Name_1": "诏安十三张",
+    "imgUrl": "btn_za13mj",
+    "imgUrl_1": ""
+  },
+  "131": {
+    "Id": 131,
+    "Name": "dhd",
+    "Type": 2,
+    "Name_1": "钓红点",
+    "imgUrl": "btn_dhd",
+    "imgUrl_1": ""
+  },
+  "124": {
+    "Id": 124,
+    "Name": "dcwdmj",
+    "Type": 1,
+    "Name_1": "都昌无档胡",
+    "imgUrl": "btn_dcwdmj",
+    "imgUrl_1": ""
+  },
+  "134": {
+    "Id": 134,
+    "Name": "lzmj",
+    "Type": 1,
+    "Name_1": "柳州麻将",
+    "imgUrl": "btn_lzmj",
+    "imgUrl_1": ""
+  },
+  "31": {
+    "Id": 31,
+    "Name": "jmhhmj",
+    "Type": 1,
+    "Name_1": "荆门晃晃",
+    "imgUrl": "btn_jmhhmj",
+    "imgUrl_1": ""
+  },
+  "135": {
+    "Id": 135,
+    "Name": "byzp",
+    "Type": 1,
+    "Name_1": "八一字牌",
+    "imgUrl": "btn_byzp",
+    "imgUrl_1": ""
+  },
+  "4": {
+    "Id": 4,
+    "Name": "nn",
+    "Type": 2,
+    "Name_1": "拼十",
+    "imgUrl": "btn_nn",
+    "imgUrl_1": "模式1是自由抢庄牛，模式2是牛牛上庄牛，模式3是固定庄家牛，模式4是明牌抢庄牛，模式5是通比牛，模式6是轮庄牛"
+  },
+  "138": {
+    "Id": 138,
+    "Name": "fjyxmj",
+    "Type": 1,
+    "Name_1": "云霄麻将",
+    "imgUrl": "btn_fjyxmj",
+    "imgUrl_1": ""
+  },
+  "27": {
+    "Id": 27,
+    "Name": "qdmj",
+    "Type": 1,
+    "Name_1": "青岛麻将",
+    "imgUrl": "btn_qdmj",
+    "imgUrl_1": ""
+  },
+  "22": {
+    "Id": 22,
+    "Name": "zjjhmj",
+    "Type": 1,
+    "Name_1": "金华麻将",
+    "imgUrl": "btn_zjjhmj",
+    "imgUrl_1": ""
+  },
+  "112": {
+    "Id": 112,
+    "Name": "hncsmj",
+    "Type": 1,
+    "Name_1": "长沙麻将",
+    "imgUrl": "btn_hncsmj",
+    "imgUrl_1": ""
+  },
+  "140": {
+    "Id": 140,
+    "Name": "ctwsk",
+    "Type": 2,
+    "Name_1": "长汀五十K",
+    "imgUrl": "btn_ctwsk",
+    "imgUrl_1": ""
+  },
+  "21": {
+    "Id": 21,
+    "Name": "npgzmj",
+    "Type": 1,
+    "Name_1": "光泽麻将",
+    "imgUrl": "btn_npgzmj",
+    "imgUrl_1": ""
+  },
+  "137": {
+    "Id": 137,
+    "Name": "aycp",
+    "Type": 1,
+    "Name_1": "安岳长牌",
+    "imgUrl": "btn_aycp",
+    "imgUrl_1": ""
+  },
+  "142": {
+    "Id": 142,
+    "Name": "zass",
+    "Type": 1,
+    "Name_1": "四色牌",
+    "imgUrl": "btn_zass",
+    "imgUrl_1": ""
+  },
+  "119": {
+    "Id": 119,
+    "Name": "rcwsk",
+    "Type": 2,
+    "Name_1": "榕城五十K",
+    "imgUrl": "btn_rcwsk",
+    "imgUrl_1": ""
+  },
+  "61": {
+    "Id": 61,
+    "Name": "hsmj",
+    "Type": 1,
+    "Name_1": "衡水麻将",
+    "imgUrl": "btn_hsmj",
+    "imgUrl_1": ""
+  },
+  "13": {
+    "Id": 13,
+    "Name": "npmj",
+    "Type": 1,
+    "Name_1": "南平麻将",
+    "imgUrl": "btn_npmj",
+    "imgUrl_1": ""
+  },
+  "141": {
+    "Id": 141,
+    "Name": "sdlymj",
+    "Type": 1,
+    "Name_1": "临沂麻将",
+    "imgUrl": "btn_sdlymj",
+    "imgUrl_1": ""
+  },
+  "143": {
+    "Id": 143,
+    "Name": "czmj",
+    "Type": 1,
+    "Name_1": "沧州推倒胡",
+    "imgUrl": "btn_czmj",
+    "imgUrl_1": ""
+  },
+  "139": {
+    "Id": 139,
+    "Name": "dcts",
+    "Type": 2,
+    "Name_1": "都昌讨赏",
+    "imgUrl": "btn_dcts",
+    "imgUrl_1": ""
+  },
+  "24": {
+    "Id": 24,
+    "Name": "srmj",
+    "Type": 1,
+    "Name_1": "上饶麻将",
+    "imgUrl": "btn_srmj",
+    "imgUrl_1": ""
+  },
+  "145": {
+    "Id": 145,
+    "Name": "xgkwxmj",
+    "Type": 1,
+    "Name_1": "孝感卡五星",
+    "imgUrl": "btn_xgkwxmj",
+    "imgUrl_1": ""
+  },
+  "136": {
+    "Id": 136,
+    "Name": "lbmj",
+    "Type": 1,
+    "Name_1": "来宾麻将",
+    "imgUrl": "btn_lbmj",
+    "imgUrl_1": ""
+  },
+  "64": {
+    "Id": 64,
+    "Name": "bjpk",
+    "Type": 2,
+    "Name_1": "比鸡扑克",
+    "imgUrl": "btn_bjpk",
+    "imgUrl_1": ""
+  },
+  "49": {
+    "Id": 49,
+    "Name": "yzmj",
+    "Type": 1,
+    "Name_1": "扬州麻将",
+    "imgUrl": "btn_yzmj",
+    "imgUrl_1": ""
+  },
+  "148": {
+    "Id": 148,
+    "Name": "rqmj",
+    "Type": 1,
+    "Name_1": "任丘麻将",
+    "imgUrl": "btn_rqmj",
+    "imgUrl_1": ""
+  },
+  "12": {
+    "Id": 12,
+    "Name": "smmj",
+    "Type": 1,
+    "Name_1": "三明麻将",
+    "imgUrl": "btn_smmj",
+    "imgUrl_1": ""
+  },
+  "18": {
+    "Id": 18,
+    "Name": "sg",
+    "Type": 2,
+    "Name_1": "三张王",
+    "imgUrl": "btn_sg",
+    "imgUrl_1": ""
+  },
+  "10": {
+    "Id": 10,
+    "Name": "ptmj",
+    "Type": 1,
+    "Name_1": "莆田十六张",
+    "imgUrl": "btn_ptmj",
+    "imgUrl_1": ""
+  },
+  "17": {
+    "Id": 17,
+    "Name": "pt13mj",
+    "Type": 1,
+    "Name_1": "莆田十三张",
+    "imgUrl": "btn_pt13mj",
+    "imgUrl_1": ""
+  },
+  "3": {
+    "Id": 3,
+    "Name": "xmmj",
+    "Type": 1,
+    "Name_1": "厦门麻将",
+    "imgUrl": "btn_xmmj",
+    "imgUrl_1": ""
+  },
+  "149": {
+    "Id": 149,
+    "Name": "yzpdk",
+    "Type": 2,
+    "Name_1": "江苏跑得快",
+    "imgUrl": "btn_yzpdk",
+    "imgUrl_1": ""
+  },
+  "108": {
+    "Id": 108,
+    "Name": "lpts",
+    "Type": 2,
+    "Name_1": "乐平讨赏",
+    "imgUrl": "btn_lpts",
+    "imgUrl_1": ""
+  },
+  "38": {
+    "Id": 38,
+    "Name": "gd",
+    "Type": 2,
+    "Name_1": "惯蛋",
+    "imgUrl": "btn_gd",
+    "imgUrl_1": ""
+  },
+  "128": {
+    "Id": 128,
+    "Name": "lhzp",
+    "Type": 2,
+    "Name_1": "莲花猪牌",
+    "imgUrl": "btn_lhzp",
+    "imgUrl_1": ""
+  },
+  "150": {
+    "Id": 150,
+    "Name": "xplp",
+    "Type": 1,
+    "Name_1": "溆浦老牌",
+    "imgUrl": "btn_xplp",
+    "imgUrl_1": ""
+  },
+  "39": {
+    "Id": 39,
+    "Name": "csmj",
+    "Type": 1,
+    "Name_1": "常熟麻将",
+    "imgUrl": "btn_csmj",
+    "imgUrl_1": ""
+  },
+  "152": {
+    "Id": 152,
+    "Name": "xpphz",
+    "Type": 1,
+    "Name_1": "溆浦跑胡子",
+    "imgUrl": "btn_xpphz",
+    "imgUrl_1": ""
+  },
+  "151": {
+    "Id": 151,
+    "Name": "hhhgw",
+    "Type": 1,
+    "Name_1": "怀化红拐弯",
+    "imgUrl": "btn_hhhgw",
+    "imgUrl_1": ""
+  },
+  "153": {
+    "Id": 153,
+    "Name": "hzwmj",
+    "Type": 1,
+    "Name_1": "怀化麻将",
+    "imgUrl": "btn_hzwmj",
+    "imgUrl_1": ""
+  },
+  "85": {
+    "Id": 85,
+    "Name": "fqsbp",
+    "Type": 2,
+    "Name_1": "福清十八扑",
+    "imgUrl": "btn_fqsbp",
+    "imgUrl_1": ""
+  },
+  "33": {
+    "Id": 33,
+    "Name": "xyzb",
+    "Type": 2,
+    "Name_1": "仙游炸棒",
+    "imgUrl": "btn_xyzb",
+    "imgUrl_1": ""
+  },
+  "154": {
+    "Id": 154,
+    "Name": "rcwsk3",
+    "Type": 2,
+    "Name_1": "榕城五十K三人版",
+    "imgUrl": "btn_rcwsk3",
+    "imgUrl_1": ""
+  },
+  "25": {
+    "Id": 25,
+    "Name": "ysdz",
+    "Type": 2,
+    "Name_1": "玉山打炸",
+    "imgUrl": "btn_ysdz",
+    "imgUrl_1": ""
+  },
+  "144": {
+    "Id": 144,
+    "Name": "rcmj",
+    "Type": 1,
+    "Name_1": "瑞昌麻将",
+    "imgUrl": "btn_rcmj",
+    "imgUrl_1": ""
+  },
+  "86": {
+    "Id": 86,
+    "Name": "dzpk",
+    "Type": 2,
+    "Name_1": "公共牌",
+    "imgUrl": "btn_dzpk",
+    "imgUrl_1": ""
+  },
+  "155": {
+    "Id": 155,
+    "Name": "jdzmj",
+    "Type": 1,
+    "Name_1": "景德镇麻将",
+    "imgUrl": "btn_jdzmj",
+    "imgUrl_1": ""
+  },
+  "55": {
+    "Id": 55,
+    "Name": "xtmj",
+    "Type": 1,
+    "Name_1": "邢台麻将",
+    "imgUrl": "btn_xtmj",
+    "imgUrl_1": ""
+  },
+  "20": {
+    "Id": 20,
+    "Name": "yglfl",
+    "Type": 2,
+    "Name_1": "余干六副里",
+    "imgUrl": "btn_yglfl",
+    "imgUrl_1": ""
+  },
+  "70": {
+    "Id": 70,
+    "Name": "jymj",
+    "Type": 1,
+    "Name_1": "江阴麻将",
+    "imgUrl": "btn_jymj",
+    "imgUrl_1": ""
+  },
+  "156": {
+    "Id": 156,
+    "Name": "htmj",
+    "Type": 1,
+    "Name_1": "会同麻将",
+    "imgUrl": "btn_htmj",
+    "imgUrl_1": ""
+  },
+  "157": {
+    "Id": 157,
+    "Name": "jdzts",
+    "Type": 2,
+    "Name_1": "两副头",
+    "imgUrl": "btn_jdzts",
+    "imgUrl_1": ""
+  },
+  "158": {
+    "Id": 158,
+    "Name": "lbhzmj",
+    "Type": 1,
+    "Name_1": "来宾红中麻将",
+    "imgUrl": "btn_lbhzmj",
+    "imgUrl_1": ""
+  },
+  "41": {
+    "Id": 41,
+    "Name": "wsk",
+    "Type": 2,
+    "Name_1": "五十K",
+    "imgUrl": "btn_wsk",
+    "imgUrl_1": ""
+  },
+  "50": {
+    "Id": 50,
+    "Name": "sj",
+    "Type": 2,
+    "Name_1": "升级",
+    "imgUrl": "btn_sj",
+    "imgUrl_1": ""
+  },
+  "159": {
+    "Id": 159,
+    "Name": "thgjmj",
+    "Type": 1,
+    "Name_1": "泰和滚精",
+    "imgUrl": "btn_thgjmj",
+    "imgUrl_1": ""
+  },
+  "147": {
+    "Id": 147,
+    "Name": "hnpdsmj",
+    "Type": 1,
+    "Name_1": "平顶山麻将",
+    "imgUrl": "btn_hnpdsmj",
+    "imgUrl_1": ""
+  },
+  "90": {
+    "Id": 90,
+    "Name": "pzmj",
+    "Type": 1,
+    "Name_1": "邳州麻将",
+    "imgUrl": "btn_pzmj",
+    "imgUrl_1": ""
+  },
+  "160": {
+    "Id": 160,
+    "Name": "hnjymj",
+    "Type": 1,
+    "Name_1": "济源麻将",
+    "imgUrl": "btn_hnjymj",
+    "imgUrl_1": ""
+  },
+  "161": {
+    "Id": 161,
+    "Name": "jdzpdk",
+    "Type": 2,
+    "Name_1": "景德镇跑得快",
+    "imgUrl": "btn_jdzpdk",
+    "imgUrl_1": ""
+  },
+  "162": {
+    "Id": 162,
+    "Name": "jsycmj",
+    "Type": 1,
+    "Name_1": "盐城麻将",
+    "imgUrl": "btn_jsycmj",
+    "imgUrl_1": ""
+  },
+  "163": {
+    "Id": 163,
+    "Name": "jssqmj",
+    "Type": 1,
+    "Name_1": "宿迁麻将",
+    "imgUrl": "btn_jssqmj",
+    "imgUrl_1": ""
+  },
+  "37": {
+    "Id": 37,
+    "Name": "symj",
+    "Type": 1,
+    "Name_1": "射阳麻将",
+    "imgUrl": "btn_symj",
+    "imgUrl_1": ""
+  },
+  "164": {
+    "Id": 164,
+    "Name": "jshamj",
+    "Type": 1,
+    "Name_1": "淮安麻将",
+    "imgUrl": "btn_jshamj",
+    "imgUrl_1": ""
+  },
+  "166": {
+    "Id": 166,
+    "Name": "lygmj",
+    "Type": 1,
+    "Name_1": "连云港麻将",
+    "imgUrl": "btn_lygmj",
+    "imgUrl_1": ""
+  },
+  "89": {
+    "Id": 89,
+    "Name": "jsxymj",
+    "Type": 1,
+    "Name_1": "新沂麻将",
+    "imgUrl": "btn_jsxymj",
+    "imgUrl_1": ""
+  },
+  "165": {
+    "Id": 165,
+    "Name": "jsczmj",
+    "Type": 1,
+    "Name_1": "常州麻将",
+    "imgUrl": "btn_jsczmj",
+    "imgUrl_1": ""
+  },
+  "69": {
+    "Id": 69,
+    "Name": "wxmj",
+    "Type": 1,
+    "Name_1": "无锡麻将",
+    "imgUrl": "btn_wxmj",
+    "imgUrl_1": ""
+  },
+  "168": {
+    "Id": 168,
+    "Name": "hnjzmj",
+    "Type": 1,
+    "Name_1": "靖州麻将",
+    "imgUrl": "btn_hnjzmj",
+    "imgUrl_1": ""
+  },
+  "169": {
+    "Id": 169,
+    "Name": "hhpdk",
+    "Type": 2,
+    "Name_1": "怀化跑得快",
+    "imgUrl": "btn_hhpdk",
+    "imgUrl_1": ""
+  },
+  "170": {
+    "Id": 170,
+    "Name": "xzmj",
+    "Type": 1,
+    "Name_1": "徐州麻将",
+    "imgUrl": "btn_xzmj",
+    "imgUrl_1": ""
+  },
+  "167": {
+    "Id": 167,
+    "Name": "jsgymj",
+    "Type": 1,
+    "Name_1": "灌云麻将",
+    "imgUrl": "btn_jsgymj",
+    "imgUrl_1": ""
+  },
+  "174": {
+    "Id": 174,
+    "Name": "ahmj",
+    "Type": 1,
+    "Name_1": "安化麻将",
+    "imgUrl": "btn_ahmj",
+    "imgUrl_1": ""
+  },
+  "171": {
+    "Id": 171,
+    "Name": "gymj",
+    "Type": 1,
+    "Name_1": "赣榆麻将",
+    "imgUrl": "btn_gymj",
+    "imgUrl_1": ""
+  },
+  "175": {
+    "Id": 175,
+    "Name": "ahphz",
+    "Type": 1,
+    "Name_1": "安化跑胡子",
+    "imgUrl": "btn_ahphzmj",
+    "imgUrl_1": ""
+  },
+  "172": {
+    "Id": 172,
+    "Name": "kfmj",
+    "Type": 1,
+    "Name_1": "开封麻将",
+    "imgUrl": "btn_kfmj",
+    "imgUrl_1": ""
+  },
+  "177": {
+    "Id": 177,
+    "Name": "hnaymj",
+    "Type": 1,
+    "Name_1": "安阳麻将",
+    "imgUrl": "btn_hnaymj",
+    "imgUrl_1": ""
+  },
+  "176": {
+    "Id": 176,
+    "Name": "xxmj",
+    "Type": 1,
+    "Name_1": "新乡麻将",
+    "imgUrl": "btn_xxmj",
+    "imgUrl_1": ""
+  },
+  "180": {
+    "Id": 180,
+    "Name": "sqmj",
+    "Type": 1,
+    "Name_1": "商丘麻将",
+    "imgUrl": "btn_sqmj",
+    "imgUrl_1": ""
+  },
+  "173": {
+    "Id": 173,
+    "Name": "pymj",
+    "Type": 1,
+    "Name_1": "濮阳麻将",
+    "imgUrl": "btn_pymj",
+    "imgUrl_1": ""
+  },
+  "178": {
+    "Id": 178,
+    "Name": "gamj",
+    "Type": 1,
+    "Name_1": "高安麻将",
+    "imgUrl": "btn_gamj",
+    "imgUrl_1": ""
+  },
+  "179": {
+    "Id": 179,
+    "Name": "ncmj",
+    "Type": 1,
+    "Name_1": "南昌麻将",
+    "imgUrl": "btn_ncmj",
+    "imgUrl_1": ""
+  },
+  "181": {
+    "Id": 181,
+    "Name": "zkmj",
+    "Type": 1,
+    "Name_1": "周口麻将",
+    "imgUrl": "btn_zkmj",
+    "imgUrl_1": ""
+  },
+  "182": {
+    "Id": 182,
+    "Name": "jxxymj",
+    "Type": 1,
+    "Name_1": "新余麻将",
+    "imgUrl": "btn_jxxymj",
+    "imgUrl_1": ""
+  },
+  "183": {
+    "Id": 183,
+    "Name": "tgmj",
+    "Type": 1,
+    "Name_1": "铜鼓麻将",
+    "imgUrl": "btn_tgmj",
+    "imgUrl_1": ""
+  },
+  "184": {
+    "Id": 184,
+    "Name": "hnhbmj",
+    "Type": 1,
+    "Name_1": "鹤壁麻将",
+    "imgUrl": "btn_hnhbmj",
+    "imgUrl_1": ""
+  },
+  "200": {
+    "Id": 200,
+    "Name": "demomj",
+    "Type": 1,
+    "Name_1": "模版麻将",
+    "imgUrl": "btn_demomj",
+    "imgUrl_1": ""
+  },
+  "186": {
+    "Id": 186,
+    "Name": "jamj",
+    "Type": 1,
+    "Name_1": "吉安麻将",
+    "imgUrl": "btn_jamj",
+    "imgUrl_1": ""
+  },
+  "146": {
+    "Id": 146,
+    "Name": "hnxcmj",
+    "Type": 1,
+    "Name_1": "许昌麻将",
+    "imgUrl": "btn_hnxcmj",
+    "imgUrl_1": ""
+  },
+  "187": {
+    "Id": 187,
+    "Name": "jjmj",
+    "Type": 1,
+    "Name_1": "九江麻将",
+    "imgUrl": "btn_jjmj",
+    "imgUrl_1": ""
+  },
+  "185": {
+    "Id": 185,
+    "Name": "lhmj",
+    "Type": 1,
+    "Name_1": "漯河麻将",
+    "imgUrl": "btn_lhmj",
+    "imgUrl_1": ""
+  },
+  "188": {
+    "Id": 188,
+    "Name": "bzmj",
+    "Type": 1,
+    "Name_1": "老亳州麻将",
+    "imgUrl": "btn_bzmj",
+    "imgUrl_1": ""
+  },
+  "189": {
+    "Id": 189,
+    "Name": "ccmj",
+    "Type": 1,
+    "Name_1": "长春麻将",
+    "imgUrl": "btn_ccmj",
+    "imgUrl_1": ""
+  },
+  "190": {
+    "Id": 190,
+    "Name": "rcwsk6",
+    "Type": 2,
+    "Name_1": "六人五十K",
+    "imgUrl": "btn_rcwsk6",
+    "imgUrl_1": ""
+  },
+  "191": {
+    "Id": 191,
+    "Name": "ljwsk4",
+    "Type": 2,
+    "Name_1": "四人五十K",
+    "imgUrl": "btn_ljwsk4",
+    "imgUrl_1": ""
+  },
+  "193": {
+    "Id": 193,
+    "Name": "fymj",
+    "Type": 1,
+    "Name_1": "汾阳麻将",
+    "imgUrl": "btn_fymj",
+    "imgUrl_1": ""
+  },
+  "194": {
+    "Id": 194,
+    "Name": "bzqzmj",
+    "Type": 1,
+    "Name_1": "全嘴麻将",
+    "imgUrl": "btn_bzqzmj",
+    "imgUrl_1": ""
+  },
+  "192": {
+    "Id": 192,
+    "Name": "jlmj",
+    "Type": 1,
+    "Name_1": "吉林麻将",
+    "imgUrl": "btn_jlmj",
+    "imgUrl_1": ""
+  },
+  "195": {
+    "Id": 195,
+    "Name": "hstdhmj",
+    "Type": 1,
+    "Name_1": "推倒胡",
+    "imgUrl": "btn_hstdhmj",
+    "imgUrl_1": ""
+  },
+  "196": {
+    "Id": 196,
+    "Name": "zjhzmj",
+    "Type": 1,
+    "Name_1": "杭州麻将",
+    "imgUrl": "btn_zjhzmj",
+    "imgUrl_1": ""
+  },
+  "197": {
+    "Id": 197,
+    "Name": "fyddzmj",
+    "Type": 1,
+    "Name_1": "汾阳打点子",
+    "imgUrl": "btn_fyddzmj",
+    "imgUrl_1": ""
+  },
+  "198": {
+    "Id": 198,
+    "Name": "pcmj",
+    "Type": 1,
+    "Name_1": "浦城麻将",
+    "imgUrl": "btn_pcmj",
+    "imgUrl_1": ""
+  },
+  "199": {
+    "Id": 199,
+    "Name": "xjlshmj",
+    "Type": 1,
+    "Name_1": "新疆螺丝胡麻将",
+    "imgUrl": "btn_xjlshmj",
+    "imgUrl_1": ""
+  },
+  "202": {
+    "Id": 202,
+    "Name": "xjxzmj",
+    "Type": 1,
+    "Name_1": "新疆血战麻将",
+    "imgUrl": "btn_xjxzmj",
+    "imgUrl_1": ""
+  },
+  "203": {
+    "Id": 203,
+    "Name": "ysmj",
+    "Type": 1,
+    "Name_1": "颍上麻将",
+    "imgUrl": "btn_ysmj",
+    "imgUrl_1": ""
+  },
+  "201": {
+    "Id": 201,
+    "Name": "njmj",
+    "Type": 1,
+    "Name_1": "南京麻将",
+    "imgUrl": "btn_njmj",
+    "imgUrl_1": ""
+  },
+  "204": {
+    "Id": 204,
+    "Name": "zzph",
+    "Type": 1,
+    "Name_1": "株洲碰胡",
+    "imgUrl": "btn_zzph",
+    "imgUrl_1": ""
+  },
+  "205": {
+    "Id": 205,
+    "Name": "zznsb",
+    "Type": 2,
+    "Name_1": "株洲牛十别",
+    "imgUrl": "btn_zznsb",
+    "imgUrl_1": ""
+  },
+  "207": {
+    "Id": 207,
+    "Name": "lxmj",
+    "Type": 1,
+    "Name_1": "临夏麻将",
+    "imgUrl": "btn_lxmj",
+    "imgUrl_1": ""
+  },
+  "208": {
+    "Id": 208,
+    "Name": "yzyzmj",
+    "Type": 1,
+    "Name_1": "仪征麻将",
+    "imgUrl": "btn_yzyzmj",
+    "imgUrl_1": ""
+  },
+  "209": {
+    "Id": 209,
+    "Name": "zgcp",
+    "Type": 1,
+    "Name_1": "自贡长牌",
+    "imgUrl": "btn_zgcp",
+    "imgUrl_1": ""
+  },
+  "211": {
+    "Id": 211,
+    "Name": "gdmj",
+    "Type": 1,
+    "Name_1": "广东麻将",
+    "imgUrl": "btn_gdmj",
+    "imgUrl_1": ""
+  },
+  "210": {
+    "Id": 210,
+    "Name": "zgdss",
+    "Type": 1,
+    "Name_1": "自贡斗十四",
+    "imgUrl": "btn_zgdss",
+    "imgUrl_1": ""
+  },
+  "214": {
+    "Id": 214,
+    "Name": "zgmj",
+    "Type": 1,
+    "Name_1": "自贡麻将",
+    "imgUrl": "btn_zgmj",
+    "imgUrl_1": ""
+  },
+  "213": {
+    "Id": 213,
+    "Name": "sdh",
+    "Type": 2,
+    "Name_1": "三打哈",
+    "imgUrl": "btn_sdh",
+    "imgUrl_1": ""
+  },
+  "212": {
+    "Id": 212,
+    "Name": "cxmj",
+    "Type": 1,
+    "Name_1": "辰溪麻将",
+    "imgUrl": "btn_cxmj",
+    "imgUrl_1": ""
+  },
+  "215": {
+    "Id": 215,
+    "Name": "jcmj",
+    "Type": 1,
+    "Name_1": "金昌麻将",
+    "imgUrl": "btn_jcmj",
+    "imgUrl_1": ""
+  },
+  "217": {
+    "Id": 217,
+    "Name": "ls13579",
+    "Type": 1,
+    "Name_1": "罗山13579麻将",
+    "imgUrl": "btn_ls13579",
+    "imgUrl_1": ""
+  },
+  "220": {
+    "Id": 220,
+    "Name": "nxkwmj",
+    "Type": 1,
+    "Name_1": "宁乡开王麻将",
+    "imgUrl": "btn_nxkwmj",
+    "imgUrl_1": ""
+  },
+  "218": {
+    "Id": 218,
+    "Name": "lskjjmj",
+    "Type": 1,
+    "Name_1": "罗山砍金金",
+    "imgUrl": "btn_lskjjmj",
+    "imgUrl_1": ""
+  },
+  "219": {
+    "Id": 219,
+    "Name": "zjshzmj",
+    "Type": 1,
+    "Name_1": "湖州麻将",
+    "imgUrl": "btn_zjshzmj",
+    "imgUrl_1": ""
+  },
+  "221": {
+    "Id": 221,
+    "Name": "hbtdhmj",
+    "Type": 1,
+    "Name_1": "推倒胡麻将",
+    "imgUrl": "btn_hbtdhmj",
+    "imgUrl_1": ""
+  },
+  "222": {
+    "Id": 222,
+    "Name": "hbhbmj",
+    "Type": 1,
+    "Name_1": "河北麻将",
+    "imgUrl": "btn_hbhbmj",
+    "imgUrl_1": ""
+  },
+  "216": {
+    "Id": 216,
+    "Name": "lslwzmj",
+    "Type": 1,
+    "Name_1": "罗山老五嘴",
+    "imgUrl": "btn_lslwzmj",
+    "imgUrl_1": ""
+  },
+  "223": {
+    "Id": 223,
+    "Name": "gsjmj",
+    "Type": 1,
+    "Name_1": "拐三角",
+    "imgUrl": "btn_gsjmj",
+    "imgUrl_1": ""
+  },
+  "224": {
+    "Id": 224,
+    "Name": "njlhmj",
+    "Type": 1,
+    "Name_1": "六合麻将",
+    "imgUrl": "btn_njlhmj",
+    "imgUrl_1": ""
+  },
+  "228": {
+    "Id": 228,
+    "Name": "fxmj",
+    "Type": 1,
+    "Name_1": "阜新麻将",
+    "imgUrl": "btn_fxmj",
+    "imgUrl_1": ""
+  },
+  "231": {
+    "Id": 231,
+    "Name": "sqsymj",
+    "Type": 1,
+    "Name_1": "沭阳麻将",
+    "imgUrl": "btn_sqsymj",
+    "imgUrl_1": ""
+  },
+  "225": {
+    "Id": 225,
+    "Name": "zjwzmj",
+    "Type": 1,
+    "Name_1": "温州麻将",
+    "imgUrl": "btn_zjwzmj",
+    "imgUrl_1": ""
+  },
+  "229": {
+    "Id": 229,
+    "Name": "lsmj",
+    "Type": 1,
+    "Name_1": "涟水麻将",
+    "imgUrl": "btn_lsmj",
+    "imgUrl_1": ""
+  },
+  "230": {
+    "Id": 230,
+    "Name": "yzgymj",
+    "Type": 1,
+    "Name_1": "高邮麻将",
+    "imgUrl": "btn_yzgymj",
+    "imgUrl_1": ""
+  },
+  "227": {
+    "Id": 227,
+    "Name": "srddz",
+    "Type": 2,
+    "Name_1": "四人斗地主",
+    "imgUrl": "btn_srddz",
+    "imgUrl_1": ""
+  },
+  "232": {
+    "Id": 232,
+    "Name": "aqmj",
+    "Type": 1,
+    "Name_1": "安庆麻将",
+    "imgUrl": "btn_aqmj",
+    "imgUrl_1": ""
+  },
+  "234": {
+    "Id": 234,
+    "Name": "whmj",
+    "Type": 1,
+    "Name_1": "芜湖麻将",
+    "imgUrl": "btn_whmj",
+    "imgUrl_1": ""
+  },
+  "237": {
+    "Id": 237,
+    "Name": "caooszmj",
+    "Type": 1,
+    "Name_1": "重庆换三张",
+    "imgUrl": "btn_caooszmj",
+    "imgUrl_1": ""
+  },
+  "233": {
+    "Id": 233,
+    "Name": "jdmj",
+    "Type": 1,
+    "Name_1": "江都麻将",
+    "imgUrl": "btn_jdmj",
+    "imgUrl_1": ""
+  },
+  "235": {
+    "Id": 235,
+    "Name": "nbmj",
+    "Type": 1,
+    "Name_1": "宁波麻将",
+    "imgUrl": "btn_nbmj",
+    "imgUrl_1": ""
+  },
+  "236": {
+    "Id": 236,
+    "Name": "jxmj",
+    "Type": 1,
+    "Name_1": "嘉兴麻将",
+    "imgUrl": "btn_jxmj",
+    "imgUrl_1": ""
+  },
+  "238": {
+    "Id": 238,
+    "Name": "xgpdk",
+    "Type": 2,
+    "Name_1": "孝感跑得快",
+    "imgUrl": "btn_xgpdk",
+    "imgUrl_1": ""
+  },
+  "243": {
+    "Id": 243,
+    "Name": "ygwsk",
+    "Type": 2,
+    "Name_1": "余干五十K",
+    "imgUrl": "btn_ygwsk",
+    "imgUrl_1": ""
+  },
+  "244": {
+    "Id": 244,
+    "Name": "ygjzmj",
+    "Type": 1,
+    "Name_1": "余干夹子",
+    "imgUrl": "btn_ygjzmj",
+    "imgUrl_1": ""
+  },
+  "240": {
+    "Id": 240,
+    "Name": "lcmj",
+    "Type": 1,
+    "Name_1": "黎川麻将",
+    "imgUrl": "btn_lcmj",
+    "imgUrl_1": ""
+  },
+  "241": {
+    "Id": 241,
+    "Name": "qzcsmj",
+    "Type": 1,
+    "Name_1": "常山麻将",
+    "imgUrl": "btn_qzcsmj",
+    "imgUrl_1": ""
+  },
+  "239": {
+    "Id": 239,
+    "Name": "jchhmj",
+    "Type": 1,
+    "Name_1": "荆楚晃晃",
+    "imgUrl": "btn_jchhmj",
+    "imgUrl_1": ""
+  },
+  "242": {
+    "Id": 242,
+    "Name": "qzkhmj",
+    "Type": 1,
+    "Name_1": "开化麻将",
+    "imgUrl": "btn_qzkhmj",
+    "imgUrl_1": ""
+  },
+  "247": {
+    "Id": 247,
+    "Name": "sxhtmj",
+    "Type": 1,
+    "Name_1": "洪洞麻将",
+    "imgUrl": "btn_sxhtmj",
+    "imgUrl_1": ""
+  },
+  "245": {
+    "Id": 245,
+    "Name": "tmhhmj",
+    "Type": 1,
+    "Name_1": "天门晃晃",
+    "imgUrl": "btn_tmhhmj",
+    "imgUrl_1": ""
+  },
+  "246": {
+    "Id": 246,
+    "Name": "jstdhmj",
+    "Type": 1,
+    "Name_1": "极速推倒胡",
+    "imgUrl": "btn_jstdhmj",
+    "imgUrl_1": ""
+  },
+  "248": {
+    "Id": 248,
+    "Name": "yszmj",
+    "Type": 1,
+    "Name_1": "硬三嘴麻将",
+    "imgUrl": "btn_yszmj",
+    "imgUrl_1": ""
+  },
+  "250": {
+    "Id": 250,
+    "Name": "yxbzmj",
+    "Type": 1,
+    "Name_1": "应县八张",
+    "imgUrl": "btn_yxbzmj",
+    "imgUrl_1": ""
+  },
+  "251": {
+    "Id": 251,
+    "Name": "yctjmj",
+    "Type": 1,
+    "Name_1": "运城贴金",
+    "imgUrl": "btn_yctjmj",
+    "imgUrl_1": ""
+  },
+  "252": {
+    "Id": 252,
+    "Name": "yldgzmj",
+    "Type": 1,
+    "Name_1": "榆林打锅子",
+    "imgUrl": "btn_yldgzmj",
+    "imgUrl_1": ""
+  },
+  "254": {
+    "Id": 254,
+    "Name": "ak159mj",
+    "Type": 1,
+    "Name_1": "安康159",
+    "imgUrl": "btn_ak159mj",
+    "imgUrl_1": ""
+  },
+  "253": {
+    "Id": 253,
+    "Name": "hbwhmj",
+    "Type": 1,
+    "Name_1": "武汉麻将",
+    "imgUrl": "btn_hbwhmj",
+    "imgUrl_1": ""
+  },
+  "255": {
+    "Id": 255,
+    "Name": "jsnyzmj",
+    "Type": 1,
+    "Name_1": "稷山扭叶子",
+    "imgUrl": "btn_jsnyzmj",
+    "imgUrl_1": ""
+  },
+  "258": {
+    "Id": 258,
+    "Name": "shqmmj",
+    "Type": 1,
+    "Name_1": "上海敲麻",
+    "imgUrl": "btn_shqmmj",
+    "imgUrl_1": ""
+  },
+  "256": {
+    "Id": 256,
+    "Name": "gyzjmj",
+    "Type": 1,
+    "Name_1": "贵阳捉鸡",
+    "imgUrl": "btn_gyzjmj",
+    "imgUrl_1": ""
+  },
+  "249": {
+    "Id": 249,
+    "Name": "dlaoomj",
+    "Type": 1,
+    "Name_1": "大连穷胡",
+    "imgUrl": "btn_dlaoomj",
+    "imgUrl_1": ""
+  },
+  "260": {
+    "Id": 260,
+    "Name": "dd",
+    "Type": 2,
+    "Name_1": "打盾",
+    "imgUrl": "btn_dd",
+    "imgUrl_1": ""
+  },
+  "257": {
+    "Id": 257,
+    "Name": "dtlgfmj",
+    "Type": 1,
+    "Name_1": "大同乱刮风",
+    "imgUrl": "btn_dtlgfmj",
+    "imgUrl_1": ""
+  },
+  "261": {
+    "Id": 261,
+    "Name": "lpsmj",
+    "Type": 1,
+    "Name_1": "六盘水麻将",
+    "imgUrl": "btn_lpsmj",
+    "imgUrl_1": ""
+  },
+  "259": {
+    "Id": 259,
+    "Name": "hnmj",
+    "Type": 1,
+    "Name_1": "海南麻将",
+    "imgUrl": "btn_hnmj",
+    "imgUrl_1": ""
+  },
+  "226": {
+    "Id": 226,
+    "Name": "szmj",
+    "Type": 1,
+    "Name_1": "苏州麻将",
+    "imgUrl": "btn_szmj",
+    "imgUrl_1": ""
+  },
+  "263": {
+    "Id": 263,
+    "Name": "sxlsmj",
+    "Type": 1,
+    "Name_1": "立四麻将",
+    "imgUrl": "btn_sxlsmj",
+    "imgUrl_1": ""
+  },
+  "262": {
+    "Id": 262,
+    "Name": "dkgmj",
+    "Type": 1,
+    "Name_1": "断卡勾麻将",
+    "imgUrl": "btn_dkgmj",
+    "imgUrl_1": ""
+  },
+  "267": {
+    "Id": 267,
+    "Name": "ygpdk",
+    "Type": 2,
+    "Name_1": "余干跑得快",
+    "imgUrl": "btn_ygpdk",
+    "imgUrl_1": ""
+  },
+  "265": {
+    "Id": 265,
+    "Name": "xl2vs2mj",
+    "Type": 1,
+    "Name_1": "血流2vs2麻将",
+    "imgUrl": "btn_xl2vs2mj",
+    "imgUrl_1": ""
+  },
+  "264": {
+    "Id": 264,
+    "Name": "dzmj",
+    "Type": 1,
+    "Name_1": "大众麻将",
+    "imgUrl": "btn_dzmj",
+    "imgUrl_1": ""
+  },
+  "266": {
+    "Id": 266,
+    "Name": "hndzp",
+    "Type": 2,
+    "Name_1": "海南地主牌",
+    "imgUrl": "btn_hndzp",
+    "imgUrl_1": ""
+  },
+  "269": {
+    "Id": 269,
+    "Name": "jmgghmj",
+    "Type": 1,
+    "Name_1": "江门杠杠胡",
+    "imgUrl": "btn_jmgghmj",
+    "imgUrl_1": ""
+  },
+  "270": {
+    "Id": 270,
+    "Name": "mmmj",
+    "Type": 1,
+    "Name_1": "茂名麻将",
+    "imgUrl": "btn_mmmj",
+    "imgUrl_1": ""
+  },
+  "268": {
+    "Id": 268,
+    "Name": "llfymj",
+    "Type": 1,
+    "Name_1": "亮六飞一麻将",
+    "imgUrl": "btn_llfymj",
+    "imgUrl_1": ""
+  },
+  "271": {
+    "Id": 271,
+    "Name": "masmj",
+    "Type": 1,
+    "Name_1": "马鞍山麻将",
+    "imgUrl": "btn_masmj",
+    "imgUrl_1": ""
+  },
+  "273": {
+    "Id": 273,
+    "Name": "yjmj",
+    "Type": 1,
+    "Name_1": "阳江麻将",
+    "imgUrl": "btn_yjmj",
+    "imgUrl_1": ""
+  },
+  "276": {
+    "Id": 276,
+    "Name": "swmj",
+    "Type": 1,
+    "Name_1": "汕尾麻将",
+    "imgUrl": "btn_swmj",
+    "imgUrl_1": ""
+  },
+  "277": {
+    "Id": 277,
+    "Name": "gdjymj",
+    "Type": 1,
+    "Name_1": "揭阳麻将",
+    "imgUrl": "btn_gdjymj",
+    "imgUrl_1": ""
+  },
+  "272": {
+    "Id": 272,
+    "Name": "ahhnmj",
+    "Type": 1,
+    "Name_1": "淮南麻将",
+    "imgUrl": "btn_ahhnmj",
+    "imgUrl_1": ""
+  },
+  "274": {
+    "Id": 274,
+    "Name": "hfmj",
+    "Type": 1,
+    "Name_1": "合肥麻将",
+    "imgUrl": "btn_hfmj",
+    "imgUrl_1": ""
+  },
+  "275": {
+    "Id": 275,
+    "Name": "gzmj",
+    "Type": 1,
+    "Name_1": "赣州冲关",
+    "imgUrl": "btn_gzmj",
+    "imgUrl_1": ""
+  },
+  "278": {
+    "Id": 278,
+    "Name": "gnmj",
+    "Type": 1,
+    "Name_1": "赣南麻将",
+    "imgUrl": "btn_gnmj",
+    "imgUrl_1": ""
+  },
+  "280": {
+    "Id": 280,
+    "Name": "jxndmj",
+    "Type": 1,
+    "Name_1": "宁都麻将",
+    "imgUrl": "btn_jxndmj",
+    "imgUrl_1": ""
+  },
+  "279": {
+    "Id": 279,
+    "Name": "xfgzmj",
+    "Type": 1,
+    "Name_1": "信丰广庄麻将",
+    "imgUrl": "btn_xfgzmj",
+    "imgUrl_1": ""
+  },
+  "281": {
+    "Id": 281,
+    "Name": "bp",
+    "Type": 2,
+    "Name_1": "赣州包牌",
+    "imgUrl": "btn_bp",
+    "imgUrl_1": ""
+  },
+  "282": {
+    "Id": 282,
+    "Name": "gzth",
+    "Type": 2,
+    "Name_1": "赣州同花",
+    "imgUrl": "btn_gzth",
+    "imgUrl_1": ""
+  },
+  "283": {
+    "Id": 283,
+    "Name": "rjmj",
+    "Type": 1,
+    "Name_1": "瑞金麻将",
+    "imgUrl": "btn_rjmj",
+    "imgUrl_1": ""
+  },
+  "286": {
+    "Id": 286,
+    "Name": "fcmj",
+    "Type": 1,
+    "Name_1": "丰城麻将",
+    "imgUrl": "btn_fcmj",
+    "imgUrl_1": ""
+  },
+  "284": {
+    "Id": 284,
+    "Name": "yddgmj",
+    "Type": 1,
+    "Name_1": "于都德国麻将",
+    "imgUrl": "btn_yddgmj",
+    "imgUrl_1": ""
+  },
+  "285": {
+    "Id": 285,
+    "Name": "nkbhmj",
+    "Type": 1,
+    "Name_1": "南康爆胡麻将",
+    "imgUrl": "btn_nkbhmj",
+    "imgUrl_1": ""
+  },
+  "287": {
+    "Id": 287,
+    "Name": "dnmj",
+    "Type": 1,
+    "Name_1": "定南麻将",
+    "imgUrl": "btn_dnmj",
+    "imgUrl_1": ""
+  },
+  "288": {
+    "Id": 288,
+    "Name": "lnmj",
+    "Type": 1,
+    "Name_1": "龙南麻将",
+    "imgUrl": "btn_lnmj",
+    "imgUrl_1": ""
+  },
+  "289": {
+    "Id": 289,
+    "Name": "scmj",
+    "Type": 1,
+    "Name_1": "石城麻将",
+    "imgUrl": "btn_scmj",
+    "imgUrl_1": ""
+  },
+  "295": {
+    "Id": 295,
+    "Name": "xhzmj",
+    "Type": 1,
+    "Name_1": "新红中麻将",
+    "imgUrl": "btn_xhzmj",
+    "imgUrl_1": ""
+  },
+  "290": {
+    "Id": 290,
+    "Name": "xjmj",
+    "Type": 1,
+    "Name_1": "新建麻将",
+    "imgUrl": "btn_xjmj",
+    "imgUrl_1": ""
+  },
+  "292": {
+    "Id": 292,
+    "Name": "fzgcmj",
+    "Type": 1,
+    "Name_1": "广昌麻将",
+    "imgUrl": "btn_fzgcmj",
+    "imgUrl_1": ""
+  },
+  "291": {
+    "Id": 291,
+    "Name": "fzjxmj",
+    "Type": 1,
+    "Name_1": "金溪麻将",
+    "imgUrl": "btn_fzjxmj",
+    "imgUrl_1": ""
+  },
+  "293": {
+    "Id": 293,
+    "Name": "gcbgmj",
+    "Type": 1,
+    "Name_1": "广昌包杠麻将",
+    "imgUrl": "btn_gcbgmj",
+    "imgUrl_1": ""
+  },
+  "296": {
+    "Id": 296,
+    "Name": "qymj",
+    "Type": 1,
+    "Name_1": "沁阳麻将",
+    "imgUrl": "btn_qymj",
+    "imgUrl_1": ""
+  },
+  "297": {
+    "Id": 297,
+    "Name": "lkmj",
+    "Type": 1,
+    "Name_1": "兰考麻将",
+    "imgUrl": "btn_lkmj",
+    "imgUrl_1": ""
+  },
+  "298": {
+    "Id": 298,
+    "Name": "xxfqmj",
+    "Type": 1,
+    "Name_1": "新乡封丘麻将",
+    "imgUrl": "btn_xxfqmj",
+    "imgUrl_1": ""
+  },
+  "299": {
+    "Id": 299,
+    "Name": "jzmj",
+    "Type": 1,
+    "Name_1": "焦作麻将",
+    "imgUrl": "btn_jzmj",
+    "imgUrl_1": ""
+  },
+  "294": {
+    "Id": 294,
+    "Name": "ytyjmj",
+    "Type": 1,
+    "Name_1": "余江麻将",
+    "imgUrl": "btn_ytyjmj",
+    "imgUrl_1": ""
+  },
+  "301": {
+    "Id": 301,
+    "Name": "glzp",
+    "Type": 1,
+    "Name_1": "桂林字牌",
+    "imgUrl": "btn_glzp",
+    "imgUrl_1": ""
+  },
+  "300": {
+    "Id": 300,
+    "Name": "lamj",
+    "Type": 1,
+    "Name_1": "乐安麻将",
+    "imgUrl": "btn_lamj",
+    "imgUrl_1": ""
+  },
+  "302": {
+    "Id": 302,
+    "Name": "jmskmj",
+    "Type": 1,
+    "Name_1": "荆门双开",
+    "imgUrl": "btn_jmskmj",
+    "imgUrl_1": ""
+  },
+  "305": {
+    "Id": 305,
+    "Name": "bzpdk",
+    "Type": 2,
+    "Name_1": "亳州跑得快",
+    "imgUrl": "btn_bzpdk",
+    "imgUrl_1": ""
+  },
+  "306": {
+    "Id": 306,
+    "Name": "bztdh",
+    "Type": 1,
+    "Name_1": "亳州推倒胡",
+    "imgUrl": "btn_bztdh",
+    "imgUrl_1": ""
+  },
+  "303": {
+    "Id": 303,
+    "Name": "lygcmj",
+    "Type": 1,
+    "Name_1": "洛阳杠次",
+    "imgUrl": "btn_lygcmj",
+    "imgUrl_1": ""
+  },
+  "307": {
+    "Id": 307,
+    "Name": "mzmj",
+    "Type": 1,
+    "Name_1": "孟州麻将",
+    "imgUrl": "btn_mzmj",
+    "imgUrl_1": ""
+  },
+  "304": {
+    "Id": 304,
+    "Name": "gxcdd",
+    "Type": 2,
+    "Name_1": "广西锄大地",
+    "imgUrl": "btn_gxcdd",
+    "imgUrl_1": ""
+  },
+  "308": {
+    "Id": 308,
+    "Name": "a3pk",
+    "Type": 2,
+    "Name_1": "A3扑克",
+    "imgUrl": "btn_a3pk",
+    "imgUrl_1": ""
+  },
+  "310": {
+    "Id": 310,
+    "Name": "xyxmj",
+    "Type": 1,
+    "Name_1": "新云霄麻将",
+    "imgUrl": "btn_xyxmj",
+    "imgUrl_1": ""
+  },
+  "309": {
+    "Id": 309,
+    "Name": "lkwsk",
+    "Type": 2,
+    "Name_1": "兰考五十K",
+    "imgUrl": "btn_lkwsk",
+    "imgUrl_1": ""
+  },
+  "311": {
+    "Id": 311,
+    "Name": "dxbjmj",
+    "Type": 1,
+    "Name_1": "东乡比精",
+    "imgUrl": "btn_dxbjmj",
+    "imgUrl_1": ""
+  },
+  "312": {
+    "Id": 312,
+    "Name": "gxmj",
+    "Type": 1,
+    "Name_1": "贵溪麻将",
+    "imgUrl": "btn_gxmj",
+    "imgUrl_1": ""
+  },
+  "313": {
+    "Id": 313,
+    "Name": "txmj",
+    "Type": 1,
+    "Name_1": "通许麻将",
+    "imgUrl": "btn_txmj",
+    "imgUrl_1": ""
+  },
+  "315": {
+    "Id": 315,
+    "Name": "zklymj",
+    "Type": 1,
+    "Name_1": "鹿邑麻将",
+    "imgUrl": "btn_zklymj",
+    "imgUrl_1": ""
+  },
+  "314": {
+    "Id": 314,
+    "Name": "sxmmj",
+    "Type": 1,
+    "Name_1": "三峡门麻将",
+    "imgUrl": "btn_sxmmj",
+    "imgUrl_1": ""
+  },
+  "316": {
+    "Id": 316,
+    "Name": "xsy",
+    "Type": 2,
+    "Name_1": "小上游",
+    "imgUrl": "btn_xsy",
+    "imgUrl_1": ""
+  },
+  "317": {
+    "Id": 317,
+    "Name": "zmdmj",
+    "Type": 1,
+    "Name_1": "驻马店麻将",
+    "imgUrl": "btn_zmdmj",
+    "imgUrl_1": ""
+  },
+  "320": {
+    "Id": 320,
+    "Name": "zxmj",
+    "Type": 1,
+    "Name_1": "钟祥麻将",
+    "imgUrl": "btn_zxmj",
+    "imgUrl_1": ""
+  },
+  "319": {
+    "Id": 319,
+    "Name": "xyscmj",
+    "Type": 1,
+    "Name_1": "商城麻将",
+    "imgUrl": "btn_xyscmj",
+    "imgUrl_1": ""
+  },
+  "318": {
+    "Id": 318,
+    "Name": "glpp",
+    "Type": 2,
+    "Name_1": "桂林跑牌",
+    "imgUrl": "btn_glpp",
+    "imgUrl_1": ""
+  },
+  "321": {
+    "Id": 321,
+    "Name": "gsmj",
+    "Type": 1,
+    "Name_1": "光山麻将",
+    "imgUrl": "btn_gsmj",
+    "imgUrl_1": ""
+  },
+  "322": {
+    "Id": 322,
+    "Name": "xygsmj",
+    "Type": 1,
+    "Name_1": "固始麻将",
+    "imgUrl": "btn_xygsmj",
+    "imgUrl_1": ""
+  },
+  "323": {
+    "Id": 323,
+    "Name": "pdsyxmj",
+    "Type": 1,
+    "Name_1": "叶县麻将",
+    "imgUrl": "btn_pdsyxmj",
+    "imgUrl_1": ""
+  },
+  "325": {
+    "Id": 325,
+    "Name": "yxddz",
+    "Type": 2,
+    "Name_1": "叶县三人斗地主",
+    "imgUrl": "btn_yxddz",
+    "imgUrl_1": ""
+  },
+  "326": {
+    "Id": 326,
+    "Name": "yxsrddz",
+    "Type": 2,
+    "Name_1": "叶县四人斗地主",
+    "imgUrl": "btn_yxsrddz",
+    "imgUrl_1": ""
+  },
+  "324": {
+    "Id": 324,
+    "Name": "dzsjzmj",
+    "Type": 1,
+    "Name_1": "邓州十九张",
+    "imgUrl": "btn_dzsjzmj",
+    "imgUrl_1": ""
+  },
+  "327": {
+    "Id": 327,
+    "Name": "nzmj",
+    "Type": 1,
+    "Name_1": "南召麻将",
+    "imgUrl": "btn_nzmj",
+    "imgUrl_1": ""
+  },
+  "330": {
+    "Id": 330,
+    "Name": "xyxxmj",
+    "Type": 1,
+    "Name_1": "新县麻将",
+    "imgUrl": "btn_xyxxmj",
+    "imgUrl_1": ""
+  },
+  "329": {
+    "Id": 329,
+    "Name": "wgfhmj",
+    "Type": 1,
+    "Name_1": "舞钢翻混麻将",
+    "imgUrl": "btn_wgfhmj",
+    "imgUrl_1": ""
+  },
+  "331": {
+    "Id": 331,
+    "Name": "xyxxpdk",
+    "Type": 2,
+    "Name_1": "新县跑得快",
+    "imgUrl": "btn_xyxxpdk",
+    "imgUrl_1": ""
+  },
+  "328": {
+    "Id": 328,
+    "Name": "gspdk",
+    "Type": 2,
+    "Name_1": "固始跑得快",
+    "imgUrl": "btn_gspdk",
+    "imgUrl_1": ""
+  },
+  "332": {
+    "Id": 332,
+    "Name": "xxtdhmj",
+    "Type": 1,
+    "Name_1": "息县推倒胡",
+    "imgUrl": "btn_xxtdhmj",
+    "imgUrl_1": ""
+  },
+  "333": {
+    "Id": 333,
+    "Name": "gsddz",
+    "Type": 2,
+    "Name_1": "固始斗地主",
+    "imgUrl": "btn_gsddz",
+    "imgUrl_1": ""
+  },
+  "337": {
+    "Id": 337,
+    "Name": "thjgl",
+    "Type": 2,
+    "Name_1": "唐河交公粮",
+    "imgUrl": "btn_thjgl",
+    "imgUrl_1": ""
+  },
+  "336": {
+    "Id": 336,
+    "Name": "nythmj",
+    "Type": 1,
+    "Name_1": "唐河麻将",
+    "imgUrl": "btn_nythmj",
+    "imgUrl_1": ""
+  },
+  "338": {
+    "Id": 338,
+    "Name": "sspmj",
+    "Type": 1,
+    "Name_1": "双色牌",
+    "imgUrl": "btn_sspmj",
+    "imgUrl_1": ""
+  },
+  "341": {
+    "Id": 341,
+    "Name": "yzchz",
+    "Type": 1,
+    "Name_1": "永州扯胡子",
+    "imgUrl": "btn_yzchz",
+    "imgUrl_1": ""
+  },
+  "335": {
+    "Id": 335,
+    "Name": "nzwsk",
+    "Type": 2,
+    "Name_1": "南召五十K",
+    "imgUrl": "btn_nzwsk",
+    "imgUrl_1": ""
+  },
+  "339": {
+    "Id": 339,
+    "Name": "glqzmj",
+    "Type": 1,
+    "Name_1": "全州麻将",
+    "imgUrl": "btn_glqzmj",
+    "imgUrl_1": ""
+  },
+  "340": {
+    "Id": 340,
+    "Name": "xyhcmj",
+    "Type": 1,
+    "Name_1": "潢川麻将",
+    "imgUrl": "btn_xyhcmj",
+    "imgUrl_1": ""
+  },
+  "346": {
+    "Id": 346,
+    "Name": "glwsk",
+    "Type": 2,
+    "Name_1": "桂林五十K",
+    "imgUrl": "btn_glwsk",
+    "imgUrl_1": ""
+  },
+  "343": {
+    "Id": 343,
+    "Name": "rummy13",
+    "Type": 2,
+    "Name_1": "Rummy13",
+    "imgUrl": "btn_rummy13",
+    "imgUrl_1": ""
+  },
+  "345": {
+    "Id": 345,
+    "Name": "teenpatti",
+    "Type": 2,
+    "Name_1": "teenpatti",
+    "imgUrl": "btn_teenpatti",
+    "imgUrl_1": ""
+  },
+  "348": {
+    "Id": 348,
+    "Name": "glsdh",
+    "Type": 2,
+    "Name_1": "桂林三打哈",
+    "imgUrl": "btn_glsdh",
+    "imgUrl_1": ""
+  },
+  "347": {
+    "Id": 347,
+    "Name": "fctdhmj",
+    "Type": 1,
+    "Name_1": "方城推倒胡",
+    "imgUrl": "btn_fctdhmj",
+    "imgUrl_1": ""
+  },
+  "350": {
+    "Id": 350,
+    "Name": "yhmj",
+    "Type": 1,
+    "Name_1": "宜黄麻将",
+    "imgUrl": "btn_yhmj",
+    "imgUrl_1": ""
+  },
+  "349": {
+    "Id": 349,
+    "Name": "xtlhmj",
+    "Type": 1,
+    "Name_1": "仙桃赖晃麻将",
+    "imgUrl": "btn_xtlhmj",
+    "imgUrl_1": ""
+  },
+  "351": {
+    "Id": 351,
+    "Name": "hzjdmj",
+    "Type": 1,
+    "Name_1": "建德麻将",
+    "imgUrl": "btn_hzjdmj",
+    "imgUrl_1": ""
+  },
+  "352": {
+    "Id": 352,
+    "Name": "xsmj",
+    "Type": 1,
+    "Name_1": "萧山麻将",
+    "imgUrl": "btn_xsmj",
+    "imgUrl_1": ""
+  },
+  "344": {
+    "Id": 344,
+    "Name": "yymj",
+    "Type": 1,
+    "Name_1": "益阳麻将",
+    "imgUrl": "btn_yymj",
+    "imgUrl_1": ""
+  },
+  "353": {
+    "Id": 353,
+    "Name": "tjmj",
+    "Type": 1,
+    "Name_1": "桃江麻将",
+    "imgUrl": "btn_tjmj",
+    "imgUrl_1": ""
+  },
+  "354": {
+    "Id": 354,
+    "Name": "qjfxjmj",
+    "Type": 1,
+    "Name_1": "曲靖飞小鸡",
+    "imgUrl": "btn_qjfxjmj",
+    "imgUrl_1": ""
+  },
+  "355": {
+    "Id": 355,
+    "Name": "hnyjmj",
+    "Type": 1,
+    "Name_1": "沅江麻将",
+    "imgUrl": "btn_hnyjmj",
+    "imgUrl_1": ""
+  },
+  "356": {
+    "Id": 356,
+    "Name": "yjnxmj",
+    "Type": 1,
+    "Name_1": "南县麻将",
+    "imgUrl": "btn_yjnxmj",
+    "imgUrl_1": ""
+  },
+  "357": {
+    "Id": 357,
+    "Name": "sdjnmj",
+    "Type": 1,
+    "Name_1": "济南麻将",
+    "imgUrl": "btn_sdjnmj",
+    "imgUrl_1": ""
+  },
+  "358": {
+    "Id": 358,
+    "Name": "hnsymj",
+    "Type": 1,
+    "Name_1": "邵阳麻将",
+    "imgUrl": "btn_hnsymj",
+    "imgUrl_1": ""
+  },
+  "360": {
+    "Id": 360,
+    "Name": "xnmj",
+    "Type": 1,
+    "Name_1": "新宁麻将",
+    "imgUrl": "btn_xnmj",
+    "imgUrl_1": ""
+  },
+  "359": {
+    "Id": 359,
+    "Name": "gslzmj",
+    "Type": 1,
+    "Name_1": "兰州麻将",
+    "imgUrl": "btn_gslzmj",
+    "imgUrl_1": ""
+  },
+  "362": {
+    "Id": 362,
+    "Name": "tjtjmj",
+    "Type": 1,
+    "Name_1": "天津麻将",
+    "imgUrl": "btn_tjtjmj",
+    "imgUrl_1": ""
+  },
+  "361": {
+    "Id": 361,
+    "Name": "hylymj",
+    "Type": 1,
+    "Name_1": "耒阳麻将",
+    "imgUrl": "btn_hylymj",
+    "imgUrl_1": ""
+  },
+  "363": {
+    "Id": 363,
+    "Name": "bamj",
+    "Type": 1,
+    "Name_1": "博爱麻将",
+    "imgUrl": "btn_bamj",
+    "imgUrl_1": ""
+  },
+  "364": {
+    "Id": 364,
+    "Name": "nmgyzmj",
+    "Type": 1,
+    "Name_1": "云中麻将",
+    "imgUrl": "btn_nmgyzmj",
+    "imgUrl_1": ""
+  },
+  "342": {
+    "Id": 342,
+    "Name": "gft258mj",
+    "Type": 1,
+    "Name_1": "刮风听258麻将",
+    "imgUrl": "btn_gft258mj",
+    "imgUrl_1": ""
+  },
+  "366": {
+    "Id": 366,
+    "Name": "jcahmj",
+    "Type": 1,
+    "Name_1": "荆楚捱晃",
+    "imgUrl": "btn_jcahmj",
+    "imgUrl_1": ""
+  },
+  "368": {
+    "Id": 368,
+    "Name": "lfphmj",
+    "Type": 1,
+    "Name_1": "两幅牌花麻将",
+    "imgUrl": "btn_lfphmj",
+    "imgUrl_1": ""
+  },
+  "365": {
+    "Id": 365,
+    "Name": "jzwzmj",
+    "Type": 1,
+    "Name_1": "武陟麻将",
+    "imgUrl": "btn_jzwzmj",
+    "imgUrl_1": ""
+  },
+  "367": {
+    "Id": 367,
+    "Name": "sgew",
+    "Type": 1,
+    "Name_1": "双古二五",
+    "imgUrl": "btn_sgew",
+    "imgUrl_1": ""
+  },
+  "369": {
+    "Id": 369,
+    "Name": "rxew",
+    "Type": 1,
+    "Name_1": "荣县二五",
+    "imgUrl": "btn_rxew",
+    "imgUrl_1": ""
+  },
+  "370": {
+    "Id": 370,
+    "Name": "sfphmj",
+    "Type": 1,
+    "Name_1": "三副牌花麻将",
+    "imgUrl": "btn_sfphmj",
+    "imgUrl_1": ""
+  },
+  "373": {
+    "Id": 373,
+    "Name": "zgqzmj",
+    "Type": 1,
+    "Name_1": "自贡七张",
+    "imgUrl": "btn_zgqzmj",
+    "imgUrl_1": ""
+  },
+  "371": {
+    "Id": 371,
+    "Name": "zcmj",
+    "Type": 1,
+    "Name_1": "柘城麻将",
+    "imgUrl": "btn_zcmj",
+    "imgUrl_1": ""
+  },
+  "372": {
+    "Id": 372,
+    "Name": "hyhsmj",
+    "Type": 1,
+    "Name_1": "衡山麻将",
+    "imgUrl": "btn_hyhsmj",
+    "imgUrl_1": ""
+  },
+  "374": {
+    "Id": 374,
+    "Name": "mymj",
+    "Type": 1,
+    "Name_1": "绵阳麻将",
+    "imgUrl": "btn_mymj",
+    "imgUrl_1": ""
+  },
+  "376": {
+    "Id": 376,
+    "Name": "ahhbmj",
+    "Type": 1,
+    "Name_1": "淮北麻将",
+    "imgUrl": "btn_ahhbmj",
+    "imgUrl_1": ""
+  },
+  "375": {
+    "Id": 375,
+    "Name": "sd",
+    "Type": 2,
+    "Name_1": "三代",
+    "imgUrl": "btn_sd",
+    "imgUrl_1": ""
+  },
+  "377": {
+    "Id": 377,
+    "Name": "jsmj",
+    "Type": 1,
+    "Name_1": "吉水麻将",
+    "imgUrl": "btn_jsmj",
+    "imgUrl_1": ""
+  },
+  "378": {
+    "Id": 378,
+    "Name": "gz",
+    "Type": 2,
+    "Name_1": "过炸",
+    "imgUrl": "btn_gz",
+    "imgUrl_1": ""
+  },
+  "379": {
+    "Id": 379,
+    "Name": "hcpdk",
+    "Type": 2,
+    "Name_1": "潢川跑得快",
+    "imgUrl": "btn_hcpdk",
+    "imgUrl_1": ""
+  },
+  "381": {
+    "Id": 381,
+    "Name": "nyxxmj",
+    "Type": 1,
+    "Name_1": "西峡麻将",
+    "imgUrl": "btn_nyxxmj",
+    "imgUrl_1": ""
+  },
+  "380": {
+    "Id": 380,
+    "Name": "jawz",
+    "Type": 2,
+    "Name_1": "吉安王炸",
+    "imgUrl": "btn_jawz",
+    "imgUrl_1": ""
+  },
+  "382": {
+    "Id": 382,
+    "Name": "pdslsmj",
+    "Type": 1,
+    "Name_1": "鲁山麻将",
+    "imgUrl": "btn_pdslsmj",
+    "imgUrl_1": ""
+  },
+  "383": {
+    "Id": 383,
+    "Name": "rzmj",
+    "Type": 1,
+    "Name_1": "汝州麻将",
+    "imgUrl": "btn_rzmj",
+    "imgUrl_1": ""
+  },
+  "388": {
+    "Id": 388,
+    "Name": "zd",
+    "Type": 2,
+    "Name_1": "转蛋",
+    "imgUrl": "btn_zd",
+    "imgUrl_1": ""
+  },
+  "384": {
+    "Id": 384,
+    "Name": "fczha",
+    "Type": 2,
+    "Name_1": "方城捉黑A",
+    "imgUrl": "btn_fczha",
+    "imgUrl_1": ""
+  },
+  "385": {
+    "Id": 385,
+    "Name": "nxmj",
+    "Type": 1,
+    "Name_1": "内乡麻将",
+    "imgUrl": "btn_nxmj",
+    "imgUrl_1": ""
+  },
+  "386": {
+    "Id": 386,
+    "Name": "bfmj",
+    "Type": 1,
+    "Name_1": "宝丰麻将",
+    "imgUrl": "btn_bfmj",
+    "imgUrl_1": ""
+  },
+  "387": {
+    "Id": 387,
+    "Name": "pdsjxmj",
+    "Type": 1,
+    "Name_1": "郏县麻将",
+    "imgUrl": "btn_pdsjxmj",
+    "imgUrl_1": ""
+  },
+  "389": {
+    "Id": 389,
+    "Name": "stmj",
+    "Type": 1,
+    "Name_1": "石台麻将",
+    "imgUrl": "btn_stmj",
+    "imgUrl_1": ""
+  },
+  "390": {
+    "Id": 390,
+    "Name": "czdzmj",
+    "Type": 1,
+    "Name_1": "东至麻将",
+    "imgUrl": "btn_czdzmj",
+    "imgUrl_1": ""
+  },
+  "393": {
+    "Id": 393,
+    "Name": "cqcp",
+    "Type": 2,
+    "Name_1": "冲牌",
+    "imgUrl": "btn_cqcp",
+    "imgUrl_1": ""
+  },
+  "394": {
+    "Id": 394,
+    "Name": "tbhmj",
+    "Type": 1,
+    "Name_1": "铁板胡",
+    "imgUrl": "btn_tbhmj",
+    "imgUrl_1": ""
+  },
+  "391": {
+    "Id": 391,
+    "Name": "cp",
+    "Type": 2,
+    "Name_1": "戳牌",
+    "imgUrl": "btn_cp",
+    "imgUrl_1": ""
+  },
+  "392": {
+    "Id": 392,
+    "Name": "qyphmj",
+    "Type": 1,
+    "Name_1": "青阳平胡",
+    "imgUrl": "btn_qyphmj",
+    "imgUrl_1": ""
+  },
+  "395": {
+    "Id": 395,
+    "Name": "hfbzmj",
+    "Type": 1,
+    "Name_1": "八支麻将",
+    "imgUrl": "btn_hfbzmj",
+    "imgUrl_1": ""
+  },
+  "396": {
+    "Id": 396,
+    "Name": "czczmj",
+    "Type": 1,
+    "Name_1": "池州麻将",
+    "imgUrl": "btn_czczmj",
+    "imgUrl_1": ""
+  },
+  "399": {
+    "Id": 399,
+    "Name": "afmj",
+    "Type": 1,
+    "Name_1": "安福麻将",
+    "imgUrl": "btn_afmj",
+    "imgUrl_1": ""
+  },
+  "401": {
+    "Id": 401,
+    "Name": "ststmj",
+    "Type": 1,
+    "Name_1": "邵通麻将",
+    "imgUrl": "btn_ststmj",
+    "imgUrl_1": ""
+  },
+  "403": {
+    "Id": 403,
+    "Name": "ycsdr",
+    "Type": 1,
+    "Name_1": "宜昌上大人",
+    "imgUrl": "btn_ycsdr",
+    "imgUrl_1": ""
+  },
+  "398": {
+    "Id": 398,
+    "Name": "cylymj",
+    "Type": 1,
+    "Name_1": "凌源麻将",
+    "imgUrl": "btn_cylymj",
+    "imgUrl_1": ""
+  },
+  "400": {
+    "Id": 400,
+    "Name": "scpk",
+    "Type": 2,
+    "Name_1": "四冲扑克",
+    "imgUrl": "btn_scpk",
+    "imgUrl_1": ""
+  },
+  "402": {
+    "Id": 402,
+    "Name": "gdczmj",
+    "Type": 1,
+    "Name_1": "潮州麻将",
+    "imgUrl": "btn_gdczmj",
+    "imgUrl_1": ""
+  },
+  "404": {
+    "Id": 404,
+    "Name": "thkb",
+    "Type": 2,
+    "Name_1": "泰和KA包",
+    "imgUrl": "btn_thkb",
+    "imgUrl_1": ""
+  },
+  "406": {
+    "Id": 406,
+    "Name": "ychp",
+    "Type": 1,
+    "Name_1": "宜昌花牌",
+    "imgUrl": "btn_ychp",
+    "imgUrl_1": ""
+  },
+  "407": {
+    "Id": 407,
+    "Name": "asmj",
+    "Type": 1,
+    "Name_1": "安顺麻将",
+    "imgUrl": "btn_asmj",
+    "imgUrl_1": ""
+  },
+  "405": {
+    "Id": 405,
+    "Name": "tsdg",
+    "Type": 2,
+    "Name_1": "通山打拱",
+    "imgUrl": "btn_tsdg",
+    "imgUrl_1": ""
+  },
+  "409": {
+    "Id": 409,
+    "Name": "sqycmj",
+    "Type": 1,
+    "Name_1": "永城麻将",
+    "imgUrl": "btn_sqycmj",
+    "imgUrl_1": ""
+  },
+  "410": {
+    "Id": 410,
+    "Name": "qcdg",
+    "Type": 2,
+    "Name_1": "蕲春打拱",
+    "imgUrl": "btn_qcdg",
+    "imgUrl_1": ""
+  },
+  "408": {
+    "Id": 408,
+    "Name": "sdb",
+    "Type": 2,
+    "Name_1": "十点半",
+    "imgUrl": "btn_sdb",
+    "imgUrl_1": ""
+  },
+  "413": {
+    "Id": 413,
+    "Name": "phmj",
+    "Type": 1,
+    "Name_1": "平和麻将",
+    "imgUrl": "btn_phmj",
+    "imgUrl_1": ""
+  },
+  "411": {
+    "Id": 411,
+    "Name": "yfcgmj",
+    "Type": 1,
+    "Name_1": "永丰麻将",
+    "imgUrl": "btn_yfcgmj",
+    "imgUrl_1": ""
+  },
+  "414": {
+    "Id": 414,
+    "Name": "ctpk",
+    "Type": 2,
+    "Name_1": "春天扑克",
+    "imgUrl": "btn_ctpk",
+    "imgUrl_1": ""
+  },
+  "416": {
+    "Id": 416,
+    "Name": "zlmz",
+    "Type": 2,
+    "Name_1": "捉老麻子",
+    "imgUrl": "btn_zlmz",
+    "imgUrl_1": ""
+  },
+  "412": {
+    "Id": 412,
+    "Name": "qbsk",
+    "Type": 2,
+    "Name_1": "千变双扣",
+    "imgUrl": "btn_qbsk",
+    "imgUrl_1": ""
+  },
+  "415": {
+    "Id": 415,
+    "Name": "gjmj",
+    "Type": 1,
+    "Name_1": "个旧麻将",
+    "imgUrl": "btn_gjmj",
+    "imgUrl_1": ""
+  },
+  "417": {
+    "Id": 417,
+    "Name": "st",
+    "Type": 2,
+    "Name_1": "四团",
+    "imgUrl": "btn_st",
+    "imgUrl_1": ""
+  },
+  "418": {
+    "Id": 418,
+    "Name": "wk",
+    "Type": 2,
+    "Name_1": "挖坑",
+    "imgUrl": "btn_wk",
+    "imgUrl_1": ""
+  },
+  "451": {
+    "Id": 451,
+    "Name": "tdk",
+    "Type": 2,
+    "Name_1": "填大坑",
+    "imgUrl": "btn_tdk",
+    "imgUrl_1": ""
+  },
+  "397": {
+    "Id": 397,
+    "Name": "dtmj",
+    "Type": 1,
+    "Name_1": "东台麻将",
+    "imgUrl": "btn_dtmj",
+    "imgUrl_1": ""
+  },
+  "450": {
+    "Id": 450,
+    "Name": "sysybp",
+    "Type": 1,
+    "Name_1": "邵阳剥皮",
+    "imgUrl": "btn_sysybp",
+    "imgUrl_1": ""
+  },
+  "419": {
+    "Id": 419,
+    "Name": "qjfbbmj",
+    "Type": 1,
+    "Name_1": "曲靖飞白板",
+    "imgUrl": "btn_qjfbbmj",
+    "imgUrl_1": ""
+  },
+  "452": {
+    "Id": 452,
+    "Name": "cxyxmj",
+    "Type": 1,
+    "Name_1": "楚雄玉溪麻将",
+    "imgUrl": "btn_cxyxmj",
+    "imgUrl_1": ""
+  },
+  "456": {
+    "Id": 456,
+    "Name": "japdk",
+    "Type": 2,
+    "Name_1": "吉安跑得快",
+    "imgUrl": "btn_japdk",
+    "imgUrl_1": ""
+  },
+  "454": {
+    "Id": 454,
+    "Name": "bxmd",
+    "Type": 2,
+    "Name_1": "本溪马队",
+    "imgUrl": "btn_bxmd",
+    "imgUrl_1": ""
+  },
+  "453": {
+    "Id": 453,
+    "Name": "hw",
+    "Type": 2,
+    "Name_1": "红五",
+    "imgUrl": "btn_hw",
+    "imgUrl_1": ""
+  },
+  "455": {
+    "Id": 455,
+    "Name": "qwwes",
+    "Type": 2,
+    "Name_1": "七王五二三",
+    "imgUrl": "btn_qwwes",
+    "imgUrl_1": ""
+  },
+  "459": {
+    "Id": 459,
+    "Name": "yfmj",
+    "Type": 1,
+    "Name_1": "宜丰麻将",
+    "imgUrl": "btn_yfmj",
+    "imgUrl_1": ""
+  },
+  "457": {
+    "Id": 457,
+    "Name": "bsl",
+    "Type": 2,
+    "Name_1": "变色龙",
+    "imgUrl": "btn_bsl",
+    "imgUrl_1": ""
+  },
+  "462": {
+    "Id": 462,
+    "Name": "wzqsmj",
+    "Type": 1,
+    "Name_1": "万字雀神",
+    "imgUrl": "btn_wzqsmj",
+    "imgUrl_1": ""
+  },
+  "461": {
+    "Id": 461,
+    "Name": "bzp",
+    "Type": 2,
+    "Name_1": "板子炮",
+    "imgUrl": "btn_bzp",
+    "imgUrl_1": ""
+  },
+  "466": {
+    "Id": 466,
+    "Name": "jxndpdk",
+    "Type": 2,
+    "Name_1": "宁都跑得快",
+    "imgUrl": "btn_jxndpdk",
+    "imgUrl_1": ""
+  },
+  "458": {
+    "Id": 458,
+    "Name": "bsmj",
+    "Type": 1,
+    "Name_1": "百色麻将",
+    "imgUrl": "btn_bsmj",
+    "imgUrl_1": ""
+  },
+  "463": {
+    "Id": 463,
+    "Name": "qdbh",
+    "Type": 2,
+    "Name_1": "青岛保皇",
+    "imgUrl": "btn_qdbh",
+    "imgUrl_1": ""
+  },
+  "465": {
+    "Id": 465,
+    "Name": "lnsymj",
+    "Type": 1,
+    "Name_1": "沈阳麻将",
+    "imgUrl": "btn_lnsymj",
+    "imgUrl_1": ""
+  },
+  "460": {
+    "Id": 460,
+    "Name": "py",
+    "Type": 2,
+    "Name_1": "刨幺",
+    "imgUrl": "btn_py",
+    "imgUrl_1": ""
+  },
+  "464": {
+    "Id": 464,
+    "Name": "twgz",
+    "Type": 2,
+    "Name_1": "拱猪",
+    "imgUrl": "btn_twgz",
+    "imgUrl_1": ""
+  },
+  "468": {
+    "Id": 468,
+    "Name": "jxyz",
+    "Type": 2,
+    "Name_1": "嘉兴原子",
+    "imgUrl": "btn_jxyz",
+    "imgUrl_1": ""
+  },
+  "467": {
+    "Id": 467,
+    "Name": "wfbh",
+    "Type": 2,
+    "Name_1": "潍坊保皇",
+    "imgUrl": "btn_wfbh",
+    "imgUrl_1": ""
+  },
+  "469": {
+    "Id": 469,
+    "Name": "hldmj",
+    "Type": 1,
+    "Name_1": "葫芦岛麻将",
+    "imgUrl": "btn_hldmj",
+    "imgUrl_1": ""
+  },
+  "470": {
+    "Id": 470,
+    "Name": "scnjmj",
+    "Type": 1,
+    "Name_1": "内江麻将",
+    "imgUrl": "btn_scnjmj",
+    "imgUrl_1": ""
+  },
+  "472": {
+    "Id": 472,
+    "Name": "wxzmmj",
+    "Type": 1,
+    "Name_1": "无锡抓码",
+    "imgUrl": "btn_wxzmmj",
+    "imgUrl_1": ""
+  },
+  "471": {
+    "Id": 471,
+    "Name": "gj",
+    "Type": 2,
+    "Name_1": "够级",
+    "imgUrl": "btn_gj",
+    "imgUrl_1": ""
+  },
+  "474": {
+    "Id": 474,
+    "Name": "cdp",
+    "Type": 2,
+    "Name_1": "炒地皮",
+    "imgUrl": "btn_cdp",
+    "imgUrl_1": ""
+  },
+  "475": {
+    "Id": 475,
+    "Name": "wxls",
+    "Type": 2,
+    "Name_1": "无锡罗松",
+    "imgUrl": "btn_wxls",
+    "imgUrl_1": ""
+  },
+  "473": {
+    "Id": 473,
+    "Name": "pysft",
+    "Type": 2,
+    "Name_1": "平阳四副头",
+    "imgUrl": "btn_pysft",
+    "imgUrl_1": ""
+  },
+  "477": {
+    "Id": 477,
+    "Name": "zgz",
+    "Type": 2,
+    "Name_1": "扎股子",
+    "imgUrl": "btn_zgz",
+    "imgUrl_1": ""
+  },
+  "479": {
+    "Id": 479,
+    "Name": "sstx",
+    "Type": 2,
+    "Name_1": "宿松同心",
+    "imgUrl": "btn_sstx",
+    "imgUrl_1": ""
+  },
+  "476": {
+    "Id": 476,
+    "Name": "jxhs",
+    "Type": 2,
+    "Name_1": "嘉兴红十",
+    "imgUrl": "btn_jxhs",
+    "imgUrl_1": ""
+  },
+  "478": {
+    "Id": 478,
+    "Name": "dda",
+    "Type": 2,
+    "Name_1": "打大A",
+    "imgUrl": "btn_dda",
+    "imgUrl_1": ""
+  },
+  "480": {
+    "Id": 480,
+    "Name": "sys",
+    "Type": 2,
+    "Name_1": "四幺四",
+    "imgUrl": "btn_sys",
+    "imgUrl_1": ""
+  },
+  "483": {
+    "Id": 483,
+    "Name": "xsdq",
+    "Type": 2,
+    "Name_1": "浠水打七",
+    "imgUrl": "btn_xsdq",
+    "imgUrl_1": ""
+  },
+  "485": {
+    "Id": 485,
+    "Name": "xywsk",
+    "Type": 2,
+    "Name_1": "新余五十K",
+    "imgUrl": "btn_xywsk",
+    "imgUrl_1": ""
+  },
+  "481": {
+    "Id": 481,
+    "Name": "dqdz",
+    "Type": 2,
+    "Name_1": "德清点子",
+    "imgUrl": "btn_dqdz",
+    "imgUrl_1": ""
+  },
+  "482": {
+    "Id": 482,
+    "Name": "whbh",
+    "Type": 2,
+    "Name_1": "威海保皇",
+    "imgUrl": "btn_whbh",
+    "imgUrl_1": ""
+  },
+  "484": {
+    "Id": 484,
+    "Name": "esyd",
+    "Type": 2,
+    "Name_1": "二十一点",
+    "imgUrl": "btn_esyd",
+    "imgUrl_1": ""
+  },
+  "486": {
+    "Id": 486,
+    "Name": "szd",
+    "Type": 2,
+    "Name_1": "四支刀",
+    "imgUrl": "btn_szd",
+    "imgUrl_1": ""
+  },
+  "488": {
+    "Id": 488,
+    "Name": "ttz",
+    "Type": 2,
+    "Name_1": "推筒子",
+    "imgUrl": "btn_ttz",
+    "imgUrl_1": ""
+  },
+  "489": {
+    "Id": 489,
+    "Name": "lczp",
+    "Type": 2,
+    "Name_1": "老戳字牌",
+    "imgUrl": "btn_lczp",
+    "imgUrl_1": ""
+  },
+  "491": {
+    "Id": 491,
+    "Name": "fcsj",
+    "Type": 2,
+    "Name_1": "丰城双剑",
+    "imgUrl": "btn_fcsj",
+    "imgUrl_1": ""
+  },
+  "487": {
+    "Id": 487,
+    "Name": "sglk",
+    "Type": 2,
+    "Name_1": "三个老K",
+    "imgUrl": "btn_sglk",
+    "imgUrl_1": ""
+  },
+  "490": {
+    "Id": 490,
+    "Name": "ycfxmj",
+    "Type": 1,
+    "Name_1": "奉新麻将",
+    "imgUrl": "btn_ycfxmj",
+    "imgUrl_1": ""
+  },
+  "492": {
+    "Id": 492,
+    "Name": "ycsgmj",
+    "Type": 1,
+    "Name_1": "上高麻将",
+    "imgUrl": "btn_ycsgmj",
+    "imgUrl_1": ""
+  },
+  "493": {
+    "Id": 493,
+    "Name": "wabjmj",
+    "Type": 1,
+    "Name_1": "万安博精",
+    "imgUrl": "btn_wabjmj",
+    "imgUrl_1": ""
+  },
+  "494": {
+    "Id": 494,
+    "Name": "fcgp",
+    "Type": 2,
+    "Name_1": "丰城关牌",
+    "imgUrl": "btn_fcgp",
+    "imgUrl_1": ""
+  },
+  "496": {
+    "Id": 496,
+    "Name": "klmj",
+    "Type": 1,
+    "Name_1": "卡隆麻将",
+    "imgUrl": "btn_klmj",
+    "imgUrl_1": ""
+  },
+  "504": {
+    "Id": 504,
+    "Name": "hebmj",
+    "Type": 1,
+    "Name_1": "哈尔滨麻将",
+    "imgUrl": "btn_hebmj",
+    "imgUrl_1": ""
+  },
+  "495": {
+    "Id": 495,
+    "Name": "jlpk",
+    "Type": 1,
+    "Name_1": "96扑克",
+    "imgUrl": "btn_jlpk",
+    "imgUrl_1": ""
+  },
+  "508": {
+    "Id": 508,
+    "Name": "dglz",
+    "Type": 2,
+    "Name_1": "大怪路子",
+    "imgUrl": "btn_dglz",
+    "imgUrl_1": ""
+  },
+  "511": {
+    "Id": 511,
+    "Name": "jmjsmj",
+    "Type": 1,
+    "Name_1": "京山麻将",
+    "imgUrl": "btn_jmjsmj",
+    "imgUrl_1": ""
+  },
+  "510": {
+    "Id": 510,
+    "Name": "dsmj",
+    "Type": 1,
+    "Name_1": "东山麻将",
+    "imgUrl": "btn_dsmj",
+    "imgUrl_1": ""
+  },
+  "512": {
+    "Id": 512,
+    "Name": "rbmj",
+    "Type": 1,
+    "Name_1": "日本麻将",
+    "imgUrl": "btn_rbmj",
+    "imgUrl_1": ""
+  },
+  "505": {
+    "Id": 505,
+    "Name": "nbcxmj",
+    "Type": 1,
+    "Name_1": "慈溪麻将",
+    "imgUrl": "btn_nbcxmj",
+    "imgUrl_1": ""
+  },
+  "507": {
+    "Id": 507,
+    "Name": "wsbea",
+    "Type": 2,
+    "Name_1": "王三八二A",
+    "imgUrl": "btn_wsbea",
+    "imgUrl_1": ""
+  },
+  "513": {
+    "Id": 513,
+    "Name": "fkbd",
+    "Type": 2,
+    "Name_1": "疯狂8点",
+    "imgUrl": "btn_fkbd",
+    "imgUrl_1": ""
+  },
+  "509": {
+    "Id": 509,
+    "Name": "sxzjmj",
+    "Type": 1,
+    "Name_1": "诸暨麻将",
+    "imgUrl": "btn_sxzjmj",
+    "imgUrl_1": ""
+  },
+  "515": {
+    "Id": 515,
+    "Name": "sdlcmj",
+    "Type": 1,
+    "Name_1": "聊城麻将",
+    "imgUrl": "btn_sdlcmj",
+    "imgUrl_1": ""
+  },
+  "521": {
+    "Id": 521,
+    "Name": "gaddz",
+    "Type": 2,
+    "Name_1": "高安斗地主",
+    "imgUrl": "btn_gaddz",
+    "imgUrl_1": ""
+  },
+  "520": {
+    "Id": 520,
+    "Name": "gawsk",
+    "Type": 2,
+    "Name_1": "高安五十K",
+    "imgUrl": "btn_gawsk",
+    "imgUrl_1": ""
+  },
+  "522": {
+    "Id": 522,
+    "Name": "gast",
+    "Type": 2,
+    "Name_1": "高安双托",
+    "imgUrl": "btn_gast",
+    "imgUrl_1": ""
+  },
+  "519": {
+    "Id": 519,
+    "Name": "jayxddz",
+    "Type": 2,
+    "Name_1": "永新打墩子",
+    "imgUrl": "btn_jayxddz",
+    "imgUrl_1": ""
+  },
+  "518": {
+    "Id": 518,
+    "Name": "ntcp",
+    "Type": 1,
+    "Name_1": "南通长牌",
+    "imgUrl": "btn_ntcp",
+    "imgUrl_1": ""
+  },
+  "523": {
+    "Id": 523,
+    "Name": "lwmj",
+    "Type": 1,
+    "Name_1": "莱芜麻将",
+    "imgUrl": "btn_lwmj",
+    "imgUrl_1": ""
+  },
+  "526": {
+    "Id": 526,
+    "Name": "sdzzmj",
+    "Type": 1,
+    "Name_1": "枣庄麻将",
+    "imgUrl": "btn_sdzzmj",
+    "imgUrl_1": ""
+  },
+  "527": {
+    "Id": 527,
+    "Name": "sdhzmj",
+    "Type": 1,
+    "Name_1": "菏泽麻将",
+    "imgUrl": "btn_sdhzmj",
+    "imgUrl_1": ""
+  },
+  "530": {
+    "Id": 530,
+    "Name": "tamj",
+    "Type": 1,
+    "Name_1": "泰安麻将",
+    "imgUrl": "btn_tamj",
+    "imgUrl_1": ""
+  },
+  "535": {
+    "Id": 535,
+    "Name": "xjbjmj",
+    "Type": 1,
+    "Name_1": "峡江博精",
+    "imgUrl": "btn_xjbjmj",
+    "imgUrl_1": ""
+  },
+  "533": {
+    "Id": 533,
+    "Name": "ncaymj",
+    "Type": 1,
+    "Name_1": "安义麻将",
+    "imgUrl": "btn_ncaymj",
+    "imgUrl_1": ""
+  },
+  "506": {
+    "Id": 506,
+    "Name": "sxmj",
+    "Type": 1,
+    "Name_1": "绍兴麻将",
+    "imgUrl": "btn_sxmj",
+    "imgUrl_1": ""
+  },
+  "539": {
+    "Id": 539,
+    "Name": "thgz",
+    "Type": 2,
+    "Name_1": "泰和过炸",
+    "imgUrl": "btn_thgz",
+    "imgUrl_1": ""
+  },
+  "537": {
+    "Id": 537,
+    "Name": "lsxzmj",
+    "Type": 1,
+    "Name_1": "星子麻将",
+    "imgUrl": "btn_lsxzmj",
+    "imgUrl_1": ""
+  },
+  "514": {
+    "Id": 514,
+    "Name": "scgamj",
+    "Type": 1,
+    "Name_1": "广安麻将",
+    "imgUrl": "btn_scgamj",
+    "imgUrl_1": ""
+  },
+  "540": {
+    "Id": 540,
+    "Name": "thbbz",
+    "Type": 2,
+    "Name_1": "泰和飙包子",
+    "imgUrl": "btn_thbbz",
+    "imgUrl_1": ""
+  },
+  "536": {
+    "Id": 536,
+    "Name": "sse",
+    "Type": 1,
+    "Name_1": "沙沙儿",
+    "imgUrl": "btn_sse",
+    "imgUrl_1": ""
+  },
+  "525": {
+    "Id": 525,
+    "Name": "lsyjmj",
+    "Type": 1,
+    "Name_1": "乐山幺鸡麻将",
+    "imgUrl": "btn_lsyjmj",
+    "imgUrl_1": ""
+  },
+  "516": {
+    "Id": 516,
+    "Name": "cdxzmj",
+    "Type": 1,
+    "Name_1": "成都血战麻将",
+    "imgUrl": "btn_cdxzmj",
+    "imgUrl_1": ""
+  },
+  "542": {
+    "Id": 542,
+    "Name": "eqw",
+    "Type": 2,
+    "Name_1": "二七王",
+    "imgUrl": "btn_eqw",
+    "imgUrl_1": ""
+  },
+  "546": {
+    "Id": 546,
+    "Name": "haxymj",
+    "Type": 1,
+    "Name_1": "盱眙麻将",
+    "imgUrl": "btn_haxymj",
+    "imgUrl_1": ""
+  },
+  "524": {
+    "Id": 524,
+    "Name": "lzxzmj",
+    "Type": 1,
+    "Name_1": "泸州血战麻将",
+    "imgUrl": "btn_lzxzmj",
+    "imgUrl_1": ""
+  },
+  "544": {
+    "Id": 544,
+    "Name": "lhgmmj",
+    "Type": 1,
+    "Name_1": "莲花广麻",
+    "imgUrl": "btn_lhgmmj",
+    "imgUrl_1": ""
+  },
+  "545": {
+    "Id": 545,
+    "Name": "gcmj",
+    "Type": 1,
+    "Name_1": "高淳麻将",
+    "imgUrl": "btn_gcmj",
+    "imgUrl_1": ""
+  },
+  "548": {
+    "Id": 548,
+    "Name": "jtmj",
+    "Type": 1,
+    "Name_1": "金坛麻将",
+    "imgUrl": "btn_jtmj",
+    "imgUrl_1": ""
+  },
+  "549": {
+    "Id": 549,
+    "Name": "tzjjmj",
+    "Type": 1,
+    "Name_1": "椒江麻将",
+    "imgUrl": "btn_tzjjmj",
+    "imgUrl_1": ""
+  },
+  "529": {
+    "Id": 529,
+    "Name": "lgmj",
+    "Type": 1,
+    "Name_1": "龙港麻将",
+    "imgUrl": "btn_lgmj",
+    "imgUrl_1": ""
+  },
+  "532": {
+    "Id": 532,
+    "Name": "zjtzmj",
+    "Type": 1,
+    "Name_1": "台州麻将",
+    "imgUrl": "btn_zjtzmj",
+    "imgUrl_1": ""
+  },
+  "551": {
+    "Id": 551,
+    "Name": "cbdg",
+    "Type": 2,
+    "Name_1": "赤壁打滚",
+    "imgUrl": "btn_cbdg",
+    "imgUrl_1": ""
+  },
+  "553": {
+    "Id": 553,
+    "Name": "lyhmj",
+    "Type": 1,
+    "Name_1": "溧阳花麻将",
+    "imgUrl": "btn_lyhmj",
+    "imgUrl_1": ""
+  },
+  "552": {
+    "Id": 552,
+    "Name": "tjtgmj",
+    "Type": 1,
+    "Name_1": "塘沽麻将",
+    "imgUrl": "btn_tjtgmj",
+    "imgUrl_1": ""
+  },
+  "92": {
+    "Id": 92,
+    "Name": "jssnmj",
+    "Type": 1,
+    "Name_1": "睢宁麻将",
+    "imgUrl": "btn_jssnmj",
+    "imgUrl_1": ""
+  },
+  "94": {
+    "Id": 94,
+    "Name": "ksmj",
+    "Type": 1,
+    "Name_1": "昆山麻将",
+    "imgUrl": "btn_ksmj",
+    "imgUrl_1": ""
+  },
+  "29": {
+    "Id": 29,
+    "Name": "ykmj",
+    "Type": 1,
+    "Name_1": "营口麻将",
+    "imgUrl": "btn_ykmj",
+    "imgUrl_1": ""
+  },
+  "91": {
+    "Id": 91,
+    "Name": "pxmj",
+    "Type": 1,
+    "Name_1": "沛县麻将",
+    "imgUrl": "btn_pxmj",
+    "imgUrl_1": ""
+  },
+  "555": {
+    "Id": 555,
+    "Name": "zzdmz",
+    "Type": 2,
+    "Name_1": "株洲打码子",
+    "imgUrl": "btn_zzdmz",
+    "imgUrl_1": ""
+  },
+  "558": {
+    "Id": 558,
+    "Name": "xlbbp",
+    "Type": 1,
+    "Name_1": "血流八宝牌",
+    "imgUrl": "btn_xlbbp",
+    "imgUrl_1": ""
+  },
+  "93": {
+    "Id": 93,
+    "Name": "zjgmj",
+    "Type": 1,
+    "Name_1": "张家港麻将",
+    "imgUrl": "btn_zjgmj",
+    "imgUrl_1": ""
+  },
+  "560": {
+    "Id": 560,
+    "Name": "lnjzmj",
+    "Type": 1,
+    "Name_1": "锦州麻将",
+    "imgUrl": "btn_lnjzmj",
+    "imgUrl_1": ""
+  },
+  "559": {
+    "Id": 559,
+    "Name": "wjmj",
+    "Type": 1,
+    "Name_1": "吴江麻将",
+    "imgUrl": "btn_wjmj",
+    "imgUrl_1": ""
+  },
+  "563": {
+    "Id": 563,
+    "Name": "jstxmj",
+    "Type": 1,
+    "Name_1": "泰兴麻将",
+    "imgUrl": "btn_jstxmj",
+    "imgUrl_1": ""
+  },
+  "567": {
+    "Id": 567,
+    "Name": "tgwsk",
+    "Type": 2,
+    "Name_1": "铜鼓510K",
+    "imgUrl": "btn_tgwsk",
+    "imgUrl_1": ""
+  },
+  "566": {
+    "Id": 566,
+    "Name": "txqe",
+    "Type": 1,
+    "Name_1": "青儿",
+    "imgUrl": "btn_txqe",
+    "imgUrl_1": ""
+  },
+  "571": {
+    "Id": 571,
+    "Name": "dzzj",
+    "Type": 2,
+    "Name_1": "打炸中奖",
+    "imgUrl": "btn_dzzj",
+    "imgUrl_1": ""
+  },
+  "572": {
+    "Id": 572,
+    "Name": "pydd",
+    "Type": 2,
+    "Name_1": "鄱阳打丁",
+    "imgUrl": "btn_pydd",
+    "imgUrl_1": ""
+  },
+  "531": {
+    "Id": 531,
+    "Name": "cnmj",
+    "Type": 1,
+    "Name_1": "长宁麻将",
+    "imgUrl": "btn_cnmj",
+    "imgUrl_1": ""
+  },
+  "517": {
+    "Id": 517,
+    "Name": "xlhzmj",
+    "Type": 1,
+    "Name_1": "血流红中麻将",
+    "imgUrl": "btn_xlhzmj",
+    "imgUrl_1": ""
+  },
+  "573": {
+    "Id": 573,
+    "Name": "yjlymj",
+    "Type": 1,
+    "Name_1": "一脚癞油",
+    "imgUrl": "btn_yjlymj",
+    "imgUrl_1": ""
+  },
+  "574": {
+    "Id": 574,
+    "Name": "hbhsmj",
+    "Type": 1,
+    "Name_1": "黄石麻将",
+    "imgUrl": "btn_hbhsmj",
+    "imgUrl_1": ""
+  },
+  "569": {
+    "Id": 569,
+    "Name": "tlmj",
+    "Type": 1,
+    "Name_1": "铁岭麻将",
+    "imgUrl": "btn_tlmj",
+    "imgUrl_1": ""
+  },
+  "577": {
+    "Id": 577,
+    "Name": "jmsmj",
+    "Type": 1,
+    "Name_1": "佳木斯麻将",
+    "imgUrl": "btn_jmsmj",
+    "imgUrl_1": ""
+  },
+  "578": {
+    "Id": 578,
+    "Name": "nxhsmj",
+    "Type": 1,
+    "Name_1": "划水麻将",
+    "imgUrl": "btn_nxhsmj",
+    "imgUrl_1": ""
+  },
+  "564": {
+    "Id": 564,
+    "Name": "qxwq",
+    "Type": 1,
+    "Name_1": "气象万千",
+    "imgUrl": "btn_qxwq",
+    "imgUrl_1": ""
+  },
+  "570": {
+    "Id": 570,
+    "Name": "sjms",
+    "Type": 2,
+    "Name_1": "神机妙算",
+    "imgUrl": "btn_sjms",
+    "imgUrl_1": ""
+  },
+  "575": {
+    "Id": 575,
+    "Name": "qsj",
+    "Type": 2,
+    "Name_1": "敲三家",
+    "imgUrl": "btn_qsj",
+    "imgUrl_1": ""
+  },
+  "579": {
+    "Id": 579,
+    "Name": "sfp",
+    "Type": 2,
+    "Name_1": "四副牌",
+    "imgUrl": "btn_sfp",
+    "imgUrl_1": ""
+  },
+  "581": {
+    "Id": 581,
+    "Name": "qppk",
+    "Type": 2,
+    "Name_1": "桥牌",
+    "imgUrl": "btn_qppk",
+    "imgUrl_1": ""
+  },
+  "580": {
+    "Id": 580,
+    "Name": "hbcxmj",
+    "Type": 1,
+    "Name_1": "沧县麻将",
+    "imgUrl": "btn_hbcxmj",
+    "imgUrl_1": ""
+  },
+  "582": {
+    "Id": 582,
+    "Name": "wdmj",
+    "Type": 1,
+    "Name_1": "瓦甸麻将",
+    "imgUrl": "btn_wdmj",
+    "imgUrl_1": ""
+  },
+  "584": {
+    "Id": 584,
+    "Name": "lnasmj",
+    "Type": 1,
+    "Name_1": "鞍山麻将",
+    "imgUrl": "btn_lnasmj",
+    "imgUrl_1": ""
+  },
+  "585": {
+    "Id": 585,
+    "Name": "esmj",
+    "Type": 1,
+    "Name_1": "恩施麻将",
+    "imgUrl": "btn_esmj",
+    "imgUrl_1": ""
+  },
+  "547": {
+    "Id": 547,
+    "Name": "scgxmj",
+    "Type": 1,
+    "Name_1": "高县麻将",
+    "imgUrl": "btn_scgxmj",
+    "imgUrl_1": ""
+  },
+  "588": {
+    "Id": 588,
+    "Name": "gapdk",
+    "Type": 2,
+    "Name_1": "高安跑得快",
+    "imgUrl": "btn_gapdk",
+    "imgUrl_1": ""
+  },
+  "587": {
+    "Id": 587,
+    "Name": "dphmj",
+    "Type": 1,
+    "Name_1": "点炮胡麻将",
+    "imgUrl": "btn_dphmj",
+    "imgUrl_1": ""
+  },
+  "590": {
+    "Id": 590,
+    "Name": "qdjt",
+    "Type": 2,
+    "Name_1": "丰城踢牌",
+    "imgUrl": "btn_qdjt",
+    "imgUrl_1": ""
+  },
+  "583": {
+    "Id": 583,
+    "Name": "hxdz",
+    "Type": 2,
+    "Name_1": "红心大战",
+    "imgUrl": "btn_hxdz",
+    "imgUrl_1": ""
+  },
+  "593": {
+    "Id": 593,
+    "Name": "jayxmj",
+    "Type": 1,
+    "Name_1": "永新麻将",
+    "imgUrl": "btn_jayxmj",
+    "imgUrl_1": ""
+  },
+  "591": {
+    "Id": 591,
+    "Name": "yxmdmj",
+    "Type": 1,
+    "Name_1": "永修满带",
+    "imgUrl": "btn_yxmdmj",
+    "imgUrl_1": ""
+  },
+  "586": {
+    "Id": 586,
+    "Name": "jjwnmj",
+    "Type": 1,
+    "Name_1": "武宁麻将",
+    "imgUrl": "btn_jjwnmj",
+    "imgUrl_1": ""
+  },
+  "595": {
+    "Id": 595,
+    "Name": "pxphz",
+    "Type": 1,
+    "Name_1": "萍乡跑胡子",
+    "imgUrl": "btn_pxphz",
+    "imgUrl_1": ""
+  },
+  "550": {
+    "Id": 550,
+    "Name": "scncmj",
+    "Type": 1,
+    "Name_1": "南充麻将",
+    "imgUrl": "btn_scncmj",
+    "imgUrl_1": ""
+  },
+  "554": {
+    "Id": 554,
+    "Name": "hcng",
+    "Type": 2,
+    "Name_1": "河池牛鬼",
+    "imgUrl": "btn_hcng",
+    "imgUrl_1": ""
+  },
+  "334": {
+    "Id": 334,
+    "Name": "rgjamj",
+    "Type": 1,
+    "Name_1": "江安麻将",
+    "imgUrl": "btn_rgjamj",
+    "imgUrl_1": ""
+  },
+  "594": {
+    "Id": 594,
+    "Name": "hzzmj",
+    "Type": 1,
+    "Name_1": "惠州庄麻将",
+    "imgUrl": "btn_hzzmj",
+    "imgUrl_1": ""
+  },
+  "596": {
+    "Id": 596,
+    "Name": "ggmj",
+    "Type": 1,
+    "Name_1": "贵港麻将",
+    "imgUrl": "btn_ggmj",
+    "imgUrl_1": ""
+  },
+  "600": {
+    "Id": 600,
+    "Name": "glmj",
+    "Type": 1,
+    "Name_1": "桂柳麻将",
+    "imgUrl": "btn_glmj",
+    "imgUrl_1": ""
+  },
+  "603": {
+    "Id": 603,
+    "Name": "nnmj",
+    "Type": 1,
+    "Name_1": "南宁麻将",
+    "imgUrl": "btn_nnmj",
+    "imgUrl_1": ""
+  },
+  "556": {
+    "Id": 556,
+    "Name": "scdymj",
+    "Type": 1,
+    "Name_1": "德阳麻将",
+    "imgUrl": "btn_scdymj",
+    "imgUrl_1": ""
+  },
+  "538": {
+    "Id": 538,
+    "Name": "ybgxmj",
+    "Type": 1,
+    "Name_1": "珙县麻将",
+    "imgUrl": "btn_ybgxmj",
+    "imgUrl_1": ""
+  },
+  "597": {
+    "Id": 597,
+    "Name": "bhmj",
+    "Type": 1,
+    "Name_1": "北海麻将",
+    "imgUrl": "btn_bhmj",
+    "imgUrl_1": ""
+  },
+  "604": {
+    "Id": 604,
+    "Name": "jtpdk",
+    "Type": 2,
+    "Name_1": "金坛跑得快",
+    "imgUrl": "btn_jtpdk",
+    "imgUrl_1": ""
+  },
+  "528": {
+    "Id": 528,
+    "Name": "xwmj",
+    "Type": 1,
+    "Name_1": "兴文麻将",
+    "imgUrl": "btn_xwmj",
+    "imgUrl_1": ""
+  },
+  "602": {
+    "Id": 602,
+    "Name": "gfdtt",
+    "Type": 2,
+    "Name_1": "广丰打通天",
+    "imgUrl": "btn_gfdtt",
+    "imgUrl_1": ""
+  },
+  "599": {
+    "Id": 599,
+    "Name": "gfmj",
+    "Type": 1,
+    "Name_1": "广丰麻将",
+    "imgUrl": "btn_gfmj",
+    "imgUrl_1": ""
+  },
+  "609": {
+    "Id": 609,
+    "Name": "jyessz",
+    "Type": 1,
+    "Name_1": "姜堰二十三张",
+    "imgUrl": "btn_jyessz",
+    "imgUrl_1": ""
+  },
+  "610": {
+    "Id": 610,
+    "Name": "tzpdk",
+    "Type": 2,
+    "Name_1": "泰州跑得快",
+    "imgUrl": "btn_tzpdk",
+    "imgUrl_1": ""
+  },
+  "608": {
+    "Id": 608,
+    "Name": "sryymj",
+    "Type": 1,
+    "Name_1": "弋阳麻将",
+    "imgUrl": "btn_sryymj",
+    "imgUrl_1": ""
+  },
+  "541": {
+    "Id": 541,
+    "Name": "zymj",
+    "Type": 1,
+    "Name_1": "遵义麻将",
+    "imgUrl": "btn_zymj",
+    "imgUrl_1": ""
+  },
+  "612": {
+    "Id": 612,
+    "Name": "kjmj",
+    "Type": 1,
+    "Name_1": "客家麻将",
+    "imgUrl": "btn_kjmj",
+    "imgUrl_1": ""
+  },
+  "613": {
+    "Id": 613,
+    "Name": "zqmj",
+    "Type": 1,
+    "Name_1": "肇庆麻将",
+    "imgUrl": "btn_zqmj",
+    "imgUrl_1": ""
+  },
+  "611": {
+    "Id": 611,
+    "Name": "dsp",
+    "Type": 2,
+    "Name_1": "打三片",
+    "imgUrl": "btn_dsp",
+    "imgUrl_1": ""
+  },
+  "605": {
+    "Id": 605,
+    "Name": "gfwsk",
+    "Type": 2,
+    "Name_1": "广丰510K",
+    "imgUrl": "btn_gfwsk",
+    "imgUrl_1": ""
+  },
+  "617": {
+    "Id": 617,
+    "Name": "xcmj",
+    "Type": 1,
+    "Name_1": "宣城麻将",
+    "imgUrl": "btn_xcmj",
+    "imgUrl_1": ""
+  },
+  "614": {
+    "Id": 614,
+    "Name": "fdpk",
+    "Type": 2,
+    "Name_1": "翻墩",
+    "imgUrl": "btn_fdpk",
+    "imgUrl_1": ""
+  },
+  "615": {
+    "Id": 615,
+    "Name": "srdz",
+    "Type": 2,
+    "Name_1": "上饶打炸",
+    "imgUrl": "btn_srdz",
+    "imgUrl_1": ""
+  },
+  "618": {
+    "Id": 618,
+    "Name": "xcpdk",
+    "Type": 2,
+    "Name_1": "宣城跑得快",
+    "imgUrl": "btn_xcpdk",
+    "imgUrl_1": ""
+  },
+  "621": {
+    "Id": 621,
+    "Name": "bdjhmj",
+    "Type": 1,
+    "Name_1": "百搭鸡胡",
+    "imgUrl": "btn_bdjhmj",
+    "imgUrl_1": ""
+  },
+  "622": {
+    "Id": 622,
+    "Name": "hzbdmj",
+    "Type": 1,
+    "Name_1": "惠州百搭麻将",
+    "imgUrl": "btn_hzbdmj",
+    "imgUrl_1": ""
+  },
+  "628": {
+    "Id": 628,
+    "Name": "scjymj",
+    "Type": 1,
+    "Name_1": "四川简阳麻将",
+    "imgUrl": "btn_scjymj",
+    "imgUrl_1": ""
+  },
+  "629": {
+    "Id": 629,
+    "Name": "njpdk",
+    "Type": 2,
+    "Name_1": "内江跑得快",
+    "imgUrl": "btn_njpdk",
+    "imgUrl_1": ""
+  }
+}

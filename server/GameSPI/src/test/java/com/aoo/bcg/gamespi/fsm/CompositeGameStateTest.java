@@ -1,0 +1,3 @@
+package com.aoo.bcg.gamespi.fsm;
+import java.util.Map;import org.junit.jupiter.api.Test;import static org.junit.jupiter.api.Assertions.*;
+class CompositeGameStateTest{@Test void modelsAllOrthogonalAuthorityDimensions(){var state=new CompositeGameState(RoomLifecycleState.PLAYING,RoundLifecycleState.OPERATING,Map.of(0,PlayerLifecycleState.PLAYING,1,PlayerLifecycleState.OFFLINE),OperationWindowLifecycleState.OPEN,DissolveLifecycleState.NONE);assertEquals(5,state.getClass().getRecordComponents().length);assertEquals(PlayerLifecycleState.OFFLINE,state.players().get(1));assertTrue(RoomLifecycleState.values().length>=10);}}

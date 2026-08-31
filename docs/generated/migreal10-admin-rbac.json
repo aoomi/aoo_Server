@@ -1,0 +1,212 @@
+{
+  "task": "MIGREAL10",
+  "routeCount": 22,
+  "routes": [
+    {
+      "button": "game-profile-list",
+      "method": "GET",
+      "path": "/api/v2/admin/game-profiles",
+      "permission": "game-profile.read",
+      "targetType": "GAME",
+      "risk": "NORMAL"
+    },
+    {
+      "button": "map-ip-location",
+      "method": "GET",
+      "path": "/api/v2/admin/map/ip-location",
+      "permission": "map.location.read",
+      "targetType": "GLOBAL",
+      "risk": "NORMAL"
+    },
+    {
+      "button": "game-release-read",
+      "method": "GET",
+      "path": "/api/v2/admin/game-profile-releases/{scope}/{id}",
+      "permission": "game-profile.read",
+      "targetType": "GAME",
+      "risk": "NORMAL"
+    },
+    {
+      "button": "game-release-draft",
+      "method": "POST",
+      "path": "/api/v2/admin/game-profile-releases/{scope}/{id}/draft",
+      "permission": "game-profile.draft",
+      "targetType": "GAME",
+      "risk": "NORMAL"
+    },
+    {
+      "button": "game-release-validate",
+      "method": "POST",
+      "path": "/api/v2/admin/game-profile-releases/{scope}/{id}/validate",
+      "permission": "game-profile.validate",
+      "targetType": "GAME",
+      "risk": "NORMAL"
+    },
+    {
+      "button": "game-release-submit",
+      "method": "POST",
+      "path": "/api/v2/admin/game-profile-releases/{scope}/{id}/submit",
+      "permission": "game-profile.submit",
+      "targetType": "GAME",
+      "risk": "NORMAL"
+    },
+    {
+      "button": "game-release-approve",
+      "method": "POST",
+      "path": "/api/v2/admin/game-profile-releases/{scope}/{id}/approve",
+      "permission": "game-profile.approve",
+      "targetType": "GAME",
+      "risk": "NORMAL"
+    },
+    {
+      "button": "game-release-canary",
+      "method": "POST",
+      "path": "/api/v2/admin/game-profile-releases/{scope}/{id}/canary",
+      "permission": "game-profile.canary",
+      "targetType": "GAME",
+      "risk": "HIGH"
+    },
+    {
+      "button": "game-release-activate",
+      "method": "POST",
+      "path": "/api/v2/admin/game-profile-releases/{scope}/{id}/activate",
+      "permission": "game-profile.activate",
+      "targetType": "GAME",
+      "risk": "HIGH"
+    },
+    {
+      "button": "game-release-rollback",
+      "method": "POST",
+      "path": "/api/v2/admin/game-profile-releases/{scope}/{id}/rollback",
+      "permission": "game-profile.rollback",
+      "targetType": "GAME",
+      "risk": "HIGH"
+    },
+    {
+      "button": "game-investigation-read",
+      "method": "GET",
+      "path": "/api/v2/admin/game-investigations/{scope}",
+      "permission": "game-investigation.read",
+      "targetType": "ROOM",
+      "risk": "NORMAL"
+    },
+    {
+      "button": "operation-switch-list",
+      "method": "GET",
+      "path": "/api/v2/admin/operation-switches",
+      "permission": "operation-switch.read",
+      "targetType": "GAME",
+      "risk": "NORMAL"
+    },
+    {
+      "button": "operation-switch-update",
+      "method": "PUT",
+      "path": "/api/v2/admin/operation-switches/{id}",
+      "permission": "operation-switch.update",
+      "targetType": "GAME",
+      "risk": "HIGH"
+    },
+    {
+      "button": "appeal-list",
+      "method": "GET",
+      "path": "/api/v2/admin/appeals",
+      "permission": "appeal.read",
+      "targetType": "CLUB",
+      "risk": "NORMAL"
+    },
+    {
+      "button": "appeal-resolve",
+      "method": "PUT",
+      "path": "/api/v2/admin/appeals/{id}/resolve",
+      "permission": "appeal.resolve",
+      "targetType": "CLUB",
+      "risk": "HIGH"
+    },
+    {
+      "button": "reconciliation-run",
+      "method": "GET",
+      "path": "/api/v2/admin/reconciliation",
+      "permission": "reconciliation.read",
+      "targetType": "GLOBAL",
+      "risk": "NORMAL"
+    },
+    {
+      "button": "data-lifecycle-list",
+      "method": "GET",
+      "path": "/api/v2/admin/data-lifecycle",
+      "permission": "lifecycle.read",
+      "targetType": "REGION",
+      "risk": "NORMAL"
+    },
+    {
+      "button": "data-lifecycle-update",
+      "method": "PUT",
+      "path": "/api/v2/admin/data-lifecycle/{id}",
+      "permission": "lifecycle.update",
+      "targetType": "REGION",
+      "risk": "HIGH"
+    },
+    {
+      "button": "sensitive-export-request",
+      "method": "POST",
+      "path": "/api/v2/admin/sensitive-exports/{id}/request",
+      "permission": "sensitive-export.request",
+      "targetType": "EXPORT",
+      "risk": "NORMAL"
+    },
+    {
+      "button": "sensitive-export-approve",
+      "method": "POST",
+      "path": "/api/v2/admin/sensitive-exports/{id}/approve",
+      "permission": "sensitive-export.approve",
+      "targetType": "EXPORT",
+      "risk": "HIGH"
+    },
+    {
+      "button": "sensitive-export-generate",
+      "method": "POST",
+      "path": "/api/v2/admin/sensitive-exports/{id}/generate",
+      "permission": "sensitive-export.generate",
+      "targetType": "EXPORT",
+      "risk": "HIGH"
+    },
+    {
+      "button": "sensitive-export-download",
+      "method": "GET",
+      "path": "/api/v2/admin/sensitive-exports/{id}/download",
+      "permission": "sensitive-export.download",
+      "targetType": "EXPORT",
+      "risk": "NORMAL"
+    }
+  ],
+  "stagedReleasePermissions": {
+    "draft": "game-profile.draft",
+    "validate": "game-profile.validate",
+    "submit": "game-profile.submit",
+    "approve": "game-profile.approve",
+    "canary": "game-profile.canary",
+    "activate": "game-profile.activate",
+    "rollback": "game-profile.rollback"
+  },
+  "testCounts": {
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "checks": {
+    "twentyTwoAuthoritativeRoutes": true,
+    "everyRouteHasUniqueButton": true,
+    "everyMethodPathHasOnePermission": true,
+    "everyRouteMetadataComplete": true,
+    "integrationTestCoversEveryRoute": true,
+    "failClosedUnknown": true,
+    "stagedReleasePermissionsExact": true,
+    "highRiskStagesProtected": true,
+    "retiredDirectPublishDenied": true,
+    "rbacRoleAndDirectGrant": true,
+    "everyDecisionAudited": true,
+    "denialIntegrationTest": true
+  },
+  "status": "passed"
+}

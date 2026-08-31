@@ -1,0 +1,3 @@
+package com.aoo.bcg.common.repair;
+import java.util.List;import org.junit.jupiter.api.Test;import static org.junit.jupiter.api.Assertions.*;
+class RepairDryRunTest{@Test void reportsScopeSamplesChangesAndInvariantFailuresWithoutMutation(){var source=new java.util.ArrayList<>(List.of(1,2,3,4));var report=new RepairDryRun<Integer>().analyze(source,n->n%2==0,n->n+1,List.of(new RepairDryRun.Invariant<>("below-four",n->n<4)),1);assertEquals(4,report.scanned());assertEquals(2,report.matched());assertEquals(2,report.estimatedChanges());assertEquals(List.of(3),report.samples());assertEquals(1,report.invariantViolations().get("below-four"));assertFalse(report.mutationAttempted());assertEquals(List.of(1,2,3,4),source);}}

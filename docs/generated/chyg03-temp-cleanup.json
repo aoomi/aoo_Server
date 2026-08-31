@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "tempFiles": 17069,
+  "bytes": 191022927,
+  "checks": {
+    "tempIgnored": true,
+    "dryRunDefault": true,
+    "explicitApply": true,
+    "creatorProcessGuard": true,
+    "pathAllowlist": true,
+    "sourceTsconfigRegenerationDependency": true
+  },
+  "passed": true
+}

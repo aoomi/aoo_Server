@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "clientRoot": "/Users/aoo/Code/Game/BCG/Aoo/Client",
+  "serializedAssets": {
+    "total": 1794,
+    "scenes": 13,
+    "prefabs": 1781
+  },
+  "uuidDependencyGraph": {
+    "metaUuids": 13583,
+    "directReferences": 167345,
+    "engineBuiltinReferences": 24834,
+    "missingDirectReferences": 0,
+    "duplicateMetaUuids": 0,
+    "metaParseErrors": 0
+  },
+  "uiBackendClosure": {
+    "interactiveComponents": 4899,
+    "serializedBindings": 0,
+    "scriptFilesWithClickSites": 125,
+    "clickSites": 457,
+    "candidateFilesWithoutBackendClosure": 19,
+    "fakeSites": 11,
+    "candidateFixedSuccessFiles": 0
+  },
+  "storeSubscriptionSummary": {
+    "uiFiles": 181,
+    "subscriptionClosed": 0,
+    "missingSubscription": 181,
+    "dynamicNodeLookupFiles": 93,
+    "sinkCounts": {
+      "text": 99,
+      "button": 159,
+      "list": 127,
+      "animation": 6,
+      "popup": 69
+    },
+    "passed": false
+  },
+  "limitations": [
+    "runtime-computed resource paths require load instrumentation",
+    "runtime-computed node lookup and handlers require instrumented browser/editor execution"
+  ],
+  "checks": {
+    "serializedAssetsPresent": true,
+    "noMissingUuidReferences": true,
+    "noDuplicateUuidReferences": true,
+    "allInteractiveBindingsClosed": false
+  },
+  "verdict": "blocked-dynamic-ui-closure"
+}

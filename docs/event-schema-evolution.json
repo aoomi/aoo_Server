@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "policy": {
+    "producer": "Every event carries a positive schemaVersion; producers emit only the registered current version.",
+    "consumer": "Unknown future versions fail closed; older versions require every adjacent upcaster.",
+    "replay": "Replay reads stored eventType and schemaVersion and runs the same upcaster chain.",
+    "compatibility": "Within one event major line only additive optional fields are allowed without an upcaster."
+  },
+  "eventFamilies": [
+    {"pattern": "common.room.*", "currentVersion": 1},
+    {"pattern": "mahjong.*", "currentVersion": 1},
+    {"pattern": "poker.*", "currentVersion": 1},
+    {"pattern": "GAME_PROFILE_*", "currentVersion": 1}
+  ]
+}

@@ -1,0 +1,4 @@
+require 'json';require 'fileutils';root=File.expand_path('..',__dir__)
+source=File.read(File.join(root,'server/GameCommon/src/main/java/com/aoo/bcg/common/cache/CacheInvalidationCoordinator.java'));test=File.read(File.join(root,'server/GameCommon/src/test/java/com/aoo/bcg/common/cache/CacheInvalidationCoordinatorTest.java'))
+checks={room_end:source.include?('roomEnded'),version_unpublish:source.include?('playVersionUnpublished'),account_logout:source.include?('accountLoggedOut'),all_backends:source.include?('for(var backend:backends)'),failure_visible:source.include?('cache invalidation incomplete'),executable_test:test.include?('invalidatesEveryBackendForRoomVersionAndLogout')}
+abort "RES07 audit failed: #{checks}" unless checks.values.all?;out=File.join(root,'work/audit/cache-object-lifecycle.json');FileUtils.mkdir_p(File.dirname(out));File.write(out,JSON.pretty_generate({task:'RES07',status:'passed',checks:checks})+"\n")

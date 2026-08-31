@@ -1,0 +1,45 @@
+# Runtime and local diagnostics
+/logs/
+/server/logs/
+/work/local-runtime/
+/work/runtime/
+
+# Build and generated outputs
+**/target/
+**/build/
+**/bin/
+**/library/
+**/temp/
+**/node_modules/
+**/__pycache__/
+*.py[cod]
+*.pyc
+*.log
+*.pid
+
+# Local toolchains and IDE/OS state
+/work/jdk8/
+/work/toolchains/
+.DS_Store
+.idea/
+.vscode/
+*.iml
+.classpath
+.project
+.settings/
+**/runtime-classpath.txt
+
+# Secrets, backups, and local environment overrides
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.jks
+*.bak
+*.backup
+*.dump
+*.sql.gz
+/database/backups/
+/database/original/*.sql

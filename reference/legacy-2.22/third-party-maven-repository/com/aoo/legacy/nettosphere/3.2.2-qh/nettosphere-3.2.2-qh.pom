@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.aoo.legacy</groupId><artifactId>nettosphere</artifactId><version>3.2.2-qh</version><packaging>jar</packaging>
+  <name>QH customized Nettosphere compatibility bridge</name>
+  <dependencies>
+    <dependency><groupId>org.atmosphere</groupId><artifactId>atmosphere-runtime</artifactId><version>2.6.4</version></dependency>
+    <dependency><groupId>io.netty</groupId><artifactId>netty-all</artifactId><version>4.1.51.Final</version></dependency>
+  </dependencies>
+</project>

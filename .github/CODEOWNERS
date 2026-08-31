@@ -1,0 +1,15 @@
+# Core build, dependency, release and governance changes require platform review.
+/pom.xml @aoo-platform
+/.mvn/ @aoo-platform
+/mvnw @aoo-platform
+/.github/ @aoo-platform @aoo-security
+/config/ @aoo-platform
+/scripts/ @aoo-platform
+/tools/ @aoo-platform
+
+# Sensitive implementation areas are review-routed without changing their contents.
+/server/AooKernel/ @aoo-platform @aoo-security
+/server/GameSPI/ @aoo-platform
+/server/Billing/ @aoo-platform @aoo-security
+/server/commdef/ @aoo-platform
+/server/**/src/main/resources/db/migration/ @aoo-platform @aoo-security

@@ -1,0 +1,546 @@
+{
+  "schemaVersion": 1,
+  "policy": "Deleting a protected 2.22 artifact requires a complete approved record before manifest change.",
+  "artifacts": [
+    {
+      "path": "reference/legacy-2.22/common-lib/CopyLibs/org-netbeans-modules-java-j2seproject-copylibstask.jar",
+      "sha256": "40ded55da63d2328a29b8a02f4f8f6dc79d6a18fe66900576bbcc98eef80ef4b",
+      "bytes": 22969
+    },
+    {
+      "path": "reference/legacy-2.22/common-lib/Gson/gson-2.8.6-javadoc.jar",
+      "sha256": "21443c34a941adefbc8f1495c9ff8f1ed2eb322eb593f58cb70b0591ead0a4cc",
+      "bytes": 655508
+    },
+    {
+      "path": "reference/legacy-2.22/common-lib/Gson/gson-2.8.6-sources.jar",
+      "sha256": "da4d787939dc8de214724a20d88614b70ef8c3a4931d9c694300b5d9098ed9bc",
+      "bytes": 155546
+    },
+    {
+      "path": "reference/legacy-2.22/common-lib/Gson/gson-2.8.6.jar",
+      "sha256": "c8fb4839054d280b3033f800d1f5a97de2f028eb8ba2eb458ad287e536f3f25f",
+      "bytes": 240255
+    },
+    {
+      "path": "reference/legacy-2.22/common-lib/ant-contrib-1.0b3.jar",
+      "sha256": "be33a69818310b5c55e41dc11d48cd895f5f129da4b0d28c2f4c6c3e1cbcf3fc",
+      "bytes": 224277
+    },
+    {
+      "path": "reference/legacy-2.22/common-lib/apache-commons/commons-codec-1.9-javadoc.jar",
+      "sha256": "fd735c21f6d814cea00a32b9e18d68b2fe226add91dcd2b09bb8f42f42eb8086",
+      "bytes": 403357
+    },
+    {
+      "path": "reference/legacy-2.22/common-lib/apache-commons/commons-codec-1.9-sources.jar",
+      "sha256": "9b675502f73a7a78c4ba543a68a448649875203d5be2281c94eb31dbee426f2c",
+      "bytes": 278370
+    },
+    {
+      "path": "reference/legacy-2.22/common-lib/apache-commons/commons-codec-1.9.jar",
+      "sha256": "ad19d2601c3abf0b946b5c3a4113e226a8c1e3305e395b90013b78dd94a723ce",
+      "bytes": 263965
+    },
+    {
+      "path": "reference/legacy-2.22/common-lib/apache-commons/commons-collections-3.2.2.jar",
+      "sha256": "eeeae917917144a68a741d4c0dff66aa5c5c5fd85593ff217bced3fc8ca783b8",
+      "bytes": 588337
+    },
+    {
+      "path": "reference/legacy-2.22/common-lib/apache-commons/commons-compress-1.9.jar",
+      "sha256": "b8e0a1700023359a2b4d9f04b9287d7b9aa200f4feac1079812337eef2dcb8e2",
+      "bytes": 378217
+    },
+    {
+      "path": "reference/legacy-2.22/common-lib/apache-commons/commons-logging-1.1.1.jar",
+      "sha256": "ce6f913cad1f0db3aad70186d65c5bc7ffcc9a99e3fe8e0b137312819f7c362f",
+      "bytes": 60686
+    },
+    {
+      "path": "reference/legacy-2.22/common-lib/apache-http/httpasyncclient-4.0.2.jar",
+      "sha256": "c3f0d9f97af7f2de8c5f8cf805de603d69e2a4be30550c5aefe411e9ba1d1815",
+      "bytes": 157851
+    },
+    {
+      "path": "reference/legacy-2.22/common-lib/apache-http/httpclient-4.4.1.jar",
+      "sha256": "b2958ffb74f691e108abe69af0002ccff90ba326420596b1aab5bb0f63c31ef9",
+      "bytes": 720931
+    },
+    {
+      "path": "reference/legacy-2.22/common-lib/apache-http/httpcore-4.4.1.jar",
+      "sha256": "dd1390c17d40f760f7e51bb20523a8d63deb69e94babeaf567eb76ecd2cad422",
+      "bytes": 322234
+    },
+    {
+      "path": "reference/legacy-2.22/common-lib/apache-http/httpcore-nio-4.4.1.jar",
+      "sha256": "0a36f84fd4d19046a91b464ece31c5cbec22a648cb6c382b1214a3ef17b03d06",
+      "bytes": 355702
+    },
+    {
+      "path": "reference/legacy-2.22/common-lib/apns-0.2.3.jar",
+      "sha256": "e8dcf9a5a245f2c0dc6606356aaf60cda75c11cab932798638c57d4cdd4b84b0",
+      "bytes": 54144
+    },
+    {
+      "path": "reference/legacy-2.22/common-lib/asm-6.2.jar",
+      "sha256": "917bda888bc543187325d5fbc1034207eed152574ef78df1734ca0aee40b7fc8",
+      "bytes": 111214
+    },
+    {
+      "path": "reference/legacy-2.22/common-lib/bonecp-0.7.1.RELEASE.jar",
+      "sha256": "4557b96ef898096b188237dc50446e8d0fee2526a1c16c88167c120878361f3b",
+      "bytes": 115709
+    },
+    {
+      "path": "reference/legacy-2.22/common-lib/bsh/bsh-2.0b5.jar",
+      "sha256": "6232199563807354b3bcb5aceb3dc136502f022c6b0ef743987a83f66fee5a5c",
+      "bytes": 383846
+    },
+    {
+      "path": "reference/legacy-2.22/common-lib/c3p0_0.9.5/c3p0-0.9.5-pre7-javadoc.jar",
+      "sha256": "595c202701c945bbeddbfdbabc88422930ce290fcf3067bb1e82b75b37bfe189",
+      "bytes": 578301
+    },
+    {
+      "path": "reference/legacy-2.22/common-lib/c3p0_0.9.5/c3p0-0.9.5-pre7-sources.jar",
+      "sha256": "f65b9f8561500730bbf7da2d69db1664d578dfc761a08e6196a0dbba784719ee",
+      "bytes": 348016
+    },
+    {
+      "path": "reference/legacy-2.22/common-lib/c3p0_0.9.5/c3p0-0.9.5-pre7.jar",
+      "sha256": "bea60bf7fb0adc375b075c632e4de588ec605ce03d6ff5b71e8091b51a8ac21d",
+      "bytes": 482849
+    },
+    {
+      "path": "reference/legacy-2.22/common-lib/c3p0_0.9.5/mchange-commons-java-0.2.6.5-javadoc.jar",
+      "sha256": "84680c2ca665b6d432a6b15538f963f2325be89342e07f0494e063c599a09ea5",
+      "bytes": 1392925
+    },
+    {
+      "path": "reference/legacy-2.22/common-lib/c3p0_0.9.5/mchange-commons-java-0.2.6.5-sources.jar",
+      "sha256": "c293427c8b993d56f4d5602864262592b9d76ce7464fc33cad918e3cbc52c550",
+      "bytes": 663913
+    },
+    {
+      "path": "reference/legacy-2.22/common-lib/c3p0_0.9.5/mchange-commons-java-0.2.6.5.jar",
+      "sha256": "dd00179e23255119d551dff10c983068f251e5e0312698edc0a2b66f841e4db2",
+      "bytes": 602160
+    },
+    {
+      "path": "reference/legacy-2.22/common-lib/cglib-3.2.7.jar",
+      "sha256": "932b67f86437050bb4632339f1d7236b26b52311d428b5cb37e4e366f8942426",
+      "bytes": 302120
+    },
+    {
+      "path": "reference/legacy-2.22/common-lib/commons-beanutils-1.9.3/commons-beanutils-1.9.3-javadoc.jar",
+      "sha256": "66b19ba3fb81fa43e842437194a57d769543c960d6b740f5b825dc0b4536f677",
+      "bytes": 814388
+    },
+    {
+      "path": "reference/legacy-2.22/common-lib/commons-beanutils-1.9.3/commons-beanutils-1.9.3-sources.jar",
+      "sha256": "3315f25f3793c1bb2577b2d956f58f852c7386c73aff4dea450e419a80b00a41",
+      "bytes": 314687
+    },
+    {
+      "path": "reference/legacy-2.22/common-lib/commons-beanutils-1.9.3/commons-beanutils-1.9.3.jar",
+      "sha256": "c058e39c7c64203d3a448f3adb588cb03d6378ed808485618f26e137f29dae73",
+      "bytes": 246174
+    },
+    {
+      "path": "reference/legacy-2.22/common-lib/commons-cli-1.2.jar",
+      "sha256": "e7cd8951956d349b568b7ccfd4f5b2529a8c113e67c32b028f52ffda371259d9",
+      "bytes": 41123
+    },
+    {
+      "path": "reference/legacy-2.22/common-lib/commons-lang3-3.7/commons-lang3-3.7-javadoc.jar",
+      "sha256": "d6598d2f2f2ca5e1217ee3c706985e8e4dc81d6490197160792b29a21c37fecb",
+      "bytes": 1277784
+    },
+    {
+      "path": "reference/legacy-2.22/common-lib/commons-lang3-3.7/commons-lang3-3.7-sources.jar",
+      "sha256": "8c48529d61778cee7b44e1c5858c887abed5395f5d13d6d52931d14ab22f017f",
+      "bytes": 550341
+    },
+    {
+      "path": "reference/legacy-2.22/common-lib/commons-lang3-3.7/commons-lang3-3.7.jar",
+      "sha256": "6e8dc31e046508d9953c96534edf0c2e0bfe6f468966b5b842b3f87e43b6a847",
+      "bytes": 499634
+    },
+    {
+      "path": "reference/legacy-2.22/common-lib/disruptor-3.4.2.jar",
+      "sha256": "f412ecbb235c2460b45e63584109723dea8d94b819c78c9bfc38f50cba8546c0",
+      "bytes": 83064
+    },
+    {
+      "path": "reference/legacy-2.22/common-lib/ehcache-3.8.1.jar",
+      "sha256": "95ed983b906d5d292ea41f561c09e58e9c22574a4fd73958bd9956a645365cfc",
+      "bytes": 1796698
+    },
+    {
+      "path": "reference/legacy-2.22/common-lib/fastjson-1.2.31.jar",
+      "sha256": "12e6fe4809aa0be98bd2c88ca87dccefd6d1e612cbee8abe242a733f26d6b1f5",
+      "bytes": 463020
+    },
+    {
+      "path": "reference/legacy-2.22/common-lib/guava-10.0.1.jar",
+      "sha256": "7d228a16b9cd0d78ac7cc1a45cd6b65c9423c32c5e26f99f9bd2577d37396baa",
+      "bytes": 1501575
+    },
+    {
+      "path": "reference/legacy-2.22/common-lib/guava/guava-17.0-sources.jar",
+      "sha256": "df275cbcc3ab90c7fd4cc70e8b26b454c16a708b909f357f07115ca54a83f9bd",
+      "bytes": 1272791
+    },
+    {
+      "path": "reference/legacy-2.22/common-lib/guava/guava-17.0.jar",
+      "sha256": "8c36a80ea613d0b6b8040a17cf837c5bbe3677bc1b06a058a6c174fdb787ebbc",
+      "bytes": 2243036
+    },
+    {
+      "path": "reference/legacy-2.22/common-lib/ip2region-2.6.4.jar",
+      "sha256": "eac5cd58621d352f87b3fa3d6691ce71c2778f2e04a239900e98c927cf270b56",
+      "bytes": 12256
+    },
+    {
+      "path": "reference/legacy-2.22/common-lib/jackson/jackson-annotations-2.1.4.jar",
+      "sha256": "db6df8bb3d76fdf76b82d935d7da2a952ec6671dba8924f7182cb5f30046f0a6",
+      "bytes": 34476
+    },
+    {
+      "path": "reference/legacy-2.22/common-lib/jackson/jackson-core-2.1.4.jar",
+      "sha256": "d22b278cd67f11f12fbeb27ef0c0577f6cbf17f648990c46e8584752936e16f8",
+      "bytes": 206866
+    },
+    {
+      "path": "reference/legacy-2.22/common-lib/jackson/jackson-databind-2.1.4.jar",
+      "sha256": "cf5878c7261d4d304908eaf4834a5f2c7127cea97a76debcb65c861a38855931",
+      "bytes": 926562
+    },
+    {
+      "path": "reference/legacy-2.22/common-lib/javax.servlet-3.0.0.v201112011016.jar",
+      "sha256": "a2cc192a076d9effd10becee8aacbe157f0fe2010fd4322e58aaeff198e56dbe",
+      "bytes": 200387
+    },
+    {
+      "path": "reference/legacy-2.22/common-lib/javolution_6.0/javolution-core-java-6.0.0-javadoc.jar",
+      "sha256": "03eed98a0ad6e5e3e75d95334d02360c6be0fc405ce0937ef98ee96074069c7d",
+      "bytes": 936337
+    },
+    {
+      "path": "reference/legacy-2.22/common-lib/javolution_6.0/javolution-core-java-6.0.0-sources.jar",
+      "sha256": "21d8f129a3945832c11b986f85f68d336d4d0564a0b7f472aa70c48c946df5bb",
+      "bytes": 376466
+    },
+    {
+      "path": "reference/legacy-2.22/common-lib/javolution_6.0/javolution-core-java-6.0.0.jar",
+      "sha256": "ba96b89e795f55e7cdde619e7cb21d1dc2986f58cdc3b3cf5ec1f382bfe50ff8",
+      "bytes": 412956
+    },
+    {
+      "path": "reference/legacy-2.22/common-lib/jcraft/jsch-0.1.51.jar",
+      "sha256": "900d813ce39a20c1a75aa9ca9b0a468f93039a6993a7a9db4a16289dbaeb0596",
+      "bytes": 263829
+    },
+    {
+      "path": "reference/legacy-2.22/common-lib/jdbc/commons-dbutils-1.7.jar",
+      "sha256": "3728e4691d18b8f691e25277ec53489f561101f059dbfb5c817de9cdb2dfac36",
+      "bytes": 97075
+    },
+    {
+      "path": "reference/legacy-2.22/common-lib/jdbc/druid-1.1.10.jar",
+      "sha256": "b868bb1661556de4d3f38f80ae0b0381903cb5112d634ad8ee489d33be255b05",
+      "bytes": 2756709
+    },
+    {
+      "path": "reference/legacy-2.22/common-lib/jfinal-3.2.jar",
+      "sha256": "db87c93281fab921473508c8dd96f430a1a97ecab8aeca9c4741b706f53b26c8",
+      "bytes": 595898
+    },
+    {
+      "path": "reference/legacy-2.22/common-lib/jfinal-weixin-1.9-sources.jar",
+      "sha256": "5733f8825c97b58e09b87be9d02cd5993023f6f010539104724f548d73be46d2",
+      "bytes": 211976
+    },
+    {
+      "path": "reference/legacy-2.22/common-lib/jfinal-weixin-1.9.jar",
+      "sha256": "22bdaa55d72d892ac66e489b332f44a76838412b46461503edca5027b2b602d0",
+      "bytes": 236186
+    },
+    {
+      "path": "reference/legacy-2.22/common-lib/jgit/org.eclipse.jgit-3.3.2.201404171909-r-javadoc.jar",
+      "sha256": "e266909b66b064f9138da1b1e22efc546a4ec892fd313899e606bdc8c20f1ae6",
+      "bytes": 4153684
+    },
+    {
+      "path": "reference/legacy-2.22/common-lib/jgit/org.eclipse.jgit-3.3.2.201404171909-r-sources.jar",
+      "sha256": "2565d7a9b2686b8bd7b316ad81a324567e7d105b56eff6ea46bb995f66f18bea",
+      "bytes": 1850592
+    },
+    {
+      "path": "reference/legacy-2.22/common-lib/jgit/org.eclipse.jgit-3.3.2.201404171909-r.jar",
+      "sha256": "0c642f07242cbac02f71c7233483c9a728da95f6acaf78b808ffa7739e977a71",
+      "bytes": 1872726
+    },
+    {
+      "path": "reference/legacy-2.22/common-lib/joda-time-2.9.9.jar",
+      "sha256": "b049a43c1057942e6acfbece008e4949b2e35d1658d0c8e06f4485397e2fa4e7",
+      "bytes": 634048
+    },
+    {
+      "path": "reference/legacy-2.22/common-lib/jsc.jar",
+      "sha256": "bb9aee3f5b3db1342618a4b036f025f60341d02b886c3028dc6c6cfca4108797",
+      "bytes": 1075447
+    },
+    {
+      "path": "reference/legacy-2.22/common-lib/junit_4/junit-4.10-javadoc.jar",
+      "sha256": "06a0f46b610ab2c6b259d6d1873d9700447c7b294f53e5c36350ea95cfb13ec2",
+      "bytes": 424758
+    },
+    {
+      "path": "reference/legacy-2.22/common-lib/junit_4/junit-4.10-sources.jar",
+      "sha256": "e3a4cb7ac3343265f5663b68857078ae68787450afc6e72dc6826962a1bf5212",
+      "bytes": 141185
+    },
+    {
+      "path": "reference/legacy-2.22/common-lib/junit_4/junit-4.10.jar",
+      "sha256": "36a747ca1e0b86f6ea88055b8723bb87030d627766da6288bf077afdeeb0f75a",
+      "bytes": 253160
+    },
+    {
+      "path": "reference/legacy-2.22/common-lib/junit_mock/javassist-3.25.0-GA.jar",
+      "sha256": "5d49abd02997134f80041645e9668e1ff97afd69d2c2c55ae9fbd40dc073f97b",
+      "bytes": 780265
+    },
+    {
+      "path": "reference/legacy-2.22/common-lib/junit_mock/junit-4.12.jar",
+      "sha256": "59721f0805e223d84b90677887d9ff567dc534d7c502ca903c0c2b17f05c116a",
+      "bytes": 314932
+    },
+    {
+      "path": "reference/legacy-2.22/common-lib/junit_mock/mockito-all-2.0.2-beta.jar",
+      "sha256": "c246c44afee96c06e514507ccc6689090b33d2a4134f7311d3042a01c16fdcad",
+      "bytes": 1234720
+    },
+    {
+      "path": "reference/legacy-2.22/common-lib/junit_mock/powermock-api-mockito-1.6.3.jar",
+      "sha256": "ae9f2548fb113bcc108034ebb7a077ab437c26f0cdb463fb2656770187800327",
+      "bytes": 97191
+    },
+    {
+      "path": "reference/legacy-2.22/common-lib/junit_mock/powermock-api-support-1.6.3.jar",
+      "sha256": "7e52493bdb8bc0fc334b73348d2971238e640d00e0129b8146e2a03ede67d3a4",
+      "bytes": 19460
+    },
+    {
+      "path": "reference/legacy-2.22/common-lib/junit_mock/powermock-core-1.6.3.jar",
+      "sha256": "b4336cc0851b272f003c066bc3c6a6ee82f1367116c8f02e1c23fb4de3ac9f50",
+      "bytes": 104799
+    },
+    {
+      "path": "reference/legacy-2.22/common-lib/junit_mock/powermock-module-junit4-1.6.1.jar",
+      "sha256": "24642718c7940446bb7ea2d8e6fe5f6371b75aa413b626ccfd89c2c2eacf857f",
+      "bytes": 45659
+    },
+    {
+      "path": "reference/legacy-2.22/common-lib/junit_mock/powermock-module-junit4-common-1.6.1.jar",
+      "sha256": "ab2531c7ba10dc13d0c610595f0e7adf9e3be06ed1fe9b55637ad1f61e65ab70",
+      "bytes": 14525
+    },
+    {
+      "path": "reference/legacy-2.22/common-lib/junit_mock/powermock-reflect-1.6.3.jar",
+      "sha256": "cac2c137d87ace98e1a8f56015f9218a14477c668b9e99152153bf2e0c6b903f",
+      "bytes": 47281
+    },
+    {
+      "path": "reference/legacy-2.22/common-lib/kernel.jar",
+      "sha256": "068f9bc2c38a79d1b7012ddd401f1b7a4da023e38e2216f54313da4e091ca5ee",
+      "bytes": 48426
+    },
+    {
+      "path": "reference/legacy-2.22/common-lib/kryo/kryo-4.0.2.jar",
+      "sha256": "8cd8bcb6920b165ff21b82f7a44f2c7e87dcb24560e52b9dc7d085fba9cfcce5",
+      "bytes": 337512
+    },
+    {
+      "path": "reference/legacy-2.22/common-lib/kryo/kryo-serializers-0.45.jar",
+      "sha256": "7da1c5e1d51bdefea1536d6ccf87fb63b2be85d76287c523bee1c4125fc4b2a1",
+      "bytes": 126366
+    },
+    {
+      "path": "reference/legacy-2.22/common-lib/kryo/minlog-1.3.0.jar",
+      "sha256": "f7b399d3a5478a4f3e0d98bd1c9f47766119c66414bc33aa0f6cde0066f24cc2",
+      "bytes": 5711
+    },
+    {
+      "path": "reference/legacy-2.22/common-lib/kryo/reflectasm-1.07.jar",
+      "sha256": "6598554856ff581057820abade132d5afef924796e6c996e5a9075bd2c376026",
+      "bytes": 17672
+    },
+    {
+      "path": "reference/legacy-2.22/common-lib/log4j-1.2.17.jar",
+      "sha256": "1d31696445697720527091754369082a6651bd49781b6005deb94e56753406f9",
+      "bytes": 489884
+    },
+    {
+      "path": "reference/legacy-2.22/common-lib/log4j12/log4j-1.2.17-javadoc.jar",
+      "sha256": "e3d58f5fa87b95aed43fa2969680d2285c3a25fc0e40d4b63508ab74ebde8699",
+      "bytes": 1491397
+    },
+    {
+      "path": "reference/legacy-2.22/common-lib/log4j12/log4j-1.2.17-sources.jar",
+      "sha256": "4d9ba787af1692aa88417c2a47a37a98125d645b91ab556252dbee0f45225493",
+      "bytes": 481200
+    },
+    {
+      "path": "reference/legacy-2.22/common-lib/log4j12/log4j-1.2.17.jar",
+      "sha256": "a2234476879b9e76f99a561f3d9da243684edb54b0b44ef7c0cf7a1a3d1e6776",
+      "bytes": 489883
+    },
+    {
+      "path": "reference/legacy-2.22/common-lib/logback1.1.3/logback-classic-1.1.3.jar",
+      "sha256": "a53836dc74aa114a7291c1189e39b109010b78a9e24c823b5c5fd0e99c819c80",
+      "bytes": 280926
+    },
+    {
+      "path": "reference/legacy-2.22/common-lib/logback1.1.3/logback-core-1.1.3.jar",
+      "sha256": "f8a805d2cbded608ca32a52cf0edad86cc2768d5a99959cd683766065911a914",
+      "bytes": 455041
+    },
+    {
+      "path": "reference/legacy-2.22/common-lib/lombok-1.18.46.jar",
+      "sha256": "01f7b1a015e33e2b62d5f5f37053306357ab1415fd181fcba7794f5d198c1126",
+      "bytes": 2045364
+    },
+    {
+      "path": "reference/legacy-2.22/common-lib/mina/mina-core-2.0.9.jar",
+      "sha256": "8e9bf7e00b57de343e29277d56f9427d427d25d3717591a9de8ffeaa5399655c",
+      "bytes": 632771
+    },
+    {
+      "path": "reference/legacy-2.22/common-lib/mongodb/bson-3.4.2.jar",
+      "sha256": "616bd1322664fde696e8cb8f1064f43443afaa508ef33452ebaaea3e2549f178",
+      "bytes": 244490
+    },
+    {
+      "path": "reference/legacy-2.22/common-lib/mongodb/mongodb-driver-3.4.2.jar",
+      "sha256": "22080603ec0886bd92c78b1f784c4d01154d94500cef1a8e3fa36e7c48e42132",
+      "bytes": 367022
+    },
+    {
+      "path": "reference/legacy-2.22/common-lib/mongodb/mongodb-driver-core-3.4.2.jar",
+      "sha256": "de7ca534c9a2d0ddc9169e21cacb6bb5119801badff30e0a22abde514a80b0a8",
+      "bytes": 1063783
+    },
+    {
+      "path": "reference/legacy-2.22/common-lib/mysql-connector-j-26.7.0.jar",
+      "sha256": "69084713593a4aa8d07c383619b9639276f08bccf8faf1c562178147d389b1e1",
+      "bytes": 2613206
+    },
+    {
+      "path": "reference/legacy-2.22/common-lib/nettosphere/atmosphere-runtime-2.6.4.jar",
+      "sha256": "40e4805053027e1e8325e08f33db6148b8dd34cd0edcad0323850939a6e1e6af",
+      "bytes": 883305
+    },
+    {
+      "path": "reference/legacy-2.22/common-lib/nettosphere/geronimo-servlet_3.0_spec-1.0.jar",
+      "sha256": "70dc82f7e36bdbdb7719e6d8798ecbdfa2d61e0b2617cf7a05b72fe3e12fd9bf",
+      "bytes": 96323
+    },
+    {
+      "path": "reference/legacy-2.22/common-lib/nettosphere/nettosphere-3.2.2.jar",
+      "sha256": "59421e4b5f135af98d407cc02716e239bdd28789c9fffb02cd3cc76a0ff45eb9",
+      "bytes": 88912
+    },
+    {
+      "path": "reference/legacy-2.22/common-lib/nettosphere/netty-all-4.1.51.Final.jar",
+      "sha256": "eb8fac6a0bf6885e16fdd453f7f362cdfffa730221c4906721bbfab46fe1f6bf",
+      "bytes": 4216895
+    },
+    {
+      "path": "reference/legacy-2.22/common-lib/netty-all-4.1.6.Final.jar",
+      "sha256": "f02659d6994586fc91f21713c31135542c272044021fb2323f8e2cf6654ae49b",
+      "bytes": 3533285
+    },
+    {
+      "path": "reference/legacy-2.22/common-lib/protobuf/protobuf-java-2.5.0-javadoc.jar",
+      "sha256": "ca6853a409f6fd85bcd5196a29e7f91abf102a96e9144ce1347d6323049e0829",
+      "bytes": 1212478
+    },
+    {
+      "path": "reference/legacy-2.22/common-lib/protobuf/protobuf-java-2.5.0-sources.jar",
+      "sha256": "cc1258607ad776853e42397f06cb05053c26910910f7d8fc6a735b9a97001519",
+      "bytes": 276990
+    },
+    {
+      "path": "reference/legacy-2.22/common-lib/protobuf/protobuf-java-2.5.0.jar",
+      "sha256": "e0c1c64575c005601725e7c6a02cebf9e1285e888f756b2a1d73ffa8d725cc74",
+      "bytes": 533455
+    },
+    {
+      "path": "reference/legacy-2.22/common-lib/quartz-2.3.0.jar",
+      "sha256": "b73efc1eee7f44b59ba1f020ecb11848c0a988b712220f41df0698974c3a3531",
+      "bytes": 690992
+    },
+    {
+      "path": "reference/legacy-2.22/common-lib/redis/commons-pool-1.5.4.jar",
+      "sha256": "22095672ac3ad6503e42ec6d4cbc330cd1318040223f6c5d9605473b6d2aa0fd",
+      "bytes": 96221
+    },
+    {
+      "path": "reference/legacy-2.22/common-lib/redis/commons-pool2-2.4.2.jar",
+      "sha256": "21112aa673733dfcd045354ddf75b31e1d464b99c8e515974349b2532254cc53",
+      "bytes": 111969
+    },
+    {
+      "path": "reference/legacy-2.22/common-lib/redis/jedis-2.9.0.jar",
+      "sha256": "1eaa96cb8e5055e4d517467f0f3b2b3cbbc62a7d9d1e8b6a23c617ec60d386fa",
+      "bytes": 553762
+    },
+    {
+      "path": "reference/legacy-2.22/common-lib/rocketmq/commons-validator-1.6.jar",
+      "sha256": "bd62795d7068a69cbea333f6dbf9c9c1a6ad7521443fb57202a44874f240ba25",
+      "bytes": 186077
+    },
+    {
+      "path": "reference/legacy-2.22/common-lib/rocketmq/rocketmq-client-4.7.1.jar",
+      "sha256": "fdebc8f1ce98d659f8572343446e4e3f969f62570a8f0bcb4ed1efd15197f47d",
+      "bytes": 390039
+    },
+    {
+      "path": "reference/legacy-2.22/common-lib/rocketmq/rocketmq-common-4.7.1.jar",
+      "sha256": "cdfe1253b9b3ba1916f9be25276117d97eb299db9b84e3ab4f882b7ba9b9d9c9",
+      "bytes": 295518
+    },
+    {
+      "path": "reference/legacy-2.22/common-lib/rocketmq/rocketmq-logging-4.7.1.jar",
+      "sha256": "feffcb842c13d42b1e34b9a7cca9009608323687023f2c13d12f3992647c28fa",
+      "bytes": 63751
+    },
+    {
+      "path": "reference/legacy-2.22/common-lib/rocketmq/rocketmq-remoting-4.7.1.jar",
+      "sha256": "3fe2114667b23dd1e7c911075332ed4429bc0912276e36082b4a6ddb2b6052c9",
+      "bytes": 123629
+    },
+    {
+      "path": "reference/legacy-2.22/common-lib/scribe/libfb303.jar",
+      "sha256": "82b911e92012398a5679cef26a7909d7a1114ef22fa1915e3c0e59419c4343e2",
+      "bytes": 174467
+    },
+    {
+      "path": "reference/legacy-2.22/common-lib/scribe/libthrift.jar",
+      "sha256": "581f6444562abd1b8ee0826a0a2167263ffe091830419e9541113240f738bf79",
+      "bytes": 262242
+    },
+    {
+      "path": "reference/legacy-2.22/common-lib/sdk/naver/ApiGateway-HMAC_2.0.0.jar",
+      "sha256": "dd449c354b0d8da5410c932b5dee4f8478b336a75204aebb66f8f8ac693e22a4",
+      "bytes": 7763
+    },
+    {
+      "path": "reference/legacy-2.22/common-lib/slf4j-api-1.7.12/slf4j-api-1.7.12.jar",
+      "sha256": "e0a501d70e62438f039a9b7db5829dd2fdf9fe48ffb8d5f99209e231a11fb218",
+      "bytes": 32127
+    }
+  ]
+}

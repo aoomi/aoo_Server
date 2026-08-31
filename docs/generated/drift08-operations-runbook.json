@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "runbook": "docs/运维恢复演练手册.md",
+  "checks": {
+    "permissions": true,
+    "deployment": true,
+    "recovery": true,
+    "evidenceRequirements": true,
+    "preproductionDrillEvidence": false
+  },
+  "verdict": "awaiting-preproduction-drill"
+}

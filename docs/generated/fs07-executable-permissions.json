@@ -1,0 +1,1402 @@
+{
+  "task": "FS07",
+  "passed": true,
+  "executables": [
+    {
+      "path": "mvnw",
+      "mode": "755"
+    },
+    {
+      "path": "mvnw26",
+      "mode": "755"
+    },
+    {
+      "path": "scripts/audit-con01-required-semantics.rb",
+      "mode": "755"
+    },
+    {
+      "path": "scripts/audit-con02-business-keys.rb",
+      "mode": "755"
+    },
+    {
+      "path": "scripts/audit-con03-enforced-checks.rb",
+      "mode": "755"
+    },
+    {
+      "path": "scripts/audit-con04-foreign-key-integrity.rb",
+      "mode": "755"
+    },
+    {
+      "path": "scripts/audit-con05-query-plans.rb",
+      "mode": "755"
+    },
+    {
+      "path": "scripts/audit-con06-canonical-types.rb",
+      "mode": "755"
+    },
+    {
+      "path": "scripts/audit-con07-temporal-authority.rb",
+      "mode": "755"
+    },
+    {
+      "path": "scripts/audit-con08-distributed-ids.rb",
+      "mode": "755"
+    },
+    {
+      "path": "scripts/audit-con09-concurrency-anomalies.rb",
+      "mode": "755"
+    },
+    {
+      "path": "scripts/audit-cp01-duplicate-fqcn.rb",
+      "mode": "755"
+    },
+    {
+      "path": "scripts/audit-cp02-resource-collisions.rb",
+      "mode": "755"
+    },
+    {
+      "path": "scripts/audit-cp03-artifact-coordinates.rb",
+      "mode": "755"
+    },
+    {
+      "path": "scripts/audit-cp04-jpms-boundary.rb",
+      "mode": "755"
+    },
+    {
+      "path": "scripts/audit-cp05-reactor-order.rb",
+      "mode": "755"
+    },
+    {
+      "path": "scripts/audit-cp06-build-version.rb",
+      "mode": "755"
+    },
+    {
+      "path": "scripts/audit-cp07-service-loader.rb",
+      "mode": "755"
+    },
+    {
+      "path": "scripts/audit-cp08-spring-metadata.rb",
+      "mode": "755"
+    },
+    {
+      "path": "scripts/audit-cp09-resource-filtering.rb",
+      "mode": "755"
+    },
+    {
+      "path": "scripts/audit-cp10-classpath-parity.rb",
+      "mode": "755"
+    },
+    {
+      "path": "scripts/audit-cp11-class-origins.rb",
+      "mode": "755"
+    },
+    {
+      "path": "scripts/audit-cp12-clean-isolated.rb",
+      "mode": "755"
+    },
+    {
+      "path": "scripts/audit-dbreal01-original-isolation.rb",
+      "mode": "755"
+    },
+    {
+      "path": "scripts/audit-dbreal02-backup-security.rb",
+      "mode": "755"
+    },
+    {
+      "path": "scripts/audit-dbreal03-zle-map.rb",
+      "mode": "755"
+    },
+    {
+      "path": "scripts/audit-dbreal04-log-map.rb",
+      "mode": "755"
+    },
+    {
+      "path": "scripts/audit-dbreal05-game-map.rb",
+      "mode": "755"
+    },
+    {
+      "path": "scripts/audit-dbreal06-baseline-authority.rb",
+      "mode": "755"
+    },
+    {
+      "path": "scripts/audit-dbreal07-migration-order.rb",
+      "mode": "755"
+    },
+    {
+      "path": "scripts/audit-dbreal08-boundary.rb",
+      "mode": "755"
+    },
+    {
+      "path": "scripts/audit-dbreal09-column-ledger.rb",
+      "mode": "755"
+    },
+    {
+      "path": "scripts/audit-dbreal10-sensitive-data.rb",
+      "mode": "755"
+    },
+    {
+      "path": "scripts/audit-dbreal11-sql-compatibility.rb",
+      "mode": "755"
+    },
+    {
+      "path": "scripts/audit-dbreal12-flyway-authority.rb",
+      "mode": "755"
+    },
+    {
+      "path": "scripts/audit-game08-catalog-expansion.rb",
+      "mode": "755"
+    },
+    {
+      "path": "scripts/audit-hygiene01-root-logs.rb",
+      "mode": "755"
+    },
+    {
+      "path": "scripts/audit-hygiene02-module-logs.rb",
+      "mode": "755"
+    },
+    {
+      "path": "scripts/audit-hygiene03-legacy-jdk.rb",
+      "mode": "755"
+    },
+    {
+      "path": "scripts/audit-hygiene04-toolchains.rb",
+      "mode": "755"
+    },
+    {
+      "path": "scripts/audit-hygiene05-local-runtime.rb",
+      "mode": "755"
+    },
+    {
+      "path": "scripts/audit-hygiene06-common-binaries.rb",
+      "mode": "755"
+    },
+    {
+      "path": "scripts/audit-hygiene07-python-cache.rb",
+      "mode": "755"
+    },
+    {
+      "path": "scripts/audit-hygiene08-tool-quality.rb",
+      "mode": "755"
+    },
+    {
+      "path": "scripts/audit-hygiene09-portable-paths.rb",
+      "mode": "755"
+    },
+    {
+      "path": "scripts/audit-hygiene10-ignore-policy.rb",
+      "mode": "755"
+    },
+    {
+      "path": "scripts/audit-hygiene11-runtime-pollution.rb",
+      "mode": "755"
+    },
+    {
+      "path": "scripts/audit-hygiene12-generated-boundary.rb",
+      "mode": "755"
+    },
+    {
+      "path": "scripts/audit-lock01-order.rb",
+      "mode": "755"
+    },
+    {
+      "path": "scripts/audit-lock02-boundaries.rb",
+      "mode": "755"
+    },
+    {
+      "path": "scripts/audit-lock03-timeouts.rb",
+      "mode": "755"
+    },
+    {
+      "path": "scripts/audit-lock04-livelock.rb",
+      "mode": "755"
+    },
+    {
+      "path": "scripts/audit-loop07-retries.rb",
+      "mode": "755"
+    },
+    {
+      "path": "scripts/audit-loop08-client-reconnect.rb",
+      "mode": "755"
+    },
+    {
+      "path": "scripts/audit-loop09-event-causality.rb",
+      "mode": "755"
+    },
+    {
+      "path": "scripts/audit-loop10-scheduler-ownership.rb",
+      "mode": "755"
+    },
+    {
+      "path": "scripts/audit-loop11-busy-wait.rb",
+      "mode": "755"
+    },
+    {
+      "path": "scripts/audit-loop12-pagination.rb",
+      "mode": "755"
+    },
+    {
+      "path": "scripts/audit-loop13-repair-requeue.rb",
+      "mode": "755"
+    },
+    {
+      "path": "scripts/audit-loop14-ui-animation.rb",
+      "mode": "755"
+    },
+    {
+      "path": "scripts/audit-loop15-runtime-budgets.rb",
+      "mode": "755"
+    },
+    {
+      "path": "scripts/audit-loop16-cpu-recovery.rb",
+      "mode": "755"
+    },
+    {
+      "path": "scripts/audit-proto01-authority.rb",
+      "mode": "755"
+    },
+    {
+      "path": "scripts/audit-proto02-tool-responsibility.rb",
+      "mode": "755"
+    },
+    {
+      "path": "scripts/audit-real01-common-boundary.rb",
+      "mode": "755"
+    },
+    {
+      "path": "scripts/audit-stage08-cleanup-readiness.rb",
+      "mode": "755"
+    },
+    {
+      "path": "scripts/audit-third01-inventory.rb",
+      "mode": "755"
+    },
+    {
+      "path": "scripts/audit-third02-maven-overlap.rb",
+      "mode": "755"
+    },
+    {
+      "path": "scripts/audit-third03-necessity.rb",
+      "mode": "755"
+    },
+    {
+      "path": "scripts/audit-third04-security-path.rb",
+      "mode": "755"
+    },
+    {
+      "path": "scripts/audit-third05-modification-dossier.rb",
+      "mode": "755"
+    },
+    {
+      "path": "scripts/audit-third06-classloading.rb",
+      "mode": "755"
+    },
+    {
+      "path": "scripts/audit-third07-licenses.rb",
+      "mode": "755"
+    },
+    {
+      "path": "scripts/audit-third08-sbom.rb",
+      "mode": "755"
+    },
+    {
+      "path": "scripts/audit-third09-deserialization-boundary.rb",
+      "mode": "755"
+    },
+    {
+      "path": "scripts/audit-third10-release-minimization.rb",
+      "mode": "755"
+    },
+    {
+      "path": "scripts/audit-type09-typed-documents.rb",
+      "mode": "755"
+    },
+    {
+      "path": "scripts/audit-type10-field-conservation.rb",
+      "mode": "755"
+    },
+    {
+      "path": "scripts/audit-type11-domain-construction.rb",
+      "mode": "755"
+    },
+    {
+      "path": "scripts/audit-type12-validated-decode.rb",
+      "mode": "755"
+    },
+    {
+      "path": "scripts/audit-unused20-frontend-sdks.rb",
+      "mode": "755"
+    },
+    {
+      "path": "scripts/audit-unused21-resource-tooling.rb",
+      "mode": "755"
+    },
+    {
+      "path": "scripts/audit-unused22-container-system-packages.rb",
+      "mode": "755"
+    },
+    {
+      "path": "scripts/audit-unused23-ci-plugins.rb",
+      "mode": "755"
+    },
+    {
+      "path": "scripts/audit-unused24-operations-monitoring.rb",
+      "mode": "755"
+    },
+    {
+      "path": "scripts/audit-unused25-reflection-spi.rb",
+      "mode": "755"
+    },
+    {
+      "path": "scripts/audit-unused26-historical-formats.rb",
+      "mode": "755"
+    },
+    {
+      "path": "scripts/audit-unused27-artifact-comparison.rb",
+      "mode": "755"
+    },
+    {
+      "path": "scripts/audit-unused28-full-chain.rb",
+      "mode": "755"
+    },
+    {
+      "path": "scripts/audit-unused29-runtime-classloading.rb",
+      "mode": "755"
+    },
+    {
+      "path": "scripts/audit-unused30-continuous-gate.rb",
+      "mode": "755"
+    },
+    {
+      "path": "scripts/audit-unused31-legacy-necessary-ledger.rb",
+      "mode": "755"
+    },
+    {
+      "path": "scripts/audit-unused32-plugin-artifacts.rb",
+      "mode": "755"
+    },
+    {
+      "path": "scripts/audit-unused33-historical-read-protection.rb",
+      "mode": "755"
+    },
+    {
+      "path": "scripts/audit-unused34-equivalent-replacement.rb",
+      "mode": "755"
+    },
+    {
+      "path": "scripts/audit-unused35-upgrade-not-delete.rb",
+      "mode": "755"
+    },
+    {
+      "path": "scripts/audit-unused36-isolated-retention.rb",
+      "mode": "755"
+    },
+    {
+      "path": "scripts/audit-unused37-deletion-approval.rb",
+      "mode": "755"
+    },
+    {
+      "path": "scripts/audit-unused38-clean-recovery.rb",
+      "mode": "755"
+    },
+    {
+      "path": "scripts/capture-room-cycle-heap.sh",
+      "mode": "755"
+    },
+    {
+      "path": "tools/account-soak-24h.sh",
+      "mode": "755"
+    },
+    {
+      "path": "tools/analyze_account_soak.py",
+      "mode": "755"
+    },
+    {
+      "path": "tools/aoo-build-version.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/apply_migrations.sh",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_active_room_repairs.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_affected_test_matrix.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_aggregate_partition_ordering.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_async_lifecycle.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_atomic_cache_migration.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_atomic_event_snapshot_commits.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_atomic_seat_assignment.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_authoritative_game_provider_coverage.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_authoritative_time_source.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_auto_registration.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_backend_empty_success.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_bounded_model_checker.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_business_timezone.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_cache_read_migration.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_cache_recovery_protection.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_cache_ttl_preservation.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_canonical_cache_key.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_card_category_placement.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_client_authority_boundary.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_client_dynamic_load_graph.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_client_event_idempotency.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_client_seat_perspective.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_client_single_store.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_clock_rollback_safety.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_club_reference_repair.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_club_template_version_references.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_cocos_uuid_references.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_common_game_lifecycle_placement.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_common_room_capability_placement.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_compatibility_path_isolation.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_component_key_integrity.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_composite_state_constraints.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_configuration_combinations.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_connection_generation.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_connection_presence_authority.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_consistency_routing_policy.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_consumer_idempotent_results.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_continuous_legacy_isolation.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_controlled_retry.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_create_rule_mapping.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_credential_isolation.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_cross_cutting_placement.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_data_lifecycle_policies.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_database_access_performance.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_database_runtime_mapping.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_database_single_writer.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_deadline_single_resolution.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_dealer_operation_consistency.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_deep_link_state_machine.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_deep_snapshot_isolation.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_deferred_manual_queue.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_dependency_lifecycle_governance.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_dependency_size_contribution.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_dependency_test_doubles.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_domain_failure_boundary.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_durable_repair_checkpoint.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_enabled_game_startup.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_equality_semantics.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_error_behavior_equivalence.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_event_schema_evolution.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_exact_domain_arithmetic.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_exception_boundaries.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_explicit_transition_table.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_fsm_coverage_gate.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_fsm_liveness.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_game_component_completeness.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_game_family_semantics.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_game_reference_integrity.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_game_state_invariants.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_generated_state_graph.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_historical_data_equivalence.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_historical_replay_references.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_hot_key_sharding.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_idempotency_business_scope.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_idempotent_repairs.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_illegal_transition_no_effect.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_immutable_collection_boundaries.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_immutable_config_repairs.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_immutable_event_history.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_immutable_repair_evidence.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_independent_room_timers.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_interaction_timing_equivalence.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_invite_admission.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_invite_revocation.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_invite_telemetry_isolation.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_issue_registry.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_issue_root_causes.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_issue_severity_gate.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_jdk_dependency_replacements.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_late_message_scope.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_ledger_corrections.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_legacy_build_isolation.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_legacy_entry_equivalence.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_legacy_reachability.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_legacy_replacement_rate.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_legacy_runtime_isolation.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_legacy_websocket_isolation.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_multidimensional_completion_gate.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_negative_cache_protection.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_network_stack_tuning.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_new_game_drill.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_operation_ui_invariant.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_optional_state_semantics.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_optional_usage.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_outbox_claim_lifecycle.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_performance_budget_gate.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_player_exit_cleanup.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_player_seat_identity.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_poison_message_recovery.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_post_repair_reconciliation.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_precondition_equivalence.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_primary_game_categories.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_qr_invite_policy.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_ready_lifecycle_contract.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_recoverable_deadlines.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_recoverable_dissolve_vote.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_redis_lua_contracts.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_reference_source_isolation.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_region_reference_integrity.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_regional_rule_placement.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_regional_variant_classification.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_registration_conservation.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_remediation_execution_safety.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_repair_compare_version.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_repair_dry_run.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_resource_scopes.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_response_broadcast_dedup.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_restored_snapshot_consistency.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_room_code_policy.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_room_creation_proof.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_room_event_identity.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_room_mode_orthogonality.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_room_owner_lifecycle.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_room_rule_snapshot_restore.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_rule_fact_equivalence.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_scene_message_buffering.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_scheduler_drift.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_seat_admission_lifecycle.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_server_deadline_response.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_share_from_locked_rules.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_share_link_security.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_shared_root_remediation_plan.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_side_effect_equivalence.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_signed_invite_payload.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_snapshot_stale_state_cleanup.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_snapshot_state_event_version.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_spectator_promotion.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_startup_readiness.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_state_field_dictionary.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_state_transition_equivalence.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_state_version_migration.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_storage_ownership.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_store_ui_subscription_graph.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_strict_enum_decoding.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_sync_evidence_packages.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_task_issue_conservation.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_temporary_repair_capabilities.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_terminal_irreversibility.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_throttled_repair_runner.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_time_unit_naming.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_timer_pause_policy.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_transaction_propagation.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_transaction_remote_waits.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_transaction_rollback_semantics.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_transactional_outbox_coverage.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_transactional_self_invocation.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_typed_command_payload.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_ui_backend_closure.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_unified_fsm_states.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_unified_operation_deadline.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_unified_player_view.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_vendor_adapter_boundaries.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_versioned_cache_value.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_visibility_equivalence.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/audit_write_idempotency_result_model.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/benchmark_room_serialization.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/build-release.sh",
+      "mode": "755"
+    },
+    {
+      "path": "tools/build_migrated_backends.py",
+      "mode": "755"
+    },
+    {
+      "path": "tools/check_architecture_boundaries.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/check_game_random_boundaries.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/check_gameplay_security_boundaries.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/check_hidden_card_boundaries.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/classify_backend_sources.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/compare_client_server_player_view.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/compare_static_runtime_coverage.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/compute_regression_scope.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/f03_account_id_collision_check.py",
+      "mode": "755"
+    },
+    {
+      "path": "tools/f03_auto_finalize.sh",
+      "mode": "755"
+    },
+    {
+      "path": "tools/f03_data_evidence.py",
+      "mode": "755"
+    },
+    {
+      "path": "tools/f03_fault_injection.sh",
+      "mode": "755"
+    },
+    {
+      "path": "tools/f03_local_protocol_smoke.py",
+      "mode": "755"
+    },
+    {
+      "path": "tools/f03_two_player_room_smoke.py",
+      "mode": "755"
+    },
+    {
+      "path": "tools/f03_v2_authority_recovery_smoke.py",
+      "mode": "755"
+    },
+    {
+      "path": "tools/final_backend_audit.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/finalize_f03_soak.py",
+      "mode": "755"
+    },
+    {
+      "path": "tools/freeze_audit_baseline.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/generate_backend_game_catalog.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/generate_classification_catalog.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/generate_classification_conflict_ledger.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/generate_game_classification.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/generate_non_equivalent_change_ledger.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/generate_source_provenance.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/generate_source_root_baseline.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/generate_static_dependency_graph.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/healthcheck-local.sh",
+      "mode": "755"
+    },
+    {
+      "path": "tools/inventory_build_entries.sh",
+      "mode": "755"
+    },
+    {
+      "path": "tools/inventory_client_platform_assets.sh",
+      "mode": "755"
+    },
+    {
+      "path": "tools/inventory_dynamic_targets.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/inventory_external_capabilities.sh",
+      "mode": "755"
+    },
+    {
+      "path": "tools/inventory_external_tool_calls.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/inventory_infrastructure_config.sh",
+      "mode": "755"
+    },
+    {
+      "path": "tools/inventory_network_destinations.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/inventory_server_runtime.sh",
+      "mode": "755"
+    },
+    {
+      "path": "tools/list_migrations.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/measure_startup_class_memory_baseline.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/prepare_backend_smoke_sandbox.py",
+      "mode": "755"
+    },
+    {
+      "path": "tools/probe_legacy_endpoints.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/protocol-v1-record-rollback-drill.sh",
+      "mode": "755"
+    },
+    {
+      "path": "tools/protocol-v1-retirement-status.sh",
+      "mode": "755"
+    },
+    {
+      "path": "tools/reconcile_game_catalogs.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/remediation_guard.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/retire_legacy_redis_keys.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/run_account_login_index_benchmark.sh",
+      "mode": "755"
+    },
+    {
+      "path": "tools/run_club_member_scale_benchmark.sh",
+      "mode": "755"
+    },
+    {
+      "path": "tools/run_ledger_reconciliation_benchmark.sh",
+      "mode": "755"
+    },
+    {
+      "path": "tools/run_player_scale_benchmark.sh",
+      "mode": "755"
+    },
+    {
+      "path": "tools/run_viewer_identity_chain_smoke.sh",
+      "mode": "755"
+    },
+    {
+      "path": "tools/runtime-java26.sh",
+      "mode": "755"
+    },
+    {
+      "path": "tools/runtime_initialize_backend_apps.py",
+      "mode": "755"
+    },
+    {
+      "path": "tools/runtime_smoke_backends.py",
+      "mode": "755"
+    },
+    {
+      "path": "tools/runtime_smoke_backends_equivalent.py",
+      "mode": "755"
+    },
+    {
+      "path": "tools/runtime_start_backend_apps.py",
+      "mode": "755"
+    },
+    {
+      "path": "tools/scan_cocos_interactions.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/scan_legacy_redis_keys.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/scan_redis_key_types.rb",
+      "mode": "755"
+    },
+    {
+      "path": "tools/start-cdxzmj-local.sh",
+      "mode": "755"
+    },
+    {
+      "path": "tools/start-hall-local.sh",
+      "mode": "755"
+    },
+    {
+      "path": "tools/start-njpdk-local.sh",
+      "mode": "755"
+    },
+    {
+      "path": "tools/stop-cdxzmj-local.sh",
+      "mode": "755"
+    },
+    {
+      "path": "tools/stop-hall-local.sh",
+      "mode": "755"
+    },
+    {
+      "path": "tools/stop-njpdk-local.sh",
+      "mode": "755"
+    },
+    {
+      "path": "tools/verify-clean-environment.sh",
+      "mode": "755"
+    },
+    {
+      "path": "tools/verify-clean-isolated-reactor.sh",
+      "mode": "755"
+    },
+    {
+      "path": "tools/verify_fresh_migrations.sh",
+      "mode": "755"
+    }
+  ],
+  "missingExecuteBit": [
+
+  ],
+  "policy": "all shebang and .sh tools require at least one executable bit; release archives must preserve Unix mode"
+}

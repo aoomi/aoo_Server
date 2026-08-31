@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "serializedActiveRecords": 57160,
+  "requiredDomains": [
+    "chat",
+    "voice",
+    "errorLayer",
+    "operationButtons",
+    "masks"
+  ],
+  "fullAssertions": false,
+  "passed": false
+}

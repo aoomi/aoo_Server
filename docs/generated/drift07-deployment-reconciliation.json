@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "manifest": "deploy/production-services.yaml",
+  "services": [
+    "hall",
+    "njpdk",
+    "cdxzmj",
+    "account"
+  ],
+  "checks": {
+    "servicesDeclared": true,
+    "portsMatchRuntimeScripts": true,
+    "healthOrReadiness": true,
+    "resourceLimits": true,
+    "externalFacilities": true
+  }
+}

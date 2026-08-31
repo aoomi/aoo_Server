@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "domain": "Games",
+  "directCalls": {
+    "localStorage": [
+
+    ],
+    "bundle": [
+      {
+        "path": "assets/Games/Mahjong/Packs/Pack01/Code/Runtime/hzmj/HzmjPlayView.ts",
+        "line": 141
+      },
+      {
+        "path": "assets/Games/Mahjong/Packs/Pack01/Code/Runtime/hzmj/HzmjPlayView.ts",
+        "line": 147
+      },
+      {
+        "path": "assets/Games/Mahjong/Packs/Pack01/Code/Runtime/hzmj/HzmjReplayController.ts",
+        "line": 227
+      },
+      {
+        "path": "assets/Games/Mahjong/Packs/Pack01/Code/Runtime/hzmj/HzmjReplayController.ts",
+        "line": 293
+      },
+      {
+        "path": "assets/Games/Mahjong/Packs/Pack01/Code/Runtime/hzmj/HzmjSceneBootstrap.ts",
+        "line": 75
+      },
+      {
+        "path": "assets/Games/Mahjong/Packs/Pack01/Code/Runtime/hzmj/HzmjTableController.ts",
+        "line": 181
+      },
+      {
+        "path": "assets/Games/Poker/Packs/Pack01/Code/Runtime/njpdk/LegacyNJPdkCardRenderer.ts",
+        "line": 52
+      }
+    ],
+    "websocket": [
+
+    ],
+    "native": [
+
+    ],
+    "fetch": [
+
+    ]
+  },
+  "centralized": false,
+  "passed": false
+}

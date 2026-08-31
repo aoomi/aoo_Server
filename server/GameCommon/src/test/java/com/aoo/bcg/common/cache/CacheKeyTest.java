@@ -1,0 +1,2 @@
+package com.aoo.bcg.common.cache;import org.junit.jupiter.api.Test;import static org.junit.jupiter.api.Assertions.*;
+class CacheKeyTest{@Test void rendersCanonicalEnvironmentDomainEntityIdVersion(){assertEquals("prod:game:room:100:v2",CacheKey.of("prod","game","room",100,2).value());assertThrows(IllegalArgumentException.class,()->new CacheKey("PROD","game","room","1",1));assertThrows(IllegalArgumentException.class,()->new CacheKey("prod","game","room","1",0));}}

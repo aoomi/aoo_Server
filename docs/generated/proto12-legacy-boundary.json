@@ -1,0 +1,12 @@
+{
+  "server_v1_dispatch_disabled": true,
+  "default_request_scope_v2": true,
+  "client_v2_only": true,
+  "client_no_legacy_handler_registration": true,
+  "compatibility_client_is_reexport_only": true,
+  "legacy_converter_unreferenced": true,
+  "passed": true,
+  "legacyAdapterReferences": [
+    "server/LegacyCommon/src/com/ddm/server/protocol/v2/LegacyProtocolAdapter.java"
+  ]
+}

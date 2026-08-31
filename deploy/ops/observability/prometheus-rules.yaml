@@ -1,0 +1,25 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: aoo-runtime
+  namespace: aoo-production
+  labels: {aoo.io/production-observability: "true"}
+spec:
+  groups:
+    - name: aoo-runtime
+      rules:
+        - alert: AooServiceDown
+          expr: up{namespace="aoo-production"} == 0
+          for: 5m
+          labels: {severity: critical}
+          annotations: {summary: "Aoo production target is not scrapeable", runbook: "docs/parallel-stage-5/81-ops-static-production.md#人工待验收"}
+        - alert: AooPodNotReady
+          expr: kube_pod_status_ready{namespace="aoo-production",condition="true",pod=~"aoo-account-.*"} == 0
+          for: 10m
+          labels: {severity: warning}
+          annotations: {summary: "Aoo account pod is not ready"}
+        - alert: AooContainerRestarting
+          expr: increase(kube_pod_container_status_restarts_total{namespace="aoo-production"}[15m]) > 2
+          for: 5m
+          labels: {severity: warning}
+          annotations: {summary: "Container restarted repeatedly"}

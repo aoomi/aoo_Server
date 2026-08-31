@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "manifestEntries": [
+    "Aoo-Source-Revision",
+    "Aoo-Pipeline-Id",
+    "Aoo-Dependency-Lock-SHA256",
+    "Aoo-Config-SHA256"
+  ],
+  "checks": {
+    "manifestMetadata": true,
+    "requiredSourceRevision": true,
+    "requiredPipeline": true,
+    "dependencyLockDigest": true,
+    "configDigest": true
+  }
+}

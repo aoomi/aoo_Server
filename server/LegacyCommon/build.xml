@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project default="run" name="HallAndSubGame">
+    <property id="gameb.dir" name="gameb.dir" location="../gameServer/build"/>
+    <!-- 红中-->
+    <property id="hzmj.dir" name="hzmj.dir" location="../HZMJ"/>
+    <property id="hzmj.jar" name="hzmj.jar" location="../HZMJ/build/HZMJ.jar"/>
+    <!-- 万载-->
+    <property id="wzmj.dir" name="wzmj.dir" location="../WZMJ"/>
+    <property id="wzmj.jar" name="wzmj.jar" location="../WZMJ/build/WZMJ.jar"/>
+    <!-- 斗地主-->
+    <property id="ddz.dir" name="ddz.dir" location="../DDZ"/>
+    <property id="ddz.jar" name="ddz.jar" location="../DDZ/build/DDZ.jar"/>
+    <!-- 福州麻将-->
+    <property id="fzmj.dir" name="fzmj.dir" location="../FZMJ"/>
+    <property id="fzmj.jar" name="fzmj.jar" location="../FZMJ/build/FZMJ.jar"/>
+    <!-- 宁德麻将-->
+    <property id="ndmj.dir" name="ndmj.dir" location="../NDMJ"/>
+    <property id="ndmj.jar" name="ndmj.jar" location="../NDMJ/build/NDMJ.jar"/>
+    <!-- 自由扑克-->
+    <property id="sss.dir" name="sss.dir" location="../SSS"/>
+    <property id="sss.jar" name="sss.jar" location="../SSS/build/SSS.jar"/>
+    <!-- 镇江麻将-->
+    <property id="zjmj.dir" name="zjmj.dir" location="../ZJMJ"/>
+    <property id="zjmj.jar" name="zjmj.jar" location="../ZJMJ/build/ZJMJ.jar"/>
+    <!-- 跑得快-->
+    <property id="pdk.dir" name="pdk.dir" location="../PDK"/>
+    <property id="pdk.jar" name="pdk.jar" location="../PDK/build/PDK.jar"/>
+    <!-- 仙游麻将-->
+    <property id="xymj.dir" name="xymj.dir" location="../XYMJ"/>
+    <property id="xymj.jar" name="xymj.jar" location="../XYMJ/build/XYMJ.jar"/>
+    <!-- 莆田麻将-->
+    <property id="ptmj.dir" name="ptmj.dir" location="../PTMJ"/>
+    <property id="ptmj.jar" name="ptmj.jar" location="../PTMJ/build/PTMJ.jar"/>
+    <!-- 萍乡转转麻将-->
+    <property id="pxzzmj.dir" name="pxzzmj.dir" location="../PXZZMJ"/>
+    <property id="pxzzmj.jar" name="pxzzmj.jar" location="../PXZZMJ/build/PXZZMJ.jar"/>
+    <!-- 萍乡6滚筒-->
+    <property id="px6gt.dir" name="px6gt.dir" location="../PX6GT"/>
+    <property id="px6gt.jar" name="px6gt.jar" location="../PX6GT/build/PX6GT.jar"/>
+    <!-- 萍乡3滚筒-->
+    <property id="px3gt.dir" name="px3gt.dir" location="../PX3GT"/>
+    <property id="px3gt.jar" name="px3gt.jar" location="../PX3GT/build/PX3GT.jar"/>
+    <!-- 萍乡258麻将-->
+    <property id="px258mj.dir" name="px258mj.dir" location="../PX258MJ"/>
+    <property id="px258mj.jar" name="px258mj.jar" location="../PX258MJ/build/PX258MJ.jar"/>
+    <target name="run">
+        <ant antfile="build.xml" dir="../gameServer" inheritall="false" inheritrefs="false"/>
+
+        <ant antfile="build.xml" dir="../commdef" inheritall="true" inheritrefs="true">
+            <reference refid="hzmj.dir" torefid="base.dir"/>
+            <reference refid="hzmj.jar" torefid="jar.file"/>
+        </ant>
+
+        <ant antfile="build.xml" dir="../commdef" inheritall="true" inheritrefs="true">
+            <reference refid="wzmj.dir" torefid="base.dir"/>
+            <reference refid="wzmj.jar" torefid="jar.file"/>
+        </ant>
+
+        <ant antfile="build.xml" dir="../commdef" inheritall="true" inheritrefs="true">
+            <reference refid="ddz.dir" torefid="base.dir"/>
+            <reference refid="ddz.jar" torefid="jar.file"/>
+        </ant>
+
+        <ant antfile="build.xml" dir="../commdef" inheritall="true" inheritrefs="true">
+            <reference refid="fzmj.dir" torefid="base.dir"/>
+            <reference refid="fzmj.jar" torefid="jar.file"/>
+        </ant>
+
+        <ant antfile="build.xml" dir="../commdef" inheritall="true" inheritrefs="true">
+            <reference refid="ndmj.dir" torefid="base.dir"/>
+            <reference refid="ndmj.jar" torefid="jar.file"/>
+        </ant>
+
+        <ant antfile="build.xml" dir="../commdef" inheritall="true" inheritrefs="true">
+            <reference refid="sss.dir" torefid="base.dir"/>
+            <reference refid="sss.jar" torefid="jar.file"/>
+        </ant>
+
+        <ant antfile="build.xml" dir="../commdef" inheritall="true" inheritrefs="true">
+            <reference refid="zjmj.dir" torefid="base.dir"/>
+            <reference refid="zjmj.jar" torefid="jar.file"/>
+        </ant>
+
+        <ant antfile="build.xml" dir="../commdef" inheritall="true" inheritrefs="true">
+            <reference refid="pdk.dir" torefid="base.dir"/>
+            <reference refid="pdk.jar" torefid="jar.file"/>
+        </ant>
+
+        <ant antfile="build.xml" dir="../commdef" inheritall="true" inheritrefs="true">
+            <reference refid="xymj.dir" torefid="base.dir"/>
+            <reference refid="xymj.jar" torefid="jar.file"/>
+        </ant>
+
+        <ant antfile="build.xml" dir="../commdef" inheritall="true" inheritrefs="true">
+            <reference refid="ptmj.dir" torefid="base.dir"/>
+            <reference refid="ptmj.jar" torefid="jar.file"/>
+        </ant>
+
+        <ant antfile="build.xml" dir="../commdef" inheritall="true" inheritrefs="true">
+            <reference refid="pxzzmj.dir" torefid="base.dir"/>
+            <reference refid="pxzzmj.jar" torefid="jar.file"/>
+        </ant>
+
+        <ant antfile="build.xml" dir="../commdef" inheritall="true" inheritrefs="true">
+            <reference refid="px258mj.dir" torefid="base.dir"/>
+            <reference refid="px258mj.jar" torefid="jar.file"/>
+        </ant>
+        <ant antfile="build.xml" dir="../commdef" inheritall="true" inheritrefs="true">
+            <reference refid="px3gt.dir" torefid="base.dir"/>
+            <reference refid="px3gt.jar" torefid="jar.file"/>
+        </ant>
+        <ant antfile="build.xml" dir="../commdef" inheritall="true" inheritrefs="true">
+            <reference refid="px6gt.dir" torefid="base.dir"/>
+            <reference refid="px6gt.jar" torefid="jar.file"/>
+        </ant>
+
+        <!-- 创建zip -->
+        <zip basedir="${gameb.dir}/games" zipfile="${gameb.dir}/games.zip"/>
+        <zip basedir="${gameb.dir}/conf" zipfile="${gameb.dir}/conf.zip"/>
+        <zip basedir="${gameb.dir}/lib" zipfile="${gameb.dir}/lib.zip"/>
+
+        <delete dir="${gameb.dir}/games"/>
+        <delete dir="${gameb.dir}/conf"/>
+    </target>
+</project> 

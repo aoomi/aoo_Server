@@ -1,0 +1,304 @@
+{
+  "schemaVersion": 1,
+  "domainTsCounts": {
+    "Common": 364,
+    "Login": 10,
+    "Lobby": 9,
+    "Club": 26
+  },
+  "legacyCounts": {
+    "Common": 336,
+    "Login": 3,
+    "Lobby": 9,
+    "Club": 26
+  },
+  "duplicateBasenames": [
+    {
+      "basename": "LoginScreenBootstrap.ts",
+      "left": "assets/Common/Code/Runtime/bootstrap/LoginScreenBootstrap.ts",
+      "right": "assets/Login/Code/Runtime/bootstrap/LoginScreenBootstrap.ts",
+      "identical": false
+    },
+    {
+      "basename": "LegacyApplicationRuntime.ts",
+      "left": "assets/Common/Code/Runtime/bootstrap/LegacyApplicationRuntime.ts",
+      "right": "assets/Login/Code/Runtime/bootstrap/LegacyApplicationRuntime.ts",
+      "identical": false
+    },
+    {
+      "basename": "LoginScreenBootstrap.ts",
+      "left": "assets/Common/Code/Runtime/CompatibilityApp/bootstrap/LoginScreenBootstrap.ts",
+      "right": "assets/Login/Code/Runtime/bootstrap/LoginScreenBootstrap.ts",
+      "identical": false
+    },
+    {
+      "basename": "LegacyApplicationRuntime.ts",
+      "left": "assets/Common/Code/Runtime/CompatibilityApp/bootstrap/LegacyApplicationRuntime.ts",
+      "right": "assets/Login/Code/Runtime/bootstrap/LegacyApplicationRuntime.ts",
+      "identical": false
+    },
+    {
+      "basename": "AuthRuntime.ts",
+      "left": "assets/Common/Code/Runtime/CompatibilityApp/auth/AuthRuntime.ts",
+      "right": "assets/Login/Code/Runtime/auth/AuthRuntime.ts",
+      "identical": false
+    },
+    {
+      "basename": "AuthTypes.ts",
+      "left": "assets/Common/Code/Runtime/CompatibilityApp/auth/AuthTypes.ts",
+      "right": "assets/Login/Code/Runtime/auth/AuthTypes.ts",
+      "identical": false
+    },
+    {
+      "basename": "AuthService.ts",
+      "left": "assets/Common/Code/Runtime/CompatibilityApp/auth/AuthService.ts",
+      "right": "assets/Login/Code/Runtime/auth/AuthService.ts",
+      "identical": false
+    },
+    {
+      "basename": "LoginView.ts",
+      "left": "assets/Common/Code/Runtime/CompatibilityApp/auth/LoginView.ts",
+      "right": "assets/Login/Code/Runtime/auth/LoginView.ts",
+      "identical": false
+    },
+    {
+      "basename": "LastAccountStore.ts",
+      "left": "assets/Common/Code/Runtime/CompatibilityApp/auth/LastAccountStore.ts",
+      "right": "assets/Login/Code/Runtime/auth/LastAccountStore.ts",
+      "identical": false
+    },
+    {
+      "basename": "LegacyLoginScreen.ts",
+      "left": "assets/Common/Code/Runtime/CompatibilityApp/auth/LegacyLoginScreen.ts",
+      "right": "assets/Login/Code/Runtime/auth/LegacyLoginScreen.ts",
+      "identical": false
+    },
+    {
+      "basename": "LegacyHttpAuthGateway.ts",
+      "left": "assets/Common/Code/Runtime/CompatibilityApp/auth/LegacyHttpAuthGateway.ts",
+      "right": "assets/Login/Code/Runtime/auth/LegacyHttpAuthGateway.ts",
+      "identical": false
+    },
+    {
+      "basename": "GuestSessionStore.ts",
+      "left": "assets/Common/Code/Runtime/CompatibilityApp/auth/GuestSessionStore.ts",
+      "right": "assets/Login/Code/Runtime/auth/GuestSessionStore.ts",
+      "identical": false
+    },
+    {
+      "basename": "LegacyLobbyScreen.ts",
+      "left": "assets/Common/Code/Runtime/CompatibilityApp/lobby/LegacyLobbyScreen.ts",
+      "right": "assets/Lobby/Code/Runtime/LegacyLobbyScreen.ts",
+      "identical": false
+    },
+    {
+      "basename": "LegacyNoticeBarController.ts",
+      "left": "assets/Common/Code/Runtime/CompatibilityApp/lobby/LegacyNoticeBarController.ts",
+      "right": "assets/Lobby/Code/Runtime/LegacyNoticeBarController.ts",
+      "identical": false
+    },
+    {
+      "basename": "LegacyLobbySessionService.ts",
+      "left": "assets/Common/Code/Runtime/CompatibilityApp/lobby/LegacyLobbySessionService.ts",
+      "right": "assets/Lobby/Code/Runtime/LegacyLobbySessionService.ts",
+      "identical": false
+    },
+    {
+      "basename": "LegacyGameCatalogController.ts",
+      "left": "assets/Common/Code/Runtime/CompatibilityApp/lobby/LegacyGameCatalogController.ts",
+      "right": "assets/Lobby/Code/Runtime/LegacyGameCatalogController.ts",
+      "identical": false
+    },
+    {
+      "basename": "LegacyJoinRoomController.ts",
+      "left": "assets/Common/Code/Runtime/CompatibilityApp/lobby/LegacyJoinRoomController.ts",
+      "right": "assets/Lobby/Code/Runtime/LegacyJoinRoomController.ts",
+      "identical": false
+    },
+    {
+      "basename": "LegacyTopBarController.ts",
+      "left": "assets/Common/Code/Runtime/CompatibilityApp/lobby/LegacyTopBarController.ts",
+      "right": "assets/Lobby/Code/Runtime/LegacyTopBarController.ts",
+      "identical": false
+    },
+    {
+      "basename": "LegacyRegionController.ts",
+      "left": "assets/Common/Code/Runtime/CompatibilityApp/lobby/LegacyRegionController.ts",
+      "right": "assets/Lobby/Code/Runtime/LegacyRegionController.ts",
+      "identical": false
+    },
+    {
+      "basename": "LegacyCreateRoomController.ts",
+      "left": "assets/Common/Code/Runtime/CompatibilityApp/lobby/LegacyCreateRoomController.ts",
+      "right": "assets/Lobby/Code/Runtime/LegacyCreateRoomController.ts",
+      "identical": false
+    },
+    {
+      "basename": "LegacyReplayCodeController.ts",
+      "left": "assets/Common/Code/Runtime/CompatibilityApp/lobby/LegacyReplayCodeController.ts",
+      "right": "assets/Lobby/Code/Runtime/LegacyReplayCodeController.ts",
+      "identical": false
+    },
+    {
+      "basename": "LegacyUnionClubReportController.ts",
+      "left": "assets/Common/Code/Runtime/CompatibilityApp/club/LegacyUnionClubReportController.ts",
+      "right": "assets/Club/Code/Runtime/LegacyUnionClubReportController.ts",
+      "identical": false
+    },
+    {
+      "basename": "LegacyUnionZhongzhiRankController.ts",
+      "left": "assets/Common/Code/Runtime/CompatibilityApp/club/LegacyUnionZhongzhiRankController.ts",
+      "right": "assets/Club/Code/Runtime/LegacyUnionZhongzhiRankController.ts",
+      "identical": false
+    },
+    {
+      "basename": "LegacyJoinClubController.ts",
+      "left": "assets/Common/Code/Runtime/CompatibilityApp/club/LegacyJoinClubController.ts",
+      "right": "assets/Club/Code/Runtime/LegacyJoinClubController.ts",
+      "identical": false
+    },
+    {
+      "basename": "LegacyUnionInfoPopupController.ts",
+      "left": "assets/Common/Code/Runtime/CompatibilityApp/club/LegacyUnionInfoPopupController.ts",
+      "right": "assets/Club/Code/Runtime/LegacyUnionInfoPopupController.ts",
+      "identical": false
+    },
+    {
+      "basename": "LegacyJoinUnionController.ts",
+      "left": "assets/Common/Code/Runtime/CompatibilityApp/club/LegacyJoinUnionController.ts",
+      "right": "assets/Club/Code/Runtime/LegacyJoinUnionController.ts",
+      "identical": false
+    },
+    {
+      "basename": "LegacyRecordAllResultController.ts",
+      "left": "assets/Common/Code/Runtime/CompatibilityApp/club/LegacyRecordAllResultController.ts",
+      "right": "assets/Club/Code/Runtime/LegacyRecordAllResultController.ts",
+      "identical": false
+    },
+    {
+      "basename": "LegacyUnionClubUserListController.ts",
+      "left": "assets/Common/Code/Runtime/CompatibilityApp/club/LegacyUnionClubUserListController.ts",
+      "right": "assets/Club/Code/Runtime/LegacyUnionClubUserListController.ts",
+      "identical": false
+    },
+    {
+      "basename": "LegacyClubMemberController.ts",
+      "left": "assets/Common/Code/Runtime/CompatibilityApp/club/LegacyClubMemberController.ts",
+      "right": "assets/Club/Code/Runtime/LegacyClubMemberController.ts",
+      "identical": false
+    },
+    {
+      "basename": "LegacyClubForbidController.ts",
+      "left": "assets/Common/Code/Runtime/CompatibilityApp/club/LegacyClubForbidController.ts",
+      "right": "assets/Club/Code/Runtime/LegacyClubForbidController.ts",
+      "identical": false
+    },
+    {
+      "basename": "LegacyClubRecordListController.ts",
+      "left": "assets/Common/Code/Runtime/CompatibilityApp/club/LegacyClubRecordListController.ts",
+      "right": "assets/Club/Code/Runtime/LegacyClubRecordListController.ts",
+      "identical": false
+    },
+    {
+      "basename": "LegacyClubManagementController.ts",
+      "left": "assets/Common/Code/Runtime/CompatibilityApp/club/LegacyClubManagementController.ts",
+      "right": "assets/Club/Code/Runtime/LegacyClubManagementController.ts",
+      "identical": false
+    },
+    {
+      "basename": "LegacyClubMainController.ts",
+      "left": "assets/Common/Code/Runtime/CompatibilityApp/club/LegacyClubMainController.ts",
+      "right": "assets/Club/Code/Runtime/LegacyClubMainController.ts",
+      "identical": false
+    },
+    {
+      "basename": "LegacyClubPromotionController.ts",
+      "left": "assets/Common/Code/Runtime/CompatibilityApp/club/LegacyClubPromotionController.ts",
+      "right": "assets/Club/Code/Runtime/LegacyClubPromotionController.ts",
+      "identical": false
+    },
+    {
+      "basename": "LegacyClubMessageController.ts",
+      "left": "assets/Common/Code/Runtime/CompatibilityApp/club/LegacyClubMessageController.ts",
+      "right": "assets/Club/Code/Runtime/LegacyClubMessageController.ts",
+      "identical": false
+    },
+    {
+      "basename": "LegacyUnionManagerController.ts",
+      "left": "assets/Common/Code/Runtime/CompatibilityApp/club/LegacyUnionManagerController.ts",
+      "right": "assets/Club/Code/Runtime/LegacyUnionManagerController.ts",
+      "identical": false
+    },
+    {
+      "basename": "LegacyClubRoomManagementController.ts",
+      "left": "assets/Common/Code/Runtime/CompatibilityApp/club/LegacyClubRoomManagementController.ts",
+      "right": "assets/Club/Code/Runtime/LegacyClubRoomManagementController.ts",
+      "identical": false
+    },
+    {
+      "basename": "LegacyClubRecordUserDayController.ts",
+      "left": "assets/Common/Code/Runtime/CompatibilityApp/club/LegacyClubRecordUserDayController.ts",
+      "right": "assets/Club/Code/Runtime/LegacyClubRecordUserDayController.ts",
+      "identical": false
+    },
+    {
+      "basename": "LegacyUnionPLSetController.ts",
+      "left": "assets/Common/Code/Runtime/CompatibilityApp/club/LegacyUnionPLSetController.ts",
+      "right": "assets/Club/Code/Runtime/LegacyUnionPLSetController.ts",
+      "identical": false
+    },
+    {
+      "basename": "LegacyClubSportsPointController.ts",
+      "left": "assets/Common/Code/Runtime/CompatibilityApp/club/LegacyClubSportsPointController.ts",
+      "right": "assets/Club/Code/Runtime/LegacyClubSportsPointController.ts",
+      "identical": false
+    },
+    {
+      "basename": "LegacyUnionCreateController.ts",
+      "left": "assets/Common/Code/Runtime/CompatibilityApp/club/LegacyUnionCreateController.ts",
+      "right": "assets/Club/Code/Runtime/LegacyUnionCreateController.ts",
+      "identical": false
+    },
+    {
+      "basename": "LegacyClubPlayerRecordController.ts",
+      "left": "assets/Common/Code/Runtime/CompatibilityApp/club/LegacyClubPlayerRecordController.ts",
+      "right": "assets/Club/Code/Runtime/LegacyClubPlayerRecordController.ts",
+      "identical": false
+    },
+    {
+      "basename": "LegacyUnionInviteController.ts",
+      "left": "assets/Common/Code/Runtime/CompatibilityApp/club/LegacyUnionInviteController.ts",
+      "right": "assets/Club/Code/Runtime/LegacyUnionInviteController.ts",
+      "identical": false
+    },
+    {
+      "basename": "LegacyClubRecordUserController.ts",
+      "left": "assets/Common/Code/Runtime/CompatibilityApp/club/LegacyClubRecordUserController.ts",
+      "right": "assets/Club/Code/Runtime/LegacyClubRecordUserController.ts",
+      "identical": false
+    },
+    {
+      "basename": "LegacyClubEntryController.ts",
+      "left": "assets/Common/Code/Runtime/CompatibilityApp/club/LegacyClubEntryController.ts",
+      "right": "assets/Club/Code/Runtime/LegacyClubEntryController.ts",
+      "identical": false
+    },
+    {
+      "basename": "LegacyUnionZhongzhiManagerController.ts",
+      "left": "assets/Common/Code/Runtime/CompatibilityApp/club/LegacyUnionZhongzhiManagerController.ts",
+      "right": "assets/Club/Code/Runtime/LegacyUnionZhongzhiManagerController.ts",
+      "identical": false
+    },
+    {
+      "basename": "LegacyClubReportController.ts",
+      "left": "assets/Common/Code/Runtime/CompatibilityApp/club/LegacyClubReportController.ts",
+      "right": "assets/Club/Code/Runtime/LegacyClubReportController.ts",
+      "identical": false
+    }
+  ],
+  "checks": {
+    "noCrossDomainDuplicateBasenames": false,
+    "noLegacyParallelRuntime": false
+  },
+  "verdict": "blocked-parallel-domain-runtime"
+}

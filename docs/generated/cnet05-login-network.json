@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "domain": "Login",
+  "directCalls": {
+    "localStorage": [
+      {
+        "path": "assets/Login/Code/Runtime/auth/LegacyHttpAuthGateway.ts",
+        "line": 125
+      },
+      {
+        "path": "assets/Login/Code/Runtime/auth/LegacyHttpAuthGateway.ts",
+        "line": 128
+      }
+    ],
+    "bundle": [
+      {
+        "path": "assets/Login/Code/Runtime/auth/LegacyLoginScreen.ts",
+        "line": 116
+      },
+      {
+        "path": "assets/Login/Code/Runtime/bootstrap/LoginScreenBootstrap.ts",
+        "line": 195
+      }
+    ],
+    "websocket": [
+
+    ],
+    "native": [
+
+    ],
+    "fetch": [
+
+    ]
+  },
+  "centralized": false,
+  "passed": false
+}

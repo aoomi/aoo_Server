@@ -1,0 +1,14 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - kubernetes/runtime.yaml
+  - kubernetes/mongodb.yaml
+  - kubernetes/edge-tls.yaml
+  - observability/prometheus-rules.yaml
+  - observability/production-monitoring.yaml
+configMapGenerator:
+  - name: aoo-vector-production
+    namespace: aoo-production
+    files: [vector.yaml=observability/vector.yaml]
+generatorOptions:
+  labels: {aoo.io/production-observability: "true"}

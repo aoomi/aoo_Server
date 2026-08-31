@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "runtimes": {
+    "ruby": "3.3.9",
+    "python": "3.12.11",
+    "bashMinimum": "3.2",
+    "zshMinimum": "5.9"
+  },
+  "pythonDependencies": "requirements-tools.txt",
+  "rubyDependencies": [],
+  "requiredCommands": [
+    "docker", "mysql", "redis-cli", "curl", "openssl", "shasum", "java", "javac"
+  ],
+  "policy": "Tool scripts may use standard libraries plus dependencies pinned here; CI installs the same Ruby, Python and Python package lock before executing gates."
+}

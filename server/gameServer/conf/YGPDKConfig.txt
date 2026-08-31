@@ -1,0 +1,39 @@
+#手牌
+handleCard=[15,16];
+#去掉的牌
+deleteCard={[0x0E, 0x0F, 0x1F, 0x2F, 0x1E, 0x2E, 0x0D],,[0x0E, 0x0F, 0x1F, 0x2F]};
+#结算时索引值对应的结算方式
+#记牌分
+jiPaiFen = 0;
+#牌多通输
+paiDuoTongShu = 1;
+#固定分
+guDingFen = 2;
+#机器人明牌概率
+aiOpenCard = 5
+#机器人翻倍概率
+aiAddDouble = 10
+#加倍倍数
+addDoubleList = [1,2,5];
+#抢关门分数2*16
+robClosePointByNotGuDingFen = 32;
+#抢关门分数2 固定分
+robClosePointByGuDingFen = 2;
+#关门*2倍
+robCloseAddDouble = 2;
+#房间加倍限制
+maxRoomAddDouble = 3;
+#上庄分数
+backerPointList = [0, 100, 150, 200];
+#翻倍上限
+maxAddDoubleList = [0, 5, 10, 20];
+
+#神牌模式(0:关,1:开)
+God_Card  = 0;
+CardType  = 1;//1:十六进制,2:十进制
+//0x1E,0x2E,0x3E,0x3F
+//0x03-0x3E 0x13-0x1E 0x23-0x2E 0x33-0x3F
+#玩家一
+Private_Card1 = [];
+#玩家二
+Private_Card2 = [];

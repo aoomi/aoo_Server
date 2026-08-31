@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "task": "THIRD07",
+  "entries": [
+    {
+      "coordinate": "org.atmosphere:nettosphere:3.2.2 and historical customized derivative",
+      "license": "Apache-2.0",
+      "evidence": [
+        "source headers",
+        "custom Jar Bundle-License",
+        "reference/licenses/Apache-2.0.txt"
+      ],
+      "obligations": [
+        "retain copyright",
+        "retain Apache-2.0 text",
+        "state historical customization"
+      ],
+      "distribution": "archive excluded; notice retained defensively"
+    },
+    {
+      "coordinate": "aoo.legacy:kernel:1.0.0",
+      "license": "private-internal-no-public-license-declaration",
+      "evidence": [
+        "THIRD_PARTY_NOTICE.md",
+        "release exclusion"
+      ],
+      "obligations": [
+        "do not redistribute standalone binary",
+        "retain only as internal migration evidence"
+      ],
+      "distribution": "prohibited and release excluded"
+    }
+  ]
+}

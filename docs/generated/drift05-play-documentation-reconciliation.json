@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "sourceEntries": 533,
+  "infrastructureEntries": 0,
+  "classifiedGames": 533,
+  "catalogGames": 528,
+  "catalogCoverage": {
+    "missingFromCatalog": [
+      "dlqhmj",
+      "scjymj",
+      "cqhszmj",
+      "zjh",
+      "zypk",
+      "njpdk",
+      "xcpdk"
+    ],
+    "unknownInCatalog": [
+      "caooszmj",
+      "dlaoomj"
+    ],
+    "duplicateCatalogCodes": [
+
+    ]
+  },
+  "categoryCounts": {
+    "MAHJONG": 363,
+    "POKER": 146,
+    "LONG_CARD": 7,
+    "WORD_CARD": 12
+  },
+  "enabledCount": 222,
+  "profilePublication": {
+    "task": "MIGREAL14",
+    "status": "blocked-cross-client-publication",
+    "completed": {
+      "versionedPublication": true,
+      "activationAndRollback": true,
+      "auditTrail": true,
+      "adminEndpoints": false
+    },
+    "verification": {
+      "configCenterAndAdminTests": "passed",
+      "mavenCommand": "./mvnw -Dexec.skip=true -pl server/ConfigCenter,server/AdminApi -am test"
+    },
+    "unresolved": [
+      "no component-version index is bound atomically to a published game profile",
+      "no deterministic gray-rollout assignment is persisted with the profile",
+      "client does not consume a roomProfileVersion/profile publication contract"
+    ],
+    "clientSignals": {
+      "roomProfileVersion": false,
+      "playVersion": true
+    }
+  },
+  "verdict": "blocked-profile-publication",
+  "checks": {
+    "classificationAccounting": true,
+    "catalogMatchesClassifiedGames": false,
+    "uniqueCatalog": true,
+    "publicationClosed": false
+  }
+}

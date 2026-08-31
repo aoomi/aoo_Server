@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "policy": "docs/数据库备份安全与保留规范.md",
+  "entries": [
+    {
+      "file": "database/backups/Account01_aoo-accounts-2026-08-15T13-45-56-965Z.json.enc",
+      "owner": "database-operations",
+      "classification": "restricted-account-credentials-contact-network-identifiers",
+      "createdAt": "2026-08-15T13:45:56Z",
+      "expiresAt": "2026-09-14T13:45:56Z",
+      "encryption": "AES-256-CBC/PBKDF2-HMAC-SHA256/310000",
+      "keyId": "database-backup-aes",
+      "restoreApproval": "two-person",
+      "destruction": "delete ciphertext and append immutable destruction audit"
+    }
+  ]
+}

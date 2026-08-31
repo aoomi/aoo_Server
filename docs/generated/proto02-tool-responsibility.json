@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-23T09:13:37Z",
+  "task": "PROTO02",
+  "generator": [
+    "tools/protocol/generate.mjs"
+  ],
+  "outputs": [
+    "server/GameSPI/src/main/java/com/aoo/bcg/gamespi/protocol/GeneratedProtocolIds.java",
+    "Client/assets/Common/Code/Runtime/network/GeneratedProtocolIds.ts"
+  ],
+  "messageCount": 35,
+  "responsibilities": {
+    "protocol": "machine source only",
+    "toolsProtocol": "validation and deterministic generation only",
+    "generatedJava": "active server constants and immutable metadata only",
+    "generatedTypeScript": "client constants and immutable metadata only",
+    "legacyCommdef": "isolated compatibility adapter input; never an authority source"
+  },
+  "checks": {
+    "oneGenerator": true,
+    "javaGeneratedInActiveSpi": true,
+    "clientGeneratedInNetworkLayer": true,
+    "everyMessageGeneratedInBothLanguages": true,
+    "noLegacyGeneratedDefinition": true,
+    "compatibilityCodeConsumesActiveDefinition": true
+  },
+  "passed": true
+}

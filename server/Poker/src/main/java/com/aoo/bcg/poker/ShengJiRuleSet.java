@@ -1,0 +1,3 @@
+package com.aoo.bcg.poker;
+import java.util.List;
+public final class ShengJiRuleSet implements PokerRuleSet<ShengJiConfig>{private final StandardPokerRuleSet<ShengJiConfig> singles=new StandardPokerRuleSet<>();public CardCombination recognize(List<Integer> cards,ShengJiConfig state){if(cards.size()!=1)throw new IllegalArgumentException("upgrade base rule accepts one card per trick position");return singles.recognize(cards,state);}public boolean canBeat(CardCombination candidate,CardCombination previous,ShengJiConfig state){return true;}public List<CardCombination> hints(List<Integer> hand,CardCombination previous,ShengJiConfig state){return hand.stream().map(card->recognize(List.of(card),state)).toList();}}

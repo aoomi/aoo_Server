@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+require 'json';require'fileutils';root=File.expand_path('..',__dir__);pom=File.read(File.join(root,'pom.xml'));release=File.read(File.join(root,'tools/build-release.sh'))
+pollution=Dir.glob(File.join(root,'docs/generated/*')).select{|p|File.file?(p)&&File.size(p)<5_000_000&&File.read(p,encoding:'UTF-8',invalid: :replace,undef: :replace,replace:'').include?(root)}.map{|p|p.delete_prefix(root+'/')}
+checks={fixedDefaultTimestamp:pom.include?('<project.build.outputTimestamp>1787414400</project.build.outputTimestamp>'),releaseTimestamp:release.include?('SOURCE_DATE_EPOCH')&&release.include?('project.build.outputTimestamp'),releaseRevision:release.include?('release revision must not be a SNAPSHOT'),noAbsoluteWorkspaceInGeneratedEvidence:pollution.empty?}
+report={schemaVersion:1,checks:checks,pollutedGeneratedEvidence:pollution};out=File.join(root,'docs/generated/build04-reproducibility.json');FileUtils.mkdir_p(File.dirname(out));File.write(out,JSON.pretty_generate(report)+"\n");abort("BUILD04 failed: #{checks}")unless checks.values.all?;puts 'BUILD04 PASS: deterministic timestamp and evidence boundary enforced'

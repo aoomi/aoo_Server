@@ -1,0 +1,21 @@
+{
+  "node_runtime_pinned": true,
+  "generator_dependency_free": true,
+  "deterministic_outputs": true,
+  "passed": true,
+  "runtime": "20.10.0",
+  "outputs": [
+    {
+      "path": "server/GameSPI/src/main/java/com/aoo/bcg/gamespi/protocol/GeneratedProtocolIds.java",
+      "sha256": "01e45a964e153825bd65e00c2663aa804c92b191d575b1a249b0f86ac7e5e313"
+    },
+    {
+      "path": "../Client/assets/Common/Code/Runtime/network/GeneratedProtocolIds.ts",
+      "sha256": "dd182ddcc9dd6885e1224d9b8597cd0f7acc7038d93d8ed2332871a1a967a719"
+    },
+    {
+      "path": "docs/generated/protocol-reference.md",
+      "sha256": "80fa61353583c01f089f905572620a81ecec81fc2f42a882db120943ac8b26ec"
+    }
+  ]
+}

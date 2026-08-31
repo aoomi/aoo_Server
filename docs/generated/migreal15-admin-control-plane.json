@@ -1,0 +1,21 @@
+{
+  "task": "MIGREAL15",
+  "status": "blocked-admin-ui",
+  "completed": {
+    "dedicatedControlPlaneApi": true,
+    "failClosedRbac": true,
+    "authorizationAuditTable": true,
+    "immutableOperationAuditTable": true,
+    "idempotentCommands": true
+  },
+  "verification": {
+    "adminTests": "passed",
+    "mavenCommand": "./mvnw -Dexec.skip=true -pl server/AdminApi -am test"
+  },
+  "adminUiConsumers": [
+
+  ],
+  "unresolved": [
+    "no management UI calls the dedicated control-plane API, so button-to-approval/audit closure is absent"
+  ]
+}

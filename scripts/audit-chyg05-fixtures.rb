@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+require 'json';require 'fileutils'
+root=File.expand_path('..',__dir__);client=File.expand_path('../Client',root);schema=JSON.parse(File.read(File.join(root,'config/client-fixture-schema.json')));files=Dir.glob(File.join(client,'tests/fixtures/**/*.json')).sort;findings=[]
+files.each do|p|begin;x=JSON.parse(File.read(p));missing=schema['required'].reject{|k|x.key?(k)};text=File.read(p);secret=schema['forbiddenKeyPatterns'].select{|k|text.match?(/"#{Regexp.escape(k)}"\s*:/i)};findings<<{path:p.delete_prefix(client+'/'),missing:missing,forbiddenKeys:secret} unless missing.empty?&&secret.empty?;rescue JSON::ParserError=>e;findings<<{path:p.delete_prefix(client+'/'),parseError:e.message};end;end
+report={schemaVersion:1,fixtureFiles:files.map{|p|p.delete_prefix(client+'/')},findings:findings,passed:findings.empty?};out=File.join(root,'docs/generated/chyg05-fixtures.json');FileUtils.mkdir_p(File.dirname(out));File.write(out,JSON.pretty_generate(report)+"\n");abort "CHYG05 failed: #{findings.length} fixture violations" unless report[:passed];puts 'CHYG05 PASS: fixtures satisfy version/schema and sensitive-key policy'

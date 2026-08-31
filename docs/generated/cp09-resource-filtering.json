@@ -1,0 +1,283 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-23T08:53:30Z",
+  "task": "CP09",
+  "declaredResources": [
+    {
+      "module": "server/gameServer",
+      "directory": "../../database/migrations",
+      "filtering": "false"
+    },
+    {
+      "module": "server/ZYPK",
+      "directory": "src/main/resources",
+      "filtering": "false"
+    }
+  ],
+  "filteringEnabled": [
+
+  ],
+  "copyChecks": [
+    {
+      "source": "server/ZJH/src/main/resources/META-INF/services/com.aoo.bcg.gamespi.GameProvider",
+      "target": "server/ZJH/target/classes/META-INF/services/com.aoo.bcg.gamespi.GameProvider",
+      "byteIdentical": true
+    },
+    {
+      "source": "server/Bootstrap/src/main/resources/game-catalog-528.tsv",
+      "target": "server/Bootstrap/target/classes/game-catalog-528.tsv",
+      "byteIdentical": true
+    },
+    {
+      "source": "server/CDXZMJ/src/main/resources/META-INF/services/com.aoo.bcg.gamespi.GameProvider",
+      "target": "server/CDXZMJ/target/classes/META-INF/services/com.aoo.bcg.gamespi.GameProvider",
+      "byteIdentical": true
+    },
+    {
+      "source": "server/XCPDK/src/main/resources/META-INF/services/com.aoo.bcg.gamespi.GameProvider",
+      "target": "server/XCPDK/target/classes/META-INF/services/com.aoo.bcg.gamespi.GameProvider",
+      "byteIdentical": true
+    },
+    {
+      "source": "server/ZYPK/src/main/resources/META-INF/services/com.aoo.bcg.gamespi.GameProvider",
+      "target": "server/ZYPK/target/classes/META-INF/services/com.aoo.bcg.gamespi.GameProvider",
+      "byteIdentical": true
+    },
+    {
+      "source": "server/NJPDK/src/main/resources/META-INF/services/com.aoo.bcg.gamespi.GameProvider",
+      "target": "server/NJPDK/target/classes/META-INF/services/com.aoo.bcg.gamespi.GameProvider",
+      "byteIdentical": true
+    },
+    {
+      "source": "server/SCJYMJ/src/main/resources/META-INF/services/com.aoo.bcg.gamespi.GameProvider",
+      "target": "server/SCJYMJ/target/classes/META-INF/services/com.aoo.bcg.gamespi.GameProvider",
+      "byteIdentical": true
+    },
+    {
+      "source": "database/migrations/V20260822_04_3__outbox_retry.sql",
+      "target": "server/gameServer/target/classes/db/migration/V20260822_04_3__outbox_retry.sql",
+      "byteIdentical": true
+    },
+    {
+      "source": "database/migrations/V20260822_05__ledger_reconciliation_indexes.sql",
+      "target": "server/gameServer/target/classes/db/migration/V20260822_05__ledger_reconciliation_indexes.sql",
+      "byteIdentical": true
+    },
+    {
+      "source": "database/migrations/V20260823_01__room_event_business_identity.sql",
+      "target": "server/gameServer/target/classes/db/migration/V20260823_01__room_event_business_identity.sql",
+      "byteIdentical": true
+    },
+    {
+      "source": "database/migrations/V20260823_22__versioned_replay_archive.sql",
+      "target": "server/gameServer/target/classes/db/migration/V20260823_22__versioned_replay_archive.sql",
+      "byteIdentical": true
+    },
+    {
+      "source": "database/migrations/V20260822_13__room_event_visibility_identity.sql",
+      "target": "server/gameServer/target/classes/db/migration/V20260822_13__room_event_visibility_identity.sql",
+      "byteIdentical": true
+    },
+    {
+      "source": "database/migrations/V20260823_02__outbox_claim_dlq_lifecycle.sql",
+      "target": "server/gameServer/target/classes/db/migration/V20260823_02__outbox_claim_dlq_lifecycle.sql",
+      "byteIdentical": true
+    },
+    {
+      "source": "database/migrations/V20260823_11__required_business_semantics.sql",
+      "target": "server/gameServer/target/classes/db/migration/V20260823_11__required_business_semantics.sql",
+      "byteIdentical": true
+    },
+    {
+      "source": "database/migrations/V20260822_12__consumed_event_claim.sql",
+      "target": "server/gameServer/target/classes/db/migration/V20260822_12__consumed_event_claim.sql",
+      "byteIdentical": true
+    },
+    {
+      "source": "database/migrations/V20260823_13__enforced_domain_checks.sql",
+      "target": "server/gameServer/target/classes/db/migration/V20260823_13__enforced_domain_checks.sql",
+      "byteIdentical": true
+    },
+    {
+      "source": "database/migrations/V20260823_19__canonical_storage_layout.sql",
+      "target": "server/gameServer/target/classes/db/migration/V20260823_19__canonical_storage_layout.sql",
+      "byteIdentical": true
+    },
+    {
+      "source": "database/migrations/V20260823_09__immutable_room_event_history.sql",
+      "target": "server/gameServer/target/classes/db/migration/V20260823_09__immutable_room_event_history.sql",
+      "byteIdentical": true
+    },
+    {
+      "source": "database/migrations/V20260823_20__account_login_unique_index.sql",
+      "target": "server/gameServer/target/classes/db/migration/V20260823_20__account_login_unique_index.sql",
+      "byteIdentical": true
+    },
+    {
+      "source": "database/migrations/V20260823_15__canonical_column_types.sql",
+      "target": "server/gameServer/target/classes/db/migration/V20260823_15__canonical_column_types.sql",
+      "byteIdentical": true
+    },
+    {
+      "source": "database/migrations/V20260823_17__distributed_id_ownership.sql",
+      "target": "server/gameServer/target/classes/db/migration/V20260823_17__distributed_id_ownership.sql",
+      "byteIdentical": true
+    },
+    {
+      "source": "database/migrations/V20260823_03__consumed_event_repeatable_result.sql",
+      "target": "server/gameServer/target/classes/db/migration/V20260823_03__consumed_event_repeatable_result.sql",
+      "byteIdentical": true
+    },
+    {
+      "source": "database/migrations/V20260822_10__perspective_room_events.sql",
+      "target": "server/gameServer/target/classes/db/migration/V20260822_10__perspective_room_events.sql",
+      "byteIdentical": true
+    },
+    {
+      "source": "database/migrations/V20260823_14__query_shape_indexes.sql",
+      "target": "server/gameServer/target/classes/db/migration/V20260823_14__query_shape_indexes.sql",
+      "byteIdentical": true
+    },
+    {
+      "source": "database/migrations/V20260822_04_1__room_recovery.sql",
+      "target": "server/gameServer/target/classes/db/migration/V20260822_04_1__room_recovery.sql",
+      "byteIdentical": true
+    },
+    {
+      "source": "database/migrations/V20260822_07__ten_million_player_indexes.sql",
+      "target": "server/gameServer/target/classes/db/migration/V20260822_07__ten_million_player_indexes.sql",
+      "byteIdentical": true
+    },
+    {
+      "source": "database/migrations/V20260823_18__club_aggregate_concurrency.sql",
+      "target": "server/gameServer/target/classes/db/migration/V20260823_18__club_aggregate_concurrency.sql",
+      "byteIdentical": true
+    },
+    {
+      "source": "database/migrations/V20260822_11__consumed_events.sql",
+      "target": "server/gameServer/target/classes/db/migration/V20260822_11__consumed_events.sql",
+      "byteIdentical": true
+    },
+    {
+      "source": "database/migrations/V20260823_10__connection_generation.sql",
+      "target": "server/gameServer/target/classes/db/migration/V20260823_10__connection_generation.sql",
+      "byteIdentical": true
+    },
+    {
+      "source": "database/migrations/V20260823_26__currency_catalog_and_authority.sql",
+      "target": "server/gameServer/target/classes/db/migration/V20260823_26__currency_catalog_and_authority.sql",
+      "byteIdentical": true
+    },
+    {
+      "source": "database/migrations/V20260823_05__idempotency_result_model.sql",
+      "target": "server/gameServer/target/classes/db/migration/V20260823_05__idempotency_result_model.sql",
+      "byteIdentical": true
+    },
+    {
+      "source": "database/migrations/V20260823_16__utc_millisecond_time.sql",
+      "target": "server/gameServer/target/classes/db/migration/V20260823_16__utc_millisecond_time.sql",
+      "byteIdentical": true
+    },
+    {
+      "source": "database/migrations/V20260823_04__consumer_dead_letter_replay.sql",
+      "target": "server/gameServer/target/classes/db/migration/V20260823_04__consumer_dead_letter_replay.sql",
+      "byteIdentical": true
+    },
+    {
+      "source": "database/migrations/V20260822_08__perspective_replay.sql",
+      "target": "server/gameServer/target/classes/db/migration/V20260822_08__perspective_replay.sql",
+      "byteIdentical": true
+    },
+    {
+      "source": "database/migrations/V20260822_04__admin_permissions.sql",
+      "target": "server/gameServer/target/classes/db/migration/V20260822_04__admin_permissions.sql",
+      "byteIdentical": true
+    },
+    {
+      "source": "database/migrations/V20260823_08__outbox_schema_version.sql",
+      "target": "server/gameServer/target/classes/db/migration/V20260823_08__outbox_schema_version.sql",
+      "byteIdentical": true
+    },
+    {
+      "source": "database/migrations/V20260823_25__outbox_fencing_and_retention.sql",
+      "target": "server/gameServer/target/classes/db/migration/V20260823_25__outbox_fencing_and_retention.sql",
+      "byteIdentical": true
+    },
+    {
+      "source": "database/migrations/V20260823_21__consumed_event_fenced_lease.sql",
+      "target": "server/gameServer/target/classes/db/migration/V20260823_21__consumed_event_fenced_lease.sql",
+      "byteIdentical": true
+    },
+    {
+      "source": "database/migrations/V20260822_02__admin_control_plane.sql",
+      "target": "server/gameServer/target/classes/db/migration/V20260822_02__admin_control_plane.sql",
+      "byteIdentical": true
+    },
+    {
+      "source": "database/migrations/V20260823_06__idempotency_business_scope.sql",
+      "target": "server/gameServer/target/classes/db/migration/V20260823_06__idempotency_business_scope.sql",
+      "byteIdentical": true
+    },
+    {
+      "source": "database/migrations/V20260823_12__play_member_template_business_keys.sql",
+      "target": "server/gameServer/target/classes/db/migration/V20260823_12__play_member_template_business_keys.sql",
+      "byteIdentical": true
+    },
+    {
+      "source": "database/migrations/V20260822_04_2__currency_balance.sql",
+      "target": "server/gameServer/target/classes/db/migration/V20260822_04_2__currency_balance.sql",
+      "byteIdentical": true
+    },
+    {
+      "source": "database/migrations/V20260822_06__million_member_club_indexes.sql",
+      "target": "server/gameServer/target/classes/db/migration/V20260822_06__million_member_club_indexes.sql",
+      "byteIdentical": true
+    },
+    {
+      "source": "database/migrations/V20260823_23__ledger_reconciliation_dimensions.sql",
+      "target": "server/gameServer/target/classes/db/migration/V20260823_23__ledger_reconciliation_dimensions.sql",
+      "byteIdentical": true
+    },
+    {
+      "source": "database/migrations/V20260822_09__replay_retention.sql",
+      "target": "server/gameServer/target/classes/db/migration/V20260822_09__replay_retention.sql",
+      "byteIdentical": true
+    },
+    {
+      "source": "database/migrations/V20260822_01__business_closure.sql",
+      "target": "server/gameServer/target/classes/db/migration/V20260822_01__business_closure.sql",
+      "byteIdentical": true
+    },
+    {
+      "source": "database/migrations/V20260822_14__scalable_club_members.sql",
+      "target": "server/gameServer/target/classes/db/migration/V20260822_14__scalable_club_members.sql",
+      "byteIdentical": true
+    },
+    {
+      "source": "database/migrations/V20260823_07__snapshot_state_version.sql",
+      "target": "server/gameServer/target/classes/db/migration/V20260823_07__snapshot_state_version.sql",
+      "byteIdentical": true
+    },
+    {
+      "source": "database/migrations/V20260822_03__game_profile_publication.sql",
+      "target": "server/gameServer/target/classes/db/migration/V20260822_03__game_profile_publication.sql",
+      "byteIdentical": true
+    },
+    {
+      "source": "database/migrations/V20260822_15__account_login_index.sql",
+      "target": "server/gameServer/target/classes/db/migration/V20260822_15__account_login_index.sql",
+      "byteIdentical": true
+    },
+    {
+      "source": "database/migrations/V20260823_24__admin_rbac_audit.sql",
+      "target": "server/gameServer/target/classes/db/migration/V20260823_24__admin_rbac_audit.sql",
+      "byteIdentical": true
+    }
+  ],
+  "checks": {
+    "noFilteringEnabled": true,
+    "allObservedCopiesByteIdentical": true,
+    "binaryExtensionsProtected": true
+  },
+  "passed": true
+}

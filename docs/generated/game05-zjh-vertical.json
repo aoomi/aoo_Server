@@ -1,0 +1,15 @@
+{
+  "task": "GAME05",
+  "status": "blocked-real-durable-chain",
+  "completed": {
+    "moduleBuildAndEightTests": true,
+    "reconnectView": true,
+    "settlementProvider": true,
+    "productionCommitter": true
+  },
+  "unresolved": [
+    "provider has no restoreAuthoritativeSession implementation",
+    "no real database asset-debit, disconnect/failover recovery and durable settlement integration test",
+    "no complete multi-player round through production gateway"
+  ]
+}

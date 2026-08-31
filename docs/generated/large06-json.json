@@ -1,0 +1,146 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-24T10:43:24Z",
+  "task": "LARGE06",
+  "passed": false,
+  "thresholdBytes": 1048576,
+  "budgets": {
+    "sourceBytes": 2097152,
+    "mainThreadParseMilliseconds": 16,
+    "maxDepth": 32
+  },
+  "json": [
+    {
+      "path": "/Users/aoo/Code/Game/BCG/Aoo/Client/assets/Club/Config/Legacy/forms/default/UIUnionManager.manifest.json",
+      "bytes": 1538139,
+      "gzipBytes": 57085,
+      "gzipRatio": 0.0371,
+      "sha256": "d5e6fcc865d967916186f0d5b32ac64f19c00c519d4905596ae3d47b333c0a17",
+      "parseMilliseconds": 6.798,
+      "rootType": "Hash",
+      "topLevelItems": 5,
+      "maxDepth": 20,
+      "schema": false
+    },
+    {
+      "path": "/Users/aoo/Code/Game/BCG/Aoo/Client/assets/Club/Config/Legacy/forms/skin-2/UIUnionManagerZhongZhi.manifest.json",
+      "bytes": 1217782,
+      "gzipBytes": 45707,
+      "gzipRatio": 0.0375,
+      "sha256": "f51561593c076ddb4b594cab4b61fc52e1bce2daacf6740c7db7fff534b830a0",
+      "parseMilliseconds": 3.986,
+      "rootType": "Hash",
+      "topLevelItems": 5,
+      "maxDepth": 20,
+      "schema": false
+    },
+    {
+      "path": "/Users/aoo/Code/Game/BCG/Aoo/Client/assets/Club/Config/Legacy/forms/skin-2/UIUnionManager_2.manifest.json",
+      "bytes": 1761316,
+      "gzipBytes": 63595,
+      "gzipRatio": 0.0361,
+      "sha256": "1bd5e024eecefe10faa514b2ace1b3133046195c9cf1d887343e940519166f79",
+      "parseMilliseconds": 7.347,
+      "rootType": "Hash",
+      "topLevelItems": 5,
+      "maxDepth": 20,
+      "schema": false
+    },
+    {
+      "path": "/Users/aoo/Code/Game/BCG/Aoo/Client/assets/Common/Config/Legacy/assets/jsonData/GameHelp.json",
+      "bytes": 3430983,
+      "gzipBytes": 723069,
+      "gzipRatio": 0.2107,
+      "sha256": "c2be23cf8fc5f043287f8b883ee00be6e375b2401ce029fdd2fee54eb079118b",
+      "parseMilliseconds": 13.395,
+      "rootType": "Hash",
+      "topLevelItems": 5627,
+      "maxDepth": 2,
+      "schema": false
+    },
+    {
+      "path": "/Users/aoo/Code/Game/BCG/Aoo/Client/assets/Common/Config/Legacy/assets/jsonData/gameCreate.json",
+      "bytes": 2340871,
+      "gzipBytes": 157837,
+      "gzipRatio": 0.0674,
+      "sha256": "f2941d2d67e226edf979b55ae1a8bfeadbb61ed3dcc9b4d9d1f413ba3052a3f9",
+      "parseMilliseconds": 19.269,
+      "rootType": "Hash",
+      "topLevelItems": 6020,
+      "maxDepth": 2,
+      "schema": false
+    },
+    {
+      "path": "/Users/aoo/Code/Game/BCG/Aoo/Client/assets/Common/Config/Legacy/assets/jsonData/roomcost.json",
+      "bytes": 5062218,
+      "gzipBytes": 191507,
+      "gzipRatio": 0.0378,
+      "sha256": "7d96f4cecdd11af0509af75a4188fe4c7b906cf748f7a35986660e3b4a48d38f",
+      "parseMilliseconds": 45.948,
+      "rootType": "Hash",
+      "topLevelItems": 13108,
+      "maxDepth": 2,
+      "schema": false
+    },
+    {
+      "path": "server/LegacyCommon/conf/jsonData/gamecreate.json",
+      "bytes": 2327579,
+      "gzipBytes": 156158,
+      "gzipRatio": 0.0671,
+      "sha256": "ebe284cf2d0740224e667b9377310f7114078ce6436136c6150e77ceb515e58b",
+      "parseMilliseconds": 24.924,
+      "rootType": "Hash",
+      "topLevelItems": 5984,
+      "maxDepth": 2,
+      "schema": false
+    },
+    {
+      "path": "server/LegacyCommon/conf/jsonData/gamehelp.json",
+      "bytes": 3430983,
+      "gzipBytes": 723069,
+      "gzipRatio": 0.2107,
+      "sha256": "c2be23cf8fc5f043287f8b883ee00be6e375b2401ce029fdd2fee54eb079118b",
+      "parseMilliseconds": 11.053,
+      "rootType": "Hash",
+      "topLevelItems": 5627,
+      "maxDepth": 2,
+      "schema": false
+    },
+    {
+      "path": "server/LegacyCommon/conf/jsonData/roomcost.json",
+      "bytes": 5062218,
+      "gzipBytes": 191507,
+      "gzipRatio": 0.0378,
+      "sha256": "7d96f4cecdd11af0509af75a4188fe4c7b906cf748f7a35986660e3b4a48d38f",
+      "parseMilliseconds": 43.903,
+      "rootType": "Hash",
+      "topLevelItems": 13108,
+      "maxDepth": 2,
+      "schema": false
+    }
+  ],
+  "duplicates": [
+    [
+      "/Users/aoo/Code/Game/BCG/Aoo/Client/assets/Common/Config/Legacy/assets/jsonData/GameHelp.json",
+      "server/LegacyCommon/conf/jsonData/gamehelp.json"
+    ],
+    [
+      "/Users/aoo/Code/Game/BCG/Aoo/Client/assets/Common/Config/Legacy/assets/jsonData/roomcost.json",
+      "server/LegacyCommon/conf/jsonData/roomcost.json"
+    ]
+  ],
+  "checks": {
+    "allParse": true,
+    "schemasPresent": false,
+    "sourceFilesUnderTwoMiB": false,
+    "mainThreadParseBudget": false,
+    "compressedTransferPlanned": false,
+    "cacheVersioningPlanned": false,
+    "noDuplicates": false
+  },
+  "blockers": [
+    "GameHelp/gameCreate/roomcost remain monolithic multi-megabyte JSON",
+    "no per-document JSON Schema and versioned cache contract",
+    "no compressed transfer or worker/incremental parsing proof"
+  ]
+}

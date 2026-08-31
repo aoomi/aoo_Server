@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "archivePresent": true,
+  "files": 0,
+  "checks": {
+    "outsideAssets": true,
+    "excludedFromTypeScript": true,
+    "noRuntimeSourceReferences": true
+  },
+  "runtimeReferences": [
+
+  ]
+}

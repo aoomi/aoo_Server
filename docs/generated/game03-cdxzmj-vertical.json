@@ -1,0 +1,13 @@
+{
+  "task": "GAME03",
+  "status": "blocked-complete-xuezhan-branches",
+  "completed": {
+    "moduleBuildAndProviderTest": true,
+    "authoritativeRestore": true,
+    "mahjongCategoryProvider": true
+  },
+  "unresolved": [
+    "no complete multi-player xuezhan round exercises all hu/gang/settlement branches",
+    "no reconnect-during-operation integration test proves perspective-safe continuation"
+  ]
+}
