@@ -77,6 +77,35 @@ final class PdkCommonArchitectureTest {
         }
     }
 
+    @Test void productionPdkProviderUsesTheCommonTwoToFourPlayerProfile() {
+        PdkGameProvider provider = new PdkGameProvider();
+        for (int playerCount : List.of(2, 3, 4)) {
+            PokerAuthoritativeSession session = (PokerAuthoritativeSession) provider.roomFactory().create(
+                    new com.aoo.bcg.gamespi.RoomCreationContext(9100 + playerCount, 100,
+                            Map.of("playerCount", playerCount, "roundCount", 8))).requireAuthoritativeSession();
+            long sequence = 1;
+            for (int seat = 1; seat < playerCount; seat++)
+                session.execute(command(session, "join_req", sequence++, seat, 100 + seat, Map.of()));
+            session.execute(command(session, "start_req", sequence, 0, 100, Map.of()));
+            assertEquals("PLAYING", session.viewFor(100).get("phase"));
+            assertEquals(playerCount, session.viewFor(100).get("playerCount"));
+        }
+    }
+
+    @Test void productionProviderMigratesOnlyTheKnownWaitingSnapshotIdentity() {
+        PdkGameProvider provider = new PdkGameProvider();
+        Map<String,Object> waiting = new java.util.LinkedHashMap<>(provider.roomFactory().create(
+                new com.aoo.bcg.gamespi.RoomCreationContext(9199, 100,
+                        Map.of("playerCount", 2, "roundCount", 8)))
+                .requireAuthoritativeSession().authoritativeState());
+        waiting.put("ruleSnapshotKey",
+                "4208ce24d1f9cc83de9eda6400b0bae2abc67af7a37df42493c37d681fa9ba5e");
+        assertDoesNotThrow(() -> provider.restoreAuthoritativeSession(waiting).orElseThrow());
+        waiting.put("ruleSnapshotKey", "unknown");
+        assertThrows(IllegalStateException.class,
+                () -> provider.restoreAuthoritativeSession(waiting).orElseThrow());
+    }
+
     private static GameCommandRequest command(PokerAuthoritativeSession session, String msgId,
             long sequence, int seat, long player, Map<String,Object> body) {
         Map<String,Object> state = session.authoritativeState();

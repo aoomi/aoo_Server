@@ -15,6 +15,7 @@ checks = {
   'watcher requires two matching hashes' => watcher.include?("first_hash == second_hash"),
   'watcher retains last good version on failure' => watcher.include?('继续使用上一发布版本'),
   'watcher normalizes subprocess output to UTF-8' => watcher.include?('encode(Encoding::UTF_8'),
+  'watcher state is owner-only before atomic publish' => watcher.include?('File.chmod(0o600, temporary)'),
   'watcher is idempotent by published source hash' => watcher.include?("snapshot['sourceHash'] != current_published_hash"),
   'publisher writes generated output atomically' => publisher.include?('File.rename(temporary, OUTPUT)'),
   'publisher locates the unique seven-column header' => publisher.include?('header_lines.length == 1'),

@@ -110,6 +110,25 @@ public final class PdkPublishedRuleOptions {
         return Map.copyOf(values);
     }
 
+    /**
+     * 同一发布版本扩展人数范围后，旧 WAITING 快照仍保存旧 profile 指纹。
+     * 只允许 Provider 明确登记的历史指纹迁移；已开局快照或未知指纹继续拒绝，
+     * 避免把规则能力变化伪装成可恢复的配置升级。
+     */
+    public static Map<String,Object> migrateWaitingSnapshotIdentity(Map<String,Object> state,
+            PaoDeKuaiFamily family, Set<String> knownLegacyKeys) {
+        Objects.requireNonNull(state);
+        Objects.requireNonNull(family);
+        Objects.requireNonNull(knownLegacyKeys);
+        String current = String.valueOf(state.get("ruleSnapshotKey"));
+        if (family.ruleSnapshotKey().equals(current)) return state;
+        if (!knownLegacyKeys.contains(current) || !"WAITING".equals(state.get("state")))
+            throw new IllegalStateException("rule snapshot mismatch");
+        Map<String,Object> migrated = new LinkedHashMap<>(state);
+        migrated.put("ruleSnapshotKey", family.ruleSnapshotKey());
+        return Map.copyOf(migrated);
+    }
+
     private static boolean allowsPairs(PaoDeKuaiConfig.AttachmentMode mode) {
         return mode == PaoDeKuaiConfig.AttachmentMode.PAIRS
                 || mode == PaoDeKuaiConfig.AttachmentMode.EITHER;

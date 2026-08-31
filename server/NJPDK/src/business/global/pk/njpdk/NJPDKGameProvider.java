@@ -25,8 +25,11 @@ import com.aoo.bcg.poker.PokerAuthoritativeSession;
 import java.security.SecureRandom;
 import java.util.Optional;
 import java.util.Map;
+import java.util.Set;
 
 public final class NJPDKGameProvider implements PokerGameProvider {
+    private static final Set<String> LEGACY_WAITING_KEYS = Set.of(
+            "c86a274df7a866391408989c4a2d4824863951c784e04fd2c9eb0d43b0e9bb52");
     private static final PaoDeKuaiConfig BASE_CONFIG = new PaoDeKuaiConfig(5, true, true,
             false, null, true, 14, true, true, 1, 3, 2, true);
     private static final PaoDeKuaiFamily FAMILY = family(BASE_CONFIG);
@@ -52,8 +55,10 @@ public final class NJPDKGameProvider implements PokerGameProvider {
     }
     @Override public Optional<AuthoritativeGameSession> restoreAuthoritativeSession(Map<String,Object> state) {
         Map<String,Object> options = ruleOptions(state);
-        return Optional.of(PokerAuthoritativeSession.restore(state,
-                family(PdkPublishedRuleOptions.apply(options, BASE_CONFIG), options)));
+        PaoDeKuaiFamily family = family(PdkPublishedRuleOptions.apply(options, BASE_CONFIG), options);
+        return Optional.of(PokerAuthoritativeSession.restore(
+                PdkPublishedRuleOptions.migrateWaitingSnapshotIdentity(
+                        state, family, LEGACY_WAITING_KEYS), family));
     }
 
     @Override public Optional<GameServiceLauncher> serviceLauncher() { return Optional.of(NJPDKAPP::launch); }

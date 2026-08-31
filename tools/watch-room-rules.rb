@@ -46,6 +46,9 @@ def write_state(payload)
   FileUtils.mkdir_p(File.dirname(STATE))
   temporary = "#{STATE}.tmp-#{Process.pid}"
   File.write(temporary, JSON.pretty_generate(payload) + "\n")
+  # 状态包含本机发布路径与时间戳；原子替换前先收紧权限，避免 rename
+  # 把进程 umask 产生的 0644 文件暴露给同机其他账号。
+  File.chmod(0o600, temporary)
   File.rename(temporary, STATE)
 ensure
   File.delete(temporary) if defined?(temporary) && File.exist?(temporary)
