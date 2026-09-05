@@ -54,7 +54,7 @@ public final class SecureWsTicketService implements WsTicketService {
                 || (verifyDevice && !issued.deviceFingerprint().equals(deviceFingerprint))) {
             throw new SecurityException("websocket ticket rejected");
         }
-        return new ConnectionIdentity(issued.userId(), issued.deviceFingerprint(), issued.allowedOrigin());
+        return new ConnectionIdentity(issued.userId(), issued.deviceFingerprint(), issued.allowedOrigin(), "native:" + issued.deviceFingerprint());
     }
 
     private static boolean blank(String value) { return value == null || value.isBlank(); }

@@ -28,7 +28,7 @@ class RuleSchemaTest {
     @Test void schemaVersionsAreImmutableAndAliasCollisionsAreRejected() {
         RuleSchemaRegistry registry = new RuleSchemaRegistry();
         registry.register(schema());
-        assertSame(schema().getClass(), registry.require("poker.njpdk", "2").getClass());
+        assertSame(schema().getClass(), registry.require("poker.pdk", "2").getClass());
         assertThrows(IllegalStateException.class, () -> registry.register(schema()));
         RuleFieldDefinition first = integer("playerCount", Set.of("count"), true, null, 2, 4, "人", "人数");
         RuleFieldDefinition second = integer("roundCount", Set.of("count"), true, null, 1, 32, "局", "局数");
@@ -36,7 +36,7 @@ class RuleSchemaTest {
     }
 
     private static RuleSchema schema() {
-        return new RuleSchema("poker.njpdk", "2", List.of(
+        return new RuleSchema("poker.pdk", "2", List.of(
                 integer("playerCount", Set.of("renshu"), true, null, 2, 4, "人", "参与人数"),
                 integer("roundCount", Set.of("jushu"), true, 8, 1, 32, "局", "牌局总局数"),
                 enumeration("paymentMode", Set.of("payType"), Set.of("OWNER", "AA", "CLUB"), "付费方"),

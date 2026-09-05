@@ -7,7 +7,7 @@ import com.aoo.bcg.common.settlement.SettlementExecutor;
 import com.aoo.bcg.gamespi.GameCommandResult;
 import com.aoo.bcg.gamespi.GameProvider;
 import com.aoo.bcg.gamespi.GameRegistry;
-import com.aoo.bcg.gateway.ConnectionSession;
+import com.aoo.bcg.gateway.ConnectionSessionFactory;
 import com.aoo.bcg.gateway.GatewayRuntimeProvider;
 import com.aoo.bcg.gateway.GatewayWebSocketFrameHandler;
 import com.aoo.bcg.gateway.RuntimeGameRoomRegistry;
@@ -23,6 +23,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 import com.aoo.bcg.gateway.GatewayRoomBroadcastHub;
+import com.aoo.bcg.gateway.JdbcConnectionGenerationStore;
 import java.net.URI;
 
 /** Production SPI assembly used by the standalone Gateway process. */
@@ -50,6 +51,7 @@ public final class ProductionGatewayRuntimeProvider implements GatewayRuntimePro
             try { commandCommitter.recoverPendingSettlements(64); }
             catch (RuntimeException failure) { System.err.println("settlement outbox recovery failed: "+failure.getMessage()); }
         },5,5,TimeUnit.SECONDS);
+        var connectionSessions = new ConnectionSessionFactory(new JdbcConnectionGenerationStore(source));
         GatewayWebSocketFrameHandler.SessionResolver sessions = (identity, frame) -> {
             var room = rooms.require(Long.parseLong(frame.roomId()));
             Object rawPlayers = room.requireAuthoritativeSession().authoritativeState().get("players");
@@ -68,7 +70,7 @@ public final class ProductionGatewayRuntimeProvider implements GatewayRuntimePro
             int seatId=seated!=null?seated:observing!=null?observing:
                     throwSecurity("account is not a room member");
             return new GatewayWebSocketFrameHandler.SessionBinding(identity.userId(),
-                    new ConnectionSession(Long.toString(identity.userId()), frame.roomId(), seatId,
+                    connectionSessions.open(Long.toString(identity.userId()), frame.roomId(), seatId,
                             frame.playVersion(), frame.seq() - 1));
         };
         var broadcasts = new GatewayRoomBroadcastHub((roomId, playerId) -> rooms.require(roomId)
@@ -95,7 +97,7 @@ public final class ProductionGatewayRuntimeProvider implements GatewayRuntimePro
             @Override public void close() { recovery.shutdownNow();authority.close(); }
         };
         return new Runtime(runtime.router(), sessions, broadcasts,
-                new JdbcHallWebSocketDispatcher(source),managedAuthority);
+                new JdbcHallWebSocketDispatcher(source,json,clock),managedAuthority);
     }
 
     static GameRegistry loadGames() {

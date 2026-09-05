@@ -33,7 +33,7 @@ start_rule_watcher(){
   if pid_alive "$name"; then return; fi
   # launchd 会在 watcher 异常退出后生成新 PID；由 runner 在每次启动时写回，
   # 避免健康检查长期读取第一次启动留下的陈旧 PID。
-  printf '#!/usr/bin/env bash\necho $$ > %q\nexec ruby %q\n' "$RUNTIME/$name.pid" "$ROOT/tools/watch-room-rules.rb" > "$runner"
+  printf '#!/usr/bin/env bash\nexport LANG=${LANG:-en_US.UTF-8}\nexport LC_ALL=${LC_ALL:-en_US.UTF-8}\nexport LC_CTYPE=${LC_CTYPE:-en_US.UTF-8}\necho $$ > %q\nexec ruby %q\n' "$RUNTIME/$name.pid" "$ROOT/tools/watch-room-rules.rb" > "$runner"
   chmod 700 "$runner"
   if command -v launchctl >/dev/null 2>&1; then
     local plist="$RUNTIME/room-rules.plist"
@@ -51,12 +51,15 @@ start_rule_watcher(){
 PLIST
     chmod 600 "$plist"
     launchctl bootout "$domain/$label" >/dev/null 2>&1 || true
-    launchctl bootstrap "$domain" "$plist"
-    launchctl print "$domain/$label" | awk '/pid =/{print $3; exit}' > "$RUNTIME/$name.pid"
-  else
-    nohup "$runner" >"$ROOT/logs/local-dev/room-rules.log" 2>&1 < /dev/null &
-    echo $! > "$RUNTIME/$name.pid"
+    if launchctl bootstrap "$domain" "$plist"; then
+      launchctl print "$domain/$label" | awk '/pid =/{print $3; exit}' > "$RUNTIME/$name.pid" || true
+      if pid_alive "$name"; then return; fi
+    fi
+    if pid_alive "$name"; then return; fi
+    echo "room-rules launchctl 启动失败，降级为 nohup 后台进程；日志仍写入 logs/local-dev/room-rules.log" >&2
   fi
+  nohup "$runner" >"$ROOT/logs/local-dev/room-rules.log" 2>&1 < /dev/null &
+  echo $! > "$RUNTIME/$name.pid"
 }
 
 mysql_exec(){
@@ -165,10 +168,15 @@ stop_one(){
 
 start_gateway(){
   local gateway_cp="$1"
+  local origins="$AOO_LOCAL_ORIGINS" lan_ip
+  lan_ip="$(ipconfig getifaddr en0 2>/dev/null || ipconfig getifaddr en1 2>/dev/null || true)"
+  if [[ -n "$lan_ip" ]]; then
+    for preview_port in 7456 7457 7459 7460 5173 5188; do origins+=",http://${lan_ip}:${preview_port}"; done
+  fi
   start_java gateway 8080 "$gateway_cp" com.aoo.bcg.gateway.GatewayApplication \
     JAVA_TOOL_OPTIONS=-Dio.netty.eventLoopThreads=4 \
     GATEWAY_DATABASE_URL="$DB_URL" GATEWAY_DATABASE_USER="$MYSQL_USER" GATEWAY_DATABASE_PASSWORD="$MYSQL_PASSWORD" \
-    GATEWAY_OFFICIAL_ORIGINS="$AOO_LOCAL_ORIGINS" GATEWAY_VERSION_URL=http://127.0.0.1:8095 GATEWAY_ACCOUNT_URL=http://127.0.0.1:8096 GATEWAY_HALL_URL=http://127.0.0.1:8093 HALL_INTERNAL_URL=http://127.0.0.1:8093 HALL_INTERNAL_TOKEN="${AOO_LOCAL_HALL_INTERNAL_TOKEN:-local-hall-internal-token-at-least-32-bytes}" GATEWAY_SOCIAL_URL=http://127.0.0.1:8097 GATEWAY_INTERNAL_TOKEN="${AOO_LOCAL_ROOM_AUTHORITY_TOKEN:-local-room-authority-token-at-least-32-bytes}" GATEWAY_INTERNAL_PORT=18080 GATEWAY_HTTP_PORT=8080
+    GATEWAY_OFFICIAL_ORIGINS="$origins" GATEWAY_ALLOW_INSECURE_LAN_PREVIEW=true GATEWAY_VERSION_URL=http://127.0.0.1:8095 GATEWAY_ACCOUNT_URL=http://127.0.0.1:8096 GATEWAY_HALL_URL=http://127.0.0.1:8093 HALL_INTERNAL_URL=http://127.0.0.1:8093 HALL_INTERNAL_TOKEN="${AOO_LOCAL_HALL_INTERNAL_TOKEN:-local-hall-internal-token-at-least-32-bytes}" GATEWAY_SOCIAL_URL=http://127.0.0.1:8097 GATEWAY_INTERNAL_TOKEN="${AOO_LOCAL_ROOM_AUTHORITY_TOKEN:-local-room-authority-token-at-least-32-bytes}" GATEWAY_INTERNAL_PORT=18080 GATEWAY_HTTP_PORT=8080
 }
 
 start_all(){
@@ -186,7 +194,9 @@ start_all(){
   start_java account 8096 "$bootstrap_cp" com.aoo.bcg.bootstrap.BootstrapAPP \
     ACCOUNT_DATABASE_URL="$DB_URL" ACCOUNT_DATABASE_USER="$MYSQL_USER" ACCOUNT_DATABASE_PASSWORD="$MYSQL_PASSWORD" \
     ACCOUNT_OPERATOR_TOKEN="$AOO_LOCAL_ACCOUNT_OPERATOR_TOKEN" \
-    ACCOUNT_IDENTITY_SECOND_FACTOR_TOKEN="${AOO_LOCAL_ACCOUNT_IDENTITY_SECOND_FACTOR_TOKEN:-local-account-second-factor-token-at-least-32-bytes}" ACCOUNT_HTTP_PORT=8096
+    ACCOUNT_IDENTITY_SECOND_FACTOR_TOKEN="${AOO_LOCAL_ACCOUNT_IDENTITY_SECOND_FACTOR_TOKEN:-local-account-second-factor-token-at-least-32-bytes}" \
+    ACCOUNT_REGISTRATION_EXPOSE_CODE=true \
+    ACCOUNT_GATEWAY_INTERNAL_URL=http://127.0.0.1:18080 ACCOUNT_GATEWAY_INTERNAL_TOKEN="${AOO_LOCAL_ROOM_AUTHORITY_TOKEN:-local-room-authority-token-at-least-32-bytes}" ACCOUNT_HTTP_PORT=8096
   start_java hall 8093 "$bootstrap_cp" com.aoo.bcg.bootstrap.BootstrapAPP \
     HALL_DATABASE_URL="$DB_URL" HALL_DATABASE_USER="$MYSQL_USER" HALL_DATABASE_PASSWORD="$MYSQL_PASSWORD" \
     HALL_AUTH_SECRET="${AOO_LOCAL_HALL_AUTH_SECRET:-local-hall-auth-secret-at-least-32-bytes}" \

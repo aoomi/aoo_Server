@@ -15,7 +15,8 @@ class PdkNineStageAcceptanceTest {
         handler.handle(room, command("join_req", 2, 1, 20, Map.of()));
         handler.handle(room, command("join_req", 3, 2, 30, Map.of()));
         handler.handle(room, command("ready_req", 4, 0, 10, Map.of()));
-        handler.handle(room, command("start_req", 5, 0, 10, Map.of()));
+        handler.handle(room, command("ready_req", 5, 1, 20, Map.of()));
+        handler.handle(room, command("ready_req", 6, 2, 30, Map.of()));
 
         PokerAuthoritativeSession session = (PokerAuthoritativeSession) room.requireAuthoritativeSession();
         StatePayload replayBase = StatePayload.copyOf(session.authoritativeState());
@@ -24,14 +25,14 @@ class PdkNineStageAcceptanceTest {
         int turn = (Integer) session.viewFor(10).get("currentSeat");
         long player = List.of(10L, 20L, 30L).get(turn);
         int card = ownCards(session, player, turn).getFirst();
-        handler.handle(room, command("play_req", 6, turn, player, Map.of("cards", List.of(card))));
+        handler.handle(room, command("play_req", 7, turn, player, Map.of("cards", List.of(card))));
         assertNotEquals(turn, session.viewFor(10).get("currentSeat"));
 
         Map<String,Object> saved = session.authoritativeState();
         AuthoritativeGameSession restored = provider.restoreAuthoritativeSession(saved).orElseThrow();
         assertEquals(saved, restored.authoritativeState());
-        assertEquals(session.viewFor(20), provider.reconnectViewProvider().orElseThrow().buildFor(20,
-                new GameRoomHandle(8001, PdkGameProvider.GAME_ID, PdkGameProvider.VERSION, restored)));
+        assertEquals(stableView(session.viewFor(20)), stableView(provider.reconnectViewProvider().orElseThrow().buildFor(20,
+                new GameRoomHandle(8001, PdkGameProvider.GAME_ID, PdkGameProvider.VERSION, restored))));
         assertTrue(restored.invariantViolations().isEmpty());
         StatePayload replayed=provider.eventReplayProvider().orElseThrow().replay(replayBase,
                 session.recordedEvents().subList(replayOffset,session.recordedEvents().size()));
@@ -44,6 +45,9 @@ class PdkNineStageAcceptanceTest {
         PdkGameProvider provider = new PdkGameProvider();
         assertEquals(48, ((PaoDeKuaiFamily) provider.pokerFamily()).profile().deckSize());
         PaoDeKuaiRuleSet rules = ((PaoDeKuaiFamily) provider.pokerFamily()).rules();
+        assertEquals(16, rules.config().cardsPerPlayer());
+        assertEquals(16, rules.cardsPerPlayer(2));
+        assertEquals(16, rules.cardsPerPlayer(3));
         assertEquals("FOUR_WITH_TWO", rules.recognize(List.of(103, 203, 303, 403, 104, 205),
                 new PaoDeKuaiContext(false, 8, List.of(103, 203, 303, 403, 104, 205))).type());
         assertEquals(0, ServiceLoader.load(GameProvider.class).stream()
@@ -78,6 +82,12 @@ class PdkNineStageAcceptanceTest {
     @SuppressWarnings("unchecked") private static List<Integer> ownCards(AuthoritativeGameSession session,long player,int seat) {
         Map<Integer,Object> seats=(Map<Integer,Object>)session.viewFor(player).get("seats");
         return (List<Integer>)((Map<String,Object>)seats.get(seat)).get("cards");
+    }
+    @SuppressWarnings("unchecked")
+    private static Map<String,Object> stableView(Object view) {
+        Map<String,Object> copy = new LinkedHashMap<>((Map<String,Object>) view);
+        copy.remove("serverEpochMillis");
+        return copy;
     }
     private static GameCommandRequest command(String id,long sequence,int seat,long player,Map<String,Object> body) {
         return new GameCommandRequest(id,"pdk-"+sequence,sequence,8001,0,PdkGameProvider.VERSION,

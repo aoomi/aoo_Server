@@ -274,7 +274,7 @@
       "errors": []
     },
     {
-      "msgId": "poker.njpdk.dispatch",
+      "msgId": "poker.pdk.dispatch",
       "kind": "req",
       "direction": "client_to_server",
       "transport": "WSS",

@@ -20,6 +20,7 @@ graph TD
   game_families["game-families"] --> game_category_word_card["game-category-word-card"]
   game_families["game-families"] --> game_spi["game-spi"]
   club_backend["club-backend"] --> game_common["game-common"]
+  club_backend["club-backend"] --> game_billing["game-billing"]
   game_gateway["game-gateway"] --> game_spi["game-spi"]
   game_gateway["game-gateway"] --> game_common["game-common"]
   game_config_center["game-config-center"] --> game_common["game-common"]

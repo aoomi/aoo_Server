@@ -63,6 +63,7 @@ final class JdbcGatewayGameCommandCommitter implements GameCommandCommitter {
             try {
                 Metadata metadata = metadata(connection, room.roomId(), true);
                 lockProcessingResult(connection, key);
+                markFirstRoundStarted(connection,room.roomId(),state);
                 upsertSnapshot(connection, room, metadata, stateVersion, state);
                 recordReplay(connection, room, request, result, metadata, stateVersion, state);
                 if (pendingSettlement != null) enqueueSettlement(connection, pendingSettlement);
@@ -77,6 +78,21 @@ final class JdbcGatewayGameCommandCommitter implements GameCommandCommitter {
             if (failure instanceof RuntimeException runtime) throw runtime;
             throw new IllegalStateException("cannot atomically commit room command", failure);
         }
+    }
+
+    private void markFirstRoundStarted(Connection connection,long roomId,Map<String,Object> state)throws Exception{
+        if(!firstRoundStarted(state))return;
+        try(PreparedStatement statement=connection.prepareStatement("UPDATE aoo_room_authority_route SET first_round_started_at=COALESCE(first_round_started_at,CURRENT_TIMESTAMP(3)),updated_at=CURRENT_TIMESTAMP(3) WHERE room_id=? AND lifecycle_state='ACTIVE' AND (first_round_started_at IS NOT NULL OR created_at>DATE_SUB(CURRENT_TIMESTAMP(3),INTERVAL 300 SECOND))")){
+            statement.setLong(1,roomId);
+            if(statement.executeUpdate()!=1)throw new SecurityException("房间已到期，首局开始未获得权威状态");
+        }
+    }
+
+    private static boolean firstRoundStarted(Map<String,Object> state){
+        for(String key:List.of("roundNo","setID","setId")){Object value=state.get(key);if(value instanceof Number number&&number.longValue()>0)return true;}
+        if(Boolean.TRUE.equals(state.get("started")))return true;
+        String phase=String.valueOf(state.getOrDefault("phase","")).strip().toUpperCase(java.util.Locale.ROOT);
+        return List.of("PLAYING","IN_GAME","ROUND_PLAYING","DEALING").contains(phase);
     }
 
     int recoverPendingSettlements(int limit) {
@@ -311,7 +327,7 @@ final class JdbcGatewayGameCommandCommitter implements GameCommandCommitter {
     }
 
     private static Map<Integer,Long> players(Object raw){Map<Integer,Long> result=new LinkedHashMap<>();if(raw instanceof Map<?,?> map)for(var entry:map.entrySet())result.put(Integer.parseInt(String.valueOf(entry.getKey())),Long.parseLong(String.valueOf(entry.getValue())));return result;}
-    private static boolean replayMutation(GameCommandRequest request){String action=replayAction(request);return !List.of("state","hint","CNJPDKGetRoomInfo","CNJPDKContinueEnterRoom").contains(action);}
+    private static boolean replayMutation(GameCommandRequest request){String action=replayAction(request);return !List.of("state","hint","reconnect").contains(action);}
     private static String replayAction(GameCommandRequest request){Object action=request.body().get("action");return action==null?request.msgId():String.valueOf(action);}
     private static Object replayCards(GameCommandRequest request){Object payload=request.body().get("payload");if(payload instanceof Map<?,?> map){Object cards=map.get("cards");if(cards==null)cards=map.get("cardList");return cards;}Object cards=request.body().get("cards");return cards==null?request.body().get("cardList"):cards;}
     private static String safeError(Throwable failure){String value=failure.getClass().getSimpleName()+":"+String.valueOf(failure.getMessage());return value.length()>1000?value.substring(0,1000):value;}

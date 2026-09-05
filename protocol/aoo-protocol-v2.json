@@ -462,7 +462,7 @@
         }
       },
       "errors": [],
-      "msgId": "poker.njpdk.state_push"
+      "msgId": "poker.pdk.state_push"
     },
     {
       "kind": "push",
@@ -549,7 +549,7 @@
       "msgId": "common.room.compat_state_push"
     },
     {
-      "msgId": "poker.njpdk.dispatch",
+      "msgId": "poker.pdk.dispatch",
       "kind": "req",
       "direction": "client_to_server",
       "transport": "WSS",

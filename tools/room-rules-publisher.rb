@@ -5,7 +5,7 @@ require 'rexml/document'
 
 SERVER_ROOT = File.expand_path('..', __dir__)
 PROJECT_ROOT = File.expand_path('..', SERVER_ROOT)
-WORKBOOK = File.join(PROJECT_ROOT, '玩法文档/跑得快/成都跑得快开房规则表.xlsx')
+WORKBOOK = File.join(PROJECT_ROOT, '开房规则表/跑得快/成都跑得快开房规则表.xlsx')
 OUTPUT = File.join(SERVER_ROOT, 'work/generated/room-rules/成都跑得快.generated.json')
 HEADERS = %w[界面显示文字 控件类型 可选项显示文字 默认勾选 是否显示 是否可选 是否必选].freeze
 CONTROLS = { '单选' => 'radio', '多选' => 'checkbox' }.freeze
@@ -97,8 +97,12 @@ def parse!
     key, values = mapping; fail!("#{label} 选项数量与稳定键映射不一致") unless labels.length == values.length
     visible = boolean!(row['E'], "#{label}/是否显示")
     enabled = boolean!(row['F'], "#{label}/是否可选")
-    required = boolean!(row['G'], "#{label}/是否必选")
+    documented_required = boolean!(row['G'], "#{label}/是否必选")
     candidates = defaults!(row['D'], labels.length, label)
+    # 控件类型是选择基数的唯一权威：单选必须恰好一个，多选允许零个。
+    # Excel 的“是否必选”仍被严格解析以发现脏值，但不允许它制造与控件语义冲突的运行时 Schema。
+    required = documented_required
+    fail!("#{label} 单选必须且只能配置一个文档默认项") if control == 'radio' && candidates.length != 1
     fail!("#{label} 隐藏字段不能必选") if !visible && required
     fail!("#{label} 禁用字段不能设置默认候选") if !enabled && !candidates.empty?
     fields << { 'key'=>key, 'label'=>label, 'control'=>control, 'order'=>(line - 1) * 10,
@@ -127,6 +131,13 @@ def publish_sql(technical, fields, source_hash)
     SET @source_hash=#{quote(source_hash)};
     SET @fields=#{quote(ui_fields)};
     SET @validator_fields=#{quote(validator_fields)};
+    -- 本地 seed 与规则发布必须收敛到同一可读目录身份。客户端只展示 catalog 的
+    -- displayName，不能为了修 UI 再引入 gameId/code 到中文名称的平行映射。
+    UPDATE aoo_game_catalog
+       SET display_name=#{quote('成都跑得快')}, family_code=#{quote(technical['family'])},
+           row_version=row_version+1
+     WHERE game_id=#{technical['gameId']}
+       AND (display_name<>#{quote('成都跑得快')} OR family_code<>#{quote(technical['family'])});
     DROP TEMPORARY TABLE IF EXISTS chengdu_pdk_publish;
     CREATE TEMPORARY TABLE chengdu_pdk_publish AS
       SELECT a.game_id,a.region_code,a.play_version,a.index_generation old_generation,a.release_id old_release_id,
@@ -140,8 +151,8 @@ def publish_sql(technical, fields, source_hash)
       WHERE a.game_id=#{technical['gameId']} AND a.play_version=#{quote(technical['playVersion'])}
         AND (JSON_UNQUOTE(JSON_EXTRACT(i.ui_schema,'$.roomRuleSourceHash'))<>@source_hash
           OR JSON_EXTRACT(i.ui_schema,'$.roomRuleSourceHash') IS NULL
-          OR JSON_LENGTH(JSON_EXTRACT(i.ui_schema,'$.fields'))<>JSON_LENGTH(JSON_EXTRACT(@fields,'$'))
-          OR JSON_LENGTH(JSON_EXTRACT(i.rule_validator,'$.fields'))<>JSON_LENGTH(JSON_EXTRACT(@validator_fields,'$')));
+          OR CAST(JSON_EXTRACT(i.ui_schema,'$.fields') AS CHAR)<>CAST(JSON_EXTRACT(@fields,'$') AS CHAR)
+          OR CAST(JSON_EXTRACT(i.rule_validator,'$.fields') AS CHAR)<>CAST(JSON_EXTRACT(@validator_fields,'$') AS CHAR));
     INSERT INTO aoo_game_release(release_id,game_id,play_version,release_version,release_scope,catalog_snapshot,rule_snapshot,ui_snapshot,component_snapshot,catalog_hash,rule_hash,ui_hash,component_hash,bundle_hash,status,rollout_percent,created_by,reason,validated_at,activated_at)
       SELECT game_id*1000000+release_version,game_id,play_version,release_version,'REGIONAL',JSON_OBJECT('gameId',game_id,'family','poker:pao-de-kuai'),JSON_OBJECT('roomRuleSchema',JSON_EXTRACT(validator,'$')),JSON_OBJECT('roomRuleSourceHash',@source_hash),JSON_OBJECT('providerVersion','1.0.0'),SHA2(CONCAT(game_id,'|catalog'),256),SHA2(validator,256),@source_hash,SHA2('pdk-provider-1.0.0',256),SHA2(CONCAT(bundle_hash,'|',@source_hash),256),'ACTIVE',100,1,'Publish Chengdu PDK seven-column room rules',CURRENT_TIMESTAMP(3),CURRENT_TIMESTAMP(3) FROM chengdu_pdk_publish;
     INSERT INTO aoo_game_release_region(release_id,region_code,rollout_percent,status) SELECT game_id*1000000+release_version,region_code,100,'ACTIVE' FROM chengdu_pdk_publish;

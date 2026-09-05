@@ -142,7 +142,6 @@ final class PdkXqpEquivalentRulesTest {
         assertEquals(false, ((Map<?,?>) waitingSeats.get(1)).get("ready"));
         session.execute(command(84, session, "ready_req", 2, 0, 10, Map.of()));
         session.execute(command(84, session, "ready_req", 3, 1, 11, Map.of()));
-        session.execute(command(84, session, "start_req", 4, 0, 10, Map.of()));
         assertEquals("FLOATING", session.viewFor(10).get("settlementPresentation"));
         assertEquals(true, session.viewFor(10).get("distanceWarningEnabled"));
         assertThrows(SecurityException.class, () -> session.execute(command(84, session,
@@ -229,7 +228,7 @@ final class PdkXqpEquivalentRulesTest {
                 family, 8);
         session.execute(command(room, session, "join_req", 1, 1, 11, Map.of()));
         session.execute(command(room, session, "ready_req", 2, 0, 10, Map.of()));
-        session.execute(command(room, session, "start_req", 3, 0, 10, Map.of()));
+        session.execute(command(room, session, "ready_req", 3, 1, 11, Map.of()));
         return session;
     }
 

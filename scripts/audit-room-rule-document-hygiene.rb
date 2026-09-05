@@ -2,7 +2,7 @@
 
 server_root = File.expand_path('..', __dir__)
 project_root = File.expand_path('..', server_root)
-document_dir = File.join(project_root, '玩法文档/跑得快')
+document_dir = File.join(project_root, '开房规则表/跑得快')
 allowed_extensions = %w[.md .markdown .xlsx .png .jpg .jpeg .webp].freeze
 forbidden = Dir.children(document_dir).sort.filter do |name|
   path = File.join(document_dir, name)
@@ -13,9 +13,16 @@ end
 abort("跑得快人工文档目录混入机器产物: #{forbidden.join('、')}") unless forbidden.empty?
 
 publisher = File.read(File.join(server_root, 'tools/room-rules-publisher.rb'), encoding: 'UTF-8')
-abort('规则发布器没有读取成都跑得快七列权威规则表') unless publisher.include?('成都跑得快开房规则表.xlsx')
+watcher = File.read(File.join(server_root, 'tools/watch-room-rules.rb'), encoding: 'UTF-8')
+official_workbook = '开房规则表/跑得快/成都跑得快开房规则表.xlsx'
+stale_workbook = ['玩法文档', '跑得快', '成都跑得快开房规则表.xlsx'].join('/')
+abort('规则发布器没有读取当前正式成都跑得快七列权威规则表') unless publisher.include?(official_workbook)
+abort('规则监听器没有读取当前正式成都跑得快七列权威规则表') unless watcher.include?(official_workbook)
+abort('房间规则工具仍引用已废弃的成都规则表旧路径') if [publisher, watcher].any? { |content| content.include?(stale_workbook) }
+client_gitignore = File.read(File.join(project_root, 'Client/.gitignore'), encoding: 'UTF-8')
+abort('Creator 预览缓存 Client/temp 未从源码交付范围排除') unless client_gitignore.lines.map(&:strip).include?('/temp/')
 builder = File.read(File.join(project_root, 'work/spreadsheet-authoring/build_create_room_rules_workbook.mjs'), encoding: 'UTF-8')
-authority_path = '/玩法文档/跑得快/跑得快创建房间规则表.xlsx'
+authority_path = '/开房规则表/跑得快/跑得快创建房间规则表.xlsx'
 abort('创建房间规则表示例生成器仍会覆盖用户文字权威源') if builder.include?(authority_path)
 abort('创建房间规则表示例必须写入Server/work生成目录') unless builder.include?('/Server/work/generated/room-rules/跑得快创建房间规则表.template.xlsx')
 old_generated_path = ['跑得快玩法规则', '.generated.json'].join

@@ -26,7 +26,7 @@ INSERT INTO aoo_game_catalog
 VALUES
   (1,'hzmj','HZMJ','MAHJONG','MAHJONG_STANDARD','catalog.hzmj',1,'ACTIVE'),
   (2,'sss','SSS','POKER','POKER_PAO_DE_KUAI','catalog.sss',1,'ACTIVE'),
-  (8,'pdk','PDK','POKER','POKER_PAO_DE_KUAI','catalog.pdk',1,'ACTIVE'),
+  (8,'pdk','成都跑得快','POKER','poker:pao-de-kuai','catalog.pdk',1,'ACTIVE'),
   (27,'gdy','GDY','POKER','POKER_TRICK_TAKING','catalog.gdy',1,'ACTIVE'),
   (31,'ddz','DDZ','POKER','POKER_PAO_DE_KUAI','catalog.ddz',1,'ACTIVE'),
   (130,'erddz','ERDDZ','POKER','POKER_PAO_DE_KUAI','catalog.erddz',1,'ACTIVE'),

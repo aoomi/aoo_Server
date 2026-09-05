@@ -78,10 +78,10 @@ public final class ProtocolV2Bridge {
                 "voice", "magic_expression", "invite", "dissolve_apply", "dissolve_vote", "trustee",
                 "heartbeat", "reconnect", "shuffle", "kick");
         if (common.contains(command)) return "common.room." + command + "_req";
-        if (GeneratedProtocolIds.POKER_NJPDK_DISPATCH.equals(dispatchId)) {
+        if (GeneratedProtocolIds.POKER_PDK_DISPATCH.equals(dispatchId)) {
             if (!Set.of("start","pass","hint","play","play_cards").contains(command))
-                throw new IllegalArgumentException("unsupported NJPDK command");
-            return "poker.njpdk." + command + "_req";
+                throw new IllegalArgumentException("unsupported PDK command");
+            return "poker.pdk." + command + "_req";
         }
         if (GeneratedProtocolIds.MAHJONG_XUEZHAN_DISPATCH.equals(dispatchId)) {
             if (!Set.of("start","draw","play","chi","peng","gang","hu","pass").contains(command))

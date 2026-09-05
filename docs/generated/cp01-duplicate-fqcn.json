@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-31T15:27:14Z",
+  "generatedAt": "2026-09-01T14:07:42Z",
   "task": "CP01",
   "sourceRoots": [
     "server/Account/src/main/java",
@@ -99,8 +99,8 @@
     "server/ZYPK/target/generated-sources/annotations",
     "server/gameServer/target/generated-sources/annotations"
   ],
-  "scannedFiles": 981,
-  "discoveredTypes": 1020,
+  "scannedFiles": 982,
+  "discoveredTypes": 1021,
   "duplicateCount": 0,
   "duplicates": [
 

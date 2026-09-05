@@ -92,7 +92,7 @@ public record PdkAdvancedRules(int baseScore, int requiredFirstCardRounds,
         }
 
         public static RoomGovernance defaults() {
-            return new RoomGovernance(PayerMode.OWNER, 0, true, 1800, false, 0, false,
+            return new RoomGovernance(PayerMode.OWNER, 0, false, 1800, false, 0, false,
                     true, SettlementPresentation.POPUP, EntryMode.PARTICIPANT,
                     List.of(), false, true);
         }

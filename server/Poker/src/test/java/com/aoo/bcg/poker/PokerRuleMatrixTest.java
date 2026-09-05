@@ -84,6 +84,20 @@ final class PokerRuleMatrixTest {
         assertEquals(List.of(114),requiredRules.hints(List.of(103,114),null,new PaoDeKuaiContext(false,1,List.of(103,114))).getFirst().cards());
     }
 
+    @Test void everyPdkProfileForcesHighestSingleWhenNextPlayerReported() {
+        var config = new PaoDeKuaiConfig(5,true,true,false,null,false);
+        var profile = new PokerRuleProfile("regional",52,2,4,PokerRuleProfile.FirstLead.RANDOM,null,
+                5,2,false,false,true,false,1,16,2,20);
+        var rules = new PaoDeKuaiRuleSet(config,profile);
+        var context = new PaoDeKuaiContext(false,1,List.of(103,110,114));
+        var error = assertThrows(IllegalStateException.class,() -> rules.validatePlay(List.of(110),context));
+        assertEquals("下家报单,必须打最大单张",error.getMessage());
+        assertDoesNotThrow(() -> rules.validatePlay(List.of(114),context));
+        assertDoesNotThrow(() -> rules.validatePlay(List.of(103,203),context));
+        assertTrue(rules.hints(context.handBeforePlay(),null,context).stream()
+                .filter(hint -> "SINGLE".equals(hint.type())).allMatch(hint -> hint.primaryRank()==14));
+    }
+
     @Test void passCycleReturnsLeadToLastPlayerAndSkipsPassedSeats() {
         var core=new PokerCoreEngine<Void>();
         var lead=new CardCombination("SINGLE",3,List.of(103));

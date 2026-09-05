@@ -79,8 +79,8 @@ public final class PasswordHasher {
     }
 
     private static void requirePassword(char[] password) {
-        if (password == null || password.length < 10 || password.length > 256) {
-            throw new IllegalArgumentException("password length must be between 10 and 256 characters");
+        if (password == null || password.length < 1 || password.length > 256) {
+            throw new IllegalArgumentException("password length must be between 1 and 256 characters");
         }
         byte[] bytes = new String(password).getBytes(StandardCharsets.UTF_8);
         try {

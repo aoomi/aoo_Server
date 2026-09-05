@@ -40,7 +40,7 @@ def connect(account_id, token, create_role=False):
 
 def v2(connection, account_id, token, device_id, room_id, sequence, command, body=None):
     request_id = "v2-" + uuid.uuid4().hex
-    envelope = {"protocolVersion":"2.0","msgId":"poker.njpdk.dispatch","kind":"req",
+    envelope = {"protocolVersion":"2.0","msgId":"poker.pdk.dispatch","kind":"req",
         "requestId":request_id,"seq":sequence,"traceId":request_id,
         "timestamp":int(time.time()*1000),"roomId":str(room_id),"roundNo":1,
         "playVersion":PLAY_VERSION,"wsTicket":ticket(device_id, token),

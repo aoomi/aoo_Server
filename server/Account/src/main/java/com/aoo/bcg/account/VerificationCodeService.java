@@ -31,6 +31,10 @@ public final class VerificationCodeService {
     }
 
     public synchronized Instant issue(String destination, Purpose purpose) {
+        return issueWithCode(destination,purpose).expiresAt();
+    }
+
+    public synchronized Issued issueWithCode(String destination, Purpose purpose) {
         Key key = new Key(normalize(destination), Objects.requireNonNull(purpose, "purpose"));
         Instant now = clock.instant();
         Challenge previous = challenges.get(key);
@@ -46,7 +50,7 @@ public final class VerificationCodeService {
             challenges.remove(key);
             throw deliveryFailure;
         }
-        return challenge.expiresAt;
+        return new Issued(code,challenge.expiresAt);
     }
 
     public synchronized void consume(String destination, Purpose purpose, String code) {
@@ -81,6 +85,7 @@ public final class VerificationCodeService {
     }
 
     public enum Purpose { REGISTER, LOGIN, CHANGE_PASSWORD, BIND_CHANNEL }
+    public record Issued(String code,Instant expiresAt){}
 
     @FunctionalInterface
     public interface Delivery {

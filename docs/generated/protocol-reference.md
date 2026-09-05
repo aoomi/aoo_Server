@@ -916,7 +916,7 @@
 }
 ```
 
-## `poker.njpdk.dispatch`
+## `poker.pdk.dispatch`
 
 | 版本 | 方向 | 传输 | 类型 | 阶段 | 鉴权 | 写操作 | 幂等 | 错误码 |
 |---|---|---|---|---|---|---|---|---|
@@ -941,7 +941,7 @@
 ```json
 {
   "protocolVersion": "2.0",
-  "msgId": "poker.njpdk.dispatch",
+  "msgId": "poker.pdk.dispatch",
   "kind": "req",
   "requestId": "request-id",
   "seq": 1,
@@ -954,7 +954,7 @@
 }
 ```
 
-## `poker.njpdk.state_push`
+## `poker.pdk.state_push`
 
 | 版本 | 方向 | 传输 | 类型 | 阶段 | 鉴权 | 写操作 | 幂等 | 错误码 |
 |---|---|---|---|---|---|---|---|---|
@@ -978,7 +978,7 @@
 ```json
 {
   "protocolVersion": "2.0",
-  "msgId": "poker.njpdk.state_push",
+  "msgId": "poker.pdk.state_push",
   "kind": "push",
   "requestId": "request-id",
   "seq": 1,

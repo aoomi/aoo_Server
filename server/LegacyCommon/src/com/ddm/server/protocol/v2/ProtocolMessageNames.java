@@ -11,7 +11,7 @@ public final class ProtocolMessageNames {
         String plain = snake.replaceFirst("^[sc]", "");
         if (plain.matches(".*(login|token|account|auth).*$")) return "account." + plain;
         if (plain.matches(".*(club|union).*$")) return "club." + plain;
-        if (plain.contains("njpdk")) return "poker.njpdk." + plain.replaceFirst("^njpdk_?", "");
+        if (plain.contains("pdk")) return "poker.pdk." + plain.replaceFirst("^pdk_?", "");
         if (plain.contains("cdxzmj") || plain.contains("xuezhan")) {
             return "mahjong.xuezhan." + plain.replaceFirst("^cdxzmj_?", "");
         }
@@ -26,7 +26,7 @@ public final class ProtocolMessageNames {
         if (request.startsWith("account.")) return "account.session_push";
         if (request.startsWith("club.")) return "club.state_push";
         if (request.startsWith("common.room.")) return "common.room.compat_state_push";
-        if (request.startsWith("poker.njpdk.")) return "poker.njpdk.state_push";
+        if (request.startsWith("poker.pdk.")) return "poker.pdk.state_push";
         if (request.startsWith("mahjong.xuezhan.")) return "mahjong.xuezhan.state_push";
         if (request.startsWith("game.")) return "game.state_push";
         return "hall.state_push";

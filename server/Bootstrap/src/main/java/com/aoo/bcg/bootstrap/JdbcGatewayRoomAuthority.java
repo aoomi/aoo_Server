@@ -7,6 +7,8 @@ import com.aoo.bcg.gateway.GatewayRuntimeProvider;
 import com.aoo.bcg.gateway.RuntimeGameRoomRegistry;
 import com.aoo.bcg.gateway.GatewayRoomBroadcastHub;
 import com.aoo.bcg.gamespi.RoomLifecycleAuthority;
+import com.aoo.bcg.gateway.WaitingRoomExpirationPolicy;
+import com.aoo.bcg.gateway.RoomAuthorityBusinessError;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
@@ -116,17 +118,34 @@ public Map<String, Object> join(Map<String, Object> command) {
         }
         GameRoomHandle room = rooms.require(roomId);
         var session = room.requireAuthoritativeSession();
-        admit(session,accountId,seatNo,command.get("admission"));
+        if(route.firstRoundStartedAt()==null
+                && !clock.instant().isBefore(route.createdAt().plus(WaitingRoomExpirationPolicy.TIMEOUT))) {
+            if(WaitingRoomExpirationPolicy.expired(route.createdAt(),clock.instant(),session.authoritativeState()))
+                throw expireAndClose(room,route);
+        }
+        try {
+            admit(session,accountId,seatNo,command.get("admission"));
+        } catch (IllegalArgumentException | IllegalStateException rejected) {
+            if ("invalid admission identity".equals(rejected.getMessage())) {
+                throw new RoomAuthorityBusinessError(409,"ROOM_FULL","房间人数已满");
+            }
+            throw new RoomAuthorityBusinessError(409,"ROOM_JOIN_REJECTED","room rejected membership");
+        }
         int roundNo = session.authoritativeState().get("roundNo") instanceof Number number
                 ? Math.max(0, number.intValue()) : 0;
         session.execute(new com.aoo.bcg.gamespi.GameCommandRequest("common.room.join_req",
                 requestId, Math.max(1L, session.stateVersion() + 1L), roomId, roundNo,
                 playVersion, Long.toString(accountId), seatNo, Map.of()));
         stateStore.saveSnapshot(room, route.fencingToken());
+        // 加入由 Hall 经内部端口完成，不经过玩家 WSS 的 publish 链。如果这里不主动
+        // 广播，已在房内的客户端会永久停留在旧成员快照，进而无法满足“满员后准备”。
+        // 广播器按接收者重新生成私有视图，不会泄露其他玩家暗牌。
+        broadcasts.publishAuthoritativeState(roomId, requestId,
+                String.valueOf(command.getOrDefault("traceId", requestId)), session.stateVersion());
         return Map.of("roomId", roomId, "accountId", accountId, "seatNo", seatNo,
                 "playVersion", playVersion, "stateVersion", session.stateVersion());
     }
-}
+    }
 
     @Override
     public void remove(long roomId, long fencingToken) {
@@ -170,23 +189,55 @@ public Map<String, Object> join(Map<String, Object> command) {
     }
 
     private void processRoomLifecycles() {
+        try{finishInterruptedRemovals();}catch(RuntimeException failure){System.err.println("room removal recovery deferred cause="+failure.getMessage());}
         for(GameRoomHandle room:rooms.snapshot())try {
+            if(expireWaitingRoom(room))continue;
             if(!(room.requireAuthoritativeSession() instanceof RoomLifecycleAuthority lifecycle))continue;
             boolean changed=lifecycle.tickLifecycle(clock.instant());
             Route route=route(room.roomId());
-            if(changed){stateStore.saveSnapshot(room,route.fencingToken());broadcasts.publishAuthoritativeState(room.roomId(),"room-lifecycle-"+room.roomId()+"-"+lifecycle.terminalReason(),"room-lifecycle-"+room.roomId(),room.requireAuthoritativeSession().stateVersion());}
+            if(changed){long version=room.requireAuthoritativeSession().stateVersion();stateStore.saveSnapshot(room,route.fencingToken());broadcasts.publishAuthoritativeState(room.roomId(),"room-lifecycle-"+room.roomId()+"-"+version,"room-lifecycle-"+room.roomId(),version);}
             boolean durable=stateStore.latest(room.roomId()).map(snapshot->{Object value=snapshot.authoritativeState().get("stateVersion");return value instanceof Number number&&number.longValue()>=room.requireAuthoritativeSession().stateVersion();}).orElse(false);
             if(lifecycle.isTerminal()&&durable)completeTerminal(room.roomId(),"room-lifecycle-"+room.roomId()+"-"+room.requireAuthoritativeSession().stateVersion(),"room-lifecycle-"+room.roomId(),lifecycle.terminalReason());
         } catch(RuntimeException failure){System.err.println("room lifecycle processing deferred roomId="+room.roomId()+" cause="+failure.getMessage());}
     }
 
+    private boolean expireWaitingRoom(GameRoomHandle room){
+        synchronized(lock(room.roomId())){
+            var session=room.requireAuthoritativeSession();
+            synchronized(session){
+                Route route=route(room.roomId());
+                if(!"ACTIVE".equals(route.state())||!nodeId.equals(route.nodeId())
+                        ||route.firstRoundStartedAt()!=null)return false;
+                if(!WaitingRoomExpirationPolicy.expired(route.createdAt(),clock.instant(),session.authoritativeState()))return false;
+                expireAndClose(room,route);
+                return true;
+            }
+        }
+    }
+
+    /** 所有到期入口共用同一持久化关闭链，确保成员、票据和可恢复运行态一起释放。 */
+    private RoomAuthorityBusinessError expireAndClose(GameRoomHandle room,Route route) {
+        String requestId="waiting-room-expiration-"+room.roomId();
+        beginAutomaticRemoval(room.roomId(),route.fencingToken(),requestId);
+        broadcasts.publishWaitingRoomExpired(room.roomId(),requestId,requestId);
+        hallLifecycle.close(room.roomId(),requestId,requestId,"WAITING_ROOM_EXPIRED");
+        rooms.remove(room.roomId());
+        finishAutomaticRemoval(room.roomId(),route.fencingToken());
+        roomLocks.remove(room.roomId());
+        return new RoomAuthorityBusinessError(409,"ROOM_ENDED","房间超过300秒未开始，已自动解散");
+    }
+
+    private void beginAutomaticRemoval(long roomId,long fence,String requestId){try(Connection c=dataSource.getConnection();PreparedStatement p=c.prepareStatement("UPDATE aoo_room_authority_route SET lifecycle_state='REMOVING',last_request_id=?,trace_id=?,updated_at=CURRENT_TIMESTAMP(3) WHERE room_id=? AND fencing_token=? AND lifecycle_state='ACTIVE' AND first_round_started_at IS NULL AND created_at<=DATE_SUB(CURRENT_TIMESTAMP(3),INTERVAL 300 SECOND)")){p.setString(1,requestId);p.setString(2,requestId);p.setLong(3,roomId);p.setLong(4,fence);if(p.executeUpdate()!=1)throw new SecurityException("waiting room expiration lost authority race");}catch(SQLException e){throw new IllegalStateException("waiting room expiration persistence failed",e);}}
+
+    private void finishAutomaticRemoval(long roomId,long fence){try(Connection c=dataSource.getConnection()){c.setAutoCommit(false);try(PreparedStatement route=c.prepareStatement("UPDATE aoo_room_authority_route SET lifecycle_state='REMOVED',updated_at=CURRENT_TIMESTAMP(3) WHERE room_id=? AND fencing_token=? AND lifecycle_state='REMOVING'");PreparedStatement snapshot=c.prepareStatement("DELETE FROM aoo_room_snapshot WHERE room_id=?")){route.setLong(1,roomId);route.setLong(2,fence);if(route.executeUpdate()!=1)throw new SecurityException("等待房间解散失去权威状态");snapshot.setLong(1,roomId);snapshot.executeUpdate();c.commit();}catch(Exception failure){c.rollback();throw failure;}}catch(Exception failure){if(failure instanceof RuntimeException runtime)throw runtime;throw new IllegalStateException("等待房间可恢复状态清理失败",failure);}}
+
     private void finishInterruptedRemovals() {
-        List<long[]> pending=new ArrayList<>();
-        try(Connection connection=dataSource.getConnection();PreparedStatement statement=connection.prepareStatement("SELECT room_id,fencing_token FROM aoo_room_authority_route WHERE node_id=? AND lifecycle_state='REMOVING' ORDER BY room_id")) {
+        List<Object[]> pending=new ArrayList<>();
+        try(Connection connection=dataSource.getConnection();PreparedStatement statement=connection.prepareStatement("SELECT room_id,fencing_token,last_request_id FROM aoo_room_authority_route WHERE node_id=? AND lifecycle_state='REMOVING' ORDER BY room_id")) {
             statement.setString(1,nodeId);
-            try(ResultSet result=statement.executeQuery()){while(result.next())pending.add(new long[]{result.getLong(1),result.getLong(2)});}
+            try(ResultSet result=statement.executeQuery()){while(result.next())pending.add(new Object[]{result.getLong(1),result.getLong(2),result.getString(3)});}
         } catch(SQLException failure){throw new IllegalStateException("cannot enumerate interrupted room removals",failure);}
-        for(long[] item:pending){long roomId=item[0],fence=item[1];var snapshot=stateStore.latest(roomId).orElseThrow(()->new IllegalStateException("interrupted room removal has no durable snapshot: "+roomId));if(!Boolean.TRUE.equals(snapshot.authoritativeState().get("dissolved")))throw new IllegalStateException("interrupted room removal has no terminal authority state: "+roomId);Object version=snapshot.authoritativeState().get("stateVersion");String suffix=version instanceof Number number?String.valueOf(number.longValue()):"unknown";hallLifecycle.close(roomId,"room-lifecycle-recover-"+roomId+"-"+suffix,"room-lifecycle-recover-"+roomId,"RECOVERED_ROOM_DISSOLUTION");rooms.remove(roomId);transition(roomId,fence,"REMOVED");roomLocks.remove(roomId);}
+        for(Object[] item:pending){long roomId=(long)item[0],fence=(long)item[1];String priorRequest=String.valueOf(item[2]);boolean waitingExpiration=priorRequest.startsWith("waiting-room-expiration-");var snapshot=stateStore.latest(roomId).orElseThrow(()->new IllegalStateException("interrupted room removal has no durable snapshot: "+roomId));if(!waitingExpiration&&!Boolean.TRUE.equals(snapshot.authoritativeState().get("dissolved")))throw new IllegalStateException("interrupted room removal has no terminal authority state: "+roomId);Object version=snapshot.authoritativeState().get("stateVersion");String suffix=version instanceof Number number?String.valueOf(number.longValue()):"unknown";String requestId=waitingExpiration?priorRequest:"room-lifecycle-recover-"+roomId+"-"+suffix;String reason=waitingExpiration?"WAITING_ROOM_EXPIRED":"RECOVERED_ROOM_DISSOLUTION";hallLifecycle.close(roomId,requestId,requestId,reason);rooms.remove(roomId);if(waitingExpiration)finishAutomaticRemoval(roomId,fence);else transition(roomId,fence,"REMOVED");roomLocks.remove(roomId);}
     }
 
     private Map<String, Object> createLocked(Map<String, Object> command, long roomId) {
@@ -349,7 +400,8 @@ public Map<String, Object> join(Map<String, Object> command) {
             }
             connection.commit();
             return new Route(current.roomId(), current.gameId(), current.playVersion(), fence,
-                    "RECOVERING", current.requestId(), nodeId, clock.instant().plusSeconds(90));
+                    "RECOVERING", current.requestId(), nodeId, clock.instant().plusSeconds(90),
+                    current.createdAt(),current.firstRoundStartedAt());
         } catch (Exception failure) {
             if (failure instanceof RuntimeException runtime) throw runtime;
             throw new IllegalStateException("cannot claim durable room", failure);
@@ -362,6 +414,7 @@ public Map<String, Object> join(Map<String, Object> command) {
             connection.setAutoCommit(false);
             Route existing = selectForUpdate(connection, roomId);
             long fence = requestedFence;
+            Instant createdAt = clock.instant();
             if (existing != null) {
                 if (existing.gameId() != gameId || !existing.playVersion().equals(playVersion)) {
                     throw new SecurityException("room authority identity conflict");
@@ -373,6 +426,7 @@ public Map<String, Object> join(Map<String, Object> command) {
                     connection.commit();
                     return existing;
                 }
+                createdAt = existing.createdAt();
                 fence = Math.max(requestedFence, Math.addExact(existing.fencingToken(), 1));
             }
             try (PreparedStatement statement = connection.prepareStatement("""
@@ -400,7 +454,8 @@ public Map<String, Object> join(Map<String, Object> command) {
             }
             connection.commit();
             return new Route(roomId, gameId, playVersion, fence, "CREATING", requestId,
-                    nodeId, clock.instant().plusSeconds(90));
+                    nodeId, clock.instant().plusSeconds(90), createdAt,
+                    existing==null?null:existing.firstRoundStartedAt());
         } catch (Exception failure) {
             if (failure instanceof RuntimeException runtime) throw runtime;
             throw new IllegalStateException("authority route persistence failed", failure);
@@ -411,7 +466,7 @@ public Map<String, Object> join(Map<String, Object> command) {
         try (Connection connection = dataSource.getConnection();
              PreparedStatement statement = connection.prepareStatement("""
                      SELECT game_id,play_version,fencing_token,lifecycle_state,last_request_id,
-                            node_id,lease_expires_at
+                            node_id,lease_expires_at,created_at,first_round_started_at
                      FROM aoo_room_authority_route WHERE room_id=?
                      """)) {
             statement.setLong(1, roomId);
@@ -427,7 +482,7 @@ public Map<String, Object> join(Map<String, Object> command) {
     private Route selectForUpdate(Connection connection, long roomId) throws SQLException {
         try (PreparedStatement statement = connection.prepareStatement("""
                 SELECT game_id,play_version,fencing_token,lifecycle_state,last_request_id,
-                       node_id,lease_expires_at
+                       node_id,lease_expires_at,created_at,first_round_started_at
                 FROM aoo_room_authority_route WHERE room_id=? FOR UPDATE
                 """)) {
             statement.setLong(1, roomId);
@@ -438,9 +493,11 @@ public Map<String, Object> join(Map<String, Object> command) {
     }
 
     private static Route readRoute(long roomId, ResultSet result) throws SQLException {
+        java.sql.Timestamp firstRoundStartedAt=result.getTimestamp(9);
         return new Route(roomId, result.getInt(1), result.getString(2), result.getLong(3),
                 result.getString(4), result.getString(5), result.getString(6),
-                result.getTimestamp(7).toInstant());
+                result.getTimestamp(7).toInstant(),result.getTimestamp(8).toInstant(),
+                firstRoundStartedAt==null?null:firstRoundStartedAt.toInstant());
     }
 
     private void transition(long roomId, long fence, String state) {
@@ -538,7 +595,8 @@ private static long nonNegative(Map<String, Object> command, String key) {
     }
 
     private record Route(long roomId, int gameId, String playVersion, long fencingToken,
-                         String state, String requestId, String nodeId, Instant leaseExpiresAt) { }
+                         String state, String requestId, String nodeId, Instant leaseExpiresAt,
+                         Instant createdAt,Instant firstRoundStartedAt) { }
     private record StartupRoom(long roomId, int gameId, String playVersion, String requestId,
                                String traceId, long ownerId, Map<String, Object> rules) {
         private StartupRoom { rules = Map.copyOf(rules); }

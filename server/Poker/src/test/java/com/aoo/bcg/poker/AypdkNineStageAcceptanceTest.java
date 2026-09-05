@@ -15,7 +15,8 @@ class AypdkNineStageAcceptanceTest {
         handler.handle(room, command("join_req", 2, 1, 20, Map.of()));
         handler.handle(room, command("join_req", 3, 2, 30, Map.of()));
         handler.handle(room, command("ready_req", 4, 0, 10, Map.of()));
-        handler.handle(room, command("start_req", 5, 0, 10, Map.of()));
+        handler.handle(room, command("ready_req", 5, 1, 20, Map.of()));
+        handler.handle(room, command("ready_req", 6, 2, 30, Map.of()));
 
         AypdkSession session = (AypdkSession) room.requireAuthoritativeSession();
         StatePayload base = StatePayload.copyOf(session.authoritativeState());
@@ -25,7 +26,7 @@ class AypdkNineStageAcceptanceTest {
         List<Integer> cards = ownCards(session, player, turn);
         assertEquals(16, cards.size());
         assertTrue(cards.contains(AypdkRules.SPADE_THREE));
-        handler.handle(room, command("play_req", 6, turn, player, Map.of("cards", List.of(AypdkRules.SPADE_THREE))));
+        handler.handle(room, command("play_req", 7, turn, player, Map.of("cards", List.of(AypdkRules.SPADE_THREE))));
         assertNotEquals(turn, session.viewFor(player).get("currentSeat"));
 
         Map<String,Object> saved = session.authoritativeState();
@@ -33,7 +34,7 @@ class AypdkNineStageAcceptanceTest {
         assertEquals(saved, restored.authoritativeState());
         GameRoomHandle restoredRoom = new GameRoomHandle(78001, AypdkGameProvider.GAME_ID,
                 AypdkGameProvider.VERSION, restored);
-        assertEquals(session.viewFor(20), provider.reconnectViewProvider().orElseThrow().buildFor(20, restoredRoom));
+        assertEquals(stableView(session.viewFor(20)), stableView(provider.reconnectViewProvider().orElseThrow().buildFor(20, restoredRoom)));
         assertTrue(restored.invariantViolations().isEmpty());
         assertEquals(saved, provider.eventReplayProvider().orElseThrow().replay(base,
                 session.recordedEvents().subList(offset, session.recordedEvents().size())).asMap());
@@ -103,6 +104,12 @@ class AypdkNineStageAcceptanceTest {
     @SuppressWarnings("unchecked") private static List<Integer> ownCards(AuthoritativeGameSession session,long player,int seat) {
         Map<Integer,Object> seats=(Map<Integer,Object>)session.viewFor(player).get("seats");
         return (List<Integer>)((Map<String,Object>)seats.get(seat)).get("cards");
+    }
+    @SuppressWarnings("unchecked")
+    private static Map<String,Object> stableView(Object view) {
+        Map<String,Object> copy = new LinkedHashMap<>((Map<String,Object>) view);
+        copy.remove("serverEpochMillis");
+        return copy;
     }
     private static GameCommandRequest command(String id,long sequence,int seat,long player,Map<String,Object> body) {
         return new GameCommandRequest(id,"aypdk-"+sequence,sequence,78001,0,AypdkGameProvider.VERSION,

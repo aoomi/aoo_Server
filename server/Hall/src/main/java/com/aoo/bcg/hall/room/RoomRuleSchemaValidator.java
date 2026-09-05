@@ -27,11 +27,13 @@ final class RoomRuleSchemaValidator {
                 continue;
             }
             Object value=input.containsKey(key)?input.get(key):field.get("defaultValue");
-            boolean required=Boolean.TRUE.equals(field.get("required"));
-            if(value==null){if(required)throw HallError.bad("HALL_RULE_REQUIRED",key+" is required");continue;}
             String control=String.valueOf(field.getOrDefault("control","SINGLE_SELECT")).toUpperCase(Locale.ROOT);
+            boolean multi=control.contains("MULTI")||control.contains("CHECKBOX");
+            // 选择基数由控件类型决定，不能由陈旧发布数据放宽：radio 恰好一个，checkbox 可为空。
+            boolean required=!multi;
+            if(value==null){if(required)throw HallError.bad("HALL_RULE_REQUIRED",key+" is required");continue;}
             List<?> options=field.get("options") instanceof List<?> list?list:List.of();
-            if(control.contains("MULTI")||control.contains("CHECKBOX")){
+            if(multi){
                 if(!(value instanceof Collection<?> values))throw HallError.bad("HALL_RULE_VALUE_INVALID","invalid value for "+key);
                 for(Object item:values)allowed(key,item,options);
             }else{

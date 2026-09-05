@@ -52,8 +52,8 @@ final class PdkCommonArchitectureTest {
             long sequence = 1;
             for (int seat = 1; seat < playerCount; seat++)
                 session.execute(command(session, "join_req", sequence++, seat, 100 + seat, Map.of()));
-            session.execute(command(session, "ready_req", sequence++, 0, 100, Map.of()));
-            session.execute(command(session, "start_req", sequence++, 0, 100, Map.of()));
+            for (int seat = 0; seat < playerCount; seat++)
+                session.execute(command(session, "ready_req", sequence++, seat, 100 + seat, Map.of()));
             int guard = 0;
             while (!Boolean.TRUE.equals(session.viewFor(100).get("finished"))) {
                 assertTrue(guard++ < 500, "authority did not converge for " + playerCount);
@@ -86,9 +86,28 @@ final class PdkCommonArchitectureTest {
             long sequence = 1;
             for (int seat = 1; seat < playerCount; seat++)
                 session.execute(command(session, "join_req", sequence++, seat, 100 + seat, Map.of()));
-            session.execute(command(session, "start_req", sequence, 0, 100, Map.of()));
+            for (int seat = 0; seat < playerCount; seat++)
+                session.execute(command(session, "ready_req", sequence++, seat, 100 + seat, Map.of()));
             assertEquals("PLAYING", session.viewFor(100).get("phase"));
             assertEquals(playerCount, session.viewFor(100).get("playerCount"));
+        }
+    }
+
+    @Test void productionPdkProviderAutoStartsWhenAllSeatsAreReadyWithoutOwnerStart() {
+        PdkGameProvider provider = new PdkGameProvider();
+        PokerAuthoritativeSession session = (PokerAuthoritativeSession) provider.roomFactory().create(
+                new com.aoo.bcg.gamespi.RoomCreationContext(9200, 100,
+                        Map.of("playerCount", 2, "roundCount", 8))).requireAuthoritativeSession();
+        session.execute(command(session, "join_req", 1, 1, 101, Map.of()));
+        session.execute(command(session, "ready_req", 2, 0, 100, Map.of()));
+        session.execute(command(session, "ready_req", 3, 1, 101, Map.of()));
+        assertEquals("PLAYING", session.viewFor(100).get("phase"));
+        @SuppressWarnings("unchecked")
+        Map<Integer,Object> seats = (Map<Integer,Object>) session.viewFor(100).get("seats");
+        for (Object rawSeat : seats.values()) {
+            @SuppressWarnings("unchecked")
+            Map<String,Object> seat = (Map<String,Object>) rawSeat;
+            assertTrue(((List<?>) seat.get("cards")).size() > 0);
         }
     }
 

@@ -12,6 +12,9 @@ public final class ConnectionSessionFactory {
     }
     public ConnectionSession open(String userId, String roomId, int seatId, String playVersion, long lastSequence) {
         long generation = generations.next(userId, roomId, seatId);
-        return new ConnectionSession(userId, roomId, seatId, playVersion, lastSequence, connectionIds.get(), generation);
+        String connectionId = connectionIds.get();
+        System.out.printf("gateway connection opened userId=%s roomId=%s seatId=%d connectionId=%s generation=%d%n",
+                userId, roomId, seatId, connectionId, generation);
+        return new ConnectionSession(userId, roomId, seatId, playVersion, lastSequence, connectionId, generation);
     }
 }

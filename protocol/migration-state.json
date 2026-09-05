@@ -14,7 +14,7 @@
     "M2": { "domain": "hall", "codeReady": true, "wireMode": "v2-over-compatibility-transport" },
     "M3": { "domain": "club", "codeReady": true, "wireMode": "v2-over-compatibility-transport" },
     "M4": { "domain": "common.room", "codeReady": true, "wireMode": "v2-over-compatibility-transport" },
-    "M5": { "domain": "poker.njpdk", "codeReady": true, "wireMode": "v2-over-compatibility-transport" },
+    "M5": { "domain": "poker.pdk", "codeReady": true, "wireMode": "v2-over-compatibility-transport" },
     "M6": { "domain": "mahjong.xuezhan", "codeReady": true, "wireMode": "v2-over-compatibility-transport" },
     "M7": { "domain": "other-games", "codeReady": true, "wireMode": "v2-over-compatibility-transport" },
     "M8": {

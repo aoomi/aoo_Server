@@ -8,6 +8,15 @@ import com.aoo.bcg.gamespi.GameCommandRequest;
 import org.junit.jupiter.api.Test;
 
 final class PdkPublishedRuleOptionsTest {
+    @Test void mustBeatWhenPossibleFlowsFromCreationRulesIntoPublishedSnapshot() {
+        PaoDeKuaiConfig config=PdkPublishedRuleOptions.apply(Map.of("mustBeatWhenPossible",false),
+                PaoDeKuaiConfig.defaults());
+        PokerRuleProfile base=PokerRuleProfile.paoDeKuai("pdk-test",48,null);
+        PokerRuleProfile profile=PdkPublishedRuleOptions.profile("pdk-test",
+                Map.of("mustBeatWhenPossible",false),config,base);
+        assertFalse(profile.mustBeatWhenPossible());
+        assertEquals(false,PdkPublishedRuleOptions.snapshot(config,profile).get("mustBeatWhenPossible"));
+    }
     @Test void appliesStrictPublishedValuesAndRejectsUnknownEnumValue() {
         PaoDeKuaiConfig config = PdkPublishedRuleOptions.apply(Map.of(
                 "minimumStraightLength", 3,
@@ -164,7 +173,7 @@ final class PdkPublishedRuleOptionsTest {
         long sequence=1;
         session.execute(command(session,"join_req",sequence++,1,11,Map.of()));
         session.execute(command(session,"ready_req",sequence++,0,10,Map.of()));
-        session.execute(command(session,"start_req",sequence++,0,10,Map.of()));
+        session.execute(command(session,"ready_req",sequence++,1,11,Map.of()));
         PokerTurnState state=(PokerTurnState)session.authoritativeState().get("state");
         int seat=state.currentSeat();
         session.execute(command(session,"play_req",sequence++,seat,10+seat,

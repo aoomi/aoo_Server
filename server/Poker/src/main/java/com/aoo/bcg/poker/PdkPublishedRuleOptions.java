@@ -99,7 +99,8 @@ public final class PdkPublishedRuleOptions {
         return new PokerRuleProfile(playVersion, deck.size(), base.minimumPlayers(),
                 base.maximumPlayers(), firstLead, config.requiredFirstCard(),
                 config.minimumStraightLength(), config.minimumPairRunLength(),
-                base.allowTwoInRuns(), base.allowJokersInRuns(), base.mustBeatWhenPossible(),
+                base.allowTwoInRuns(), base.allowJokersInRuns(),
+                bool(rules, "mustBeatWhenPossible", base.mustBeatWhenPossible()),
                 config.forceHighestSingleAgainstReportedSingle(), base.bombUnit(),
                 base.multiplierCap(), base.minimumPlaneLength(), base.maximumHandSize(), deck);
     }
@@ -107,6 +108,7 @@ public final class PdkPublishedRuleOptions {
     public static Map<String,Object> snapshot(PaoDeKuaiConfig config, PokerRuleProfile profile) {
         Map<String,Object> values = new LinkedHashMap<>(snapshot(config));
         values.put("deckCards", profile.deck());
+        values.put("mustBeatWhenPossible", profile.mustBeatWhenPossible());
         return Map.copyOf(values);
     }
 

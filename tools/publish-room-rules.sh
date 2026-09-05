@@ -9,6 +9,16 @@ SQL_FILE="$(mktemp -t aoo-pdk-room-rules.XXXXXX.sql)"
 LOCK_DIR="$ROOT/work/local-runtime/room-rules-publish.lock"
 trap 'rm -f "$SQL_FILE"; rmdir "$LOCK_DIR" 2>/dev/null || true' EXIT
 
+resolve_docker() {
+  local candidate
+  for candidate in "${AOO_DOCKER_BIN:-}" "$(command -v docker 2>/dev/null || true)" \
+    /usr/local/bin/docker /opt/homebrew/bin/docker /Applications/Docker.app/Contents/Resources/bin/docker; do
+    [[ -n "$candidate" && -x "$candidate" ]] && { printf '%s\n' "$candidate"; return 0; }
+  done
+  echo '本地规则发布找不到 Docker CLI，请启动 Docker Desktop 或设置 AOO_DOCKER_BIN' >&2
+  return 1
+}
+
 acquire_lock() {
   mkdir -p "$(dirname "$LOCK_DIR")"
   mkdir "$LOCK_DIR" 2>/dev/null || { echo '房间规则发布正在执行，拒绝并发发布' >&2; exit 75; }
@@ -19,7 +29,9 @@ run_mysql() {
     [[ -f "$ENV_FILE" ]] || { echo "缺少 $ENV_FILE" >&2; exit 2; }
     set -a; source "$ENV_FILE"; set +a
     local container="${AOO_LOCAL_MYSQL_CONTAINER:-aoo-mysql}" database="${AOO_LOCAL_MYSQL_DATABASE:-aoo_login_local}" user="${AOO_LOCAL_MYSQL_USER:-root}"
-    docker exec -i -e MYSQL_PWD="${AOO_LOCAL_MYSQL_PASSWORD:?local MySQL password required}" "$container" mysql --default-character-set=utf8mb4 -u"$user" "$database" < "$SQL_FILE"
+    local docker_bin
+    docker_bin="$(resolve_docker)"
+    "$docker_bin" exec -i -e MYSQL_PWD="${AOO_LOCAL_MYSQL_PASSWORD:?local MySQL password required}" "$container" mysql --default-character-set=utf8mb4 -u"$user" "$database" < "$SQL_FILE"
   else
     MYSQL_PWD="${AOO_RULE_DB_PASSWORD:?AOO_RULE_DB_PASSWORD required}" mysql --default-character-set=utf8mb4 -h "${AOO_RULE_DB_HOST:?AOO_RULE_DB_HOST required}" -P "${AOO_RULE_DB_PORT:-3306}" -u "${AOO_RULE_DB_USER:?AOO_RULE_DB_USER required}" "${AOO_RULE_DB_NAME:?AOO_RULE_DB_NAME required}" < "$SQL_FILE"
   fi

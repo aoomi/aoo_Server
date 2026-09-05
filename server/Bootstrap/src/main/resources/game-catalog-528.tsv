@@ -518,6 +518,7 @@ gameId	code	displayName	category	family	regionScope	provinceCode	cityCode	versio
 611	tzpdk	TZPDK	POKER	poker:pao-de-kuai	PROVINCE	jiangsu		1.0.0	1	TZPDK
 622	bdjhmj	BDJHMJ	MAHJONG	mahjong:standard	PROVINCE	guangdong		1.0.0	1	BDJHMJ
 623	hzbdmj	HZBDMJ	MAHJONG	mahjong:standard	PROVINCE	guangdong		1.0.0	1	HZBDMJ
+629	njpdk	内江跑得快	POKER	poker:pao-de-kuai	CITY	sichuan	neijiang	legacy-equivalent-1	1	NJPDK
 900001	hjmj	HJMJ	MAHJONG	mahjong:xue-zhan	PROVINCE	unpublished		1.0.0	0	HJMJ
 900002	hsmj	HSMJ	MAHJONG	mahjong:standard	PROVINCE	hubei		1.0.0	0	HSMJ
 900003	msmj	MSMJ	MAHJONG	mahjong:xue-zhan	PROVINCE	unpublished		1.0.0	0	MSMJ

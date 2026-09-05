@@ -224,8 +224,8 @@
       "owned": true
     },
     {
-      "msgId": "poker.njpdk.state_push",
-      "endpoint": "poker.njpdk.state_push",
+      "msgId": "poker.pdk.state_push",
+      "endpoint": "poker.pdk.state_push",
       "transport": "WSS",
       "direction": "server_to_client",
       "fields": [
@@ -292,8 +292,8 @@
       "owned": true
     },
     {
-      "msgId": "poker.njpdk.dispatch",
-      "endpoint": "poker.njpdk.dispatch",
+      "msgId": "poker.pdk.dispatch",
+      "endpoint": "poker.pdk.dispatch",
       "transport": "WSS",
       "direction": "client_to_server",
       "fields": [

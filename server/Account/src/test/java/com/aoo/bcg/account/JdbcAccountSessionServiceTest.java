@@ -4,6 +4,7 @@ import org.h2.jdbcx.JdbcDataSource;
 import org.junit.jupiter.api.*;
 import java.sql.*;
 import java.time.*;
+import java.util.concurrent.atomic.AtomicReference;
 import static org.junit.jupiter.api.Assertions.*;
 
 class JdbcAccountSessionServiceTest {
@@ -23,6 +24,13 @@ class JdbcAccountSessionServiceTest {
         assertEquals(id,service.authorize(service.login("alice","new correct horse battery".toCharArray(),phone,true).accessToken(),phone).accountId());
         assertTrue(service.audit(id).stream().anyMatch(a->a.action().equals("ACCOUNT_RECOVERED")));
     }
+    @Test void registeredIdentityLookupIsStableAndReadOnly(){
+        assertFalse(service.isRegisteredIdentity("13905000011"));
+        service.register("13905000011","correct horse battery staple".toCharArray(),"recover-lookup",phone);
+        assertTrue(service.isRegisteredIdentity("13905000011"));
+        assertTrue(service.isRegisteredIdentity("13905000011"));
+        assertTrue(service.isRegisteredIdentity("13905000011"));
+    }
     @Test void guestUpgradeSingleDeviceAndBanRevokeSessions(){
         long id=service.registerGuest("guest-secret",phone).accountId();var guest=service.loginGuest("guest-secret",phone,false);
         service.upgrade(id,"bob","correct horse battery staple".toCharArray(),"bob-recovery",phone);
@@ -39,6 +47,29 @@ class JdbcAccountSessionServiceTest {
         var attacker=new JdbcAccountSessionService.Client("unknown-device","web","1.0","127.0.0.8");
         assertThrows(JdbcAccountSessionService.Unauthorized.class,()->service.logout(tokens.accessToken(),attacker));
         assertDoesNotThrow(()->service.authorize(tokens.accessToken(),phone));
+    }
+    @Test void committedSingleDeviceLoginNotifiesGatewayWithTheNewDevice(){
+        AtomicReference<String> replacement=new AtomicReference<>();
+        service=new JdbcAccountSessionService(db,Clock.fixed(NOW,ZoneOffset.UTC),(accountId,sessionId,generation)->replacement.set(accountId+":"+sessionId+":"+generation));
+        long id=service.register("dave","correct horse battery staple".toCharArray(),"recover-dave",phone).accountId();
+        var old=service.login("dave","correct horse battery staple".toCharArray(),phone,false);
+        var tablet=new JdbcAccountSessionService.Client("tablet-2","android","1.0","127.0.0.2");
+        var current=service.login("dave","correct horse battery staple".toCharArray(),tablet,true);
+        assertEquals(id+":"+current.sessionId()+":"+current.authGeneration(),replacement.get());
+        assertThrows(JdbcAccountSessionService.Unauthorized.class,()->service.authorize(old.accessToken(),phone));
+        assertEquals(id,service.authorize(current.accessToken(),tablet).accountId());
+    }
+    @Test void replacedRefreshTokenRetainsMachineReadableReason(){
+        service.register("erin","correct horse battery staple".toCharArray(),"recover-erin",phone);
+        var old=service.login("erin","correct horse battery staple".toCharArray(),phone,false);
+        var tablet=new JdbcAccountSessionService.Client("tablet-3","android","1.0","127.0.0.2");
+        service.login("erin","correct horse battery staple".toCharArray(),tablet,true);
+        var failure=assertThrows(JdbcAccountSessionService.Unauthorized.class,()->service.refresh(old.refreshToken(),phone));
+        assertEquals("SESSION_REPLACED",failure.reasonCode());
+        assertEquals("你的账号已在其他设备登录",failure.getMessage());
+        String response=AccountHttpRoutes.sessionError(failure);
+        assertTrue(response.contains("\"reasonCode\":\"SESSION_REPLACED\""));
+        assertTrue(response.contains("\"message\":\"你的账号已在其他设备登录\""));
     }
     private void schema()throws SQLException{try(Connection c=db.getConnection();Statement s=c.createStatement()){
         s.execute("CREATE TABLE aoo_account(account_id BIGINT AUTO_INCREMENT PRIMARY KEY,password_hash VARCHAR(255),guest_credential_hash CHAR(64) UNIQUE,recovery_credential_hash CHAR(64) UNIQUE,guest BOOLEAN NOT NULL,auth_generation BIGINT DEFAULT 0 NOT NULL,banned_until TIMESTAMP(3),ban_reason VARCHAR(255),created_at TIMESTAMP(3),updated_at TIMESTAMP(3))");

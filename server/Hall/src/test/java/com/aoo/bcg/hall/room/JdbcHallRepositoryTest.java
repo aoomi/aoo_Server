@@ -15,4 +15,7 @@ class JdbcHallRepositoryTest{
  @Test void authoritativeMemberLeaveContractIsExplicitAndTraceable(){
   assertDoesNotThrow(()->JdbcHallRepository.class.getDeclaredMethod("authorityLeave",long.class,String.class,long.class,String.class));
  }
+ @Test void activeRoomLookupIsAccountScopedForStartupRecovery(){
+  assertDoesNotThrow(()->JdbcHallRepository.class.getDeclaredMethod("activeRoom",long.class));
+ }
 }

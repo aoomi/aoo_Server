@@ -39,7 +39,6 @@
         <dependency><groupId>com.h2database</groupId><artifactId>h2</artifactId><version>2.3.232</version><scope>test</scope></dependency>
         <dependency><groupId>com.aoo.bcg</groupId><artifactId>game-category-long-card</artifactId><version>${project.version}</version></dependency>
         <dependency><groupId>com.aoo.bcg</groupId><artifactId>game-category-word-card</artifactId><version>${project.version}</version></dependency>
-        <dependency><groupId>com.aoo.bcg</groupId><artifactId>njpdk</artifactId><version>${project.version}</version></dependency>
         <dependency><groupId>com.aoo.bcg</groupId><artifactId>scjymj</artifactId><version>${project.version}</version></dependency>
         <dependency><groupId>com.aoo.bcg</groupId><artifactId>xcpdk</artifactId><version>${project.version}</version></dependency>
         <dependency><groupId>com.aoo.bcg</groupId><artifactId>zjh</artifactId><version>${project.version}</version></dependency>

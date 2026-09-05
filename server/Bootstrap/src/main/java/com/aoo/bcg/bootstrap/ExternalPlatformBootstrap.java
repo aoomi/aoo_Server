@@ -2,11 +2,13 @@ package com.aoo.bcg.bootstrap;
 
 import com.aoo.bcg.account.callback.*;
 import com.aoo.bcg.account.wechat.*;
+import com.aoo.bcg.account.HttpGatewaySessionReplacementNotifier;
 import com.aoo.bcg.common.persistence.DriverManagerDataSource;
 import com.aoo.bcg.location.*;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sun.net.httpserver.HttpServer;
 import java.net.InetSocketAddress;
+import java.net.URI;
 import java.time.*;
 import java.util.*;
 import javax.sql.DataSource;
@@ -19,7 +21,8 @@ public final class ExternalPlatformBootstrap {
         try(var c=source.getConnection();var p=c.prepareStatement("SELECT 1")){p.executeQuery();}
         ObjectMapper json=new ObjectMapper().findAndRegisterModules();Clock clock=Clock.systemUTC();
         var oauth=new WeChatOAuthClient(required("wechat.app.id","WECHAT_APP_ID"),required("wechat.app.secret","WECHAT_APP_SECRET").toCharArray());
-        var sessions=new JdbcWeChatSessionService(source,oauth,clock);
+        var replacements=new HttpGatewaySessionReplacementNotifier(URI.create(required("account.gateway.internal.url","ACCOUNT_GATEWAY_INTERNAL_URL")),required("account.gateway.internal.token","ACCOUNT_GATEWAY_INTERNAL_TOKEN"),json);
+        var sessions=new JdbcWeChatSessionService(source,oauth,clock,replacements);
         var bindings=new WeChatBindingService(oauth,new JdbcWeChatBindingRepository(source),sessions,clock);
         var verifier=new WeChatCallbackVerifier(required("wechat.callback.token","WECHAT_CALLBACK_TOKEN").toCharArray(),clock,Duration.ofMinutes(5),new JdbcWeChatReplayGuard(source));
         var store=new JdbcLocationPersistence(source,json);

@@ -88,4 +88,18 @@ public record PaoDeKuaiConfig(int minimumStraightLength, boolean allowTripleWith
     public static PaoDeKuaiConfig defaults() {
         return new PaoDeKuaiConfig(5, true, true, false, null, true);
     }
+
+    public PaoDeKuaiConfig withCardsPerPlayer(int value) {
+        return new PaoDeKuaiConfig(minimumStraightLength, allowTripleWithPair,
+                allowFourWithTwo, allowFourWithThree, requiredFirstCard,
+                forceHighestSingleAgainstReportedSingle, specialTripleBombRank,
+                allowSpecialTripleBombWithOne, allowFourBombWithOne, standardBombTier,
+                specialBombTier, fourBombWithOneTier, allowTerminalAttachmentShortage,
+                minimumPairRunLength, tripleAttachmentMode, airplaneAttachmentMode,
+                fourAttachmentMode, tripleWithoutAttachmentTiming,
+                airplaneWithoutAttachmentTiming, allowAirplaneWithTwo,
+                compareTripleAttachments, forceHighestPairAgainstReportedPair,
+                allowSingle, allowPair, value, allowConsecutiveBomb,
+                specialTripleBombRanks, playedCardVisibility, advancedRules);
+    }
 }

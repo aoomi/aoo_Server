@@ -105,6 +105,9 @@ public final class BootstrapAPP {
                     new IllegalArgumentException("game has no standalone service: " + provider.descriptor().code()))
                     .launch(serviceArgs);
         }
+        // The HTTP services use virtual-thread executors. Those workers do not keep
+        // the JVM alive, so retain the bootstrap process after mounting its routes.
+        new java.util.concurrent.CountDownLatch(1).await();
     }
 
     static HttpServer startRoomSafety() throws Exception {
@@ -231,8 +234,13 @@ public final class BootstrapAPP {
         try(var connection=source.getConnection();var query=connection.prepareStatement("SELECT 1 FROM aoo_account LIMIT 1")){query.executeQuery();}
         HttpServer server=HttpServer.create(new InetSocketAddress(port),128);
         Clock clock=Clock.systemUTC();ObjectMapper json=new ObjectMapper().findAndRegisterModules();
-        JdbcAccountSessionService accounts=new JdbcAccountSessionService(source,clock);
-        AccountHttpRoutes.mount(server,accounts,json,operatorToken);
+        var replacementNotifier=new com.aoo.bcg.account.HttpGatewaySessionReplacementNotifier(
+                java.net.URI.create(required("account.gateway.internal.url","ACCOUNT_GATEWAY_INTERNAL_URL","account")),
+                required("account.gateway.internal.token","ACCOUNT_GATEWAY_INTERNAL_TOKEN","account"),json);
+        JdbcAccountSessionService accounts=new JdbcAccountSessionService(source,clock,replacementNotifier);
+        boolean exposeRegistrationCode=Boolean.parseBoolean(value("account.registration.expose-code","ACCOUNT_REGISTRATION_EXPOSE_CODE","false"));
+        var registrationCodes=new com.aoo.bcg.account.VerificationCodeService(clock,(destination,purpose,code,expires)->{});
+        AccountHttpRoutes.mount(server,accounts,json,operatorToken,registrationCodes,exposeRegistrationCode);
         new IdentityHttpRoutes(source,new UnifiedIdentityService(source,clock),new TrustedDevicePinService(source,clock),accounts,json,operatorToken,identitySecondFactor).mount(server);
         new PrivacyHttpRoutes(new JdbcPrivacyService(source,clock,json),
                 (token,device,channel,version,ip)->{try{return accounts.authorize(token,new JdbcAccountSessionService.Client(device,channel,version,ip)).accountId();}catch(JdbcAccountSessionService.Unauthorized|JdbcAccountSessionService.Forbidden denied){throw new SecurityException(denied.getMessage());}},

@@ -36,7 +36,6 @@
         <module>server/Share</module>
         <module>server/Spectator</module>
         <module>server/gameServer</module>
-        <module>server/NJPDK</module>
         <module>server/SCJYMJ</module>
         <module>server/XCPDK</module>
         <module>server/ZJH</module>
@@ -210,18 +209,6 @@
                                 <argument>${maven.multiModuleProjectDirectory}/tools/AooBrandBoundaryCheck.java</argument>
                                 <argument>${maven.multiModuleProjectDirectory}</argument>
                                 <argument>${maven.multiModuleProjectDirectory}/../Client</argument>
-                            </arguments>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>validate-pdk-rule-workbook</id>
-                        <phase>validate</phase>
-                        <goals><goal>exec</goal></goals>
-                        <configuration>
-                            <executable>ruby</executable>
-                            <workingDirectory>${maven.multiModuleProjectDirectory}</workingDirectory>
-                            <arguments>
-                                <argument>${maven.multiModuleProjectDirectory}/tools/validate-pdk-rule-workbook.rb</argument>
                             </arguments>
                         </configuration>
                     </execution>

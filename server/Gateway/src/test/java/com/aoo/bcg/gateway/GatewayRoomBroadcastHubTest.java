@@ -37,13 +37,13 @@ final class GatewayRoomBroadcastHubTest {
         var secondContext = second.pipeline().firstContext();
         ConnectionSession firstSession = new ConnectionSession("11", "9001", 0, "pdk-v1", 0);
         ConnectionSession secondSession = new ConnectionSession("22", "9001", 1, "pdk-v1", 0);
-        hub.connected(firstContext, new ConnectionIdentity(11, "device-11", "https://game.example"), firstSession);
-        hub.connected(secondContext, new ConnectionIdentity(22, "device-22", "https://game.example"), secondSession);
+        hub.connected(firstContext, new ConnectionIdentity(11, "device-11", "https://game.example", "page-11"), firstSession);
+        hub.connected(secondContext, new ConnectionIdentity(22, "device-22", "https://game.example", "page-22"), secondSession);
 
-        WebSocketFrame request = new WebSocketFrame("2.0", "poker.njpdk.dispatch", "req", "request-1", 7,
+        WebSocketFrame request = new WebSocketFrame("2.0", "poker.pdk.dispatch", "req", "request-1", 7,
                 "trace-1", "9001", 3, "pdk-v1", clock.millis(), Map.of());
         assertFalse(hub.publish(firstSession, request,
-                new GameCommandResult("poker.njpdk.dispatch_resp", "request-1", Map.of("accepted", true))).iterator().hasNext());
+                new GameCommandResult("poker.pdk.dispatch_resp", "request-1", Map.of("accepted", true))).iterator().hasNext());
 
         assertPerspective(json, first.readOutbound(), 11, List.of(101, 102));
         assertPerspective(json, second.readOutbound(), 22, List.of(201, 202));
@@ -51,7 +51,7 @@ final class GatewayRoomBroadcastHubTest {
         assertEquals(List.of("9001:11:true","9001:22:true","9001:22:false"), presence);
         assertEquals(1, hub.connectionCount());
         hub.publish(firstSession, request,
-                new GameCommandResult("poker.njpdk.dispatch_resp", "request-1", Map.of("accepted", true)));
+                new GameCommandResult("poker.pdk.dispatch_resp", "request-1", Map.of("accepted", true)));
         assertNotNull(first.readOutbound());
         assertNull(second.readOutbound());
         first.finishAndReleaseAll();
@@ -69,10 +69,10 @@ final class GatewayRoomBroadcastHubTest {
                 new ChannelInboundHandlerAdapter());
         var context = channel.pipeline().firstContext();
         ConnectionSession session = new ConnectionSession("22", "9001", 1, "pdk-v1", 0);
-        hub.connected(context, new ConnectionIdentity(22, "device-22", "https://game.example"), session);
-        WebSocketFrame request = new WebSocketFrame("2.0", "poker.njpdk.dispatch", "req", "leave-1", 1,
+        hub.connected(context, new ConnectionIdentity(22, "device-22", "https://game.example", "page-22"), session);
+        WebSocketFrame request = new WebSocketFrame("2.0", "poker.pdk.dispatch", "req", "leave-1", 1,
                 "trace-leave", "9001", 0, "pdk-v1", clock.millis(), Map.of());
-        hub.publish(session, request, new GameCommandResult("poker.njpdk.dispatch_resp", "leave-1", Map.of(
+        hub.publish(session, request, new GameCommandResult("poker.pdk.dispatch_resp", "leave-1", Map.of(
                 RoomMembershipLifecycle.MEMBER_LEFT_FIELD, true,
                 RoomMembershipLifecycle.MEMBER_LEFT_ACCOUNT_ID_FIELD, 22L)));
         assertEquals("9001:22:leave-1:trace-leave", completion.get());

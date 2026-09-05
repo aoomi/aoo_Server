@@ -33,6 +33,8 @@ public final class JdbcBillingService implements BillingService {
 
     @Override public LedgerEntry debit(String businessId,CurrencyAccount account,long amount,String reasonCode){return change(businessId,account,Math.negateExact(positive(amount)),reasonCode);}
     @Override public LedgerEntry credit(String businessId,CurrencyAccount account,long amount,String reasonCode){return change(businessId,account,positive(amount),reasonCode);}
+    public LedgerEntry debit(Connection connection,String businessId,long playerId,String currency,long amount,String reasonCode){return change(connection,businessId,new CurrencyAccount(playerId,currency),Math.negateExact(positive(amount)),reasonCode);}
+    public LedgerEntry credit(Connection connection,String businessId,long playerId,String currency,long amount,String reasonCode){return change(connection,businessId,new CurrencyAccount(playerId,currency),positive(amount),reasonCode);}
 
     private LedgerEntry change(String businessId, long playerId, String currency, long delta, String reasonCode) {
         return change(businessId,new CurrencyAccount(playerId,currency),delta,reasonCode);
@@ -44,21 +46,7 @@ public final class JdbcBillingService implements BillingService {
         try (var asset = LockOrderGuard.enter(LockOrderGuard.Level.ASSET, playerId + ":" + currency); var database = LockOrderGuard.enter(LockOrderGuard.Level.DATABASE, "primary"); Connection connection = dataSource.getConnection()) {
             connection.setAutoCommit(false);
             try {
-                requireActiveCurrency(connection,account);
-                ensureBalanceRow(connection, playerId, currency,scopeId);
-                long currentBalance = lockBalance(connection, playerId, currency,scopeId);
-                LedgerEntry existing = findByBusinessId(connection, businessId,scopeId);
-                if (existing != null) {
-                    requireSameCommand(existing, playerId, currency, delta, reasonCode);
-                    connection.rollback();
-                    return existing;
-                }
-                long nextBalance = Math.addExact(currentBalance, delta);
-                if (nextBalance < 0) throw new IllegalStateException("insufficient balance");
-                updateBalance(connection, playerId, currency,scopeId, nextBalance);
-                LedgerEntry entry = new LedgerEntry(businessId, playerId, currency, delta, nextBalance,
-                        reasonCode, clock.instant());
-                insertLedger(connection, entry,scopeId);
+                LedgerEntry entry = changeInTransaction(connection,businessId,account,delta,reasonCode);
                 connection.commit();
                 return entry;
             } catch (Exception error) {
@@ -71,6 +59,36 @@ public final class JdbcBillingService implements BillingService {
             if (error instanceof IllegalStateException state) throw state;
             throw new IllegalStateException("cannot update authoritative balance", error);
         }
+    }
+
+    private LedgerEntry change(Connection connection,String businessId,CurrencyAccount account,long delta,String reasonCode){
+        Objects.requireNonNull(connection,"connection");
+        long playerId=account.playerId();String currency=account.currency();
+        validate(businessId,playerId,currency,reasonCode);
+        try(var asset=LockOrderGuard.enter(LockOrderGuard.Level.ASSET,playerId+":"+currency);var database=LockOrderGuard.enter(LockOrderGuard.Level.DATABASE,"primary")){
+            return changeInTransaction(connection,businessId,account,delta,reasonCode);
+        }catch(Exception error){
+            if(error instanceof IllegalStateException state)throw state;
+            throw new IllegalStateException("cannot update authoritative balance",error);
+        }
+    }
+
+    private LedgerEntry changeInTransaction(Connection connection,String businessId,CurrencyAccount account,long delta,String reasonCode)throws SQLException{
+        long playerId=account.playerId();String currency=account.currency();long scopeId=account.scopeId();
+        requireActiveCurrency(connection,account);
+        ensureBalanceRow(connection,playerId,currency,scopeId);
+        long currentBalance=lockBalance(connection,playerId,currency,scopeId);
+        LedgerEntry existing=findByBusinessId(connection,businessId,scopeId);
+        if(existing!=null){
+            requireSameCommand(existing,playerId,currency,delta,reasonCode);
+            return existing;
+        }
+        long nextBalance=Math.addExact(currentBalance,delta);
+        if(nextBalance<0)throw new IllegalStateException("insufficient balance");
+        updateBalance(connection,playerId,currency,scopeId,nextBalance);
+        LedgerEntry entry=new LedgerEntry(businessId,playerId,currency,delta,nextBalance,reasonCode,clock.instant());
+        insertLedger(connection,entry,scopeId);
+        return entry;
     }
 
     private void requireActiveCurrency(Connection connection,CurrencyAccount account)throws SQLException{
