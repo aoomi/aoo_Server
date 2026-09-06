@@ -57,6 +57,7 @@ public final class PokerAuthoritativeSession
   private final Map<Integer, Integer> winCounts = new LinkedHashMap<>(),
       loseCounts = new LinkedHashMap<>();
   private long stateVersion;
+  private long trickId;
   private DissolveVoteState dissolveVote;
   private boolean dissolved;
   private String dissolveReason = "";
@@ -152,6 +153,7 @@ public final class PokerAuthoritativeSession
             previous,
             roundLimit);
     x.stateVersion = s.get("stateVersion") instanceof Number n ? n.longValue() : 0;
+    x.trickId = s.get("trickId") instanceof Number n ? n.longValue() : 0;
     x.initialLeadSeat = s.get("initialLeadSeat") instanceof Number n ? n.intValue() : -1;
     x.bankerSeat = s.get("bankerSeat") instanceof Number n ? n.intValue() : x.initialLeadSeat;
     x.directWinnerSeat = s.get("directWinnerSeat") instanceof Number n ? n.intValue() : -1;
@@ -322,10 +324,15 @@ public final class PokerAuthoritativeSession
       case "hint" -> {
         own(player, r.seatId());
         requirePlaying();
-        body =
-            Map.of(
-                "hints",
-                family.rules().hints(state.hands().get(r.seatId()), state.previous(), context(r)));
+        if (state.currentSeat() != r.seatId()) throw new IllegalStateException("not current turn");
+        var hints = family.rules().hints(state.hands().get(r.seatId()), state.previous(), context(r));
+        body = Map.of(
+            "hints", hints,
+            "roomId", roomId,
+            "stateVersion", stateVersion,
+            "operationId", deadline.operationId(),
+            "turnSeat", state.currentSeat(),
+            "canPass", state.previous() != null && hints.isEmpty());
       }
       case "pass" -> {
         own(player, r.seatId());
@@ -335,7 +342,10 @@ public final class PokerAuthoritativeSession
             && !family.rules().hints(state.hands().get(r.seatId()), state.previous(), c).isEmpty())
           throw new IllegalStateException("must beat when possible");
         state = new PokerCoreEngine<Void>().pass(state, r.seatId());
-        if (state.previous() == null) lastActions.clear();
+        if (state.previous() == null) {
+          lastActions.clear();
+          trickId = Math.addExact(trickId, 1);
+        }
         else lastActions.put(r.seatId(), lastAction(r.seatId(), "pass", List.of(), "PASS", r.requestId()));
         resetHosting(r.seatId());
         body = viewFor(player);
@@ -374,10 +384,7 @@ public final class PokerAuthoritativeSession
             bombs.computeIfPresent(previousSeat, (seat, count) -> Math.max(0, count - 1));
         }
         resetHosting(r.seatId());
-        if (state.finished()) {
-          lastActions.clear();
-          completeRound();
-        }
+        if (state.finished()) completeRound();
         body = viewFor(player);
       }
       case "continue" -> {
@@ -481,6 +488,7 @@ public final class PokerAuthoritativeSession
     playedCardsBySeat.clear();
     playHistory.clear();
     lastActions.clear();
+    trickId = Math.addExact(trickId, 1);
     continueSeats.clear();
     competeRespondedSeats.clear();
     directWinnerSeat = -1;
@@ -718,6 +726,8 @@ public final class PokerAuthoritativeSession
                 : List.of(playedCards.get(playedCards.size() - 1)));
     o.put("playedCards", visiblePlays);
     o.put("lastActions", List.copyOf(lastActions.values()));
+    o.put("trickId", trickId);
+    o.put("trickReset", state != null && state.previous() == null);
     if (state != null && state.previous() != null)
       o.put(
           "currentTrick",
@@ -810,6 +820,7 @@ public final class PokerAuthoritativeSession
         PdkPublishedRuleOptions.snapshot(family.rules().config(), family.profile()));
     o.put("playedCards", List.copyOf(playedCards));
     o.put("lastActions", new LinkedHashMap<>(lastActions));
+    o.put("trickId", trickId);
     o.put("uiCapabilities", DEFAULT_UI_CAPABILITIES);
     o.put("previousWinnerSeat", previousWinnerSeat == null ? -1 : previousWinnerSeat);
     o.put("initialLeadSeat", initialLeadSeat);
@@ -1073,6 +1084,12 @@ public final class PokerAuthoritativeSession
     if (legal.isEmpty()) {
       if (state.previous() == null) throw new IllegalStateException("no legal automatic lead");
       state = new PokerCoreEngine<Void>().pass(state, seat);
+      if (state.previous() == null) {
+        lastActions.clear();
+        trickId = Math.addExact(trickId, 1);
+      } else {
+        lastActions.put(seat, lastAction(seat, "pass", List.of(), "PASS", "timeout-" + stateVersion));
+      }
       return;
     }
     CardCombination combination = legal.getFirst(), previous = state.previous();
@@ -1081,6 +1098,10 @@ public final class PokerAuthoritativeSession
         new PokerCoreEngine<PaoDeKuaiContext>()
             .play(state, seat, combination.cards(), family.rules(), context);
     recordPlay(seat, combination);
+    lastActions.put(
+        seat,
+        lastAction(
+            seat, "play", combination.cards(), combination.type(), "timeout-" + stateVersion));
     playedCardCounts.merge(seat, combination.cards().size(), Integer::sum);
     if (family.rules().isBomb(combination)) {
       bombs.merge(seat, 1, Integer::sum);

@@ -69,6 +69,25 @@ final class PokerRuleMatrixTest {
     }
     @Test void regionalBombTiersAndTerminalAttachmentShortageAreCapabilities(){var cfg=new PaoDeKuaiConfig(5,true,true,false,null,false,14,true,true,1,3,2,true);var rules=new PaoDeKuaiRuleSet(cfg);CardCombination special=rules.recognize(List.of(114,214,314),null),normal=rules.recognize(List.of(113,213,313,413),null),withOne=rules.recognize(List.of(114,214,314,105),null),fourOne=rules.recognize(List.of(113,213,313,413,105),null);assertTrue(rules.isBomb(special));assertTrue(rules.canBeat(special,normal,null));assertTrue(rules.canBeat(withOne,fourOne,null));var terminal=new PaoDeKuaiContext(false,2,List.of(110,210,310));assertTrue(rules.canBeat(rules.recognize(terminal.handBeforePlay(),terminal),new CardCombination("TRIPLE_WITH_PAIR",9,List.of(109,209,309,108,208)),terminal));var strict=new PaoDeKuaiRuleSet(new PaoDeKuaiConfig(5,true,true,false,null,false));assertFalse(strict.canBeat(strict.recognize(terminal.handBeforePlay(),terminal),new CardCombination("TRIPLE_WITH_PAIR",9,List.of(109,209,309,108,208)),terminal));}
 
+    @Test void tripleWithTwoComparisonUsesTripleBodyAndPreservesTerminalShortagePolicy() {
+        var strict = new PaoDeKuaiRuleSet(new PaoDeKuaiConfig(5,true,true,false,null,false));
+        var previous = strict.recognize(List.of(111,211,311,109,107),null);
+        assertEquals("TRIPLE_WITH_TWO",previous.type());
+        assertFalse(strict.canBeat(strict.recognize(List.of(104,204,304),null),previous,
+                new PaoDeKuaiContext(false,2,List.of(104,204,304))));
+        assertFalse(strict.canBeat(strict.recognize(List.of(104,204,304,105,106),null),previous,null));
+        assertTrue(strict.canBeat(strict.recognize(List.of(112,212,312,103,104),null),previous,null));
+
+        var shortage = new PaoDeKuaiRuleSet(new PaoDeKuaiConfig(
+                5,true,true,false,null,false,null,false,false,1,2,1,true));
+        assertFalse(shortage.canBeat(shortage.recognize(List.of(104,204,304),null),previous,
+                new PaoDeKuaiContext(false,2,List.of(104,204,304))));
+        assertTrue(shortage.canBeat(shortage.recognize(List.of(112,212,312),null),previous,
+                new PaoDeKuaiContext(false,2,List.of(112,212,312))));
+        assertFalse(shortage.canBeat(shortage.recognize(List.of(104,204,304,105),null),previous,
+                new PaoDeKuaiContext(false,2,List.of(104,204,304,105))));
+    }
+
     @Test void hintsAreLegalCompleteStableAndIncludeTerminalPlay() {
         var rules = new PaoDeKuaiRuleSet(new PaoDeKuaiConfig(5,true,true,true,null,false));
         List<Integer> hand=List.of(104,204,304,404,105,205,106,206,107,207);
@@ -82,6 +101,24 @@ final class PokerRuleMatrixTest {
         var requiredRules=new PaoDeKuaiRuleSet(new PaoDeKuaiConfig(5,true,true,false,103,true));
         assertTrue(requiredRules.hints(List.of(103,104),null,new PaoDeKuaiContext(true,2,List.of(103,104))).stream().allMatch(h->h.cards().contains(103)));
         assertEquals(List.of(114),requiredRules.hints(List.of(103,114),null,new PaoDeKuaiContext(false,1,List.of(103,114))).getFirst().cards());
+    }
+
+    @Test void responseHintsPreserveTargetTypeAndCardCountBeforeRanking() {
+        var rules = new PaoDeKuaiRuleSet(PaoDeKuaiConfig.defaults());
+        var previousPairs = rules.recognize(List.of(104,204,105,205),null);
+        var hand = List.of(106,206,107,207,108,208,109,209);
+        var hints = rules.hints(hand,previousPairs,new PaoDeKuaiContext(false,8,hand));
+        assertEquals(List.of(106,206,107,207),hints.getFirst().cards());
+        assertTrue(hints.stream().filter(hint -> !rules.isBomb(hint))
+                .allMatch(hint -> hint.type().equals("CONSECUTIVE_PAIRS") && hint.cards().size()==4));
+        var sixCards = List.of(107,207,108,208,109,209);
+        assertTrue(rules.hints(sixCards,previousPairs,new PaoDeKuaiContext(false,8,sixCards)).stream()
+                .allMatch(hint -> rules.isBomb(hint) || hint.cards().size()==4));
+        assertFalse(rules.canBeat(rules.recognize(List.of(106,107,108,109,110,111),null),
+                rules.recognize(List.of(103,104,105,106,107),null),null));
+        assertFalse(rules.canBeat(rules.recognize(List.of(107,207,307,108,208,308),null),
+                new CardCombination("AIRPLANE",6,List.of(106,206,306,107,207,307,108,208,308)),null));
+        assertTrue(rules.canBeat(rules.recognize(List.of(106,206,306,406),null),previousPairs,null));
     }
 
     @Test void everyPdkProfileForcesHighestSingleWhenNextPlayerReported() {

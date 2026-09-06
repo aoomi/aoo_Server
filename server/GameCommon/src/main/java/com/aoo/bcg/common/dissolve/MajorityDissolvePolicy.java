@@ -10,11 +10,10 @@ public final class MajorityDissolvePolicy implements DissolvePolicy {
     @Override public DissolveDecision decide(long applicantId, Set<Long> eligiblePlayerIds,
                                               Map<Long, Boolean> votes, Instant deadline, Instant now) {
         if (!now.isBefore(deadline)) return approveOnTimeout ? DissolveDecision.EXPIRED_APPROVED : DissolveDecision.EXPIRED_REJECTED;
-        long approvals = votes.values().stream().filter(Boolean.TRUE::equals).count();
         long rejections = votes.values().stream().filter(Boolean.FALSE::equals).count();
-        int majority = eligiblePlayerIds.size() / 2 + 1;
-        if (approvals >= majority) return DissolveDecision.APPROVED;
-        if (rejections >= majority) return DissolveDecision.REJECTED;
+        if (rejections > 0) return DissolveDecision.REJECTED;
+        long approvals = votes.values().stream().filter(Boolean.TRUE::equals).count();
+        if (approvals == eligiblePlayerIds.size()) return DissolveDecision.APPROVED;
         return DissolveDecision.WAITING;
     }
 }
