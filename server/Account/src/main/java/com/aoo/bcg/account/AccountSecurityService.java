@@ -277,7 +277,23 @@ public final class AccountSecurityService implements AccountService {
             throw new IllegalStateException(impossible);
         }
     }
-    private <T> T atomic(java.util.concurrent.Callable<T> work) { lock.lock(); try { return work.call(); } catch (RuntimeException e) { throw e; } catch (Exception impossible) { throw new IllegalStateException(impossible); } finally { lock.unlock(); } }
+    private <T> T atomic(java.util.concurrent.Callable<T> work) {
+        boolean acquired = false;
+        try {
+            acquired = lock.tryLock(5, java.util.concurrent.TimeUnit.SECONDS);
+            if (!acquired) throw new IllegalStateException("account security lock acquisition timed out");
+            return work.call();
+        } catch (InterruptedException interrupted) {
+            Thread.currentThread().interrupt();
+            throw new IllegalStateException("account security lock acquisition interrupted", interrupted);
+        } catch (RuntimeException failure) {
+            throw failure;
+        } catch (Exception impossible) {
+            throw new IllegalStateException(impossible);
+        } finally {
+            if (acquired) lock.unlock();
+        }
+    }
     private static String normalizeLogin(String v) { String n = normalized(v); if (n.length() < 3 || n.length() > 64) throw new IllegalArgumentException("invalid login"); return n; }
     private static String normalized(String v) { requireText(v, "value"); return v.strip().toLowerCase(java.util.Locale.ROOT); }
     private static void requireText(String v, String name) { if (v == null || v.isBlank()) throw new IllegalArgumentException("invalid " + name); }

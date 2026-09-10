@@ -18,8 +18,14 @@ final class RoomRuleSchemaValidatorTest {
                     "defaultValue",List.of(),"options",List.of(Map.of("value",true,"label","开启")))));
 
     @Test void normalizesDefaultsAndValidValues() {
-        assertEquals(Map.of("roundCount",8,"playerCount",2,"commonOptions",List.of("voice")),
+        assertEquals(Map.of("roundCount",8,"playerCount",2,"commonOptions",List.of("voice"),"baseScore",1),
                 RoomRuleSchemaValidator.validate(SCHEMA,Map.of("playerCount",2,"commonOptions",List.of("voice"))));
+    }
+
+    @Test void acceptsPositivePlatformBaseScoreAndRejectsInvalidValues() {
+        assertEquals(5,RoomRuleSchemaValidator.validate(SCHEMA,Map.of("playerCount",2,"baseScore",5)).get("baseScore"));
+        for(Object invalid:List.of(0,-1,1.5,"abc"))
+            assertThrows(HallError.class,()->RoomRuleSchemaValidator.validate(SCHEMA,Map.of("playerCount",2,"baseScore",invalid)));
     }
 
     @Test void rejectsDisabledUnknownAndInvalidStepperValues() {

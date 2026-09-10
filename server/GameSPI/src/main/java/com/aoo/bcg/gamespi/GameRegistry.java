@@ -10,12 +10,13 @@ public final class GameRegistry {
 
     public synchronized void register(GameProvider provider) {
         GameDescriptor descriptor = provider.descriptor();
+        String normalizedCode = descriptor.code().toLowerCase();
         if (byId.getOrDefault(descriptor.gameId(),Map.of()).containsKey(descriptor.version())
-                || byCode.getOrDefault(descriptor.code(),Map.of()).containsKey(descriptor.version())) {
+                || byCode.getOrDefault(normalizedCode,Map.of()).containsKey(descriptor.version())) {
             throw new IllegalStateException("duplicate game registration: " + descriptor.gameId() + "/" + descriptor.code());
         }
         byId.computeIfAbsent(descriptor.gameId(),ignored->new LinkedHashMap<>()).put(descriptor.version(),provider);
-        byCode.computeIfAbsent(descriptor.code(),ignored->new LinkedHashMap<>()).put(descriptor.version(),provider);
+        byCode.computeIfAbsent(normalizedCode,ignored->new LinkedHashMap<>()).put(descriptor.version(),provider);
     }
 
     public synchronized GameProvider require(int gameId) {

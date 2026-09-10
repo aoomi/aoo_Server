@@ -2,18 +2,6 @@
   "schemaVersion": 1,
   "hits": [
     {
-      "path": "assets/Common/Code/Runtime/CompatibilityApp/platform/LegacyHotUpdateService.ts",
-      "line": 27
-    },
-    {
-      "path": "assets/Common/Code/Runtime/CompatibilityApp/platform/LegacyHotUpdateService.ts",
-      "line": 28
-    },
-    {
-      "path": "assets/Common/Code/Runtime/CompatibilityApp/platform/LegacyHotUpdateService.ts",
-      "line": 29
-    },
-    {
       "path": "assets/Common/Code/Runtime/platform/LegacyHotUpdateService.ts",
       "line": 27
     },

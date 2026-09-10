@@ -30,12 +30,20 @@ public final class GatewayRoomBroadcastHub implements GatewayWebSocketFrameHandl
     @Override public Iterable<GatewayWebSocketFrameHandler.Broadcast> publish(ConnectionSession session,WebSocketFrame request,GameCommandResult result){
         long roomId=Long.parseLong(session.roomId());
         for(Binding binding:bindings.values())if(binding.roomId()==roomId&&binding.context().channel().isActive())try{
-            Map<String,Object> event=new LinkedHashMap<>();event.put("protocolVersion","2.0");event.put("msgId","common.room.state_push");event.put("kind","push");event.put("requestId",request.requestId());event.put("seq",request.seq());event.put("timestamp",clock.millis());event.put("traceId",request.traceId());event.put("body",views.view(roomId,binding.playerId()));binding.context().writeAndFlush(new TextWebSocketFrame(json.writeValueAsString(event)));
+            boolean quickText=isQuickText(request);
+            Map<String,Object> event=new LinkedHashMap<>();event.put("protocolVersion","2.0");event.put("msgId",quickText?"room.quick_text":statePushId(request.msgId()));event.put("kind","push");event.put("requestId",request.requestId());event.put("seq",request.seq());event.put("timestamp",clock.millis());event.put("traceId",request.traceId());event.put("body",quickText?result.body().asMap():views.view(roomId,binding.playerId()));binding.context().writeAndFlush(new TextWebSocketFrame(json.writeValueAsString(event)));
         }catch(Exception failure){System.err.println("room broadcast failed roomId="+roomId+" playerId="+binding.playerId()+" cause="+failure.getMessage());}
         if(Boolean.TRUE.equals(result.body().get(RoomLifecycleAuthority.TERMINAL_FIELD))){String reason=String.valueOf(result.body().getOrDefault(RoomLifecycleAuthority.TERMINAL_REASON_FIELD,"ROOM_DISSOLVED"));try{lifecycleCompletion.get().complete(roomId,request.requestId(),request.traceId(),reason);}catch(RuntimeException failure){System.err.println("room lifecycle completion deferred roomId="+roomId+" cause="+failure.getMessage());}}
         if(Boolean.TRUE.equals(result.body().get(RoomMembershipLifecycle.MEMBER_LEFT_FIELD))){long accountId=Long.parseLong(String.valueOf(result.body().get(RoomMembershipLifecycle.MEMBER_LEFT_ACCOUNT_ID_FIELD)));if(accountId!=Long.parseLong(session.userId()))throw new SecurityException("room membership lifecycle identity mismatch");membershipCompletion.get().left(roomId,accountId,request.requestId(),request.traceId());}
         return java.util.List.of();
     }
+    private static String statePushId(String requestId){
+        if(requestId!=null&&requestId.matches("poker\\.(?:CD201|NJ201|LS201)\\..+")){
+            return requestId.substring(0,requestId.indexOf('.',6))+".state_push";
+        }
+        return "common.room.state_push";
+    }
+    private static boolean isQuickText(WebSocketFrame request){return "common.room.dispatch".equals(request.msgId())&&"quick_text".equals(request.body().get("action"));}
     public void configureLifecycleCompletion(LifecycleCompletion completion){if(!lifecycleCompletion.compareAndSet(lifecycleCompletion.get(),java.util.Objects.requireNonNull(completion)))throw new IllegalStateException("room lifecycle completion already configured");}
     public void configureMembershipCompletion(MembershipCompletion completion){if(!membershipCompletion.compareAndSet(membershipCompletion.get(),java.util.Objects.requireNonNull(completion)))throw new IllegalStateException("room membership completion already configured");}
     public void configurePresenceSink(PresenceSink sink){if(!presenceSink.compareAndSet(presenceSink.get(),java.util.Objects.requireNonNull(sink)))throw new IllegalStateException("room presence sink already configured");}

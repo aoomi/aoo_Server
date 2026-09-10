@@ -117,12 +117,22 @@ final class PdkCommonArchitectureTest {
                 new com.aoo.bcg.gamespi.RoomCreationContext(9199, 100,
                         Map.of("playerCount", 2, "roundCount", 8)))
                 .requireAuthoritativeSession().authoritativeState());
-        waiting.put("ruleSnapshotKey",
-                "4208ce24d1f9cc83de9eda6400b0bae2abc67af7a37df42493c37d681fa9ba5e");
+        PaoDeKuaiFamily family = provider.pokerFamily();
+        waiting.put("ruleSnapshotKey", legacyRecordIdentity(family));
         assertDoesNotThrow(() -> provider.restoreAuthoritativeSession(waiting).orElseThrow());
         waiting.put("ruleSnapshotKey", "unknown");
         assertThrows(IllegalStateException.class,
                 () -> provider.restoreAuthoritativeSession(waiting).orElseThrow());
+    }
+
+    private static String legacyRecordIdentity(PaoDeKuaiFamily family) {
+        try {
+            String input = family.profile() + "|" + family.rules().config();
+            return java.util.HexFormat.of().formatHex(java.security.MessageDigest
+                    .getInstance("SHA-256").digest(input.getBytes(java.nio.charset.StandardCharsets.UTF_8)));
+        } catch (java.security.NoSuchAlgorithmException exception) {
+            throw new AssertionError(exception);
+        }
     }
 
     private static GameCommandRequest command(PokerAuthoritativeSession session, String msgId,

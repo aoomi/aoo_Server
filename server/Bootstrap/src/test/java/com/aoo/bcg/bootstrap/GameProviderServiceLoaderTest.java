@@ -17,13 +17,13 @@ final class GameProviderServiceLoaderTest {
     @Test
     void productionClasspathDiscoversEveryNativeGameProviderExactlyOnce() {
         Set<String> expected = Set.of(
-                "business.global.pk.njpdk.NJPDKGameProvider",
                 "business.global.mj.scjymj.SCJYMJGameProvider",
                 "business.global.pk.xcpdk.XCPDKGameProvider",
                 "business.global.pk.zjh.ZJHGameProvider",
                 "business.global.pk.zypk.ZYPKGameProvider");
         var providers = ServiceLoader.load(GameProvider.class).stream()
                 .filter(entry -> !com.aoo.bcg.mahjong.MahjongCatalogRuntimeRegistry.isInternalRuntimeProvider(entry.get()))
+                .filter(entry -> !entry.type().getName().equals("business.global.pk.njpdk.NJPDKGameProvider"))
                 .toList();
         Set<String> actual = providers.stream()
                 .map(provider -> provider.type().getName())
@@ -34,7 +34,7 @@ final class GameProviderServiceLoaderTest {
 
     @Test void catalogExpandsLongAndWordRowsThroughFamilyProviders() {
         var registry = new com.aoo.bcg.gamespi.GameRegistry();
-        assertEquals(529, GameCatalogLoader.registerMissing(registry));
+        assertEquals(530, GameCatalogLoader.registerMissing(registry));
         for (int id : List.of(80,138,210,211))
             assertEquals("com.aoo.bcg.longcard.LongCardFamilyProvider", registry.require(id,"1.0.0").getClass().getName());
         for (int id : List.of(136,153,176,302,342,404,407,462,490,596))
@@ -44,7 +44,7 @@ final class GameProviderServiceLoaderTest {
     @Test void productionGatewayRegistryIncludesCatalogBackedPdkProvider() {
         var registry = ProductionGatewayRuntimeProvider.loadGames();
         var provider = registry.require(8, "1.0.0");
-        assertEquals("pdk", provider.descriptor().code());
+        assertEquals("CD201", provider.descriptor().code());
         assertEquals("poker:pao-de-kuai", provider.descriptor().family());
     }
 }

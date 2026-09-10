@@ -16,6 +16,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Timestamp;
+import java.sql.SQLException;
 import java.time.Clock;
 import java.time.Duration;
 import java.util.Map;
@@ -33,6 +34,7 @@ final class JdbcGatewayGameCommandCommitter implements GameCommandCommitter {
     private final JdbcIdempotencyStore<GameCommandResult> results;
     private final JdbcRoomSnapshotStore snapshots;
     private final DurableGameSettlementService settlements;
+    private final core.replay.ReplayCodeRepository replayCodeRepository;
 
     JdbcGatewayGameCommandCommitter(DataSource dataSource, ObjectMapper json, Clock clock,
                                     Duration retention, DurableGameSettlementService settlements) {
@@ -41,6 +43,7 @@ final class JdbcGatewayGameCommandCommitter implements GameCommandCommitter {
         this.clock = Objects.requireNonNull(clock);
         this.retention = Objects.requireNonNull(retention);
         this.settlements = Objects.requireNonNull(settlements);
+        this.replayCodeRepository = new core.replay.JdbcReplayCodeRepository(dataSource);
         if (retention.isZero() || retention.isNegative()) {
             throw new IllegalArgumentException("command retention must be positive");
         }
@@ -50,6 +53,12 @@ final class JdbcGatewayGameCommandCommitter implements GameCommandCommitter {
 
     @Override
     public void commit(GameRoomHandle room, GameCommandRequest request, GameCommandResult result) {
+        commitResult(room, request, result);
+    }
+
+    @Override
+    public GameCommandResult commitResult(GameRoomHandle room, GameCommandRequest request,
+                                          GameCommandResult result) {
         Objects.requireNonNull(room);
         Objects.requireNonNull(request);
         Objects.requireNonNull(result);
@@ -58,6 +67,14 @@ final class JdbcGatewayGameCommandCommitter implements GameCommandCommitter {
         long stateVersion = authority.stateVersion();
         Map<String, Object> state = authority.authoritativeState();
         SettlementResult pendingSettlement = pendingSettlement(room, state);
+        boolean replayMutation = replayMutation(request);
+        // Settlement roundNo is one-based while replay setId is zero-based. A reconnect or
+        // recovery command carries the current authoritative round number, so deriving setId
+        // from request.roundNo incorrectly rejects a valid completed round (for example 1 != 0).
+        int completedReplaySetId = pendingSettlement == null
+                ? Math.max(0, request.roundNo())
+                : pendingSettlement.roundNo() - 1;
+        GameCommandResult durableResult = result;
         try (Connection connection = dataSource.getConnection()) {
             connection.setAutoCommit(false);
             try {
@@ -67,9 +84,19 @@ final class JdbcGatewayGameCommandCommitter implements GameCommandCommitter {
                 upsertSnapshot(connection, room, metadata, stateVersion, state);
                 recordReplay(connection, room, request, result, metadata, stateVersion, state);
                 if (pendingSettlement != null) enqueueSettlement(connection, pendingSettlement);
-                completeResult(connection, key, result);
+                if (pendingSettlement != null && replayMutation) {
+                    // The replay manifest and code mapping share this transaction. Therefore a
+                    // FINISHED response can never become visible without its exact round code.
+                    var mapping = new core.replay.ReplayCodeService(
+                            new TransactionReplayCodeRepository(connection))
+                            .allocate(pendingSettlement.roomId(), completedReplaySetId);
+                    durableResult = withReplayCode(result, mapping, pendingSettlement.roundNo());
+                }
+                completeResult(connection, key, durableResult);
                 connection.commit();
-                if (pendingSettlement != null) recoverPendingSettlements(1);
+                if (pendingSettlement != null) {
+                    recoverPendingSettlements(1);
+                }
             } catch (Exception failure) {
                 connection.rollback();
                 throw failure;
@@ -78,6 +105,48 @@ final class JdbcGatewayGameCommandCommitter implements GameCommandCommitter {
             if (failure instanceof RuntimeException runtime) throw runtime;
             throw new IllegalStateException("cannot atomically commit room command", failure);
         }
+        return durableResult;
+    }
+
+    Map<String,Object> decorateReplayCode(Map<String,Object> perspective) {
+        Object rawRound = perspective.get("roundNo");
+        String phase = String.valueOf(perspective.getOrDefault("phase", ""));
+        if (!(rawRound instanceof Number number) || number.intValue() <= 0
+                || !java.util.Set.of("FINISHED","ROUND_SETTLEMENT","INTER_ROUND","SETTLED","DIRECT_WIN").contains(phase)) {
+            return perspective;
+        }
+        int setId = number.intValue() - 1;
+        long roomId = ((Number) perspective.get("roomId")).longValue();
+        var mapping = replayCodeRepository.findByTarget(roomId,setId).orElse(null);
+        if (mapping == null) return perspective;
+        Map<String,Object> decorated = new LinkedHashMap<>(perspective);
+        decorated.put("replayCode",mapping.code());
+        decorated.put("replaySetId",mapping.setId());
+        return Map.copyOf(decorated);
+    }
+
+    private static GameCommandResult withReplayCode(GameCommandResult result,
+                                                     core.replay.ReplayCodeRepository.Mapping mapping,
+                                                     int roundNo) {
+        Map<String,Object> root = new LinkedHashMap<>(result.body().asMap());
+        Object nested = root.get("payload");
+        Map<String,Object> authority;
+        if (nested instanceof com.aoo.bcg.gamespi.CommandPayload payload) {
+            authority = new LinkedHashMap<>(payload.asMap());
+            root.put("payload", authority);
+        } else if (nested instanceof Map<?,?> map) {
+            authority = new LinkedHashMap<>();
+            map.forEach((key,value) -> authority.put(String.valueOf(key),value));
+            root.put("payload", authority);
+        } else {
+            authority = root;
+        }
+        authority.put("replayCode", mapping.code());
+        authority.put("replaySetId", mapping.setId());
+        authority.put("roundNo", roundNo);
+        return new GameCommandResult(result.msgId(), result.requestId(),
+                com.aoo.bcg.gamespi.CommandPayload.copyOf(root), result.serverTimeEpochMillis(),
+                result.operationDeadline());
     }
 
     private void markFirstRoundStarted(Connection connection,long roomId,Map<String,Object> state)throws Exception{
@@ -327,10 +396,58 @@ final class JdbcGatewayGameCommandCommitter implements GameCommandCommitter {
     }
 
     private static Map<Integer,Long> players(Object raw){Map<Integer,Long> result=new LinkedHashMap<>();if(raw instanceof Map<?,?> map)for(var entry:map.entrySet())result.put(Integer.parseInt(String.valueOf(entry.getKey())),Long.parseLong(String.valueOf(entry.getValue())));return result;}
-    private static boolean replayMutation(GameCommandRequest request){String action=replayAction(request);return !List.of("state","hint","reconnect").contains(action);}
+    private static boolean replayMutation(GameCommandRequest request){
+        String action=replayAction(request).strip().toLowerCase(java.util.Locale.ROOT);
+        String msgId=request.msgId().strip().toLowerCase(java.util.Locale.ROOT);
+        if(List.of("state","hint","reconnect").contains(action))return false;
+        return !(msgId.endsWith(".state_req")||msgId.endsWith(".hint_req")||msgId.endsWith(".reconnect_req"));
+    }
     private static String replayAction(GameCommandRequest request){Object action=request.body().get("action");return action==null?request.msgId():String.valueOf(action);}
     private static Object replayCards(GameCommandRequest request){Object payload=request.body().get("payload");if(payload instanceof Map<?,?> map){Object cards=map.get("cards");if(cards==null)cards=map.get("cardList");return cards;}Object cards=request.body().get("cards");return cards==null?request.body().get("cardList"):cards;}
     private static String safeError(Throwable failure){String value=failure.getClass().getSimpleName()+":"+String.valueOf(failure.getMessage());return value.length()>1000?value.substring(0,1000):value;}
+
+    /** Replay-code repository bound to the command transaction; it never closes the connection. */
+    private static final class TransactionReplayCodeRepository implements core.replay.ReplayCodeRepository {
+        private final Connection connection;
+        private TransactionReplayCodeRepository(Connection connection) { this.connection = connection; }
+
+        @Override public Optional<Mapping> findShortCode(String code) {
+            try (PreparedStatement q=connection.prepareStatement("SELECT short_code,room_id,set_id,status,expires_at FROM replay_short_code WHERE short_code=?")) {
+                q.setString(1,code);try(ResultSet r=q.executeQuery()){return r.next()?Optional.of(mapping(r)):Optional.empty();}
+            } catch(Exception e){throw failure("find transactional replay code",e);}
+        }
+        @Override public Optional<Mapping> findByTarget(long roomId,int setId) {
+            try (PreparedStatement q=connection.prepareStatement("SELECT short_code,room_id,set_id,status,expires_at FROM replay_short_code WHERE room_id=? AND set_id=?")) {
+                q.setLong(1,roomId);q.setInt(2,setId);try(ResultSet r=q.executeQuery()){return r.next()?Optional.of(mapping(r)):Optional.empty();}
+            } catch(Exception e){throw failure("find transactional replay target",e);}
+        }
+        @Override public boolean replayReady(long roomId,int setId) {
+            try (PreparedStatement q=connection.prepareStatement("SELECT 1 FROM replay_set_manifest WHERE room_id=? AND set_id=? LIMIT 1")) {
+                q.setLong(1,roomId);q.setInt(2,setId);try(ResultSet r=q.executeQuery()){return r.next();}
+            } catch(Exception e){throw failure("check transactional replay readiness",e);}
+        }
+        @Override public long allocatedCount(int length) {
+            try (PreparedStatement q=connection.prepareStatement("SELECT COUNT(*) FROM replay_short_code WHERE code_length=?")) {
+                q.setInt(1,length);try(ResultSet r=q.executeQuery()){r.next();return r.getLong(1);}
+            } catch(Exception e){throw failure("count transactional replay codes",e);}
+        }
+        @Override public InsertResult insert(String code,long roomId,int setId) {
+            try (PreparedStatement q=connection.prepareStatement("INSERT INTO replay_short_code(short_code,code_length,room_id,set_id,status,created_at) VALUES(?,?,?,?,'ACTIVE',CURRENT_TIMESTAMP(3))")) {
+                q.setString(1,code);q.setInt(2,code.length());q.setLong(3,roomId);q.setInt(4,setId);q.executeUpdate();return InsertResult.INSERTED;
+            } catch(SQLException e){
+                if(!"23000".equals(e.getSQLState()))throw failure("insert transactional replay code",e);
+                return findByTarget(roomId,setId).isPresent()?InsertResult.TARGET_EXISTS:InsertResult.CODE_COLLISION;
+            } catch(Exception e){throw failure("insert transactional replay code",e);}
+        }
+        @Override public Optional<LegacyTarget> findLegacyCode(String code){throw new UnsupportedOperationException();}
+        @Override public boolean mayView(long playerId,long roomId,int setId){throw new UnsupportedOperationException();}
+        @Override public void grantCodeAccess(String code,long playerId){throw new UnsupportedOperationException();}
+        private static Mapping mapping(ResultSet r)throws SQLException{
+            Timestamp expiry=r.getTimestamp(5);
+            return new Mapping(r.getString(1),r.getLong(2),r.getInt(3),r.getString(4),expiry==null?null:expiry.toInstant());
+        }
+        private static IllegalStateException failure(String action,Exception error){return new IllegalStateException("cannot "+action,error);}
+    }
 
     private static IdempotencyKey key(GameCommandRequest request) {
         return new IdempotencyKey(request.authenticatedUserId(), request.msgId(), request.roomId(),

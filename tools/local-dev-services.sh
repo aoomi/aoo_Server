@@ -138,20 +138,21 @@ PLIST
 
 health(){
   local failed=0
-  for spec in 'gateway:8080' 'version:8095' 'account:8096' 'hall:8093' 'social:8097'; do IFS=: read -r name port <<<"$spec"; if pid_alive "$name" && port_open "$port"; then printf 'OK   %-8s pid=%s port=%s\n' "$name" "$(cat "$RUNTIME/$name.pid")" "$port"; else printf 'FAIL %-8s port=%s\n' "$name" "$port"; failed=1; fi; done
+  for spec in 'gateway:8080' 'version:8095' 'account:8096' 'hall:8093' 'social:8097' 'gifting:8101'; do IFS=: read -r name port <<<"$spec"; if pid_alive "$name" && port_open "$port"; then printf 'OK   %-8s pid=%s port=%s\n' "$name" "$(cat "$RUNTIME/$name.pid")" "$port"; else printf 'FAIL %-8s port=%s\n' "$name" "$port"; failed=1; fi; done
   if pid_alive room-rules; then printf 'OK   %-8s pid=%s\n' room-rules "$(cat "$RUNTIME/room-rules.pid")"; else printf 'FAIL %-8s\n' room-rules; failed=1; fi
   if pid_alive gateway && port_open 18080; then printf 'OK   %-8s pid=%s port=%s\n' authority "$(cat "$RUNTIME/gateway.pid")" 18080; else printf 'FAIL %-8s port=%s\n' authority 18080; failed=1; fi
   curl -fsS http://127.0.0.1:8095/health/version >/dev/null || failed=1
   curl -fsS http://127.0.0.1:8096/health/account >/dev/null || failed=1
   curl -fsS http://127.0.0.1:8093/health/hall >/dev/null || failed=1
   curl -fsS http://127.0.0.1:8097/health/social >/dev/null || failed=1
+  curl -fsS http://127.0.0.1:8101/health/gifting >/dev/null || failed=1
   return "$failed"
 }
 
 stop_all(){
-  if command -v launchctl >/dev/null 2>&1; then for name in gateway account version hall social room-rules; do launchctl bootout "gui/$(id -u)/com.aoo.bcg.local.$name" >/dev/null 2>&1 || true; done; fi
-  for name in gateway account version hall social room-rules; do if pid_alive "$name"; then kill "$(cat "$RUNTIME/$name.pid")" 2>/dev/null || true; fi; done
-  for name in gateway account version hall social room-rules; do if [[ -f "$RUNTIME/$name.pid" ]]; then pid="$(cat "$RUNTIME/$name.pid")"; for _ in {1..40}; do kill -0 "$pid" 2>/dev/null || break; sleep .1; done; kill -9 "$pid" 2>/dev/null || true; rm -f "$RUNTIME/$name.pid"; fi; done
+  if command -v launchctl >/dev/null 2>&1; then for name in gateway account version hall social gifting room-rules; do launchctl bootout "gui/$(id -u)/com.aoo.bcg.local.$name" >/dev/null 2>&1 || true; done; fi
+  for name in gateway account version hall social gifting room-rules; do if pid_alive "$name"; then kill "$(cat "$RUNTIME/$name.pid")" 2>/dev/null || true; fi; done
+  for name in gateway account version hall social gifting room-rules; do if [[ -f "$RUNTIME/$name.pid" ]]; then pid="$(cat "$RUNTIME/$name.pid")"; for _ in {1..40}; do kill -0 "$pid" 2>/dev/null || break; sleep .1; done; kill -9 "$pid" 2>/dev/null || true; rm -f "$RUNTIME/$name.pid"; fi; done
 }
 
 stop_one(){
@@ -171,12 +172,32 @@ start_gateway(){
   local origins="$AOO_LOCAL_ORIGINS" lan_ip
   lan_ip="$(ipconfig getifaddr en0 2>/dev/null || ipconfig getifaddr en1 2>/dev/null || true)"
   if [[ -n "$lan_ip" ]]; then
-    for preview_port in 7456 7457 7459 7460 5173 5188; do origins+=",http://${lan_ip}:${preview_port}"; done
+    for preview_port in 7456 7457 7458 7459 7460 5173 5188; do origins+=",http://${lan_ip}:${preview_port}"; done
   fi
   start_java gateway 8080 "$gateway_cp" com.aoo.bcg.gateway.GatewayApplication \
     JAVA_TOOL_OPTIONS=-Dio.netty.eventLoopThreads=4 \
     GATEWAY_DATABASE_URL="$DB_URL" GATEWAY_DATABASE_USER="$MYSQL_USER" GATEWAY_DATABASE_PASSWORD="$MYSQL_PASSWORD" \
     GATEWAY_OFFICIAL_ORIGINS="$origins" GATEWAY_ALLOW_INSECURE_LAN_PREVIEW=true GATEWAY_VERSION_URL=http://127.0.0.1:8095 GATEWAY_ACCOUNT_URL=http://127.0.0.1:8096 GATEWAY_HALL_URL=http://127.0.0.1:8093 HALL_INTERNAL_URL=http://127.0.0.1:8093 HALL_INTERNAL_TOKEN="${AOO_LOCAL_HALL_INTERNAL_TOKEN:-local-hall-internal-token-at-least-32-bytes}" GATEWAY_SOCIAL_URL=http://127.0.0.1:8097 GATEWAY_INTERNAL_TOKEN="${AOO_LOCAL_ROOM_AUTHORITY_TOKEN:-local-room-authority-token-at-least-32-bytes}" GATEWAY_INTERNAL_PORT=18080 GATEWAY_HTTP_PORT=8080
+}
+
+start_hall(){
+  local hall_cp="$1"
+  start_java hall 8093 "$hall_cp" com.aoo.bcg.bootstrap.BootstrapAPP \
+    HALL_DATABASE_URL="$DB_URL" HALL_DATABASE_USER="$MYSQL_USER" HALL_DATABASE_PASSWORD="$MYSQL_PASSWORD" \
+    HALL_AUTH_SECRET="${AOO_LOCAL_HALL_AUTH_SECRET:-local-hall-auth-secret-at-least-32-bytes}" \
+    HALL_INTERNAL_TOKEN="${AOO_LOCAL_HALL_INTERNAL_TOKEN:-local-hall-internal-token-at-least-32-bytes}" HALL_HTTP_PORT=8093 \
+    INVITE_SIGNING_KEY="${AOO_LOCAL_INVITE_SIGNING_KEY:-local-invite-signing-key-32-bytes}" INVITE_REFERRAL_URL=http://127.0.0.1:8096 \
+    INVITE_REFERRAL_TOKEN="${AOO_LOCAL_INVITE_REFERRAL_TOKEN:-local-referral-token-at-least-32-bytes}" HALL_ROOM_AUTHORITY_URL=http://127.0.0.1:18080 HALL_ROOM_AUTHORITY_TOKEN="${AOO_LOCAL_ROOM_AUTHORITY_TOKEN:-local-room-authority-token-at-least-32-bytes}"
+}
+
+start_account(){
+  local account_cp="$1"
+  start_java account 8096 "$account_cp" com.aoo.bcg.bootstrap.BootstrapAPP \
+    ACCOUNT_DATABASE_URL="$DB_URL" ACCOUNT_DATABASE_USER="$MYSQL_USER" ACCOUNT_DATABASE_PASSWORD="$MYSQL_PASSWORD" \
+    ACCOUNT_OPERATOR_TOKEN="$AOO_LOCAL_ACCOUNT_OPERATOR_TOKEN" \
+    ACCOUNT_IDENTITY_SECOND_FACTOR_TOKEN="${AOO_LOCAL_ACCOUNT_IDENTITY_SECOND_FACTOR_TOKEN:-local-account-second-factor-token-at-least-32-bytes}" \
+    ACCOUNT_REGISTRATION_EXPOSE_CODE=true \
+    ACCOUNT_GATEWAY_INTERNAL_URL=http://127.0.0.1:18080 ACCOUNT_GATEWAY_INTERNAL_TOKEN="${AOO_LOCAL_ROOM_AUTHORITY_TOKEN:-local-room-authority-token-at-least-32-bytes}" ACCOUNT_HTTP_PORT=8096
 }
 
 start_all(){
@@ -191,20 +212,14 @@ start_all(){
   start_java version 8095 "$bootstrap_cp" com.aoo.bcg.bootstrap.BootstrapAPP \
     VERSION_DATABASE_URL="$DB_URL" VERSION_DATABASE_USER="$MYSQL_USER" VERSION_DATABASE_PASSWORD="$MYSQL_PASSWORD" \
     VERSION_INTERNAL_TOKEN="$AOO_LOCAL_VERSION_INTERNAL_TOKEN" VERSION_CLIENT_TOKEN="$AOO_LOCAL_VERSION_CLIENT_TOKEN" VERSION_HTTP_PORT=8095
-  start_java account 8096 "$bootstrap_cp" com.aoo.bcg.bootstrap.BootstrapAPP \
-    ACCOUNT_DATABASE_URL="$DB_URL" ACCOUNT_DATABASE_USER="$MYSQL_USER" ACCOUNT_DATABASE_PASSWORD="$MYSQL_PASSWORD" \
-    ACCOUNT_OPERATOR_TOKEN="$AOO_LOCAL_ACCOUNT_OPERATOR_TOKEN" \
-    ACCOUNT_IDENTITY_SECOND_FACTOR_TOKEN="${AOO_LOCAL_ACCOUNT_IDENTITY_SECOND_FACTOR_TOKEN:-local-account-second-factor-token-at-least-32-bytes}" \
-    ACCOUNT_REGISTRATION_EXPOSE_CODE=true \
-    ACCOUNT_GATEWAY_INTERNAL_URL=http://127.0.0.1:18080 ACCOUNT_GATEWAY_INTERNAL_TOKEN="${AOO_LOCAL_ROOM_AUTHORITY_TOKEN:-local-room-authority-token-at-least-32-bytes}" ACCOUNT_HTTP_PORT=8096
-  start_java hall 8093 "$bootstrap_cp" com.aoo.bcg.bootstrap.BootstrapAPP \
-    HALL_DATABASE_URL="$DB_URL" HALL_DATABASE_USER="$MYSQL_USER" HALL_DATABASE_PASSWORD="$MYSQL_PASSWORD" \
-    HALL_AUTH_SECRET="${AOO_LOCAL_HALL_AUTH_SECRET:-local-hall-auth-secret-at-least-32-bytes}" \
-    HALL_INTERNAL_TOKEN="${AOO_LOCAL_HALL_INTERNAL_TOKEN:-local-hall-internal-token-at-least-32-bytes}" HALL_HTTP_PORT=8093 \
-    INVITE_SIGNING_KEY="${AOO_LOCAL_INVITE_SIGNING_KEY:-local-invite-signing-key-32-bytes}" INVITE_REFERRAL_URL=http://127.0.0.1:8096 \
-    INVITE_REFERRAL_TOKEN="${AOO_LOCAL_INVITE_REFERRAL_TOKEN:-local-referral-token-at-least-32-bytes}" HALL_ROOM_AUTHORITY_URL=http://127.0.0.1:18080 HALL_ROOM_AUTHORITY_TOKEN="${AOO_LOCAL_ROOM_AUTHORITY_TOKEN:-local-room-authority-token-at-least-32-bytes}"
+  start_account "$bootstrap_cp"
+  start_hall "$bootstrap_cp"
   start_java social 8097 "$bootstrap_cp" com.aoo.bcg.bootstrap.BootstrapAPP \
     SOCIAL_DATABASE_URL="$DB_URL" SOCIAL_DATABASE_USER="$MYSQL_USER" SOCIAL_DATABASE_PASSWORD="$MYSQL_PASSWORD" SOCIAL_HTTP_PORT=8097
+  start_java gifting 8101 "$bootstrap_cp" com.aoo.bcg.bootstrap.BootstrapAPP \
+    GIFTING_DATABASE_URL="$DB_URL" GIFTING_DATABASE_USER="$MYSQL_USER" GIFTING_DATABASE_PASSWORD="$MYSQL_PASSWORD" \
+    BILLING_INTERNAL_TOKEN="${AOO_LOCAL_BILLING_INTERNAL_TOKEN:-local-billing-internal-token-at-least-32-bytes}" \
+    INVENTORY_AUTH_TOKEN="${AOO_LOCAL_INVENTORY_AUTH_TOKEN:-local-inventory-auth-token-at-least-32-bytes}" GIFTING_HTTP_PORT=8101
   start_gateway "$gateway_cp"
   start_rule_watcher
   health
@@ -217,7 +232,13 @@ case "${1:-start}:${2:-all}" in
   stop:all) stop_all ;;
   status:all|health:all) health ;;
   start:gateway) ensure_database; build_runtime; start_gateway "$(stage_runtime_classpath server/Bootstrap bootstrap)"; health ;;
-  restart:gateway) stop_one gateway; ensure_database; build_runtime; start_gateway "$(stage_runtime_classpath server/Bootstrap bootstrap)"; health ;;
+  restart:gateway) build_runtime; gateway_cp="$(stage_runtime_classpath server/Bootstrap bootstrap)"; stop_one gateway; start_gateway "$gateway_cp"; health ;;
+  start:account) build_runtime; start_account "$(stage_runtime_classpath server/Bootstrap bootstrap)"; health ;;
+  restart:account) build_runtime; account_cp="$(stage_runtime_classpath server/Bootstrap bootstrap)"; stop_one account; start_account "$account_cp"; health ;;
+  start:hall) build_runtime; start_hall "$(stage_runtime_classpath server/Bootstrap bootstrap)"; health ;;
+  restart:hall) build_runtime; hall_cp="$(stage_runtime_classpath server/Bootstrap bootstrap)"; stop_one hall; start_hall "$hall_cp"; health ;;
+  start:gifting) build_runtime; gifting_cp="$(stage_runtime_classpath server/Bootstrap bootstrap)"; start_java gifting 8101 "$gifting_cp" com.aoo.bcg.bootstrap.BootstrapAPP GIFTING_DATABASE_URL="$DB_URL" GIFTING_DATABASE_USER="$MYSQL_USER" GIFTING_DATABASE_PASSWORD="$MYSQL_PASSWORD" BILLING_INTERNAL_TOKEN="${AOO_LOCAL_BILLING_INTERNAL_TOKEN:-local-billing-internal-token-at-least-32-bytes}" INVENTORY_AUTH_TOKEN="${AOO_LOCAL_INVENTORY_AUTH_TOKEN:-local-inventory-auth-token-at-least-32-bytes}" GIFTING_HTTP_PORT=8101 ;;
+  restart:gifting) build_runtime; gifting_cp="$(stage_runtime_classpath server/Bootstrap bootstrap)"; stop_one gifting; start_java gifting 8101 "$gifting_cp" com.aoo.bcg.bootstrap.BootstrapAPP GIFTING_DATABASE_URL="$DB_URL" GIFTING_DATABASE_USER="$MYSQL_USER" GIFTING_DATABASE_PASSWORD="$MYSQL_PASSWORD" BILLING_INTERNAL_TOKEN="${AOO_LOCAL_BILLING_INTERNAL_TOKEN:-local-billing-internal-token-at-least-32-bytes}" INVENTORY_AUTH_TOKEN="${AOO_LOCAL_INVENTORY_AUTH_TOKEN:-local-inventory-auth-token-at-least-32-bytes}" GIFTING_HTTP_PORT=8101 ;;
   stop:gateway) stop_one gateway ;;
   *) echo '用法：local-dev-services.sh {start|restart|stop|status} [gateway]' >&2; exit 2 ;;
 esac

@@ -15,7 +15,7 @@ if (!Number.isInteger(protocol.messageRegistryVersion) || protocol.messageRegist
   errors.push('messageRegistryVersion must be a positive integer');
 }
 for (const id of reservedMessageIds) {
-  if (!/^[a-z][a-z0-9]*(\.[a-z0-9_]+)+$/.test(id)) errors.push(`${id}: invalid reserved msgId`);
+  if (!/^[a-z][a-z0-9]*(\.(?:[a-z0-9_]+|[A-Z]{2}[1-5][0-9]{2}))+$/.test(id)) errors.push(`${id}: invalid reserved msgId`);
   if (messages.some(message => message.msgId === id)) errors.push(`${id}: reserved msgId cannot be active`);
 }
 

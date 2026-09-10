@@ -73,8 +73,8 @@ public final class ProductionGatewayRuntimeProvider implements GatewayRuntimePro
                     connectionSessions.open(Long.toString(identity.userId()), frame.roomId(), seatId,
                             frame.playVersion(), frame.seq() - 1));
         };
-        var broadcasts = new GatewayRoomBroadcastHub((roomId, playerId) -> rooms.require(roomId)
-                .requireAuthoritativeSession().viewFor(playerId),json,clock);
+        var broadcasts = new GatewayRoomBroadcastHub((roomId, playerId) -> commandCommitter.decorateReplayCode(
+                rooms.require(roomId).requireAuthoritativeSession().viewFor(playerId)),json,clock);
         var hallLifecycle = new HallRoomLifecycleClient(URI.create(environment("HALL_INTERNAL_URL","GATEWAY_HALL_URL")),environment("HALL_INTERNAL_TOKEN"),json);
         var authority = new JdbcGatewayRoomAuthority(source,games,rooms,
                 clock,System.getenv().getOrDefault("AOO_GATEWAY_NODE_ID","gateway-1"),

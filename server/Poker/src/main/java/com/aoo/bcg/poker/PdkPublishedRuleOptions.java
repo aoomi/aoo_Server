@@ -5,6 +5,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.ArrayList;
@@ -15,11 +16,17 @@ import java.util.List;
  * Display labels never enter this boundary; only versioned field keys and values are accepted.
  */
 public final class PdkPublishedRuleOptions {
+    private static final Set<String> SMALL_SETTLEMENT_FIELDS = Set.of(
+            "rule_cd201_0001", "rule_nj201_0004", "rule_ls201_0001");
+    private static final String SMALL_SETTLEMENT_POPUP_OPTION = "option_0001";
+    private static final Set<String> PRESENTATION_ONLY_PLAY_RULE_OPTIONS = Set.of(
+            SMALL_SETTLEMENT_POPUP_OPTION);
     private PdkPublishedRuleOptions() { }
 
     public static PaoDeKuaiConfig apply(Map<String,Object> rules, PaoDeKuaiConfig base) {
         Objects.requireNonNull(rules);
         Objects.requireNonNull(base);
+        rules = normalizePublishedRoomFields(rules);
         int straight = integer(rules, "minimumStraightLength", base.minimumStraightLength());
         int pairs = integer(rules, "minimumPairRunLength", base.minimumPairRunLength());
         PaoDeKuaiConfig.AttachmentMode triple = attachment(rules, "tripleAttachmentMode",
@@ -32,13 +39,23 @@ public final class PdkPublishedRuleOptions {
                 base.tripleWithoutAttachmentTiming());
         PaoDeKuaiConfig.PlayTiming airplaneTiming = timing(rules,
                 "airplaneWithoutAttachmentTiming", base.airplaneWithoutAttachmentTiming());
+        Integer requiredFirstCard = nullableInteger(rules, "requiredFirstCard",
+                base.requiredFirstCard());
+        Set<Integer> specialBombRanks = integers(rules, "specialTripleBombRanks",
+                base.specialTripleBombRanks());
+        Integer compatibilityBombRank = specialBombRanks.size() == 1
+                ? specialBombRanks.iterator().next() : null;
         return new PaoDeKuaiConfig(straight, allowsPairs(triple),
-                four != PaoDeKuaiConfig.AttachmentMode.DISABLED, base.allowFourWithThree(),
-                base.requiredFirstCard(), bool(rules, "forceHighestSingleAgainstReportedSingle",
+                four != PaoDeKuaiConfig.AttachmentMode.DISABLED,
+                bool(rules, "allowFourWithThree", base.allowFourWithThree()),
+                requiredFirstCard, bool(rules, "forceHighestSingleAgainstReportedSingle",
                         base.forceHighestSingleAgainstReportedSingle()),
-                base.specialTripleBombRank(), base.allowSpecialTripleBombWithOne(),
-                base.allowFourBombWithOne(), base.standardBombTier(), base.specialBombTier(),
-                base.fourBombWithOneTier(), base.allowTerminalAttachmentShortage(), pairs, triple,
+                compatibilityBombRank, bool(rules, "allowSpecialTripleBombWithOne",
+                        base.allowSpecialTripleBombWithOne()),
+                bool(rules, "allowFourBombWithOne", base.allowFourBombWithOne()),
+                base.standardBombTier(), base.specialBombTier(), base.fourBombWithOneTier(),
+                bool(rules, "allowTerminalAttachmentShortage",
+                        base.allowTerminalAttachmentShortage()), pairs, triple,
                 airplane, four, tripleTiming, airplaneTiming,
                 bool(rules, "allowAirplaneWithTwo", base.allowAirplaneWithTwo()),
                 bool(rules, "compareTripleAttachments", base.compareTripleAttachments()),
@@ -48,10 +65,100 @@ public final class PdkPublishedRuleOptions {
                 bool(rules, "allowPair", base.allowPair()),
                 integer(rules, "cardsPerPlayer", base.cardsPerPlayer()),
                 bool(rules, "allowConsecutiveBomb", base.allowConsecutiveBomb()),
-                integers(rules, "specialTripleBombRanks", base.specialTripleBombRanks()),
+                specialBombRanks,
                 enumeration(rules, "playedCardVisibility", base.playedCardVisibility(),
                         PaoDeKuaiConfig.PlayedCardVisibility.class),
                 advanced(rules, base.advancedRules()));
+    }
+
+    /**
+     * Expands compact Hall fields and removes schema-generated presentation values before
+     * regional validation consumes a room payload. Rule capabilities retain their published
+     * stable values throughout.
+     */
+    public static Map<String,Object> normalizePublishedRoomFields(Map<String,Object> source) {
+        Map<String,Object> rules = new LinkedHashMap<>(source);
+        normalizeSettlementPresentation(source, rules);
+        normalizePresentationOnlyPlayOptions(rules);
+        if (source.containsKey("bombScore") && !source.containsKey("bombFixedPoints")) {
+            rules.put("bombScoreMode", PdkAdvancedRules.BombMode.FIXED_POINTS.name());
+            rules.put("bombFixedPoints", source.get("bombScore"));
+        }
+        if (source.containsKey("firstPlayRule") && !source.containsKey("bankerSelectionCard")) {
+            if ("spade_three_first".equals(String.valueOf(source.get("firstPlayRule"))))
+                rules.put("bankerSelectionCard", 103);
+        }
+        if (source.containsKey("playRule")) {
+            Set<String> selected = strings(source.get("playRule"));
+            boolean anytime = selected.contains("three_no_attachment");
+            rules.putIfAbsent("tripleWithoutAttachmentTiming", (anytime
+                    ? PaoDeKuaiConfig.PlayTiming.ANYTIME
+                    : PaoDeKuaiConfig.PlayTiming.FINAL_ONLY).name());
+            rules.putIfAbsent("airplaneWithoutAttachmentTiming", (anytime
+                    ? PaoDeKuaiConfig.PlayTiming.ANYTIME
+                    : PaoDeKuaiConfig.PlayTiming.FINAL_ONLY).name());
+            rules.putIfAbsent("fourAttachmentMode", (selected.contains("four_with_two")
+                    ? PaoDeKuaiConfig.AttachmentMode.SINGLES
+                    : PaoDeKuaiConfig.AttachmentMode.DISABLED).name());
+            rules.putIfAbsent("specialTripleBombRanks",
+                    selected.contains("triple_ace_bomb") ? List.of(14) : List.of());
+            if (selected.contains("require_spade_three")) {
+                rules.putIfAbsent("requiredFirstCard", 103);
+                rules.putIfAbsent("requiredFirstCardRounds", 99999);
+            }
+            rules.putIfAbsent("directWinPatterns", selected.contains("four_threes_direct_win")
+                    ? List.of(List.of(103, 203, 303, 403)) : List.of());
+            rules.putIfAbsent("compareTripleAttachments",
+                    selected.contains("compare_attachments"));
+        }
+        if (source.containsKey("attachmentComparison"))
+            rules.put("compareTripleAttachments",
+                    "compare".equals(String.valueOf(source.get("attachmentComparison"))));
+        if (source.containsKey("roomRestriction")) {
+            Set<String> selected = strings(source.get("roomRestriction"));
+            rules.putIfAbsent("uniqueIpRequired", selected.contains("ip_limit"));
+            rules.putIfAbsent("gpsAdmissionRequired", selected.contains("gps_limit"));
+            rules.putIfAbsent("hostingMissThreshold",
+                    selected.contains("timeout_auto_play") ? 5 : -1);
+            rules.putIfAbsent("distanceWarningEnabled", selected.contains("distance_warning"));
+            rules.putIfAbsent("interactionEnabled", !selected.contains("interaction_forbidden"));
+            rules.putIfAbsent("textChatEnabled", !selected.contains("chat_muted"));
+        }
+        return Map.copyOf(rules);
+    }
+
+    private static void normalizePresentationOnlyPlayOptions(Map<String,Object> rules) {
+        if (!rules.containsKey("playRule")) return;
+        LinkedHashSet<String> selected = new LinkedHashSet<>(strings(rules.get("playRule")));
+        selected.removeAll(PRESENTATION_ONLY_PLAY_RULE_OPTIONS);
+        rules.put("playRule", List.copyOf(selected));
+    }
+
+    /**
+     * The workbook's one-option checkbox is the source of truth for small-settlement
+     * presentation.  The Hall keeps its generated field ids so the mapping lives once at
+     * the immutable PDK boundary; downstream rules only receive the stable enum contract.
+     */
+    private static void normalizeSettlementPresentation(
+            Map<String,Object> source, Map<String,Object> rules) {
+        if (source.containsKey("settlementPresentation")) return;
+        for (String field : SMALL_SETTLEMENT_FIELDS)
+            if (source.containsKey(field)) {
+                rules.put(
+                        "settlementPresentation",
+                        strings(source.get(field)).contains(SMALL_SETTLEMENT_POPUP_OPTION)
+                                ? PdkAdvancedRules.SettlementPresentation.POPUP.name()
+                                : PdkAdvancedRules.SettlementPresentation.FLOATING.name());
+                return;
+            }
+    }
+
+    private static Set<String> strings(Object raw) {
+        LinkedHashSet<String> values = new LinkedHashSet<>();
+        if (raw instanceof Collection<?> collection)
+            collection.forEach(value -> values.add(String.valueOf(value)));
+        else if (raw != null) values.add(String.valueOf(raw));
+        return Collections.unmodifiableSet(values);
     }
 
     public static Map<String,Object> snapshot(PaoDeKuaiConfig config) {
@@ -69,6 +176,12 @@ public final class PdkPublishedRuleOptions {
                 config.forceHighestPairAgainstReportedPair());
         values.put("forceHighestSingleAgainstReportedSingle",
                 config.forceHighestSingleAgainstReportedSingle());
+        if (config.requiredFirstCard() != null)
+            values.put("requiredFirstCard", config.requiredFirstCard());
+        values.put("allowFourWithThree", config.allowFourWithThree());
+        values.put("allowSpecialTripleBombWithOne", config.allowSpecialTripleBombWithOne());
+        values.put("allowFourBombWithOne", config.allowFourBombWithOne());
+        values.put("allowTerminalAttachmentShortage", config.allowTerminalAttachmentShortage());
         values.put("allowSingle", config.allowSingle());
         values.put("allowPair", config.allowPair());
         values.put("cardsPerPlayer", config.cardsPerPlayer());
@@ -94,10 +207,18 @@ public final class PdkPublishedRuleOptions {
             }
             deck = List.copyOf(parsed);
         }
-        PokerRuleProfile.FirstLead firstLead = config.requiredFirstCard() == null
-                ? base.firstLead() : PokerRuleProfile.FirstLead.REQUIRED_CARD_HOLDER;
+        Integer requiredFirstCard = config.requiredFirstCard() != null
+                && deck.contains(config.requiredFirstCard()) ? config.requiredFirstCard() : null;
+        PokerRuleProfile.FirstLead firstLead = rules.containsKey("firstLead")
+                ? enumeration(rules, "firstLead", base.firstLead(),
+                        PokerRuleProfile.FirstLead.class)
+                : requiredFirstCard == null ? base.firstLead()
+                        : PokerRuleProfile.FirstLead.REQUIRED_CARD_HOLDER;
+        if (firstLead == PokerRuleProfile.FirstLead.REQUIRED_CARD_HOLDER
+                && requiredFirstCard == null)
+            firstLead = base.firstLead();
         return new PokerRuleProfile(playVersion, deck.size(), base.minimumPlayers(),
-                base.maximumPlayers(), firstLead, config.requiredFirstCard(),
+                base.maximumPlayers(), firstLead, requiredFirstCard,
                 config.minimumStraightLength(), config.minimumPairRunLength(),
                 base.allowTwoInRuns(), base.allowJokersInRuns(),
                 bool(rules, "mustBeatWhenPossible", base.mustBeatWhenPossible()),
@@ -109,6 +230,16 @@ public final class PdkPublishedRuleOptions {
         Map<String,Object> values = new LinkedHashMap<>(snapshot(config));
         values.put("deckCards", profile.deck());
         values.put("mustBeatWhenPossible", profile.mustBeatWhenPossible());
+        values.put("allowTwoInRuns", profile.allowTwoInRuns());
+        values.put("allowJokersInRuns", profile.allowJokersInRuns());
+        values.put("firstLead", profile.firstLead().name());
+        return Map.copyOf(values);
+    }
+
+    public static Map<String,Object> snapshot(PaoDeKuaiConfig config, PokerRuleProfile profile,
+            boolean allowPassByRoomRule) {
+        Map<String,Object> values = new LinkedHashMap<>(snapshot(config, profile));
+        values.put("allowPassByRoomRule", allowPassByRoomRule);
         return Map.copyOf(values);
     }
 
@@ -126,6 +257,24 @@ public final class PdkPublishedRuleOptions {
         if (family.ruleSnapshotKey().equals(current)) return state;
         if (!knownLegacyKeys.contains(current) || !"WAITING".equals(state.get("state")))
             throw new IllegalStateException("rule snapshot mismatch");
+        Map<String,Object> migrated = new LinkedHashMap<>(state);
+        migrated.put("ruleSnapshotKey", family.ruleSnapshotKey());
+        return Map.copyOf(migrated);
+    }
+
+    /**
+     * Converts a legacy key only after the old record-based hash can be recomputed from the
+     * persisted profile/config semantics. Unknown or semantically different keys stay rejected.
+     */
+    public static Map<String,Object> migrateVerifiedLegacySnapshotIdentity(
+            Map<String,Object> state, PaoDeKuaiFamily family) {
+        Objects.requireNonNull(state);
+        Objects.requireNonNull(family);
+        String persisted = String.valueOf(state.get("ruleSnapshotKey"));
+        if (family.ruleSnapshotKey().equals(persisted)) return state;
+        if (!family.profile().version().equals(String.valueOf(state.get("ruleVersion")))
+                || !family.matchesLegacyRuleSnapshotKey(persisted))
+            return state;
         Map<String,Object> migrated = new LinkedHashMap<>(state);
         migrated.put("ruleSnapshotKey", family.ruleSnapshotKey());
         return Map.copyOf(migrated);
@@ -157,7 +306,9 @@ public final class PdkPublishedRuleOptions {
                 bool(rules, "bankerCannotCompeteAfterAllPass",
                         base.dealerRule().bankerCannotCompeteAfterAllPass()),
                 bool(rules, "skipCompeteDealerFirstRound",
-                        base.dealerRule().skipFirstRound()));
+                        base.dealerRule().skipFirstRound()),
+                bool(rules, "competeDealerMustSpringToWin",
+                        base.dealerRule().mustSpringToWin()));
         return new PdkAdvancedRules(
                 integer(rules, "baseScore", base.baseScore()),
                 integer(rules, "requiredFirstCardRounds", base.requiredFirstCardRounds()),
@@ -295,6 +446,7 @@ public final class PdkPublishedRuleOptions {
         values.put("bankerCannotCompeteAfterAllPass",
                 advanced.dealerRule().bankerCannotCompeteAfterAllPass());
         values.put("skipCompeteDealerFirstRound", advanced.dealerRule().skipFirstRound());
+        values.put("competeDealerMustSpringToWin", advanced.dealerRule().mustSpringToWin());
         values.put("initialHandPatterns", advanced.initialPatterns().stream()
                 .map(Enum::name).sorted().toList());
         values.put("fourOfKindPatternRanks", advanced.fourOfKindPatternRanks().stream()

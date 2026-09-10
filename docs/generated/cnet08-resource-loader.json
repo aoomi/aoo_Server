@@ -2,40 +2,12 @@
   "schemaVersion": 1,
   "hits": [
     {
-      "path": "assets/Club/Code/Runtime/LegacyClubEntryController.ts",
-      "line": 191
-    },
-    {
-      "path": "assets/Club/Code/Runtime/LegacyClubEntryController.ts",
-      "line": 198
+      "path": "assets/Club/Code/Runtime/LegacyClubMainController.ts",
+      "line": 599
     },
     {
       "path": "assets/Club/Code/Runtime/LegacyClubMainController.ts",
-      "line": 118
-    },
-    {
-      "path": "assets/Club/Code/Runtime/LegacyClubMainController.ts",
-      "line": 128
-    },
-    {
-      "path": "assets/Club/Code/Runtime/LegacyClubMainController.ts",
-      "line": 413
-    },
-    {
-      "path": "assets/Club/Code/Runtime/LegacyClubMainController.ts",
-      "line": 435
-    },
-    {
-      "path": "assets/Club/Code/Runtime/LegacyClubPlayerRecordController.ts",
-      "line": 24
-    },
-    {
-      "path": "assets/Club/Code/Runtime/LegacyUnionManagerController.ts",
-      "line": 44
-    },
-    {
-      "path": "assets/Club/Code/Runtime/LegacyUnionZhongzhiRankController.ts",
-      "line": 27
+      "line": 627
     },
     {
       "path": "assets/Common/Code/Runtime/CompatibilityApp/a3pk/A3pkSceneBootstrap.ts",
@@ -154,10 +126,6 @@
       "line": 195
     },
     {
-      "path": "assets/Common/Code/Runtime/CompatibilityApp/auth/LegacyLoginScreen.ts",
-      "line": 116
-    },
-    {
       "path": "assets/Common/Code/Runtime/CompatibilityApp/aycp/AycpSceneBootstrap.ts",
       "line": 23
     },
@@ -218,100 +186,8 @@
       "line": 195
     },
     {
-      "path": "assets/Common/Code/Runtime/CompatibilityApp/bootstrap/LoginScreenBootstrap.ts",
-      "line": 195
-    },
-    {
-      "path": "assets/Common/Code/Runtime/CompatibilityApp/club/LegacyClubEntryController.ts",
-      "line": 191
-    },
-    {
-      "path": "assets/Common/Code/Runtime/CompatibilityApp/club/LegacyClubEntryController.ts",
-      "line": 198
-    },
-    {
-      "path": "assets/Common/Code/Runtime/CompatibilityApp/club/LegacyClubMainController.ts",
-      "line": 118
-    },
-    {
-      "path": "assets/Common/Code/Runtime/CompatibilityApp/club/LegacyClubMainController.ts",
-      "line": 128
-    },
-    {
-      "path": "assets/Common/Code/Runtime/CompatibilityApp/club/LegacyClubMainController.ts",
-      "line": 413
-    },
-    {
-      "path": "assets/Common/Code/Runtime/CompatibilityApp/club/LegacyClubMainController.ts",
-      "line": 435
-    },
-    {
-      "path": "assets/Common/Code/Runtime/CompatibilityApp/club/LegacyClubPlayerRecordController.ts",
-      "line": 24
-    },
-    {
-      "path": "assets/Common/Code/Runtime/CompatibilityApp/club/LegacyUnionManagerController.ts",
-      "line": 44
-    },
-    {
-      "path": "assets/Common/Code/Runtime/CompatibilityApp/club/LegacyUnionZhongzhiRankController.ts",
-      "line": 27
-    },
-    {
-      "path": "assets/Common/Code/Runtime/CompatibilityApp/config/LegacySystemDataService.ts",
-      "line": 72
-    },
-    {
-      "path": "assets/Common/Code/Runtime/CompatibilityApp/config/LegacySystemDataService.ts",
-      "line": 76
-    },
-    {
-      "path": "assets/Common/Code/Runtime/CompatibilityApp/core/LegacyAudioService.ts",
-      "line": 50
-    },
-    {
-      "path": "assets/Common/Code/Runtime/CompatibilityApp/hzmj/HzmjPlayView.ts",
-      "line": 141
-    },
-    {
-      "path": "assets/Common/Code/Runtime/CompatibilityApp/hzmj/HzmjPlayView.ts",
-      "line": 147
-    },
-    {
-      "path": "assets/Common/Code/Runtime/CompatibilityApp/hzmj/HzmjReplayController.ts",
-      "line": 227
-    },
-    {
-      "path": "assets/Common/Code/Runtime/CompatibilityApp/hzmj/HzmjReplayController.ts",
-      "line": 293
-    },
-    {
-      "path": "assets/Common/Code/Runtime/CompatibilityApp/hzmj/HzmjSceneBootstrap.ts",
-      "line": 75
-    },
-    {
-      "path": "assets/Common/Code/Runtime/CompatibilityApp/hzmj/HzmjTableController.ts",
-      "line": 181
-    },
-    {
-      "path": "assets/Common/Code/Runtime/CompatibilityApp/lobby/LegacyCreateRoomController.ts",
-      "line": 312
-    },
-    {
-      "path": "assets/Common/Code/Runtime/CompatibilityApp/lobby/LegacyGameCatalogController.ts",
-      "line": 177
-    },
-    {
-      "path": "assets/Common/Code/Runtime/CompatibilityApp/lobby/LegacyRegionController.ts",
-      "line": 346
-    },
-    {
-      "path": "assets/Common/Code/Runtime/CompatibilityApp/njpdk/LegacyNJPdkCardRenderer.ts",
-      "line": 52
-    },
-    {
       "path": "assets/Common/Code/Runtime/CompatibilityApp/platform/LegacySubgameBundleService.ts",
-      "line": 23
+      "line": 25
     },
     {
       "path": "assets/Common/Code/Runtime/CompatibilityApp/scjymj/ScjymjPlayView.ts",
@@ -322,88 +198,92 @@
       "line": 84
     },
     {
-      "path": "assets/Common/Code/Runtime/CompatibilityApp/ui/LegacyFormManager.ts",
-      "line": 649
-    },
-    {
-      "path": "assets/Common/Code/Runtime/CompatibilityApp/ui/LegacyPrefabRenderer.ts",
-      "line": 587
-    },
-    {
-      "path": "assets/Common/Code/Runtime/bootstrap/LoginScreenBootstrap.ts",
-      "line": 199
-    },
-    {
-      "path": "assets/Common/Code/Runtime/config/LegacySystemDataService.ts",
-      "line": 72
-    },
-    {
-      "path": "assets/Common/Code/Runtime/config/LegacySystemDataService.ts",
-      "line": 76
-    },
-    {
       "path": "assets/Common/Code/Runtime/core/LegacyAudioService.ts",
-      "line": 50
-    },
-    {
-      "path": "assets/Common/Code/Runtime/platform/LegacySubgameBundleService.ts",
-      "line": 23
+      "line": 83
     },
     {
       "path": "assets/Common/Code/Runtime/ui/LegacyFormManager.ts",
-      "line": 667
+      "line": 865
     },
     {
       "path": "assets/Common/Code/Runtime/ui/LegacyPrefabRenderer.ts",
-      "line": 587
+      "line": 586
+    },
+    {
+      "path": "assets/Common/Code/UI/CommonHeadController.ts",
+      "line": 151
+    },
+    {
+      "path": "assets/Common/Code/UI/Infrastructure.ts",
+      "line": 35
+    },
+    {
+      "path": "assets/Common/Code/UI/Infrastructure.ts",
+      "line": 49
+    },
+    {
+      "path": "assets/Games/Common/Code/QuickTextAudioCatalog.ts",
+      "line": 66
+    },
+    {
+      "path": "assets/Games/Common/Code/SettlementBundlePreloader.ts",
+      "line": 54
     },
     {
       "path": "assets/Games/Mahjong/Packs/Pack01/Code/Runtime/hzmj/HzmjPlayView.ts",
-      "line": 141
+      "line": 197
     },
     {
-      "path": "assets/Games/Mahjong/Packs/Pack01/Code/Runtime/hzmj/HzmjPlayView.ts",
-      "line": 147
-    },
-    {
-      "path": "assets/Games/Mahjong/Packs/Pack01/Code/Runtime/hzmj/HzmjReplayController.ts",
-      "line": 227
+      "path": "assets/Games/Mahjong/Packs/Pack01/Code/Runtime/hzmj/HzmjPrefabLoader.ts",
+      "line": 37
     },
     {
       "path": "assets/Games/Mahjong/Packs/Pack01/Code/Runtime/hzmj/HzmjReplayController.ts",
-      "line": 293
+      "line": 248
     },
     {
-      "path": "assets/Games/Mahjong/Packs/Pack01/Code/Runtime/hzmj/HzmjSceneBootstrap.ts",
-      "line": 75
+      "path": "assets/Games/Poker/PDK/Common/Code/Runtime/CommonPdkGameSceneLauncher.ts",
+      "line": 238
     },
     {
-      "path": "assets/Games/Mahjong/Packs/Pack01/Code/Runtime/hzmj/HzmjTableController.ts",
-      "line": 181
+      "path": "assets/Games/Poker/PDK/Common/Code/Runtime/PdkAnimationResolver.ts",
+      "line": 77
     },
     {
-      "path": "assets/Games/Poker/Packs/Pack01/Code/Runtime/njpdk/LegacyNJPdkCardRenderer.ts",
-      "line": 52
+      "path": "assets/Games/Poker/PDK/Common/Code/Runtime/Room/MagicExpressionPresenter.ts",
+      "line": 108
     },
     {
-      "path": "assets/Lobby/Code/Runtime/LegacyCreateRoomController.ts",
-      "line": 312
+      "path": "assets/Games/Poker/PDK/Common/Code/Runtime/Room/PdkGameAudioPresenter.ts",
+      "line": 121
     },
     {
-      "path": "assets/Lobby/Code/Runtime/LegacyGameCatalogController.ts",
-      "line": 177
+      "path": "assets/Games/Poker/PDK/Common/Code/Runtime/Room/PdkRoomAudioPresenter.ts",
+      "line": 86
     },
     {
-      "path": "assets/Lobby/Code/Runtime/LegacyRegionController.ts",
-      "line": 346
+      "path": "assets/Lobby/Code/Runtime/LegacyLobbyScreen.ts",
+      "line": 614
     },
     {
-      "path": "assets/Login/Code/Runtime/auth/LegacyLoginScreen.ts",
-      "line": 116
+      "path": "assets/Lobby/Code/Runtime/Replay/AuthoritativePdkReplayController.ts",
+      "line": 275
     },
     {
-      "path": "assets/Login/Code/Runtime/bootstrap/LoginScreenBootstrap.ts",
-      "line": 195
+      "path": "assets/Lobby/Code/Runtime/Replay/LegacyReplayController.ts",
+      "line": 340
+    },
+    {
+      "path": "assets/Login/Code/Auth/LegacyLoginScreen.ts",
+      "line": 111
+    },
+    {
+      "path": "assets/Login/Code/Bootstrap/LoginScreenBootstrap.ts",
+      "line": 430
+    },
+    {
+      "path": "assets/Login/Code/Navigation/SceneRouter.ts",
+      "line": 377
     }
   ],
   "referenceCounting": false,

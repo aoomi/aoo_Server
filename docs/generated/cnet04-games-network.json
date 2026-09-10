@@ -7,41 +7,53 @@
     ],
     "bundle": [
       {
-        "path": "assets/Games/Mahjong/Packs/Pack01/Code/Runtime/hzmj/HzmjPlayView.ts",
-        "line": 141
+        "path": "assets/Games/Common/Code/QuickTextAudioCatalog.ts",
+        "line": 66
+      },
+      {
+        "path": "assets/Games/Common/Code/SettlementBundlePreloader.ts",
+        "line": 54
       },
       {
         "path": "assets/Games/Mahjong/Packs/Pack01/Code/Runtime/hzmj/HzmjPlayView.ts",
-        "line": 147
+        "line": 197
+      },
+      {
+        "path": "assets/Games/Mahjong/Packs/Pack01/Code/Runtime/hzmj/HzmjPrefabLoader.ts",
+        "line": 37
       },
       {
         "path": "assets/Games/Mahjong/Packs/Pack01/Code/Runtime/hzmj/HzmjReplayController.ts",
-        "line": 227
+        "line": 248
       },
       {
-        "path": "assets/Games/Mahjong/Packs/Pack01/Code/Runtime/hzmj/HzmjReplayController.ts",
-        "line": 293
+        "path": "assets/Games/Poker/PDK/Common/Code/Runtime/CommonPdkGameSceneLauncher.ts",
+        "line": 238
       },
       {
-        "path": "assets/Games/Mahjong/Packs/Pack01/Code/Runtime/hzmj/HzmjSceneBootstrap.ts",
-        "line": 75
+        "path": "assets/Games/Poker/PDK/Common/Code/Runtime/PdkAnimationResolver.ts",
+        "line": 77
       },
       {
-        "path": "assets/Games/Mahjong/Packs/Pack01/Code/Runtime/hzmj/HzmjTableController.ts",
-        "line": 181
+        "path": "assets/Games/Poker/PDK/Common/Code/Runtime/Room/MagicExpressionPresenter.ts",
+        "line": 108
       },
       {
-        "path": "assets/Games/Poker/Packs/Pack01/Code/Runtime/njpdk/LegacyNJPdkCardRenderer.ts",
-        "line": 52
+        "path": "assets/Games/Poker/PDK/Common/Code/Runtime/Room/PdkGameAudioPresenter.ts",
+        "line": 121
+      },
+      {
+        "path": "assets/Games/Poker/PDK/Common/Code/Runtime/Room/PdkRoomAudioPresenter.ts",
+        "line": 86
       }
+    ],
+    "fetch": [
+
     ],
     "websocket": [
 
     ],
     "native": [
-
-    ],
-    "fetch": [
 
     ]
   },

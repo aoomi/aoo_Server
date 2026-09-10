@@ -60,7 +60,9 @@ public final class HttpRoutePolicy {
         return path != null && (PRODUCTION_ROUTES.contains(path)
                 || path.startsWith("/api/v2/account/")
                 || path.startsWith("/api/v2/player-profile/")
-                || path.startsWith("/api/v2/hall/"));
+                || path.startsWith("/api/v2/hall/")
+                || path.equals("/api/v2/gifts")
+                || path.startsWith("/api/v2/gifts/"));
                 
     }
 

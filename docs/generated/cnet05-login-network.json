@@ -4,31 +4,46 @@
   "directCalls": {
     "localStorage": [
       {
-        "path": "assets/Login/Code/Runtime/auth/LegacyHttpAuthGateway.ts",
-        "line": 125
+        "path": "assets/Login/Code/Bootstrap/LoadingEnvironmentPolicy.ts",
+        "line": 29
       },
       {
-        "path": "assets/Login/Code/Runtime/auth/LegacyHttpAuthGateway.ts",
-        "line": 128
+        "path": "assets/Login/Code/Bootstrap/LoadingEnvironmentPolicy.ts",
+        "line": 230
+      },
+      {
+        "path": "assets/Login/Code/Bootstrap/LoginScreenBootstrap.ts",
+        "line": 167
       }
     ],
     "bundle": [
       {
-        "path": "assets/Login/Code/Runtime/auth/LegacyLoginScreen.ts",
-        "line": 116
+        "path": "assets/Login/Code/Auth/LegacyLoginScreen.ts",
+        "line": 111
       },
       {
-        "path": "assets/Login/Code/Runtime/bootstrap/LoginScreenBootstrap.ts",
-        "line": 195
+        "path": "assets/Login/Code/Bootstrap/LoginScreenBootstrap.ts",
+        "line": 430
+      },
+      {
+        "path": "assets/Login/Code/Navigation/SceneRouter.ts",
+        "line": 377
+      }
+    ],
+    "fetch": [
+      {
+        "path": "assets/Login/Code/Auth/AooWeChatLoginController.ts",
+        "line": 23
+      },
+      {
+        "path": "assets/Login/Code/Auth/UnifiedIdentityAuthGateway.ts",
+        "line": 112
       }
     ],
     "websocket": [
 
     ],
     "native": [
-
-    ],
-    "fetch": [
 
     ]
   },

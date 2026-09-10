@@ -16,6 +16,7 @@ checks = {
   'application_startup_migrates_before_runtime' => startup.index('FlywaySchemaMigrator.migrate') && startup.index('GameServerUnifiedRuntime.install') && startup.index('FlywaySchemaMigrator.migrate') < startup.index('GameServerUnifiedRuntime.install'),
   'legacy_schema_mutators_disconnected' => !startup.include?('checkAndUpdateVersion') && !startup.include?('runAutoVersionUpdate') && !startup.include?('updateDB('),
   'baseline_and_clean_fail_closed' => migrator.include?('baselineOnMigrate(false)') && migrator.include?('cleanDisabled(true)'),
+  'corrective_out_of_order_migrations_enabled' => migrator.include?('outOfOrder(true)') && runner.include?('FLYWAY_OUT_OF_ORDER="true"'),
   'single_history_authority' => runner.include?('flyway_schema_history') && !runner.include?('aoo_schema_migration'),
   'release_and_local_use_same_engine' => runner.include?('flyway-maven-plugin') && migrator.include?('org.flywaydb.core.Flyway')
 }

@@ -43,6 +43,7 @@ final class JdbcGatewayRoomAuthority implements GatewayRuntimeProvider.RoomAutho
     private final HallRoomLifecycleClient hallLifecycle;
     private final ConcurrentHashMap<Long, Object> roomLocks = new ConcurrentHashMap<>();
     private final ScheduledExecutorService leaseKeeper;
+    private final ScheduledExecutorService lifecycleWorker;
 
     JdbcGatewayRoomAuthority(DataSource dataSource, GameRegistry games, RuntimeGameRoomRegistry rooms,
                              Clock clock, String nodeId, String endpoint, ObjectMapper json,
@@ -64,10 +65,15 @@ final class JdbcGatewayRoomAuthority implements GatewayRuntimeProvider.RoomAutho
             thread.setDaemon(true);
             return thread;
         });
+        this.lifecycleWorker = Executors.newSingleThreadScheduledExecutor(runnable -> {
+            Thread thread = new Thread(runnable, "gateway-room-authority-lifecycle");
+            thread.setDaemon(true);
+            return thread;
+        });
         recoverDurableRooms();
         finishInterruptedRemovals();
         this.leaseKeeper.scheduleWithFixedDelay(this::renewActiveLeases, 30, 30, TimeUnit.SECONDS);
-        this.leaseKeeper.scheduleWithFixedDelay(this::processRoomLifecycles, 1, 1, TimeUnit.SECONDS);
+        this.lifecycleWorker.scheduleWithFixedDelay(this::processRoomLifecycles, 1, 1, TimeUnit.SECONDS);
     }
 
     @Override
@@ -359,7 +365,8 @@ public Map<String, Object> join(Map<String, Object> command) {
                     transition(candidate.roomId(), claimed.fencingToken(), "ACTIVE");
                 } catch (RuntimeException failure) {
                     failRoute(candidate.roomId(), claimed.fencingToken(), failure);
-                    failures.add(candidate.roomId() + ":" + failure.getClass().getSimpleName());
+                    failures.add(candidate.roomId() + ":" + failure.getClass().getSimpleName()
+                            + ":" + String.valueOf(failure.getMessage()).replace(',', ';'));
                 }
             }
         }
@@ -540,7 +547,7 @@ public Map<String, Object> join(Map<String, Object> command) {
         }
     }
 
-    @Override public void close(){leaseKeeper.shutdownNow();roomLocks.clear();}
+    @Override public void close(){leaseKeeper.shutdownNow();lifecycleWorker.shutdownNow();roomLocks.clear();}
 
     private void verifyIdentity(Route route, Map<String, Object> command) {
         if (route.gameId() != Math.toIntExact(positive(command, "gameId"))

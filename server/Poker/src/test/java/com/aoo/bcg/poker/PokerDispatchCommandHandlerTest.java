@@ -13,6 +13,9 @@ final class PokerDispatchCommandHandlerTest {
         var session = new PokerAuthoritativeSession(9, 20, 4, 7, family);
         var room = new GameRoomHandle(9, 629, "pdk-v1", session);
         var handler = new PokerDispatchCommandHandler();
+        assertThrows(SecurityException.class, () -> handler.handle(room,
+                new GameCommandRequest("poker.LS201.dispatch", "wrong-code", 1, 9, 1, "pdk-v1", "20", 0,
+                        Map.of("action", "njpdk.CNJPDKEnterRoom", "payload", Map.of()))));
         handler.handle(room, request("j", 1, "20", 0, "njpdk.CNJPDKEnterRoom", Map.of()));
         handler.handle(room, request("u", 2, "20", 0, "njpdk.CNJPDKUnReadyRoom", Map.of()));
         assertThrows(IllegalStateException.class,
@@ -62,6 +65,51 @@ final class PokerDispatchCommandHandlerTest {
         assertEquals("OWNER_DISSOLVED", result.body().get("roomTerminalReason"));
     }
 
+    @Test void canonicalCommonRoomActionRunsInsideStableBusinessEnvelope() {
+        var family = new PaoDeKuaiFamily(PaoDeKuaiConfig.defaults());
+        var session = new PokerAuthoritativeSession(9, 20, 4, 7, family);
+        var room = new GameRoomHandle(9, 629, "pdk-v1", session);
+        var result = new PokerDispatchCommandHandler().handle(room,
+                request("canonical-dissolve", 1, "20", 0, "common.room.dissolve_req", Map.of()));
+        assertEquals("common.room.dissolve_req", result.body().get("action"));
+        assertEquals(true, result.body().get("roomTerminal"));
+        assertEquals("OWNER_DISSOLVED", result.body().get("roomTerminalReason"));
+    }
+
+    @Test void directCommonRoomApprovalCarriesTerminalMarkerForGatewayCompletion() {
+        var family = new PaoDeKuaiFamily(PaoDeKuaiConfig.defaults());
+        var session = new PokerAuthoritativeSession(9, 20, 4, 7, family);
+        var room = new GameRoomHandle(9, 629, "pdk-v1", session);
+        var handler = new PokerDispatchCommandHandler();
+        handler.handle(room, new GameCommandRequest("common.room.join_req", "join", 1, 9, 0,
+                "pdk-v1", "21", 1, Map.of()));
+        handler.handle(room, new GameCommandRequest("common.room.join_req", "join-22", 2, 9, 0,
+                "pdk-v1", "22", 2, Map.of()));
+        handler.handle(room, new GameCommandRequest("common.room.join_req", "join-23", 3, 9, 0,
+                "pdk-v1", "23", 3, Map.of()));
+        handler.handle(room, new GameCommandRequest("common.room.ready_req", "ready-owner", 4, 9, 0,
+                "pdk-v1", "20", 0, Map.of()));
+        handler.handle(room, new GameCommandRequest("common.room.ready_req", "ready-guest", 5, 9, 0,
+                "pdk-v1", "21", 1, Map.of()));
+        handler.handle(room, new GameCommandRequest("common.room.ready_req", "ready-22", 6, 9, 0,
+                "pdk-v1", "22", 2, Map.of()));
+        handler.handle(room, new GameCommandRequest("common.room.ready_req", "ready-23", 7, 9, 0,
+                "pdk-v1", "23", 3, Map.of()));
+        handler.handle(room, new GameCommandRequest("common.room.dissolve_req", "dissolve", 8, 9, 1,
+                "pdk-v1", "20", 0, Map.of()));
+        handler.handle(room, new GameCommandRequest("common.room.dissolve_agree_req",
+                "agree-21", 9, 9, 1, "pdk-v1", "21", 1, Map.of()));
+        handler.handle(room, new GameCommandRequest("common.room.dissolve_agree_req",
+                "agree-22", 10, 9, 1, "pdk-v1", "22", 2, Map.of()));
+        var approved = handler.handle(room, new GameCommandRequest("common.room.dissolve_agree_req",
+                "agree-23", 11, 9, 1, "pdk-v1", "23", 3, Map.of()));
+
+        assertTrue(session.isTerminal());
+        assertEquals("DISSOLVED", approved.body().get("phase"));
+        assertEquals(true, approved.body().get("roomTerminal"));
+        assertEquals("VOTE_APPROVED", approved.body().get("roomTerminalReason"));
+    }
+
     @Test void playerControlsOnlyOwnTrusteeshipAfterRoundStarts() {
         var family = new PaoDeKuaiFamily(PaoDeKuaiConfig.defaults());
         var session = new PokerAuthoritativeSession(9, 20, 4, 7, family);
@@ -100,7 +148,7 @@ final class PokerDispatchCommandHandlerTest {
         assertFalse(session.isTerminal());
     }
 
-    @Test void memberLeavesStartedRoomAndAuthorityNoLongerContainsAccount() {
+    @Test void memberCannotLeaveAfterCardsAreDealt() {
         var family = new PaoDeKuaiFamily(PaoDeKuaiConfig.defaults());
         var session = new PokerAuthoritativeSession(9, 20, 2, 7, family);
         var room = new GameRoomHandle(9, 629, "pdk-v1", session);
@@ -108,17 +156,13 @@ final class PokerDispatchCommandHandlerTest {
         handler.handle(room, request("join", 1, "21", 1, "njpdk.CNJPDKEnterRoom", Map.of()));
         handler.handle(room, request("ready-0", 2, "20", 0, "njpdk.CNJPDKReadyRoom", Map.of()));
         handler.handle(room, request("ready-1", 3, "21", 1, "njpdk.CNJPDKReadyRoom", Map.of()));
-        var result = handler.handle(room, request("leave", 4, "21", 1, "njpdk.CNJPDKExitRoom", Map.of()));
-        assertEquals(true, result.body().get(RoomMembershipLifecycle.MEMBER_LEFT_FIELD));
-        @SuppressWarnings("unchecked") var players = (Map<Integer,Long>) session.authoritativeState().get("players");
-        assertFalse(players.containsValue(21L));
-        assertEquals(20L, session.authoritativeState().get("ownerId"));
-        assertFalse(session.isTerminal());
+        assertThrows(IllegalStateException.class, () -> handler.handle(room,
+                request("leave", 4, "21", 1, "njpdk.CNJPDKExitRoom", Map.of())));
     }
 
     private static GameCommandRequest request(String id, long sequence, String user, int seat,
                                                String action, Map<String,Object> payload) {
-        return new GameCommandRequest("poker.pdk.dispatch", id, sequence, 9, 1, "pdk-v1", user, seat,
+        return new GameCommandRequest("poker.NJ201.dispatch", id, sequence, 9, 1, "pdk-v1", user, seat,
                 Map.of("action", action, "payload", payload));
     }
 }

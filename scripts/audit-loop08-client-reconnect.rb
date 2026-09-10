@@ -1,17 +1,19 @@
 #!/usr/bin/env ruby
 require 'json'; require 'fileutils'
 root=File.expand_path('..',__dir__)
-path=File.expand_path('../Client/assets/Common/Code/Runtime/CompatibilityApp/network/LegacyWebSocketClient.ts',root)
+path=File.expand_path('../Client/assets/Common/Code/Runtime/network/LegacyWebSocketClient.ts',root)
 source=File.read(path)
+coordinator_path=File.expand_path('../Client/assets/Common/Code/Runtime/network/ReconnectCoordinator.ts',root)
+coordinator=File.read(coordinator_path)
 checks={
-  'bounded_attempts'=>source.include?('MAX_RECONNECT_ATTEMPTS') && source.match?(/attempt\s*<\s*LegacyWebSocketClient\.MAX_RECONNECT_ATTEMPTS/),
-  'exponential_backoff'=>source.include?('2 **'),
-  'maximum_delay'=>source.include?('RECONNECT_MAX_DELAY_MS'),
-  'jitter'=>source.include?('Math.random()'),
-  'exhaustion_latch'=>source.include?('reconnectExhausted = true'),
-  'user_recovery_entry'=>source.include?('onRecoveryRequired') && source.include?('forceReconnect()'),
+  'bounded_attempts'=>coordinator.match?(/maxAttempts\s*=\s*\d+/) && coordinator.match?(/attempt\s*<\s*maxAttempts/),
+  'exponential_backoff'=>coordinator.include?('2 **'),
+  'maximum_delay'=>coordinator.include?('Math.min(8_000'),
+  'jitter'=>coordinator.include?('Math.random()'),
+  'exhaustion_latch'=>coordinator.include?("slot.disconnect('TERMINAL')"),
+  'user_recovery_entry'=>coordinator.include?('public async retry<T>') && coordinator.include?('cancelRetry'),
   'queue_budget'=>source.include?('MAX_PENDING_REQUESTS')
 }
-result={'task'=>'LOOP08','passed'=>checks.values.all?,'checks'=>checks,'source'=>path}
+result={'task'=>'LOOP08','passed'=>checks.values.all?,'checks'=>checks,'sources'=>[path,coordinator_path]}
 out=File.join(root,'work/audit/loop08-client-reconnect.json'); FileUtils.mkdir_p(File.dirname(out)); File.write(out,JSON.pretty_generate(result)+"\n")
 puts JSON.generate(result); exit(result['passed'] ? 0 : 1)

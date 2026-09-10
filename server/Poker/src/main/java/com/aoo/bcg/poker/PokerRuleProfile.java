@@ -9,7 +9,7 @@ public record PokerRuleProfile(String version, int deckSize, int minimumPlayers,
         boolean allowTwoInRuns, boolean allowJokersInRuns, boolean mustBeatWhenPossible,
         boolean forceHighestSingleAgainstReportedSingle, int bombUnit, int multiplierCap, int minimumPlaneLength, int maximumHandSize,
         List<Integer> canonicalDeck) {
-    public enum FirstLead { REQUIRED_CARD_HOLDER, PREVIOUS_WINNER, RANDOM, ROOM_OWNER }
+    public enum FirstLead { REQUIRED_CARD_HOLDER, MINIMUM_CARD_HOLDER, PREVIOUS_WINNER, RANDOM, ROOM_OWNER }
 
     public PokerRuleProfile {
         if (version == null || version.isBlank()) throw new IllegalArgumentException("version required");if(deckSize<8||deckSize>54)throw new IllegalArgumentException("deck size must be between 8 and 54");

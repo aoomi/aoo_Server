@@ -9,7 +9,8 @@ class PdkNineStageAcceptanceTest {
     @Test void createJoinReadyDealTurnLegalPlayReconnectAndReplay() {
         PdkGameProvider provider = new PdkGameProvider();
         GameRoomHandle room = provider.roomFactory().create(new RoomCreationContext(
-                8001, 10, Map.of("seatLimit", 3, "shuffleSeed", 17L)));
+                8001, 10, Map.of("playerCount", 3, "deckMode", "STANDARD_48",
+                        "shuffleSeed", 17L)));
         GameCommandHandler handler = provider.commandHandler().orElseThrow();
         handler.handle(room, command("join_req", 1, 0, 10, Map.of()));
         handler.handle(room, command("join_req", 2, 1, 20, Map.of()));
@@ -43,11 +44,11 @@ class PdkNineStageAcceptanceTest {
 
     @Test void serverRulesAndScoringAreRealAndServiceRegistrationIsUnique() {
         PdkGameProvider provider = new PdkGameProvider();
-        assertEquals(48, ((PaoDeKuaiFamily) provider.pokerFamily()).profile().deckSize());
+        assertEquals(40, ((PaoDeKuaiFamily) provider.pokerFamily()).profile().deckSize());
         PaoDeKuaiRuleSet rules = ((PaoDeKuaiFamily) provider.pokerFamily()).rules();
         assertEquals(16, rules.config().cardsPerPlayer());
         assertEquals(16, rules.cardsPerPlayer(2));
-        assertEquals(16, rules.cardsPerPlayer(3));
+        assertEquals(16, rules.cardsPerPlayer(2));
         assertEquals("FOUR_WITH_TWO", rules.recognize(List.of(103, 203, 303, 403, 104, 205),
                 new PaoDeKuaiContext(false, 8, List.of(103, 203, 303, 403, 104, 205))).type());
         assertEquals(0, ServiceLoader.load(GameProvider.class).stream()
@@ -64,9 +65,9 @@ class PdkNineStageAcceptanceTest {
     private static Map<String,Object> finishedSnapshot(PdkGameProvider provider) {
         PaoDeKuaiFamily family = (PaoDeKuaiFamily) provider.pokerFamily();
         Map<String,Object> state = new LinkedHashMap<>();
-        state.put("roomId", 8002L); state.put("ownerId", 10L); state.put("seatLimit", 3); state.put("seed", 9L);
-        state.put("players", Map.of(0,10L,1,20L,2,30L)); state.put("readySeats", List.of(0,1,2));
-        state.put("plays", Map.of(0,3,1,1,2,1)); state.put("bombs", Map.of(0,1,1,0,2,0));
+        state.put("roomId", 8002L); state.put("ownerId", 10L); state.put("seatLimit", 2); state.put("seed", 9L);
+        state.put("players", Map.of(0,10L,1,20L)); state.put("readySeats", List.of(0,1));
+        state.put("plays", Map.of(0,3,1,1)); state.put("bombs", Map.of(0,1,1,0));
         state.put("ruleVersion", PdkGameProvider.VERSION); state.put("ruleSnapshotKey", family.ruleSnapshotKey());
         state.put("pdkRuleOptions", PdkPublishedRuleOptions.snapshot(
                 family.rules().config(), family.profile()));
@@ -74,7 +75,7 @@ class PdkNineStageAcceptanceTest {
         state.put("playedCards", List.of(Map.of("type","SINGLE","primaryRank",15,
                 "cards",List.of(115))));
         state.put("stateVersion", 8L);
-        state.put("state", Map.of("hands", Map.of(0,List.of(),1,List.of(104,105),2,List.of(106,107,108)),
+        state.put("state", Map.of("hands", Map.of(0,List.of(),1,List.of(105,106)),
                 "currentSeat",0,"previousSeat",0,"passed",List.of(),"finished",true,"winnerSeat",0,
                 "previous",Map.of("type","SINGLE","primaryRank",15,"cards",List.of(115))));
         return state;

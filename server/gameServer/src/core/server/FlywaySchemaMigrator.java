@@ -15,6 +15,7 @@ public final class FlywaySchemaMigrator {
                 .encoding("UTF-8")
                 .validateMigrationNaming(true)
                 .validateOnMigrate(true)
+                .outOfOrder(true)
                 .cleanDisabled(true)
                 .baselineOnMigrate(false)
                 .initSql("SET NAMES utf8mb4 COLLATE utf8mb4_0900_ai_ci; "

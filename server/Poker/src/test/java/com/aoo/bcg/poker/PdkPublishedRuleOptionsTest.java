@@ -16,6 +16,10 @@ final class PdkPublishedRuleOptionsTest {
                 Map.of("mustBeatWhenPossible",false),config,base);
         assertFalse(profile.mustBeatWhenPossible());
         assertEquals(false,PdkPublishedRuleOptions.snapshot(config,profile).get("mustBeatWhenPossible"));
+        assertEquals(false,PdkPublishedRuleOptions.snapshot(config,profile,false)
+                .get("allowPassByRoomRule"));
+        assertEquals(true,PdkPublishedRuleOptions.snapshot(config,profile,true)
+                .get("allowPassByRoomRule"));
     }
     @Test void appliesStrictPublishedValuesAndRejectsUnknownEnumValue() {
         PaoDeKuaiConfig config = PdkPublishedRuleOptions.apply(Map.of(
@@ -50,6 +54,9 @@ final class PdkPublishedRuleOptionsTest {
         CardCombination highCoreHighAttachment = rules.recognize(List.of(104,204,304,106), null);
         assertFalse(rules.canBeat(highCoreLowAttachment, low, null));
         assertTrue(rules.canBeat(highCoreHighAttachment, low, null));
+        CardCombination pairWings = rules.recognize(List.of(104,204,304,106,206), null);
+        CardCombination singleWings = rules.recognize(List.of(103,203,303,105,106), null);
+        assertFalse(rules.canBeat(pairWings, singleWings, null));
     }
 
     @Test void recognizesProvenAirplaneAndFourAttachmentModes() {

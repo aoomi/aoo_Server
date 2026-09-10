@@ -31,6 +31,11 @@ class JdbcAccountSessionServiceTest {
         assertTrue(service.isRegisteredIdentity("13905000011"));
         assertTrue(service.isRegisteredIdentity("13905000011"));
     }
+    @Test void unknownLoginIdentityIsReportedAsUnauthorizedInsteadOfClosingHttpExchange(){
+        var failure=assertThrows(JdbcAccountSessionService.Unauthorized.class,
+                ()->service.login("missinguser","irrelevant".toCharArray(),phone,false));
+        assertEquals("invalid credentials",failure.getMessage());
+    }
     @Test void guestUpgradeSingleDeviceAndBanRevokeSessions(){
         long id=service.registerGuest("guest-secret",phone).accountId();var guest=service.loginGuest("guest-secret",phone,false);
         service.upgrade(id,"bob","correct horse battery staple".toCharArray(),"bob-recovery",phone);

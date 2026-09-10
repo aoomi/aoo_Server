@@ -10,8 +10,11 @@ public final class PokerCoreEngine<T>{
 
 record CardCombination(String type,int primaryRank,List<Integer>cards){CardCombination{if(type==null||type.isBlank()||cards==null||cards.isEmpty())throw new IllegalArgumentException("invalid card combination");cards=List.copyOf(cards);}}
 record PaoDeKuaiContext(boolean firstPlay,int nextPlayerCardCount,List<Integer>handBeforePlay,
-        Integer authoritativeRequiredFirstCard,boolean authoritativeContext){
- PaoDeKuaiContext(boolean firstPlay,int nextPlayerCardCount,List<Integer>handBeforePlay){this(firstPlay,nextPlayerCardCount,handBeforePlay,null,false);}
+        Integer authoritativeRequiredFirstCard,boolean authoritativeContext,
+        boolean attachmentlessPlayPrivilege){
+ PaoDeKuaiContext(boolean firstPlay,int nextPlayerCardCount,List<Integer>handBeforePlay){this(firstPlay,nextPlayerCardCount,handBeforePlay,null,false,false);}
+ PaoDeKuaiContext(boolean firstPlay,int nextPlayerCardCount,List<Integer>handBeforePlay,
+   Integer authoritativeRequiredFirstCard,boolean authoritativeContext){this(firstPlay,nextPlayerCardCount,handBeforePlay,authoritativeRequiredFirstCard,authoritativeContext,false);}
  PaoDeKuaiContext{handBeforePlay=List.copyOf(handBeforePlay==null?List.of():handBeforePlay);}
 }
 record PokerTurnState(Map<Integer,List<Integer>>hands,int currentSeat,CardCombination previous,int previousSeat,Set<Integer>passed,boolean finished,int winnerSeat){PokerTurnState{Map<Integer,List<Integer>>copy=new LinkedHashMap<>();hands.forEach((seat,cards)->copy.put(seat,List.copyOf(cards)));hands=Map.copyOf(copy);passed=Set.copyOf(passed==null?Set.of():passed);if(hands.size()<2||!hands.containsKey(currentSeat))throw new IllegalArgumentException("invalid poker state");}}
@@ -26,7 +29,7 @@ final class PokerCardCodec{
  static List<Integer>deck(int size){if(size!=48&&size!=52&&size!=54)throw new IllegalArgumentException("deck size must be 48, 52 or 54");List<Integer>deck=new ArrayList<>(size);int lowest=size==48?4:3;for(int suit=1;suit<=4;suit++)for(int rank=lowest;rank<=15;rank++)deck.add(encode(suit,rank));if(size==54){deck.add(encode(5,16));deck.add(encode(5,17));}if(deck.size()!=size||new LinkedHashSet<>(deck).size()!=size)throw new IllegalStateException("invalid canonical deck");return List.copyOf(deck);}
 }
 
-final class PokerFirstLeadResolver{private PokerFirstLeadResolver(){}static int resolve(PokerRuleProfile p,Map<Integer,List<Integer>>hands,int owner,Integer previous,long seed){List<Integer>seats=hands.keySet().stream().sorted().toList();if(!seats.contains(owner))throw new IllegalArgumentException("owner seat unavailable");return switch(p.firstLead()){case ROOM_OWNER->owner;case PREVIOUS_WINNER->{if(previous==null||!hands.containsKey(previous))throw new IllegalStateException("previous winner seat unavailable");yield previous;}case RANDOM->seats.get(Math.floorMod(Long.hashCode(seed),seats.size()));case REQUIRED_CARD_HOLDER->hands.entrySet().stream().filter(e->e.getValue().contains(p.requiredFirstCard())).map(Map.Entry::getKey).findFirst().orElseThrow();};}}
+final class PokerFirstLeadResolver{private PokerFirstLeadResolver(){}static int resolve(PokerRuleProfile p,Map<Integer,List<Integer>>hands,int owner,Integer previous,long seed){List<Integer>seats=hands.keySet().stream().sorted().toList();if(!seats.contains(owner))throw new IllegalArgumentException("owner seat unavailable");Comparator<Integer>order=Comparator.comparingInt((Integer c)->StandardPokerRuleSet.rank(c)).thenComparingInt(Integer::intValue);return switch(p.firstLead()){case ROOM_OWNER->owner;case PREVIOUS_WINNER->{if(previous==null||!hands.containsKey(previous))throw new IllegalStateException("previous winner seat unavailable");yield previous;}case RANDOM->seats.get(Math.floorMod(Long.hashCode(seed),seats.size()));case REQUIRED_CARD_HOLDER->hands.entrySet().stream().filter(e->e.getValue().contains(p.requiredFirstCard())).map(Map.Entry::getKey).findFirst().orElseThrow();case MINIMUM_CARD_HOLDER->hands.entrySet().stream().min(Comparator.comparing(e->e.getValue().stream().min(order).orElseThrow(),order)).map(Map.Entry::getKey).orElseThrow();};}}
 
 final class PokerSettlementCalculator{
  record SeatInput(long playerId,int remainingCards,int plays,int bombs){SeatInput{if(playerId<=0||remainingCards<0||plays<0||bombs<0)throw new IllegalArgumentException("invalid seat input");}}

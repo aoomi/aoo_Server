@@ -105,7 +105,7 @@ public final class GameWebSocketRouter {
         if (room.authoritativeSession().isPresent()) result = result.withAuthorityMetadata(
                 room.requireAuthoritativeSession().stateVersion(), frame.seq());
         provider.commandCommitter().commit(room, command, result);
-        runtimeCommitter.commit(room, command, result);
+        result = runtimeCommitter.commitResult(room, command, result);
         committed = true;
         idempotency.save(idempotencyKey, result, retention);
         timeline.complete(scopedRoomId, frame.seq(), frame.requestId(), frame.msgId(), operationDeadline);

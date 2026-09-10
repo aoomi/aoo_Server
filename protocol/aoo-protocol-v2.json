@@ -453,6 +453,80 @@
       "response": {
         "type": "object",
         "required": [
+          "payload",
+          "stateVersion",
+          "serverSeq"
+        ],
+        "properties": {
+          "payload": "object",
+          "stateVersion": "integer",
+          "serverSeq": "integer"
+        }
+      },
+      "errors": [],
+      "msgId": "poker.CD201.state_push"
+    },
+    {
+      "kind": "push",
+      "direction": "server_to_client",
+      "transport": "WSS",
+      "version": "2.0",
+      "stage": "M5",
+      "auth": "room_session",
+      "write": false,
+      "idempotency": "none",
+      "request": {
+        "type": "object",
+        "required": [],
+        "properties": {}
+      },
+      "response": {
+        "type": "object",
+        "required": ["payload", "stateVersion", "serverSeq"],
+        "properties": {"payload": "object", "stateVersion": "integer", "serverSeq": "integer"}
+      },
+      "errors": [],
+      "msgId": "poker.NJ201.state_push"
+    },
+    {
+      "kind": "push",
+      "direction": "server_to_client",
+      "transport": "WSS",
+      "version": "2.0",
+      "stage": "M5",
+      "auth": "room_session",
+      "write": false,
+      "idempotency": "none",
+      "request": {
+        "type": "object",
+        "required": [],
+        "properties": {}
+      },
+      "response": {
+        "type": "object",
+        "required": ["payload", "stateVersion", "serverSeq"],
+        "properties": {"payload": "object", "stateVersion": "integer", "serverSeq": "integer"}
+      },
+      "errors": [],
+      "msgId": "poker.LS201.state_push"
+    },
+    {
+      "kind": "push",
+      "direction": "server_to_client",
+      "transport": "WSS",
+      "version": "2.0",
+      "stage": "M5",
+      "auth": "room_session",
+      "write": false,
+      "idempotency": "none",
+      "request": {
+        "type": "object",
+        "required": [],
+        "properties": {}
+      },
+      "response": {
+        "type": "object",
+        "required": [
           "action",
           "payload"
         ],
@@ -549,7 +623,7 @@
       "msgId": "common.room.compat_state_push"
     },
     {
-      "msgId": "poker.pdk.dispatch",
+      "msgId": "poker.CD201.dispatch",
       "kind": "req",
       "direction": "client_to_server",
       "transport": "WSS",
@@ -586,6 +660,72 @@
         4001,
         4002
       ]
+    },
+    {
+      "msgId": "poker.NJ201.dispatch",
+      "kind": "req",
+      "direction": "client_to_server",
+      "transport": "WSS",
+      "version": "2.0",
+      "stage": "M5",
+      "auth": "room_session",
+      "write": true,
+      "idempotency": "required",
+      "request": {
+        "type": "object",
+        "required": ["action", "payload"],
+        "properties": {"action": "string", "payload": "object"}
+      },
+      "response": {
+        "type": "object",
+        "required": ["payload", "stateVersion"],
+        "properties": {"payload": "object", "stateVersion": "integer"}
+      },
+      "errors": [1001, 3001, 4001, 4002]
+    },
+    {
+      "msgId": "poker.LS201.dispatch",
+      "kind": "req",
+      "direction": "client_to_server",
+      "transport": "WSS",
+      "version": "2.0",
+      "stage": "M5",
+      "auth": "room_session",
+      "write": true,
+      "idempotency": "required",
+      "request": {
+        "type": "object",
+        "required": ["action", "payload"],
+        "properties": {"action": "string", "payload": "object"}
+      },
+      "response": {
+        "type": "object",
+        "required": ["payload", "stateVersion"],
+        "properties": {"payload": "object", "stateVersion": "integer"}
+      },
+      "errors": [1001, 3001, 4001, 4002]
+    },
+    {
+      "msgId": "poker.pdk.dispatch",
+      "kind": "req",
+      "direction": "client_to_server",
+      "transport": "WSS",
+      "version": "2.0",
+      "stage": "M5",
+      "auth": "room_session",
+      "write": true,
+      "idempotency": "required",
+      "request": {
+        "type": "object",
+        "required": ["action", "payload"],
+        "properties": {"action": "string", "payload": "object"}
+      },
+      "response": {
+        "type": "object",
+        "required": ["payload", "stateVersion"],
+        "properties": {"payload": "object", "stateVersion": "integer"}
+      },
+      "errors": [1001, 3001, 4001, 4002]
     },
     {
       "msgId": "mahjong.xuezhan.dispatch",

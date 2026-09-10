@@ -916,6 +916,225 @@
 }
 ```
 
+## `poker.CD201.dispatch`
+
+| 版本 | 方向 | 传输 | 类型 | 阶段 | 鉴权 | 写操作 | 幂等 | 错误码 |
+|---|---|---|---|---|---|---|---|---|
+| 2.0 | client_to_server | WSS | req | M5 | room_session | 是 | required | 1001, 3001, 4001, 4002 |
+
+### 请求字段
+
+| 字段 | 类型 | 必填 |
+|---|---|---|
+| action | string | 是 |
+| payload | object | 是 |
+
+### 响应字段
+
+| 字段 | 类型 | 必填 |
+|---|---|---|
+| payload | object | 是 |
+| stateVersion | integer | 是 |
+
+### 示例
+
+```json
+{
+  "protocolVersion": "2.0",
+  "msgId": "poker.CD201.dispatch",
+  "kind": "req",
+  "requestId": "request-id",
+  "seq": 1,
+  "timestamp": 0,
+  "traceId": "trace-id",
+  "body": {
+    "action": "string",
+    "payload": {}
+  }
+}
+```
+
+## `poker.CD201.state_push`
+
+| 版本 | 方向 | 传输 | 类型 | 阶段 | 鉴权 | 写操作 | 幂等 | 错误码 |
+|---|---|---|---|---|---|---|---|---|
+| 2.0 | server_to_client | WSS | push | M5 | room_session | 否 | none |  |
+
+### 请求字段
+
+| 字段 | 类型 | 必填 |
+|---|---|---|
+| - | - | - |
+
+### 响应字段
+
+| 字段 | 类型 | 必填 |
+|---|---|---|
+| payload | object | 是 |
+| stateVersion | integer | 是 |
+| serverSeq | integer | 是 |
+
+### 示例
+
+```json
+{
+  "protocolVersion": "2.0",
+  "msgId": "poker.CD201.state_push",
+  "kind": "push",
+  "requestId": "request-id",
+  "seq": 1,
+  "timestamp": 0,
+  "traceId": "trace-id",
+  "body": {}
+}
+```
+
+## `poker.LS201.dispatch`
+
+| 版本 | 方向 | 传输 | 类型 | 阶段 | 鉴权 | 写操作 | 幂等 | 错误码 |
+|---|---|---|---|---|---|---|---|---|
+| 2.0 | client_to_server | WSS | req | M5 | room_session | 是 | required | 1001, 3001, 4001, 4002 |
+
+### 请求字段
+
+| 字段 | 类型 | 必填 |
+|---|---|---|
+| action | string | 是 |
+| payload | object | 是 |
+
+### 响应字段
+
+| 字段 | 类型 | 必填 |
+|---|---|---|
+| payload | object | 是 |
+| stateVersion | integer | 是 |
+
+### 示例
+
+```json
+{
+  "protocolVersion": "2.0",
+  "msgId": "poker.LS201.dispatch",
+  "kind": "req",
+  "requestId": "request-id",
+  "seq": 1,
+  "timestamp": 0,
+  "traceId": "trace-id",
+  "body": {
+    "action": "string",
+    "payload": {}
+  }
+}
+```
+
+## `poker.LS201.state_push`
+
+| 版本 | 方向 | 传输 | 类型 | 阶段 | 鉴权 | 写操作 | 幂等 | 错误码 |
+|---|---|---|---|---|---|---|---|---|
+| 2.0 | server_to_client | WSS | push | M5 | room_session | 否 | none |  |
+
+### 请求字段
+
+| 字段 | 类型 | 必填 |
+|---|---|---|
+| - | - | - |
+
+### 响应字段
+
+| 字段 | 类型 | 必填 |
+|---|---|---|
+| payload | object | 是 |
+| stateVersion | integer | 是 |
+| serverSeq | integer | 是 |
+
+### 示例
+
+```json
+{
+  "protocolVersion": "2.0",
+  "msgId": "poker.LS201.state_push",
+  "kind": "push",
+  "requestId": "request-id",
+  "seq": 1,
+  "timestamp": 0,
+  "traceId": "trace-id",
+  "body": {}
+}
+```
+
+## `poker.NJ201.dispatch`
+
+| 版本 | 方向 | 传输 | 类型 | 阶段 | 鉴权 | 写操作 | 幂等 | 错误码 |
+|---|---|---|---|---|---|---|---|---|
+| 2.0 | client_to_server | WSS | req | M5 | room_session | 是 | required | 1001, 3001, 4001, 4002 |
+
+### 请求字段
+
+| 字段 | 类型 | 必填 |
+|---|---|---|
+| action | string | 是 |
+| payload | object | 是 |
+
+### 响应字段
+
+| 字段 | 类型 | 必填 |
+|---|---|---|
+| payload | object | 是 |
+| stateVersion | integer | 是 |
+
+### 示例
+
+```json
+{
+  "protocolVersion": "2.0",
+  "msgId": "poker.NJ201.dispatch",
+  "kind": "req",
+  "requestId": "request-id",
+  "seq": 1,
+  "timestamp": 0,
+  "traceId": "trace-id",
+  "body": {
+    "action": "string",
+    "payload": {}
+  }
+}
+```
+
+## `poker.NJ201.state_push`
+
+| 版本 | 方向 | 传输 | 类型 | 阶段 | 鉴权 | 写操作 | 幂等 | 错误码 |
+|---|---|---|---|---|---|---|---|---|
+| 2.0 | server_to_client | WSS | push | M5 | room_session | 否 | none |  |
+
+### 请求字段
+
+| 字段 | 类型 | 必填 |
+|---|---|---|
+| - | - | - |
+
+### 响应字段
+
+| 字段 | 类型 | 必填 |
+|---|---|---|
+| payload | object | 是 |
+| stateVersion | integer | 是 |
+| serverSeq | integer | 是 |
+
+### 示例
+
+```json
+{
+  "protocolVersion": "2.0",
+  "msgId": "poker.NJ201.state_push",
+  "kind": "push",
+  "requestId": "request-id",
+  "seq": 1,
+  "timestamp": 0,
+  "traceId": "trace-id",
+  "body": {}
+}
+```
+
 ## `poker.pdk.dispatch`
 
 | 版本 | 方向 | 传输 | 类型 | 阶段 | 鉴权 | 写操作 | 幂等 | 错误码 |

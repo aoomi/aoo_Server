@@ -145,7 +145,7 @@ public final class RoomCommandCoordinator {
                 GameCommandResult timed = result.serverTimeEpochMillis() == 0
                         ? result.withTiming(time.epochMillis(), room.handle.requireAuthoritativeSession().operationDeadline())
                         : result;
-                committer.commit(room.handle, request, timed);
+                timed = committer.commitResult(room.handle, request, timed);
                 player.lastSequence = request.sequence();
                 remember(player.receipts, request.requestId(), fingerprint);
                 idempotency.save(key, timed, retention);

@@ -80,6 +80,10 @@ public final class ClubDispatchService {
                     "club.CClubSportsPointChangeRecordByPid" -> sportsDynamic(actor, payload);
             case "union.CUnionCreate" -> createUnion(actor, requestId, payload);
             case "union.CUnionJoin" -> joinUnion(actor, requestId, payload);
+            case "union.CUnionRoomCfgList" -> unionRoomConfigs(actor, payload);
+            case "union.CUnionRoomCfgCount" -> unionRoomConfigCount(actor, payload);
+            case "union.CUnionCreateRoom" -> saveUnionRoomConfig(actor, requestId, payload);
+            case "union.CUnionGetAllRoomMin" -> roomList(actor, payload);
             case "club.CClubTotalInfo" -> recordSummary(actor, payload);
             case "club.CClubGetRecord" -> records(actor, payload);
             case "club.CClubRoomIdOperation" -> markRoomViewed(actor, requestId, payload);
@@ -604,6 +608,75 @@ public final class ClubDispatchService {
         }
         JdbcClubService.State state = clubs.saveTemplate(key(requestId, "club.CClubCreateGameSet"), clubId, actor, templateId, name, game, rules);
         return managedRoom(state, state.templates().stream().filter(template -> template.id().equals(templateId)).findFirst().orElseThrow());
+    }
+
+    private List<Map<String, Object>> unionRoomConfigs(long actor, Map<String, Object> payload) {
+        JdbcClubService.State state = requireUnionManager(payload, actor);
+        int page = Math.max(1, (int) number(payload, "pageNum", 1));
+        int classType = (int) number(payload, "classType", 0);
+        return state.templates().stream()
+                .filter(template -> classType == 0 || gameClass(template.game()) == classType)
+                .skip((long) (page - 1) * PAGE_SIZE).limit(PAGE_SIZE)
+                .map(template -> unionRoomConfig(state, template)).toList();
+    }
+
+    private Map<String, Object> unionRoomConfigCount(long actor, Map<String, Object> payload) {
+        JdbcClubService.State state = requireUnionManager(payload, actor);
+        int classType = (int) number(payload, "classType", 0);
+        long roomCount = state.tables().stream().filter(table -> !"DISSOLVED".equals(table.status()))
+                .filter(table -> classType == 0 || state.templates().stream()
+                        .filter(template -> template.id().equals(table.templateId()))
+                        .anyMatch(template -> gameClass(template.game()) == classType)).count();
+        return Map.of("roomCount", roomCount, "playerCount", 0,
+                "sort", setting(state, "unionRoomSort", 0));
+    }
+
+    private Map<String, Object> saveUnionRoomConfig(long actor, String requestId, Map<String, Object> payload) {
+        JdbcClubService.State current = requireUnionManager(payload, actor);
+        int gameIndex = (int) number(payload, "gameIndex", 0);
+        String templateId = current.templates().stream().filter(template -> template.index() == gameIndex)
+                .map(JdbcClubService.TemplateState::id).findFirst().orElseGet(() -> UUID.randomUUID().toString());
+        String name = text(payload, "roomName", "玩法配置");
+        String game = text(payload, "gameCode", text(payload, "gameId", "0"));
+        String rules;
+        try { rules = json.writeValueAsString(payload); }
+        catch (Exception failure) { throw new IllegalArgumentException("invalid union room configuration", failure); }
+        JdbcClubService.State state = clubs.saveTemplate(key(requestId, "union.CUnionCreateRoom"),
+                current.id(), actor, templateId, name, game, rules);
+        JdbcClubService.TemplateState saved = state.templates().stream()
+                .filter(template -> template.id().equals(templateId)).findFirst().orElseThrow();
+        return unionRoomConfig(state, saved);
+    }
+
+    private Map<String, Object> unionRoomConfig(JdbcClubService.State state, JdbcClubService.TemplateState template) {
+        Map<String, Object> row = new LinkedHashMap<>();
+        row.put("id", template.index());
+        row.put("roomName", template.name());
+        row.put("gameId", gameNumber(template.game()));
+        row.put("playingCount", state.tables().stream().filter(table -> table.templateId().equals(template.id())
+                && "PLAYING".equals(table.status())).count());
+        row.put("isSelect", setting(state, "templateStatus." + template.index(), 0) == 0);
+        row.put("status", setting(state, "templateStatus." + template.index(), 0));
+        try { row.put("bRoomConfigure", json.readValue(template.rules(), Map.class)); }
+        catch (Exception ignored) { row.put("bRoomConfigure", Map.of()); }
+        return row;
+    }
+
+    private JdbcClubService.State requireUnionManager(Map<String, Object> payload, long actor) {
+        JdbcClubService.State state = requireMember(clubId(payload), actor);
+        requireManager(state, actor);
+        long expected = setting(state, "unionId", 0);
+        long requested = number(payload, "unionId", 0);
+        if (expected <= 0 || requested != expected) throw new SecurityException("active union membership required");
+        return state;
+    }
+
+    private int gameClass(String game) {
+        String normalized = Objects.toString(game, "").toUpperCase(Locale.ROOT);
+        if (normalized.matches("^[A-Z]+1\\d{2}$")) return 1;
+        if (normalized.matches("^[A-Z]+2\\d{2}$")) return 2;
+        long gameId = gameNumber(normalized);
+        return gameId >= 200 && gameId < 300 ? 2 : gameId >= 100 && gameId < 200 ? 1 : 0;
     }
 
     private Map<String, Object> changeRoomConfig(long actor, String requestId, Map<String, Object> payload) {
@@ -1352,7 +1425,11 @@ public final class ClubDispatchService {
     private static long gameNumber(String game) {
         if (game == null || game.isBlank()) return 0;
         try { return Long.parseLong(game); }
-        catch (NumberFormatException ignored) { return 0; }
+        catch (NumberFormatException ignored) {
+            String canonical = game.strip().toUpperCase(Locale.ROOT);
+            if (canonical.matches("^[A-Z]+\\d{3}$")) return Long.parseLong(canonical.replaceFirst("^[A-Z]+", ""));
+            return 0;
+        }
     }
 
     private static long numberText(String value) {

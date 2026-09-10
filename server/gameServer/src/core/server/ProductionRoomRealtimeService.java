@@ -89,6 +89,9 @@ final class ProductionRoomRealtimeService {
             long responseVersion=mutationStarted?Math.addExact(persistedVersion,1):persistedVersion;
             Map<String,Object> body = execute(room, seat, player, command, action, responseVersion);
             if(mutationStarted)persistMutation(room,player,command,action,expected,responseVersion,body);
+            if ("quick_text".equals(action)) {
+                broadcastQuickText(room, seat, player, command, body);
+            }
             GameCommandResult result = new GameCommandResult("room." + action + "_resp", command.requestId(), body)
                     .withTiming(clock.millis(), com.aoo.bcg.gamespi.time.OperationDeadline.none());
             idempotency.save(key, result, RETENTION);
@@ -119,8 +122,9 @@ final class ProductionRoomRealtimeService {
                     Map.of("accepted", true, "trusteeship", bool(body, "enabled"), "stateVersion", version));
             case "quick_text" -> {
                 int quickId = integer(body, "quickId", 0, 9999);
-                yield success(room.opChat(player, "", ChatType.CHATTYPE_ROOM, room.getRoomID(), quickId),
-                        Map.of("accepted", true, "quickId", quickId, "stateVersion", version));
+                String content = optionalText(body, "content", 80);
+                yield success(room.opChat(player, content, ChatType.CHATTYPE_ROOM, room.getRoomID(), quickId),
+                        Map.of("accepted", true, "quickId", quickId, "content", content, "stateVersion", version));
             }
             case "voice" -> {
                 long assetId = positiveLong(body, "assetId");
@@ -243,7 +247,32 @@ final class ProductionRoomRealtimeService {
     private static int integer(Map<String,Object> body,String key,int min,int max){if(!(body.get(key) instanceof Number n))throw new IllegalArgumentException(key+" must be integer");int v=n.intValue();if(v<min||v>max)throw new IllegalArgumentException(key+" out of range");return v;}
     private static long positiveLong(Map<String,Object> body,String key){if(!(body.get(key) instanceof Number n))throw new IllegalArgumentException(key+" must be integer");long v=n.longValue();if(v<=0)throw new IllegalArgumentException(key+" out of range");return v;}
     private static String text(Map<String,Object> body,String key,int min,int max){if(!(body.get(key) instanceof String s)||s.length()<min||s.length()>max)throw new IllegalArgumentException(key+" has invalid length");return s;}
+    private static String optionalText(Map<String,Object> body,String key,int max){Object value=body.get(key);if(value==null)return "";if(!(value instanceof String s)||s.length()>max)throw new IllegalArgumentException(key+" has invalid length");return s.trim();}
     private static <T> T throwInvalid(String message){throw new IllegalArgumentException(message);}
+    /**
+     * Protocol V2 consumers subscribe to the stable room event instead of a provider-specific
+     * legacy packet name. Publish only after the authoritative mutation is committed so another
+     * client can never render an event whose state transition failed persistence.
+     */
+    private static void broadcastQuickText(AbsBaseRoom room, AbsRoomPos seat, Player player,
+                                           ProtocolV2AuthorityRuntime.Command command,
+                                           Map<String,Object> response) {
+        Map<String,Object> event = Map.of(
+                "messageId", command.requestId(),
+                "requestId", command.requestId(),
+                "serverSeq", command.sequence(),
+                "seatId", seat.getPosID(),
+                "sourceSeatId", seat.getPosID(),
+                "senderPid", player.getPid(),
+                "quickId", response.get("quickId"),
+                "content", response.get("content"));
+        room.getRoomPosMgr().getPosList().stream().filter(java.util.Objects::nonNull)
+                .filter(position -> !position.isRobot() && position.getPid() > 0L)
+                .forEach(position -> position.getPlayer().pushProto("room.quick_text", event));
+        room.getRoomPosMgr().getWatchList().stream().filter(java.util.Objects::nonNull)
+                .filter(position -> !position.isRobot() && position.getPid() > 0L)
+                .forEach(position -> position.getPlayer().pushProto("room.quick_text", event));
+    }
     private VoiceAsset authorizeVoice(long sender,long assetId,java.util.List<Long> members){try{String base=requiredEnv("AOO_MEDIA_INTERNAL_URL"),token=requiredEnv("AOO_MEDIA_ROOM_TOKEN");byte[] requestBody=mapper.writeValueAsBytes(Map.of("senderId",sender,"assetId",assetId,"memberIds",members));HttpRequest request=HttpRequest.newBuilder(URI.create(base).resolve("/internal/media/voice/authorize")).header("Authorization","Bearer "+token).header("Content-Type","application/json").POST(HttpRequest.BodyPublishers.ofByteArray(requestBody)).timeout(Duration.ofSeconds(3)).build();HttpResponse<byte[]> response=HttpClient.newBuilder().connectTimeout(Duration.ofSeconds(2)).build().send(request,HttpResponse.BodyHandlers.ofByteArray());if(response.statusCode()!=200)throw new SecurityException("voice asset authorization rejected");@SuppressWarnings("unchecked") Map<String,Object> root=mapper.readValue(response.body(),Map.class);@SuppressWarnings("unchecked") Map<String,Object> data=(Map<String,Object>)root.get("data");if(data==null||!"READY".equals(data.get("state")))throw new SecurityException("voice asset is not READY");return new VoiceAsset(((Number)data.get("durationMillis")).longValue(),String.valueOf(data.get("mimeType")));}catch(SecurityException e){throw e;}catch(Exception e){throw new IllegalStateException("MEDIA_AUTHORITY_UNAVAILABLE",e);}}
     private static String requiredEnv(String name){String value=System.getenv(name);if(value==null||value.isBlank())throw new IllegalStateException(name+" is required");return value;}
     private static Map<String,Object> success(SData_Result<?> result,Map<String,Object> payload){if(!ErrorCode.Success.equals(result.getCode()))throw new IllegalStateException("ROOM_COMMAND_REJECTED:"+result.getCode().value()+":"+result.getMsg());return payload;}

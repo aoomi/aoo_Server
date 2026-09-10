@@ -15,7 +15,9 @@ public record GameDescriptor(
 
     public GameDescriptor {
         if (gameId <= 0) throw new IllegalArgumentException("gameId must be positive");
-        code = requireText(code, "code").toLowerCase();
+        // Published business codes are case-sensitive identities (for example LS201).
+        // Lookup normalization belongs to GameRegistry and must not rewrite the descriptor.
+        code = requireText(code, "code");
         displayName = requireText(displayName, "displayName");
         category = Objects.requireNonNull(category, "category");
         family = requireText(family, "family");

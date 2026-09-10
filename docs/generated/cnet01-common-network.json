@@ -4,146 +4,30 @@
   "directCalls": {
     "localStorage": [
       {
-        "path": "assets/Common/Code/Runtime/CompatibilityApp/auth/LegacyHttpAuthGateway.ts",
-        "line": 125
+        "path": "assets/Common/Code/Runtime/bootstrap/BootstrapRuntime.ts",
+        "line": 17
       },
       {
-        "path": "assets/Common/Code/Runtime/CompatibilityApp/auth/LegacyHttpAuthGateway.ts",
-        "line": 128
+        "path": "assets/Common/Code/Runtime/bootstrap/BootstrapRuntime.ts",
+        "line": 23
       },
       {
-        "path": "assets/Common/Code/Runtime/CompatibilityApp/club/LegacyClubEntryController.ts",
-        "line": 142
+        "path": "assets/Common/Code/Runtime/bootstrap/BootstrapRuntime.ts",
+        "line": 37
       },
       {
-        "path": "assets/Common/Code/Runtime/CompatibilityApp/club/LegacyClubEntryController.ts",
-        "line": 347
+        "path": "assets/Common/Code/Runtime/config/RuntimeEndpoints.ts",
+        "line": 55
       },
       {
-        "path": "assets/Common/Code/Runtime/CompatibilityApp/club/LegacyClubMainController.ts",
-        "line": 348
+        "path": "assets/Common/Code/Runtime/config/RuntimeEndpoints.ts",
+        "line": 70
       },
       {
-        "path": "assets/Common/Code/Runtime/CompatibilityApp/club/LegacyClubMainController.ts",
-        "line": 351
-      },
-      {
-        "path": "assets/Common/Code/Runtime/CompatibilityApp/club/LegacyClubMainController.ts",
-        "line": 357
-      },
-      {
-        "path": "assets/Common/Code/Runtime/CompatibilityApp/club/LegacyClubMainController.ts",
-        "line": 358
-      },
-      {
-        "path": "assets/Common/Code/Runtime/CompatibilityApp/club/LegacyClubMainController.ts",
-        "line": 365
-      },
-      {
-        "path": "assets/Common/Code/Runtime/CompatibilityApp/club/LegacyClubMainController.ts",
-        "line": 366
-      },
-      {
-        "path": "assets/Common/Code/Runtime/CompatibilityApp/club/LegacyClubMainController.ts",
-        "line": 467
-      },
-      {
-        "path": "assets/Common/Code/Runtime/CompatibilityApp/club/LegacyClubMainController.ts",
-        "line": 496
-      },
-      {
-        "path": "assets/Common/Code/Runtime/CompatibilityApp/club/LegacyClubMainController.ts",
-        "line": 518
-      },
-      {
-        "path": "assets/Common/Code/Runtime/CompatibilityApp/club/LegacyClubMainController.ts",
-        "line": 638
-      },
-      {
-        "path": "assets/Common/Code/Runtime/CompatibilityApp/club/LegacyUnionInfoPopupController.ts",
-        "line": 26
-      },
-      {
-        "path": "assets/Common/Code/Runtime/CompatibilityApp/club/LegacyUnionInfoPopupController.ts",
-        "line": 34
-      },
-      {
-        "path": "assets/Common/Code/Runtime/CompatibilityApp/club/LegacyUnionManagerController.ts",
-        "line": 110
-      },
-      {
-        "path": "assets/Common/Code/Runtime/CompatibilityApp/club/LegacyUnionPLSetController.ts",
-        "line": 52
-      },
-      {
-        "path": "assets/Common/Code/Runtime/CompatibilityApp/club/LegacyUnionPLSetController.ts",
-        "line": 120
-      },
-      {
-        "path": "assets/Common/Code/Runtime/CompatibilityApp/core/LegacyLocalDataStore.ts",
-        "line": 73
-      },
-      {
-        "path": "assets/Common/Code/Runtime/CompatibilityApp/core/LegacyLocalDataStore.ts",
-        "line": 77
-      },
-      {
-        "path": "assets/Common/Code/Runtime/CompatibilityApp/core/LegacyLocalDataStore.ts",
-        "line": 80
-      },
-      {
-        "path": "assets/Common/Code/Runtime/CompatibilityApp/core/LegacyLocalDataStore.ts",
-        "line": 86
-      },
-      {
-        "path": "assets/Common/Code/Runtime/CompatibilityApp/core/Storage.ts",
-        "line": 10
-      },
-      {
-        "path": "assets/Common/Code/Runtime/CompatibilityApp/core/Storage.ts",
-        "line": 14
-      },
-      {
-        "path": "assets/Common/Code/Runtime/CompatibilityApp/core/Storage.ts",
-        "line": 18
-      },
-      {
-        "path": "assets/Common/Code/Runtime/CompatibilityApp/lobby/LegacyLobbyScreen.ts",
-        "line": 914
-      },
-      {
-        "path": "assets/Common/Code/Runtime/CompatibilityApp/platform/LegacyChannelIdentityStore.ts",
-        "line": 30
-      },
-      {
-        "path": "assets/Common/Code/Runtime/CompatibilityApp/platform/LegacyChannelIdentityStore.ts",
-        "line": 36
-      },
-      {
-        "path": "assets/Common/Code/Runtime/CompatibilityApp/platform/LegacyChannelIdentityStore.ts",
-        "line": 40
-      },
-      {
-        "path": "assets/Common/Code/Runtime/CompatibilityApp/platform/LegacyChannelIdentityStore.ts",
-        "line": 45
-      },
-      {
-        "path": "assets/Common/Code/Runtime/CompatibilityApp/platform/LegacyChannelIdentityStore.ts",
-        "line": 48
-      },
-      {
-        "path": "assets/Common/Code/Runtime/CompatibilityApp/platform/LegacyLocationService.ts",
-        "line": 64
-      },
-      {
-        "path": "assets/Common/Code/Runtime/CompatibilityApp/platform/LegacyLocationService.ts",
+        "path": "assets/Common/Code/Runtime/config/RuntimeEndpoints.ts",
         "line": 75
       },
       {
-        "path": "assets/Common/Code/Runtime/CompatibilityApp/platform/LegacyLocationService.ts",
-        "line": 85
-      },
-      {
         "path": "assets/Common/Code/Runtime/core/LegacyLocalDataStore.ts",
         "line": 73
       },
@@ -170,6 +54,10 @@
       {
         "path": "assets/Common/Code/Runtime/core/Storage.ts",
         "line": 18
+      },
+      {
+        "path": "assets/Common/Code/Runtime/core/Storage.ts",
+        "line": 29
       },
       {
         "path": "assets/Common/Code/Runtime/platform/LegacyChannelIdentityStore.ts",
@@ -202,6 +90,22 @@
       {
         "path": "assets/Common/Code/Runtime/platform/LegacyLocationService.ts",
         "line": 85
+      },
+      {
+        "path": "assets/Common/Code/UI/Interaction.ts",
+        "line": 91
+      },
+      {
+        "path": "assets/Common/Code/UI/Interaction.ts",
+        "line": 94
+      },
+      {
+        "path": "assets/Common/Code/UI/Interaction.ts",
+        "line": 96
+      },
+      {
+        "path": "assets/Common/Code/UI/Interaction.ts",
+        "line": 101
       }
     ],
     "bundle": [
@@ -322,10 +226,6 @@
         "line": 195
       },
       {
-        "path": "assets/Common/Code/Runtime/CompatibilityApp/auth/LegacyLoginScreen.ts",
-        "line": 116
-      },
-      {
         "path": "assets/Common/Code/Runtime/CompatibilityApp/aycp/AycpSceneBootstrap.ts",
         "line": 23
       },
@@ -386,100 +286,8 @@
         "line": 195
       },
       {
-        "path": "assets/Common/Code/Runtime/CompatibilityApp/bootstrap/LoginScreenBootstrap.ts",
-        "line": 195
-      },
-      {
-        "path": "assets/Common/Code/Runtime/CompatibilityApp/club/LegacyClubEntryController.ts",
-        "line": 191
-      },
-      {
-        "path": "assets/Common/Code/Runtime/CompatibilityApp/club/LegacyClubEntryController.ts",
-        "line": 198
-      },
-      {
-        "path": "assets/Common/Code/Runtime/CompatibilityApp/club/LegacyClubMainController.ts",
-        "line": 118
-      },
-      {
-        "path": "assets/Common/Code/Runtime/CompatibilityApp/club/LegacyClubMainController.ts",
-        "line": 128
-      },
-      {
-        "path": "assets/Common/Code/Runtime/CompatibilityApp/club/LegacyClubMainController.ts",
-        "line": 413
-      },
-      {
-        "path": "assets/Common/Code/Runtime/CompatibilityApp/club/LegacyClubMainController.ts",
-        "line": 435
-      },
-      {
-        "path": "assets/Common/Code/Runtime/CompatibilityApp/club/LegacyClubPlayerRecordController.ts",
-        "line": 24
-      },
-      {
-        "path": "assets/Common/Code/Runtime/CompatibilityApp/club/LegacyUnionManagerController.ts",
-        "line": 44
-      },
-      {
-        "path": "assets/Common/Code/Runtime/CompatibilityApp/club/LegacyUnionZhongzhiRankController.ts",
-        "line": 27
-      },
-      {
-        "path": "assets/Common/Code/Runtime/CompatibilityApp/config/LegacySystemDataService.ts",
-        "line": 72
-      },
-      {
-        "path": "assets/Common/Code/Runtime/CompatibilityApp/config/LegacySystemDataService.ts",
-        "line": 76
-      },
-      {
-        "path": "assets/Common/Code/Runtime/CompatibilityApp/core/LegacyAudioService.ts",
-        "line": 50
-      },
-      {
-        "path": "assets/Common/Code/Runtime/CompatibilityApp/hzmj/HzmjPlayView.ts",
-        "line": 141
-      },
-      {
-        "path": "assets/Common/Code/Runtime/CompatibilityApp/hzmj/HzmjPlayView.ts",
-        "line": 147
-      },
-      {
-        "path": "assets/Common/Code/Runtime/CompatibilityApp/hzmj/HzmjReplayController.ts",
-        "line": 227
-      },
-      {
-        "path": "assets/Common/Code/Runtime/CompatibilityApp/hzmj/HzmjReplayController.ts",
-        "line": 293
-      },
-      {
-        "path": "assets/Common/Code/Runtime/CompatibilityApp/hzmj/HzmjSceneBootstrap.ts",
-        "line": 75
-      },
-      {
-        "path": "assets/Common/Code/Runtime/CompatibilityApp/hzmj/HzmjTableController.ts",
-        "line": 181
-      },
-      {
-        "path": "assets/Common/Code/Runtime/CompatibilityApp/lobby/LegacyCreateRoomController.ts",
-        "line": 312
-      },
-      {
-        "path": "assets/Common/Code/Runtime/CompatibilityApp/lobby/LegacyGameCatalogController.ts",
-        "line": 177
-      },
-      {
-        "path": "assets/Common/Code/Runtime/CompatibilityApp/lobby/LegacyRegionController.ts",
-        "line": 346
-      },
-      {
-        "path": "assets/Common/Code/Runtime/CompatibilityApp/njpdk/LegacyNJPdkCardRenderer.ts",
-        "line": 52
-      },
-      {
         "path": "assets/Common/Code/Runtime/CompatibilityApp/platform/LegacySubgameBundleService.ts",
-        "line": 23
+        "line": 25
       },
       {
         "path": "assets/Common/Code/Runtime/CompatibilityApp/scjymj/ScjymjPlayView.ts",
@@ -490,86 +298,98 @@
         "line": 84
       },
       {
-        "path": "assets/Common/Code/Runtime/CompatibilityApp/ui/LegacyFormManager.ts",
-        "line": 649
-      },
-      {
-        "path": "assets/Common/Code/Runtime/CompatibilityApp/ui/LegacyPrefabRenderer.ts",
-        "line": 587
-      },
-      {
-        "path": "assets/Common/Code/Runtime/bootstrap/LoginScreenBootstrap.ts",
-        "line": 199
-      },
-      {
-        "path": "assets/Common/Code/Runtime/config/LegacySystemDataService.ts",
-        "line": 72
-      },
-      {
-        "path": "assets/Common/Code/Runtime/config/LegacySystemDataService.ts",
-        "line": 76
-      },
-      {
         "path": "assets/Common/Code/Runtime/core/LegacyAudioService.ts",
-        "line": 50
-      },
-      {
-        "path": "assets/Common/Code/Runtime/platform/LegacySubgameBundleService.ts",
-        "line": 23
+        "line": 83
       },
       {
         "path": "assets/Common/Code/Runtime/ui/LegacyFormManager.ts",
-        "line": 667
+        "line": 865
       },
       {
         "path": "assets/Common/Code/Runtime/ui/LegacyPrefabRenderer.ts",
-        "line": 587
-      }
-    ],
-    "websocket": [
-      {
-        "path": "assets/Common/Code/Runtime/CompatibilityApp/network/LegacyWebSocketClient.ts",
-        "line": 79
+        "line": 586
       },
       {
-        "path": "assets/Common/Code/Runtime/network/LegacyWebSocketClient.ts",
-        "line": 73
-      }
-    ],
-    "native": [
-      {
-        "path": "assets/Common/Code/Runtime/CompatibilityApp/platform/LegacyHotUpdateService.ts",
-        "line": 27
+        "path": "assets/Common/Code/UI/CommonHeadController.ts",
+        "line": 151
       },
       {
-        "path": "assets/Common/Code/Runtime/CompatibilityApp/platform/LegacyHotUpdateService.ts",
-        "line": 28
+        "path": "assets/Common/Code/UI/Infrastructure.ts",
+        "line": 35
       },
       {
-        "path": "assets/Common/Code/Runtime/CompatibilityApp/platform/LegacyHotUpdateService.ts",
-        "line": 29
-      },
-      {
-        "path": "assets/Common/Code/Runtime/platform/LegacyHotUpdateService.ts",
-        "line": 27
-      },
-      {
-        "path": "assets/Common/Code/Runtime/platform/LegacyHotUpdateService.ts",
-        "line": 28
-      },
-      {
-        "path": "assets/Common/Code/Runtime/platform/LegacyHotUpdateService.ts",
-        "line": 29
+        "path": "assets/Common/Code/UI/Infrastructure.ts",
+        "line": 49
       }
     ],
     "fetch": [
       {
-        "path": "assets/Common/Code/Runtime/network/ProtocolHttpClient.ts",
-        "line": 33
+        "path": "assets/Common/Code/Runtime/Activity/ProductionApiClient.ts",
+        "line": 101
+      },
+      {
+        "path": "assets/Common/Code/Runtime/Billing/PaymentGateway.ts",
+        "line": 8
+      },
+      {
+        "path": "assets/Common/Code/Runtime/DeepLink/InviteDeepLinkRuntime.ts",
+        "line": 3
+      },
+      {
+        "path": "assets/Common/Code/Runtime/Gifting/GiftingClient.ts",
+        "line": 19
+      },
+      {
+        "path": "assets/Common/Code/Runtime/Profile/ProfileMediaGateway.ts",
+        "line": 10
+      },
+      {
+        "path": "assets/Common/Code/Runtime/Spectator/SpectatorGateway.ts",
+        "line": 23
+      },
+      {
+        "path": "assets/Common/Code/Runtime/Voice/VoiceMediaClient.ts",
+        "line": 27
+      },
+      {
+        "path": "assets/Common/Code/Runtime/bootstrap/BootstrapGateway.ts",
+        "line": 15
       },
       {
         "path": "assets/Common/Code/Runtime/network/ProtocolHttpClient.ts",
-        "line": 58
+        "line": 23
+      },
+      {
+        "path": "assets/Common/Code/Runtime/network/ProtocolHttpClient.ts",
+        "line": 37
+      },
+      {
+        "path": "assets/Common/Code/Runtime/network/ProtocolHttpClient.ts",
+        "line": 74
+      },
+      {
+        "path": "assets/Common/Code/Runtime/network/ProtocolHttpClient.ts",
+        "line": 102
+      }
+    ],
+    "websocket": [
+      {
+        "path": "assets/Common/Code/Runtime/network/LegacyWebSocketClient.ts",
+        "line": 102
+      }
+    ],
+    "native": [
+      {
+        "path": "assets/Common/Code/Runtime/platform/LegacyHotUpdateService.ts",
+        "line": 27
+      },
+      {
+        "path": "assets/Common/Code/Runtime/platform/LegacyHotUpdateService.ts",
+        "line": 28
+      },
+      {
+        "path": "assets/Common/Code/Runtime/platform/LegacyHotUpdateService.ts",
+        "line": 29
       }
     ]
   },

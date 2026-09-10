@@ -127,11 +127,17 @@ public final class BootstrapAPP {
 
     static HttpServer startGifting() throws Exception {
         String url=required("gifting.database.url","GIFTING_DATABASE_URL","gifting"),user=required("gifting.database.user","GIFTING_DATABASE_USER","gifting"),password=value("gifting.database.password","GIFTING_DATABASE_PASSWORD","");
-        String auth=required("gifting.auth.hmac","GIFTING_AUTH_HMAC","gifting"),billingToken=required("billing.internal.token","BILLING_INTERNAL_TOKEN","gifting"),inventoryToken=required("inventory.auth.token","INVENTORY_AUTH_TOKEN","gifting");
+        String billingToken=required("billing.internal.token","BILLING_INTERNAL_TOKEN","gifting"),inventoryToken=required("inventory.auth.token","INVENTORY_AUTH_TOKEN","gifting");
         String billingUrl=value("billing.base.url","BILLING_BASE_URL","http://127.0.0.1:8095"),inventoryUrl=value("inventory.base.url","INVENTORY_BASE_URL","http://127.0.0.1:8096");int port=Integer.parseInt(value("gifting.http.port","GIFTING_HTTP_PORT","8101"));
         var source=new DriverManagerDataSource(url,user,password);try(var c=source.getConnection();var q=c.prepareStatement("SELECT 1 FROM gift_policy LIMIT 1")){q.executeQuery();}
         Clock clock=Clock.systemUTC();ObjectMapper json=new ObjectMapper().findAndRegisterModules();var repository=new JdbcGiftRepository(source,json,clock);var assets=new HttpAssetAuthority(java.net.URI.create(billingUrl),java.net.URI.create(inventoryUrl),billingToken,inventoryToken,json);var service=new GiftingService(repository,assets,new JdbcRiskAuthority(source,clock));
-        HttpServer server=HttpServer.create(new InetSocketAddress(port),128);new GiftingHttpRoutes(service,new PlayerAuthenticator(auth,clock),json).mount(server);server.setExecutor(java.util.concurrent.Executors.newVirtualThreadPerTaskExecutor());server.start();System.out.println("player gifting routes mounted by Bootstrap on "+port);return server;
+        var accounts=new JdbcAccountSessionService(source,clock);
+        GiftingRequestAuthenticator authenticator=(authorization,device,channel,version,ip)->{
+            if(authorization==null||!authorization.startsWith("Bearer ")||authorization.length()<=7)throw new SecurityException("bearer access token required");
+            try{return accounts.authorize(authorization.substring(7),new JdbcAccountSessionService.Client(device,channel,version,ip)).accountId();}
+            catch(JdbcAccountSessionService.Unauthorized|JdbcAccountSessionService.Forbidden rejected){throw new SecurityException(rejected.getMessage());}
+        };
+        HttpServer server=HttpServer.create(new InetSocketAddress(port),128);new GiftingHttpRoutes(service,authenticator,json).mount(server);server.setExecutor(java.util.concurrent.Executors.newVirtualThreadPerTaskExecutor());server.start();System.out.println("player gifting routes mounted by Bootstrap on "+port);return server;
     }
 
     static HttpServer startLuckDraw() throws Exception {
@@ -317,7 +323,7 @@ public final class BootstrapAPP {
         var sagaBilling=new JdbcRoomSagaBillingPort(source,new DistributedIdGenerator(Long.parseLong(value("hall.billing.node.id","HALL_BILLING_NODE_ID","38")),hallClock),hallClock);
         var saga=new com.aoo.bcg.hall.room.RoomCreateSaga(sagaStore,sagaBilling,new com.aoo.bcg.hall.room.RoomCreateSaga.RoomPort(){public void register(com.aoo.bcg.hall.room.RoomCreateSaga.Command c){hallRepository.registerRoom(c);}public Map<String,Object>confirm(com.aoo.bcg.hall.room.RoomCreateSaga.Command c,long v){return hallRepository.confirmRoom(c.accountId(),c.roomId());}public void remove(com.aoo.bcg.hall.room.RoomCreateSaga.Command c){hallRepository.compensateCreate(c.accountId(),c.requestId(),c.roomId());}},roomAuthority);
         new com.aoo.bcg.hall.room.RoomCreateRecoveryService(saga,32).start(java.time.Duration.ofSeconds(5));
-        HallHttpRoutes.mount(server,hallRepository,new HallRequestAuthenticator(source,Clock.systemUTC()),json,saga,new core.replay.RecordReplayQueryService(source,json),required("hall.internal.token","HALL_INTERNAL_TOKEN","hall"));
+        HallHttpRoutes.mount(server,hallRepository,new HallRequestAuthenticator(source,Clock.systemUTC()),json,saga,new core.replay.RecordReplayQueryService(source,json),new core.replay.ReplayCodeService(new core.replay.JdbcReplayCodeRepository(source)),required("hall.internal.token","HALL_INTERNAL_TOKEN","hall"));
         String inviteKey=required("invite.signing.key","INVITE_SIGNING_KEY","hall");
         String referralUrl=required("invite.referral.url","INVITE_REFERRAL_URL","hall"),referralToken=required("invite.referral.token","INVITE_REFERRAL_TOKEN","hall");
         new InviteLinkHttpRoutes(new JdbcInviteLinkRepository(source,Clock.systemUTC()),new InviteLinkSigner(inviteKey),new InviteAccountAuthenticator(secret,Clock.systemUTC()),new HttpInviteRewardPort(java.net.URI.create(referralUrl),referralToken,json),json).mount(server);
@@ -406,7 +412,8 @@ public final class BootstrapAPP {
                 ServiceReadinessGate.check("gameProviderDiscovery",
                         () -> ServiceLoader.load(GameProvider.class).forEach(provider -> {
                             if (!com.aoo.bcg.mahjong.MahjongCatalogRuntimeRegistry.isInternalRuntimeProvider(provider))
-                                registry.register(provider);
+                                if (!provider.getClass().getName().equals("business.global.pk.njpdk.NJPDKGameProvider"))
+                                    registry.register(provider);
                         })),
                 ServiceReadinessGate.check("gameCatalogIndex", () -> {
                     GameCatalogLoader.registerMissing(registry);

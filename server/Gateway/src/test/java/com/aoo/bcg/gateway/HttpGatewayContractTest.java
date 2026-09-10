@@ -37,6 +37,8 @@ class HttpGatewayContractTest {
         assertTrue(HttpRoutePolicy.isProductionRoute("/api/v2/mail"));
         assertTrue(HttpRoutePolicy.isProductionRoute("/api/v2/notices"));
         assertTrue(HttpRoutePolicy.isProductionRoute("/api/v2/red-dots"));
+        assertTrue(HttpRoutePolicy.isProductionRoute("/api/v2/gifts"));
+        assertTrue(HttpRoutePolicy.isProductionRoute("/api/v2/gifts/inbox"));
         assertFalse(HttpRoutePolicy.isProductionRoute("/api/v2/gateway/ws/duplicate"));
         assertFalse(HttpRoutePolicy.isProductionRoute("/api/v2/history"));
     }
@@ -59,12 +61,15 @@ class HttpGatewayContractTest {
         }
     }
 
-    @Test void browserCorsAndProxyPreserveTheCompletePlayerIdentityHeaders() {
+    @Test void browserCorsAndProxyPreserveTheCompletePlayerIdentityHeaders() throws Exception {
         assertTrue(GatewayApplication.CORS_ALLOW_HEADERS.contains("X-Player-Id"));
         assertTrue(GatewayApplication.CORS_ALLOW_HEADERS.contains("X-Aoo-Api-Version"));
         assertTrue(GatewayApplication.CORS_ALLOW_HEADERS.contains("Idempotency-Key"));
         assertTrue(GatewayApplication.PROXY_IDENTITY_HEADERS.contains("X-Player-Id"));
         assertTrue(GatewayApplication.PROXY_IDENTITY_HEADERS.contains("Authorization"));
         assertTrue(GatewayApplication.PROXY_IDENTITY_HEADERS.contains("Idempotency-Key"));
+        assertTrue(java.nio.file.Files.readString(java.nio.file.Path.of("src/main/java/com/aoo/bcg/gateway/GatewayApplication.java"))
+                .contains("jdk.httpclient.keepalive.timeout"));
     }
+
 }

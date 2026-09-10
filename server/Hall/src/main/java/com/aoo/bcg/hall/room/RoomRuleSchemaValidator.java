@@ -6,6 +6,7 @@ import java.util.*;
 
 /** Validates room rules against the immutable UI schema locked by the active release. */
 final class RoomRuleSchemaValidator {
+    private static final String BASE_SCORE = "baseScore";
     private RoomRuleSchemaValidator() {}
 
     static Map<String,Object> validate(Object schema,Object submitted) {
@@ -17,6 +18,7 @@ final class RoomRuleSchemaValidator {
         Map<String,Object> normalized=new LinkedHashMap<>();
         for(Object rawKey:input.keySet()){
             String key=String.valueOf(rawKey);
+            if(BASE_SCORE.equals(key))continue;
             if(!fields.containsKey(key))throw HallError.bad("HALL_RULE_UNKNOWN_FIELD","unsupported room rule: "+key);
         }
         for(Map.Entry<String,Map<String,Object>> entry:fields.entrySet()){
@@ -24,6 +26,8 @@ final class RoomRuleSchemaValidator {
             // 禁用字段代表当前发布版本没有开放该能力；客户端即使伪造请求也必须拒绝。
             if(Boolean.TRUE.equals(field.get("disabled"))){
                 if(input.containsKey(key))throw HallError.bad("HALL_RULE_DISABLED","disabled room rule: "+key);
+                Object defaultValue=field.get("defaultValue");
+                if(defaultValue!=null)normalized.put(key,defaultValue);
                 continue;
             }
             Object value=input.containsKey(key)?input.get(key):field.get("defaultValue");
@@ -44,6 +48,10 @@ final class RoomRuleSchemaValidator {
             }
             normalized.put(key,value);
         }
+        // 底分是所有玩法共用的房间协议字段，不属于地区规则表；缺省值固定为 1。
+        Object baseScore=input.containsKey(BASE_SCORE)?input.get(BASE_SCORE):1;
+        positiveInteger(BASE_SCORE,baseScore);
+        normalized.put(BASE_SCORE,baseScore);
         constraints(schema, normalized);
         return Map.copyOf(normalized);
     }
@@ -94,6 +102,15 @@ final class RoomRuleSchemaValidator {
                     || number.subtract(min).remainder(step).compareTo(BigDecimal.ZERO)!=0)
                 throw HallError.bad("HALL_RULE_VALUE_INVALID","invalid value for "+key);
         }catch(NumberFormatException|ArithmeticException error){
+            throw HallError.bad("HALL_RULE_VALUE_INVALID","invalid value for "+key);
+        }
+    }
+    private static void positiveInteger(String key,Object value){
+        try{
+            BigDecimal number=new BigDecimal(String.valueOf(value));
+            if(number.stripTrailingZeros().scale()>0||number.compareTo(BigDecimal.ONE)<0||number.compareTo(BigDecimal.valueOf(Integer.MAX_VALUE))>0)
+                throw HallError.bad("HALL_RULE_VALUE_INVALID","invalid value for "+key);
+        }catch(NumberFormatException error){
             throw HallError.bad("HALL_RULE_VALUE_INVALID","invalid value for "+key);
         }
     }

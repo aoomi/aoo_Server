@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "plays": [
+    {
+      "workbook": "成都跑得快.xlsx",
+      "sourceIdentity": ["四川", "成都", "跑得快", "成都跑得快"],
+      "gameId": 8,
+      "gameCode": "CD201",
+      "playVersion": "1.0.0",
+      "family": "poker:pao-de-kuai",
+      "regionCode": "CN-51-01",
+      "requiredRoomRuleFields": [
+        {"key": "playerCount", "sourceLabel": "人数"},
+        {"key": "roundCount", "sourceLabel": "局数"}
+      ]
+    },
+    {
+      "workbook": "内江跑得快.xlsx",
+      "sourceIdentity": ["四川", "内江", "跑得快", "内江跑得快"],
+      "gameId": 629,
+      "gameCode": "NJ201",
+      "playVersion": "legacy-equivalent-1",
+      "family": "poker:pao-de-kuai",
+      "regionCode": "CN-51-10",
+      "requiredRoomRuleFields": [
+        {"key": "playerCount", "sourceLabel": "人数"},
+        {"key": "roundCount", "sourceLabel": "局数"}
+      ]
+    },
+    {
+      "workbook": "凉山跑得快.xlsx",
+      "sourceIdentity": ["四川", "凉山", "跑得快", "凉山跑得快"],
+      "gameId": 90005,
+      "gameCode": "LS201",
+      "playVersion": "xqp-equivalent-1",
+      "family": "poker:pao-de-kuai",
+      "regionCode": "CN-51-34",
+      "requiredRoomRuleFields": [
+        {"key": "playerCount", "sourceLabel": "人数"},
+        {"key": "roundCount", "sourceLabel": "局数"}
+      ]
+    }
+  ]
+}

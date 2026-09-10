@@ -12,11 +12,12 @@ publisher = File.read(File.join(root, 'tools/room-rules-publisher.rb'))
 service = File.read(File.join(root, 'tools/local-dev-services.sh'))
 publish = File.read(File.join(root, 'tools/publish-room-rules.sh'))
 client_gitignore = File.read(File.join(project_root, 'Client/.gitignore'), encoding: 'UTF-8')
-official_workbook = '开房规则表/跑得快/成都跑得快开房规则表.xlsx'
+official_workbook = 'Client/docs/开房规则表/跑得快/成都跑得快.xlsx'
 stale_workbook = ['玩法文档', '跑得快', '成都跑得快开房规则表.xlsx'].join('/')
 
 checks = {
-  'watcher uses current official Chengdu workbook path' => watcher.include?(official_workbook),
+  'watcher discovers registered regional workbooks only' => watcher.include?("Client/docs/开房规则表/跑得快") &&
+    watcher.include?('room-rule-play-identities.json') && watcher.include?("play.fetch('workbook')"),
   'publisher uses current official Chengdu workbook path' => publisher.include?(official_workbook),
   'stale Chengdu workbook path is not accepted by tools' => ![watcher, publisher, service, publish].any? { |content| content.include?(stale_workbook) },
   'formal watcher rejects workbook path overrides outside tests' => watcher.include?('AOO_ROOM_RULE_TEST_MODE') &&
@@ -34,8 +35,12 @@ checks = {
   'watcher is idempotent by confirmed source hash' => watcher.include?("snapshot['sourceHash'] != last_confirmed_hash"),
   'watcher retries generated but unconfirmed publications' => watcher.include?("snapshot['sourceHash'] != last_confirmed_hash"),
   'publisher writes generated output atomically' => publisher.include?('File.rename(temporary, OUTPUT)'),
-  'publisher locates the unique seven-column header' => publisher.include?('header_lines.length == 1'),
-  'publisher binds Chengdu rules only to game 8' => publisher.include?("'gameId'=>8") && !publisher.include?("'gameId'=>629"),
+  'publisher locates the unique current six-column header' => publisher.include?('一组六列表头') &&
+    publisher.include?('托管次数') && publisher.include?('是否显示'),
+  'publisher allocates persistent keys without rule-name code maps' => publisher.include?('AOO_ROOM_RULE_REGISTRY') &&
+    publisher.include?('allocate_field_key!') && !publisher.include?('FIELD_KEYS_BY_CODE') &&
+    !publisher.include?('FIELD_LABEL_ALIASES') && !publisher.include?('PLAY_IDENTITIES') &&
+    publisher.include?('AOO_ROOM_RULE_IDENTITY_REGISTRY'),
   'local lifecycle starts supervised watcher' => service.include?('start_rule_watcher') && service.include?('<key>KeepAlive</key><true/>'),
   'supervised watcher refreshes its pid on every launch' => service.include?('echo $$ > %q'),
   'production remains an explicit release action' => File.read(File.join(root, 'tools/publish-room-rules.sh')).include?('生产发布必须显式指定'),
@@ -50,7 +55,7 @@ Dir.mktmpdir('aoo-room-rule-watcher-test') do |directory|
   generated = File.join(directory, 'generated.json')
   state = File.join(directory, 'state.json')
   fake_publisher = File.join(directory, 'publish.sh')
-  source = File.expand_path('../开房规则表/跑得快/成都跑得快开房规则表.xlsx', root)
+  source = File.expand_path('../Client/docs/开房规则表/跑得快/成都跑得快.xlsx', root)
   FileUtils.cp(source, workbook)
   expected_hash = Digest::SHA256.file(workbook).hexdigest
   File.write(fake_publisher, <<~SH)

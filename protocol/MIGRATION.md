@@ -12,7 +12,7 @@
 | 协议发布说明 | `Server/protocol/README.md` |
 | 服务端运行时 | `Server/server/common/src/com/ddm/server/protocol/v2` |
 | 客户端运行时 | `Client/assets/Common/Code/Runtime/network` |
-| 人读规范 | `Client/docs/前后端通信文档.md` |
+| 人读规范 | `Client/docs/前端框架规范/架构设计/前后端通信规范.md` |
 
 ## 强制依赖方向
 

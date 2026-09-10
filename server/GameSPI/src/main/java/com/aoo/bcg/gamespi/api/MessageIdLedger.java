@@ -8,7 +8,7 @@ public final class MessageIdLedger {
     public enum State { ACTIVE, RETIRED }
     public record Entry(String messageId,String ownerModule,SemanticVersion introducedVersion,State state,SemanticVersion retiredVersion){
         public Entry{
-            if(messageId==null||!messageId.matches("[a-z][a-z0-9_-]*(?:\\.[a-z][a-z0-9_-]*)+_(?:req|resp|push)")
+            if(messageId==null||!messageId.matches("[a-z][a-z0-9_-]*(?:\\.(?:[a-z][a-z0-9_-]*|[A-Z]{2}[1-5][0-9]{2}))+_(?:req|resp|push)")
                     ||ownerModule==null||ownerModule.isBlank()||introducedVersion==null||state==null
                     ||(state==State.RETIRED&&retiredVersion==null)||(state==State.ACTIVE&&retiredVersion!=null))throw new IllegalArgumentException("invalid message-id ledger entry");
         }

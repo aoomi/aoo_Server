@@ -15,8 +15,9 @@ public final class PokerAuthoritativeSession
         ParticipantPresenceAuthority,
         RoomAdmissionAuthority {
   private static final Map<String, Boolean> DEFAULT_UI_CAPABILITIES =
-      Map.of("addDouble", false, "robDoor", false, "openCard", false);
+      Map.of("addDouble", false, "robDoor", false, "openCard", false, "manualStart", false);
   private static final Duration DISSOLVE_VOTE_TIMEOUT = Duration.ofSeconds(120);
+  private static final Duration FLOATING_SETTLEMENT_NEXT_ROUND_DELAY = Duration.ofSeconds(2);
   private final long roomId, seed;
   private long ownerId;
   private final int seatLimit, roundLimit;
@@ -41,6 +42,7 @@ public final class PokerAuthoritativeSession
   private final List<Object> events = new ArrayList<>();
   private final List<CardCombination> playedCards = new ArrayList<>();
   private final List<Map<String, Object>> playHistory = new ArrayList<>();
+  private final List<Integer> undealtCards = new ArrayList<>();
   private Integer activeRequiredFirstCard;
   private int initialLeadSeat = -1,
       bankerSeat = -1,
@@ -49,10 +51,12 @@ public final class PokerAuthoritativeSession
       competeDealerSeat = -1,
       competeCursor = -1,
       roundNo;
-  private boolean roundScored, competeDealerPhase;
+  private boolean roundScored, competeDealerPhase, automaticNextRoundCancelled;
   private PokerTurnState state;
   private final AuthoritativeTimeSource time = AuthoritativeTimeSource.systemUtc();
   private OperationDeadline deadline = OperationDeadline.none();
+  private OperationDeadline nextRoundDeadline = OperationDeadline.none();
+  private long nextRoundDeadlineStateVersion = -1;
   private final OperationDeadlineArbiter arbiter = new OperationDeadlineArbiter();
   private final Map<Integer, Integer> winCounts = new LinkedHashMap<>(),
       loseCounts = new LinkedHashMap<>();
@@ -212,23 +216,62 @@ public final class PokerAuthoritativeSession
                   Integer.parseInt(String.valueOf(seat)), new ArrayList<>(numbers(cards))));
     if (s.get("state") instanceof Map<?, ?> m) x.state = restoreState(m);
     else if (s.get("state") instanceof PokerTurnState p) x.state = p;
+    if (s.get("undealtCards") instanceof Collection<?> cards)
+      x.undealtCards.addAll(cardList(cards));
+    else if (x.state != null) {
+      // Legacy snapshots did not persist the stock. Reconstruct only from authoritative
+      // zones; new snapshots always store it explicitly and are checked as a full deck.
+      x.undealtCards.addAll(family.profile().deck());
+      x.state.hands().values().forEach(hand -> hand.forEach(card -> x.undealtCards.remove(card)));
+      x.playedCardsBySeat.values().forEach(cards -> cards.forEach(card -> x.undealtCards.remove(card)));
+    }
     x.roundNo = s.get("roundNo") instanceof Number n ? n.intValue() : (x.state == null ? 0 : 1);
     x.roundScored = bool(s.getOrDefault("roundScored", x.state != null && x.state.finished()));
+    x.automaticNextRoundCancelled = bool(s.getOrDefault("automaticNextRoundCancelled", false));
     x.deadline = OperationDeadline.from(s.get("operationDeadline"));
+    x.nextRoundDeadline = OperationDeadline.from(s.get("nextRoundDeadline"));
+    x.nextRoundDeadlineStateVersion =
+        s.get("nextRoundDeadlineStateVersion") instanceof Number n ? n.longValue() : -1;
     x.dissolved = bool(s.getOrDefault("dissolved", false));
     x.dissolveReason = String.valueOf(s.getOrDefault("dissolveReason", ""));
     if (s.get("dissolveVote") instanceof Map<?, ?> m)
       x.dissolveVote = DissolveVoteState.from(stringMap(m));
+    x.deadline = migrateLegacyContinueOperationDeadline(x.deadline, x.state, x.roundNo, x.stateVersion);
     return com.aoo.bcg.gamespi.fsm.RestoredAuthorityValidator.requireConsistent(x);
+  }
+
+  /**
+   * Releases made before the continuation boundary fix persisted the newly dealt round with the
+   * triggering command suffix.  Only this exact, self-describing legacy shape is rewritten; the
+   * seat and expiry remain authoritative and no unrelated operation id is interpreted.
+   */
+  private static OperationDeadline migrateLegacyContinueOperationDeadline(
+      OperationDeadline deadline, PokerTurnState state, int roundNo, long stateVersion) {
+    String legacy = roundNo + "-" + stateVersion + "-continue";
+    if (!deadline.open() || state == null || state.finished() || !legacy.equals(deadline.operationId()))
+      return deadline;
+    return new OperationDeadline(
+        roundNo + "-" + stateVersion + "-play", deadline.seatId(), deadline.deadline());
   }
 
   @Override
   public synchronized GameCommandResult execute(GameCommandRequest r) {
     long player = player(r.authenticatedUserId());
     String op = operation(r);
-    if (dissolved && !op.equals("state")) throw new IllegalStateException("room is dissolved");
+    if (dissolved) {
+      // Gateway request-id replay covers the normal retry.  This additionally makes a
+      // separately delivered duplicate approval harmless after the room reached its terminal
+      // snapshot, which is important when the final two vote frames race on different links.
+      if (op.equals("state")
+          || (op.equals("dissolve_agree")
+              && dissolveVote != null
+              && Boolean.TRUE.equals(dissolveVote.votes().get(player))))
+        return new GameCommandResult(r.msgId().replace("_req", "_resp"), r.requestId(), viewFor(player));
+      throw new IllegalStateException("room is dissolved");
+    }
     Map<String, Object> body;
     boolean changed = !op.equals("state") && !op.equals("hint");
+    boolean startedRoundByContinue = false;
     switch (op) {
       case "join" -> {
         Long seatPlayer = players.get(r.seatId()), observer = observers.get(r.seatId());
@@ -348,6 +391,7 @@ public final class PokerAuthoritativeSession
         }
         else lastActions.put(r.seatId(), lastAction(r.seatId(), "pass", List.of(), "PASS", r.requestId()));
         resetHosting(r.seatId());
+        skipUnbeatableSeats();
         body = viewFor(player);
       }
       case "compete_dealer", "rob_dealer" -> {
@@ -384,13 +428,19 @@ public final class PokerAuthoritativeSession
             bombs.computeIfPresent(previousSeat, (seat, count) -> Math.max(0, count - 1));
         }
         resetHosting(r.seatId());
-        if (state.finished()) completeRound();
+        if (endsRobberSpringRound(r.seatId())) completeRobberSpringRound(r.seatId());
+        else {
+          skipUnbeatableSeats();
+          if (state.finished()) completeRound();
+        }
         body = viewFor(player);
       }
       case "continue" -> {
         own(player, r.seatId());
         if (!roundFinished()) throw new IllegalStateException("round not finished");
         if (roundNo >= roundLimit) throw new IllegalStateException("match already finished");
+        if (usesAutomaticNextRound())
+          throw new IllegalStateException("floating settlement advances by authoritative timer");
         continueSeats.add(r.seatId());
         if (continueSeats.containsAll(players.keySet())) {
           previousWinnerSeat = winnerSeat();
@@ -398,6 +448,7 @@ public final class PokerAuthoritativeSession
           readySeats.clear();
           readySeats.addAll(players.keySet());
           start();
+          startedRoundByContinue = true;
         }
         body = viewFor(player);
       }
@@ -453,12 +504,36 @@ public final class PokerAuthoritativeSession
           throw new SecurityException("interaction disabled by room rule");
         body = Map.of("accepted", true);
       }
+      case "quick_text" -> {
+        own(player, r.seatId());
+        if (!family.rules().config().advancedRules().governance().textChatEnabled())
+          throw new SecurityException("text chat disabled by room rule");
+        CommandPayload command = commandBody(r);
+        int quickId = num(command.getOrDefault("quickId", 0));
+        if (quickId < 0 || quickId > 9999) throw new IllegalArgumentException("quickId out of range");
+        String content = String.valueOf(command.getOrDefault("content", "")).trim();
+        if (content.length() > 80) throw new IllegalArgumentException("content has invalid length");
+        changed = false;
+        body = Map.of(
+            "messageId", r.requestId(),
+            "requestId", r.requestId(),
+            "serverSeq", r.sequence(),
+            "seatId", r.seatId(),
+            "sourceSeatId", r.seatId(),
+            "senderPid", player,
+            "quickId", quickId,
+            "content", content);
+      }
       default -> throw new IllegalArgumentException("unsupported poker command: " + r.msgId());
     }
     if (changed) {
       stateVersion = Math.addExact(stateVersion, 1);
-      if (state != null && !roundFinished()) openDeadline(op);
-      if (roundFinished()) deadline = OperationDeadline.none();
+      if (!dissolved && state != null && !roundFinished())
+        openDeadline(startedRoundByContinue ? "play" : op);
+      if (!dissolved && roundFinished()) {
+        deadline = OperationDeadline.none();
+        armAutomaticNextRound();
+      }
       body = viewFor(player);
       events.add(Map.of("version", stateVersion, "after", authoritativeState()));
     } else if (roundFinished()) deadline = OperationDeadline.none();
@@ -490,6 +565,7 @@ public final class PokerAuthoritativeSession
     lastActions.clear();
     trickId = Math.addExact(trickId, 1);
     continueSeats.clear();
+    clearAutomaticNextRound();
     competeRespondedSeats.clear();
     directWinnerSeat = -1;
     jinHuaWinnerSeat = -1;
@@ -505,12 +581,15 @@ public final class PokerAuthoritativeSession
       initialPatternCounts.put(
           seat, PdkInitialHandEvaluator.patterns(hands.get(seat), family.rules().config()).size());
     }
+    undealtCards.clear();
+    undealtCards.addAll(deck);
     int nextRound = roundNo + 1;
     bankerSeat = resolveBanker(p, hands, nextRound);
     initialLeadSeat = bankerSeat;
     activeRequiredFirstCard = resolveRequiredFirstCard(hands, nextRound);
     roundNo = Math.addExact(roundNo, 1);
     roundScored = false;
+    automaticNextRoundCancelled = false;
     continueSeats.clear();
     state = new PokerTurnState(hands, bankerSeat, null, -1, Set.of(), false, -1);
     PdkAdvancedRules advanced = family.rules().config().advancedRules();
@@ -579,16 +658,12 @@ public final class PokerAuthoritativeSession
   }
 
   private int minimumCardHolder(Map<Integer, List<Integer>> hands) {
+    Comparator<Integer> cardOrder = Comparator.comparingInt(
+            (Integer card) -> StandardPokerRuleSet.rank(card))
+        .thenComparingInt(Integer::intValue);
     return hands.entrySet().stream()
-        .min(
-            Comparator.comparingInt(
-                entry ->
-                    entry.getValue().stream()
-                        .min(
-                            Comparator.comparingInt(
-                                    (Integer card) -> StandardPokerRuleSet.rank(card))
-                                .thenComparingInt(Integer::intValue))
-                        .orElseThrow()))
+        .min(Comparator.comparing(
+            entry -> entry.getValue().stream().min(cardOrder).orElseThrow(), cardOrder))
         .map(Map.Entry::getKey)
         .orElseThrow();
   }
@@ -664,7 +739,49 @@ public final class PokerAuthoritativeSession
     }
     boolean first = plays.values().stream().mapToInt(Integer::intValue).sum() == 0;
     return new PaoDeKuaiContext(
-        first, count, state.hands().get(r.seatId()), activeRequiredFirstCard, true);
+        first, count, state.hands().get(r.seatId()), activeRequiredFirstCard, true,
+        state.previous() != null || r.seatId() == competeDealerSeat);
+  }
+
+  private PaoDeKuaiContext automaticContext(int seat) {
+    List<Integer> seats = state.hands().keySet().stream().sorted().toList();
+    int next = seats.get((seats.indexOf(seat) + 1) % seats.size()), attempts = 0;
+    while (state.passed().contains(next) && attempts++ < seats.size())
+      next = seats.get((seats.indexOf(next) + 1) % seats.size());
+    if (attempts >= seats.size() || state.passed().contains(next))
+      throw new IllegalStateException("no active next seat");
+    boolean first = plays.values().stream().mapToInt(Integer::intValue).sum() == 0;
+    return new PaoDeKuaiContext(
+        first,
+        state.hands().get(next).size(),
+        state.hands().get(seat),
+        activeRequiredFirstCard,
+        true,
+        state.previous() != null || seat == competeDealerSeat);
+  }
+
+  private void skipUnbeatableSeats() {
+    PokerCoreEngine<Void> core = new PokerCoreEngine<>();
+    while (!state.finished() && state.previous() != null) {
+      int seat = state.currentSeat();
+      if (!family.rules().hints(state.hands().get(seat), state.previous(), automaticContext(seat)).isEmpty())
+        return;
+      state = core.pass(state, seat);
+      resetHosting(seat);
+      if (state.previous() == null) {
+        lastActions.clear();
+        trickId = Math.addExact(trickId, 1);
+      } else {
+        lastActions.put(
+            seat,
+            lastAction(
+                seat,
+                "pass",
+                List.of(),
+                "PASS",
+                "auto-pass-" + (stateVersion + 1) + "-" + seat));
+      }
+    }
   }
 
   @Override
@@ -690,10 +807,13 @@ public final class PokerAuthoritativeSession
     o.put("stateVersion", stateVersion);
     o.put("capabilities", DEFAULT_UI_CAPABILITIES);
     o.put(
-        "ruleOptions", PdkPublishedRuleOptions.snapshot(family.rules().config(), family.profile()));
+        "ruleOptions", PdkPublishedRuleOptions.snapshot(family.rules().config(), family.profile(),
+            family.allowPassByRoomRule()));
     o.put(
         "phase",
-        state == null
+        dissolved
+            ? "DISSOLVED"
+            : state == null
             ? "WAITING"
             : directWinnerSeat >= 0
                 ? "DIRECT_WIN"
@@ -701,6 +821,7 @@ public final class PokerAuthoritativeSession
                     ? "COMPETE_DEALER"
                     : state.finished() ? "FINISHED" : "PLAYING");
     o.put("started", state != null);
+    o.put("cardsDealt", state != null && !competeDealerPhase);
     o.put("currentSeat", currentSeat());
     o.put("currentPlayerId", players.getOrDefault(currentSeat(), 0L));
     o.put("finished", roundFinished());
@@ -708,6 +829,8 @@ public final class PokerAuthoritativeSession
     o.put("canContinue", roundFinished() && !matchFinished);
     o.put("winnerSeat", winnerSeat());
     o.put("bankerSeat", bankerSeat);
+    if (activeRequiredFirstCard != null)
+      o.put("activeRequiredFirstCard", activeRequiredFirstCard);
     o.put("competeDealerSeat", competeDealerSeat);
     o.put("seats", Map.copyOf(seats));
     o.put("observers", Map.copyOf(observers));
@@ -725,6 +848,8 @@ public final class PokerAuthoritativeSession
                 ? List.of()
                 : List.of(playedCards.get(playedCards.size() - 1)));
     o.put("playedCards", visiblePlays);
+    o.put("playHistory", roundFinished() ? List.copyOf(playHistory) : List.of());
+    o.put("stockCount", undealtCards.size());
     o.put("lastActions", List.copyOf(lastActions.values()));
     o.put("trickId", trickId);
     o.put("trickReset", state != null && state.previous() == null);
@@ -742,6 +867,7 @@ public final class PokerAuthoritativeSession
               state.previous().cards()));
     else o.put("currentTrick", Map.of());
     o.put("operationDeadline", deadline.toMap());
+    o.put("nextRoundDeadline", nextRoundDeadline.toMap());
     o.put("serverEpochMillis", time.epochMillis());
     o.put("dissolved", dissolved);
     o.put("dissolveReason", dissolveReason);
@@ -771,7 +897,11 @@ public final class PokerAuthoritativeSession
     view.put("remainingCards", roundFinished() ? List.copyOf(cards) : List.of());
     view.put(
         "playedCards",
-        roundFinished() ? List.copyOf(playedCardsBySeat.getOrDefault(seat, List.of())) : List.of());
+        roundFinished()
+                || family.rules().config().playedCardVisibility()
+                    == PaoDeKuaiConfig.PlayedCardVisibility.ALL_IN_ORDER
+            ? List.copyOf(playedCardsBySeat.getOrDefault(seat, List.of()))
+            : List.of());
     view.put("cardCount", cards.size());
     view.put("roundScore", roundScores.getOrDefault(playerId, 0L));
     view.put("totalScore", totalScores.getOrDefault(seat, 0L));
@@ -812,13 +942,16 @@ public final class PokerAuthoritativeSession
     o.put("offlineSinceEpochMillis", Map.copyOf(offlineSinceEpochMillis));
     o.put("admissions", admissionSnapshot());
     o.put("roundScored", roundScored);
+    o.put("automaticNextRoundCancelled", automaticNextRoundCancelled);
     o.put("ruleVersion", family.profile().version());
     o.put("ruleSnapshotKey", family.ruleSnapshotKey());
     o.put("variantPolicyId", policy.policyId());
     o.put(
         "pdkRuleOptions",
-        PdkPublishedRuleOptions.snapshot(family.rules().config(), family.profile()));
+        PdkPublishedRuleOptions.snapshot(family.rules().config(), family.profile(),
+            family.allowPassByRoomRule()));
     o.put("playedCards", List.copyOf(playedCards));
+    o.put("undealtCards", List.copyOf(undealtCards));
     o.put("lastActions", new LinkedHashMap<>(lastActions));
     o.put("trickId", trickId);
     o.put("uiCapabilities", DEFAULT_UI_CAPABILITIES);
@@ -833,6 +966,8 @@ public final class PokerAuthoritativeSession
     o.put("competeDealerPhase", competeDealerPhase);
     o.put("state", state == null ? "WAITING" : state);
     o.put("operationDeadline", deadline.toMap());
+    o.put("nextRoundDeadline", nextRoundDeadline.toMap());
+    o.put("nextRoundDeadlineStateVersion", nextRoundDeadlineStateVersion);
     o.put("stateVersion", stateVersion);
     o.put("dissolved", dissolved);
     o.put("dissolveReason", dissolveReason);
@@ -944,12 +1079,55 @@ public final class PokerAuthoritativeSession
   }
 
   private void openDeadline(String operation) {
+        int timeoutSeconds = family.rules().config().advancedRules().operationTimeoutSeconds();
     deadline =
         OperationDeadline.open(
             roundNo + "-" + stateVersion + "-" + operation,
             currentSeat(),
-            Duration.ofSeconds(family.rules().config().advancedRules().operationTimeoutSeconds()),
+            Duration.ofSeconds(timeoutSeconds),
             time);
+  }
+
+  private boolean usesAutomaticNextRound() {
+    return family.rules().config().advancedRules().governance().settlementPresentation()
+        == PdkAdvancedRules.SettlementPresentation.FLOATING;
+  }
+
+  private void armAutomaticNextRound() {
+    if (!usesAutomaticNextRound()
+        || automaticNextRoundCancelled
+        || dissolved
+        || roundNo >= roundLimit) {
+      clearAutomaticNextRound();
+      return;
+    }
+    nextRoundDeadline =
+        OperationDeadline.open(
+            "pdk-next-round-" + roundNo + "-" + stateVersion,
+            winnerSeat(),
+            FLOATING_SETTLEMENT_NEXT_ROUND_DELAY,
+            time);
+    nextRoundDeadlineStateVersion = stateVersion;
+  }
+
+  private void clearAutomaticNextRound() {
+    nextRoundDeadline = OperationDeadline.none();
+    nextRoundDeadlineStateVersion = -1;
+  }
+
+  private void startAutomaticNextRound(OperationDeadline expected) {
+    if (!expected.equals(nextRoundDeadline)
+        || stateVersion != nextRoundDeadlineStateVersion
+        || !roundFinished()
+        || roundNo >= roundLimit
+        || dissolved
+        || !usesAutomaticNextRound()) return;
+    previousWinnerSeat = winnerSeat();
+    state = null;
+    readySeats.clear();
+    readySeats.addAll(players.keySet());
+    clearAutomaticNextRound();
+    start();
   }
 
   @Override
@@ -966,6 +1144,18 @@ public final class PokerAuthoritativeSession
   public synchronized List<String> invariantViolations() {
     List<String> e = new ArrayList<>();
     if (roundLimit <= 0 || roundNo < 0 || roundNo > roundLimit) e.add("INVALID_ROUND_LIMIT");
+    if (dissolved && (deadline.open() || nextRoundDeadline.open()))
+      e.add("DISSOLVED_ROOM_REQUIRES_CLOSED_DEADLINES");
+    if (nextRoundDeadline.open()
+        && (!roundFinished()
+            || roundNo >= roundLimit
+            || !usesAutomaticNextRound()
+            || automaticNextRoundCancelled
+            || dissolved
+            || nextRoundDeadlineStateVersion != stateVersion))
+      e.add("INVALID_NEXT_ROUND_DEADLINE");
+    if (!nextRoundDeadline.open() && nextRoundDeadlineStateVersion != -1)
+      e.add("INVALID_NEXT_ROUND_DEADLINE_VERSION");
     if (new HashSet<>(players.values()).size() != players.size()) e.add("DUPLICATE_PLAYER");
     if (!players.keySet().containsAll(hostingSeats)) e.add("INVALID_HOSTING_SEAT");
     if (state != null) {
@@ -989,7 +1179,8 @@ public final class PokerAuthoritativeSession
       if (state.finished()
           && (!players.containsKey(state.winnerSeat())
               || state.currentSeat() != state.winnerSeat()
-              || !state.hands().getOrDefault(state.winnerSeat(), List.of(1)).isEmpty()))
+              || (!state.hands().getOrDefault(state.winnerSeat(), List.of(1)).isEmpty()
+                  && !isRobberSpringRoundWinner(state.winnerSeat()))))
         e.add("INVALID_WINNER");
       if (!plays.keySet().equals(players.keySet())
           || !bombs.keySet().equals(players.keySet())
@@ -1017,6 +1208,18 @@ public final class PokerAuthoritativeSession
           } catch (IllegalArgumentException bad) {
             e.add("INVALID_CARD");
           }
+      List<Integer> conserved = new ArrayList<>();
+      state.hands().values().forEach(conserved::addAll);
+      playedCardsBySeat.values().forEach(conserved::addAll);
+      conserved.addAll(undealtCards);
+      Set<Integer> conservedSet = new HashSet<>(conserved);
+      if (conserved.size() != family.profile().deckSize()
+          || conservedSet.size() != conserved.size()
+          || !conservedSet.equals(new HashSet<>(family.profile().deck())))
+        e.add("CARD_CONSERVATION");
+      if (playedCardsBySeat.entrySet().stream().anyMatch(entry ->
+              playedCardCounts.getOrDefault(entry.getKey(), 0) != entry.getValue().size()))
+        e.add("PLAYED_CARD_COUNT_MISMATCH");
     }
     return List.copyOf(e);
   }
@@ -1036,6 +1239,20 @@ public final class PokerAuthoritativeSession
         recordLifecycleMutation();
         return true;
       }
+    }
+    if (nextRoundDeadline.open()) {
+      if (now.isBefore(nextRoundDeadline.deadline())) return false;
+      OperationDeadline expired = nextRoundDeadline;
+      AuthoritativeTimeSource fixed =
+          new AuthoritativeTimeSource(java.time.Clock.fixed(now, java.time.ZoneOffset.UTC));
+      arbiter.resolveTimeout(expired, fixed, () -> startAutomaticNextRound(expired));
+      if (!expired.equals(nextRoundDeadline)) {
+        stateVersion = Math.addExact(stateVersion, 1);
+        if (state != null && !roundFinished()) openDeadline("auto-next-round");
+        events.add(Map.of("version", stateVersion, "after", authoritativeState()));
+        return true;
+      }
+      return false;
     }
     if (!deadline.open() || now.isBefore(deadline.deadline()) || roundFinished()) return false;
     OperationDeadline expired = deadline;
@@ -1111,7 +1328,38 @@ public final class PokerAuthoritativeSession
           && family.rules().isBomb(previous))
         bombs.computeIfPresent(previousSeat, (ignored, count) -> Math.max(0, count - 1));
     }
-    if (state.finished()) completeRound();
+    if (endsRobberSpringRound(seat)) completeRobberSpringRound(seat);
+    else if (state.finished()) completeRound();
+  }
+
+  /**
+   * XQP ScLs type119 (500055/500056): once a non-dealer successfully puts down any cards, the
+   * dealer has failed to make spring.  The player who made that play is the round winner, even
+   * when cards remain in that player's hand.
+   */
+  private boolean endsRobberSpringRound(int seat) {
+    PdkAdvancedRules.DealerRule dealerRule = family.rules().config().advancedRules().dealerRule();
+    return dealerRule.enabled()
+        && dealerRule.mustSpringToWin()
+        && competeDealerSeat >= 0
+        && seat != competeDealerSeat;
+  }
+
+  private void completeRobberSpringRound(int winnerSeat) {
+    state =
+        new PokerTurnState(
+            state.hands(),
+            winnerSeat,
+            state.previous(),
+            state.previousSeat(),
+            state.passed(),
+            true,
+            winnerSeat);
+    completeRound();
+  }
+
+  private boolean isRobberSpringRoundWinner(int seat) {
+    return endsRobberSpringRound(seat) && plays.getOrDefault(seat, 0) > 0;
   }
 
   private void recordPlay(int seat, CardCombination combination) {
@@ -1144,7 +1392,8 @@ public final class PokerAuthoritativeSession
         state.hands().get(next).size(),
         state.hands().get(seat),
         activeRequiredFirstCard,
-        true);
+        true,
+        state.previous() != null || seat == competeDealerSeat);
   }
 
   @Override
@@ -1165,6 +1414,13 @@ public final class PokerAuthoritativeSession
     }
     if (!Long.valueOf(player).equals(players.get(seat)))
       throw new SecurityException("seat not owned");
+    boolean mayLeaveBeforeDeal = RoomMembershipLifecycle.canLeave(viewFor(player));
+    // Compete-dealer is an internal pre-deal stage: no hand has been presented to players yet.
+    // Leaving here cancels that pending round and removes the real member instead of replacing
+    // them with a trustee placeholder. Ready state is deliberately irrelevant.
+    if (competeDealerPhase) abortUndealtRound();
+    if (!mayLeaveBeforeDeal && state != null && !state.finished())
+      throw new IllegalStateException("cards already dealt");
     if (state != null) {
       players.put(seat, -Math.addExact(Math.multiplyExact(roomId, 10L), seat + 1L));
       hostingSeats.add(seat);
@@ -1190,8 +1446,29 @@ public final class PokerAuthoritativeSession
     }
   }
 
+  private void abortUndealtRound() {
+    state = null;
+    roundNo = Math.max(0, roundNo - 1);
+    roundScored = false;
+    competeDealerPhase = false;
+    competeDealerSeat = -1;
+    competeCursor = -1;
+    competeRespondedSeats.clear();
+    directWinnerSeat = -1;
+    jinHuaWinnerSeat = -1;
+    activeRequiredFirstCard = null;
+    initialLeadSeat = -1;
+    bankerSeat = -1;
+    undealtCards.clear();
+    readySeats.clear();
+    deadline = OperationDeadline.none();
+    clearAutomaticNextRound();
+  }
+
   private void requestDissolve(long player) {
     seatOf(player);
+    automaticNextRoundCancelled = true;
+    clearAutomaticNextRound();
     java.time.Instant now = java.time.Instant.ofEpochMilli(time.epochMillis());
     if (state == null) {
       if (player != ownerId)
@@ -1232,7 +1509,9 @@ public final class PokerAuthoritativeSession
   private void markDissolved(String reason) {
     dissolved = true;
     dissolveReason = reason;
+    automaticNextRoundCancelled = true;
     deadline = OperationDeadline.none();
+    clearAutomaticNextRound();
   }
 
   @Override
@@ -1546,6 +1825,12 @@ public final class PokerAuthoritativeSession
   }
 
   private static String operation(GameCommandRequest r) {
+    if ("common.room.dispatch".equals(r.msgId())) {
+      Object action = r.body().get("action");
+      if (!(action instanceof String value) || value.isBlank())
+        throw new IllegalArgumentException("room action is required");
+      return value.trim().toLowerCase(Locale.ROOT);
+    }
     return leaf(r.msgId());
   }
 

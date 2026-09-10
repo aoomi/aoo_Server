@@ -25,7 +25,8 @@ final class GatewayHandshakeIntegrationTest {
         var router=new GameWebSocketRouter(games,id->room,new WebSocketRequestGuard(clock,Duration.ofSeconds(30)),new InMemoryIdempotencyStore<>(clock),Duration.ofHours(24));
         ObjectMapper json=new ObjectMapper();GatewayWebSocketFrameHandler.Factory factory=identity->new GatewayWebSocketFrameHandler(identity,router,(principal,frame)->new GatewayWebSocketFrameHandler.SessionBinding(principal.userId(),new ConnectionSession(Long.toString(principal.userId()),frame.roomId(),0,frame.playVersion(),0)),GatewayWebSocketFrameHandler.BroadcastSink.none(),json,clock);
         EmbeddedChannel channel=new EmbeddedChannel(new HttpServerCodec(),new HttpObjectAggregator(16*1024),new GatewayApplication.Ingress(tickets,json,Set.of("https://game.example"),Runnable::run,factory));
-        FullHttpRequest upgrade=new DefaultFullHttpRequest(HttpVersion.HTTP_1_1,HttpMethod.GET,"/api/v2/gateway/ws?ticket="+ticket+"&pageInstanceId=page-upgrade");
+        FullHttpRequest upgrade=new DefaultFullHttpRequest(HttpVersion.HTTP_1_1,HttpMethod.GET,"/api/v2/gateway/ws");
+        upgrade.headers().set(HttpHeaderNames.SEC_WEBSOCKET_PROTOCOL,"aoo.v2, aoo.ticket."+ticket+", aoo.page.page-upgrade");
         upgrade.headers().set(HttpHeaderNames.HOST,"game.example").set(HttpHeaderNames.ORIGIN,"https://game.example").set("X-Forwarded-Proto","https").set(HttpHeaderNames.UPGRADE,"websocket").set(HttpHeaderNames.CONNECTION,"Upgrade").set(HttpHeaderNames.SEC_WEBSOCKET_VERSION,"13").set(HttpHeaderNames.SEC_WEBSOCKET_KEY,"dGhlIHNhbXBsZSBub25jZQ==");
         channel.writeInbound(upgrade);Object handshake=channel.readOutbound();assertNotNull(handshake);io.netty.util.ReferenceCountUtil.release(handshake);
         assertNotNull(channel.pipeline().get("gateway-v2-business"),"business handler must exist before the client can observe handshake success");

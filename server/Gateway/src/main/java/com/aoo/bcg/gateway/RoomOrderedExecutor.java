@@ -8,8 +8,13 @@ public final class RoomOrderedExecutor {
  public <T> T execute(long roomId,Callable<T> task){
   if(roomId<=0)throw new IllegalArgumentException("roomId required");
   Holder holder=locks.compute(roomId,(ignored,current)->{Holder value=current==null?new Holder():current;value.references++;return value;});
-  holder.lock.lock();
-  try{return task.call();}catch(RuntimeException e){throw e;}catch(Exception e){throw new IllegalStateException(e);}
-  finally{holder.lock.unlock();locks.compute(roomId,(ignored,current)->{if(current!=holder)throw new IllegalStateException("room lock ownership corrupted");return --holder.references==0?null:holder;});}
+  boolean acquired=false;
+  try{
+   acquired=holder.lock.tryLock(5,TimeUnit.SECONDS);
+   if(!acquired)throw new IllegalStateException("room lock acquisition timed out: "+roomId);
+   return task.call();
+  }catch(InterruptedException e){Thread.currentThread().interrupt();throw new IllegalStateException("room lock acquisition interrupted: "+roomId,e);}
+  catch(RuntimeException e){throw e;}catch(Exception e){throw new IllegalStateException(e);}
+  finally{if(acquired)holder.lock.unlock();locks.compute(roomId,(ignored,current)->{if(current!=holder)throw new IllegalStateException("room lock ownership corrupted");return --holder.references==0?null:holder;});}
  }
 }

@@ -21,7 +21,8 @@ public record PaoDeKuaiConfig(int minimumStraightLength, boolean allowTripleWith
         PdkAdvancedRules advancedRules) {
 
     public enum AttachmentMode { DISABLED, SINGLES, PAIRS, EITHER }
-    public enum PlayTiming { DISABLED, FINAL_ONLY, ANYTIME }
+    /** DEALER_RESPONSE_OR_FINAL matches XQP: the抢庄者、接同型牌或最后一手可不带牌。 */
+    public enum PlayTiming { DISABLED, FINAL_ONLY, DEALER_RESPONSE_OR_FINAL, ANYTIME }
     public enum PlayedCardVisibility { LAST_ONLY, ALL_IN_ORDER }
 
     public PaoDeKuaiConfig(int minimumStraightLength, boolean allowTripleWithPair,

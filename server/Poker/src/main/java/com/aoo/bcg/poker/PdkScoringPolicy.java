@@ -84,7 +84,15 @@ public interface PdkScoringPolicy {
             unit = Math.multiplyExact(unit, 1L << exponent);
         }
         long total = Math.multiplyExact(unit, context.players().size() - 1L);
-        if (winner == dealer) {
+        if (rules.dealerRule().mustSpringToWin() && !dealerMadeSpring(context, dealer)) {
+            // XQP ScLs type-119: a robber who does not make spring loses to every opponent,
+            // even when that robber was the first player to empty their hand.
+            for (int seat : context.players().keySet()) {
+                if (seat == dealer) continue;
+                seats.merge(seat, unit, Long::sum);
+                seats.merge(dealer, -unit, Long::sum);
+            }
+        } else if (winner == dealer) {
             for (int seat : context.players().keySet()) {
                 if (seat == dealer) continue;
                 seats.merge(seat, -unit, Long::sum);
@@ -94,6 +102,13 @@ public interface PdkScoringPolicy {
             seats.merge(dealer, -total, Long::sum);
             seats.merge(winner, total, Long::sum);
         }
+    }
+
+    private static boolean dealerMadeSpring(PdkSettlementContext context, int dealer) {
+        if (context.winnerSeat() != dealer) return false;
+        return context.players().keySet().stream()
+                .filter(seat -> seat != dealer)
+                .allMatch(seat -> context.plays().getOrDefault(seat, 0) == 0);
     }
 
     private static void applyBombTransfers(PdkSettlementContext context,

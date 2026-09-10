@@ -14,7 +14,8 @@ export function loadProtocol(file) {
   const transports = new Set(['HTTPS', 'WSS']);
   const idempotencyModes = new Set(['required', 'optional', 'none']);
   for (const message of messages) {
-    if (typeof message.msgId !== 'string' || !/^[a-z][a-z0-9]*(\.[a-z0-9_]+)+$/.test(message.msgId)) {
+    if (typeof message.msgId !== 'string'
+        || !/^[a-z][a-z0-9]*(\.(?:[a-z0-9_]+|[A-Z]{2}[1-5][0-9]{2}))+$/.test(message.msgId)) {
       throw new Error(`Invalid msgId: ${message.msgId}`);
     }
     if (ids.has(message.msgId)) throw new Error(`Duplicate msgId: ${message.msgId}`);
@@ -36,8 +37,11 @@ export function loadProtocol(file) {
     }
     if (message.kind === 'push' && message.msgId.endsWith('state_push')
         && message.msgId !== 'common.room.state_push') {
-      for (const field of ['action', 'payload']) {
-        if (!message.response.required.includes(field)) throw new Error(`${message.msgId}: compatibility push requires ${field}`);
+      const businessPdk = /^poker\.(?:CD201|NJ201|LS201)\.state_push$/.test(message.msgId);
+      for (const field of businessPdk ? ['payload', 'stateVersion', 'serverSeq'] : ['action', 'payload']) {
+        if (!message.response.required.includes(field)) {
+          throw new Error(`${message.msgId}: ${businessPdk ? 'authoritative' : 'compatibility'} push requires ${field}`);
+        }
       }
     }
     if (!Array.isArray(message.errors) || message.errors.some(code => !Number.isInteger(code) || code <= 0)) {

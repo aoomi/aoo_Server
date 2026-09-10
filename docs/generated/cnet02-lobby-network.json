@@ -4,31 +4,38 @@
   "directCalls": {
     "localStorage": [
       {
-        "path": "assets/Lobby/Code/Runtime/LegacyLobbyScreen.ts",
-        "line": 914
+        "path": "assets/Lobby/Code/Runtime/Location/LegacyLocationController.ts",
+        "line": 3
       }
     ],
     "bundle": [
       {
-        "path": "assets/Lobby/Code/Runtime/LegacyCreateRoomController.ts",
-        "line": 312
+        "path": "assets/Lobby/Code/Runtime/LegacyLobbyScreen.ts",
+        "line": 614
       },
       {
-        "path": "assets/Lobby/Code/Runtime/LegacyGameCatalogController.ts",
-        "line": 177
+        "path": "assets/Lobby/Code/Runtime/Replay/AuthoritativePdkReplayController.ts",
+        "line": 275
       },
       {
-        "path": "assets/Lobby/Code/Runtime/LegacyRegionController.ts",
-        "line": 346
+        "path": "assets/Lobby/Code/Runtime/Replay/LegacyReplayController.ts",
+        "line": 340
+      }
+    ],
+    "fetch": [
+      {
+        "path": "assets/Lobby/Code/Runtime/LegacyLobbyScreen.ts",
+        "line": 862
+      },
+      {
+        "path": "assets/Lobby/Code/Support/SupportLiveSessionClient.ts",
+        "line": 18
       }
     ],
     "websocket": [
 
     ],
     "native": [
-
-    ],
-    "fetch": [
 
     ]
   },

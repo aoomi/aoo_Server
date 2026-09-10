@@ -29,9 +29,9 @@ class BootstrapAPPTest {
         Map<Integer, GameDescriptor> games = registry.descriptors().stream()
                 .collect(Collectors.toMap(GameDescriptor::gameId, Function.identity()));
 
-        assertEquals(533, games.size());
+        assertEquals(534, games.size());
         assertEquals(365, games.values().stream().filter(game -> game.category() == GameCategory.MAHJONG).count());
-        assertEquals(154, games.values().stream().filter(game -> game.category() == GameCategory.POKER).count());
+        assertEquals(155, games.values().stream().filter(game -> game.category() == GameCategory.POKER).count());
         assertEquals(10, games.values().stream().filter(game -> game.category() == GameCategory.WORD_CARD).count());
         assertEquals(4, games.values().stream().filter(game -> game.category() == GameCategory.LONG_CARD).count());
         assertEquals(GameCategory.MAHJONG, games.get(516).category());
@@ -39,7 +39,8 @@ class BootstrapAPPTest {
         assertEquals("cdxzmj", games.get(516).code());
         assertEquals(GameCategory.POKER, games.get(629).category());
         assertEquals("poker:pao-de-kuai", games.get(629).family());
-        assertEquals("njpdk", games.get(629).code());
+        assertEquals("NJ201", games.get(629).code());
+        assertEquals("LS201", games.get(90005).code());
         assertEquals(GameCategory.MAHJONG, games.get(628).category());
         assertEquals("scjymj", games.get(628).code());
         assertEquals(GameCategory.POKER, games.get(618).category());

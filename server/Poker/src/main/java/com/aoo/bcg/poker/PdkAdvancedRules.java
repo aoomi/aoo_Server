@@ -65,8 +65,13 @@ public record PdkAdvancedRules(int baseScore, int requiredFirstCardRounds,
         }
     }
 
+    /**
+     * XQP type-119 的抢庄结算类型是独立于通用春天加倍的业务规则：抢庄者只有在
+     * 所有闲家均未出牌时才能获胜；否则每位闲家向其取得一份抢庄分。
+     */
     public record DealerRule(boolean enabled, boolean startAfterBanker,
-            boolean bankerCannotCompeteAfterAllPass, boolean skipFirstRound) { }
+            boolean bankerCannotCompeteAfterAllPass, boolean skipFirstRound,
+            boolean mustSpringToWin) { }
 
     /** Platform-facing room policy proven by the same XQP server snapshot. */
     public record RoomGovernance(PayerMode payerMode, int offlineDissolveSeconds,
@@ -158,7 +163,7 @@ public record PdkAdvancedRules(int baseScore, int requiredFirstCardRounds,
                 new ScoreRule(ScoreMode.HAND_TABLE, 2, Integer.MAX_VALUE, true),
                 new ScoreRule(ScoreMode.HAND_TABLE, 2, Integer.MAX_VALUE, false),
                 List.of(), new BombScore(BombMode.PAIRWISE, 0, 1),
-                new DealerRule(false, false, false, false), Set.of(), Set.of(),
+                new DealerRule(false, false, false, false, false), Set.of(), Set.of(),
                 0, 3, 0, List.of(), 20, -1, RoomGovernance.defaults());
     }
 }
