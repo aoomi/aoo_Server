@@ -1,0 +1,13 @@
+{
+  "task": "FS01",
+  "passed": true,
+  "checks": {
+    "full_source_trees_scanned": true,
+    "casefold_conflicts": true,
+    "linux_style_isolated_build_evidence": true
+  },
+  "scannedPaths": 34758,
+  "conflicts": [
+
+  ]
+}

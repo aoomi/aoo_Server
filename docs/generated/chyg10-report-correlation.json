@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "requiredMetadata": [
+    "sourceRevision",
+    "clientAssetSha256",
+    "backendVersion",
+    "creatorVersion",
+    "browser",
+    "testSuite",
+    "startedAt",
+    "finishedAt",
+    "result"
+  ],
+  "reportAuditPassed": true,
+  "bindsRequiredDimensions": true,
+  "passed": true
+}

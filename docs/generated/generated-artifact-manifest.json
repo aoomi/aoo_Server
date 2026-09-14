@@ -1,0 +1,3020 @@
+{
+  "schemaVersion": 1,
+  "policy": "docs/源码与生成物边界规范.md",
+  "artifacts": [
+    {
+      "path": "docs/generated/mongodb-8.0.29-baseline.json",
+      "kind": "generated-mongodb-production-baseline-audit",
+      "authoritativeInputs": [
+        "deploy/ops/kubernetes/mongodb.yaml",
+        "deploy/production-services.yaml",
+        "pom.xml"
+      ],
+      "generator": "tools/audit_mongodb_baseline.rb",
+      "rebuild": "ruby tools/audit_mongodb_baseline.rb",
+      "owner": "deployment-governance",
+      "lifecycle": "regenerate on MongoDB server image, Java driver or deployment baseline changes",
+      "cleanupPolicy": "replace with the next successful baseline audit",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/aoo-project-latest-stable-dependency-audit.json",
+      "kind": "generated-project-dependency-latest-stable-audit",
+      "authoritativeInputs": [
+        "pom.xml",
+        "server/*/pom.xml",
+        "work/audit/active-dependency-evidence.json",
+        "work/audit/dependency-lifecycle-governance.json",
+        "../Admin/package.json",
+        "../Admin/pnpm-lock.yaml",
+        "../Client/package.json",
+        "../Client/pnpm-lock.yaml"
+      ],
+      "generator": "tools/audit_latest_stable_inventory.rb",
+      "rebuild": "ruby tools/audit_latest_stable_inventory.rb",
+      "owner": "dependency-governance",
+      "lifecycle": "regenerate on POM, lockfile, toolchain, plugin, registry or release-source change and before CUR-04 signature",
+      "cleanupPolicy": "replace atomically with the next successful official-source audit; never consume as runtime input",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/active-dependency-osv.json",
+      "kind": "generated-active-dependency-vulnerability-evidence",
+      "authoritativeInputs": [
+        "pom.xml",
+        "server/*/pom.xml",
+        "work/audit/cur04-dependency-tree.txt",
+        "server/*/work/audit/cur04-dependency-tree.txt"
+      ],
+      "generator": "tools/audit_active_dependency_evidence.rb",
+      "rebuild": "ruby tools/audit_active_dependency_evidence.rb",
+      "owner": "dependency-governance",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/large10-file-gate.json",
+      "kind": "generated-large-file-gate-evidence",
+      "authoritativeInputs": [
+        "config/large-file-policy.json",
+        "config/large-file-declarations.json",
+        "../Client",
+        "server",
+        "../Admin"
+      ],
+      "generator": "tools/check_large_file_policy.rb",
+      "rebuild": "ruby tools/check_large_file_policy.rb",
+      "owner": "architecture",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/large09-download-peak.json",
+      "kind": "generated-download-peak-evidence",
+      "authoritativeInputs": [
+        "../Client/build/web-desktop"
+      ],
+      "generator": "tools/measure_download_peak.py",
+      "rebuild": "python3 tools/measure_download_peak.py",
+      "owner": "client-delivery",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/large08-package-growth.json",
+      "kind": "generated-package-growth-evidence",
+      "authoritativeInputs": [
+        "config/artifact-size-baseline.json",
+        "../Client/build/web-desktop",
+        "server"
+      ],
+      "generator": "scripts/audit-large08-package-growth.rb",
+      "rebuild": "ruby scripts/audit-large08-package-growth.rb",
+      "owner": "release-size",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/large07-lfs.json",
+      "kind": "generated-lfs-readiness-evidence",
+      "authoritativeInputs": [
+        "../.gitattributes",
+        "../Client",
+        "server",
+        "../Admin"
+      ],
+      "generator": "scripts/audit-large07-lfs.rb",
+      "rebuild": "ruby scripts/audit-large07-lfs.rb",
+      "owner": "source-control",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/large06-json.json",
+      "kind": "generated-large-json-evidence",
+      "authoritativeInputs": [
+        "server",
+        "../Client/assets"
+      ],
+      "generator": "scripts/audit-large06-json.rb",
+      "rebuild": "ruby scripts/audit-large06-json.rb",
+      "owner": "configuration-assets",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/large05-prefabs.json",
+      "kind": "generated-large-prefab-evidence",
+      "authoritativeInputs": [
+        "../Client/assets"
+      ],
+      "generator": "scripts/audit-large05-prefabs.rb",
+      "rebuild": "ruby scripts/audit-large05-prefabs.rb",
+      "owner": "client-prefabs",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/large04-media.json",
+      "kind": "generated-large-media-evidence",
+      "authoritativeInputs": [
+        "../Client/assets"
+      ],
+      "generator": "scripts/audit-large04-media.rb",
+      "rebuild": "ruby scripts/audit-large04-media.rb",
+      "owner": "client-assets",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/large03-jars.json",
+      "kind": "generated-large-jar-evidence",
+      "authoritativeInputs": [
+        "server",
+        "work",
+        "reference",
+        "docs/generated/pkg03-jar-provenance.json",
+        "docs/generated/pkg05-duplicate-jar-classes.json",
+        "docs/generated/pkg09-package-strategy.json"
+      ],
+      "generator": "scripts/audit-large03-jars.rb",
+      "rebuild": "ruby scripts/audit-large03-jars.rb",
+      "owner": "runtime-packaging",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/large02-roomcost.json",
+      "kind": "generated-large-config-evidence",
+      "authoritativeInputs": [
+        "server/LegacyCommon/conf/jsonData/roomcost.json",
+        "server/gameServer/src/core/config/refdata/ref/RefRoomCost.java",
+        "server/Billing"
+      ],
+      "generator": "scripts/audit-large02-roomcost.rb",
+      "rebuild": "ruby scripts/audit-large02-roomcost.rb",
+      "owner": "billing-config",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/large01-sql-archives.json",
+      "kind": "generated-large-sql-evidence",
+      "authoritativeInputs": [
+        "database/original",
+        "database/migrations",
+        "tools/apply_migrations.sh",
+        ".releaseignore"
+      ],
+      "generator": "scripts/audit-large01-sql-archives.rb",
+      "rebuild": "ruby scripts/audit-large01-sql-archives.rb",
+      "owner": "database-archive",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/tool16-safety-boundaries.json",
+      "kind": "generated-tool-safety-evidence",
+      "authoritativeInputs": [
+        "config/tool-safety-policy.json",
+        "tools/clean-client-generated.sh",
+        "tools/verify_fresh_migrations.sh",
+        "tools/prepare_backend_smoke_sandbox.py",
+        "tools/f03_fault_injection.sh",
+        "tools/local_service_control.py"
+      ],
+      "generator": "tools/check_tool_safety_boundaries.rb",
+      "rebuild": "ruby tools/check_tool_safety_boundaries.rb",
+      "owner": "tool-safety",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/tool15-runtime-lock.json",
+      "kind": "generated-tool-runtime-evidence",
+      "authoritativeInputs": [
+        "config/tool-runtime-lock.json",
+        ".ruby-version",
+        ".python-version",
+        "requirements-tools.txt",
+        "tools",
+        "scripts",
+        ".github/workflows"
+      ],
+      "generator": "tools/check_tool_runtime_lock.rb",
+      "rebuild": "ruby tools/check_tool_runtime_lock.rb",
+      "owner": "developer-tooling",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/tool14-final-audit.json",
+      "kind": "generated-full-scope-audit-evidence",
+      "authoritativeInputs": [
+        "work/audit/audit-source-baseline.json",
+        "docs/Aoo-前后端全框架功能通信审计任务清单.md",
+        "server",
+        "../Client",
+        "../Admin"
+      ],
+      "generator": "tools/final_backend_audit.rb",
+      "rebuild": "ruby tools/final_backend_audit.rb",
+      "owner": "full-project-audit",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/tool12-migration-verification.json",
+      "kind": "generated-database-verification-evidence",
+      "authoritativeInputs": [
+        "database/migrations",
+        "tools/list_migrations.rb",
+        "tools/apply_migrations.sh",
+        "tools/verify_fresh_migrations.sh"
+      ],
+      "generator": "tools/verify_fresh_migrations.sh",
+      "rebuild": "AOO_MIGRATION_MYSQL_PASSWORD=<secret> tools/verify_fresh_migrations.sh",
+      "owner": "database-migrations",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/tool11-protocol-v1-retirement.json",
+      "kind": "generated-protocol-retirement-evidence",
+      "authoritativeInputs": [
+        "server/LegacyCommon/src/com/ddm/server/websocket/handler/requset/RequestDispatcher.java",
+        "server/GameSPI/src/main/java/com/aoo/bcg/gamespi/api/DeprecatedEntryPointBlocklist.java",
+        "server/GameSPI/src/test/java/com/aoo/bcg/gamespi/api/DeprecatedEntryPointBlocklistTest.java",
+        "tools/protocol-v1-record-rollback-drill.sh",
+        "../Client/assets"
+      ],
+      "generator": "tools/check_protocol_v1_retirement.rb",
+      "rebuild": "ruby tools/check_protocol_v1_retirement.rb",
+      "owner": "protocol-governance",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/tool10-java-runtime-compatibility.json",
+      "kind": "generated-toolchain-verification-evidence",
+      "authoritativeInputs": [
+        "config/java-runtime-compatibility.json",
+        "tools/runtime-java26.sh",
+        "pom.xml",
+        ".mvn/wrapper/maven-wrapper.properties"
+      ],
+      "generator": "tools/check_java_runtime_compatibility.rb",
+      "rebuild": "ruby tools/check_java_runtime_compatibility.rb",
+      "owner": "java-toolchain",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/tool08-f03-verification-pipeline.json",
+      "kind": "generated-resilience-verification-evidence",
+      "authoritativeInputs": [
+        "config/f03-verification-pipeline.json",
+        "tools/f03_local_protocol_smoke.py",
+        "tools/f03_two_player_room_smoke.py",
+        "tools/f03_fault_injection.sh",
+        "tools/f03_v2_authority_recovery_smoke.py",
+        "tools/account-soak-24h.sh",
+        "tools/finalize_f03_soak.py",
+        "tools/f03_auto_finalize.sh"
+      ],
+      "generator": "tools/check_f03_verification_pipeline.rb",
+      "rebuild": "ruby tools/check_f03_verification_pipeline.rb",
+      "owner": "resilience-verification",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/tool07-runtime-smoke.json",
+      "kind": "generated-runtime-verification-evidence",
+      "authoritativeInputs": [
+        "server/Bootstrap/src/main",
+        "server/Bootstrap/src/test",
+        "server/Gateway/src/test",
+        "server/Poker/src/test",
+        "server/Mahjong/src/test"
+      ],
+      "generator": "tools/runtime_smoke_current_architecture.rb",
+      "rebuild": "ruby tools/runtime_smoke_current_architecture.rb",
+      "owner": "runtime-architecture",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/tool06-gameplay-security.json",
+      "kind": "generated-security-verification-evidence",
+      "authoritativeInputs": [
+        "tools/check_hidden_card_boundaries.rb",
+        "tools/check_game_random_boundaries.rb",
+        "tools/check_gameplay_security_boundaries.rb",
+        "server/GameCommon/src/test",
+        "server/Poker/src/test",
+        "server/Gateway/src/test"
+      ],
+      "generator": "tools/check_gameplay_security_runtime.rb",
+      "rebuild": "ruby tools/check_gameplay_security_runtime.rb",
+      "owner": "gameplay-security",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/game07-family-coverage.json",
+      "kind": "generated-game-verification-evidence",
+      "authoritativeInputs": [
+        "server/Families",
+        "server/Mahjong",
+        "server/Poker",
+        "server/LongCard",
+        "server/WordCard",
+        "server/NJPDK",
+        "server/XCPDK",
+        "server/CDXZMJ",
+        "server/SCJYMJ",
+        "server/ZJH",
+        "server/ZYPK"
+      ],
+      "generator": "scripts/audit-game07-families.rb",
+      "rebuild": "ruby scripts/audit-game07-families.rb",
+      "owner": "game-families",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/game06-zypk-vertical.json",
+      "kind": "generated-game-verification-evidence",
+      "authoritativeInputs": [
+        "server/ZYPK"
+      ],
+      "generator": "scripts/audit-game06-zypk.rb",
+      "rebuild": "ruby scripts/audit-game06-zypk.rb",
+      "owner": "zypk",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/game05-zjh-vertical.json",
+      "kind": "generated-game-verification-evidence",
+      "authoritativeInputs": [
+        "server/ZJH"
+      ],
+      "generator": "scripts/audit-game05-zjh.rb",
+      "rebuild": "ruby scripts/audit-game05-zjh.rb",
+      "owner": "zjh",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/game04-scjymj-vertical.json",
+      "kind": "generated-game-verification-evidence",
+      "authoritativeInputs": [
+        "server/SCJYMJ"
+      ],
+      "generator": "scripts/audit-game04-scjymj.rb",
+      "rebuild": "ruby scripts/audit-game04-scjymj.rb",
+      "owner": "scjymj",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/game03-cdxzmj-vertical.json",
+      "kind": "generated-game-verification-evidence",
+      "authoritativeInputs": [
+        "server/CDXZMJ"
+      ],
+      "generator": "scripts/audit-game03-cdxzmj.rb",
+      "rebuild": "ruby scripts/audit-game03-cdxzmj.rb",
+      "owner": "cdxzmj",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/game02-xcpdk-vertical.json",
+      "kind": "generated-game-verification-evidence",
+      "authoritativeInputs": [
+        "server/XCPDK"
+      ],
+      "generator": "scripts/audit-game02-xcpdk.rb",
+      "rebuild": "ruby scripts/audit-game02-xcpdk.rb",
+      "owner": "xcpdk",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/game01-njpdk-vertical.json",
+      "kind": "generated-game-verification-evidence",
+      "authoritativeInputs": [
+        "server/NJPDK"
+      ],
+      "generator": "scripts/audit-game01-njpdk.rb",
+      "rebuild": "ruby scripts/audit-game01-njpdk.rb",
+      "owner": "njpdk",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/migreal16-business-closure.json",
+      "kind": "generated-integration-evidence",
+      "authoritativeInputs": [
+        "database/migrations/V20260822_01__business_closure.sql",
+        "server"
+      ],
+      "generator": "scripts/audit-migreal16-business-closure.rb",
+      "rebuild": "ruby scripts/audit-migreal16-business-closure.rb",
+      "owner": "business-closure",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/migreal15-admin-control-plane.json",
+      "kind": "generated-integration-evidence",
+      "authoritativeInputs": [
+        "database/migrations/V20260823_24__admin_rbac_audit.sql",
+        "server/AdminApi/src/main/java/com/aoo/bcg/admin/AdminApiApplication.java",
+        "server/AdminApi/src/main/java/com/aoo/bcg/admin/AdminPermissionCatalog.java",
+        "../Client"
+      ],
+      "generator": "scripts/audit-migreal15-admin-control-plane.rb",
+      "rebuild": "ruby scripts/audit-migreal15-admin-control-plane.rb",
+      "owner": "admin-control-plane",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/migreal14-game-profile.json",
+      "kind": "generated-integration-evidence",
+      "authoritativeInputs": [
+        "database/migrations/V20260822_03__game_profile_publication.sql",
+        "server/ConfigCenter/src/main/java/com/aoo/bcg/config/GameProfilePublicationService.java",
+        "server/AdminApi/src/main/java/com/aoo/bcg/admin/AdminApiApplication.java",
+        "../Client/assets"
+      ],
+      "generator": "scripts/audit-migreal14-game-profile.rb",
+      "rebuild": "ruby scripts/audit-migreal14-game-profile.rb",
+      "owner": "game-profile-publication",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/migreal13-room-recovery.json",
+      "kind": "generated-integration-evidence",
+      "authoritativeInputs": [
+        "server/GameCommon/src/test/java/com/aoo/bcg/common/recovery/JdbcRoomRecoveryIntegrationTest.java",
+        "server/gameServer/src/core/server/ProductionRoomRecoveryCoordinator.java",
+        "server/gameServer/src/core/network/client2game/handler/room/CPlayerRoomReconnectV2.java",
+        "server/ZJH/src/business/global/pk/zjh/ZJHGameProvider.java",
+        "server/ZYPK/src/business/global/pk/zypk/ZYPKGameProvider.java"
+      ],
+      "generator": "scripts/audit-migreal13-room-recovery.rb",
+      "rebuild": "ruby scripts/audit-migreal13-room-recovery.rb",
+      "owner": "room-runtime",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/migreal12-currency-authority.json",
+      "kind": "generated-integration-evidence",
+      "authoritativeInputs": [
+        "database/migrations/V20260823_26__currency_catalog_and_authority.sql",
+        "server/Billing/src/main/java/com/aoo/bcg/billing/JdbcBillingService.java",
+        "server/Billing/src/test/java/com/aoo/bcg/billing/JdbcCurrencyAuthorityIntegrationTest.java",
+        "server/gameServer/src/business/player/feature/PlayerCurrency.java",
+        "server/gameServer/src/business/player/feature/PlayerWallet.java"
+      ],
+      "generator": "scripts/audit-migreal12-currency.rb",
+      "rebuild": "ruby scripts/audit-migreal12-currency.rb",
+      "owner": "billing-and-legacy-migration",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/migreal11-outbox-lifecycle.json",
+      "kind": "generated-integration-evidence",
+      "authoritativeInputs": [
+        "database/migrations/V20260823_25__outbox_fencing_and_retention.sql",
+        "server/GameCommon/src/main/java/com/aoo/bcg/common/event/JdbcOutboxRepository.java",
+        "server/GameCommon/src/main/java/com/aoo/bcg/common/event/ScheduledOutboxRelay.java",
+        "server/GameCommon/src/test/java/com/aoo/bcg/common/event/InMemoryOutboxRepositoryTest.java"
+      ],
+      "generator": "scripts/audit-migreal11-outbox.rb",
+      "rebuild": "ruby scripts/audit-migreal11-outbox.rb",
+      "owner": "event-platform",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/migreal10-admin-rbac.json",
+      "kind": "generated-integration-evidence",
+      "authoritativeInputs": [
+        "database/migrations/V20260823_24__admin_rbac_audit.sql",
+        "server/AdminApi/src/main/java/com/aoo/bcg/admin/AdminPermissionCatalog.java",
+        "server/AdminApi/src/main/java/com/aoo/bcg/admin/AdminApiApplication.java",
+        "server/AdminApi/src/test/java/com/aoo/bcg/admin/AdminRbacIntegrationTest.java"
+      ],
+      "generator": "scripts/audit-migreal10-admin-rbac.rb",
+      "rebuild": "ruby scripts/audit-migreal10-admin-rbac.rb",
+      "owner": "admin-security",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/migreal09-ledger-reconciliation.json",
+      "kind": "generated-performance-evidence",
+      "authoritativeInputs": [
+        "database/migrations/V20260823_23__ledger_reconciliation_dimensions.sql",
+        "server/Billing/src/main/java/com/aoo/bcg/billing/JdbcReconciliationService.java",
+        "tools/LedgerReconciliationBenchmark.java"
+      ],
+      "generator": "tools/LedgerReconciliationBenchmark.java",
+      "rebuild": "tools/run_ledger_reconciliation_benchmark.sh",
+      "owner": "billing-and-reconciliation",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/migreal08-club-scale.json",
+      "kind": "generated-performance-evidence",
+      "authoritativeInputs": [
+        "docs/generated/migreal02-club-member-scale.json",
+        "server/GameCommon/src/main/java/com/aoo/bcg/common/club/JdbcClubMemberIndex.java",
+        "server/GameCommon/src/test/java/com/aoo/bcg/common/cache/ClubMemberCacheScaleTest.java"
+      ],
+      "generator": "scripts/audit-migreal08-club-scale.rb",
+      "rebuild": "ruby scripts/audit-migreal08-club-scale.rb",
+      "owner": "club-and-cache",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/migreal07-player-scale.json",
+      "kind": "generated-performance-evidence",
+      "authoritativeInputs": [
+        "database/migrations/V20260822_07__ten_million_player_indexes.sql",
+        "server/LegacyAccountServer/dao/src/main/java/server/aoo/dao/service/game/PlayerService.java",
+        "tools/PlayerScaleBenchmark.java"
+      ],
+      "generator": "tools/PlayerScaleBenchmark.java",
+      "rebuild": "tools/run_player_scale_benchmark.sh",
+      "owner": "account-and-capacity",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/migreal06-replay-archive.json",
+      "kind": "generated-integration-evidence",
+      "authoritativeInputs": [
+        "database/migrations/V20260823_22__versioned_replay_archive.sql",
+        "server/GameCommon/src/main/java/core/replay/JdbcReplayRetentionService.java",
+        "server/GameCommon/src/main/java/core/replay/JdbcPerspectiveReplayRepository.java",
+        "server/GameCommon/src/test/java/core/replay/ReplayArchiveIntegrationTest.java"
+      ],
+      "generator": "scripts/audit-migreal06-replay-archive.rb",
+      "rebuild": "ruby scripts/audit-migreal06-replay-archive.rb",
+      "owner": "replay-and-data-lifecycle",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/migreal05-perspective-reconnect.json",
+      "kind": "generated-integration-evidence",
+      "authoritativeInputs": [
+        "server/gameServer/src/core/network/client2game/handler/room/CPlayerRoomReconnectV2.java",
+        "server/gameServer/src/business/global/replay/LegacyRoomReconnectReader.java",
+        "server/gameServer/src/business/global/replay/LegacyPerspectiveReplayRecorder.java",
+        "docs/generated/migreal03-viewer-identity-chain.json"
+      ],
+      "generator": "scripts/audit-migreal05-perspective-reconnect.rb",
+      "rebuild": "ruby scripts/audit-migreal05-perspective-reconnect.rb",
+      "owner": "game-reconnect",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/migreal04-consumed-event-lifecycle.json",
+      "kind": "generated-integration-evidence",
+      "authoritativeInputs": [
+        "database/migrations/V20260823_21__consumed_event_fenced_lease.sql",
+        "server/GameCommon/src/main/java/com/aoo/bcg/common/event/JdbcConsumedEventStore.java",
+        "server/GameCommon/src/test/java/com/aoo/bcg/common/event/RocketMqOutboxIntegrationTest.java"
+      ],
+      "generator": "scripts/audit-migreal04-consumed-events.rb",
+      "rebuild": "ruby scripts/audit-migreal04-consumed-events.rb",
+      "owner": "eventing-and-messaging",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/migreal03-viewer-identity-chain.json",
+      "kind": "generated-integration-evidence",
+      "authoritativeInputs": [
+        "server/GameSPI/src/main/java/com/aoo/bcg/gamespi/AuthenticatedViewerScope.java",
+        "server/Gateway/src/main/java/com/aoo/bcg/gateway/ConnectionSession.java",
+        "server/GameCommon/src/main/java/core/replay/JdbcReplayParticipantRegistry.java",
+        "tools/ViewerIdentityChainSmoke.java"
+      ],
+      "generator": "tools/ViewerIdentityChainSmoke.java",
+      "rebuild": "tools/run_viewer_identity_chain_smoke.sh",
+      "owner": "gateway-reconnect-replay",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/migreal02-club-member-scale.json",
+      "kind": "generated-performance-evidence",
+      "authoritativeInputs": [
+        "database/migrations/V20260822_14__scalable_club_members.sql",
+        "server/GameCommon/src/main/java/com/aoo/bcg/common/club/JdbcClubMemberIndex.java",
+        "tools/ClubMemberScaleBenchmark.java"
+      ],
+      "generator": "tools/ClubMemberScaleBenchmark.java",
+      "rebuild": "tools/run_club_member_scale_benchmark.sh",
+      "owner": "club-and-database-migration",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/migreal01-account-login-index.json",
+      "kind": "generated-performance-evidence",
+      "authoritativeInputs": [
+        "database/migrations/V20260823_20__account_login_unique_index.sql",
+        "tools/AccountLoginIndexBenchmark.java"
+      ],
+      "generator": "tools/AccountLoginIndexBenchmark.java",
+      "rebuild": "tools/run_account_login_index_benchmark.sh",
+      "owner": "account-and-database-migration",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/common-room-state-machine.md",
+      "kind": "generated-document",
+      "authoritativeInputs": [
+        "server/GameSPI/src/main/java"
+      ],
+      "generator": "tools/audit_generated_state_graph.rb",
+      "rebuild": "ruby tools/audit_generated_state_graph.rb",
+      "owner": "game-spi",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/maven-module-graph.md",
+      "kind": "generated-document",
+      "authoritativeInputs": [
+        "pom.xml",
+        "server"
+      ],
+      "generator": "scripts/audit-real14-maven-module-graph.rb",
+      "rebuild": "ruby scripts/audit-real14-maven-module-graph.rb",
+      "owner": "build",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/staging-file-disposition.json",
+      "kind": "generated-ledger",
+      "authoritativeInputs": [
+        "scripts/audit-stage05-disposition-ledger.rb"
+      ],
+      "optionalInputs": [
+        "work/staging-server-files"
+      ],
+      "generator": "scripts/audit-stage05-disposition-ledger.rb",
+      "rebuild": "ruby scripts/audit-stage05-disposition-ledger.rb",
+      "owner": "migration",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/legacy-common-binary-inventory.json",
+      "kind": "generated-ledger",
+      "authoritativeInputs": [
+        "reference/legacy-2.22/root-common-runtime"
+      ],
+      "generator": "scripts/audit-hygiene06-common-binaries.rb",
+      "rebuild": "ruby scripts/audit-hygiene06-common-binaries.rb",
+      "owner": "legacy-governance",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/tool-script-inventory.json",
+      "kind": "generated-ledger",
+      "authoritativeInputs": [
+        "scripts",
+        "tools"
+      ],
+      "generator": "scripts/audit-hygiene08-tool-quality.rb",
+      "rebuild": "ruby scripts/audit-hygiene08-tool-quality.rb",
+      "owner": "tooling",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/third-party-content-inventory.json",
+      "kind": "generated-ledger",
+      "authoritativeInputs": [
+        "reference/legacy-2.22/third-party-maven-repository/com"
+      ],
+      "generator": "scripts/audit-third01-inventory.rb",
+      "rebuild": "ruby scripts/audit-third01-inventory.rb",
+      "owner": "dependency-governance",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/third-party-necessity-map.json",
+      "kind": "generated-ledger",
+      "authoritativeInputs": [
+        "server/AooKernel",
+        "server/Gateway",
+        "server/LegacyCommon",
+        "reference/legacy-2.22/third-party-maven-repository/com"
+      ],
+      "generator": "scripts/audit-third03-necessity.rb",
+      "rebuild": "ruby scripts/audit-third03-necessity.rb",
+      "owner": "dependency-governance",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/third-party-security-path.json",
+      "kind": "generated-ledger",
+      "authoritativeInputs": [
+        "pom.xml",
+        "server/AooKernel",
+        "server/Gateway",
+        "reference/legacy-2.22/third-party-maven-repository/com",
+        "docs/第三方安全更新与隔离策略.md"
+      ],
+      "generator": "scripts/audit-third04-security-path.rb",
+      "rebuild": "ruby scripts/audit-third04-security-path.rb",
+      "owner": "security",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/third-party-modification-dossier.json",
+      "kind": "generated-ledger",
+      "authoritativeInputs": [
+        "server/AooKernel",
+        "server/Gateway",
+        "reference/legacy-2.22/third-party-maven-repository/com",
+        "reference/upstream/org.atmosphere/nettosphere/3.2.2"
+      ],
+      "generator": "scripts/audit-third05-modification-dossier.rb",
+      "rebuild": "ruby scripts/audit-third05-modification-dossier.rb",
+      "owner": "dependency-governance",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/third-party-license-ledger.json",
+      "kind": "generated-ledger",
+      "authoritativeInputs": [
+        "THIRD_PARTY_NOTICE.md",
+        "reference/licenses/Apache-2.0.txt",
+        "reference/upstream/org.atmosphere/nettosphere/3.2.2",
+        "reference/legacy-2.22/third-party-maven-repository/com"
+      ],
+      "generator": "scripts/audit-third07-licenses.rb",
+      "rebuild": "ruby scripts/audit-third07-licenses.rb",
+      "owner": "legal-and-dependency-governance",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/archived-third-party.cdx.json",
+      "kind": "generated-sbom",
+      "authoritativeInputs": [
+        "reference/legacy-2.22/third-party-maven-repository/com",
+        "reference/upstream/org.atmosphere/nettosphere/3.2.2",
+        "reference/security/osv/nettosphere-3.2.2-20260823.json",
+        "docs/generated/third-party-license-ledger.json"
+      ],
+      "generator": "scripts/audit-third08-sbom.rb",
+      "rebuild": "ruby scripts/audit-third08-sbom.rb",
+      "owner": "security",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/archived-third-party-vulnerability-scan.json",
+      "kind": "generated-security-ledger",
+      "authoritativeInputs": [
+        "reference/security/osv/nettosphere-3.2.2-20260823.json",
+        "docs/generated/third-party-modification-dossier.json",
+        "docs/generated/third-party-license-ledger.json"
+      ],
+      "generator": "scripts/audit-third08-sbom.rb",
+      "rebuild": "ruby scripts/audit-third08-sbom.rb",
+      "owner": "security",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/db-zle-qh-object-map.json",
+      "kind": "generated-database-ledger",
+      "authoritativeInputs": [
+        "database/original/db_zle_qh.sql",
+        "database/migrations"
+      ],
+      "generator": "scripts/audit-dbreal03-zle-map.rb",
+      "rebuild": "ruby scripts/audit-dbreal03-zle-map.rb",
+      "owner": "database-migration",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/clark-log-qh-object-map.json",
+      "kind": "generated-database-ledger",
+      "authoritativeInputs": [
+        "database/original/clark_log_qh.sql",
+        "database/migrations"
+      ],
+      "generator": "scripts/audit-dbreal04-log-map.rb",
+      "rebuild": "ruby scripts/audit-dbreal04-log-map.rb",
+      "owner": "database-migration",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/clark-game-qh-object-map.json",
+      "kind": "generated-database-ledger",
+      "authoritativeInputs": [
+        "database/original/clark_game_qh.sql",
+        "database/migrations"
+      ],
+      "generator": "scripts/audit-dbreal05-game-map.rb",
+      "rebuild": "ruby scripts/audit-dbreal05-game-map.rb",
+      "owner": "database-migration",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/dbreal08-migration-boundary.json",
+      "kind": "generated-database-evidence",
+      "authoritativeInputs": [
+        "database/migrations",
+        "tools/list_migrations.rb",
+        "tools/apply_migrations.sh",
+        "tools/verify_fresh_migrations.sh"
+      ],
+      "generator": "scripts/audit-dbreal08-boundary.rb",
+      "rebuild": "ruby scripts/audit-dbreal08-boundary.rb",
+      "owner": "database-migration",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/legacy-database-column-migration-ledger.json",
+      "kind": "generated-database-ledger",
+      "authoritativeInputs": [
+        "database/original/db_zle_qh.sql",
+        "database/original/clark_log_qh.sql",
+        "database/original/clark_game_qh.sql",
+        "database/migrations",
+        "docs/generated/db-zle-qh-object-map.json",
+        "docs/generated/clark-log-qh-object-map.json",
+        "docs/generated/clark-game-qh-object-map.json"
+      ],
+      "generator": "scripts/audit-dbreal09-column-ledger.rb",
+      "rebuild": "ruby scripts/audit-dbreal09-column-ledger.rb",
+      "owner": "database-migration",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/sensitive-data-repository-scan.json",
+      "kind": "generated-security-evidence",
+      "authoritativeInputs": [
+        "database/backups",
+        "database/original",
+        "server",
+        ".releaseignore"
+      ],
+      "generator": "scripts/audit-dbreal10-sensitive-data.rb",
+      "rebuild": "ruby scripts/audit-dbreal10-sensitive-data.rb",
+      "owner": "security-and-database-migration",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/dbreal11-sql-compatibility.json",
+      "kind": "generated-database-evidence",
+      "authoritativeInputs": [
+        "database/migrations",
+        "tools/apply_migrations.sh",
+        "tools/verify_fresh_migrations.sh"
+      ],
+      "generator": "scripts/audit-dbreal11-sql-compatibility.rb",
+      "rebuild": "ruby scripts/audit-dbreal11-sql-compatibility.rb",
+      "owner": "database-migration",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/game08-catalog-expansion.json",
+      "kind": "generated-game-audit-evidence",
+      "authoritativeInputs": [
+        "server/Bootstrap/src/main/resources/game-catalog-528.tsv",
+        "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/CatalogGameProvider.java",
+        "work/audit/game-component-completeness.json"
+      ],
+      "generator": "scripts/audit-game08-catalog-expansion.rb",
+      "rebuild": "ruby scripts/audit-game08-catalog-expansion.rb",
+      "owner": "game-migration",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/cp01-duplicate-fqcn.json",
+      "kind": "generated-classpath-evidence",
+      "authoritativeInputs": [
+        "server",
+        "third-party"
+      ],
+      "generator": "scripts/audit-cp01-duplicate-fqcn.rb",
+      "rebuild": "ruby scripts/audit-cp01-duplicate-fqcn.rb",
+      "owner": "build-and-classpath",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/cp02-resource-collisions.json",
+      "kind": "generated-classpath-evidence",
+      "authoritativeInputs": [
+        "server/**/src/main/resources",
+        "server/**/target/generated-resources",
+        "server/**/build/generated/resources"
+      ],
+      "generator": "scripts/audit-cp02-resource-collisions.rb",
+      "rebuild": "ruby scripts/audit-cp02-resource-collisions.rb",
+      "owner": "build-and-classpath",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/cp03-artifact-coordinates.json",
+      "kind": "generated-build-evidence",
+      "authoritativeInputs": [
+        "pom.xml",
+        "server/**/pom.xml"
+      ],
+      "generator": "scripts/audit-cp03-artifact-coordinates.rb",
+      "rebuild": "ruby scripts/audit-cp03-artifact-coordinates.rb",
+      "owner": "build-and-classpath",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/cp04-jpms-boundary.json",
+      "kind": "generated-build-evidence",
+      "authoritativeInputs": [
+        "pom.xml",
+        "server/**/pom.xml",
+        "server/**/src/main/java",
+        "server/**/src/main/resources/META-INF/MANIFEST.MF"
+      ],
+      "generator": "scripts/audit-cp04-jpms-boundary.rb",
+      "rebuild": "ruby scripts/audit-cp04-jpms-boundary.rb",
+      "owner": "build-and-classpath",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/cp05-reactor-order.json",
+      "kind": "generated-build-evidence",
+      "authoritativeInputs": [
+        "pom.xml",
+        "server/**/pom.xml",
+        "work/audit/cp05-reactor-package.log"
+      ],
+      "generator": "scripts/audit-cp05-reactor-order.rb",
+      "rebuild": "date > work/audit/cp05-reactor-start.marker && ./mvnw -Dexec.skip=true -DskipTests package > work/audit/cp05-reactor-package.log 2>&1 && ruby scripts/audit-cp05-reactor-order.rb",
+      "owner": "build-and-classpath",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/cp06-build-version.json",
+      "kind": "generated-build-evidence",
+      "authoritativeInputs": [
+        "pom.xml",
+        "server/**/pom.xml",
+        "tools/aoo-build-version.rb",
+        "tools/build-release.sh"
+      ],
+      "generator": "scripts/audit-cp06-build-version.rb",
+      "rebuild": "ruby scripts/audit-cp06-build-version.rb",
+      "owner": "build-and-classpath",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/cp07-service-loader.json",
+      "kind": "generated-classpath-evidence",
+      "authoritativeInputs": [
+        "server/*/src/main/resources/META-INF/services/com.aoo.bcg.gamespi.GameProvider",
+        "server/Bootstrap/src/test/java/com/aoo/bcg/bootstrap/GameProviderServiceLoaderTest.java"
+      ],
+      "generator": "scripts/audit-cp07-service-loader.rb",
+      "rebuild": "./mvnw -Dexec.skip=true -pl server/Bootstrap -am -Dtest=GameProviderServiceLoaderTest -Dsurefire.failIfNoSpecifiedTests=false test && ruby scripts/audit-cp07-service-loader.rb",
+      "owner": "build-and-classpath",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/cp08-spring-metadata.json",
+      "kind": "generated-classpath-evidence",
+      "authoritativeInputs": [
+        "pom.xml",
+        "server/**/pom.xml",
+        "server/**/src/main/resources/META-INF"
+      ],
+      "generator": "scripts/audit-cp08-spring-metadata.rb",
+      "rebuild": "ruby scripts/audit-cp08-spring-metadata.rb",
+      "owner": "build-and-classpath",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/cp09-resource-filtering.json",
+      "kind": "generated-build-evidence",
+      "authoritativeInputs": [
+        "pom.xml",
+        "server/**/pom.xml",
+        "server/**/src/main/resources",
+        "database/migrations"
+      ],
+      "generator": "scripts/audit-cp09-resource-filtering.rb",
+      "rebuild": "./mvnw -Dexec.skip=true -DskipTests process-resources && ruby scripts/audit-cp09-resource-filtering.rb",
+      "owner": "build-and-classpath",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/cp10-classpath-parity.json",
+      "kind": "generated-classpath-evidence",
+      "authoritativeInputs": [
+        "pom.xml",
+        "tools/runtime-java26.sh",
+        "tools/start-*-local.sh"
+      ],
+      "generator": "scripts/audit-cp10-classpath-parity.rb",
+      "rebuild": "./mvnw -Dexec.skip=true -DskipTests package && ./mvnw -f server/LegacyGameHall/pom.xml -Dexec.skip=true -DskipTests package && ruby scripts/audit-cp10-classpath-parity.rb",
+      "owner": "build-and-classpath",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/cp11-class-origins.json",
+      "kind": "generated-classpath-evidence",
+      "authoritativeInputs": [
+        "pom.xml",
+        "server/Bootstrap/pom.xml",
+        "tools/ClassOriginDiagnostics.java"
+      ],
+      "generator": "scripts/audit-cp11-class-origins.rb",
+      "rebuild": "./mvnw -Dexec.skip=true -DskipTests package && ruby scripts/audit-cp11-class-origins.rb",
+      "owner": "build-and-classpath",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/cp12-clean-isolated.json",
+      "kind": "generated-build-evidence",
+      "authoritativeInputs": [
+        "pom.xml",
+        "server/**/pom.xml",
+        "tools/verify-clean-isolated-reactor.sh",
+        "work/audit/cp12-clean-isolated.log"
+      ],
+      "generator": "scripts/audit-cp12-clean-isolated.rb",
+      "rebuild": "tools/verify-clean-isolated-reactor.sh",
+      "owner": "build-and-classpath",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/proto01-authority.json",
+      "kind": "generated-protocol-evidence",
+      "authoritativeInputs": [
+        "protocol/aoo-protocol-v2.json",
+        "protocol/README.md",
+        "protocol/PROTOCOL_GOVERNANCE.md"
+      ],
+      "generator": "scripts/audit-proto01-authority.rb",
+      "rebuild": "ruby scripts/audit-proto01-authority.rb",
+      "owner": "protocol-governance",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "server/GameSPI/src/main/java/com/aoo/bcg/gamespi/protocol/GeneratedProtocolIds.java",
+      "kind": "generated-java",
+      "authoritativeInputs": [
+        "protocol/aoo-protocol-v2.json",
+        "tools/protocol/protocol-model.mjs"
+      ],
+      "generator": "tools/protocol/generate.mjs",
+      "rebuild": "node tools/protocol/generate.mjs",
+      "owner": "protocol-governance",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "../Client/assets/Common/Code/Runtime/network/GeneratedProtocolIds.ts",
+      "kind": "generated-typescript",
+      "authoritativeInputs": [
+        "protocol/aoo-protocol-v2.json",
+        "tools/protocol/protocol-model.mjs"
+      ],
+      "generator": "tools/protocol/generate.mjs",
+      "rebuild": "node tools/protocol/generate.mjs",
+      "owner": "protocol-governance",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/proto02-tool-responsibility.json",
+      "kind": "generated-protocol-evidence",
+      "authoritativeInputs": [
+        "protocol/aoo-protocol-v2.json",
+        "tools/protocol/protocol-model.mjs"
+      ],
+      "generator": "scripts/audit-proto02-tool-responsibility.rb",
+      "rebuild": "ruby scripts/audit-proto02-tool-responsibility.rb",
+      "owner": "protocol-governance",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/proto03-dto-drift.json",
+      "kind": "generated-protocol-evidence",
+      "authoritativeInputs": [
+        "protocol/aoo-protocol-v2.json",
+        "tools/protocol/generate.mjs",
+        "server/Gateway/src/main/java/com/aoo/bcg/gateway/WebSocketFrame.java"
+      ],
+      "generator": "scripts/audit-proto03-dto-drift.rb",
+      "rebuild": "ruby scripts/audit-proto03-dto-drift.rb",
+      "owner": "protocol-governance",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/proto04-message-registry.json",
+      "kind": "generated-protocol-evidence",
+      "authoritativeInputs": [
+        "protocol/aoo-protocol-v2.json",
+        "tools/protocol/check.mjs"
+      ],
+      "generator": "scripts/audit-proto04-message-registry.rb",
+      "rebuild": "ruby scripts/audit-proto04-message-registry.rb",
+      "owner": "protocol-governance",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/proto05-reproducible.json",
+      "kind": "generated-protocol-evidence",
+      "authoritativeInputs": [
+        ".node-version",
+        "protocol/aoo-protocol-v2.json",
+        "tools/protocol/generate.mjs"
+      ],
+      "generator": "scripts/audit-proto05-reproducible.rb",
+      "rebuild": "ruby scripts/audit-proto05-reproducible.rb",
+      "owner": "protocol-governance",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/proto06-generated-policy.json",
+      "kind": "generated-protocol-evidence",
+      "authoritativeInputs": [
+        "docs/generated/generated-artifact-manifest.json",
+        "tools/protocol/check-generated.mjs",
+        "pom.xml"
+      ],
+      "generator": "scripts/audit-proto06-generated-policy.rb",
+      "rebuild": "ruby scripts/audit-proto06-generated-policy.rb",
+      "owner": "protocol-governance",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/proto07-generated-isolation.json",
+      "kind": "generated-protocol-evidence",
+      "authoritativeInputs": [
+        "server/GameSPI/src/main/java/com/aoo/bcg/gamespi/protocol/GeneratedProtocolIds.java",
+        "pom.xml"
+      ],
+      "generator": "scripts/audit-proto07-generated-isolation.rb",
+      "rebuild": "ruby scripts/audit-proto07-generated-isolation.rb",
+      "owner": "protocol-governance",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/proto08-type-mapping.json",
+      "kind": "generated-protocol-evidence",
+      "authoritativeInputs": [
+        "protocol/aoo-protocol-v2.json",
+        "protocol/TYPE_MAPPING.md",
+        "tools/protocol/generate.mjs"
+      ],
+      "generator": "scripts/audit-proto08-type-mapping.rb",
+      "rebuild": "ruby scripts/audit-proto08-type-mapping.rb",
+      "owner": "protocol-governance",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/protocol-reference.md",
+      "kind": "generated-protocol-documentation",
+      "authoritativeInputs": [
+        "protocol/aoo-protocol-v2.json",
+        "tools/protocol/generate.mjs"
+      ],
+      "generator": "tools/protocol/generate.mjs",
+      "rebuild": "node tools/protocol/generate.mjs",
+      "owner": "protocol-governance",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/proto09-protocol-docs.json",
+      "kind": "generated-protocol-evidence",
+      "authoritativeInputs": [
+        "protocol/aoo-protocol-v2.json",
+        "docs/generated/protocol-reference.md"
+      ],
+      "generator": "scripts/audit-proto09-protocol-docs.rb",
+      "rebuild": "ruby scripts/audit-proto09-protocol-docs.rb",
+      "owner": "protocol-governance",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/proto10-difference-gate.json",
+      "kind": "generated-protocol-evidence",
+      "authoritativeInputs": [
+        "protocol/aoo-protocol-v2.json",
+        "protocol/aoo-protocol-v2.baseline.json",
+        "tools/protocol/compatibility.mjs"
+      ],
+      "generator": "scripts/audit-proto10-difference-gate.rb",
+      "rebuild": "ruby scripts/audit-proto10-difference-gate.rb",
+      "owner": "protocol-governance",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/proto11-generator-security.json",
+      "kind": "generated-protocol-evidence",
+      "authoritativeInputs": [
+        "tools/protocol/generate.mjs",
+        "tools/protocol/path-security.mjs",
+        "tools/protocol/test-path-security.mjs"
+      ],
+      "generator": "scripts/audit-proto11-generator-security.rb",
+      "rebuild": "ruby scripts/audit-proto11-generator-security.rb",
+      "owner": "protocol-governance",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/proto12-legacy-boundary.json",
+      "kind": "generated-protocol-evidence",
+      "authoritativeInputs": [
+        "server/LegacyCommon/src/com/ddm/server/websocket/handler/requset/RequestDispatcher.java",
+        "../Client/assets/Common/Code/Runtime/network/ProtocolClient.ts"
+      ],
+      "generator": "scripts/audit-proto12-legacy-boundary.rb",
+      "rebuild": "ruby scripts/audit-proto12-legacy-boundary.rb",
+      "owner": "protocol-governance",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/fs01-casefold.json",
+      "kind": "generated-filesystem-evidence",
+      "authoritativeInputs": [
+        "scripts/audit-fs01-casefold.rb",
+        "docs/generated/cp12-clean-isolated.json"
+      ],
+      "generator": "scripts/audit-fs01-casefold.rb",
+      "rebuild": "ruby scripts/audit-fs01-casefold.rb",
+      "owner": "build-governance",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/fs02-illegal-names.json",
+      "kind": "generated-filesystem-evidence",
+      "authoritativeInputs": [
+        "scripts/audit-fs02-illegal-names.rb"
+      ],
+      "generator": "scripts/audit-fs02-illegal-names.rb",
+      "rebuild": "ruby scripts/audit-fs02-illegal-names.rb",
+      "owner": "build-governance",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/fs03-unicode-normalization.json",
+      "kind": "generated-filesystem-evidence",
+      "authoritativeInputs": [
+        "scripts/audit-fs03-unicode-normalization.rb"
+      ],
+      "generator": "scripts/audit-fs03-unicode-normalization.rb",
+      "rebuild": "ruby scripts/audit-fs03-unicode-normalization.rb",
+      "owner": "build-governance",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/fs04-utf8.json",
+      "kind": "generated-filesystem-evidence",
+      "authoritativeInputs": [
+        "scripts/audit-fs04-utf8.rb"
+      ],
+      "generator": "scripts/audit-fs04-utf8.rb",
+      "rebuild": "ruby scripts/audit-fs04-utf8.rb",
+      "owner": "build-governance",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/fs05-line-endings.json",
+      "kind": "generated-filesystem-evidence",
+      "authoritativeInputs": [
+        "scripts/audit-fs05-line-endings.rb",
+        "../.gitattributes"
+      ],
+      "generator": "scripts/audit-fs05-line-endings.rb",
+      "rebuild": "ruby scripts/audit-fs05-line-endings.rb",
+      "owner": "build-governance",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/fs06-bom.json",
+      "kind": "generated-filesystem-evidence",
+      "authoritativeInputs": [
+        "scripts/audit-fs06-bom.rb"
+      ],
+      "generator": "scripts/audit-fs06-bom.rb",
+      "rebuild": "ruby scripts/audit-fs06-bom.rb",
+      "owner": "build-governance",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/fs07-executable-permissions.json",
+      "kind": "generated-filesystem-evidence",
+      "authoritativeInputs": [
+        "scripts/audit-fs07-executable-permissions.rb"
+      ],
+      "generator": "scripts/audit-fs07-executable-permissions.rb",
+      "rebuild": "ruby scripts/audit-fs07-executable-permissions.rb",
+      "owner": "build-governance",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/fs08-symlinks.json",
+      "kind": "generated-filesystem-evidence",
+      "authoritativeInputs": [
+        "scripts/audit-fs08-symlinks.rb"
+      ],
+      "generator": "scripts/audit-fs08-symlinks.rb",
+      "rebuild": "ruby scripts/audit-fs08-symlinks.rb",
+      "owner": "build-governance",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/fs09-runtime-permissions.json",
+      "kind": "generated-filesystem-evidence",
+      "authoritativeInputs": [
+        "tools/prepare-runtime-dirs.sh",
+        "tools/verify-runtime-permissions.rb"
+      ],
+      "generator": "scripts/audit-fs09-runtime-permissions.rb",
+      "rebuild": "ruby scripts/audit-fs09-runtime-permissions.rb",
+      "owner": "operations",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/fs10-atomic-writes.json",
+      "kind": "generated-filesystem-evidence",
+      "authoritativeInputs": [
+        "server/GameCommon/src/main/java/com/aoo/bcg/common/resource/AtomicFilePublisher.java",
+        "server/GameCommon/src/test/java/com/aoo/bcg/common/resource/AtomicFilePublisherTest.java"
+      ],
+      "generator": "scripts/audit-fs10-atomic-writes.rb",
+      "rebuild": "ruby scripts/audit-fs10-atomic-writes.rb",
+      "owner": "platform-runtime",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/fs11-disk-full.json",
+      "kind": "generated-filesystem-evidence",
+      "authoritativeInputs": [
+        "server/GameCommon/src/main/java/com/aoo/bcg/common/resource/StorageCapacityGuard.java",
+        "server/GameCommon/src/test/java/com/aoo/bcg/common/resource/StorageCapacityGuardTest.java",
+        "tools/check-runtime-capacity.sh"
+      ],
+      "generator": "scripts/audit-fs11-disk-full.rb",
+      "rebuild": "ruby scripts/audit-fs11-disk-full.rb",
+      "owner": "platform-runtime",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/fs12-path-traversal.json",
+      "kind": "generated-filesystem-evidence",
+      "authoritativeInputs": [
+        "server/GameCommon/src/main/java/com/aoo/bcg/common/resource/SafePathResolver.java",
+        "server/GameCommon/src/test/java/com/aoo/bcg/common/resource/SafePathResolverTest.java"
+      ],
+      "generator": "scripts/audit-fs12-path-traversal.rb",
+      "rebuild": "ruby scripts/audit-fs12-path-traversal.rb",
+      "owner": "platform-security",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/logreal01-backend-runtime.json",
+      "kind": "generated-runtime-log-evidence",
+      "authoritativeInputs": [
+        "logs/backend-runtime",
+        "tools/analyze_runtime_logs.rb"
+      ],
+      "generator": "scripts/audit-logreal01-backend-runtime.rb",
+      "rebuild": "ruby scripts/audit-logreal01-backend-runtime.rb",
+      "owner": "observability",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/logreal02-hall.json",
+      "kind": "generated-runtime-log-evidence",
+      "authoritativeInputs": [
+        "logs/hall",
+        "tools/analyze_runtime_logs.rb"
+      ],
+      "generator": "scripts/audit-logreal02-hall.rb",
+      "rebuild": "ruby scripts/audit-logreal02-hall.rb",
+      "owner": "observability",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/runtime-game-log-ledger.json",
+      "kind": "generated-runtime-game-log-ledger",
+      "authoritativeInputs": [
+        "logs/game516",
+        "logs/game7103",
+        "logs/game990051",
+        "logs/game990516",
+        "logs/game990629",
+        "server/Bootstrap/src/main/resources/game-catalog-528.tsv"
+      ],
+      "generator": "scripts/audit-logreal03-game-log-map.rb",
+      "rebuild": "ruby scripts/audit-logreal03-game-log-map.rb",
+      "owner": "observability",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/logreal05-repeated-errors.json",
+      "kind": "generated-runtime-error-fingerprint-ledger",
+      "authoritativeInputs": [
+        "logs",
+        "scripts/audit-logreal05-repeated-errors.rb"
+      ],
+      "generator": "scripts/audit-logreal05-repeated-errors.rb",
+      "rebuild": "ruby scripts/audit-logreal05-repeated-errors.rb",
+      "owner": "observability",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/logreal09-legacy-entrypoint-ledger.json",
+      "kind": "generated-legacy-entrypoint-retirement-ledger",
+      "authoritativeInputs": [
+        "logs",
+        "server/GameSPI/src/main/java/com/aoo/bcg/gamespi/api/DeprecatedEntryPointBlocklist.java"
+      ],
+      "generator": "scripts/audit-logreal09-legacy-entrypoints.rb",
+      "rebuild": "ruby scripts/audit-logreal09-legacy-entrypoints.rb",
+      "owner": "protocol-governance",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/logreal10-sensitive-logging.json",
+      "kind": "generated-sensitive-logging-gate-evidence",
+      "authoritativeInputs": [
+        "server",
+        "../Client/assets/Common/Code",
+        "server/GameCommon/src/main/java/com/aoo/bcg/common/config/SensitiveDataRedactor.java"
+      ],
+      "generator": "scripts/audit-logreal10-sensitive-logging.rb",
+      "rebuild": "ruby scripts/audit-logreal10-sensitive-logging.rb",
+      "owner": "platform-security",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/logreal11-noise-policy.json",
+      "kind": "generated-runtime-log-noise-policy-evidence",
+      "authoritativeInputs": [
+        "server/LegacyCommon/conf/logback_game.xml",
+        "../Client/assets/Common/Code/Runtime/observability/RuntimeLogGovernor.ts",
+        "../Client/assets/Login/Code/Runtime/bootstrap/LoginScreenBootstrap.ts"
+      ],
+      "generator": "scripts/audit-logreal11-noise-policy.rb",
+      "rebuild": "ruby scripts/audit-logreal11-noise-policy.rb",
+      "owner": "observability",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/logreal12-current-evidence.json",
+      "kind": "generated-current-evidence-matrix",
+      "authoritativeInputs": [
+        "docs/generated/logreal01-backend-runtime.json",
+        "docs/generated/logreal02-hall.json",
+        "docs/generated/runtime-game-log-ledger.json",
+        "docs/generated/logreal05-repeated-errors.json",
+        "docs/generated/logreal09-legacy-entrypoint-ledger.json",
+        "docs/generated/logreal10-sensitive-logging.json",
+        "docs/generated/logreal11-noise-policy.json"
+      ],
+      "generator": "scripts/audit-logreal12-current-evidence.rb",
+      "rebuild": "ruby scripts/audit-logreal12-current-evidence.rb",
+      "owner": "quality-engineering",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/drift01-module-reconciliation.json",
+      "kind": "generated-architecture-module-reconciliation",
+      "authoritativeInputs": [
+        "pom.xml",
+        "server",
+        "docs/后端架构开发文档.md"
+      ],
+      "generator": "scripts/audit-drift01-module-reconciliation.rb",
+      "rebuild": "ruby scripts/audit-drift01-module-reconciliation.rb",
+      "owner": "architecture",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/drift02-version-build-reconciliation.json",
+      "kind": "generated-version-build-reconciliation",
+      "authoritativeInputs": [
+        "pom.xml",
+        ".mvn/wrapper/maven-wrapper.properties",
+        ".node-version",
+        "tools/runtime-java26.sh"
+      ],
+      "generator": "scripts/audit-drift02-version-build.rb",
+      "rebuild": "ruby scripts/audit-drift02-version-build.rb",
+      "owner": "architecture",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/drift03-interface-routing-reconciliation.json",
+      "kind": "generated-interface-routing-reconciliation",
+      "authoritativeInputs": [
+        "protocol/aoo-protocol-v2.json",
+        "server/GameSPI/src/main/java/com/aoo/bcg/gamespi/protocol/GeneratedProtocolIds.java",
+        "server/GameSPI/src/main/java/com/aoo/bcg/gamespi/api/ApiOwnershipCatalog.java",
+        "docs/generated/protocol-reference.md"
+      ],
+      "generator": "scripts/audit-drift03-interface-routing.rb",
+      "rebuild": "ruby scripts/audit-drift03-interface-routing.rb",
+      "owner": "architecture",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/drift04-schema-dictionary.json",
+      "kind": "generated-schema-dictionary",
+      "authoritativeInputs": [
+        "database/original",
+        "database/migrations"
+      ],
+      "generator": "scripts/audit-drift04-schema-dictionary.rb",
+      "rebuild": "ruby scripts/audit-drift04-schema-dictionary.rb",
+      "owner": "data-platform",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/drift04-schema-dictionary.md",
+      "kind": "generated-schema-dictionary-reference",
+      "authoritativeInputs": [
+        "database/original",
+        "database/migrations"
+      ],
+      "generator": "scripts/audit-drift04-schema-dictionary.rb",
+      "rebuild": "ruby scripts/audit-drift04-schema-dictionary.rb",
+      "owner": "data-platform",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/drift05-play-documentation-reconciliation.json",
+      "kind": "generated-play-documentation-reconciliation",
+      "authoritativeInputs": [
+        "work/generated/classification/game-classification.json",
+        "server/Bootstrap/src/main/resources/game-catalog-528.tsv",
+        "docs/generated/migreal14-game-profile.json"
+      ],
+      "generator": "scripts/audit-drift05-play-documentation.rb",
+      "rebuild": "ruby scripts/audit-drift05-play-documentation.rb",
+      "owner": "game-platform",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/drift06-client-prefab-reconciliation.json",
+      "kind": "generated-client-prefab-reconciliation",
+      "authoritativeInputs": [
+        "../Client/assets",
+        "work/audit/cocos-uuid-reference-audit.json",
+        "work/audit/ui-backend-closure-audit.json",
+        "work/audit/store-ui-subscription-graph.json"
+      ],
+      "generator": "scripts/audit-drift06-client-prefab.rb",
+      "rebuild": "ruby scripts/audit-drift06-client-prefab.rb",
+      "owner": "client-platform",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/drift07-deployment-reconciliation.json",
+      "kind": "generated-deployment-reconciliation",
+      "authoritativeInputs": [
+        "deploy/production-services.yaml",
+        "tools/start-hall-local.sh",
+        "tools/start-njpdk-local.sh",
+        "tools/start-cdxzmj-local.sh"
+      ],
+      "generator": "scripts/audit-drift07-deployment.rb",
+      "rebuild": "ruby scripts/audit-drift07-deployment.rb",
+      "owner": "platform-operations",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/drift08-operations-runbook.json",
+      "kind": "generated-operations-runbook-audit",
+      "authoritativeInputs": [
+        "docs/运维恢复演练手册.md",
+        "deploy/production-services.yaml"
+      ],
+      "generator": "scripts/audit-drift08-operations-runbook.rb",
+      "rebuild": "ruby scripts/audit-drift08-operations-runbook.rb",
+      "owner": "platform-operations",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/drift09-ledger-evidence-audit.json",
+      "kind": "generated-ledger-evidence-audit",
+      "authoritativeInputs": [
+        "docs"
+      ],
+      "generator": "scripts/audit-drift09-ledger-evidence.rb",
+      "rebuild": "ruby scripts/audit-drift09-ledger-evidence.rb",
+      "owner": "architecture-governance",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/drift10-continuous-drift.json",
+      "kind": "generated-continuous-drift-gate",
+      "authoritativeInputs": [
+        "scripts/audit-drift01-module-reconciliation.rb",
+        "scripts/audit-drift02-version-build.rb",
+        "scripts/audit-drift03-interface-routing.rb",
+        "scripts/audit-drift04-schema-dictionary.rb",
+        "scripts/audit-drift05-play-documentation.rb",
+        "scripts/audit-drift06-client-prefab.rb",
+        "scripts/audit-drift07-deployment.rb",
+        "scripts/audit-drift08-operations-runbook.rb",
+        "scripts/audit-drift09-ledger-evidence.rb"
+      ],
+      "generator": "scripts/audit-drift10-continuous-drift.rb",
+      "rebuild": "ruby scripts/audit-drift10-continuous-drift.rb",
+      "owner": "architecture-governance",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/build01-maven-wrapper.json",
+      "kind": "generated-maven-wrapper-audit",
+      "authoritativeInputs": [
+        ".mvn/wrapper/maven-wrapper.properties"
+      ],
+      "generator": "scripts/audit-build01-maven-wrapper.rb",
+      "rebuild": "ruby scripts/audit-build01-maven-wrapper.rb",
+      "owner": "build-platform",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/build02-repository-policy.json",
+      "kind": "generated-repository-policy-audit",
+      "authoritativeInputs": [
+        ".mvn/settings.xml",
+        ".mvn/maven.config"
+      ],
+      "generator": "scripts/audit-build02-repositories.rb",
+      "rebuild": "ruby scripts/audit-build02-repositories.rb",
+      "owner": "build-platform",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/build03-dynamic-versions.json",
+      "kind": "generated-dynamic-version-audit",
+      "authoritativeInputs": [
+        "pom.xml",
+        "server",
+        "tools"
+      ],
+      "generator": "scripts/audit-build03-dynamic-versions.rb",
+      "rebuild": "ruby scripts/audit-build03-dynamic-versions.rb",
+      "owner": "build-platform",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/build04-reproducibility.json",
+      "kind": "generated-reproducible-build-audit",
+      "authoritativeInputs": [
+        "pom.xml",
+        "tools/build-release.sh",
+        "docs/generated"
+      ],
+      "generator": "scripts/audit-build04-reproducibility.rb",
+      "rebuild": "ruby scripts/audit-build04-reproducibility.rb",
+      "owner": "build-platform",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/build05-cache-key.json",
+      "kind": "generated-build-cache-key",
+      "authoritativeInputs": [
+        "pom.xml",
+        ".mvn/wrapper/maven-wrapper.properties",
+        ".node-version",
+        "database/migrations",
+        "scripts",
+        "../Client/package.json",
+        "../Client/pnpm-lock.yaml"
+      ],
+      "generator": "scripts/audit-build05-cache-key.rb",
+      "rebuild": "ruby scripts/audit-build05-cache-key.rb",
+      "owner": "build-platform",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/build06-cache-equivalence.json",
+      "kind": "generated-cache-equivalence-audit",
+      "authoritativeInputs": [
+        "pom.xml",
+        "server/GameSPI",
+        ".mvn/wrapper/maven-wrapper.properties"
+      ],
+      "generator": "scripts/audit-build06-cache-equivalence.rb",
+      "rebuild": "ruby scripts/audit-build06-cache-equivalence.rb",
+      "owner": "build-platform",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/build07-offline-build.json",
+      "kind": "generated-offline-build-audit",
+      "authoritativeInputs": [
+        "pom.xml",
+        ".mvn/settings.xml",
+        "tools/runtime-java26.sh",
+        "docs/generated/build06-cache-equivalence.json"
+      ],
+      "generator": "scripts/audit-build07-offline.rb",
+      "rebuild": "ruby scripts/audit-build06-cache-equivalence.rb && ruby scripts/audit-build07-offline.rb",
+      "owner": "build-platform",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/build08-artifact-signing.json",
+      "kind": "generated-artifact-signing-audit",
+      "authoritativeInputs": [
+        "server",
+        "deploy",
+        "database/migrations",
+        "docs/generated/generated-artifact-manifest.json",
+        "tools/sign-release-artifacts.sh"
+      ],
+      "generator": "scripts/audit-build08-artifact-signing.rb",
+      "rebuild": "ruby scripts/audit-build08-artifact-signing.rb",
+      "owner": "release-security",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/build09-source-provenance.json",
+      "kind": "generated-source-provenance-audit",
+      "authoritativeInputs": [
+        "pom.xml",
+        "tools/build-release.sh",
+        "../Client/pnpm-lock.yaml",
+        "deploy",
+        "database/migrations",
+        "protocol"
+      ],
+      "generator": "scripts/audit-build09-provenance.rb",
+      "rebuild": "ruby scripts/audit-build09-provenance.rb",
+      "owner": "release-security",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/build10-permission-isolation.json",
+      "kind": "generated-build-permission-audit",
+      "authoritativeInputs": [
+        ".github/workflows/release.yml"
+      ],
+      "generator": "scripts/audit-build10-permissions.rb",
+      "rebuild": "ruby scripts/audit-build10-permissions.rb",
+      "owner": "release-security",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/build11-release-whitelist.json",
+      "kind": "generated-release-whitelist-audit",
+      "authoritativeInputs": [
+        "config/release-allowlist.json",
+        "tools/package-release.rb",
+        "pom.xml"
+      ],
+      "generator": "scripts/audit-build11-release-whitelist.rb",
+      "rebuild": "ruby scripts/audit-build11-release-whitelist.rb",
+      "owner": "release-security",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/build12-dual-environment.json",
+      "kind": "generated-dual-environment-audit",
+      "authoritativeInputs": [
+        ".github/workflows/architecture-drift.yml"
+      ],
+      "generator": "scripts/audit-build12-dual-environment.rb",
+      "rebuild": "ruby scripts/audit-build12-dual-environment.rb",
+      "owner": "build-platform",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/creal01-common-growth.json",
+      "kind": "generated-client-common-growth-audit",
+      "authoritativeInputs": [
+        "../Client/assets/Common",
+        "server/Bootstrap/src/main/resources/game-catalog-528.tsv"
+      ],
+      "generator": "scripts/audit-creal01-common-growth.rb",
+      "rebuild": "ruby scripts/audit-creal01-common-growth.rb",
+      "owner": "client-architecture",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/creal02-games-classification.json",
+      "kind": "generated-client-game-classification-audit",
+      "authoritativeInputs": [
+        "../Client/assets/Games",
+        "../Client/assets/Common/Code/Runtime/CompatibilityApp",
+        "server/Bootstrap/src/main/resources/game-catalog-528.tsv"
+      ],
+      "generator": "scripts/audit-creal02-games-classification.rb",
+      "rebuild": "ruby scripts/audit-creal02-games-classification.rb",
+      "owner": "client-architecture",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/creal03-domain-boundaries.json",
+      "kind": "generated-client-domain-boundary-audit",
+      "authoritativeInputs": [
+        "../Client/assets/Common",
+        "../Client/assets/Login",
+        "../Client/assets/Lobby",
+        "../Client/assets/Club"
+      ],
+      "generator": "scripts/audit-creal03-domain-boundaries.rb",
+      "rebuild": "ruby scripts/audit-creal03-domain-boundaries.rb",
+      "owner": "client-architecture",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/creal04-web-build.json",
+      "kind": "generated-client-web-build-audit",
+      "authoritativeInputs": [
+        "../Client/build/web-desktop",
+        "../Client/tsconfig.json",
+        "../Client/.gitignore",
+        "config/release-allowlist.json"
+      ],
+      "generator": "scripts/audit-creal04-web-build.rb",
+      "rebuild": "ruby scripts/audit-creal04-web-build.rb",
+      "owner": "client-build",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/creal05-library-cache.json",
+      "kind": "generated-client-library-cache-audit",
+      "authoritativeInputs": [
+        "../Client/library",
+        "../Client/.gitignore"
+      ],
+      "generator": "scripts/audit-creal05-library-cache.rb",
+      "rebuild": "ruby scripts/audit-creal05-library-cache.rb",
+      "owner": "client-build",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/creal06-build-template.json",
+      "kind": "generated-client-build-template-audit",
+      "authoritativeInputs": [
+        "../Client/build-templates/web-desktop/index.html"
+      ],
+      "generator": "scripts/audit-creal06-build-template.rb",
+      "rebuild": "ruby scripts/audit-creal06-build-template.rb",
+      "owner": "client-build",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/creal07-json-classification.json",
+      "kind": "generated-client-json-classification",
+      "authoritativeInputs": [
+        "../Client"
+      ],
+      "generator": "scripts/audit-creal07-json-classification.rb",
+      "rebuild": "ruby scripts/audit-creal07-json-classification.rb",
+      "owner": "client-assets",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/creal07-json-inventory.tsv",
+      "kind": "generated-client-json-inventory",
+      "authoritativeInputs": [
+        "../Client"
+      ],
+      "generator": "scripts/audit-creal07-json-classification.rb",
+      "rebuild": "ruby scripts/audit-creal07-json-classification.rb",
+      "owner": "client-assets",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/creal08-meta-integrity.json",
+      "kind": "generated-client-meta-integrity-audit",
+      "authoritativeInputs": [
+        "../Client/assets",
+        "work/audit/cocos-uuid-reference-audit.json"
+      ],
+      "generator": "scripts/audit-creal08-meta-integrity.rb",
+      "rebuild": "ruby scripts/audit-creal08-meta-integrity.rb",
+      "owner": "client-assets",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/creal09-prefab-scene.json",
+      "kind": "generated-client-prefab-scene-audit",
+      "authoritativeInputs": [
+        "../Client/assets",
+        "work/audit/cocos-uuid-reference-audit.json",
+        "work/audit/ui-backend-closure-audit.json"
+      ],
+      "generator": "scripts/audit-creal09-prefab-scene.rb",
+      "rebuild": "ruby scripts/audit-creal09-prefab-scene.rb",
+      "owner": "client-assets",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/creal10-scene-entry.json",
+      "kind": "generated-client-scene-entry-audit",
+      "authoritativeInputs": [
+        "../Client/assets",
+        "../Client/settings/v2/packages"
+      ],
+      "generator": "scripts/audit-creal10-scene-entry.rb",
+      "rebuild": "ruby scripts/audit-creal10-scene-entry.rb",
+      "owner": "client-architecture",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/creal11-spine-atlas.json",
+      "kind": "generated-client-spine-atlas-audit",
+      "authoritativeInputs": [
+        "../Client/assets/Common/Spine",
+        "../Client/assets/Common/Atlas",
+        "../Client/assets/Games",
+        "tools/fix-spine-atlas-links.rb"
+      ],
+      "generator": "scripts/audit-creal11-spine-atlas.rb",
+      "rebuild": "ruby tools/fix-spine-atlas-links.rb && ruby scripts/audit-creal11-spine-atlas.rb",
+      "owner": "client-assets",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/creal12-client-profiles.json",
+      "kind": "generated-client-profile-audit",
+      "authoritativeInputs": [
+        "../Client/profiles/v2",
+        "../Client/package.json",
+        "../Client/.gitignore",
+        "config/client-profile-allowlist.json",
+        "config/release-allowlist.json"
+      ],
+      "generator": "scripts/audit-creal12-client-profiles.rb",
+      "rebuild": "ruby scripts/audit-creal12-client-profiles.rb",
+      "owner": "client-build",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/carch01-common-room-archive.json",
+      "kind": "generated-client-archive-isolation-audit",
+      "authoritativeInputs": [
+        "../Client/development/archived-common-room-folders",
+        "../Client/assets",
+        "../Client/tsconfig.json"
+      ],
+      "generator": "scripts/audit-carch01-common-room-archive.rb",
+      "rebuild": "ruby scripts/audit-carch01-common-room-archive.rb",
+      "owner": "client-architecture",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/carch02-direct-game-map.json",
+      "kind": "generated-client-direct-game-archive-map",
+      "authoritativeInputs": [
+        "../Client/development/archived-direct-game-folders",
+        "server/Bootstrap/src/main/resources/game-catalog-528.tsv"
+      ],
+      "generator": "scripts/audit-carch02-direct-game-map.rb",
+      "rebuild": "ruby scripts/audit-carch02-direct-game-map.rb",
+      "owner": "client-architecture",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/carch03-game-archive-inventory.json",
+      "kind": "generated-client-game-archive-summary",
+      "authoritativeInputs": [
+        "../Client/development/archived-game-folders",
+        "../Client/assets"
+      ],
+      "generator": "scripts/audit-carch03-game-archive-inventory.rb",
+      "rebuild": "ruby scripts/audit-carch03-game-archive-inventory.rb",
+      "owner": "client-assets",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/carch03-game-archive-inventory.tsv",
+      "kind": "generated-client-game-archive-inventory",
+      "authoritativeInputs": [
+        "../Client/development/archived-game-folders",
+        "../Client/assets"
+      ],
+      "generator": "scripts/audit-carch03-game-archive-inventory.rb",
+      "rebuild": "ruby scripts/audit-carch03-game-archive-inventory.rb",
+      "owner": "client-assets",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/carch04-orientation-archive.json",
+      "kind": "generated-client-orientation-archive-audit",
+      "authoritativeInputs": [
+        "../Client/development/archived-orientation-folders",
+        "../Client/assets"
+      ],
+      "generator": "scripts/audit-carch04-orientation-archive.rb",
+      "rebuild": "ruby scripts/audit-carch04-orientation-archive.rb",
+      "owner": "client-layout",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/carch05-result-layouts.json",
+      "kind": "generated-client-result-layout-audit",
+      "authoritativeInputs": [
+        "../Client/development/archived-result-layouts",
+        "../Client/assets/Games"
+      ],
+      "generator": "scripts/audit-carch05-result-layouts.rb",
+      "rebuild": "ruby scripts/audit-carch05-result-layouts.rb",
+      "owner": "client-layout",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/carch06-migration-archive.json",
+      "kind": "generated-client-migration-archive-audit",
+      "authoritativeInputs": [
+        "../Client/development/migration/aoo_DFMJ-3.8.8",
+        "../Client/tsconfig.json"
+      ],
+      "generator": "scripts/audit-carch06-migration-archive.rb",
+      "rebuild": "ruby scripts/audit-carch06-migration-archive.rb",
+      "owner": "client-architecture",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/carch07-doc-archive.json",
+      "kind": "generated-client-document-archive-audit",
+      "authoritativeInputs": [
+        "../Client/docs/README.md",
+        "../Client/docs"
+      ],
+      "generator": "scripts/audit-carch07-doc-archive.rb",
+      "rebuild": "ruby scripts/audit-carch07-doc-archive.rb",
+      "owner": "client-architecture",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/carch08-dynamic-archive-references.json",
+      "kind": "generated-client-archive-reference-audit",
+      "authoritativeInputs": [
+        "../Client/development",
+        "../Client/assets"
+      ],
+      "generator": "scripts/audit-carch08-dynamic-archive-references.rb",
+      "rebuild": "ruby scripts/audit-carch08-dynamic-archive-references.rb",
+      "owner": "client-assets",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/carch09-archive-conservation.json",
+      "kind": "generated-client-archive-evidence",
+      "authoritativeInputs": [
+        "../Client/development"
+      ],
+      "generator": "scripts/audit-carch09-10-archive-conservation.rb",
+      "rebuild": "ruby scripts/audit-carch09-10-archive-conservation.rb",
+      "owner": "client-architecture",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/carch10-archive-deletion-readiness.json",
+      "kind": "generated-client-archive-evidence",
+      "authoritativeInputs": [
+        "../Client/development"
+      ],
+      "generator": "scripts/audit-carch09-10-archive-conservation.rb",
+      "rebuild": "ruby scripts/audit-carch09-10-archive-conservation.rb",
+      "owner": "client-architecture",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/ccfg01-bundle-config.json",
+      "kind": "generated-client-config-evidence",
+      "authoritativeInputs": [
+        "../Client/development/configs"
+      ],
+      "generator": "scripts/audit-ccfg01-bundle-config.rb",
+      "rebuild": "ruby scripts/audit-ccfg01-bundle-config.rb",
+      "owner": "client-config",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/ccfg02-default-authority.json",
+      "kind": "generated-client-config-evidence",
+      "authoritativeInputs": [
+        "../Client/development/configs",
+        "../Client/assets"
+      ],
+      "generator": "scripts/audit-ccfg02-10-config-integrity.rb",
+      "rebuild": "ruby scripts/audit-ccfg02-10-config-integrity.rb",
+      "owner": "client-config",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/ccfg03-manifest-completeness.json",
+      "kind": "generated-client-config-evidence",
+      "authoritativeInputs": [
+        "../Client/development/configs",
+        "../Client/assets"
+      ],
+      "generator": "scripts/audit-ccfg02-10-config-integrity.rb",
+      "rebuild": "ruby scripts/audit-ccfg02-10-config-integrity.rb",
+      "owner": "client-config",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/ccfg04-schema-constraints.json",
+      "kind": "generated-client-config-evidence",
+      "authoritativeInputs": [
+        "../Client/development/configs",
+        "../Client/assets"
+      ],
+      "generator": "scripts/audit-ccfg02-10-config-integrity.rb",
+      "rebuild": "ruby scripts/audit-ccfg02-10-config-integrity.rb",
+      "owner": "client-config",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/ccfg05-config-tests.json",
+      "kind": "generated-client-config-evidence",
+      "authoritativeInputs": [
+        "../Client/development/configs",
+        "../Client/assets"
+      ],
+      "generator": "scripts/audit-ccfg02-10-config-integrity.rb",
+      "rebuild": "ruby scripts/audit-ccfg02-10-config-integrity.rb",
+      "owner": "client-config",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/ccfg06-generation-chain.json",
+      "kind": "generated-client-config-evidence",
+      "authoritativeInputs": [
+        "../Client/development/configs",
+        "../Client/assets"
+      ],
+      "generator": "scripts/audit-ccfg02-10-config-integrity.rb",
+      "rebuild": "ruby scripts/audit-ccfg02-10-config-integrity.rb",
+      "owner": "client-config",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/ccfg07-config-drift.json",
+      "kind": "generated-client-config-evidence",
+      "authoritativeInputs": [
+        "../Client/development/configs",
+        "../Client/assets"
+      ],
+      "generator": "scripts/audit-ccfg02-10-config-integrity.rb",
+      "rebuild": "ruby scripts/audit-ccfg02-10-config-integrity.rb",
+      "owner": "client-config",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/ccfg08-sensitive-config.json",
+      "kind": "generated-client-config-evidence",
+      "authoritativeInputs": [
+        "../Client/development/configs",
+        "../Client/assets"
+      ],
+      "generator": "scripts/audit-ccfg02-10-config-integrity.rb",
+      "rebuild": "ruby scripts/audit-ccfg02-10-config-integrity.rb",
+      "owner": "client-config",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/ccfg09-environment-endpoints.json",
+      "kind": "generated-client-config-evidence",
+      "authoritativeInputs": [
+        "../Client/development/configs",
+        "../Client/assets"
+      ],
+      "generator": "scripts/audit-ccfg02-10-config-integrity.rb",
+      "rebuild": "ruby scripts/audit-ccfg02-10-config-integrity.rb",
+      "owner": "client-config",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/ccfg10-manifest-legacy-exclusion.json",
+      "kind": "generated-client-config-evidence",
+      "authoritativeInputs": [
+        "../Client/development/configs",
+        "../Client/assets"
+      ],
+      "generator": "scripts/audit-ccfg02-10-config-integrity.rb",
+      "rebuild": "ruby scripts/audit-ccfg02-10-config-integrity.rb",
+      "owner": "client-config",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/pref01-json-version.json",
+      "kind": "generated-client-prefab-evidence",
+      "authoritativeInputs": [
+        "../Client/assets",
+        "docs/generated/creal08-meta-integrity.json",
+        "docs/generated/creal09-prefab-scene.json"
+      ],
+      "generator": "scripts/audit-pref01-12-prefab-integrity.rb",
+      "rebuild": "ruby scripts/audit-pref01-12-prefab-integrity.rb",
+      "owner": "client-prefabs",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/pref02-missing-script.json",
+      "kind": "generated-client-prefab-evidence",
+      "authoritativeInputs": [
+        "../Client/assets",
+        "docs/generated/creal08-meta-integrity.json",
+        "docs/generated/creal09-prefab-scene.json"
+      ],
+      "generator": "scripts/audit-pref01-12-prefab-integrity.rb",
+      "rebuild": "ruby scripts/audit-pref01-12-prefab-integrity.rb",
+      "owner": "client-prefabs",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/pref03-missing-asset.json",
+      "kind": "generated-client-prefab-evidence",
+      "authoritativeInputs": [
+        "../Client/assets",
+        "docs/generated/creal08-meta-integrity.json",
+        "docs/generated/creal09-prefab-scene.json"
+      ],
+      "generator": "scripts/audit-pref01-12-prefab-integrity.rb",
+      "rebuild": "ruby scripts/audit-pref01-12-prefab-integrity.rb",
+      "owner": "client-prefabs",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/pref04-event-targets.json",
+      "kind": "generated-client-prefab-evidence",
+      "authoritativeInputs": [
+        "../Client/assets",
+        "docs/generated/creal08-meta-integrity.json",
+        "docs/generated/creal09-prefab-scene.json"
+      ],
+      "generator": "scripts/audit-pref01-12-prefab-integrity.rb",
+      "rebuild": "ruby scripts/audit-pref01-12-prefab-integrity.rb",
+      "owner": "client-prefabs",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/pref05-duplicate-uuid.json",
+      "kind": "generated-client-prefab-evidence",
+      "authoritativeInputs": [
+        "../Client/assets",
+        "docs/generated/creal08-meta-integrity.json",
+        "docs/generated/creal09-prefab-scene.json"
+      ],
+      "generator": "scripts/audit-pref01-12-prefab-integrity.rb",
+      "rebuild": "ruby scripts/audit-pref01-12-prefab-integrity.rb",
+      "owner": "client-prefabs",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/pref06-orphan-meta.json",
+      "kind": "generated-client-prefab-evidence",
+      "authoritativeInputs": [
+        "../Client/assets",
+        "docs/generated/creal08-meta-integrity.json",
+        "docs/generated/creal09-prefab-scene.json"
+      ],
+      "generator": "scripts/audit-pref01-12-prefab-integrity.rb",
+      "rebuild": "ruby scripts/audit-pref01-12-prefab-integrity.rb",
+      "owner": "client-prefabs",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/pref07-nested-overrides.json",
+      "kind": "generated-client-prefab-evidence",
+      "authoritativeInputs": [
+        "../Client/assets",
+        "docs/generated/creal08-meta-integrity.json",
+        "docs/generated/creal09-prefab-scene.json"
+      ],
+      "generator": "scripts/audit-pref01-12-prefab-integrity.rb",
+      "rebuild": "ruby scripts/audit-pref01-12-prefab-integrity.rb",
+      "owner": "client-prefabs",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/pref08-default-state.json",
+      "kind": "generated-client-prefab-evidence",
+      "authoritativeInputs": [
+        "../Client/assets",
+        "docs/generated/creal08-meta-integrity.json",
+        "docs/generated/creal09-prefab-scene.json"
+      ],
+      "generator": "scripts/audit-pref01-12-prefab-integrity.rb",
+      "rebuild": "ruby scripts/audit-pref01-12-prefab-integrity.rb",
+      "owner": "client-prefabs",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/pref09-node-lookup.json",
+      "kind": "generated-client-prefab-evidence",
+      "authoritativeInputs": [
+        "../Client/assets",
+        "docs/generated/creal08-meta-integrity.json",
+        "docs/generated/creal09-prefab-scene.json"
+      ],
+      "generator": "scripts/audit-pref01-12-prefab-integrity.rb",
+      "rebuild": "ruby scripts/audit-pref01-12-prefab-integrity.rb",
+      "owner": "client-prefabs",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/pref10-batch-edit-conservation.json",
+      "kind": "generated-client-prefab-evidence",
+      "authoritativeInputs": [
+        "../Client/assets",
+        "docs/generated/creal08-meta-integrity.json",
+        "docs/generated/creal09-prefab-scene.json"
+      ],
+      "generator": "scripts/audit-pref01-12-prefab-integrity.rb",
+      "rebuild": "ruby scripts/audit-pref01-12-prefab-integrity.rb",
+      "owner": "client-prefabs",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/pref11-editor-open-save.json",
+      "kind": "generated-client-prefab-evidence",
+      "authoritativeInputs": [
+        "../Client/assets",
+        "docs/generated/creal08-meta-integrity.json",
+        "docs/generated/creal09-prefab-scene.json"
+      ],
+      "generator": "scripts/audit-pref01-12-prefab-integrity.rb",
+      "rebuild": "ruby scripts/audit-pref01-12-prefab-integrity.rb",
+      "owner": "client-prefabs",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/pref12-test-mapping.json",
+      "kind": "generated-client-prefab-evidence",
+      "authoritativeInputs": [
+        "../Client/assets",
+        "docs/generated/creal08-meta-integrity.json",
+        "docs/generated/creal09-prefab-scene.json"
+      ],
+      "generator": "scripts/audit-pref01-12-prefab-integrity.rb",
+      "rebuild": "ruby scripts/audit-pref01-12-prefab-integrity.rb",
+      "owner": "client-prefabs",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/layout01-variant-classification.json",
+      "kind": "generated-client-layout-evidence",
+      "authoritativeInputs": [
+        "../Client/assets"
+      ],
+      "generator": "scripts/audit-layout01-variant-classification.rb",
+      "rebuild": "ruby scripts/audit-layout01-variant-classification.rb",
+      "owner": "client-layout",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/layout02-layout-reuse.json",
+      "kind": "generated-client-layout-evidence",
+      "authoritativeInputs": [
+        "docs/generated/layout01-variant-classification.json"
+      ],
+      "generator": "scripts/audit-layout02-layout-reuse.rb",
+      "rebuild": "ruby scripts/audit-layout02-layout-reuse.rb",
+      "owner": "client-layout",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/layout03-resource-theme.json",
+      "kind": "generated-client-layout-evidence",
+      "authoritativeInputs": [
+        "../Client/assets",
+        "../Client/tests",
+        "docs/generated/layout01-variant-classification.json"
+      ],
+      "generator": "scripts/audit-layout03-10-variants.rb",
+      "rebuild": "ruby scripts/audit-layout03-10-variants.rb",
+      "owner": "client-layout",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/layout04-business-uniqueness.json",
+      "kind": "generated-client-layout-evidence",
+      "authoritativeInputs": [
+        "../Client/assets",
+        "../Client/tests",
+        "docs/generated/layout01-variant-classification.json"
+      ],
+      "generator": "scripts/audit-layout03-10-variants.rb",
+      "rebuild": "ruby scripts/audit-layout03-10-variants.rb",
+      "owner": "client-layout",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/layout05-rotation-state.json",
+      "kind": "generated-client-layout-evidence",
+      "authoritativeInputs": [
+        "../Client/assets",
+        "../Client/tests",
+        "docs/generated/layout01-variant-classification.json"
+      ],
+      "generator": "scripts/audit-layout03-10-variants.rb",
+      "rebuild": "ruby scripts/audit-layout03-10-variants.rb",
+      "owner": "client-layout",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/layout06-safe-area.json",
+      "kind": "generated-client-layout-evidence",
+      "authoritativeInputs": [
+        "../Client/assets",
+        "../Client/tests",
+        "docs/generated/layout01-variant-classification.json"
+      ],
+      "generator": "scripts/audit-layout03-10-variants.rb",
+      "rebuild": "ruby scripts/audit-layout03-10-variants.rb",
+      "owner": "client-layout",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/layout07-variant-matrix.json",
+      "kind": "generated-client-layout-evidence",
+      "authoritativeInputs": [
+        "../Client/assets",
+        "../Client/tests",
+        "docs/generated/layout01-variant-classification.json"
+      ],
+      "generator": "scripts/audit-layout03-10-variants.rb",
+      "rebuild": "ruby scripts/audit-layout03-10-variants.rb",
+      "owner": "client-layout",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/layout08-archive-exclusion.json",
+      "kind": "generated-client-layout-evidence",
+      "authoritativeInputs": [
+        "../Client/assets",
+        "../Client/tests",
+        "docs/generated/layout01-variant-classification.json"
+      ],
+      "generator": "scripts/audit-layout03-10-variants.rb",
+      "rebuild": "ruby scripts/audit-layout03-10-variants.rb",
+      "owner": "client-layout",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/layout09-variant-growth-gate.json",
+      "kind": "generated-client-layout-evidence",
+      "authoritativeInputs": [
+        "../Client/assets",
+        "../Client/tests",
+        "docs/generated/layout01-variant-classification.json"
+      ],
+      "generator": "scripts/audit-layout03-10-variants.rb",
+      "rebuild": "ruby scripts/audit-layout03-10-variants.rb",
+      "owner": "client-layout",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/layout10-performance.json",
+      "kind": "generated-client-layout-evidence",
+      "authoritativeInputs": [
+        "../Client/assets",
+        "../Client/tests",
+        "docs/generated/layout01-variant-classification.json"
+      ],
+      "generator": "scripts/audit-layout03-10-variants.rb",
+      "rebuild": "ruby scripts/audit-layout03-10-variants.rb",
+      "owner": "client-layout",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/cnet01-common-network.json",
+      "kind": "generated-client-network-evidence",
+      "authoritativeInputs": [
+        "../Client/assets"
+      ],
+      "generator": "scripts/audit-cnet01-10-network-boundaries.rb",
+      "rebuild": "ruby scripts/audit-cnet01-10-network-boundaries.rb",
+      "owner": "client-network",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/cnet02-lobby-network.json",
+      "kind": "generated-client-network-evidence",
+      "authoritativeInputs": [
+        "../Client/assets"
+      ],
+      "generator": "scripts/audit-cnet01-10-network-boundaries.rb",
+      "rebuild": "ruby scripts/audit-cnet01-10-network-boundaries.rb",
+      "owner": "client-network",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/cnet03-club-network.json",
+      "kind": "generated-client-network-evidence",
+      "authoritativeInputs": [
+        "../Client/assets"
+      ],
+      "generator": "scripts/audit-cnet01-10-network-boundaries.rb",
+      "rebuild": "ruby scripts/audit-cnet01-10-network-boundaries.rb",
+      "owner": "client-network",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/cnet04-games-network.json",
+      "kind": "generated-client-network-evidence",
+      "authoritativeInputs": [
+        "../Client/assets"
+      ],
+      "generator": "scripts/audit-cnet01-10-network-boundaries.rb",
+      "rebuild": "ruby scripts/audit-cnet01-10-network-boundaries.rb",
+      "owner": "client-network",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/cnet05-login-network.json",
+      "kind": "generated-client-network-evidence",
+      "authoritativeInputs": [
+        "../Client/assets"
+      ],
+      "generator": "scripts/audit-cnet01-10-network-boundaries.rb",
+      "rebuild": "ruby scripts/audit-cnet01-10-network-boundaries.rb",
+      "owner": "client-network",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/cnet06-storage.json",
+      "kind": "generated-client-network-evidence",
+      "authoritativeInputs": [
+        "../Client/assets"
+      ],
+      "generator": "scripts/audit-cnet01-10-network-boundaries.rb",
+      "rebuild": "ruby scripts/audit-cnet01-10-network-boundaries.rb",
+      "owner": "client-network",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/cnet07-native-bridge.json",
+      "kind": "generated-client-network-evidence",
+      "authoritativeInputs": [
+        "../Client/assets"
+      ],
+      "generator": "scripts/audit-cnet01-10-network-boundaries.rb",
+      "rebuild": "ruby scripts/audit-cnet01-10-network-boundaries.rb",
+      "owner": "client-network",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/cnet08-resource-loader.json",
+      "kind": "generated-client-network-evidence",
+      "authoritativeInputs": [
+        "../Client/assets"
+      ],
+      "generator": "scripts/audit-cnet01-10-network-boundaries.rb",
+      "rebuild": "ruby scripts/audit-cnet01-10-network-boundaries.rb",
+      "owner": "client-network",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/cnet09-dynamic-addresses.json",
+      "kind": "generated-client-network-evidence",
+      "authoritativeInputs": [
+        "../Client/assets"
+      ],
+      "generator": "scripts/audit-cnet01-10-network-boundaries.rb",
+      "rebuild": "ruby scripts/audit-cnet01-10-network-boundaries.rb",
+      "owner": "client-network",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/cnet10-direct-call-baseline.json",
+      "kind": "generated-client-network-evidence",
+      "authoritativeInputs": [
+        "../Client/assets"
+      ],
+      "generator": "scripts/audit-cnet01-10-network-boundaries.rb",
+      "rebuild": "ruby scripts/audit-cnet01-10-network-boundaries.rb",
+      "owner": "client-network",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/cleg01-legacy-inventory.json",
+      "kind": "generated-client-legacy-evidence",
+      "authoritativeInputs": [
+        "../Client/assets",
+        "database/migrations",
+        "server/Billing"
+      ],
+      "generator": "scripts/audit-cleg01-08-legacy-config.rb",
+      "rebuild": "ruby scripts/audit-cleg01-08-legacy-config.rb",
+      "owner": "client-legacy-migration",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/cleg02-roomcost-consistency.json",
+      "kind": "generated-client-legacy-evidence",
+      "authoritativeInputs": [
+        "../Client/assets",
+        "database/migrations",
+        "server/Billing"
+      ],
+      "generator": "scripts/audit-cleg01-08-legacy-config.rb",
+      "rebuild": "ruby scripts/audit-cleg01-08-legacy-config.rb",
+      "owner": "client-legacy-migration",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/cleg03-client-billing-authority.json",
+      "kind": "generated-client-legacy-evidence",
+      "authoritativeInputs": [
+        "../Client/assets",
+        "database/migrations",
+        "server/Billing"
+      ],
+      "generator": "scripts/audit-cleg01-08-legacy-config.rb",
+      "rebuild": "ruby scripts/audit-cleg01-08-legacy-config.rb",
+      "owner": "client-legacy-migration",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/cleg04-dynamic-load.json",
+      "kind": "generated-client-legacy-evidence",
+      "authoritativeInputs": [
+        "../Client/assets",
+        "database/migrations",
+        "server/Billing"
+      ],
+      "generator": "scripts/audit-cleg01-08-legacy-config.rb",
+      "rebuild": "ruby scripts/audit-cleg01-08-legacy-config.rb",
+      "owner": "client-legacy-migration",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/cleg05-migration.json",
+      "kind": "generated-client-legacy-evidence",
+      "authoritativeInputs": [
+        "../Client/assets",
+        "database/migrations",
+        "server/Billing"
+      ],
+      "generator": "scripts/audit-cleg01-08-legacy-config.rb",
+      "rebuild": "ruby scripts/audit-cleg01-08-legacy-config.rb",
+      "owner": "client-legacy-migration",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/cleg06-build-isolation.json",
+      "kind": "generated-client-legacy-evidence",
+      "authoritativeInputs": [
+        "../Client/assets",
+        "database/migrations",
+        "server/Billing"
+      ],
+      "generator": "scripts/audit-cleg01-08-legacy-config.rb",
+      "rebuild": "ruby scripts/audit-cleg01-08-legacy-config.rb",
+      "owner": "client-legacy-migration",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/cleg07-room-cost-regression.json",
+      "kind": "generated-client-legacy-evidence",
+      "authoritativeInputs": [
+        "../Client/assets",
+        "database/migrations",
+        "server/Billing"
+      ],
+      "generator": "scripts/audit-cleg01-08-legacy-config.rb",
+      "rebuild": "ruby scripts/audit-cleg01-08-legacy-config.rb",
+      "owner": "client-legacy-migration",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/cleg08-tamper-test.json",
+      "kind": "generated-client-legacy-evidence",
+      "authoritativeInputs": [
+        "../Client/assets",
+        "database/migrations",
+        "server/Billing"
+      ],
+      "generator": "scripts/audit-cleg01-08-legacy-config.rb",
+      "rebuild": "ruby scripts/audit-cleg01-08-legacy-config.rb",
+      "owner": "client-legacy-migration",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/pkg01-generated-role.json",
+      "kind": "generated-package-evidence",
+      "authoritativeInputs": [
+        "server",
+        "config/release-allowlist.json"
+      ],
+      "generator": "scripts/audit-pkg01-generated-role.rb",
+      "rebuild": "ruby scripts/audit-pkg01-generated-role.rb",
+      "owner": "release-engineering",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/pkg02-target-lib-inventory.json",
+      "kind": "generated-package-evidence",
+      "authoritativeInputs": [
+        "server",
+        "~/.m2/repository/*"
+      ],
+      "generator": "scripts/audit-pkg02-target-lib-inventory.rb",
+      "rebuild": "ruby scripts/audit-pkg02-target-lib-inventory.rb",
+      "owner": "release-engineering",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/pkg03-jar-provenance.json",
+      "kind": "generated-package-evidence",
+      "authoritativeInputs": [
+        "docs/generated/pkg02-target-lib-inventory.json",
+        "~/.m2/repository/*"
+      ],
+      "generator": "scripts/audit-pkg03-jar-provenance.rb",
+      "rebuild": "ruby scripts/audit-pkg03-jar-provenance.rb",
+      "owner": "release-engineering",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/pkg03-target-lib.cdx.json",
+      "kind": "generated-sbom",
+      "authoritativeInputs": [
+        "docs/generated/pkg02-target-lib-inventory.json",
+        "~/.m2/repository/*"
+      ],
+      "generator": "scripts/audit-pkg03-jar-provenance.rb",
+      "rebuild": "ruby scripts/audit-pkg03-jar-provenance.rb",
+      "owner": "release-engineering",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/pkg04-classpath-shadowing.json",
+      "kind": "generated-package-evidence",
+      "authoritativeInputs": [
+        "docs/generated/cp10-classpath-parity.json",
+        "work/audit/third06-classloading.json",
+        "tools/start-*-local.sh"
+      ],
+      "generator": "scripts/audit-pkg04-classpath-shadowing.rb",
+      "rebuild": "ruby scripts/audit-pkg04-classpath-shadowing.rb",
+      "owner": "release-engineering",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/pkg05-duplicate-jar-classes.json",
+      "kind": "generated-package-evidence",
+      "authoritativeInputs": [
+        "server/*/target/runtime/lib"
+      ],
+      "generator": "scripts/audit-pkg05-duplicate-jar-classes.rb",
+      "rebuild": "ruby scripts/audit-pkg05-duplicate-jar-classes.rb",
+      "owner": "release-engineering",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/pkg06-generated-policy.json",
+      "kind": "generated-package-evidence",
+      "authoritativeInputs": [
+        ".gitignore",
+        ".releaseignore",
+        "config/release-allowlist.json"
+      ],
+      "generator": "scripts/audit-pkg06-generated-policy.rb",
+      "rebuild": "ruby scripts/audit-pkg06-generated-policy.rb",
+      "owner": "release-engineering",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/pkg07-clean-package.json",
+      "kind": "generated-package-evidence",
+      "authoritativeInputs": [
+        "docs/generated/cp12-clean-isolated.json",
+        "../Client/build",
+        "../Client/library",
+        "../Client/temp"
+      ],
+      "generator": "scripts/audit-pkg07-clean-package.rb",
+      "rebuild": "ruby scripts/audit-pkg07-clean-package.rb",
+      "owner": "release-engineering",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/pkg08-release-inputs.json",
+      "kind": "generated-package-evidence",
+      "authoritativeInputs": [
+        "tools/package-release.rb",
+        "config/release-allowlist.json",
+        "docs/generated/build11-release-whitelist.json"
+      ],
+      "generator": "scripts/audit-pkg08-release-inputs.rb",
+      "rebuild": "ruby scripts/audit-pkg08-release-inputs.rb",
+      "owner": "release-engineering",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/pkg09-package-strategy.json",
+      "kind": "generated-package-evidence",
+      "authoritativeInputs": [
+        "config/package-layout.json",
+        "docs/generated/cp10-classpath-parity.json",
+        "docs/generated/cp07-service-loader.json"
+      ],
+      "generator": "scripts/audit-pkg09-package-strategy.rb",
+      "rebuild": "ruby scripts/audit-pkg09-package-strategy.rb",
+      "owner": "release-engineering",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/pkg10-packaged-config.json",
+      "kind": "generated-package-evidence",
+      "authoritativeInputs": [
+        "server/*/target/*.jar"
+      ],
+      "generator": "scripts/audit-pkg10-packaged-config.rb",
+      "rebuild": "ruby scripts/audit-pkg10-packaged-config.rb",
+      "owner": "release-engineering",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/chyg01-node-modules.json",
+      "kind": "generated-client-hygiene-evidence",
+      "authoritativeInputs": [
+        "../Client/node_modules",
+        "../Client/.gitignore",
+        ".releaseignore"
+      ],
+      "generator": "scripts/audit-chyg01-node-modules.rb",
+      "rebuild": "ruby scripts/audit-chyg01-node-modules.rb",
+      "owner": "client-build-hygiene",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/chyg02-package-manager.json",
+      "kind": "generated-client-hygiene-evidence",
+      "authoritativeInputs": [
+        "../Client/package.json",
+        "../Client/pnpm-lock.yaml"
+      ],
+      "generator": "scripts/audit-chyg02-package-manager.rb",
+      "rebuild": "ruby scripts/audit-chyg02-package-manager.rb",
+      "owner": "client-build-hygiene",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/chyg03-temp-cleanup.json",
+      "kind": "generated-client-hygiene-evidence",
+      "authoritativeInputs": [
+        "../Client/temp",
+        "../Client/.gitignore",
+        "tools/clean-client-generated.sh"
+      ],
+      "generator": "scripts/audit-chyg03-temp-cleanup.rb",
+      "rebuild": "ruby scripts/audit-chyg03-temp-cleanup.rb",
+      "owner": "client-build-hygiene",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/chyg04-test-reports.json",
+      "kind": "generated-client-hygiene-evidence",
+      "authoritativeInputs": [
+        "../Client/tests/reports",
+        "config/client-test-report-schema.json",
+        "../Client/.gitignore"
+      ],
+      "generator": "scripts/audit-chyg04-test-reports.rb",
+      "rebuild": "ruby scripts/audit-chyg04-test-reports.rb",
+      "owner": "client-test-platform",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/chyg05-fixtures.json",
+      "kind": "generated-client-hygiene-evidence",
+      "authoritativeInputs": [
+        "../Client/tests/fixtures",
+        "config/client-fixture-schema.json"
+      ],
+      "generator": "scripts/audit-chyg05-fixtures.rb",
+      "rebuild": "ruby scripts/audit-chyg05-fixtures.rb",
+      "owner": "client-test-platform",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/chyg06-test-layers.json",
+      "kind": "generated-client-hygiene-evidence",
+      "authoritativeInputs": [
+        "../Client/tests"
+      ],
+      "generator": "scripts/audit-chyg06-test-layers.rb",
+      "rebuild": "ruby scripts/audit-chyg06-test-layers.rb",
+      "owner": "client-test-platform",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/chyg07-ds-store.json",
+      "kind": "generated-client-hygiene-evidence",
+      "authoritativeInputs": [
+        "../Client",
+        "../Client/.gitignore",
+        ".gitignore",
+        ".releaseignore"
+      ],
+      "generator": "scripts/audit-chyg07-ds-store.rb",
+      "rebuild": "ruby scripts/audit-chyg07-ds-store.rb",
+      "owner": "client-build-hygiene",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/chyg08-rebuildability.json",
+      "kind": "generated-client-hygiene-evidence",
+      "authoritativeInputs": [
+        "../Client/build",
+        "../Client/library",
+        "../Client/temp",
+        "../Client/tests/reports",
+        "config/client-test-report-schema.json"
+      ],
+      "generator": "scripts/audit-chyg08-10-rebuild-and-reports.rb",
+      "rebuild": "ruby scripts/audit-chyg08-10-rebuild-and-reports.rb",
+      "owner": "client-build-hygiene",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/chyg09-generated-declarations.json",
+      "kind": "generated-client-hygiene-evidence",
+      "authoritativeInputs": [
+        "../Client/build",
+        "../Client/library",
+        "../Client/temp",
+        "../Client/tests/reports",
+        "config/client-test-report-schema.json"
+      ],
+      "generator": "scripts/audit-chyg08-10-rebuild-and-reports.rb",
+      "rebuild": "ruby scripts/audit-chyg08-10-rebuild-and-reports.rb",
+      "owner": "client-build-hygiene",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/chyg10-report-correlation.json",
+      "kind": "generated-client-hygiene-evidence",
+      "authoritativeInputs": [
+        "../Client/build",
+        "../Client/library",
+        "../Client/temp",
+        "../Client/tests/reports",
+        "config/client-test-report-schema.json"
+      ],
+      "generator": "scripts/audit-chyg08-10-rebuild-and-reports.rb",
+      "rebuild": "ruby scripts/audit-chyg08-10-rebuild-and-reports.rb",
+      "owner": "client-build-hygiene",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/tool01-game-catalog-reconcile.json",
+      "kind": "generated-catalog-evidence",
+      "authoritativeInputs": [
+        "../Client/assets/Common/Config/Legacy/assets/jsonData/gameList.json",
+        "work/backend-baseline-528.tsv",
+        "server/Bootstrap/src/main/resources/game-catalog-528.tsv"
+      ],
+      "generator": "tools/reconcile_game_catalogs.rb",
+      "rebuild": "tools/reconcile_game_catalogs.rb ../Client/assets/Common/Config/Legacy/assets/jsonData/gameList.json work/backend-baseline-528.tsv server/Bootstrap/src/main/resources/game-catalog-528.tsv docs/generated/tool01-game-catalog-reconcile.json",
+      "owner": "game-catalog",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/tool02-backend-source-classification.tsv",
+      "kind": "generated-catalog-evidence",
+      "authoritativeInputs": [
+        "/Users/aoo/Code/Game/BCG/Test/情怀后端原代码/Server_game_split"
+      ],
+      "generator": "tools/classify_backend_sources.rb",
+      "rebuild": "ruby tools/classify_backend_sources.rb /Users/aoo/Code/Game/BCG/Test/情怀后端原代码/Server_game_split docs/generated/tool02-backend-source-classification.tsv",
+      "owner": "game-catalog",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/v13-doc-ledger-consistency.json",
+      "kind": "generated-document-ledger-consistency-evidence",
+      "authoritativeInputs": [
+        "docs/Aoo-当前剩余问题与处理任务清单.md",
+        "docs/generated/drift02-version-build-reconciliation.json",
+        "docs/generated/drift03-interface-routing-reconciliation.json",
+        "docs/generated/drift04-schema-dictionary.json",
+        "docs/generated/drift05-play-documentation-reconciliation.json",
+        "docs/generated/drift09-ledger-evidence-audit.json",
+        "work/audit/classification-conflict-ledger.json"
+      ],
+      "generator": "scripts/audit-v13-doc-ledger.rb",
+      "rebuild": "ruby scripts/audit-v13-doc-ledger.rb",
+      "owner": "quality-engineering",
+      "editPolicy": "generated-do-not-edit"
+    },
+    {
+      "path": "docs/generated/tool03-game-classification.tsv",
+      "kind": "generated-catalog-evidence",
+      "authoritativeInputs": [
+        "docs/generated/tool02-backend-source-classification.tsv",
+        "server/Bootstrap/src/main/resources/game-catalog-528.tsv"
+      ],
+      "generator": "tools/generate_game_classification.rb",
+      "rebuild": "tools/generate_game_classification.rb docs/generated/tool02-backend-source-classification.tsv server/Bootstrap/src/main/resources/game-catalog-528.tsv server/Bootstrap/src/main/resources/game-catalog-528.tsv docs/generated/tool03-game-classification.tsv",
+      "owner": "game-catalog",
+      "editPolicy": "generated-do-not-edit"
+    }
+  ]
+}

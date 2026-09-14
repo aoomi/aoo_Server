@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "layers": [
+    {
+      "layer": "unit",
+      "files": [
+        "tests/unit/server-deadline-clock.test.mjs",
+        "tests/unit/deep-link-router.test.mjs",
+        "tests/unit/README.md",
+        "tests/unit/seat-perspective.test.mjs",
+        "tests/unit/qr-invite-policy.test.mjs",
+        "tests/unit/room-exit-cleanup.test.mjs"
+      ],
+      "executableTests": [
+        "tests/unit/server-deadline-clock.test.mjs",
+        "tests/unit/deep-link-router.test.mjs",
+        "tests/unit/seat-perspective.test.mjs",
+        "tests/unit/qr-invite-policy.test.mjs",
+        "tests/unit/room-exit-cleanup.test.mjs"
+      ],
+      "hasRunner": true
+    },
+    {
+      "layer": "protocol",
+      "files": [
+        "tests/protocol/README.md"
+      ],
+      "executableTests": [
+
+      ],
+      "hasRunner": false
+    },
+    {
+      "layer": "ui",
+      "files": [
+        "tests/ui/README.md"
+      ],
+      "executableTests": [
+
+      ],
+      "hasRunner": false
+    },
+    {
+      "layer": "e2e",
+      "files": [
+        "tests/e2e/player-main-flow.example.md"
+      ],
+      "executableTests": [
+
+      ],
+      "hasRunner": false
+    },
+    {
+      "layer": "games",
+      "files": [
+        "tests/games/njpdk/README.md"
+      ],
+      "executableTests": [
+
+      ],
+      "hasRunner": false
+    }
+  ],
+  "missingExecutableLayers": [
+    "protocol",
+    "ui",
+    "e2e",
+    "games"
+  ],
+  "coverageMappingPresent": false,
+  "passed": false
+}

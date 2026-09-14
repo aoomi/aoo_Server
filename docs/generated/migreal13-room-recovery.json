@@ -1,0 +1,29 @@
+{
+  "task": "MIGREAL13",
+  "status": "blocked-provider-restore",
+  "completed": {
+    "realMysqlLeaseTakeoverAndFencing": true,
+    "snapshotEventRecovery": true,
+    "recoveredV2ReconnectRoute": true,
+    "providerInventory": [
+      "business.global.pk.zjh.ZJHGameProvider",
+      "business.global.mj.cdxzmj.CDXZMJGameProvider",
+      "business.global.pk.xcpdk.XCPDKGameProvider",
+      "business.global.pk.zypk.ZYPKGameProvider",
+      "business.global.pk.njpdk.NJPDKGameProvider",
+      "business.global.mj.scjymj.SCJYMJGameProvider"
+    ]
+  },
+  "restoreSources": [
+    "server/gameServer/src/core/server/ProductionRoomRecoveryCoordinator.java",
+    "server/CDXZMJ/src/business/global/mj/cdxzmj/CDXZMJGameProvider.java",
+    "server/XCPDK/src/business/global/pk/xcpdk/XCPDKGameProvider.java",
+    "server/GameSPI/src/main/java/com/aoo/bcg/gamespi/GameProvider.java",
+    "server/NJPDK/src/business/global/pk/njpdk/NJPDKGameProvider.java",
+    "server/SCJYMJ/src/business/global/mj/scjymj/SCJYMJGameProvider.java"
+  ],
+  "unresolvedProviders": [
+    "business.global.pk.zjh.ZJHGameProvider",
+    "business.global.pk.zypk.ZYPKGameProvider"
+  ]
+}

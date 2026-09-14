@@ -1,0 +1,13 @@
+{
+  "task": "MIGREAL08",
+  "checks": {
+    "millionMemberDatabase": true,
+    "databaseHotspotFenced": true,
+    "cursorLatency": true,
+    "shardedCacheIntegrated": true,
+    "writeInvalidation": true,
+    "millionKeyDistributionAnd64WaySingleFlight": true
+  },
+  "databaseEvidence": "docs/generated/migreal02-club-member-scale.json",
+  "status": "passed"
+}

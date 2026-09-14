@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "checks": {
+    "explicitAllowed": true,
+    "forbidsGeneratedAndIde": true,
+    "reactorDerived": true,
+    "excludesSourceAndJavadoc": true,
+    "noDirectorySweep": true
+  }
+}

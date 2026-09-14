@@ -1,0 +1,22 @@
+{
+  "task": "FS11",
+  "passed": true,
+  "checks": {
+    "all_domains": true,
+    "reserve_policy": true,
+    "upload_integrated": true,
+    "replay_integrated": true,
+    "configuration_integrated": true,
+    "operations_preflight": true,
+    "fault_injection_tests": true
+  },
+  "domains": [
+    "LOG",
+    "REPLAY",
+    "UPLOAD",
+    "BUILD",
+    "DATABASE_TEMP",
+    "CONFIGURATION"
+  ],
+  "failureExitCode": 75
+}

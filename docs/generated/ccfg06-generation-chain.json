@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "stages": [
+    "database",
+    "generate",
+    "sign",
+    "publish",
+    "rollback"
+  ],
+  "implementedStages": [
+
+  ],
+  "unique": false,
+  "passed": false
+}

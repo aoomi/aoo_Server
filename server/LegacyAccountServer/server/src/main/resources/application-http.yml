@@ -1,0 +1,10 @@
+# http 客户端请求
+okhttp:
+  connect-timeout-ms: 50
+  read-timeout-ms: 50
+  write-timeout-ms: 50
+  max-idle: 50
+  keep-alive-duration-sec: 50
+
+
+

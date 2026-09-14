@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-23T08:04:08Z",
+  "task": "GAME08",
+  "catalogRows": 528,
+  "classifiedGames": 533,
+  "metadataOnlyGames": 527,
+  "completeGames": 0,
+  "incompleteGames": 533,
+  "nativeSourceGames": [
+    "cdxzmj",
+    "njpdk",
+    "scjymj",
+    "xcpdk",
+    "zjh",
+    "zypk"
+  ],
+  "verdict": "failed",
+  "blockers": [
+    "catalog-bridge exposes metadata lifecycle only and is not an executable per-game implementation",
+    "metadata-only games have no native provider, authoritative lifecycle, rules, flow, scoring and player-view snapshot closure",
+    "automatic per-game vertical test generation and execution is absent"
+  ],
+  "sourceEvidence": {
+    "catalog": "server/Bootstrap/src/main/resources/game-catalog-528.tsv",
+    "bridgeProvider": "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/CatalogGameProvider.java",
+    "componentReport": "work/audit/game-component-completeness.json"
+  }
+}

@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "task": "THIRD05",
+  "artifacts": [
+    {
+      "coordinate": "aoo.legacy:kernel:1.0.0",
+      "original": "private 2.22 kernel binary; no public upstream coordinate",
+      "originalSha256": "068f9bc2c38a79d1b7012ddd401f1b7a4da023e38e2216f54313da4e091ca5ee",
+      "modificationRecord": "binary behavior recovered into owned source module; archive retained as immutable baseline",
+      "reason": "preserve BaseServer/BaseTask/BaseThread contracts while removing private binary runtime dependency",
+      "replacement": "server/AooKernel",
+      "replacementSources": [
+        "server/AooKernel/src/main/java/BaseCommon/BaseCommonFun.java",
+        "server/AooKernel/src/main/java/BaseCommon/ByteUtils.java",
+        "server/AooKernel/src/main/java/BaseCommon/CommClass.java",
+        "server/AooKernel/src/main/java/BaseCommon/CommLog.java",
+        "server/AooKernel/src/main/java/BaseServer/BaseServerInit.java",
+        "server/AooKernel/src/main/java/BaseServer/Monitor.java",
+        "server/AooKernel/src/main/java/BaseServer/_ACleanMemory.java",
+        "server/AooKernel/src/main/java/BaseTask/AsynTask/AsyncCallBackTaskBase.java",
+        "server/AooKernel/src/main/java/BaseTask/AsynTask/AsyncTaskBase.java",
+        "server/AooKernel/src/main/java/BaseTask/AsynTask/AsyncTaskDealThread.java",
+        "server/AooKernel/src/main/java/BaseTask/AsynTask/AsyncTaskManager.java",
+        "server/AooKernel/src/main/java/BaseTask/AsynTask/AsyncTaskQueue.java",
+        "server/AooKernel/src/main/java/BaseTask/AsynTask/AsyncTaskWrapper.java",
+        "server/AooKernel/src/main/java/BaseTask/SyncTask/SyncTask.java",
+        "server/AooKernel/src/main/java/BaseTask/SyncTask/SyncTaskDealThread.java",
+        "server/AooKernel/src/main/java/BaseTask/SyncTask/SyncTaskManager.java",
+        "server/AooKernel/src/main/java/BaseTask/SyncTask/SyncTaskQueue.java",
+        "server/AooKernel/src/main/java/BaseTask/SyncTask/SyncTaskTimerCheckThread.java",
+        "server/AooKernel/src/main/java/BaseTask/SyncTask/SyncTaskWrapper.java",
+        "server/AooKernel/src/main/java/BaseTask/SyncTask/SyncTimer.java",
+        "server/AooKernel/src/main/java/BaseTask/SyncTask/SyncTimerTask.java",
+        "server/AooKernel/src/main/java/BaseThread/BaseMutexInstance.java",
+        "server/AooKernel/src/main/java/BaseThread/BaseMutexManager.java",
+        "server/AooKernel/src/main/java/BaseThread/BaseMutexObject.java",
+        "server/AooKernel/src/main/java/BaseThread/CosMutex.java",
+        "server/AooKernel/src/main/java/BaseThread/CosMutexException.java",
+        "server/AooKernel/src/main/java/BaseThread/MutexInfo.java",
+        "server/AooKernel/src/main/java/BaseThread/ThreadManager.java",
+        "server/AooKernel/src/main/java/BaseThread/ThreadMutexInfo.java",
+        "server/AooKernel/src/main/java/ConsoleTask/ConsoleTaskDealThread.java",
+        "server/AooKernel/src/main/java/ConsoleTask/ConsoleTaskManager.java",
+        "server/AooKernel/src/main/java/ConsoleTask/_AConsoleTaskRunner.java"
+      ],
+      "regressions": [
+        "server/AooKernel/src/test/java/BaseThread/CosMutexTimeoutTest.java"
+      ]
+    },
+    {
+      "coordinate": "aoo.legacy:nettosphere:3.2.2-qh",
+      "upstream": "org.atmosphere:nettosphere:3.2.2",
+      "upstreamRepository": "https://repo.maven.apache.org/maven2/org/atmosphere/nettosphere/3.2.2/",
+      "upstreamSha256": "a175430d4b302cf5501256f6e007b5d84370655c0aa64324e7123acf8867b98e",
+      "upstreamSourcesSha256": "015b7e7779b983ab958d99dca400d5e2bbb46fa7082dfd2dcf710e46f196cf3e",
+      "customizedSha256": "59421e4b5f135af98d407cc02716e239bdd28789c9fffb02cd3cc76a0ff45eb9",
+      "binaryPatch": {
+        "addedClasses": [
+
+        ],
+        "removedClasses": [
+
+        ],
+        "changedClasses": [
+          "org/atmosphere/nettosphere/BridgeRuntime.class",
+          "org/atmosphere/nettosphere/ChannelWriter.class",
+          "org/atmosphere/nettosphere/ChunkedWriter.class",
+          "org/atmosphere/nettosphere/Config$Builder$1.class",
+          "org/atmosphere/nettosphere/Config$Builder$2.class",
+          "org/atmosphere/nettosphere/Config$Builder.class",
+          "org/atmosphere/nettosphere/Config.class",
+          "org/atmosphere/nettosphere/Nettosphere$1.class",
+          "org/atmosphere/nettosphere/Nettosphere$Builder.class",
+          "org/atmosphere/nettosphere/Nettosphere.class",
+          "org/atmosphere/nettosphere/util/Utils.class",
+          "org/atmosphere/nettosphere/util/Version.class"
+        ]
+      },
+      "reason": "historical private transport customization; no longer runtime-reachable",
+      "replacement": "server/Gateway",
+      "regressions": [
+        "server/Gateway/src/test/java/com/aoo/bcg/gateway/ConnectionResourceScopeTest.java",
+        "server/Gateway/src/test/java/com/aoo/bcg/gateway/GameOperationTimelineTest.java",
+        "server/Gateway/src/test/java/com/aoo/bcg/gateway/GameWebSocketRouterTest.java",
+        "server/Gateway/src/test/java/com/aoo/bcg/gateway/GatewayHandshakeIntegrationTest.java",
+        "server/Gateway/src/test/java/com/aoo/bcg/gateway/GatewayRoomBroadcastHubTest.java",
+        "server/Gateway/src/test/java/com/aoo/bcg/gateway/GatewayStageOneContractTest.java",
+        "server/Gateway/src/test/java/com/aoo/bcg/gateway/GatewayWebSocketFrameHandlerTest.java",
+        "server/Gateway/src/test/java/com/aoo/bcg/gateway/HttpGatewayContractTest.java",
+        "server/Gateway/src/test/java/com/aoo/bcg/gateway/JdbcRiskAdmissionAuthorityTest.java",
+        "server/Gateway/src/test/java/com/aoo/bcg/gateway/JdbcWsTicketServiceTest.java",
+        "server/Gateway/src/test/java/com/aoo/bcg/gateway/NettyBufferLeaseTest.java",
+        "server/Gateway/src/test/java/com/aoo/bcg/gateway/RuntimeGameRoomRegistryTest.java",
+        "server/Gateway/src/test/java/com/aoo/bcg/gateway/SecureWsTicketServiceTest.java",
+        "server/Gateway/src/test/java/com/aoo/bcg/gateway/ServerAuthorityInputGuardTest.java",
+        "server/Gateway/src/test/java/com/aoo/bcg/gateway/WebSocketRequestGuardTest.java"
+      ]
+    }
+  ]
+}

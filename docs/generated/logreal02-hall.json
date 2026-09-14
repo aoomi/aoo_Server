@@ -1,0 +1,405 @@
+{
+  "task": "LOGREAL02",
+  "passed": true,
+  "checks": {
+    "hall_log_scanned": true,
+    "all_domains_mapped": true,
+    "all_domains_have_runtime_clues": true,
+    "fingerprinted": true
+  },
+  "summary": {
+    "files": 1,
+    "classifiedLines": 559,
+    "errorSignatures": 25
+  },
+  "domainMappings": {
+    "login": {
+      "tasks": [
+        "AUTH01",
+        "PROTO12"
+      ],
+      "signatureCount": 4,
+      "occurrences": 129,
+      "fingerprints": [
+        "0da28ec8bbded347",
+        "58812d1cdd702c3a",
+        "86f9c2def0bf996e",
+        "a7fdd327ec8ee4db"
+      ]
+    },
+    "hall": {
+      "tasks": [
+        "CALL02",
+        "DRIFT03"
+      ],
+      "signatureCount": 1,
+      "occurrences": 2,
+      "fingerprints": [
+        "31bdf287a7eec1c6"
+      ]
+    },
+    "club": {
+      "tasks": [
+        "CALL04",
+        "CON09"
+      ],
+      "signatureCount": 1,
+      "occurrences": 1,
+      "fingerprints": [
+        "4ffb13c506791810"
+      ]
+    },
+    "room": {
+      "tasks": [
+        "CALL05",
+        "ROOM01"
+      ],
+      "signatureCount": 4,
+      "occurrences": 178,
+      "fingerprints": [
+        "f01c232f8d04760b",
+        "c2cdebd9ef78ba01",
+        "57c584da062bf4d1",
+        "a69e652b1b360938"
+      ]
+    },
+    "asset": {
+      "tasks": [
+        "BILL01",
+        "CON09"
+      ],
+      "signatureCount": 5,
+      "occurrences": 248,
+      "fingerprints": [
+        "f01c232f8d04760b",
+        "c2cdebd9ef78ba01",
+        "0459d6bf7fad8c8b",
+        "8b17b9ea97cc5002",
+        "3f92cf11d2eec231"
+      ]
+    }
+  },
+  "signatures": [
+    {
+      "severity": "error",
+      "category": "uncategorized",
+      "fingerprint": "f01c232f8d04760b",
+      "count": 118,
+      "signature": "[<n>-<n>-<n> <n>:<n>:<n>.<n>][disruptor-pool-<n>]ERROR:PlayerCityCurrency cityRoomCardChange Pid:<n>,cityId:<n>",
+      "files": [
+        "logs/hall/local-console.log"
+      ]
+    },
+    {
+      "severity": "error",
+      "category": "protocol",
+      "fingerprint": "0da28ec8bbded347",
+      "count": 65,
+      "signature": "[<n>-<n>-<n> <n>:<n>:<n>.<n>][NioProcessor-<n>]ERROR:messageReceived rejected websocket Origin from client:/<ip>",
+      "files": [
+        "logs/hall/local-console.log"
+      ]
+    },
+    {
+      "severity": "error",
+      "category": "uncategorized",
+      "fingerprint": "58812d1cdd702c3a",
+      "count": 59,
+      "signature": "[<n>-<n>-<n> <n>:<n>:<n>.<n>][disruptor-pool-<n>]ERROR:bindPlayer set ip pid;<n>,ip:<ip>",
+      "files": [
+        "logs/hall/local-console.log"
+      ]
+    },
+    {
+      "severity": "error",
+      "category": "uncategorized",
+      "fingerprint": "c2cdebd9ef78ba01",
+      "count": 58,
+      "signature": "[<n>-<n>-<n> <n>:<n>:<n>.<n>][disruptor-pool-<n>]ERROR:gainCityRoomCard pid:<n>,cityId:<n>",
+      "files": [
+        "logs/hall/local-console.log"
+      ]
+    },
+    {
+      "severity": "error",
+      "category": "uncategorized",
+      "fingerprint": "0459d6bf7fad8c8b",
+      "count": 28,
+      "signature": "<n>:<n>:<n>,<n> |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [SportsPointAll] to ERROR",
+      "files": [
+        "logs/hall/local-console.log"
+      ]
+    },
+    {
+      "severity": "warning",
+      "category": "uncategorized",
+      "fingerprint": "197cc10887dbf1f4",
+      "count": 28,
+      "signature": "<n>:<n>:<n>,<n> |-WARN in ch.qos.logback.classic.joran.action.LevelAction - <level> element is deprecated. Near [level] on line <n>",
+      "files": [
+        "logs/hall/local-console.log"
+      ]
+    },
+    {
+      "severity": "warning",
+      "category": "uncategorized",
+      "fingerprint": "1983ba744ecac307",
+      "count": 28,
+      "signature": "<n>:<n>:<n>,<n> |-WARN in ch.qos.logback.classic.joran.action.LevelAction - Please use \"level\" attribute within <logger> or <root> elements instead.",
+      "files": [
+        "logs/hall/local-console.log"
+      ]
+    },
+    {
+      "severity": "error",
+      "category": "uncategorized",
+      "fingerprint": "8b17b9ea97cc5002",
+      "count": 28,
+      "signature": "<n>:<n>:<n>,<n> |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [SportsPoint] to ERROR",
+      "files": [
+        "logs/hall/local-console.log"
+      ]
+    },
+    {
+      "severity": "warning",
+      "category": "uncategorized",
+      "fingerprint": "bb741be9a187a9d0",
+      "count": 28,
+      "signature": "<n>:<n>:<n>,<n> |-WARN in ch.qos.logback.core.model.processor.ImplicitModelHandler - Ignoring unknown property [jmxConfigurator] in [ch.qos.logback.classic.LoggerContext]",
+      "files": [
+        "logs/hall/local-console.log"
+      ]
+    },
+    {
+      "severity": "warning",
+      "category": "uncategorized",
+      "fingerprint": "26196c62290072bf",
+      "count": 17,
+      "signature": "WARNING: Please consider reporting this to the maintainers of class com.alibaba.fastjson2.util.JDKUtils",
+      "files": [
+        "logs/hall/local-console.log"
+      ]
+    },
+    {
+      "severity": "warning",
+      "category": "uncategorized",
+      "fingerprint": "2670b5a7df66f5b5",
+      "count": 17,
+      "signature": "WARNING: sun.misc.Unsafe::arrayBaseOffset has been called by com.alibaba.fastjson2.util.JDKUtils (file:/Users/aoo/.m2/repository/com/alibaba/fastjson2/fastjson2/<n>.<n>.<n>/fastjson2-<n>.<n>.<n>.jar)",
+      "files": [
+        "logs/hall/local-console.log"
+      ]
+    },
+    {
+      "severity": "warning",
+      "category": "uncategorized",
+      "fingerprint": "3ae514ca3b0d095b",
+      "count": 17,
+      "signature": "WARNING: sun.misc.Unsafe::arrayBaseOffset will be removed in a future release",
+      "files": [
+        "logs/hall/local-console.log"
+      ]
+    },
+    {
+      "severity": "warning",
+      "category": "uncategorized",
+      "fingerprint": "8c4a1c9866a5792e",
+      "count": 17,
+      "signature": "WARNING: A terminally deprecated method in sun.misc.Unsafe has been called",
+      "files": [
+        "logs/hall/local-console.log"
+      ]
+    },
+    {
+      "severity": "error",
+      "category": "database",
+      "fingerprint": "3f92cf11d2eec231",
+      "count": 16,
+      "signature": "[<n>-<n>-<n> <n>:<n>:<n>.<n>][main]ERROR:redis time <n> ms key=shareGoldNoKey_no method=sadd",
+      "files": [
+        "logs/hall/local-console.log"
+      ]
+    },
+    {
+      "severity": "error",
+      "category": "uncategorized",
+      "fingerprint": "cbbcf6c7ad8a52f2",
+      "count": 6,
+      "signature": "[<n>-<n>-<n> <n>:<n>:<n>.<n>][main]ERROR:file not .jar :lib",
+      "files": [
+        "logs/hall/local-console.log"
+      ]
+    },
+    {
+      "severity": "error",
+      "category": "thread",
+      "fingerprint": "1b851666f4a810cd",
+      "count": 4,
+      "signature": "Exception in thread \"Druid-ConnectionPool-Create-<n>\" java.lang.ArrayIndexOutOfBoundsException: Index <n> out of bounds for length <n>",
+      "files": [
+        "logs/hall/local-console.log"
+      ]
+    },
+    {
+      "severity": "error",
+      "category": "thread",
+      "fingerprint": "8d89b9eed616c6d6",
+      "count": 4,
+      "signature": "Exception in thread \"ConsoleTaskDealThread\" java.lang.NullPointerException: Cannot invoke \"String.trim()\" because the return value of \"java.io.BufferedReader.readLine()\" is null",
+      "files": [
+        "logs/hall/local-console.log"
+      ]
+    },
+    {
+      "severity": "error",
+      "category": "uncategorized",
+      "fingerprint": "86f9c2def0bf996e",
+      "count": 3,
+      "signature": "[<n>-<n>-<n> <n>:<n>:<n>.<n>][STT-Default-<n>]ERROR:账号服务器(http://<ip>/JavaServerPack)返回({\"Code\":<n>,\"AccountID\":<n>}),验证解析失败",
+      "files": [
+        "logs/hall/local-console.log"
+      ]
+    },
+    {
+      "severity": "error",
+      "category": "database",
+      "fingerprint": "31bdf287a7eec1c6",
+      "count": 2,
+      "signature": "[<n>-<n>-<n> <n>:<n>:<n>.<n>][main]ERROR:redis time <n> ms key=HALL method=sadd",
+      "files": [
+        "logs/hall/local-console.log"
+      ]
+    },
+    {
+      "severity": "error",
+      "category": "uncategorized",
+      "fingerprint": "a7fdd327ec8ee4db",
+      "count": 2,
+      "signature": "[<n>-<n>-<n> <n>:<n>:<n>.<n>][disruptor-pool-<n>]ERROR:登录账号(<n>) != session绑定账号ID(<n>)",
+      "files": [
+        "logs/hall/local-console.log"
+      ]
+    },
+    {
+      "severity": "error",
+      "category": "thread",
+      "fingerprint": "f07f0f40304b47d5",
+      "count": 2,
+      "signature": "Exception in thread \"main\" java.lang.NoClassDefFoundError: com/fasterxml/jackson/databind/ObjectMapper",
+      "files": [
+        "logs/hall/local-console.log"
+      ]
+    },
+    {
+      "severity": "error",
+      "category": "thread",
+      "fingerprint": "f74c7be5ea72d500",
+      "count": 2,
+      "signature": "Exception in thread \"main\" java.lang.IllegalStateException: service readiness failed: databaseConnectionAndSchema: cannot inspect production database schema: database session time zone must be UTC",
+      "files": [
+        "logs/hall/local-console.log"
+      ]
+    },
+    {
+      "severity": "error",
+      "category": "thread",
+      "fingerprint": "446265f0d77eecd7",
+      "count": 1,
+      "signature": "Exception in thread \"main\" java.lang.IllegalStateException: service readiness failed: databaseConnectionAndSchema: cannot inspect production database schema: unsafe query plan: idempotency-result",
+      "files": [
+        "logs/hall/local-console.log"
+      ]
+    },
+    {
+      "severity": "error",
+      "category": "thread",
+      "fingerprint": "4e908492a3b6cc7e",
+      "count": 1,
+      "signature": "Exception in thread \"ConsoleTaskDealThread\" [<n>-<n>-<n> <n>:<n>:<n>.<n>][main]INFO:=================检查到版本标识一致===================",
+      "files": [
+        "logs/hall/local-console.log"
+      ]
+    },
+    {
+      "severity": "error",
+      "category": "thread",
+      "fingerprint": "4ffb13c506791810",
+      "count": 1,
+      "signature": "Exception in thread \"main\" java.lang.IllegalStateException: service readiness failed: databaseConnectionAndSchema: cannot inspect production database schema: unsafe query plan: club-member-page",
+      "files": [
+        "logs/hall/local-console.log"
+      ]
+    },
+    {
+      "severity": "error",
+      "category": "thread",
+      "fingerprint": "57c584da062bf4d1",
+      "count": 1,
+      "signature": "Exception in thread \"main\" java.lang.IllegalStateException: service readiness failed: databaseConnectionAndSchema: production database migrations are incomplete: CHECK chk_room_event_identity, CHECK chk_room_event_visibility",
+      "files": [
+        "logs/hall/local-console.log"
+      ]
+    },
+    {
+      "severity": "error",
+      "category": "thread",
+      "fingerprint": "6a7fa747b555f7bd",
+      "count": 1,
+      "signature": "Exception in thread \"main\" java.lang.IllegalStateException: service readiness failed: databaseConnectionAndSchema: cannot inspect production database schema: Key 'idx_outbox_claim' doesn't exist in table 'aoo_outbox'",
+      "files": [
+        "logs/hall/local-console.log"
+      ]
+    },
+    {
+      "severity": "error",
+      "category": "database",
+      "fingerprint": "6f7f503e6377f90f",
+      "count": 1,
+      "signature": "[<n>-<n>-<n> <n>:<n>:<n>.<n>][main]ERROR:redis time <n> ms, key=shareOnlinePlayerKey, method=hgetAll",
+      "files": [
+        "logs/hall/local-console.log"
+      ]
+    },
+    {
+      "severity": "error",
+      "category": "thread",
+      "fingerprint": "a69e652b1b360938",
+      "count": 1,
+      "signature": "Exception in thread \"main\" java.lang.IllegalStateException: cannot list recoverable room snapshots",
+      "files": [
+        "logs/hall/local-console.log"
+      ]
+    },
+    {
+      "severity": "error",
+      "category": "thread",
+      "fingerprint": "bb43e38f945b0b69",
+      "count": 1,
+      "signature": "Exception in thread \"main\" java.lang.IllegalStateException: service readiness failed: databaseConnectionAndSchema: cannot inspect production database schema",
+      "files": [
+        "logs/hall/local-console.log"
+      ]
+    },
+    {
+      "severity": "error",
+      "category": "uncategorized",
+      "fingerprint": "c45888c170d19306",
+      "count": 1,
+      "signature": "[<n>-<n>-<n> <n>:<n>:<n>.<n>][main]ERROR:升级数据库失败，原因Cannot invoke \"core.db.service.DBVersionInfoBOService.setSourceName(String)\" because \"this.dbVersionInfoBOService\" is null",
+      "files": [
+        "logs/hall/local-console.log"
+      ]
+    },
+    {
+      "severity": "error",
+      "category": "thread",
+      "fingerprint": "ef08276479c5043b",
+      "count": 1,
+      "signature": "Exception in thread \"main\" java.lang.IllegalStateException: service readiness failed: databaseConnectionAndSchema: cannot inspect production database schema: unsafe query plan: outbox-claim",
+      "files": [
+        "logs/hall/local-console.log"
+      ]
+    }
+  ],
+  "warning": "Historical hall logs map clues to remediation tasks; they do not prove current defects or fixes."
+}

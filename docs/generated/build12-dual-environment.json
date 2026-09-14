@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "checks": {
+    "linuxAndMac": true,
+    "independentBuild": true,
+    "artifactSha256": true,
+    "crossEnvironmentDiff": true
+  },
+  "verdict": "awaiting-hosted-ci-run"
+}

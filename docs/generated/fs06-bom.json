@@ -1,0 +1,16 @@
+{
+  "task": "FS06",
+  "passed": true,
+  "scannedFiles": 31246,
+  "bomFiles": {
+    "efbbbf": [
+
+    ],
+    "fffe": [
+
+    ],
+    "feff": [
+
+    ]
+  }
+}

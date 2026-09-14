@@ -1,0 +1,16 @@
+{
+  "java_shapes_generated": true,
+  "typescript_bodies_generated": true,
+  "all_java_ids_generated": true,
+  "all_typescript_ids_generated": true,
+  "canonical_envelope_fields": {
+    "gateway": true,
+    "legacy": true,
+    "client_http": true
+  },
+  "single_active_java_definition": [
+    "server/GameSPI/src/main/java/com/aoo/bcg/gamespi/protocol/GeneratedProtocolIds.java"
+  ],
+  "passed": true,
+  "message_count": 35
+}

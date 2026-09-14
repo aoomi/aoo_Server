@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "services": {
+    "gateway": {
+      "module": "server/Gateway",
+      "mainClass": "com.aoo.bcg.gateway.GatewayApplication",
+      "configDir": "work/local-runtime/core-services",
+      "pidFile": "work/local-runtime/core-services/gateway.pid",
+      "logFile": "logs/local-dev/gateway.log",
+      "ports": [8080, 18080]
+    },
+    "version": {
+      "module": "server/Bootstrap",
+      "mainClass": "com.aoo.bcg.bootstrap.BootstrapAPP version",
+      "configDir": "work/local-runtime/core-services",
+      "pidFile": "work/local-runtime/core-services/version.pid",
+      "logFile": "logs/local-dev/version.log",
+      "ports": [8095]
+    },
+    "account": {
+      "module": "server/Bootstrap",
+      "mainClass": "com.aoo.bcg.bootstrap.BootstrapAPP account",
+      "configDir": "work/local-runtime/core-services",
+      "pidFile": "work/local-runtime/core-services/account.pid",
+      "logFile": "logs/local-dev/account.log",
+      "ports": [8096]
+    },
+    "hall": {
+      "module": "server/Bootstrap",
+      "mainClass": "com.aoo.bcg.bootstrap.BootstrapAPP hall",
+      "configDir": "work/local-runtime/core-services",
+      "pidFile": "work/local-runtime/core-services/hall.pid",
+      "logFile": "logs/local-dev/hall.log",
+      "ports": [8093]
+    }
+  }
+}

@@ -1,0 +1,77 @@
+spring:
+  profiles:
+    active : database,redis,mq,mongodb,activity
+
+
+# 通用配置
+general:
+  # 服务端名称
+  ServerName: AccountServer
+  # 微信管理服
+  WeChatServerUrl: http://tfb.qicaiaoo.com:707/ServerPack
+  # 账号管理服
+  AccountServerUrl: http://127.0.0.1:907/ServerPack
+  # 资源管理服
+  ResServerUrl: http://127.0.0.1:97/ServerPack
+  # 订单管理服
+  OrderServerUrl: http://127.0.0.1:807/ServerPack
+  # 管理服
+  ManagerServerUrl: http://127.0.0.1:602/ServerPack
+
+# 令牌信息
+token:
+  # 创建账号登陆token的加密key
+  TokenSecret: ${ACCOUNT_TOKEN_SECRET:}
+  # token过期时间一分钟(ms)
+  TokenExpireTick: 6000
+
+
+# 微信
+wechat:
+  # appid
+  appid: ${ACCOUNT_WECHAT_APP_ID:}
+  # 秘钥
+  secret: ${ACCOUNT_WECHAT_SECRET:}
+  # 授权类型
+  grantType: authorization_code
+  # 语言类型
+  langType: zh_CN
+  # 个人信息授权url
+  accountUserInfoUrl: https://api.weixin.qq.com/sns/userinfo
+  # 刷新token Url
+  refreshTokenUrl: https://api.weixin.qq.com/sns/oauth2/refresh_token
+  # 获取access Url
+  accessTokenUrl: https://api.weixin.qq.com/sns/oauth2/access_token
+  # 获取公众号玩家数据
+  gongZhonghaoUserInfoUrl: https://api.weixin.qq.com/cgi-bin/user/info
+
+mobile:
+  # 手机号验证
+  accessTokenUrl: http://wz.qp355.com/index.php?module=Sms&action=CheckLastCode
+
+
+
+
+#日志级别
+logLevelD:
+  debug: 0
+  error: 1
+  info: 1
+  warn: 0
+
+server:
+  # http端口配置
+  port: 904
+
+#开启debug
+debug: false
+
+logging:
+  level:
+#    root: trace
+    org.hibernate.type.descriptor.sql.BasicBinder: off
+#    org.springframework.web: trace
+#    org.hibernate: trace
+
+test:
+  delay: 0 12 14 2 8 ?

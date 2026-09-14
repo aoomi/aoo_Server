@@ -1,0 +1,37 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: aoo-account
+  namespace: aoo-production
+  labels: {aoo.io/production-observability: "true"}
+spec:
+  selector: {matchLabels: {app.kubernetes.io/name: aoo-account}}
+  namespaceSelector: {matchNames: [aoo-production]}
+  endpoints:
+    - port: metrics
+      path: /metrics
+      scheme: http
+      interval: 30s
+      scrapeTimeout: 10s
+---
+apiVersion: monitoring.coreos.com/v1alpha1
+kind: AlertmanagerConfig
+metadata:
+  name: aoo-production-consumer
+  namespace: aoo-production
+  labels: {aoo.io/production-observability: "true"}
+spec:
+  route:
+    receiver: production-incident-webhook
+    groupBy: [alertname, service]
+    groupWait: 30s
+    groupInterval: 5m
+    repeatInterval: 4h
+    matchers:
+      - {name: namespace, value: aoo-production, matchType: "="}
+  receivers:
+    - name: production-incident-webhook
+      webhookConfigs:
+        - urlSecret: {name: aoo-alert-consumer, key: webhook-url}
+          sendResolved: true
+          maxAlerts: 0

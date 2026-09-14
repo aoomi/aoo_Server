@@ -1,0 +1,78 @@
+{
+  "task": "LOGREAL12",
+  "status": "passed",
+  "policy": "Historical logs are never acceptance evidence. They may create a diagnostic hypothesis only. Closure requires current source, executable test, runtime reproduction, or a reproducible source/config gate.",
+  "matrix": [
+    {
+      "task": "LOGREAL01",
+      "evidence": "docs/generated/logreal01-backend-runtime.json",
+      "evidenceType": "current generated runtime analysis",
+      "exists": true,
+      "nonEmpty": true
+    },
+    {
+      "task": "LOGREAL02",
+      "evidence": "docs/generated/logreal02-hall.json",
+      "evidenceType": "current generated hall analysis",
+      "exists": true,
+      "nonEmpty": true
+    },
+    {
+      "task": "LOGREAL03-04",
+      "evidence": "docs/generated/runtime-game-log-ledger.json",
+      "evidenceType": "current reproducible mapping ledger",
+      "exists": true,
+      "nonEmpty": true
+    },
+    {
+      "task": "LOGREAL05",
+      "evidence": "docs/generated/logreal05-repeated-errors.json",
+      "evidenceType": "current fingerprint/root-cause gate",
+      "exists": true,
+      "nonEmpty": true
+    },
+    {
+      "task": "LOGREAL06",
+      "evidence": "server/GameCommon/src/test/java/com/aoo/bcg/common/observability/OperationLogContextTest.java",
+      "evidenceType": "executable context test",
+      "exists": true,
+      "nonEmpty": true
+    },
+    {
+      "task": "LOGREAL07",
+      "evidence": "../Client/assets/Common/Code/Runtime/network/ClientErrorCorrelation.ts",
+      "evidenceType": "current V2 client implementation",
+      "exists": true,
+      "nonEmpty": true
+    },
+    {
+      "task": "LOGREAL08",
+      "evidence": "server/Gateway/src/test/java/com/aoo/bcg/gateway/GameOperationTimelineTest.java",
+      "evidenceType": "executable timeline test",
+      "exists": true,
+      "nonEmpty": true
+    },
+    {
+      "task": "LOGREAL09",
+      "evidence": "docs/generated/logreal09-legacy-entrypoint-ledger.json",
+      "evidenceType": "current retirement generator output",
+      "exists": true,
+      "nonEmpty": true
+    },
+    {
+      "task": "LOGREAL10",
+      "evidence": "docs/generated/logreal10-sensitive-logging.json",
+      "evidenceType": "current source scanning gate",
+      "exists": true,
+      "nonEmpty": true
+    },
+    {
+      "task": "LOGREAL11",
+      "evidence": "docs/generated/logreal11-noise-policy.json",
+      "evidenceType": "current source/config gate",
+      "exists": true,
+      "nonEmpty": true
+    }
+  ],
+  "historicalFingerprintDisposition": "diagnostic-backlog-not-closed-by-history"
+}

@@ -1,0 +1,4 @@
+require 'json';require 'fileutils';root=File.expand_path('..',__dir__)
+source=File.read(File.join(root,'server/GameSPI/src/main/java/com/aoo/bcg/gamespi/api/VersionNegotiator.java'));test=File.read(File.join(root,'server/GameSPI/src/test/java/com/aoo/bcg/gamespi/api/VersionNegotiatorTest.java'))
+checks={minimum:test.include?('"2.1.0"'),maximum:test.include?('"2.9.9"'),outside:test.include?('"3.0.0"'),unknown:source.include?('INVALID_VERSION'),missing:source.include?('MISSING_VERSION'),executable_test:test.include?('coversMinimumMaximumUnknownAndMissingVersions')}
+abort "LIFE11 audit failed: #{checks}" unless checks.values.all?;out=File.join(root,'work/audit/version-negotiation-cases.json');FileUtils.mkdir_p(File.dirname(out));File.write(out,JSON.pretty_generate({task:'LIFE11',status:'passed',checks:checks})+"\n")

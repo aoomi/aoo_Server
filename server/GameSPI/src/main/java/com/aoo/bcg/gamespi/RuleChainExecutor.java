@@ -1,0 +1,3 @@
+package com.aoo.bcg.gamespi;
+import java.util.Comparator;import java.util.List;
+public final class RuleChainExecutor<C>{private final List<RuleComponent<C>>components;public RuleChainExecutor(List<RuleComponent<C>>components){if(components==null)throw new IllegalArgumentException("components required");this.components=components.stream().sorted(Comparator.comparingInt(RuleComponent<C>::priority).thenComparing(RuleComponent::ruleId)).toList();}public RuleResult execute(C context){for(var component:components){RuleResult result=component.execute(context);if(!result.accepted())return result;}return RuleResult.accept();}public List<RuleComponent<C>>components(){return components;}}

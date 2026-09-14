@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "developmentConfigs": [
+    {
+      "path": "development/configs/bundle-boundary.example.json",
+      "sha256": "0eb301d0b3bb2eef284cf33b149e417a44bc00f0ca6a9d92ade0d3cf12d8da33",
+      "parseable": true,
+      "example": true
+    },
+    {
+      "path": "development/configs/manifests/bundle-manifest.example.json",
+      "sha256": "7a98cad2ca74e641fd25a0140d2d5d07d62e1082de1bd07cb0cb89f9bf1faa55",
+      "parseable": true,
+      "example": true
+    },
+    {
+      "path": "development/configs/manifests/frontend-assets.json",
+      "sha256": "b1ee01c7dfa0790102c33aae428f7fbe406b235acc6a77b6917458532bbf4347",
+      "parseable": true,
+      "example": false
+    }
+  ],
+  "runtimeConfigCount": 361,
+  "parallelCopies": [
+    "assets/Common/Config/Legacy/assets/jsonData/gameCreate.json",
+    "assets/Common/Config/Legacy/assets/jsonData/roomcost.json",
+    "assets/Common/Config/Legacy/assets/njpdk/jsonData/gameCreate.json",
+    "assets/Common/Config/Legacy/assets/njpdk/jsonData/roomcost.json",
+    "assets/Games/Mahjong/Packs/Pack01/Config/Legacy/hzmj-source/jsonData/gameCreate.json",
+    "assets/Games/Mahjong/Packs/Pack01/Config/Legacy/hzmj-source/jsonData/roomcost.json",
+    "assets/Games/Poker/Packs/Pack01/Config/Legacy/assets/njpdk/jsonData/gameCreate.json",
+    "assets/Games/Poker/Packs/Pack01/Config/Legacy/assets/njpdk/jsonData/roomcost.json"
+  ],
+  "passed": false
+}

@@ -1,0 +1,3 @@
+package com.aoo.bcg.poker;
+import org.junit.jupiter.api.Test;import java.util.*;import static org.junit.jupiter.api.Assertions.*;
+class PokerCoreEngineTest{@Test void validatesOwnershipComparisonTurnsAndHints(){var rules=new StandardPokerRuleSet<Void>();var engine=new PokerCoreEngine<Void>();var state=new PokerTurnState(Map.of(0,List.of(103,104),1,List.of(105,205)),0,null,-1,Set.of(),false,-1);state=engine.play(state,0,List.of(103),rules,null);assertEquals(1,state.currentSeat());assertFalse(engine.hints(state,1,rules,null).isEmpty());var next=engine.play(state,1,List.of(105),rules,null);assertEquals(0,next.currentSeat());assertThrows(IllegalStateException.class,()->engine.play(next,0,List.of(104,999),rules,null));}}

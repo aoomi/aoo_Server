@@ -1,0 +1,1 @@
+{"schemaVersion":1,"allowed":["reactor-module-jars","deploy/production-services.yaml","database/migrations/*.sql","protocol/aoo-protocol-v2.json","work/release/SHA512SUMS"],"forbidden":["target/classes","target/test-classes","*-sources.jar","*-javadoc.jar",".idea",".vscode","*.iml","work/local-runtime","server/Legacy*/target"]}

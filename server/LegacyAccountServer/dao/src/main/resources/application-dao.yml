@@ -1,0 +1,59 @@
+spring:
+  datasource:
+    druid:
+      clark-game:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://127.0.0.1:3306/clark_game?useUnicode=true&characterEncoding=utf8&tcpRcvBuf=1024000&autoReconnect=true&failOverReadOnly=false
+        username: ${ACCOUNT_DB_USER:root}
+        password: ${ACCOUNT_DB_PASSWORD:}
+        initial-size: 5
+        max-active: 20
+        min-idle: 5
+        max-wait: 60000
+        pool-prepared-statements: true
+        max-pool-prepared-statement-per-connection-size: 20
+        validation-query: SELECT 1 FROM DUAL
+        validation-query-timeout: 30000
+        test-on-borrow: false
+        test-on-return: false
+        test-while-idle: true
+      clark-log:
+        type: com.alibaba.druid.pool.DruidDataSource
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://127.0.0.1:3306/clark_log?useUnicode=true&characterEncoding=utf8&tcpRcvBuf=1024000&autoReconnect=true&failOverReadOnly=false
+        username: ${ACCOUNT_LOG_DB_USER:root}
+        password: ${ACCOUNT_LOG_DB_PASSWORD:}
+        initial-size: 5
+        max-active: 20
+        min-idle: 5
+        max-wait: 60000
+        pool-prepared-statements: true
+        max-pool-prepared-statement-per-connection-size: 20
+        validation-query: SELECT 1 FROM DUAL
+        validation-query-timeout: 30000
+        test-on-borrow: false
+        test-on-return: false
+        test-while-idle: true
+      clark-zle:
+        type: com.alibaba.druid.pool.DruidDataSource
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://127.0.0.1:3306/db_zle?useUnicode=true&characterEncoding=utf8&tcpRcvBuf=1024000&autoReconnect=true&failOverReadOnly=false
+        username: ${ACCOUNT_ZLE_DB_USER:root}
+        password: ${ACCOUNT_ZLE_DB_PASSWORD:}
+        initial-size: 5
+        max-active: 20
+        min-idle: 5
+        max-wait: 60000
+        pool-prepared-statements: true
+        max-pool-prepared-statement-per-connection-size: 20
+        validation-query: SELECT 1 FROM DUAL
+        validation-query-timeout: 30000
+        test-on-borrow: false
+        test-on-return: false
+        test-while-idle: true
+  aop:
+    auto: true
+    proxy-target-class: true
+
+
+

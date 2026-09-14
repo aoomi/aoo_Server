@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "task": "THIRD01",
+  "repository": "reference/legacy-2.22/third-party-maven-repository/com",
+  "runtimeReachable": false,
+  "generatedBy": "scripts/audit-third01-inventory.rb",
+  "artifacts": [
+    {
+      "coordinate": "com.aoo.legacy:kernel:1.0.0",
+      "jar": "reference/legacy-2.22/third-party-maven-repository/com/aoo/legacy/kernel/1.0.0/kernel-1.0.0.jar",
+      "pom": "reference/legacy-2.22/third-party-maven-repository/com/aoo/legacy/kernel/1.0.0/kernel-1.0.0.pom",
+      "sha256": {
+        "jar": "068f9bc2c38a79d1b7012ddd401f1b7a4da023e38e2216f54313da4e091ca5ee",
+        "pom": "b4bbd809b03d6750c6c07648811cc2aaf2fe7ed8d66cd7afe6128b4119d0c30d"
+      },
+      "sha1Sidecars": {
+        "jar": true,
+        "pom": true
+      },
+      "content": {
+        "classCount": 35,
+        "resourceCount": 7,
+        "packages": [
+          "BaseCommon",
+          "BaseServer",
+          "BaseTask/AsynTask",
+          "BaseTask/SyncTask",
+          "BaseThread",
+          "ConsoleTask"
+        ]
+      },
+      "provenance": {
+        "implementationVersion": "1.0.0",
+        "buildJdk": "unknown",
+        "licenseDeclaration": "not-declared",
+        "embeddedLicenseFiles": [
+
+        ],
+        "sourceArchivePresent": false
+      }
+    },
+    {
+      "coordinate": "com.aoo.legacy:nettosphere:3.2.2-qh",
+      "jar": "reference/legacy-2.22/third-party-maven-repository/com/aoo/legacy/nettosphere/3.2.2-qh/nettosphere-3.2.2-qh.jar",
+      "pom": "reference/legacy-2.22/third-party-maven-repository/com/aoo/legacy/nettosphere/3.2.2-qh/nettosphere-3.2.2-qh.pom",
+      "sha256": {
+        "jar": "59421e4b5f135af98d407cc02716e239bdd28789c9fffb02cd3cc76a0ff45eb9",
+        "pom": "bea2843ec2f762bfce4da8f6adee04b26b64c5973824c794eb68bd6d4934add3"
+      },
+      "sha1Sidecars": {
+        "jar": true,
+        "pom": true
+      },
+      "content": {
+        "classCount": 41,
+        "resourceCount": 4,
+        "packages": [
+          "org/atmosphere/nettosphere",
+          "org/atmosphere/nettosphere/extra",
+          "org/atmosphere/nettosphere/util"
+        ]
+      },
+      "provenance": {
+        "implementationVersion": "3.2.3.20210224-0824",
+        "buildJdk": "1.8.0_131",
+        "licenseDeclaration": "http://www.apache.org/licenses/LICENSE-2.0.html",
+        "embeddedLicenseFiles": [
+
+        ],
+        "sourceArchivePresent": false
+      }
+    }
+  ]
+}

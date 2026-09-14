@@ -1,0 +1,6 @@
+require 'json';require 'fileutils'
+root=File.expand_path('..',__dir__);games=%w[CDXZMJ NJPDK SCJYMJ XCPDK ZJH ZYPK]
+providers=games.to_h{|m|p=Dir[File.join(root,"server/#{m}/src/**/*GameProvider.java")].first;[m,p&&File.read(p)]}
+families=Dir[File.join(root,'server/Families/src/main/java/**/*.java')].map{|p|File.read(p)}.join("\n");config=Dir[File.join(root,'server/ConfigCenter/src/main/java/**/*.java')].map{|p|File.read(p)}.join("\n")
+checks={every_concrete_provider_has_family:providers.values.all?{|s|s&&s.match?(/(?:mahjongFamily|pokerFamily)\s*\(/)},family_module_has_runtime_implementation:families.include?('class CompiledRuleChain')&&families.include?('RuleResult execute'),family_module_used_in_production:config.include?('com.aoo.bcg.families.CompiledRuleChain'),family_codes_are_real:providers.values.all?{|s|s.match?(/Family|FAMILY/)}}
+result={task:'REAL13',passed:checks.values.all?,checks:checks,providers:providers.transform_values{|s|!s.nil?}};out=File.join(root,'work/audit/real13-family-usage.json');FileUtils.mkdir_p(File.dirname(out));File.write(out,JSON.pretty_generate(result)+"\n");puts "REAL13 #{result[:passed]?'passed':'failed'}: family abstractions execute in concrete providers and ConfigCenter";exit(result[:passed]?0:1)

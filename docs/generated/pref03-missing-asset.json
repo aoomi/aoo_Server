@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "referenceAudit": {
+    "metaUuids": 33634,
+    "directReferences": 145675,
+    "engineBuiltinReferences": 21836,
+    "missingDirectReferences": 0,
+    "duplicateMetaUuids": 0,
+    "metaParseErrors": 0
+  },
+  "missingDirectReferences": 0,
+  "passed": true
+}

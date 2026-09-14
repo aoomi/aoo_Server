@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "schemaFiles": [
+
+  ],
+  "requiredConstraints": [
+    "type",
+    "range",
+    "enum",
+    "mutualExclusion",
+    "dependency",
+    "deprecation"
+  ],
+  "complete": false,
+  "passed": false
+}

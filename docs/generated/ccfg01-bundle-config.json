@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "files": [
+    {
+      "path": "development/configs/bundle-boundary.example.json",
+      "bytes": 405,
+      "sha256": "0eb301d0b3bb2eef284cf33b149e417a44bc00f0ca6a9d92ade0d3cf12d8da33",
+      "example": true,
+      "parseable": true
+    },
+    {
+      "path": "development/configs/manifests/bundle-manifest.example.json",
+      "bytes": 303,
+      "sha256": "7a98cad2ca74e641fd25a0140d2d5d07d62e1082de1bd07cb0cb89f9bf1faa55",
+      "example": true,
+      "parseable": true
+    }
+  ],
+  "checks": {
+    "hasProductionBundleConfig": false,
+    "noExampleOnlyConfig": false,
+    "hasBackendGameCodeClosure": false,
+    "hasDependencyAndVersionClosure": false
+  },
+  "passed": false
+}

@@ -1,0 +1,743 @@
+{
+  "schemaVersion": 1,
+  "layoutGroups": 1601,
+  "multiVariantLayoutGroups": 182,
+  "duplicatedStructures": [
+    {
+      "native": "assets/Club/Prefab/Native/default/CaseSprots.prefab",
+      "counterpart": "assets/Club/Prefab/default/CaseSprots.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/Club.prefab",
+      "counterpart": "assets/Club/Prefab/default/Club.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/ClubCreate.prefab",
+      "counterpart": "assets/Club/Prefab/default/ClubCreate.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/ClubDiamond.prefab",
+      "counterpart": "assets/Club/Prefab/default/ClubDiamond.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/ClubDissolve.prefab",
+      "counterpart": "assets/Club/Prefab/default/ClubDissolve.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/ClubFindRoom.prefab",
+      "counterpart": "assets/Club/Prefab/default/ClubFindRoom.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/ClubForbid.prefab",
+      "counterpart": "assets/Club/Prefab/default/ClubForbid.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/ClubHeHuoList.prefab",
+      "counterpart": "assets/Club/Prefab/default/ClubHeHuoList.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/ClubHeHuoShuoMing.prefab",
+      "counterpart": "assets/Club/Prefab/default/ClubHeHuoShuoMing.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/ClubHeHuoYeJiList.prefab",
+      "counterpart": "assets/Club/Prefab/default/ClubHeHuoYeJiList.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/ClubHeHuoZhanJiList.prefab",
+      "counterpart": "assets/Club/Prefab/default/ClubHeHuoZhanJiList.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/ClubHuanPi.prefab",
+      "counterpart": "assets/Club/Prefab/default/ClubHuanPi.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/ClubInRoom.prefab",
+      "counterpart": "assets/Club/Prefab/default/ClubInRoom.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/ClubList.prefab",
+      "counterpart": "assets/Club/Prefab/default/ClubList.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/ClubMainDefault.prefab",
+      "counterpart": "assets/Club/Prefab/default/ClubMainDefault.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/ClubManagerNew.prefab",
+      "counterpart": "assets/Club/Prefab/default/ClubManagerNew.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/ClubMessage.prefab",
+      "counterpart": "assets/Club/Prefab/default/ClubMessage.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/ClubNone.prefab",
+      "counterpart": "assets/Club/Prefab/default/ClubNone.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/ClubPlayerRecord.prefab",
+      "counterpart": "assets/Club/Prefab/default/ClubPlayerRecord.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/ClubPromoterAdd.prefab",
+      "counterpart": "assets/Club/Prefab/default/ClubPromoterAdd.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/ClubPromotionDetail.prefab",
+      "counterpart": "assets/Club/Prefab/default/ClubPromotionDetail.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/ClubRecordList.prefab",
+      "counterpart": "assets/Club/Prefab/default/ClubRecordList.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/ClubRecordUser.prefab",
+      "counterpart": "assets/Club/Prefab/default/ClubRecordUser.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/ClubRecordUserDay.prefab",
+      "counterpart": "assets/Club/Prefab/default/ClubRecordUserDay.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/ClubReport.prefab",
+      "counterpart": "assets/Club/Prefab/default/ClubReport.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/ClubRoomJoin.prefab",
+      "counterpart": "assets/Club/Prefab/default/ClubRoomJoin.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/ClubRoomList.prefab",
+      "counterpart": "assets/Club/Prefab/default/ClubRoomList.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/ClubRoomManager.prefab",
+      "counterpart": "assets/Club/Prefab/default/ClubRoomManager.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/ClubRoomPassword.prefab",
+      "counterpart": "assets/Club/Prefab/default/ClubRoomPassword.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/ClubRoomWanFa.prefab",
+      "counterpart": "assets/Club/Prefab/default/ClubRoomWanFa.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/ClubStore.prefab",
+      "counterpart": "assets/Club/Prefab/default/ClubStore.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/ClubUserList.prefab",
+      "counterpart": "assets/Club/Prefab/default/ClubUserList.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/ClubUserMessage.prefab",
+      "counterpart": "assets/Club/Prefab/default/ClubUserMessage.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/ClubUserMessageNew.prefab",
+      "counterpart": "assets/Club/Prefab/default/ClubUserMessageNew.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/ForbidAddUser.prefab",
+      "counterpart": "assets/Club/Prefab/default/ForbidAddUser.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/ForbidGameAddUser.prefab",
+      "counterpart": "assets/Club/Prefab/default/ForbidGameAddUser.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/ForbidRoomCfg.prefab",
+      "counterpart": "assets/Club/Prefab/default/ForbidRoomCfg.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/ForbidUserList.prefab",
+      "counterpart": "assets/Club/Prefab/default/ForbidUserList.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/JoinClub.prefab",
+      "counterpart": "assets/Club/Prefab/default/JoinClub.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/JoinUnion.prefab",
+      "counterpart": "assets/Club/Prefab/default/JoinUnion.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/PromoterAllManager.prefab",
+      "counterpart": "assets/Club/Prefab/default/PromoterAllManager.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/PromoterAllReport.prefab",
+      "counterpart": "assets/Club/Prefab/default/PromoterAllReport.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/PromoterLevelAdd.prefab",
+      "counterpart": "assets/Club/Prefab/default/PromoterLevelAdd.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/PromoterManager.prefab",
+      "counterpart": "assets/Club/Prefab/default/PromoterManager.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/PromoterMsg.prefab",
+      "counterpart": "assets/Club/Prefab/default/PromoterMsg.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/PromoterPowerOp.prefab",
+      "counterpart": "assets/Club/Prefab/default/PromoterPowerOp.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/PromoterRecordUser.prefab",
+      "counterpart": "assets/Club/Prefab/default/PromoterRecordUser.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/PromoterSM.prefab",
+      "counterpart": "assets/Club/Prefab/default/PromoterSM.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/PromoterSet.prefab",
+      "counterpart": "assets/Club/Prefab/default/PromoterSet.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/PromoterSetActive.prefab",
+      "counterpart": "assets/Club/Prefab/default/PromoterSetActive.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/PromoterSetActiveDetail.prefab",
+      "counterpart": "assets/Club/Prefab/default/PromoterSetActiveDetail.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/PromoterSetActiveNum.prefab",
+      "counterpart": "assets/Club/Prefab/default/PromoterSetActiveNum.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/PromoterSetActiveReport.prefab",
+      "counterpart": "assets/Club/Prefab/default/PromoterSetActiveReport.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/PromoterShowSetting.prefab",
+      "counterpart": "assets/Club/Prefab/default/PromoterShowSetting.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/PromoterXIaShuAdd.prefab",
+      "counterpart": "assets/Club/Prefab/default/PromoterXIaShuAdd.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/PromoterXiaShuList.prefab",
+      "counterpart": "assets/Club/Prefab/default/PromoterXiaShuList.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/QuickJoinRoom.prefab",
+      "counterpart": "assets/Club/Prefab/default/QuickJoinRoom.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/SetSportsPointWarning.prefab",
+      "counterpart": "assets/Club/Prefab/default/SetSportsPointWarning.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/UnionClubReport.prefab",
+      "counterpart": "assets/Club/Prefab/default/UnionClubReport.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/UnionClubUserList.prefab",
+      "counterpart": "assets/Club/Prefab/default/UnionClubUserList.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/UnionCreate.prefab",
+      "counterpart": "assets/Club/Prefab/default/UnionCreate.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/UnionManager.prefab",
+      "counterpart": "assets/Club/Prefab/default/UnionManager.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/UnionNone.prefab",
+      "counterpart": "assets/Club/Prefab/default/UnionNone.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/UnionPLSet.prefab",
+      "counterpart": "assets/Club/Prefab/default/UnionPLSet.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/UnionRankTip.prefab",
+      "counterpart": "assets/Club/Prefab/default/UnionRankTip.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/UnionRoomCfgMsg.prefab",
+      "counterpart": "assets/Club/Prefab/default/UnionRoomCfgMsg.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/UnionTip.prefab",
+      "counterpart": "assets/Club/Prefab/default/UnionTip.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/UnionYaoQing.prefab",
+      "counterpart": "assets/Club/Prefab/default/UnionYaoQing.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/UserChangeSection.prefab",
+      "counterpart": "assets/Club/Prefab/default/UserChangeSection.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/UserOutRace.prefab",
+      "counterpart": "assets/Club/Prefab/default/UserOutRace.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/UserSelfBaoMingFei.prefab",
+      "counterpart": "assets/Club/Prefab/default/UserSelfBaoMingFei.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/UserSetBaoMingFei.prefab",
+      "counterpart": "assets/Club/Prefab/default/UserSetBaoMingFei.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/UserSetBaoMingFeiDetail.prefab",
+      "counterpart": "assets/Club/Prefab/default/UserSetBaoMingFeiDetail.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/UserSetPL.prefab",
+      "counterpart": "assets/Club/Prefab/default/UserSetPL.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/UserSetPercent.prefab",
+      "counterpart": "assets/Club/Prefab/default/UserSetPercent.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/UserSetPercentDetail.prefab",
+      "counterpart": "assets/Club/Prefab/default/UserSetPercentDetail.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/UserSetReservedBaoMingFei.prefab",
+      "counterpart": "assets/Club/Prefab/default/UserSetReservedBaoMingFei.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/UserSetSection.prefab",
+      "counterpart": "assets/Club/Prefab/default/UserSetSection.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/YaoQing.prefab",
+      "counterpart": "assets/Club/Prefab/default/YaoQing.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/benquan.prefab",
+      "counterpart": "assets/Club/Prefab/default/benquan.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/defaultHead.prefab",
+      "counterpart": "assets/Club/Prefab/default/defaultHead.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/msgNode/msg_type_0.prefab",
+      "counterpart": "assets/Club/Prefab/default/msgNode/msg_type_0.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/msgNode/msg_type_1.prefab",
+      "counterpart": "assets/Club/Prefab/default/msgNode/msg_type_1.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/msgNode/msg_type_10.prefab",
+      "counterpart": "assets/Club/Prefab/default/msgNode/msg_type_10.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/msgNode/msg_type_11.prefab",
+      "counterpart": "assets/Club/Prefab/default/msgNode/msg_type_11.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/msgNode/msg_type_12.prefab",
+      "counterpart": "assets/Club/Prefab/default/msgNode/msg_type_12.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/msgNode/msg_type_13.prefab",
+      "counterpart": "assets/Club/Prefab/default/msgNode/msg_type_13.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/msgNode/msg_type_14.prefab",
+      "counterpart": "assets/Club/Prefab/default/msgNode/msg_type_14.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/msgNode/msg_type_15.prefab",
+      "counterpart": "assets/Club/Prefab/default/msgNode/msg_type_15.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/msgNode/msg_type_16.prefab",
+      "counterpart": "assets/Club/Prefab/default/msgNode/msg_type_16.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/msgNode/msg_type_2.prefab",
+      "counterpart": "assets/Club/Prefab/default/msgNode/msg_type_2.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/msgNode/msg_type_3.prefab",
+      "counterpart": "assets/Club/Prefab/default/msgNode/msg_type_3.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/msgNode/msg_type_4.prefab",
+      "counterpart": "assets/Club/Prefab/default/msgNode/msg_type_4.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/msgNode/msg_type_5.prefab",
+      "counterpart": "assets/Club/Prefab/default/msgNode/msg_type_5.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/msgNode/msg_type_6.prefab",
+      "counterpart": "assets/Club/Prefab/default/msgNode/msg_type_6.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/msgNode/msg_type_7.prefab",
+      "counterpart": "assets/Club/Prefab/default/msgNode/msg_type_7.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/msgNode/msg_type_8.prefab",
+      "counterpart": "assets/Club/Prefab/default/msgNode/msg_type_8.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/msgNode/msg_type_9.prefab",
+      "counterpart": "assets/Club/Prefab/default/msgNode/msg_type_9.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/zhuozi/demo_new2.prefab",
+      "counterpart": "assets/Club/Prefab/default/zhuozi/demo_new2.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/zhuozi/demo_new3.prefab",
+      "counterpart": "assets/Club/Prefab/default/zhuozi/demo_new3.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/zhuozi/demo_new4.prefab",
+      "counterpart": "assets/Club/Prefab/default/zhuozi/demo_new4.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/zhuozi/demo_new5.prefab",
+      "counterpart": "assets/Club/Prefab/default/zhuozi/demo_new5.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/zhuozi/demo_new6.prefab",
+      "counterpart": "assets/Club/Prefab/default/zhuozi/demo_new6.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/zhuozi/demo_new7.prefab",
+      "counterpart": "assets/Club/Prefab/default/zhuozi/demo_new7.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/zhuozi/demo_new8.prefab",
+      "counterpart": "assets/Club/Prefab/default/zhuozi/demo_new8.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/zhuozi_xingyun/demo_new2.prefab",
+      "counterpart": "assets/Club/Prefab/default/zhuozi_xingyun/demo_new2.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/zhuozi_xingyun/demo_new2_puke.prefab",
+      "counterpart": "assets/Club/Prefab/default/zhuozi_xingyun/demo_new2_puke.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/zhuozi_xingyun/demo_new3.prefab",
+      "counterpart": "assets/Club/Prefab/default/zhuozi_xingyun/demo_new3.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/zhuozi_xingyun/demo_new3_puke.prefab",
+      "counterpart": "assets/Club/Prefab/default/zhuozi_xingyun/demo_new3_puke.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/zhuozi_xingyun/demo_new4.prefab",
+      "counterpart": "assets/Club/Prefab/default/zhuozi_xingyun/demo_new4.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/zhuozi_xingyun/demo_new5.prefab",
+      "counterpart": "assets/Club/Prefab/default/zhuozi_xingyun/demo_new5.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/zhuozi_xingyun/demo_new6.prefab",
+      "counterpart": "assets/Club/Prefab/default/zhuozi_xingyun/demo_new6.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/zhuozi_xingyun/demo_new7.prefab",
+      "counterpart": "assets/Club/Prefab/default/zhuozi_xingyun/demo_new7.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/zhuozi_xingyun/demo_new8.prefab",
+      "counterpart": "assets/Club/Prefab/default/zhuozi_xingyun/demo_new8.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/zhuozi_zhongzhi/demo_new2.prefab",
+      "counterpart": "assets/Club/Prefab/default/zhuozi_zhongzhi/demo_new2.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/zhuozi_zhongzhi/demo_new3.prefab",
+      "counterpart": "assets/Club/Prefab/default/zhuozi_zhongzhi/demo_new3.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/zhuozi_zhongzhi/demo_new4.prefab",
+      "counterpart": "assets/Club/Prefab/default/zhuozi_zhongzhi/demo_new4.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/zhuozi_zhongzhi/demo_new5.prefab",
+      "counterpart": "assets/Club/Prefab/default/zhuozi_zhongzhi/demo_new5.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/zhuozi_zhongzhi/demo_new6.prefab",
+      "counterpart": "assets/Club/Prefab/default/zhuozi_zhongzhi/demo_new6.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/zhuozi_zhongzhi/demo_new7.prefab",
+      "counterpart": "assets/Club/Prefab/default/zhuozi_zhongzhi/demo_new7.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/zhuozi_zhongzhi/demo_new8.prefab",
+      "counterpart": "assets/Club/Prefab/default/zhuozi_zhongzhi/demo_new8.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/zuozi_new/demo_new2-puke.prefab",
+      "counterpart": "assets/Club/Prefab/default/zuozi_new/demo_new2-puke.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/zuozi_new/demo_new2.prefab",
+      "counterpart": "assets/Club/Prefab/default/zuozi_new/demo_new2.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/zuozi_new/demo_new3-puke.prefab",
+      "counterpart": "assets/Club/Prefab/default/zuozi_new/demo_new3-puke.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/zuozi_new/demo_new3.prefab",
+      "counterpart": "assets/Club/Prefab/default/zuozi_new/demo_new3.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/zuozi_new/demo_new4.prefab",
+      "counterpart": "assets/Club/Prefab/default/zuozi_new/demo_new4.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/zuozi_new/demo_new5.prefab",
+      "counterpart": "assets/Club/Prefab/default/zuozi_new/demo_new5.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/zuozi_new/demo_new6.prefab",
+      "counterpart": "assets/Club/Prefab/default/zuozi_new/demo_new6.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/zuozi_new/demo_new7.prefab",
+      "counterpart": "assets/Club/Prefab/default/zuozi_new/demo_new7.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/default/zuozi_new/demo_new8.prefab",
+      "counterpart": "assets/Club/Prefab/default/zuozi_new/demo_new8.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/skin-1/ClubMain_1.prefab",
+      "counterpart": "assets/Club/Prefab/skin-1/ClubMain_1.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/skin-1/zhuozi_1/demo_new2.prefab",
+      "counterpart": "assets/Club/Prefab/skin-1/zhuozi_1/demo_new2.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/skin-1/zhuozi_1/demo_new3.prefab",
+      "counterpart": "assets/Club/Prefab/skin-1/zhuozi_1/demo_new3.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/skin-1/zhuozi_1/demo_new4.prefab",
+      "counterpart": "assets/Club/Prefab/skin-1/zhuozi_1/demo_new4.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/skin-1/zhuozi_1/demo_new5.prefab",
+      "counterpart": "assets/Club/Prefab/skin-1/zhuozi_1/demo_new5.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/skin-1/zhuozi_1/demo_new6.prefab",
+      "counterpart": "assets/Club/Prefab/skin-1/zhuozi_1/demo_new6.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/skin-1/zhuozi_1/demo_new7.prefab",
+      "counterpart": "assets/Club/Prefab/skin-1/zhuozi_1/demo_new7.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/skin-1/zhuozi_1/demo_new8.prefab",
+      "counterpart": "assets/Club/Prefab/skin-1/zhuozi_1/demo_new8.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/skin-1/zhuozi_xingyun_1/demo_new2.prefab",
+      "counterpart": "assets/Club/Prefab/skin-1/zhuozi_xingyun_1/demo_new2.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/skin-1/zhuozi_xingyun_1/demo_new2_puke.prefab",
+      "counterpart": "assets/Club/Prefab/skin-1/zhuozi_xingyun_1/demo_new2_puke.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/skin-1/zhuozi_xingyun_1/demo_new3.prefab",
+      "counterpart": "assets/Club/Prefab/skin-1/zhuozi_xingyun_1/demo_new3.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/skin-1/zhuozi_xingyun_1/demo_new3_puke.prefab",
+      "counterpart": "assets/Club/Prefab/skin-1/zhuozi_xingyun_1/demo_new3_puke.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/skin-1/zhuozi_xingyun_1/demo_new4.prefab",
+      "counterpart": "assets/Club/Prefab/skin-1/zhuozi_xingyun_1/demo_new4.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/skin-1/zhuozi_xingyun_1/demo_new5.prefab",
+      "counterpart": "assets/Club/Prefab/skin-1/zhuozi_xingyun_1/demo_new5.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/skin-1/zhuozi_xingyun_1/demo_new6.prefab",
+      "counterpart": "assets/Club/Prefab/skin-1/zhuozi_xingyun_1/demo_new6.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/skin-1/zhuozi_xingyun_1/demo_new7.prefab",
+      "counterpart": "assets/Club/Prefab/skin-1/zhuozi_xingyun_1/demo_new7.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/skin-1/zhuozi_xingyun_1/demo_new8.prefab",
+      "counterpart": "assets/Club/Prefab/skin-1/zhuozi_xingyun_1/demo_new8.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/skin-2/ChangeSportsPointWarning_2.prefab",
+      "counterpart": "assets/Club/Prefab/skin-2/ChangeSportsPointWarning_2.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/skin-2/ClubAddCaptain_2.prefab",
+      "counterpart": "assets/Club/Prefab/skin-2/ClubAddCaptain_2.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/skin-2/ClubChangePromotion_2.prefab",
+      "counterpart": "assets/Club/Prefab/skin-2/ClubChangePromotion_2.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/skin-2/ClubMain_2.prefab",
+      "counterpart": "assets/Club/Prefab/skin-2/ClubMain_2.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/skin-2/PlayerRaceRankInfo.prefab",
+      "counterpart": "assets/Club/Prefab/skin-2/PlayerRaceRankInfo.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/skin-2/PromoterAllManager_2.prefab",
+      "counterpart": "assets/Club/Prefab/skin-2/PromoterAllManager_2.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/skin-2/PromoterAllReport_2.prefab",
+      "counterpart": "assets/Club/Prefab/skin-2/PromoterAllReport_2.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/skin-2/PromoterSet_2.prefab",
+      "counterpart": "assets/Club/Prefab/skin-2/PromoterSet_2.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/skin-2/PromoterShowSetting_2.prefab",
+      "counterpart": "assets/Club/Prefab/skin-2/PromoterShowSetting_2.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/skin-2/SetSportsPointWarning_2.prefab",
+      "counterpart": "assets/Club/Prefab/skin-2/SetSportsPointWarning_2.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/skin-2/UnionClubReport_2.prefab",
+      "counterpart": "assets/Club/Prefab/skin-2/UnionClubReport_2.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/skin-2/UnionClubUserList_2.prefab",
+      "counterpart": "assets/Club/Prefab/skin-2/UnionClubUserList_2.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/skin-2/UnionManagerZhongZhi.prefab",
+      "counterpart": "assets/Club/Prefab/skin-2/UnionManagerZhongZhi.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/skin-2/UnionManager_2.prefab",
+      "counterpart": "assets/Club/Prefab/skin-2/UnionManager_2.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/skin-2/UnionRankZhongZhi.prefab",
+      "counterpart": "assets/Club/Prefab/skin-2/UnionRankZhongZhi.prefab"
+    },
+    {
+      "native": "assets/Club/Prefab/Native/skin-2/UserSetPL_2.prefab",
+      "counterpart": "assets/Club/Prefab/skin-2/UserSetPL_2.prefab"
+    },
+    {
+      "native": "assets/Common/Prefab/Native/common/ChouJiangShare.prefab",
+      "counterpart": "assets/Common/Prefab/common/ChouJiangShare.prefab"
+    },
+    {
+      "native": "assets/Common/Prefab/Native/common/Message.prefab",
+      "counterpart": "assets/Common/Prefab/common/Message.prefab"
+    },
+    {
+      "native": "assets/Common/Prefab/Native/common/MessageGps.prefab",
+      "counterpart": "assets/Common/Prefab/common/MessageGps.prefab"
+    },
+    {
+      "native": "assets/Common/Prefab/Native/common/MessageJoin.prefab",
+      "counterpart": "assets/Common/Prefab/common/MessageJoin.prefab"
+    },
+    {
+      "native": "assets/Common/Prefab/Native/common/MessageLostConnect.prefab",
+      "counterpart": "assets/Common/Prefab/common/MessageLostConnect.prefab"
+    },
+    {
+      "native": "assets/Common/Prefab/Native/common/MessageTip.prefab",
+      "counterpart": "assets/Common/Prefab/common/MessageTip.prefab"
+    },
+    {
+      "native": "assets/Common/Prefab/Native/common/MessageUpdate.prefab",
+      "counterpart": "assets/Common/Prefab/common/MessageUpdate.prefab"
+    },
+    {
+      "native": "assets/Common/Prefab/Native/common/Message_Drift.prefab",
+      "counterpart": "assets/Common/Prefab/common/Message_Drift.prefab"
+    },
+    {
+      "native": "assets/Common/Prefab/Native/common/NoticeBar.prefab",
+      "counterpart": "assets/Common/Prefab/common/NoticeBar.prefab"
+    },
+    {
+      "native": "assets/Common/Prefab/Native/common/Share.prefab",
+      "counterpart": "assets/Common/Prefab/common/Share.prefab"
+    },
+    {
+      "native": "assets/Common/Prefab/Native/common/ShareImg.prefab",
+      "counterpart": "assets/Common/Prefab/common/ShareImg.prefab"
+    },
+    {
+      "native": "assets/Common/Prefab/Native/common/UserInfo.prefab",
+      "counterpart": "assets/Common/Prefab/common/UserInfo.prefab"
+    },
+    {
+      "native": "assets/Games/Common/Prefab/Native/scene/Layer/backgroundLayer.prefab",
+      "counterpart": "assets/Games/Common/Prefab/scene/Layer/backgroundLayer.prefab"
+    },
+    {
+      "native": "assets/Games/Common/Prefab/Native/scene/Layer/sceneEffectLayer.prefab",
+      "counterpart": "assets/Games/Common/Prefab/scene/Layer/sceneEffectLayer.prefab"
+    },
+    {
+      "native": "assets/Games/Common/Prefab/Native/scene/Layer/topLayer.prefab",
+      "counterpart": "assets/Games/Common/Prefab/scene/Layer/topLayer.prefab"
+    },
+    {
+      "native": "assets/Games/Common/Prefab/Native/scene/Layer/uiLayer.prefab",
+      "counterpart": "assets/Games/Common/Prefab/scene/Layer/uiLayer.prefab"
+    },
+    {
+      "native": "assets/Login/Prefab/Native/Login.prefab",
+      "counterpart": "assets/Login/Prefab/Login.prefab"
+    },
+    {
+      "native": "assets/Login/Prefab/Native/Login01.prefab",
+      "counterpart": "assets/Login/Prefab/Login01.prefab"
+    },
+    {
+      "native": "assets/Login/Prefab/Native/Login02.prefab",
+      "counterpart": "assets/Login/Prefab/Login02.prefab"
+    }
+  ],
+  "acceptedReuseMechanisms": [
+    "Widget",
+    "Layout",
+    "SafeArea",
+    "layout-data"
+  ],
+  "replacementProofComplete": false,
+  "passed": false
+}

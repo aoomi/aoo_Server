@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+require'json';require'digest';require'fileutils';root=File.expand_path('..',__dir__);client=File.expand_path('../Client',root)
+inputs=['pom.xml','.mvn/wrapper/maven-wrapper.properties','.node-version',*Dir.glob(File.join(root,'database/migrations/*.sql')).map{|p|p.delete_prefix(root+'/')},*Dir.glob(File.join(root,'scripts/*.rb')).map{|p|p.delete_prefix(root+'/')},*%w[package.json pnpm-lock.yaml].map{|p|File.join(client,p)}]
+entries=inputs.sort.map{|p|a=p.start_with?('/') ? p : File.join(root,p);{path:a.delete_prefix(root+'/').sub(client,'${CLIENT_ROOT}'),sha256:Digest::SHA256.file(a).hexdigest}}
+key=Digest::SHA256.hexdigest(entries.map{|e|e.values.join(':')}.join("\n"));report={schemaVersion:1,cacheKey:"aoo-v1-#{key}",inputs:entries,dimensions:%w[java maven node cocos plugins dependencies schema generators]};out=File.join(root,'docs/generated/build05-cache-key.json');FileUtils.mkdir_p(File.dirname(out));File.write(out,JSON.pretty_generate(report)+"\n");puts 'BUILD05 PASS: complete cache key generated'

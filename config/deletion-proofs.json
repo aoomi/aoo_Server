@@ -1,0 +1,5 @@
+{
+  "schemaVersion": 1,
+  "policy": "Deletion is allowed only when staticReachability, dynamicRuntime, dataReferences, buildArtifacts and regressionSuite are all proven true.",
+  "approvedDeletions": []
+}

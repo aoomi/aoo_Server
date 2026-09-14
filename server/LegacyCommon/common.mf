@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Ant-Version: Apache Ant 1.9.4
+Created-By: 1.8.0_25-b18 (Oracle Corporation)
+Class-Path: mina-core-2.0.7-1403.jar netty-all-4.0.17.Final.jar slf4j-
+ api-1.7.6.jar javolution-core-java-6.0.0.jar protobuf-java-2.5.0.jar 
+ c3p0-0.9.5-pre7.jar mchange-commons-java-0.2.6.5.jar bsh-2.0b5.jar gs
+ on-2.2.4.jar commons-codec-1.9.jar logback-core-1.1.2.jar logback-cla
+ ssic-1.1.2.jar logback-access-1.1.2.jar bonecp-0.7.1.RELEASE.jar guav
+ a-10.0.1.jar BaseServer.jar
+

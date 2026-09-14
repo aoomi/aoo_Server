@@ -1,0 +1,2 @@
+package com.aoo.bcg.identity;
+public final class IdentityError extends RuntimeException {public final int status;public final String code;public IdentityError(int status,String code,String message){super(message);this.status=status;this.code=code;}public static IdentityError invalid(String m){return new IdentityError(400,"IDENTITY_INVALID_REQUEST",m);}public static IdentityError rate(){return new IdentityError(429,"IDENTITY_RATE_LIMITED","request rate exceeded");}}

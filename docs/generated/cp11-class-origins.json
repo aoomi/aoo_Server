@@ -1,0 +1,97 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-24T05:21:06Z",
+  "task": "CP11",
+  "commandClasspathContract": "game-bootstrap.jar:game-bootstrap/target/runtime/lib/*",
+  "checks": {
+    "diagnosticCommandPassed": true,
+    "allCriticalClassesLoaded": true,
+    "everyClassHasOneResource": true,
+    "noProjectClassFromLocalRepository": true
+  },
+  "classes": [
+    {
+      "className": "com.aoo.bcg.gamespi.GameProvider",
+      "moduleName": "unnamed",
+      "codeSource": "file:${PROJECT_ROOT}/server/Bootstrap/target/runtime/lib/game-spi-1.0.0-SNAPSHOT.jar",
+      "resourceCount": 1,
+      "resources": [
+        "jar:file:${PROJECT_ROOT}/server/Bootstrap/target/runtime/lib/game-spi-1.0.0-SNAPSHOT.jar!/com/aoo/bcg/gamespi/GameProvider.class"
+      ]
+    },
+    {
+      "className": "com.aoo.bcg.gamespi.GameRegistry",
+      "moduleName": "unnamed",
+      "codeSource": "file:${PROJECT_ROOT}/server/Bootstrap/target/runtime/lib/game-spi-1.0.0-SNAPSHOT.jar",
+      "resourceCount": 1,
+      "resources": [
+        "jar:file:${PROJECT_ROOT}/server/Bootstrap/target/runtime/lib/game-spi-1.0.0-SNAPSHOT.jar!/com/aoo/bcg/gamespi/GameRegistry.class"
+      ]
+    },
+    {
+      "className": "business.global.mj.cdxzmj.CDXZMJGameProvider",
+      "moduleName": "unnamed",
+      "codeSource": "file:${PROJECT_ROOT}/server/Bootstrap/target/runtime/lib/cdxzmj-1.0.0-SNAPSHOT.jar",
+      "resourceCount": 1,
+      "resources": [
+        "jar:file:${PROJECT_ROOT}/server/Bootstrap/target/runtime/lib/cdxzmj-1.0.0-SNAPSHOT.jar!/business/global/mj/cdxzmj/CDXZMJGameProvider.class"
+      ]
+    },
+    {
+      "className": "business.global.pk.njpdk.NJPDKGameProvider",
+      "moduleName": "unnamed",
+      "codeSource": "file:${PROJECT_ROOT}/server/Bootstrap/target/runtime/lib/njpdk-1.0.0-SNAPSHOT.jar",
+      "resourceCount": 1,
+      "resources": [
+        "jar:file:${PROJECT_ROOT}/server/Bootstrap/target/runtime/lib/njpdk-1.0.0-SNAPSHOT.jar!/business/global/pk/njpdk/NJPDKGameProvider.class"
+      ]
+    },
+    {
+      "className": "core.network.client2game.handler.room.CPlayerRoomReconnectV2",
+      "moduleName": "unnamed",
+      "codeSource": "file:${PROJECT_ROOT}/server/Bootstrap/target/runtime/lib/game-server-framework-1.0.0-SNAPSHOT.jar",
+      "resourceCount": 1,
+      "resources": [
+        "jar:file:${PROJECT_ROOT}/server/Bootstrap/target/runtime/lib/game-server-framework-1.0.0-SNAPSHOT.jar!/core/network/client2game/handler/room/CPlayerRoomReconnectV2.class"
+      ]
+    },
+    {
+      "className": "com.fasterxml.jackson.databind.ObjectMapper",
+      "moduleName": "unnamed",
+      "codeSource": "file:${PROJECT_ROOT}/server/Bootstrap/target/runtime/lib/jackson-databind-2.22.2.jar",
+      "resourceCount": 1,
+      "resources": [
+        "jar:file:${PROJECT_ROOT}/server/Bootstrap/target/runtime/lib/jackson-databind-2.22.2.jar!/com/fasterxml/jackson/databind/ObjectMapper.class"
+      ]
+    },
+    {
+      "className": "com.google.protobuf.Message",
+      "moduleName": "unnamed",
+      "codeSource": "file:${PROJECT_ROOT}/server/Bootstrap/target/runtime/lib/protobuf-java-4.36.0.jar",
+      "resourceCount": 1,
+      "resources": [
+        "jar:file:${PROJECT_ROOT}/server/Bootstrap/target/runtime/lib/protobuf-java-4.36.0.jar!/com/google/protobuf/Message.class"
+      ]
+    },
+    {
+      "className": "com.mysql.cj.jdbc.Driver",
+      "moduleName": "unnamed",
+      "codeSource": "file:${PROJECT_ROOT}/server/Bootstrap/target/runtime/lib/mysql-connector-j-26.7.0.jar",
+      "resourceCount": 1,
+      "resources": [
+        "jar:file:${PROJECT_ROOT}/server/Bootstrap/target/runtime/lib/mysql-connector-j-26.7.0.jar!/com/mysql/cj/jdbc/Driver.class"
+      ]
+    },
+    {
+      "className": "io.netty.channel.ChannelHandler",
+      "moduleName": "unnamed",
+      "codeSource": "file:${PROJECT_ROOT}/server/Bootstrap/target/runtime/lib/netty-transport-4.2.17.Final.jar",
+      "resourceCount": 1,
+      "resources": [
+        "jar:file:${PROJECT_ROOT}/server/Bootstrap/target/runtime/lib/netty-transport-4.2.17.Final.jar!/io/netty/channel/ChannelHandler.class"
+      ]
+    }
+  ],
+  "stderr": "",
+  "passed": true
+}

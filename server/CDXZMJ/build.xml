@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="GBK"?>				
+<project name="game" default="move">				
+	<property name="base.dir" location="." />				
+	<property name="jar.file" location="${base.dir}/build/HZMJ.jar" />				
+	<property name="build.dir" location="${base.dir}/build" />				
+	<property name="classes.dir" location="${base.dir}/build/classes" />				
+	<property name="src.dir" location="${base.dir}/src" />				
+	<property name="gameb.dir" location="../gameServer/build" />				
+    <target name="clean" description="��������">				
+        <delete dir="${build.dir}"></delete>				
+    	<echo level="info">������ʼ</echo>				
+    </target>				
+	<path id="master-classpath">				
+		<fileset file="${gameb.dir}/gameServer.jar" />				
+	</path>				
+    <target name="compile" depends="clean" description="����">				
+    	<mkdir dir="${build.dir}"/>				
+    	<mkdir dir="${classes.dir}"/>				
+        <javac includeantruntime="false" srcdir="${src.dir}" destdir="${classes.dir}" source="1.8" target="1.8">				
+        	<classpath refid="master-classpath" />				
+        	<compilerarg line="-encoding UTF-8 "/> 				
+        </javac>				
+    	<echo level="info">�������</echo>				
+    </target>				
+					
+    <target name="jar" depends="compile" description="������ļ�">				
+        <jar jarfile="${jar.file}" >				
+            <fileset dir="${classes.dir}" includes="**/*.*" />				
+        </jar>				
+    	<delete  dir="${classes.dir}"/>				
+    	<echo level="info">������</echo>				
+    </target>				
+					
+	<target name="move" depends="jar" description="�ƶ�����Ŀ¼">				
+	 	<copy todir="${game.dir}/games" file="${jar.file}" />				
+    	<echo level="info">�ƶ�����Ŀ¼���</echo>				
+	</target>				
+</project>				

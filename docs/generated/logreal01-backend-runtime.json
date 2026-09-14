@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-23T10:06:05Z",
+  "input": "logs/backend-runtime",
+  "files": [
+    "logs/backend-runtime/CDXZMJ.log",
+    "logs/backend-runtime/NJPDK.log"
+  ],
+  "summary": {
+    "files": 2,
+    "classifiedLines": 4,
+    "errorSignatures": 0
+  },
+  "signatures": [
+    {
+      "severity": "info",
+      "category": "startup",
+      "fingerprint": "c226559b505fba5b",
+      "count": 2,
+      "signature": "LOADED=<n>",
+      "files": [
+        "logs/backend-runtime/CDXZMJ.log",
+        "logs/backend-runtime/NJPDK.log"
+      ]
+    },
+    {
+      "severity": "info",
+      "category": "startup",
+      "fingerprint": "b194e64f30ff7e5c",
+      "count": 1,
+      "signature": "APPS=core.server.cdxzmj.CDXZMJAPP",
+      "files": [
+        "logs/backend-runtime/CDXZMJ.log"
+      ]
+    },
+    {
+      "severity": "info",
+      "category": "startup",
+      "fingerprint": "cf9ac6c5615d20f6",
+      "count": 1,
+      "signature": "APPS=core.server.njpdk.NJPDKAPP",
+      "files": [
+        "logs/backend-runtime/NJPDK.log"
+      ]
+    }
+  ],
+  "policy": "Historical logs are diagnostic clues only; each finding requires reproduction in current code/test before closure."
+}

@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "path": "../Client/build-templates/web-desktop/index.html",
+  "sha256": "ca509997125b44d9f2a372261e03a492a163baffa493efdb4106c62926653948",
+  "checks": {
+    "singleTemplateFile": true,
+    "creator38Bootstrap": true,
+    "noObsoleteViewport": true,
+    "noDebugInjection": true,
+    "noLegacyOrLocalAddress": true
+  },
+  "allowedDifferences": [
+    "projectName",
+    "landscape",
+    "1280x720",
+    "custom-container"
+  ]
+}

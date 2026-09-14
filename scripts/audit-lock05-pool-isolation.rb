@@ -1,0 +1,4 @@
+require 'json'; require 'fileutils'
+root=File.expand_path('..',__dir__); source=File.read(File.join(root,'server/GameCommon/src/main/java/com/aoo/bcg/common/concurrency/IsolatedWorkloadExecutors.java'))
+checks={four_lanes:%w[GAMEPLAY CHAT REPLAY BACKGROUND].all?{|x|source.include?(x)},bounded_queue:source.include?('queueCapacity')&&source.include?('Semaphore'),queue_wait_budget:source.include?('tryAcquire')&&source.include?('queueWait'),separate_executors:source.include?('newFixedThreadPool'),fair_admission:source.include?('new Semaphore(budget.concurrency() + budget.queueCapacity(), true)')}
+out={task:'LOCK05',passed:checks.values.all?,checks:checks}; FileUtils.mkdir_p(File.join(root,'work/audit')); File.write(File.join(root,'work/audit/lock05-pool-isolation.json'),JSON.pretty_generate(out)); puts JSON.generate(out); abort('LOCK05 failed') unless out[:passed]

@@ -1,0 +1,9 @@
+{
+  "executable_contract_tests": true,
+  "field_removal_gate": true,
+  "type_change_gate": true,
+  "required_change_gate": true,
+  "message_removal_and_reservation_gate": true,
+  "semantic_metadata_gate": true,
+  "passed": true
+}

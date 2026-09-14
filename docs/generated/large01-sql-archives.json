@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-24T10:38:34Z",
+  "task": "LARGE01",
+  "passed": true,
+  "policy": {
+    "authority": "database/migrations",
+    "archive": "database/original immutable offline reference",
+    "import": "isolated staging schema only",
+    "release": "excluded"
+  },
+  "files": [
+    {
+      "path": "database/original/clark_game_qh.sql",
+      "bytes": 132440948,
+      "sha256": "36e73bd62849f495ef15d60ef7616e94f69ebd8f1e8cfaf7510ed405a80d45ea",
+      "readOnly": true
+    },
+    {
+      "path": "database/original/clark_log_qh.sql",
+      "bytes": 1199503460,
+      "sha256": "6e45acb4cbb6918fa431cb783da275171230b028ebd3b2d45422acecfa804b5c",
+      "readOnly": true
+    },
+    {
+      "path": "database/original/db_zle.sql",
+      "bytes": 13023337,
+      "sha256": "77360b415e77c1097407d6103512b891841a38fea9c8208bd0f89840d2bd2b9b",
+      "readOnly": true
+    },
+    {
+      "path": "database/original/db_zle_qh.sql",
+      "bytes": 671817435,
+      "sha256": "901b19e6f999f3200a37592531ced0b608f9d003a11b1a2e5c5bf012e6c67a2f",
+      "readOnly": true
+    }
+  ],
+  "totalBytes": 2016785180,
+  "migrationCount": 44,
+  "reachableFromActiveRuntime": [
+
+  ],
+  "checks": {
+    "allReadOnly": true,
+    "releaseExcluded": true,
+    "runtimeAndBuildUnreachable": true,
+    "incrementalAuthority": true,
+    "archiveManifestComplete": true
+  }
+}

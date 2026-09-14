@@ -1,0 +1,23 @@
+{
+  "task": "MIGREAL14",
+  "status": "blocked-cross-client-publication",
+  "completed": {
+    "versionedPublication": true,
+    "activationAndRollback": true,
+    "auditTrail": true,
+    "adminEndpoints": false
+  },
+  "verification": {
+    "configCenterAndAdminTests": "passed",
+    "mavenCommand": "./mvnw -Dexec.skip=true -pl server/ConfigCenter,server/AdminApi -am test"
+  },
+  "unresolved": [
+    "no component-version index is bound atomically to a published game profile",
+    "no deterministic gray-rollout assignment is persisted with the profile",
+    "client does not consume a roomProfileVersion/profile publication contract"
+  ],
+  "clientSignals": {
+    "roomProfileVersion": false,
+    "playVersion": true
+  }
+}

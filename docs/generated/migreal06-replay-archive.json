@@ -1,0 +1,25 @@
+{
+  "task": "MIGREAL06",
+  "generatedAt": "2026-08-26T04:02:23Z",
+  "testEvidence": {
+    "path": "server/GameCommon/target/surefire-reports/TEST-core.replay.ReplayArchiveIntegrationTest.xml",
+    "sha256": "fdb42ba40762e1e41718bf724576508dad0a090a0d75626d187e3ca08f8774fc",
+    "modifiedAt": "2026-08-26T04:02:21Z",
+    "counts": {
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "checks": {
+    "archiveBeforeDelete": true,
+    "transactionalArchive": true,
+    "hotAndArchiveRead": true,
+    "schemaAndPlayVersion": true,
+    "perspectiveAuthorizationRetained": true,
+    "currentLifecycleTestExecuted": true
+  },
+  "integrationTests": 1,
+  "status": "passed"
+}

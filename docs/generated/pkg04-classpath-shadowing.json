@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "launchers": [
+    "tools/start-cdxzmj-local.sh",
+    "tools/start-hall-local.sh",
+    "tools/start-njpdk-local.sh"
+  ],
+  "legacyReferences": [
+
+  ],
+  "checks": {
+    "classpathParity": true,
+    "classloadingAuthority": true,
+    "noLauncherLegacyLib": true,
+    "sharedRuntimeFunction": true
+  },
+  "passed": true
+}

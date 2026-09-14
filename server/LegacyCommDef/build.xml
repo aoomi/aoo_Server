@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="game" default="move">
+    <target name="clean" description="清理所有">
+        <delete dir="${ant.refid:base.dir}/build"></delete>
+        <echo level="info">构建开始------------------------------------------</echo>
+    </target>
+
+    <target name="compile" depends="clean" description="编译">
+        <mkdir dir="${ant.refid:base.dir}/build"/>
+        <mkdir dir="${ant.refid:base.dir}/build/classes"/>
+        <javac includeantruntime="false" srcdir="${ant.refid:base.dir}/src"
+               destdir="${ant.refid:base.dir}/build/classes" source="1.8" target="1.8">
+            <classpath id="tcls">
+                <pathelement path="${ant.refid:gameb.dir}/gameServer.jar"/>
+            </classpath>
+            <compilerarg line="-encoding UTF-8 "/>
+        </javac>
+        <echo level="info">编译完毕</echo>
+    </target>
+
+    <target name="jar" depends="compile" description="打包类文件">
+        <jar jarfile="${ant.refid:jar.file}">
+            <fileset dir="${ant.refid:base.dir}/build/classes" includes="**/*.*"/>
+        </jar>
+        <delete dir="${ant.refid:base.dir}/build/classes"/>
+        <echo level="info">打包完毕</echo>
+    </target>
+
+    <target name="move" depends="jar" description="移动到主目录">
+        <copy todir="${ant.refid:gameb.dir}/games" file="${ant.refid:jar.file}"/>
+        <echo level="info">移动到主目录完毕------------------------------------------</echo>
+    </target>
+</project>

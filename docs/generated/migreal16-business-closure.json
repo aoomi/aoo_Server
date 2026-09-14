@@ -1,0 +1,53 @@
+{
+  "task": "MIGREAL16",
+  "status": "blocked-unused-production-tables",
+  "tableRuntimeUsage": {
+    "aoo_session": [
+
+    ],
+    "aoo_business_idempotency": [
+      "server/GameCommon/src/main/java/com/aoo/bcg/common/idempotency/JdbcIdempotencyStore.java"
+    ],
+    "aoo_ledger": [
+      "server/Billing/src/main/java/com/aoo/bcg/billing/JdbcLedgerRepository.java",
+      "server/Billing/src/main/java/com/aoo/bcg/billing/JdbcBillingService.java",
+      "server/Billing/src/main/java/com/aoo/bcg/billing/JdbcReconciliationService.java"
+    ],
+    "aoo_settlement": [
+      "server/GameCommon/src/main/java/com/aoo/bcg/common/settlement/JdbcSettlementRepository.java"
+    ],
+    "aoo_outbox": [
+      "server/AdminApi/src/main/java/com/aoo/bcg/admin/JdbcGameProfileRepository.java",
+      "server/GameCommon/src/main/java/com/aoo/bcg/common/event/JdbcOutboxRepository.java"
+    ],
+    "aoo_game_profile_version": [
+
+    ],
+    "aoo_appeal": [
+
+    ],
+    "aoo_admin_audit": [
+
+    ],
+    "aoo_data_lifecycle_policy": [
+
+    ]
+  },
+  "completedClosures": [
+    "aoo_business_idempotency",
+    "aoo_ledger",
+    "aoo_settlement",
+    "aoo_outbox"
+  ],
+  "unresolvedTables": [
+    "aoo_session",
+    "aoo_game_profile_version",
+    "aoo_appeal",
+    "aoo_admin_audit",
+    "aoo_data_lifecycle_policy"
+  ],
+  "unresolved": [
+    "login, appeal/admin and lifecycle tables are not all connected to production repositories",
+    "no automated login-hall-club-room-game-billing end-to-end test proves the complete business transaction"
+  ]
+}

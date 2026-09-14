@@ -1,0 +1,398 @@
+{
+  "schemaVersion": 1,
+  "domain": "Common",
+  "directCalls": {
+    "localStorage": [
+      {
+        "path": "assets/Common/Code/Runtime/bootstrap/BootstrapRuntime.ts",
+        "line": 17
+      },
+      {
+        "path": "assets/Common/Code/Runtime/bootstrap/BootstrapRuntime.ts",
+        "line": 23
+      },
+      {
+        "path": "assets/Common/Code/Runtime/bootstrap/BootstrapRuntime.ts",
+        "line": 37
+      },
+      {
+        "path": "assets/Common/Code/Runtime/config/RuntimeEndpoints.ts",
+        "line": 55
+      },
+      {
+        "path": "assets/Common/Code/Runtime/config/RuntimeEndpoints.ts",
+        "line": 70
+      },
+      {
+        "path": "assets/Common/Code/Runtime/config/RuntimeEndpoints.ts",
+        "line": 75
+      },
+      {
+        "path": "assets/Common/Code/Runtime/core/LegacyLocalDataStore.ts",
+        "line": 73
+      },
+      {
+        "path": "assets/Common/Code/Runtime/core/LegacyLocalDataStore.ts",
+        "line": 77
+      },
+      {
+        "path": "assets/Common/Code/Runtime/core/LegacyLocalDataStore.ts",
+        "line": 80
+      },
+      {
+        "path": "assets/Common/Code/Runtime/core/LegacyLocalDataStore.ts",
+        "line": 86
+      },
+      {
+        "path": "assets/Common/Code/Runtime/core/Storage.ts",
+        "line": 10
+      },
+      {
+        "path": "assets/Common/Code/Runtime/core/Storage.ts",
+        "line": 14
+      },
+      {
+        "path": "assets/Common/Code/Runtime/core/Storage.ts",
+        "line": 18
+      },
+      {
+        "path": "assets/Common/Code/Runtime/core/Storage.ts",
+        "line": 29
+      },
+      {
+        "path": "assets/Common/Code/Runtime/platform/LegacyChannelIdentityStore.ts",
+        "line": 30
+      },
+      {
+        "path": "assets/Common/Code/Runtime/platform/LegacyChannelIdentityStore.ts",
+        "line": 36
+      },
+      {
+        "path": "assets/Common/Code/Runtime/platform/LegacyChannelIdentityStore.ts",
+        "line": 40
+      },
+      {
+        "path": "assets/Common/Code/Runtime/platform/LegacyChannelIdentityStore.ts",
+        "line": 45
+      },
+      {
+        "path": "assets/Common/Code/Runtime/platform/LegacyChannelIdentityStore.ts",
+        "line": 48
+      },
+      {
+        "path": "assets/Common/Code/Runtime/platform/LegacyLocationService.ts",
+        "line": 64
+      },
+      {
+        "path": "assets/Common/Code/Runtime/platform/LegacyLocationService.ts",
+        "line": 75
+      },
+      {
+        "path": "assets/Common/Code/Runtime/platform/LegacyLocationService.ts",
+        "line": 85
+      },
+      {
+        "path": "assets/Common/Code/UI/Interaction.ts",
+        "line": 91
+      },
+      {
+        "path": "assets/Common/Code/UI/Interaction.ts",
+        "line": 94
+      },
+      {
+        "path": "assets/Common/Code/UI/Interaction.ts",
+        "line": 96
+      },
+      {
+        "path": "assets/Common/Code/UI/Interaction.ts",
+        "line": 101
+      }
+    ],
+    "bundle": [
+      {
+        "path": "assets/Common/Code/Runtime/CompatibilityApp/a3pk/A3pkSceneBootstrap.ts",
+        "line": 31
+      },
+      {
+        "path": "assets/Common/Code/Runtime/CompatibilityApp/afmj/AfmjPlayView.ts",
+        "line": 142
+      },
+      {
+        "path": "assets/Common/Code/Runtime/CompatibilityApp/afmj/AfmjPlayView.ts",
+        "line": 148
+      },
+      {
+        "path": "assets/Common/Code/Runtime/CompatibilityApp/afmj/AfmjSceneBootstrap.ts",
+        "line": 48
+      },
+      {
+        "path": "assets/Common/Code/Runtime/CompatibilityApp/afmj/AfmjTableController.ts",
+        "line": 195
+      },
+      {
+        "path": "assets/Common/Code/Runtime/CompatibilityApp/ahhbmj/AhhbmjPlayView.ts",
+        "line": 143
+      },
+      {
+        "path": "assets/Common/Code/Runtime/CompatibilityApp/ahhbmj/AhhbmjPlayView.ts",
+        "line": 149
+      },
+      {
+        "path": "assets/Common/Code/Runtime/CompatibilityApp/ahhbmj/AhhbmjSceneBootstrap.ts",
+        "line": 49
+      },
+      {
+        "path": "assets/Common/Code/Runtime/CompatibilityApp/ahhbmj/AhhbmjTableController.ts",
+        "line": 197
+      },
+      {
+        "path": "assets/Common/Code/Runtime/CompatibilityApp/ahhnmj/AhhnmjPlayView.ts",
+        "line": 142
+      },
+      {
+        "path": "assets/Common/Code/Runtime/CompatibilityApp/ahhnmj/AhhnmjPlayView.ts",
+        "line": 148
+      },
+      {
+        "path": "assets/Common/Code/Runtime/CompatibilityApp/ahhnmj/AhhnmjSceneBootstrap.ts",
+        "line": 48
+      },
+      {
+        "path": "assets/Common/Code/Runtime/CompatibilityApp/ahhnmj/AhhnmjTableController.ts",
+        "line": 199
+      },
+      {
+        "path": "assets/Common/Code/Runtime/CompatibilityApp/ahmj/AhmjPlayView.ts",
+        "line": 142
+      },
+      {
+        "path": "assets/Common/Code/Runtime/CompatibilityApp/ahmj/AhmjPlayView.ts",
+        "line": 148
+      },
+      {
+        "path": "assets/Common/Code/Runtime/CompatibilityApp/ahmj/AhmjSceneBootstrap.ts",
+        "line": 48
+      },
+      {
+        "path": "assets/Common/Code/Runtime/CompatibilityApp/ahmj/AhmjTableController.ts",
+        "line": 195
+      },
+      {
+        "path": "assets/Common/Code/Runtime/CompatibilityApp/ak159mj/Ak159mjPlayView.ts",
+        "line": 143
+      },
+      {
+        "path": "assets/Common/Code/Runtime/CompatibilityApp/ak159mj/Ak159mjPlayView.ts",
+        "line": 149
+      },
+      {
+        "path": "assets/Common/Code/Runtime/CompatibilityApp/ak159mj/Ak159mjSceneBootstrap.ts",
+        "line": 49
+      },
+      {
+        "path": "assets/Common/Code/Runtime/CompatibilityApp/ak159mj/Ak159mjTableController.ts",
+        "line": 197
+      },
+      {
+        "path": "assets/Common/Code/Runtime/CompatibilityApp/aqmj/AqmjPlayView.ts",
+        "line": 142
+      },
+      {
+        "path": "assets/Common/Code/Runtime/CompatibilityApp/aqmj/AqmjPlayView.ts",
+        "line": 148
+      },
+      {
+        "path": "assets/Common/Code/Runtime/CompatibilityApp/aqmj/AqmjSceneBootstrap.ts",
+        "line": 48
+      },
+      {
+        "path": "assets/Common/Code/Runtime/CompatibilityApp/aqmj/AqmjTableController.ts",
+        "line": 195
+      },
+      {
+        "path": "assets/Common/Code/Runtime/CompatibilityApp/asmj/AsmjPlayView.ts",
+        "line": 141
+      },
+      {
+        "path": "assets/Common/Code/Runtime/CompatibilityApp/asmj/AsmjPlayView.ts",
+        "line": 147
+      },
+      {
+        "path": "assets/Common/Code/Runtime/CompatibilityApp/asmj/AsmjSceneBootstrap.ts",
+        "line": 48
+      },
+      {
+        "path": "assets/Common/Code/Runtime/CompatibilityApp/asmj/AsmjTableController.ts",
+        "line": 195
+      },
+      {
+        "path": "assets/Common/Code/Runtime/CompatibilityApp/aycp/AycpSceneBootstrap.ts",
+        "line": 23
+      },
+      {
+        "path": "assets/Common/Code/Runtime/CompatibilityApp/aydss/AydssSceneBootstrap.ts",
+        "line": 23
+      },
+      {
+        "path": "assets/Common/Code/Runtime/CompatibilityApp/aymj/AymjPlayView.ts",
+        "line": 142
+      },
+      {
+        "path": "assets/Common/Code/Runtime/CompatibilityApp/aymj/AymjPlayView.ts",
+        "line": 148
+      },
+      {
+        "path": "assets/Common/Code/Runtime/CompatibilityApp/aymj/AymjSceneBootstrap.ts",
+        "line": 48
+      },
+      {
+        "path": "assets/Common/Code/Runtime/CompatibilityApp/aymj/AymjTableController.ts",
+        "line": 195
+      },
+      {
+        "path": "assets/Common/Code/Runtime/CompatibilityApp/aypdk/AypdkCardRenderer.ts",
+        "line": 52
+      },
+      {
+        "path": "assets/Common/Code/Runtime/CompatibilityApp/bamj/BamjPlayView.ts",
+        "line": 142
+      },
+      {
+        "path": "assets/Common/Code/Runtime/CompatibilityApp/bamj/BamjPlayView.ts",
+        "line": 148
+      },
+      {
+        "path": "assets/Common/Code/Runtime/CompatibilityApp/bamj/BamjSceneBootstrap.ts",
+        "line": 48
+      },
+      {
+        "path": "assets/Common/Code/Runtime/CompatibilityApp/bamj/BamjTableController.ts",
+        "line": 195
+      },
+      {
+        "path": "assets/Common/Code/Runtime/CompatibilityApp/bdjhmj/BdjhmjPlayView.ts",
+        "line": 142
+      },
+      {
+        "path": "assets/Common/Code/Runtime/CompatibilityApp/bdjhmj/BdjhmjPlayView.ts",
+        "line": 148
+      },
+      {
+        "path": "assets/Common/Code/Runtime/CompatibilityApp/bdjhmj/BdjhmjSceneBootstrap.ts",
+        "line": 48
+      },
+      {
+        "path": "assets/Common/Code/Runtime/CompatibilityApp/bdjhmj/BdjhmjTableController.ts",
+        "line": 195
+      },
+      {
+        "path": "assets/Common/Code/Runtime/CompatibilityApp/platform/LegacySubgameBundleService.ts",
+        "line": 25
+      },
+      {
+        "path": "assets/Common/Code/Runtime/CompatibilityApp/scjymj/ScjymjPlayView.ts",
+        "line": 132
+      },
+      {
+        "path": "assets/Common/Code/Runtime/CompatibilityApp/scjymj/ScjymjSceneBootstrap.ts",
+        "line": 84
+      },
+      {
+        "path": "assets/Common/Code/Runtime/core/LegacyAudioService.ts",
+        "line": 83
+      },
+      {
+        "path": "assets/Common/Code/Runtime/ui/LegacyFormManager.ts",
+        "line": 865
+      },
+      {
+        "path": "assets/Common/Code/Runtime/ui/LegacyPrefabRenderer.ts",
+        "line": 586
+      },
+      {
+        "path": "assets/Common/Code/UI/CommonHeadController.ts",
+        "line": 151
+      },
+      {
+        "path": "assets/Common/Code/UI/Infrastructure.ts",
+        "line": 35
+      },
+      {
+        "path": "assets/Common/Code/UI/Infrastructure.ts",
+        "line": 49
+      }
+    ],
+    "fetch": [
+      {
+        "path": "assets/Common/Code/Runtime/Activity/ProductionApiClient.ts",
+        "line": 101
+      },
+      {
+        "path": "assets/Common/Code/Runtime/Billing/PaymentGateway.ts",
+        "line": 8
+      },
+      {
+        "path": "assets/Common/Code/Runtime/DeepLink/InviteDeepLinkRuntime.ts",
+        "line": 3
+      },
+      {
+        "path": "assets/Common/Code/Runtime/Gifting/GiftingClient.ts",
+        "line": 19
+      },
+      {
+        "path": "assets/Common/Code/Runtime/Profile/ProfileMediaGateway.ts",
+        "line": 10
+      },
+      {
+        "path": "assets/Common/Code/Runtime/Spectator/SpectatorGateway.ts",
+        "line": 23
+      },
+      {
+        "path": "assets/Common/Code/Runtime/Voice/VoiceMediaClient.ts",
+        "line": 27
+      },
+      {
+        "path": "assets/Common/Code/Runtime/bootstrap/BootstrapGateway.ts",
+        "line": 15
+      },
+      {
+        "path": "assets/Common/Code/Runtime/network/ProtocolHttpClient.ts",
+        "line": 23
+      },
+      {
+        "path": "assets/Common/Code/Runtime/network/ProtocolHttpClient.ts",
+        "line": 37
+      },
+      {
+        "path": "assets/Common/Code/Runtime/network/ProtocolHttpClient.ts",
+        "line": 74
+      },
+      {
+        "path": "assets/Common/Code/Runtime/network/ProtocolHttpClient.ts",
+        "line": 102
+      }
+    ],
+    "websocket": [
+      {
+        "path": "assets/Common/Code/Runtime/network/LegacyWebSocketClient.ts",
+        "line": 102
+      }
+    ],
+    "native": [
+      {
+        "path": "assets/Common/Code/Runtime/platform/LegacyHotUpdateService.ts",
+        "line": 27
+      },
+      {
+        "path": "assets/Common/Code/Runtime/platform/LegacyHotUpdateService.ts",
+        "line": 28
+      },
+      {
+        "path": "assets/Common/Code/Runtime/platform/LegacyHotUpdateService.ts",
+        "line": 29
+      }
+    ]
+  },
+  "centralized": false,
+  "passed": false
+}

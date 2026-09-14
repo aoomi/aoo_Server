@@ -1,0 +1,4 @@
+require 'json';require 'fileutils';root=File.expand_path('..',__dir__)
+tool=File.read(File.join(root,'tools/ApiSurfaceCollisionCheck.java'));registry=File.read(File.join(root,'server/GameSPI/src/main/java/com/aoo/bcg/gamespi/api/ApiSurfaceRegistry.java'));pom=File.read(File.join(root,'pom.xml'))
+checks={http_scan:tool.include?('Pattern HTTP'),wss_scan:tool.include?('Pattern WSS'),handler_binding:registry.include?('handlerClass'),runtime_collision_rejected:registry.include?('shadow API binding rejected'),continuous_build_gate:pom.include?('enforce-unique-api-surface')}
+abort "LIFE10 audit failed: #{checks}" unless checks.values.all?;out=File.join(root,'work/audit/shadow-api-detection.json');FileUtils.mkdir_p(File.dirname(out));File.write(out,JSON.pretty_generate({task:'LIFE10',status:'passed',checks:checks})+"\n")

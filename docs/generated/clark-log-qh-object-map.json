@@ -1,0 +1,3414 @@
+{
+  "schemaVersion": 1,
+  "task": "DBREAL04",
+  "source": "database/original/clark_log_qh.sql",
+  "sourceReadOnly": true,
+  "sourceDatabaseBrand": "clark_log_qh (legacy immutable reference only)",
+  "canonicalBrandRule": "runtime database objects use aoo_* or explicitly approved canonical names",
+  "legacyTableCount": 225,
+  "mappedTableCount": 219,
+  "reviewedArchiveOnlyCount": 6,
+  "canonicalTargets": [
+    "aoo_admin_audit",
+    "aoo_ledger",
+    "aoo_room_event",
+    "aoo_settlement",
+    "perspective_replay_event",
+    "aoo_data_lifecycle_policy"
+  ],
+  "canonicalTargetCounts": {
+    "aoo_admin_audit": 7,
+    "aoo_ledger": 70,
+    "aoo_room_event": 141,
+    "aoo_settlement": 1,
+    "archive-only": 6
+  },
+  "retention": {
+    "runtimePolicyTable": "aoo_data_lifecycle_policy",
+    "replayMigration": "V20260822_09__replay_retention.sql",
+    "legacyDumpRuntimeReachable": false,
+    "rule": "runtime rows follow policy-table retention; original dump remains read-only and release-excluded"
+  },
+  "tables": [
+    {
+      "legacyTable": "CasePointChargeLog",
+      "category": "ASSET_AND_LEDGER",
+      "canonicalTarget": "aoo_ledger",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 2,
+      "legacyIndexes": [
+        "PRIMARY",
+        "unionId_dateTime_pid"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "immutable asset movement ledger"
+    },
+    {
+      "legacyTable": "ClubAwardDetailZhongZhi",
+      "category": "ASSET_AND_LEDGER",
+      "canonicalTarget": "aoo_ledger",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 3,
+      "legacyIndexes": [
+        "PRIMARY",
+        "clubId_awardNum",
+        "date_time"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "immutable asset movement ledger"
+    },
+    {
+      "legacyTable": "ClubCardWinnerRebateLog",
+      "category": "ASSET_AND_LEDGER",
+      "canonicalTarget": "aoo_ledger",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 3,
+      "legacyIndexes": [
+        "A",
+        "D",
+        "PRIMARY"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "immutable asset movement ledger"
+    },
+    {
+      "legacyTable": "ClubChangeCreateLog",
+      "category": "REVIEWED_ARCHIVE_ONLY",
+      "canonicalTarget": null,
+      "disposition": "REVIEWED_ARCHIVE_ONLY",
+      "legacyIndexCount": 1,
+      "legacyIndexes": [
+        "PRIMARY"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "database/original immutable reference policy",
+      "rationale": "legacy report or aggregate; immutable reference only"
+    },
+    {
+      "legacyTable": "ClubLevelRoomAwardCountLogZhongZhi",
+      "category": "ASSET_AND_LEDGER",
+      "canonicalTarget": "aoo_ledger",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 3,
+      "legacyIndexes": [
+        "PRIMARY",
+        "date_time, memberId",
+        "unionId_awardNum"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "immutable asset movement ledger"
+    },
+    {
+      "legacyTable": "ClubLevelRoomAwardLogZhongZhi",
+      "category": "ASSET_AND_LEDGER",
+      "canonicalTarget": "aoo_ledger",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 5,
+      "legacyIndexes": [
+        "PRIMARY",
+        "clubId_memberId",
+        "memberId_timestamp",
+        "timestamp_pid",
+        "unionId"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "immutable asset movement ledger"
+    },
+    {
+      "legacyTable": "ClubLevelRoomCountLog",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 2,
+      "legacyIndexes": [
+        "PRIMARY",
+        "date_time, memberId"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "ClubLevelRoomCountLogZhongZhi",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 2,
+      "legacyIndexes": [
+        "PRIMARY",
+        "date_time, memberId"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "ClubLevelRoomLog",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 3,
+      "legacyIndexes": [
+        "PRIMARY",
+        "date_time_clubId",
+        "date_time_memberId"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "ClubLevelRoomLog20221121",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 4,
+      "legacyIndexes": [
+        "PRIMARY",
+        "clubId_memberId",
+        "memberId",
+        "unionId"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "ClubLevelRoomLog20221122",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 4,
+      "legacyIndexes": [
+        "PRIMARY",
+        "clubId_memberId",
+        "memberId",
+        "unionId"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "ClubLevelRoomLog20221123",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 4,
+      "legacyIndexes": [
+        "PRIMARY",
+        "clubId_memberId",
+        "memberId",
+        "unionId"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "ClubLevelRoomLog20221124",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 4,
+      "legacyIndexes": [
+        "PRIMARY",
+        "clubId_memberId",
+        "memberId",
+        "unionId"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "ClubLevelRoomLog20221125",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 4,
+      "legacyIndexes": [
+        "PRIMARY",
+        "clubId_memberId",
+        "memberId",
+        "unionId"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "ClubLevelRoomLog20221126",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 4,
+      "legacyIndexes": [
+        "PRIMARY",
+        "clubId_memberId",
+        "memberId",
+        "unionId"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "ClubLevelRoomLog20221127",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 4,
+      "legacyIndexes": [
+        "PRIMARY",
+        "clubId_memberId",
+        "memberId",
+        "unionId"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "ClubLevelRoomLog20221128",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 4,
+      "legacyIndexes": [
+        "PRIMARY",
+        "clubId_memberId",
+        "memberId",
+        "unionId"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "ClubLevelRoomLog20221129",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 4,
+      "legacyIndexes": [
+        "PRIMARY",
+        "clubId_memberId",
+        "memberId",
+        "unionId"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "ClubLevelRoomLog20221130",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 4,
+      "legacyIndexes": [
+        "PRIMARY",
+        "clubId_memberId",
+        "memberId",
+        "unionId"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "ClubLevelRoomLog20221201",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 4,
+      "legacyIndexes": [
+        "PRIMARY",
+        "clubId_memberId",
+        "memberId",
+        "unionId"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "ClubLevelRoomLog20221202",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 4,
+      "legacyIndexes": [
+        "PRIMARY",
+        "clubId_memberId",
+        "memberId",
+        "unionId"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "ClubLevelRoomLog20221203",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 4,
+      "legacyIndexes": [
+        "PRIMARY",
+        "clubId_memberId",
+        "memberId",
+        "unionId"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "ClubLevelRoomLog20221204",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 4,
+      "legacyIndexes": [
+        "PRIMARY",
+        "clubId_memberId",
+        "memberId",
+        "unionId"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "ClubLevelRoomLog20221205",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 4,
+      "legacyIndexes": [
+        "PRIMARY",
+        "clubId_memberId",
+        "memberId",
+        "unionId"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "ClubLevelRoomLog20230110",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 4,
+      "legacyIndexes": [
+        "PRIMARY",
+        "clubId_memberId",
+        "memberId",
+        "unionId"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "ClubLevelRoomLog20230111",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 4,
+      "legacyIndexes": [
+        "PRIMARY",
+        "clubId_memberId",
+        "memberId",
+        "unionId"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "ClubLevelRoomLog20230112",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 4,
+      "legacyIndexes": [
+        "PRIMARY",
+        "clubId_memberId",
+        "memberId",
+        "unionId"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "ClubLevelRoomLog20230113",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 4,
+      "legacyIndexes": [
+        "PRIMARY",
+        "clubId_memberId",
+        "memberId",
+        "unionId"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "ClubLevelRoomLog20230114",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 4,
+      "legacyIndexes": [
+        "PRIMARY",
+        "clubId_memberId",
+        "memberId",
+        "unionId"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "ClubLevelRoomLog20230115",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 4,
+      "legacyIndexes": [
+        "PRIMARY",
+        "clubId_memberId",
+        "memberId",
+        "unionId"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "ClubLevelRoomLog20230116",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 4,
+      "legacyIndexes": [
+        "PRIMARY",
+        "clubId_memberId",
+        "memberId",
+        "unionId"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "ClubLevelRoomLog20230117",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 4,
+      "legacyIndexes": [
+        "PRIMARY",
+        "clubId_memberId",
+        "memberId",
+        "unionId"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "ClubLevelRoomLog20230118",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 4,
+      "legacyIndexes": [
+        "PRIMARY",
+        "clubId_memberId",
+        "memberId",
+        "unionId"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "ClubLevelRoomLog20230119",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 4,
+      "legacyIndexes": [
+        "PRIMARY",
+        "clubId_memberId",
+        "memberId",
+        "unionId"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "ClubLevelRoomLog20230120",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 4,
+      "legacyIndexes": [
+        "PRIMARY",
+        "clubId_memberId",
+        "memberId",
+        "unionId"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "ClubLevelRoomLog20230121",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 4,
+      "legacyIndexes": [
+        "PRIMARY",
+        "clubId_memberId",
+        "memberId",
+        "unionId"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "ClubLevelRoomLog20230122",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 4,
+      "legacyIndexes": [
+        "PRIMARY",
+        "clubId_memberId",
+        "memberId",
+        "unionId"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "ClubLevelRoomLog20230123",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 4,
+      "legacyIndexes": [
+        "PRIMARY",
+        "clubId_memberId",
+        "memberId",
+        "unionId"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "ClubLevelRoomLog20230124",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 4,
+      "legacyIndexes": [
+        "PRIMARY",
+        "clubId_memberId",
+        "memberId",
+        "unionId"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "ClubLevelRoomLog20230125",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 4,
+      "legacyIndexes": [
+        "PRIMARY",
+        "clubId_memberId",
+        "memberId",
+        "unionId"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "ClubLevelRoomLog20230126",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 4,
+      "legacyIndexes": [
+        "PRIMARY",
+        "clubId_memberId",
+        "memberId",
+        "unionId"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "ClubLevelRoomLog20230127",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 4,
+      "legacyIndexes": [
+        "PRIMARY",
+        "clubId_memberId",
+        "memberId",
+        "unionId"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "ClubLevelRoomLog20230128",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 4,
+      "legacyIndexes": [
+        "PRIMARY",
+        "clubId_memberId",
+        "memberId",
+        "unionId"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "ClubLevelRoomLog20230129",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 4,
+      "legacyIndexes": [
+        "PRIMARY",
+        "clubId_memberId",
+        "memberId",
+        "unionId"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "ClubLevelRoomLog20230130",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 4,
+      "legacyIndexes": [
+        "PRIMARY",
+        "clubId_memberId",
+        "memberId",
+        "unionId"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "ClubLevelRoomLog20230207",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 4,
+      "legacyIndexes": [
+        "PRIMARY",
+        "clubId_memberId",
+        "memberId",
+        "unionId"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "ClubLevelRoomLog20230208",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 4,
+      "legacyIndexes": [
+        "PRIMARY",
+        "clubId_memberId",
+        "memberId",
+        "unionId"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "ClubLevelRoomLog20230209",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 4,
+      "legacyIndexes": [
+        "PRIMARY",
+        "clubId_memberId",
+        "memberId",
+        "unionId"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "ClubLevelRoomLog20230210",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 4,
+      "legacyIndexes": [
+        "PRIMARY",
+        "clubId_memberId",
+        "memberId",
+        "unionId"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "ClubLevelRoomLog20230211",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 4,
+      "legacyIndexes": [
+        "PRIMARY",
+        "clubId_memberId",
+        "memberId",
+        "unionId"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "ClubLevelRoomLog20230212",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 4,
+      "legacyIndexes": [
+        "PRIMARY",
+        "clubId_memberId",
+        "memberId",
+        "unionId"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "ClubLevelRoomLog20231030",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 4,
+      "legacyIndexes": [
+        "PRIMARY",
+        "clubId_memberId",
+        "memberId",
+        "unionId"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "ClubLevelRoomLog20231031",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 4,
+      "legacyIndexes": [
+        "PRIMARY",
+        "clubId_memberId",
+        "memberId",
+        "unionId"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "ClubLevelRoomLog20231101",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 4,
+      "legacyIndexes": [
+        "PRIMARY",
+        "clubId_memberId",
+        "memberId",
+        "unionId"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "ClubLevelRoomLogZhongZhi1668981600",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 4,
+      "legacyIndexes": [
+        "PRIMARY",
+        "clubId_memberId",
+        "memberId",
+        "unionId"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "ClubLevelRoomLogZhongZhi1669068000",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 4,
+      "legacyIndexes": [
+        "PRIMARY",
+        "clubId_memberId",
+        "memberId",
+        "unionId"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "ClubLevelRoomLogZhongZhi1669154400",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 4,
+      "legacyIndexes": [
+        "PRIMARY",
+        "clubId_memberId",
+        "memberId",
+        "unionId"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "ClubLevelRoomLogZhongZhi1669240800",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 4,
+      "legacyIndexes": [
+        "PRIMARY",
+        "clubId_memberId",
+        "memberId",
+        "unionId"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "ClubLevelRoomLogZhongZhi1669327200",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 4,
+      "legacyIndexes": [
+        "PRIMARY",
+        "clubId_memberId",
+        "memberId",
+        "unionId"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "ClubLevelRoomLogZhongZhi1669413600",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 4,
+      "legacyIndexes": [
+        "PRIMARY",
+        "clubId_memberId",
+        "memberId",
+        "unionId"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "ClubLevelRoomLogZhongZhi1669500000",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 4,
+      "legacyIndexes": [
+        "PRIMARY",
+        "clubId_memberId",
+        "memberId",
+        "unionId"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "ClubLevelRoomLogZhongZhi1669586400",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 4,
+      "legacyIndexes": [
+        "PRIMARY",
+        "clubId_memberId",
+        "memberId",
+        "unionId"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "ClubLevelRoomLogZhongZhi1669672800",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 4,
+      "legacyIndexes": [
+        "PRIMARY",
+        "clubId_memberId",
+        "memberId",
+        "unionId"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "ClubLevelRoomLogZhongZhi1669759200",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 4,
+      "legacyIndexes": [
+        "PRIMARY",
+        "clubId_memberId",
+        "memberId",
+        "unionId"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "ClubLevelRoomLogZhongZhi1669845600",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 4,
+      "legacyIndexes": [
+        "PRIMARY",
+        "clubId_memberId",
+        "memberId",
+        "unionId"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "ClubLevelRoomLogZhongZhi1669932000",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 4,
+      "legacyIndexes": [
+        "PRIMARY",
+        "clubId_memberId",
+        "memberId",
+        "unionId"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "ClubLevelRoomLogZhongZhi1670018400",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 4,
+      "legacyIndexes": [
+        "PRIMARY",
+        "clubId_memberId",
+        "memberId",
+        "unionId"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "ClubLevelRoomLogZhongZhi1670104800",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 4,
+      "legacyIndexes": [
+        "PRIMARY",
+        "clubId_memberId",
+        "memberId",
+        "unionId"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "ClubLevelRoomLogZhongZhi1670191200",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 4,
+      "legacyIndexes": [
+        "PRIMARY",
+        "clubId_memberId",
+        "memberId",
+        "unionId"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "ClubLevelRoomLogZhongZhi1673301600",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 4,
+      "legacyIndexes": [
+        "PRIMARY",
+        "clubId_memberId",
+        "memberId",
+        "unionId"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "ClubLevelRoomLogZhongZhi1673388000",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 4,
+      "legacyIndexes": [
+        "PRIMARY",
+        "clubId_memberId",
+        "memberId",
+        "unionId"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "ClubLevelRoomLogZhongZhi1673474400",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 4,
+      "legacyIndexes": [
+        "PRIMARY",
+        "clubId_memberId",
+        "memberId",
+        "unionId"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "ClubLevelRoomLogZhongZhi1673560800",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 4,
+      "legacyIndexes": [
+        "PRIMARY",
+        "clubId_memberId",
+        "memberId",
+        "unionId"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "ClubLevelRoomLogZhongZhi1673647200",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 4,
+      "legacyIndexes": [
+        "PRIMARY",
+        "clubId_memberId",
+        "memberId",
+        "unionId"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "ClubLevelRoomLogZhongZhi1673733600",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 4,
+      "legacyIndexes": [
+        "PRIMARY",
+        "clubId_memberId",
+        "memberId",
+        "unionId"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "ClubLevelRoomLogZhongZhi1673820000",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 4,
+      "legacyIndexes": [
+        "PRIMARY",
+        "clubId_memberId",
+        "memberId",
+        "unionId"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "ClubLevelRoomLogZhongZhi1673906400",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 4,
+      "legacyIndexes": [
+        "PRIMARY",
+        "clubId_memberId",
+        "memberId",
+        "unionId"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "ClubLevelRoomLogZhongZhi1673992800",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 4,
+      "legacyIndexes": [
+        "PRIMARY",
+        "clubId_memberId",
+        "memberId",
+        "unionId"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "ClubLevelRoomLogZhongZhi1674079200",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 4,
+      "legacyIndexes": [
+        "PRIMARY",
+        "clubId_memberId",
+        "memberId",
+        "unionId"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "ClubLevelRoomLogZhongZhi1674165600",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 4,
+      "legacyIndexes": [
+        "PRIMARY",
+        "clubId_memberId",
+        "memberId",
+        "unionId"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "ClubLevelRoomLogZhongZhi1674252000",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 4,
+      "legacyIndexes": [
+        "PRIMARY",
+        "clubId_memberId",
+        "memberId",
+        "unionId"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "ClubLevelRoomLogZhongZhi1674338400",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 4,
+      "legacyIndexes": [
+        "PRIMARY",
+        "clubId_memberId",
+        "memberId",
+        "unionId"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "ClubLevelRoomLogZhongZhi1674424800",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 4,
+      "legacyIndexes": [
+        "PRIMARY",
+        "clubId_memberId",
+        "memberId",
+        "unionId"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "ClubLevelRoomLogZhongZhi1674511200",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 4,
+      "legacyIndexes": [
+        "PRIMARY",
+        "clubId_memberId",
+        "memberId",
+        "unionId"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "ClubLevelRoomLogZhongZhi1674597600",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 4,
+      "legacyIndexes": [
+        "PRIMARY",
+        "clubId_memberId",
+        "memberId",
+        "unionId"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "ClubLevelRoomLogZhongZhi1674684000",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 4,
+      "legacyIndexes": [
+        "PRIMARY",
+        "clubId_memberId",
+        "memberId",
+        "unionId"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "ClubLevelRoomLogZhongZhi1674770400",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 4,
+      "legacyIndexes": [
+        "PRIMARY",
+        "clubId_memberId",
+        "memberId",
+        "unionId"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "ClubLevelRoomLogZhongZhi1674856800",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 4,
+      "legacyIndexes": [
+        "PRIMARY",
+        "clubId_memberId",
+        "memberId",
+        "unionId"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "ClubLevelRoomLogZhongZhi1674943200",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 4,
+      "legacyIndexes": [
+        "PRIMARY",
+        "clubId_memberId",
+        "memberId",
+        "unionId"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "ClubLevelRoomLogZhongZhi1675029600",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 4,
+      "legacyIndexes": [
+        "PRIMARY",
+        "clubId_memberId",
+        "memberId",
+        "unionId"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "ClubLevelRoomLogZhongZhi1675720800",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 4,
+      "legacyIndexes": [
+        "PRIMARY",
+        "clubId_memberId",
+        "memberId",
+        "unionId"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "ClubLevelRoomLogZhongZhi1675807200",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 4,
+      "legacyIndexes": [
+        "PRIMARY",
+        "clubId_memberId",
+        "memberId",
+        "unionId"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "ClubLevelRoomLogZhongZhi1675893600",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 4,
+      "legacyIndexes": [
+        "PRIMARY",
+        "clubId_memberId",
+        "memberId",
+        "unionId"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "ClubLevelRoomLogZhongZhi1675980000",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 4,
+      "legacyIndexes": [
+        "PRIMARY",
+        "clubId_memberId",
+        "memberId",
+        "unionId"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "ClubLevelRoomLogZhongZhi1676066400",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 4,
+      "legacyIndexes": [
+        "PRIMARY",
+        "clubId_memberId",
+        "memberId",
+        "unionId"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "ClubLevelRoomLogZhongZhi1676152800",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 4,
+      "legacyIndexes": [
+        "PRIMARY",
+        "clubId_memberId",
+        "memberId",
+        "unionId"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "ClubLevelRoomLogZhongZhi1698616800",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 4,
+      "legacyIndexes": [
+        "PRIMARY",
+        "clubId_memberId",
+        "memberId",
+        "unionId"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "ClubLevelRoomLogZhongZhi1698703200",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 4,
+      "legacyIndexes": [
+        "PRIMARY",
+        "clubId_memberId",
+        "memberId",
+        "unionId"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "ClubLevelRoomLogZhongZhi1698789600",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 4,
+      "legacyIndexes": [
+        "PRIMARY",
+        "clubId_memberId",
+        "memberId",
+        "unionId"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "ClubMemberRemoveLog",
+      "category": "REVIEWED_ARCHIVE_ONLY",
+      "canonicalTarget": null,
+      "disposition": "REVIEWED_ARCHIVE_ONLY",
+      "legacyIndexCount": 1,
+      "legacyIndexes": [
+        "PRIMARY"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "database/original immutable reference policy",
+      "rationale": "legacy report or aggregate; immutable reference only"
+    },
+    {
+      "legacyTable": "ClubmemberStatusLog",
+      "category": "REVIEWED_ARCHIVE_ONLY",
+      "canonicalTarget": null,
+      "disposition": "REVIEWED_ARCHIVE_ONLY",
+      "legacyIndexCount": 3,
+      "legacyIndexes": [
+        "ExecClubID_pid",
+        "PRIMARY",
+        "clubID_pid"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "database/original immutable reference policy",
+      "rationale": "legacy report or aggregate; immutable reference only"
+    },
+    {
+      "legacyTable": "ClubPromotionActiveChargeLog",
+      "category": "ASSET_AND_LEDGER",
+      "canonicalTarget": "aoo_ledger",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 1,
+      "legacyIndexes": [
+        "PRIMARY"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "immutable asset movement ledger"
+    },
+    {
+      "legacyTable": "ClubPromotionActiveReportFormLog",
+      "category": "REVIEWED_ARCHIVE_ONLY",
+      "canonicalTarget": null,
+      "disposition": "REVIEWED_ARCHIVE_ONLY",
+      "legacyIndexCount": 2,
+      "legacyIndexes": [
+        "PRIMARY",
+        "clubId_partnerPid_date_time"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "database/original immutable reference policy",
+      "rationale": "legacy report or aggregate; immutable reference only"
+    },
+    {
+      "legacyTable": "ClubPromotionDayActiveChargeLog",
+      "category": "ASSET_AND_LEDGER",
+      "canonicalTarget": "aoo_ledger",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 1,
+      "legacyIndexes": [
+        "PRIMARY"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "immutable asset movement ledger"
+    },
+    {
+      "legacyTable": "ClubPromotionSumActiveChargeLog",
+      "category": "ASSET_AND_LEDGER",
+      "canonicalTarget": "aoo_ledger",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 1,
+      "legacyIndexes": [
+        "PRIMARY"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "immutable asset movement ledger"
+    },
+    {
+      "legacyTable": "ClubRoomCardChargeLog",
+      "category": "ASSET_AND_LEDGER",
+      "canonicalTarget": "aoo_ledger",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 3,
+      "legacyIndexes": [
+        "DTR",
+        "PRD",
+        "PRIMARY"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "immutable asset movement ledger"
+    },
+    {
+      "legacyTable": "ExamineLog",
+      "category": "SECURITY_AND_OPERATOR_AUDIT",
+      "canonicalTarget": "aoo_admin_audit",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 2,
+      "legacyIndexes": [
+        "PRIMARY",
+        "dateTime_toClubMemberId"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "security and operator evidence"
+    },
+    {
+      "legacyTable": "FamilyCardChargeLog",
+      "category": "ASSET_AND_LEDGER",
+      "canonicalTarget": "aoo_ledger",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 4,
+      "legacyIndexes": [
+        "PRIMARY",
+        "S",
+        "T",
+        "Ts"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "immutable asset movement ledger"
+    },
+    {
+      "legacyTable": "GameServerMaintainLog",
+      "category": "SECURITY_AND_OPERATOR_AUDIT",
+      "canonicalTarget": "aoo_admin_audit",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 1,
+      "legacyIndexes": [
+        "PRIMARY"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "security and operator evidence"
+    },
+    {
+      "legacyTable": "GoldChargeLog",
+      "category": "ASSET_AND_LEDGER",
+      "canonicalTarget": "aoo_ledger",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 1,
+      "legacyIndexes": [
+        "PRIMARY"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "immutable asset movement ledger"
+    },
+    {
+      "legacyTable": "LuckDrawRecordLog",
+      "category": "SETTLEMENT_AND_REPLAY",
+      "canonicalTarget": "aoo_settlement",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 2,
+      "legacyIndexes": [
+        "PRIMARY",
+        "pid"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "settlement plus perspective replay"
+    },
+    {
+      "legacyTable": "PlayerChangeCityLog",
+      "category": "SECURITY_AND_OPERATOR_AUDIT",
+      "canonicalTarget": "aoo_admin_audit",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 3,
+      "legacyIndexes": [
+        "PRIMARY",
+        "date_time_pid_cur_city",
+        "pid"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "security and operator evidence"
+    },
+    {
+      "legacyTable": "PlayerClubCardLog",
+      "category": "ASSET_AND_LEDGER",
+      "canonicalTarget": "aoo_ledger",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 1,
+      "legacyIndexes": [
+        "PRIMARY"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "immutable asset movement ledger"
+    },
+    {
+      "legacyTable": "PlayerDataLog",
+      "category": "SECURITY_AND_OPERATOR_AUDIT",
+      "canonicalTarget": "aoo_admin_audit",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 3,
+      "legacyIndexes": [
+        "DT_TM",
+        "PRIMARY",
+        "RT"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "security and operator evidence"
+    },
+    {
+      "legacyTable": "PlayerExceptionLog",
+      "category": "SECURITY_AND_OPERATOR_AUDIT",
+      "canonicalTarget": "aoo_admin_audit",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 2,
+      "legacyIndexes": [
+        "PRIMARY",
+        "pid"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "security and operator evidence"
+    },
+    {
+      "legacyTable": "PlayerLoginLog",
+      "category": "SECURITY_AND_OPERATOR_AUDIT",
+      "canonicalTarget": "aoo_admin_audit",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 2,
+      "legacyIndexes": [
+        "PRIMARY",
+        "pid"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "security and operator evidence"
+    },
+    {
+      "legacyTable": "PlayerOnLineChargeLog",
+      "category": "SECURITY_AND_OPERATOR_AUDIT",
+      "canonicalTarget": "aoo_admin_audit",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 1,
+      "legacyIndexes": [
+        "PRIMARY"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "security and operator evidence"
+    },
+    {
+      "legacyTable": "PlayerRoomLog",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 4,
+      "legacyIndexes": [
+        "DT",
+        "PRIMARY",
+        "club_id",
+        "room_key"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "PromotionMultiChangLog",
+      "category": "REVIEWED_ARCHIVE_ONLY",
+      "canonicalTarget": null,
+      "disposition": "REVIEWED_ARCHIVE_ONLY",
+      "legacyIndexCount": 1,
+      "legacyIndexes": [
+        "PRIMARY"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "database/original immutable reference policy",
+      "rationale": "legacy report or aggregate; immutable reference only"
+    },
+    {
+      "legacyTable": "RoomCardChargeLog",
+      "category": "ASSET_AND_LEDGER",
+      "canonicalTarget": "aoo_ledger",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 3,
+      "legacyIndexes": [
+        "DTR",
+        "PRD",
+        "PRIMARY"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "immutable asset movement ledger"
+    },
+    {
+      "legacyTable": "roomConfigPrizePoolClubLog",
+      "category": "ASSET_AND_LEDGER",
+      "canonicalTarget": "aoo_ledger",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 3,
+      "legacyIndexes": [
+        "PRIMARY",
+        "clubId_date_time_roomName",
+        "configId_roomId"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "immutable asset movement ledger"
+    },
+    {
+      "legacyTable": "roomConfigPrizePoolLog",
+      "category": "ASSET_AND_LEDGER",
+      "canonicalTarget": "aoo_ledger",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 3,
+      "legacyIndexes": [
+        "PRIMARY",
+        "configId_roomId",
+        "unionId_date_time_roomName"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "immutable asset movement ledger"
+    },
+    {
+      "legacyTable": "roomConfigPrizePoolLogZhongZhi",
+      "category": "ASSET_AND_LEDGER",
+      "canonicalTarget": "aoo_ledger",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 4,
+      "legacyIndexes": [
+        "PRIMARY",
+        "configId_roomId",
+        "timestamp",
+        "unionId_date_time_roomName"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "immutable asset movement ledger"
+    },
+    {
+      "legacyTable": "RoomPromotionPointCountLog",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 3,
+      "legacyIndexes": [
+        "PRIMARY",
+        "dataTime_pid",
+        "pid_roomId_execPid"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "RoomPromotionPointLog20221121",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 3,
+      "legacyIndexes": [
+        "PRIMARY",
+        "dateTime_roomId",
+        "pid_roomId_execPid"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "RoomPromotionPointLog20221122",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 3,
+      "legacyIndexes": [
+        "PRIMARY",
+        "dateTime_roomId",
+        "pid_roomId_execPid"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "RoomPromotionPointLog20221123",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 3,
+      "legacyIndexes": [
+        "PRIMARY",
+        "dateTime_roomId",
+        "pid_roomId_execPid"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "RoomPromotionPointLog20221124",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 3,
+      "legacyIndexes": [
+        "PRIMARY",
+        "dateTime_roomId",
+        "pid_roomId_execPid"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "RoomPromotionPointLog20221125",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 3,
+      "legacyIndexes": [
+        "PRIMARY",
+        "dateTime_roomId",
+        "pid_roomId_execPid"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "RoomPromotionPointLog20221126",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 3,
+      "legacyIndexes": [
+        "PRIMARY",
+        "dateTime_roomId",
+        "pid_roomId_execPid"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "RoomPromotionPointLog20221127",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 3,
+      "legacyIndexes": [
+        "PRIMARY",
+        "dateTime_roomId",
+        "pid_roomId_execPid"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "RoomPromotionPointLog20221128",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 3,
+      "legacyIndexes": [
+        "PRIMARY",
+        "dateTime_roomId",
+        "pid_roomId_execPid"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "RoomPromotionPointLog20221129",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 3,
+      "legacyIndexes": [
+        "PRIMARY",
+        "dateTime_roomId",
+        "pid_roomId_execPid"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "RoomPromotionPointLog20221130",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 3,
+      "legacyIndexes": [
+        "PRIMARY",
+        "dateTime_roomId",
+        "pid_roomId_execPid"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "RoomPromotionPointLog20221201",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 3,
+      "legacyIndexes": [
+        "PRIMARY",
+        "dateTime_roomId",
+        "pid_roomId_execPid"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "RoomPromotionPointLog20221202",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 3,
+      "legacyIndexes": [
+        "PRIMARY",
+        "dateTime_roomId",
+        "pid_roomId_execPid"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "RoomPromotionPointLog20221203",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 3,
+      "legacyIndexes": [
+        "PRIMARY",
+        "dateTime_roomId",
+        "pid_roomId_execPid"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "RoomPromotionPointLog20221204",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 3,
+      "legacyIndexes": [
+        "PRIMARY",
+        "dateTime_roomId",
+        "pid_roomId_execPid"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "RoomPromotionPointLog20221205",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 3,
+      "legacyIndexes": [
+        "PRIMARY",
+        "dateTime_roomId",
+        "pid_roomId_execPid"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "RoomPromotionPointLog20230110",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 3,
+      "legacyIndexes": [
+        "PRIMARY",
+        "dateTime_roomId",
+        "pid_roomId_execPid"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "RoomPromotionPointLog20230111",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 3,
+      "legacyIndexes": [
+        "PRIMARY",
+        "dateTime_roomId",
+        "pid_roomId_execPid"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "RoomPromotionPointLog20230112",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 3,
+      "legacyIndexes": [
+        "PRIMARY",
+        "dateTime_roomId",
+        "pid_roomId_execPid"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "RoomPromotionPointLog20230113",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 3,
+      "legacyIndexes": [
+        "PRIMARY",
+        "dateTime_roomId",
+        "pid_roomId_execPid"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "RoomPromotionPointLog20230114",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 3,
+      "legacyIndexes": [
+        "PRIMARY",
+        "dateTime_roomId",
+        "pid_roomId_execPid"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "RoomPromotionPointLog20230115",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 3,
+      "legacyIndexes": [
+        "PRIMARY",
+        "dateTime_roomId",
+        "pid_roomId_execPid"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "RoomPromotionPointLog20230116",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 3,
+      "legacyIndexes": [
+        "PRIMARY",
+        "dateTime_roomId",
+        "pid_roomId_execPid"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "RoomPromotionPointLog20230117",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 3,
+      "legacyIndexes": [
+        "PRIMARY",
+        "dateTime_roomId",
+        "pid_roomId_execPid"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "RoomPromotionPointLog20230118",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 3,
+      "legacyIndexes": [
+        "PRIMARY",
+        "dateTime_roomId",
+        "pid_roomId_execPid"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "RoomPromotionPointLog20230119",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 3,
+      "legacyIndexes": [
+        "PRIMARY",
+        "dateTime_roomId",
+        "pid_roomId_execPid"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "RoomPromotionPointLog20230120",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 3,
+      "legacyIndexes": [
+        "PRIMARY",
+        "dateTime_roomId",
+        "pid_roomId_execPid"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "RoomPromotionPointLog20230121",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 3,
+      "legacyIndexes": [
+        "PRIMARY",
+        "dateTime_roomId",
+        "pid_roomId_execPid"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "RoomPromotionPointLog20230122",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 3,
+      "legacyIndexes": [
+        "PRIMARY",
+        "dateTime_roomId",
+        "pid_roomId_execPid"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "RoomPromotionPointLog20230123",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 3,
+      "legacyIndexes": [
+        "PRIMARY",
+        "dateTime_roomId",
+        "pid_roomId_execPid"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "RoomPromotionPointLog20230124",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 3,
+      "legacyIndexes": [
+        "PRIMARY",
+        "dateTime_roomId",
+        "pid_roomId_execPid"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "RoomPromotionPointLog20230125",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 3,
+      "legacyIndexes": [
+        "PRIMARY",
+        "dateTime_roomId",
+        "pid_roomId_execPid"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "RoomPromotionPointLog20230126",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 3,
+      "legacyIndexes": [
+        "PRIMARY",
+        "dateTime_roomId",
+        "pid_roomId_execPid"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "RoomPromotionPointLog20230127",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 3,
+      "legacyIndexes": [
+        "PRIMARY",
+        "dateTime_roomId",
+        "pid_roomId_execPid"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "RoomPromotionPointLog20230128",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 3,
+      "legacyIndexes": [
+        "PRIMARY",
+        "dateTime_roomId",
+        "pid_roomId_execPid"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "RoomPromotionPointLog20230129",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 3,
+      "legacyIndexes": [
+        "PRIMARY",
+        "dateTime_roomId",
+        "pid_roomId_execPid"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "RoomPromotionPointLog20230130",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 3,
+      "legacyIndexes": [
+        "PRIMARY",
+        "dateTime_roomId",
+        "pid_roomId_execPid"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "RoomPromotionPointLog20230207",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 3,
+      "legacyIndexes": [
+        "PRIMARY",
+        "dateTime_roomId",
+        "pid_roomId_execPid"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "RoomPromotionPointLog20230208",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 3,
+      "legacyIndexes": [
+        "PRIMARY",
+        "dateTime_roomId",
+        "pid_roomId_execPid"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "RoomPromotionPointLog20230209",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 3,
+      "legacyIndexes": [
+        "PRIMARY",
+        "dateTime_roomId",
+        "pid_roomId_execPid"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "RoomPromotionPointLog20230210",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 3,
+      "legacyIndexes": [
+        "PRIMARY",
+        "dateTime_roomId",
+        "pid_roomId_execPid"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "RoomPromotionPointLog20230211",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 3,
+      "legacyIndexes": [
+        "PRIMARY",
+        "dateTime_roomId",
+        "pid_roomId_execPid"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "RoomPromotionPointLog20230212",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 3,
+      "legacyIndexes": [
+        "PRIMARY",
+        "dateTime_roomId",
+        "pid_roomId_execPid"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "RoomPromotionPointLog20231030",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 3,
+      "legacyIndexes": [
+        "PRIMARY",
+        "dateTime_roomId",
+        "pid_roomId_execPid"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "RoomPromotionPointLog20231031",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 3,
+      "legacyIndexes": [
+        "PRIMARY",
+        "dateTime_roomId",
+        "pid_roomId_execPid"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "RoomPromotionPointLog20231101",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 3,
+      "legacyIndexes": [
+        "PRIMARY",
+        "dateTime_roomId",
+        "pid_roomId_execPid"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "ScoreDividedIntoChargeLog",
+      "category": "ASSET_AND_LEDGER",
+      "canonicalTarget": "aoo_ledger",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 1,
+      "legacyIndexes": [
+        "PRIMARY"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "immutable asset movement ledger"
+    },
+    {
+      "legacyTable": "ScorePercentChargeLog",
+      "category": "ASSET_AND_LEDGER",
+      "canonicalTarget": "aoo_ledger",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 1,
+      "legacyIndexes": [
+        "PRIMARY"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "immutable asset movement ledger"
+    },
+    {
+      "legacyTable": "SportsPointChangeZhongZhiCountLog",
+      "category": "ASSET_AND_LEDGER",
+      "canonicalTarget": "aoo_ledger",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 2,
+      "legacyIndexes": [
+        "PRIMARY",
+        "unionid_clubid_pid_dateTime_type"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "immutable asset movement ledger"
+    },
+    {
+      "legacyTable": "SportsPointChangeZhongZhiLog20221121",
+      "category": "ASSET_AND_LEDGER",
+      "canonicalTarget": "aoo_ledger",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 2,
+      "legacyIndexes": [
+        "PRIMARY",
+        "unionid_clubid_pid_dateTime_type"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "immutable asset movement ledger"
+    },
+    {
+      "legacyTable": "SportsPointChangeZhongZhiLog20221122",
+      "category": "ASSET_AND_LEDGER",
+      "canonicalTarget": "aoo_ledger",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 2,
+      "legacyIndexes": [
+        "PRIMARY",
+        "unionid_clubid_pid_dateTime_type"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "immutable asset movement ledger"
+    },
+    {
+      "legacyTable": "SportsPointChangeZhongZhiLog20221123",
+      "category": "ASSET_AND_LEDGER",
+      "canonicalTarget": "aoo_ledger",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 2,
+      "legacyIndexes": [
+        "PRIMARY",
+        "unionid_clubid_pid_dateTime_type"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "immutable asset movement ledger"
+    },
+    {
+      "legacyTable": "SportsPointChangeZhongZhiLog20221124",
+      "category": "ASSET_AND_LEDGER",
+      "canonicalTarget": "aoo_ledger",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 2,
+      "legacyIndexes": [
+        "PRIMARY",
+        "unionid_clubid_pid_dateTime_type"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "immutable asset movement ledger"
+    },
+    {
+      "legacyTable": "SportsPointChangeZhongZhiLog20221125",
+      "category": "ASSET_AND_LEDGER",
+      "canonicalTarget": "aoo_ledger",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 2,
+      "legacyIndexes": [
+        "PRIMARY",
+        "unionid_clubid_pid_dateTime_type"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "immutable asset movement ledger"
+    },
+    {
+      "legacyTable": "SportsPointChangeZhongZhiLog20221126",
+      "category": "ASSET_AND_LEDGER",
+      "canonicalTarget": "aoo_ledger",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 2,
+      "legacyIndexes": [
+        "PRIMARY",
+        "unionid_clubid_pid_dateTime_type"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "immutable asset movement ledger"
+    },
+    {
+      "legacyTable": "SportsPointChangeZhongZhiLog20221127",
+      "category": "ASSET_AND_LEDGER",
+      "canonicalTarget": "aoo_ledger",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 2,
+      "legacyIndexes": [
+        "PRIMARY",
+        "unionid_clubid_pid_dateTime_type"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "immutable asset movement ledger"
+    },
+    {
+      "legacyTable": "SportsPointChangeZhongZhiLog20221128",
+      "category": "ASSET_AND_LEDGER",
+      "canonicalTarget": "aoo_ledger",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 2,
+      "legacyIndexes": [
+        "PRIMARY",
+        "unionid_clubid_pid_dateTime_type"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "immutable asset movement ledger"
+    },
+    {
+      "legacyTable": "SportsPointChangeZhongZhiLog20221129",
+      "category": "ASSET_AND_LEDGER",
+      "canonicalTarget": "aoo_ledger",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 2,
+      "legacyIndexes": [
+        "PRIMARY",
+        "unionid_clubid_pid_dateTime_type"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "immutable asset movement ledger"
+    },
+    {
+      "legacyTable": "SportsPointChangeZhongZhiLog20221130",
+      "category": "ASSET_AND_LEDGER",
+      "canonicalTarget": "aoo_ledger",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 2,
+      "legacyIndexes": [
+        "PRIMARY",
+        "unionid_clubid_pid_dateTime_type"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "immutable asset movement ledger"
+    },
+    {
+      "legacyTable": "SportsPointChangeZhongZhiLog20221201",
+      "category": "ASSET_AND_LEDGER",
+      "canonicalTarget": "aoo_ledger",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 2,
+      "legacyIndexes": [
+        "PRIMARY",
+        "unionid_clubid_pid_dateTime_type"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "immutable asset movement ledger"
+    },
+    {
+      "legacyTable": "SportsPointChangeZhongZhiLog20221202",
+      "category": "ASSET_AND_LEDGER",
+      "canonicalTarget": "aoo_ledger",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 2,
+      "legacyIndexes": [
+        "PRIMARY",
+        "unionid_clubid_pid_dateTime_type"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "immutable asset movement ledger"
+    },
+    {
+      "legacyTable": "SportsPointChangeZhongZhiLog20221203",
+      "category": "ASSET_AND_LEDGER",
+      "canonicalTarget": "aoo_ledger",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 2,
+      "legacyIndexes": [
+        "PRIMARY",
+        "unionid_clubid_pid_dateTime_type"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "immutable asset movement ledger"
+    },
+    {
+      "legacyTable": "SportsPointChangeZhongZhiLog20221204",
+      "category": "ASSET_AND_LEDGER",
+      "canonicalTarget": "aoo_ledger",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 2,
+      "legacyIndexes": [
+        "PRIMARY",
+        "unionid_clubid_pid_dateTime_type"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "immutable asset movement ledger"
+    },
+    {
+      "legacyTable": "SportsPointChangeZhongZhiLog20221205",
+      "category": "ASSET_AND_LEDGER",
+      "canonicalTarget": "aoo_ledger",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 2,
+      "legacyIndexes": [
+        "PRIMARY",
+        "unionid_clubid_pid_dateTime_type"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "immutable asset movement ledger"
+    },
+    {
+      "legacyTable": "SportsPointChangeZhongZhiLog20230110",
+      "category": "ASSET_AND_LEDGER",
+      "canonicalTarget": "aoo_ledger",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 2,
+      "legacyIndexes": [
+        "PRIMARY",
+        "unionid_clubid_pid_dateTime_type"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "immutable asset movement ledger"
+    },
+    {
+      "legacyTable": "SportsPointChangeZhongZhiLog20230111",
+      "category": "ASSET_AND_LEDGER",
+      "canonicalTarget": "aoo_ledger",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 2,
+      "legacyIndexes": [
+        "PRIMARY",
+        "unionid_clubid_pid_dateTime_type"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "immutable asset movement ledger"
+    },
+    {
+      "legacyTable": "SportsPointChangeZhongZhiLog20230112",
+      "category": "ASSET_AND_LEDGER",
+      "canonicalTarget": "aoo_ledger",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 2,
+      "legacyIndexes": [
+        "PRIMARY",
+        "unionid_clubid_pid_dateTime_type"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "immutable asset movement ledger"
+    },
+    {
+      "legacyTable": "SportsPointChangeZhongZhiLog20230113",
+      "category": "ASSET_AND_LEDGER",
+      "canonicalTarget": "aoo_ledger",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 2,
+      "legacyIndexes": [
+        "PRIMARY",
+        "unionid_clubid_pid_dateTime_type"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "immutable asset movement ledger"
+    },
+    {
+      "legacyTable": "SportsPointChangeZhongZhiLog20230114",
+      "category": "ASSET_AND_LEDGER",
+      "canonicalTarget": "aoo_ledger",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 2,
+      "legacyIndexes": [
+        "PRIMARY",
+        "unionid_clubid_pid_dateTime_type"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "immutable asset movement ledger"
+    },
+    {
+      "legacyTable": "SportsPointChangeZhongZhiLog20230115",
+      "category": "ASSET_AND_LEDGER",
+      "canonicalTarget": "aoo_ledger",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 2,
+      "legacyIndexes": [
+        "PRIMARY",
+        "unionid_clubid_pid_dateTime_type"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "immutable asset movement ledger"
+    },
+    {
+      "legacyTable": "SportsPointChangeZhongZhiLog20230116",
+      "category": "ASSET_AND_LEDGER",
+      "canonicalTarget": "aoo_ledger",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 2,
+      "legacyIndexes": [
+        "PRIMARY",
+        "unionid_clubid_pid_dateTime_type"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "immutable asset movement ledger"
+    },
+    {
+      "legacyTable": "SportsPointChangeZhongZhiLog20230117",
+      "category": "ASSET_AND_LEDGER",
+      "canonicalTarget": "aoo_ledger",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 2,
+      "legacyIndexes": [
+        "PRIMARY",
+        "unionid_clubid_pid_dateTime_type"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "immutable asset movement ledger"
+    },
+    {
+      "legacyTable": "SportsPointChangeZhongZhiLog20230118",
+      "category": "ASSET_AND_LEDGER",
+      "canonicalTarget": "aoo_ledger",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 2,
+      "legacyIndexes": [
+        "PRIMARY",
+        "unionid_clubid_pid_dateTime_type"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "immutable asset movement ledger"
+    },
+    {
+      "legacyTable": "SportsPointChangeZhongZhiLog20230119",
+      "category": "ASSET_AND_LEDGER",
+      "canonicalTarget": "aoo_ledger",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 2,
+      "legacyIndexes": [
+        "PRIMARY",
+        "unionid_clubid_pid_dateTime_type"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "immutable asset movement ledger"
+    },
+    {
+      "legacyTable": "SportsPointChangeZhongZhiLog20230120",
+      "category": "ASSET_AND_LEDGER",
+      "canonicalTarget": "aoo_ledger",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 2,
+      "legacyIndexes": [
+        "PRIMARY",
+        "unionid_clubid_pid_dateTime_type"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "immutable asset movement ledger"
+    },
+    {
+      "legacyTable": "SportsPointChangeZhongZhiLog20230121",
+      "category": "ASSET_AND_LEDGER",
+      "canonicalTarget": "aoo_ledger",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 2,
+      "legacyIndexes": [
+        "PRIMARY",
+        "unionid_clubid_pid_dateTime_type"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "immutable asset movement ledger"
+    },
+    {
+      "legacyTable": "SportsPointChangeZhongZhiLog20230122",
+      "category": "ASSET_AND_LEDGER",
+      "canonicalTarget": "aoo_ledger",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 2,
+      "legacyIndexes": [
+        "PRIMARY",
+        "unionid_clubid_pid_dateTime_type"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "immutable asset movement ledger"
+    },
+    {
+      "legacyTable": "SportsPointChangeZhongZhiLog20230123",
+      "category": "ASSET_AND_LEDGER",
+      "canonicalTarget": "aoo_ledger",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 2,
+      "legacyIndexes": [
+        "PRIMARY",
+        "unionid_clubid_pid_dateTime_type"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "immutable asset movement ledger"
+    },
+    {
+      "legacyTable": "SportsPointChangeZhongZhiLog20230124",
+      "category": "ASSET_AND_LEDGER",
+      "canonicalTarget": "aoo_ledger",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 2,
+      "legacyIndexes": [
+        "PRIMARY",
+        "unionid_clubid_pid_dateTime_type"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "immutable asset movement ledger"
+    },
+    {
+      "legacyTable": "SportsPointChangeZhongZhiLog20230125",
+      "category": "ASSET_AND_LEDGER",
+      "canonicalTarget": "aoo_ledger",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 2,
+      "legacyIndexes": [
+        "PRIMARY",
+        "unionid_clubid_pid_dateTime_type"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "immutable asset movement ledger"
+    },
+    {
+      "legacyTable": "SportsPointChangeZhongZhiLog20230126",
+      "category": "ASSET_AND_LEDGER",
+      "canonicalTarget": "aoo_ledger",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 2,
+      "legacyIndexes": [
+        "PRIMARY",
+        "unionid_clubid_pid_dateTime_type"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "immutable asset movement ledger"
+    },
+    {
+      "legacyTable": "SportsPointChangeZhongZhiLog20230127",
+      "category": "ASSET_AND_LEDGER",
+      "canonicalTarget": "aoo_ledger",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 2,
+      "legacyIndexes": [
+        "PRIMARY",
+        "unionid_clubid_pid_dateTime_type"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "immutable asset movement ledger"
+    },
+    {
+      "legacyTable": "SportsPointChangeZhongZhiLog20230128",
+      "category": "ASSET_AND_LEDGER",
+      "canonicalTarget": "aoo_ledger",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 2,
+      "legacyIndexes": [
+        "PRIMARY",
+        "unionid_clubid_pid_dateTime_type"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "immutable asset movement ledger"
+    },
+    {
+      "legacyTable": "SportsPointChangeZhongZhiLog20230129",
+      "category": "ASSET_AND_LEDGER",
+      "canonicalTarget": "aoo_ledger",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 2,
+      "legacyIndexes": [
+        "PRIMARY",
+        "unionid_clubid_pid_dateTime_type"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "immutable asset movement ledger"
+    },
+    {
+      "legacyTable": "SportsPointChangeZhongZhiLog20230130",
+      "category": "ASSET_AND_LEDGER",
+      "canonicalTarget": "aoo_ledger",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 2,
+      "legacyIndexes": [
+        "PRIMARY",
+        "unionid_clubid_pid_dateTime_type"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "immutable asset movement ledger"
+    },
+    {
+      "legacyTable": "SportsPointChangeZhongZhiLog20230207",
+      "category": "ASSET_AND_LEDGER",
+      "canonicalTarget": "aoo_ledger",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 2,
+      "legacyIndexes": [
+        "PRIMARY",
+        "unionid_clubid_pid_dateTime_type"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "immutable asset movement ledger"
+    },
+    {
+      "legacyTable": "SportsPointChangeZhongZhiLog20230208",
+      "category": "ASSET_AND_LEDGER",
+      "canonicalTarget": "aoo_ledger",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 2,
+      "legacyIndexes": [
+        "PRIMARY",
+        "unionid_clubid_pid_dateTime_type"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "immutable asset movement ledger"
+    },
+    {
+      "legacyTable": "SportsPointChangeZhongZhiLog20230209",
+      "category": "ASSET_AND_LEDGER",
+      "canonicalTarget": "aoo_ledger",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 2,
+      "legacyIndexes": [
+        "PRIMARY",
+        "unionid_clubid_pid_dateTime_type"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "immutable asset movement ledger"
+    },
+    {
+      "legacyTable": "SportsPointChangeZhongZhiLog20230210",
+      "category": "ASSET_AND_LEDGER",
+      "canonicalTarget": "aoo_ledger",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 2,
+      "legacyIndexes": [
+        "PRIMARY",
+        "unionid_clubid_pid_dateTime_type"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "immutable asset movement ledger"
+    },
+    {
+      "legacyTable": "SportsPointChangeZhongZhiLog20230211",
+      "category": "ASSET_AND_LEDGER",
+      "canonicalTarget": "aoo_ledger",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 2,
+      "legacyIndexes": [
+        "PRIMARY",
+        "unionid_clubid_pid_dateTime_type"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "immutable asset movement ledger"
+    },
+    {
+      "legacyTable": "SportsPointChangeZhongZhiLog20230212",
+      "category": "ASSET_AND_LEDGER",
+      "canonicalTarget": "aoo_ledger",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 2,
+      "legacyIndexes": [
+        "PRIMARY",
+        "unionid_clubid_pid_dateTime_type"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "immutable asset movement ledger"
+    },
+    {
+      "legacyTable": "SportsPointChangeZhongZhiLog20231030",
+      "category": "ASSET_AND_LEDGER",
+      "canonicalTarget": "aoo_ledger",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 2,
+      "legacyIndexes": [
+        "PRIMARY",
+        "unionid_clubid_pid_dateTime_type"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "immutable asset movement ledger"
+    },
+    {
+      "legacyTable": "SportsPointChangeZhongZhiLog20231031",
+      "category": "ASSET_AND_LEDGER",
+      "canonicalTarget": "aoo_ledger",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 2,
+      "legacyIndexes": [
+        "PRIMARY",
+        "unionid_clubid_pid_dateTime_type"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "immutable asset movement ledger"
+    },
+    {
+      "legacyTable": "SportsPointChangeZhongZhiLog20231101",
+      "category": "ASSET_AND_LEDGER",
+      "canonicalTarget": "aoo_ledger",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 2,
+      "legacyIndexes": [
+        "PRIMARY",
+        "unionid_clubid_pid_dateTime_type"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "immutable asset movement ledger"
+    },
+    {
+      "legacyTable": "SportsPointChargeLog",
+      "category": "ASSET_AND_LEDGER",
+      "canonicalTarget": "aoo_ledger",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 1,
+      "legacyIndexes": [
+        "PRIMARY"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "immutable asset movement ledger"
+    },
+    {
+      "legacyTable": "SportsPointErrorLog",
+      "category": "ASSET_AND_LEDGER",
+      "canonicalTarget": "aoo_ledger",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 1,
+      "legacyIndexes": [
+        "PRIMARY"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "immutable asset movement ledger"
+    },
+    {
+      "legacyTable": "SportsPointWarningLogFlow",
+      "category": "ASSET_AND_LEDGER",
+      "canonicalTarget": "aoo_ledger",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 1,
+      "legacyIndexes": [
+        "PRIMARY"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "immutable asset movement ledger"
+    },
+    {
+      "legacyTable": "TableVersionInfo",
+      "category": "REVIEWED_ARCHIVE_ONLY",
+      "canonicalTarget": null,
+      "disposition": "REVIEWED_ARCHIVE_ONLY",
+      "legacyIndexCount": 1,
+      "legacyIndexes": [
+        "PRIMARY"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "database/original immutable reference policy",
+      "rationale": "legacy report or aggregate; immutable reference only"
+    },
+    {
+      "legacyTable": "UnionMatchLog",
+      "category": "ROOM_AND_GAME_EVENT",
+      "canonicalTarget": "aoo_room_event",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 2,
+      "legacyIndexes": [
+        "PRIMARY",
+        "pid_uid_cid_rid"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "authoritative room event journal"
+    },
+    {
+      "legacyTable": "UnionRoomCardChargeLog",
+      "category": "ASSET_AND_LEDGER",
+      "canonicalTarget": "aoo_ledger",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 3,
+      "legacyIndexes": [
+        "DTR",
+        "PRD",
+        "PRIMARY"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "immutable asset movement ledger"
+    },
+    {
+      "legacyTable": "UnionSportsPointProfitLog",
+      "category": "ASSET_AND_LEDGER",
+      "canonicalTarget": "aoo_ledger",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 1,
+      "legacyIndexes": [
+        "PRIMARY"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "immutable asset movement ledger"
+    },
+    {
+      "legacyTable": "XiPaiLog",
+      "category": "ASSET_AND_LEDGER",
+      "canonicalTarget": "aoo_ledger",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "legacyIndexCount": 2,
+      "legacyIndexes": [
+        "PRIMARY",
+        "unionId_execType_dateTime_execTime"
+      ],
+      "legacyEngine": "InnoDB",
+      "retentionAuthority": "aoo_data_lifecycle_policy",
+      "rationale": "immutable asset movement ledger"
+    }
+  ]
+}

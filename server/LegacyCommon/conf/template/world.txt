@@ -1,0 +1,12 @@
+world_id=8
+world_rsync_path=
+world_neiwang_ip=10.0.0.225
+world_ip=10.0.0.225
+world_name=world_colin
+world_game_login_pwd=pwd
+world_dbhost=10.0.0.194:3306
+world_dbname=hxy_colin_zone
+world_dbuser=root
+world_dbpwd=123456
+zone_php_login_addr=public.crystalgames.com=text=#PHP登陆站点域名
+php_gm_addr=public.crystalgames.com=text=#PHP GM 后台地址登陆站点域名

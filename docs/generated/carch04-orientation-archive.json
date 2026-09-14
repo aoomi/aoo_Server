@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "archivePayloadFiles": [
+
+  ],
+  "archiveMetaFiles": 12,
+  "activeAdapterFiles": [
+    "assets/Lobby/Code/Runtime/LegacyGameCatalogController.ts",
+    "assets/Lobby/Code/Runtime/LegacyRegionController.ts",
+    "assets/Lobby/Code/Runtime/LegacyCreateRoomController.ts",
+    "assets/Common/Code/Runtime/ui/LegacyFormManager.ts",
+    "assets/Common/Code/Runtime/ui/LegacyPrefabRenderer.ts",
+    "assets/Common/Code/Runtime/bootstrap/LoginScreenBootstrap.ts",
+    "assets/Common/Code/Runtime/CompatibilityApp/aqmj/AqmjSceneBootstrap.ts",
+    "assets/Common/Code/Runtime/CompatibilityApp/ui/LegacyFormManager.ts",
+    "assets/Common/Code/Runtime/CompatibilityApp/ui/LegacyPrefabRenderer.ts",
+    "assets/Common/Code/Runtime/CompatibilityApp/bootstrap/LoginScreenBootstrap.ts",
+    "assets/Common/Code/Runtime/CompatibilityApp/bdjhmj/BdjhmjSceneBootstrap.ts",
+    "assets/Common/Code/Runtime/CompatibilityApp/bamj/BamjSceneBootstrap.ts",
+    "assets/Common/Code/Runtime/CompatibilityApp/ak159mj/Ak159mjSceneBootstrap.ts",
+    "assets/Common/Code/Runtime/CompatibilityApp/lobby/LegacyGameCatalogController.ts",
+    "assets/Common/Code/Runtime/CompatibilityApp/lobby/LegacyRegionController.ts",
+    "assets/Common/Code/Runtime/CompatibilityApp/lobby/LegacyCreateRoomController.ts",
+    "assets/Common/Code/Runtime/CompatibilityApp/hzmj/HzmjSceneBootstrap.ts",
+    "assets/Common/Code/Runtime/CompatibilityApp/ahhnmj/AhhnmjSceneBootstrap.ts",
+    "assets/Common/Code/Runtime/CompatibilityApp/asmj/AsmjSceneBootstrap.ts",
+    "assets/Common/Code/Runtime/CompatibilityApp/aymj/AymjSceneBootstrap.ts",
+    "assets/Common/Code/Runtime/CompatibilityApp/a3pk/A3pkSceneBootstrap.ts",
+    "assets/Common/Code/Runtime/CompatibilityApp/aydss/AydssSceneBootstrap.ts",
+    "assets/Common/Code/Runtime/CompatibilityApp/aycp/AycpSceneBootstrap.ts",
+    "assets/Common/Code/Runtime/CompatibilityApp/ahmj/AhmjSceneBootstrap.ts",
+    "assets/Common/Code/Runtime/CompatibilityApp/scjymj/ScjymjSceneBootstrap.ts",
+    "assets/Common/Code/Runtime/CompatibilityApp/afmj/AfmjSceneBootstrap.ts",
+    "assets/Common/Code/Runtime/CompatibilityApp/ahhbmj/AhhbmjSceneBootstrap.ts",
+    "assets/Games/Mahjong/Packs/Pack01/Code/Runtime/hzmj/HzmjSceneBootstrap.ts",
+    "assets/Login/Code/Runtime/bootstrap/LoginScreenBootstrap.ts"
+  ],
+  "checks": {
+    "archivePayloadEmpty": true,
+    "singleOrientationAdapter": false
+  },
+  "verdict": "blocked-orientation-convergence"
+}

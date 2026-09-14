@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "scannedJars": 24,
+  "patterns": [
+    "localAddress",
+    "oldInterface",
+    "testAccount",
+    "embeddedSecret"
+  ],
+  "hits": [
+
+  ],
+  "passed": true
+}

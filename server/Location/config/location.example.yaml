@@ -1,0 +1,16 @@
+# Location module configuration example. Secrets and raw IP/device identifiers must not be stored here.
+location:
+  api-version: 1
+  risk:
+    proximity-meters: 100
+    max-accuracy-meters: 75
+    max-location-age: PT2M
+    proximity-score: 80
+    missing-score: 20
+    inaccurate-score: 15
+  idempotency:
+    ttl: P7D
+  privacy:
+    # Persistence adapters should HMAC identifiers before storage; rotate via a managed key service.
+    identifier-hmac-key-ref: secret://location/identifier-hmac/current
+    raw-location-retention: P7D

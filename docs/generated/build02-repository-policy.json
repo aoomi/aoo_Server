@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "settings": ".mvn/settings.xml",
+  "checks": {
+    "centralTls": true,
+    "snapshotsDisabled": true,
+    "checksumFail": true,
+    "immutableReleaseResolution": true,
+    "noEmbeddedCredentials": true,
+    "settingsActivated": true
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "schemaVersion": 1,
+  "endpointHits": [
+    {
+      "path": "assets/Common/Code/Runtime/config/RuntimeEndpoints.ts",
+      "line": 13,
+      "kind": "127.0.0.1"
+    },
+    {
+      "path": "assets/Common/Code/Runtime/config/RuntimeEndpoints.ts",
+      "line": 28,
+      "kind": "127.0.0.1"
+    },
+    {
+      "path": "assets/Common/Code/Runtime/config/RuntimeEndpoints.ts",
+      "line": 32,
+      "kind": "127.0.0.1"
+    },
+    {
+      "path": "assets/Common/Code/Runtime/config/RuntimeEndpoints.ts",
+      "line": 34,
+      "kind": "ws://"
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/config/RuntimeEndpoints.ts",
+      "line": 13,
+      "kind": "127.0.0.1"
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/config/RuntimeEndpoints.ts",
+      "line": 28,
+      "kind": "127.0.0.1"
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/config/RuntimeEndpoints.ts",
+      "line": 32,
+      "kind": "127.0.0.1"
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/config/RuntimeEndpoints.ts",
+      "line": 34,
+      "kind": "ws://"
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/aypdk/AypdkSwitchCoordinator.ts",
+      "line": 348,
+      "kind": "ws://"
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/platform/LegacyShareService.ts",
+      "line": 54,
+      "kind": "localhost"
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/network/LegacyWebSocketClient.ts",
+      "line": 74,
+      "kind": "127.0.0.1"
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/njpdk/LegacyNJPdkSwitchCoordinator.ts",
+      "line": 342,
+      "kind": "ws://"
+    },
+    {
+      "path": "assets/Common/Code/Runtime/platform/LegacyShareService.ts",
+      "line": 54,
+      "kind": "localhost"
+    },
+    {
+      "path": "assets/Common/Code/Runtime/network/LegacyWebSocketClient.ts",
+      "line": 68,
+      "kind": "127.0.0.1"
+    },
+    {
+      "path": "assets/Common/Code/Runtime/network/ProtocolHttpClient.ts",
+      "line": 72,
+      "kind": "127.0.0.1"
+    },
+    {
+      "path": "assets/Games/Poker/Packs/Pack01/Code/Runtime/njpdk/LegacyNJPdkSwitchCoordinator.ts",
+      "line": 342,
+      "kind": "ws://"
+    }
+  ],
+  "controlledProfiles": [
+
+  ],
+  "productionInjectionUnique": false,
+  "passed": false
+}

@@ -1,0 +1,4888 @@
+{
+  "schemaVersion": 1,
+  "modules": [
+    {
+      "module": "server/Account/target/runtime/lib",
+      "jars": 9,
+      "classes": 3429,
+      "duplicateClasses": 0
+    },
+    {
+      "module": "server/AdminApi/target/runtime/lib",
+      "jars": 13,
+      "classes": 1742,
+      "duplicateClasses": 0
+    },
+    {
+      "module": "server/AooKernel/target/runtime/lib",
+      "jars": 3,
+      "classes": 720,
+      "duplicateClasses": 1
+    },
+    {
+      "module": "server/Billing/target/runtime/lib",
+      "jars": 8,
+      "classes": 3413,
+      "duplicateClasses": 0
+    },
+    {
+      "module": "server/Bootstrap/target/runtime/lib",
+      "jars": 178,
+      "classes": 39275,
+      "duplicateClasses": 53
+    },
+    {
+      "module": "server/CDXZMJ/target/runtime/lib",
+      "jars": 164,
+      "classes": 38610,
+      "duplicateClasses": 53
+    },
+    {
+      "module": "server/ConfigCenter/target/runtime/lib",
+      "jars": 11,
+      "classes": 1705,
+      "duplicateClasses": 0
+    },
+    {
+      "module": "server/Families/target/runtime/lib",
+      "jars": 10,
+      "classes": 1702,
+      "duplicateClasses": 0
+    },
+    {
+      "module": "server/GameCommon/target/runtime/lib",
+      "jars": 125,
+      "classes": 19574,
+      "duplicateClasses": 52
+    },
+    {
+      "module": "server/Games/target/runtime/lib",
+      "jars": 171,
+      "classes": 39196,
+      "duplicateClasses": 53
+    },
+    {
+      "module": "server/Gateway/target/runtime/lib",
+      "jars": 8,
+      "classes": 2391,
+      "duplicateClasses": 0
+    },
+    {
+      "module": "server/Hall/target/runtime/lib",
+      "jars": 16,
+      "classes": 3548,
+      "duplicateClasses": 0
+    },
+    {
+      "module": "server/LegacyGameHall/target/runtime/lib",
+      "jars": 159,
+      "classes": 36925,
+      "duplicateClasses": 53
+    },
+    {
+      "module": "server/Mahjong/target/runtime/lib",
+      "jars": 5,
+      "classes": 804,
+      "duplicateClasses": 0
+    },
+    {
+      "module": "server/NJPDK/target/runtime/lib",
+      "jars": 164,
+      "classes": 38610,
+      "duplicateClasses": 53
+    },
+    {
+      "module": "server/Poker/target/runtime/lib",
+      "jars": 5,
+      "classes": 804,
+      "duplicateClasses": 0
+    },
+    {
+      "module": "server/SCJYMJ/target/runtime/lib",
+      "jars": 164,
+      "classes": 38610,
+      "duplicateClasses": 53
+    },
+    {
+      "module": "server/XCPDK/target/runtime/lib",
+      "jars": 164,
+      "classes": 38610,
+      "duplicateClasses": 53
+    },
+    {
+      "module": "server/ZJH/target/runtime/lib",
+      "jars": 164,
+      "classes": 38610,
+      "duplicateClasses": 53
+    },
+    {
+      "module": "server/ZYPK/target/runtime/lib",
+      "jars": 164,
+      "classes": 38610,
+      "duplicateClasses": 53
+    },
+    {
+      "module": "server/gameServer/target/runtime/lib",
+      "jars": 162,
+      "classes": 35923,
+      "duplicateClasses": 52
+    }
+  ],
+  "duplicates": [
+    {
+      "class": "module-info.class",
+      "jars": [
+        "logback-classic-1.6.3.jar",
+        "logback-core-1.6.3.jar"
+      ],
+      "module": "server/AooKernel/target/runtime/lib"
+    },
+    {
+      "class": "ConsoleTask/ConsoleTaskDealThread.class",
+      "jars": [
+        "aoo-kernel-1.0.0-SNAPSHOT.jar",
+        "game-server-framework-1.0.0-SNAPSHOT.jar"
+      ],
+      "module": "server/Bootstrap/target/runtime/lib"
+    },
+    {
+      "class": "module-info.class",
+      "jars": [
+        "disruptor-4.0.0.jar",
+        "guava-33.7.1-jre.jar",
+        "jackson-annotations-2.22.jar",
+        "jackson-core-3.1.5.jar",
+        "jackson-databind-3.1.5.jar",
+        "jakarta.activation-api-2.1.4.jar",
+        "jakarta.xml.bind-api-4.0.4.jar",
+        "jctools-core-4.0.6.jar",
+        "logback-classic-1.6.3.jar",
+        "logback-core-1.6.3.jar",
+        "opentelemetry-exporter-prometheus-1.44.1-alpha.jar"
+      ],
+      "module": "server/Bootstrap/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/ILoggerFactory.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/Bootstrap/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/IMarkerFactory.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/Bootstrap/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/Logger.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/Bootstrap/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/LoggerFactory.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/Bootstrap/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/LoggerFactoryFriend.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/Bootstrap/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/MDC$1.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/Bootstrap/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/MDC$MDCCloseable.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/Bootstrap/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/MDC.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/Bootstrap/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/Marker.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/Bootstrap/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/MarkerFactory.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/Bootstrap/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/event/DefaultLoggingEvent.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/Bootstrap/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/event/EventConstants.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/Bootstrap/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/event/EventRecordingLogger.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/Bootstrap/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/event/KeyValuePair.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/Bootstrap/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/event/Level.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/Bootstrap/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/event/LoggingEvent.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/Bootstrap/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/event/SubstituteLoggingEvent.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/Bootstrap/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/AbstractLogger.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/Bootstrap/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/BasicMDCAdapter$1.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/Bootstrap/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/BasicMDCAdapter.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/Bootstrap/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/BasicMarker.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/Bootstrap/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/BasicMarkerFactory.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/Bootstrap/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/CheckReturnValue.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/Bootstrap/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/FormattingTuple.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/Bootstrap/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/LegacyAbstractLogger.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/Bootstrap/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/MarkerIgnoringBase.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/Bootstrap/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/MessageFormatter.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/Bootstrap/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/NOPLogger.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/Bootstrap/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/NOPLoggerFactory.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/Bootstrap/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/NOPMDCAdapter.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/Bootstrap/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/NOP_FallbackServiceProvider.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/Bootstrap/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/NamedLoggerBase.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/Bootstrap/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/NormalizedParameters.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/Bootstrap/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/SubstituteLogger.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/Bootstrap/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/SubstituteLoggerFactory.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/Bootstrap/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/SubstituteServiceProvider.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/Bootstrap/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/ThreadLocalMapOfStacks.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/Bootstrap/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/Util$1.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/Bootstrap/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/Util$ClassContextSecurityManager.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/Bootstrap/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/Util.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/Bootstrap/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/CallerBoundaryAware.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/Bootstrap/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/DefaultLoggingEventBuilder$1.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/Bootstrap/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/DefaultLoggingEventBuilder.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/Bootstrap/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/LocationAwareLogger.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/Bootstrap/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/LoggerFactoryBinder.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/Bootstrap/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/LoggingEventAware.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/Bootstrap/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/LoggingEventBuilder.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/Bootstrap/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/MDCAdapter.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/Bootstrap/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/MarkerFactoryBinder.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/Bootstrap/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/NOPLoggingEventBuilder.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/Bootstrap/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/SLF4JServiceProvider.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/Bootstrap/target/runtime/lib"
+    },
+    {
+      "class": "ConsoleTask/ConsoleTaskDealThread.class",
+      "jars": [
+        "aoo-kernel-1.0.0-SNAPSHOT.jar",
+        "game-server-framework-1.0.0-SNAPSHOT.jar"
+      ],
+      "module": "server/CDXZMJ/target/runtime/lib"
+    },
+    {
+      "class": "module-info.class",
+      "jars": [
+        "disruptor-4.0.0.jar",
+        "guava-33.7.1-jre.jar",
+        "jackson-annotations-2.22.jar",
+        "jackson-core-3.1.5.jar",
+        "jackson-databind-3.1.5.jar",
+        "jakarta.activation-api-2.1.4.jar",
+        "jakarta.xml.bind-api-4.0.4.jar",
+        "jctools-core-4.0.6.jar",
+        "jspecify-1.0.1.jar",
+        "logback-classic-1.6.3.jar",
+        "logback-core-1.6.3.jar",
+        "opentelemetry-exporter-prometheus-1.44.1-alpha.jar"
+      ],
+      "module": "server/CDXZMJ/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/ILoggerFactory.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/CDXZMJ/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/IMarkerFactory.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/CDXZMJ/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/Logger.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/CDXZMJ/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/LoggerFactory.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/CDXZMJ/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/LoggerFactoryFriend.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/CDXZMJ/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/MDC$1.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/CDXZMJ/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/MDC$MDCCloseable.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/CDXZMJ/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/MDC.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/CDXZMJ/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/Marker.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/CDXZMJ/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/MarkerFactory.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/CDXZMJ/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/event/DefaultLoggingEvent.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/CDXZMJ/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/event/EventConstants.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/CDXZMJ/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/event/EventRecordingLogger.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/CDXZMJ/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/event/KeyValuePair.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/CDXZMJ/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/event/Level.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/CDXZMJ/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/event/LoggingEvent.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/CDXZMJ/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/event/SubstituteLoggingEvent.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/CDXZMJ/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/AbstractLogger.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/CDXZMJ/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/BasicMDCAdapter$1.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/CDXZMJ/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/BasicMDCAdapter.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/CDXZMJ/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/BasicMarker.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/CDXZMJ/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/BasicMarkerFactory.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/CDXZMJ/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/CheckReturnValue.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/CDXZMJ/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/FormattingTuple.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/CDXZMJ/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/LegacyAbstractLogger.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/CDXZMJ/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/MarkerIgnoringBase.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/CDXZMJ/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/MessageFormatter.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/CDXZMJ/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/NOPLogger.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/CDXZMJ/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/NOPLoggerFactory.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/CDXZMJ/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/NOPMDCAdapter.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/CDXZMJ/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/NOP_FallbackServiceProvider.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/CDXZMJ/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/NamedLoggerBase.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/CDXZMJ/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/NormalizedParameters.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/CDXZMJ/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/SubstituteLogger.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/CDXZMJ/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/SubstituteLoggerFactory.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/CDXZMJ/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/SubstituteServiceProvider.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/CDXZMJ/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/ThreadLocalMapOfStacks.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/CDXZMJ/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/Util$1.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/CDXZMJ/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/Util$ClassContextSecurityManager.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/CDXZMJ/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/Util.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/CDXZMJ/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/CallerBoundaryAware.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/CDXZMJ/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/DefaultLoggingEventBuilder$1.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/CDXZMJ/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/DefaultLoggingEventBuilder.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/CDXZMJ/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/LocationAwareLogger.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/CDXZMJ/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/LoggerFactoryBinder.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/CDXZMJ/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/LoggingEventAware.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/CDXZMJ/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/LoggingEventBuilder.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/CDXZMJ/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/MDCAdapter.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/CDXZMJ/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/MarkerFactoryBinder.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/CDXZMJ/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/NOPLoggingEventBuilder.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/CDXZMJ/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/SLF4JServiceProvider.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/CDXZMJ/target/runtime/lib"
+    },
+    {
+      "class": "module-info.class",
+      "jars": [
+        "guava-33.7.1-jre.jar",
+        "jackson-annotations-2.22.jar",
+        "jctools-core-4.0.6.jar",
+        "opentelemetry-exporter-prometheus-1.44.1-alpha.jar"
+      ],
+      "module": "server/GameCommon/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/ILoggerFactory.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/GameCommon/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/IMarkerFactory.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/GameCommon/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/Logger.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/GameCommon/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/LoggerFactory.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/GameCommon/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/LoggerFactoryFriend.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/GameCommon/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/MDC$1.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/GameCommon/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/MDC$MDCCloseable.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/GameCommon/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/MDC.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/GameCommon/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/Marker.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/GameCommon/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/MarkerFactory.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/GameCommon/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/event/DefaultLoggingEvent.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/GameCommon/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/event/EventConstants.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/GameCommon/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/event/EventRecordingLogger.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/GameCommon/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/event/KeyValuePair.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/GameCommon/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/event/Level.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/GameCommon/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/event/LoggingEvent.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/GameCommon/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/event/SubstituteLoggingEvent.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/GameCommon/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/AbstractLogger.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/GameCommon/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/BasicMDCAdapter$1.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/GameCommon/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/BasicMDCAdapter.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/GameCommon/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/BasicMarker.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/GameCommon/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/BasicMarkerFactory.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/GameCommon/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/CheckReturnValue.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/GameCommon/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/FormattingTuple.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/GameCommon/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/LegacyAbstractLogger.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/GameCommon/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/MarkerIgnoringBase.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/GameCommon/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/MessageFormatter.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/GameCommon/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/NOPLogger.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/GameCommon/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/NOPLoggerFactory.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/GameCommon/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/NOPMDCAdapter.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/GameCommon/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/NOP_FallbackServiceProvider.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/GameCommon/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/NamedLoggerBase.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/GameCommon/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/NormalizedParameters.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/GameCommon/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/SubstituteLogger.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/GameCommon/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/SubstituteLoggerFactory.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/GameCommon/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/SubstituteServiceProvider.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/GameCommon/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/ThreadLocalMapOfStacks.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/GameCommon/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/Util$1.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/GameCommon/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/Util$ClassContextSecurityManager.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/GameCommon/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/Util.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/GameCommon/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/CallerBoundaryAware.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/GameCommon/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/DefaultLoggingEventBuilder$1.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/GameCommon/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/DefaultLoggingEventBuilder.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/GameCommon/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/LocationAwareLogger.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/GameCommon/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/LoggerFactoryBinder.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/GameCommon/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/LoggingEventAware.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/GameCommon/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/LoggingEventBuilder.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/GameCommon/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/MDCAdapter.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/GameCommon/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/MarkerFactoryBinder.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/GameCommon/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/NOPLoggingEventBuilder.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/GameCommon/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/SLF4JServiceProvider.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/GameCommon/target/runtime/lib"
+    },
+    {
+      "class": "ConsoleTask/ConsoleTaskDealThread.class",
+      "jars": [
+        "aoo-kernel-1.0.0-SNAPSHOT.jar",
+        "game-server-framework-1.0.0-SNAPSHOT.jar"
+      ],
+      "module": "server/Games/target/runtime/lib"
+    },
+    {
+      "class": "module-info.class",
+      "jars": [
+        "disruptor-4.0.0.jar",
+        "guava-33.7.1-jre.jar",
+        "jackson-annotations-2.22.jar",
+        "jackson-core-3.1.5.jar",
+        "jackson-databind-3.1.5.jar",
+        "jakarta.activation-api-2.1.4.jar",
+        "jakarta.xml.bind-api-4.0.4.jar",
+        "jctools-core-4.0.6.jar",
+        "jspecify-1.0.1.jar",
+        "logback-classic-1.6.3.jar",
+        "logback-core-1.6.3.jar",
+        "opentelemetry-exporter-prometheus-1.44.1-alpha.jar"
+      ],
+      "module": "server/Games/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/ILoggerFactory.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/Games/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/IMarkerFactory.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/Games/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/Logger.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/Games/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/LoggerFactory.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/Games/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/LoggerFactoryFriend.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/Games/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/MDC$1.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/Games/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/MDC$MDCCloseable.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/Games/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/MDC.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/Games/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/Marker.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/Games/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/MarkerFactory.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/Games/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/event/DefaultLoggingEvent.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/Games/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/event/EventConstants.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/Games/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/event/EventRecordingLogger.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/Games/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/event/KeyValuePair.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/Games/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/event/Level.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/Games/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/event/LoggingEvent.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/Games/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/event/SubstituteLoggingEvent.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/Games/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/AbstractLogger.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/Games/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/BasicMDCAdapter$1.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/Games/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/BasicMDCAdapter.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/Games/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/BasicMarker.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/Games/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/BasicMarkerFactory.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/Games/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/CheckReturnValue.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/Games/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/FormattingTuple.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/Games/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/LegacyAbstractLogger.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/Games/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/MarkerIgnoringBase.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/Games/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/MessageFormatter.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/Games/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/NOPLogger.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/Games/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/NOPLoggerFactory.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/Games/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/NOPMDCAdapter.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/Games/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/NOP_FallbackServiceProvider.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/Games/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/NamedLoggerBase.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/Games/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/NormalizedParameters.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/Games/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/SubstituteLogger.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/Games/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/SubstituteLoggerFactory.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/Games/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/SubstituteServiceProvider.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/Games/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/ThreadLocalMapOfStacks.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/Games/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/Util$1.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/Games/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/Util$ClassContextSecurityManager.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/Games/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/Util.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/Games/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/CallerBoundaryAware.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/Games/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/DefaultLoggingEventBuilder$1.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/Games/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/DefaultLoggingEventBuilder.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/Games/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/LocationAwareLogger.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/Games/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/LoggerFactoryBinder.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/Games/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/LoggingEventAware.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/Games/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/LoggingEventBuilder.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/Games/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/MDCAdapter.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/Games/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/MarkerFactoryBinder.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/Games/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/NOPLoggingEventBuilder.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/Games/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/SLF4JServiceProvider.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/Games/target/runtime/lib"
+    },
+    {
+      "class": "ConsoleTask/ConsoleTaskDealThread.class",
+      "jars": [
+        "aoo-kernel-1.0.0-SNAPSHOT.jar",
+        "game-server-framework-1.0.0-SNAPSHOT.jar"
+      ],
+      "module": "server/LegacyGameHall/target/runtime/lib"
+    },
+    {
+      "class": "module-info.class",
+      "jars": [
+        "disruptor-4.0.0.jar",
+        "guava-33.7.1-jre.jar",
+        "jackson-annotations-2.22.jar",
+        "jakarta.activation-api-2.1.4.jar",
+        "jakarta.xml.bind-api-4.0.4.jar",
+        "jctools-core-4.0.6.jar",
+        "jspecify-1.0.1.jar",
+        "logback-classic-1.6.3.jar",
+        "logback-core-1.6.3.jar",
+        "opentelemetry-exporter-prometheus-1.44.1-alpha.jar"
+      ],
+      "module": "server/LegacyGameHall/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/ILoggerFactory.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/LegacyGameHall/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/IMarkerFactory.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/LegacyGameHall/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/Logger.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/LegacyGameHall/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/LoggerFactory.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/LegacyGameHall/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/LoggerFactoryFriend.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/LegacyGameHall/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/MDC$1.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/LegacyGameHall/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/MDC$MDCCloseable.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/LegacyGameHall/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/MDC.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/LegacyGameHall/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/Marker.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/LegacyGameHall/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/MarkerFactory.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/LegacyGameHall/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/event/DefaultLoggingEvent.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/LegacyGameHall/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/event/EventConstants.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/LegacyGameHall/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/event/EventRecordingLogger.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/LegacyGameHall/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/event/KeyValuePair.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/LegacyGameHall/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/event/Level.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/LegacyGameHall/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/event/LoggingEvent.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/LegacyGameHall/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/event/SubstituteLoggingEvent.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/LegacyGameHall/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/AbstractLogger.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/LegacyGameHall/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/BasicMDCAdapter$1.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/LegacyGameHall/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/BasicMDCAdapter.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/LegacyGameHall/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/BasicMarker.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/LegacyGameHall/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/BasicMarkerFactory.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/LegacyGameHall/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/CheckReturnValue.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/LegacyGameHall/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/FormattingTuple.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/LegacyGameHall/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/LegacyAbstractLogger.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/LegacyGameHall/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/MarkerIgnoringBase.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/LegacyGameHall/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/MessageFormatter.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/LegacyGameHall/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/NOPLogger.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/LegacyGameHall/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/NOPLoggerFactory.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/LegacyGameHall/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/NOPMDCAdapter.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/LegacyGameHall/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/NOP_FallbackServiceProvider.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/LegacyGameHall/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/NamedLoggerBase.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/LegacyGameHall/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/NormalizedParameters.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/LegacyGameHall/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/SubstituteLogger.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/LegacyGameHall/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/SubstituteLoggerFactory.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/LegacyGameHall/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/SubstituteServiceProvider.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/LegacyGameHall/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/ThreadLocalMapOfStacks.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/LegacyGameHall/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/Util$1.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/LegacyGameHall/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/Util$ClassContextSecurityManager.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/LegacyGameHall/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/Util.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/LegacyGameHall/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/CallerBoundaryAware.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/LegacyGameHall/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/DefaultLoggingEventBuilder$1.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/LegacyGameHall/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/DefaultLoggingEventBuilder.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/LegacyGameHall/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/LocationAwareLogger.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/LegacyGameHall/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/LoggerFactoryBinder.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/LegacyGameHall/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/LoggingEventAware.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/LegacyGameHall/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/LoggingEventBuilder.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/LegacyGameHall/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/MDCAdapter.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/LegacyGameHall/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/MarkerFactoryBinder.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/LegacyGameHall/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/NOPLoggingEventBuilder.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/LegacyGameHall/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/SLF4JServiceProvider.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/LegacyGameHall/target/runtime/lib"
+    },
+    {
+      "class": "ConsoleTask/ConsoleTaskDealThread.class",
+      "jars": [
+        "aoo-kernel-1.0.0-SNAPSHOT.jar",
+        "game-server-framework-1.0.0-SNAPSHOT.jar"
+      ],
+      "module": "server/NJPDK/target/runtime/lib"
+    },
+    {
+      "class": "module-info.class",
+      "jars": [
+        "disruptor-4.0.0.jar",
+        "guava-33.7.1-jre.jar",
+        "jackson-annotations-2.22.jar",
+        "jackson-core-3.1.5.jar",
+        "jackson-databind-3.1.5.jar",
+        "jakarta.activation-api-2.1.4.jar",
+        "jakarta.xml.bind-api-4.0.4.jar",
+        "jctools-core-4.0.6.jar",
+        "logback-classic-1.6.3.jar",
+        "logback-core-1.6.3.jar",
+        "opentelemetry-exporter-prometheus-1.44.1-alpha.jar"
+      ],
+      "module": "server/NJPDK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/ILoggerFactory.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/NJPDK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/IMarkerFactory.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/NJPDK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/Logger.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/NJPDK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/LoggerFactory.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/NJPDK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/LoggerFactoryFriend.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/NJPDK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/MDC$1.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/NJPDK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/MDC$MDCCloseable.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/NJPDK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/MDC.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/NJPDK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/Marker.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/NJPDK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/MarkerFactory.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/NJPDK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/event/DefaultLoggingEvent.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/NJPDK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/event/EventConstants.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/NJPDK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/event/EventRecordingLogger.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/NJPDK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/event/KeyValuePair.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/NJPDK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/event/Level.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/NJPDK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/event/LoggingEvent.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/NJPDK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/event/SubstituteLoggingEvent.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/NJPDK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/AbstractLogger.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/NJPDK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/BasicMDCAdapter$1.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/NJPDK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/BasicMDCAdapter.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/NJPDK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/BasicMarker.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/NJPDK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/BasicMarkerFactory.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/NJPDK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/CheckReturnValue.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/NJPDK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/FormattingTuple.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/NJPDK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/LegacyAbstractLogger.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/NJPDK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/MarkerIgnoringBase.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/NJPDK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/MessageFormatter.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/NJPDK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/NOPLogger.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/NJPDK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/NOPLoggerFactory.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/NJPDK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/NOPMDCAdapter.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/NJPDK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/NOP_FallbackServiceProvider.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/NJPDK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/NamedLoggerBase.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/NJPDK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/NormalizedParameters.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/NJPDK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/SubstituteLogger.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/NJPDK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/SubstituteLoggerFactory.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/NJPDK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/SubstituteServiceProvider.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/NJPDK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/ThreadLocalMapOfStacks.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/NJPDK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/Util$1.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/NJPDK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/Util$ClassContextSecurityManager.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/NJPDK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/Util.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/NJPDK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/CallerBoundaryAware.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/NJPDK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/DefaultLoggingEventBuilder$1.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/NJPDK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/DefaultLoggingEventBuilder.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/NJPDK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/LocationAwareLogger.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/NJPDK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/LoggerFactoryBinder.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/NJPDK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/LoggingEventAware.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/NJPDK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/LoggingEventBuilder.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/NJPDK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/MDCAdapter.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/NJPDK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/MarkerFactoryBinder.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/NJPDK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/NOPLoggingEventBuilder.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/NJPDK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/SLF4JServiceProvider.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/NJPDK/target/runtime/lib"
+    },
+    {
+      "class": "ConsoleTask/ConsoleTaskDealThread.class",
+      "jars": [
+        "aoo-kernel-1.0.0-SNAPSHOT.jar",
+        "game-server-framework-1.0.0-SNAPSHOT.jar"
+      ],
+      "module": "server/SCJYMJ/target/runtime/lib"
+    },
+    {
+      "class": "module-info.class",
+      "jars": [
+        "disruptor-4.0.0.jar",
+        "guava-33.7.1-jre.jar",
+        "jackson-annotations-2.22.jar",
+        "jackson-core-3.1.5.jar",
+        "jackson-databind-3.1.5.jar",
+        "jakarta.activation-api-2.1.4.jar",
+        "jakarta.xml.bind-api-4.0.4.jar",
+        "jctools-core-4.0.6.jar",
+        "jspecify-1.0.1.jar",
+        "logback-classic-1.6.3.jar",
+        "logback-core-1.6.3.jar",
+        "opentelemetry-exporter-prometheus-1.44.1-alpha.jar"
+      ],
+      "module": "server/SCJYMJ/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/ILoggerFactory.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/SCJYMJ/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/IMarkerFactory.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/SCJYMJ/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/Logger.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/SCJYMJ/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/LoggerFactory.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/SCJYMJ/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/LoggerFactoryFriend.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/SCJYMJ/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/MDC$1.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/SCJYMJ/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/MDC$MDCCloseable.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/SCJYMJ/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/MDC.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/SCJYMJ/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/Marker.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/SCJYMJ/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/MarkerFactory.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/SCJYMJ/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/event/DefaultLoggingEvent.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/SCJYMJ/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/event/EventConstants.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/SCJYMJ/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/event/EventRecordingLogger.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/SCJYMJ/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/event/KeyValuePair.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/SCJYMJ/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/event/Level.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/SCJYMJ/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/event/LoggingEvent.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/SCJYMJ/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/event/SubstituteLoggingEvent.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/SCJYMJ/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/AbstractLogger.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/SCJYMJ/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/BasicMDCAdapter$1.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/SCJYMJ/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/BasicMDCAdapter.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/SCJYMJ/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/BasicMarker.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/SCJYMJ/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/BasicMarkerFactory.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/SCJYMJ/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/CheckReturnValue.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/SCJYMJ/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/FormattingTuple.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/SCJYMJ/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/LegacyAbstractLogger.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/SCJYMJ/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/MarkerIgnoringBase.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/SCJYMJ/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/MessageFormatter.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/SCJYMJ/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/NOPLogger.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/SCJYMJ/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/NOPLoggerFactory.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/SCJYMJ/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/NOPMDCAdapter.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/SCJYMJ/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/NOP_FallbackServiceProvider.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/SCJYMJ/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/NamedLoggerBase.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/SCJYMJ/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/NormalizedParameters.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/SCJYMJ/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/SubstituteLogger.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/SCJYMJ/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/SubstituteLoggerFactory.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/SCJYMJ/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/SubstituteServiceProvider.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/SCJYMJ/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/ThreadLocalMapOfStacks.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/SCJYMJ/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/Util$1.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/SCJYMJ/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/Util$ClassContextSecurityManager.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/SCJYMJ/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/Util.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/SCJYMJ/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/CallerBoundaryAware.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/SCJYMJ/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/DefaultLoggingEventBuilder$1.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/SCJYMJ/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/DefaultLoggingEventBuilder.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/SCJYMJ/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/LocationAwareLogger.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/SCJYMJ/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/LoggerFactoryBinder.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/SCJYMJ/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/LoggingEventAware.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/SCJYMJ/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/LoggingEventBuilder.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/SCJYMJ/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/MDCAdapter.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/SCJYMJ/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/MarkerFactoryBinder.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/SCJYMJ/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/NOPLoggingEventBuilder.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/SCJYMJ/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/SLF4JServiceProvider.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/SCJYMJ/target/runtime/lib"
+    },
+    {
+      "class": "ConsoleTask/ConsoleTaskDealThread.class",
+      "jars": [
+        "aoo-kernel-1.0.0-SNAPSHOT.jar",
+        "game-server-framework-1.0.0-SNAPSHOT.jar"
+      ],
+      "module": "server/XCPDK/target/runtime/lib"
+    },
+    {
+      "class": "module-info.class",
+      "jars": [
+        "disruptor-4.0.0.jar",
+        "guava-33.7.1-jre.jar",
+        "jackson-annotations-2.22.jar",
+        "jackson-core-3.1.5.jar",
+        "jackson-databind-3.1.5.jar",
+        "jakarta.activation-api-2.1.4.jar",
+        "jakarta.xml.bind-api-4.0.4.jar",
+        "jctools-core-4.0.6.jar",
+        "jspecify-1.0.1.jar",
+        "logback-classic-1.6.3.jar",
+        "logback-core-1.6.3.jar",
+        "opentelemetry-exporter-prometheus-1.44.1-alpha.jar"
+      ],
+      "module": "server/XCPDK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/ILoggerFactory.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/XCPDK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/IMarkerFactory.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/XCPDK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/Logger.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/XCPDK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/LoggerFactory.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/XCPDK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/LoggerFactoryFriend.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/XCPDK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/MDC$1.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/XCPDK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/MDC$MDCCloseable.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/XCPDK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/MDC.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/XCPDK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/Marker.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/XCPDK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/MarkerFactory.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/XCPDK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/event/DefaultLoggingEvent.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/XCPDK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/event/EventConstants.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/XCPDK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/event/EventRecordingLogger.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/XCPDK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/event/KeyValuePair.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/XCPDK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/event/Level.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/XCPDK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/event/LoggingEvent.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/XCPDK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/event/SubstituteLoggingEvent.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/XCPDK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/AbstractLogger.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/XCPDK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/BasicMDCAdapter$1.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/XCPDK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/BasicMDCAdapter.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/XCPDK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/BasicMarker.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/XCPDK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/BasicMarkerFactory.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/XCPDK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/CheckReturnValue.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/XCPDK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/FormattingTuple.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/XCPDK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/LegacyAbstractLogger.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/XCPDK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/MarkerIgnoringBase.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/XCPDK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/MessageFormatter.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/XCPDK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/NOPLogger.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/XCPDK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/NOPLoggerFactory.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/XCPDK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/NOPMDCAdapter.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/XCPDK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/NOP_FallbackServiceProvider.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/XCPDK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/NamedLoggerBase.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/XCPDK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/NormalizedParameters.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/XCPDK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/SubstituteLogger.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/XCPDK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/SubstituteLoggerFactory.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/XCPDK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/SubstituteServiceProvider.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/XCPDK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/ThreadLocalMapOfStacks.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/XCPDK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/Util$1.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/XCPDK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/Util$ClassContextSecurityManager.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/XCPDK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/Util.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/XCPDK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/CallerBoundaryAware.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/XCPDK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/DefaultLoggingEventBuilder$1.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/XCPDK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/DefaultLoggingEventBuilder.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/XCPDK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/LocationAwareLogger.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/XCPDK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/LoggerFactoryBinder.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/XCPDK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/LoggingEventAware.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/XCPDK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/LoggingEventBuilder.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/XCPDK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/MDCAdapter.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/XCPDK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/MarkerFactoryBinder.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/XCPDK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/NOPLoggingEventBuilder.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/XCPDK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/SLF4JServiceProvider.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/XCPDK/target/runtime/lib"
+    },
+    {
+      "class": "ConsoleTask/ConsoleTaskDealThread.class",
+      "jars": [
+        "aoo-kernel-1.0.0-SNAPSHOT.jar",
+        "game-server-framework-1.0.0-SNAPSHOT.jar"
+      ],
+      "module": "server/ZJH/target/runtime/lib"
+    },
+    {
+      "class": "module-info.class",
+      "jars": [
+        "disruptor-4.0.0.jar",
+        "guava-33.7.1-jre.jar",
+        "jackson-annotations-2.22.jar",
+        "jackson-core-3.1.5.jar",
+        "jackson-databind-3.1.5.jar",
+        "jakarta.activation-api-2.1.4.jar",
+        "jakarta.xml.bind-api-4.0.4.jar",
+        "jctools-core-4.0.6.jar",
+        "jspecify-1.0.1.jar",
+        "logback-classic-1.6.3.jar",
+        "logback-core-1.6.3.jar",
+        "opentelemetry-exporter-prometheus-1.44.1-alpha.jar"
+      ],
+      "module": "server/ZJH/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/ILoggerFactory.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/ZJH/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/IMarkerFactory.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/ZJH/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/Logger.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/ZJH/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/LoggerFactory.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/ZJH/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/LoggerFactoryFriend.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/ZJH/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/MDC$1.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/ZJH/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/MDC$MDCCloseable.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/ZJH/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/MDC.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/ZJH/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/Marker.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/ZJH/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/MarkerFactory.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/ZJH/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/event/DefaultLoggingEvent.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/ZJH/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/event/EventConstants.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/ZJH/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/event/EventRecordingLogger.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/ZJH/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/event/KeyValuePair.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/ZJH/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/event/Level.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/ZJH/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/event/LoggingEvent.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/ZJH/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/event/SubstituteLoggingEvent.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/ZJH/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/AbstractLogger.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/ZJH/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/BasicMDCAdapter$1.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/ZJH/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/BasicMDCAdapter.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/ZJH/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/BasicMarker.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/ZJH/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/BasicMarkerFactory.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/ZJH/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/CheckReturnValue.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/ZJH/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/FormattingTuple.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/ZJH/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/LegacyAbstractLogger.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/ZJH/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/MarkerIgnoringBase.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/ZJH/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/MessageFormatter.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/ZJH/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/NOPLogger.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/ZJH/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/NOPLoggerFactory.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/ZJH/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/NOPMDCAdapter.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/ZJH/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/NOP_FallbackServiceProvider.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/ZJH/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/NamedLoggerBase.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/ZJH/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/NormalizedParameters.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/ZJH/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/SubstituteLogger.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/ZJH/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/SubstituteLoggerFactory.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/ZJH/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/SubstituteServiceProvider.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/ZJH/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/ThreadLocalMapOfStacks.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/ZJH/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/Util$1.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/ZJH/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/Util$ClassContextSecurityManager.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/ZJH/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/Util.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/ZJH/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/CallerBoundaryAware.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/ZJH/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/DefaultLoggingEventBuilder$1.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/ZJH/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/DefaultLoggingEventBuilder.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/ZJH/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/LocationAwareLogger.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/ZJH/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/LoggerFactoryBinder.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/ZJH/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/LoggingEventAware.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/ZJH/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/LoggingEventBuilder.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/ZJH/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/MDCAdapter.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/ZJH/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/MarkerFactoryBinder.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/ZJH/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/NOPLoggingEventBuilder.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/ZJH/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/SLF4JServiceProvider.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/ZJH/target/runtime/lib"
+    },
+    {
+      "class": "ConsoleTask/ConsoleTaskDealThread.class",
+      "jars": [
+        "aoo-kernel-1.0.0-SNAPSHOT.jar",
+        "game-server-framework-1.0.0-SNAPSHOT.jar"
+      ],
+      "module": "server/ZYPK/target/runtime/lib"
+    },
+    {
+      "class": "module-info.class",
+      "jars": [
+        "disruptor-4.0.0.jar",
+        "guava-33.7.1-jre.jar",
+        "jackson-annotations-2.22.jar",
+        "jackson-core-3.1.5.jar",
+        "jackson-databind-3.1.5.jar",
+        "jakarta.activation-api-2.1.4.jar",
+        "jakarta.xml.bind-api-4.0.4.jar",
+        "jctools-core-4.0.6.jar",
+        "jspecify-1.0.1.jar",
+        "logback-classic-1.6.3.jar",
+        "logback-core-1.6.3.jar",
+        "opentelemetry-exporter-prometheus-1.44.1-alpha.jar"
+      ],
+      "module": "server/ZYPK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/ILoggerFactory.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/ZYPK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/IMarkerFactory.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/ZYPK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/Logger.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/ZYPK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/LoggerFactory.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/ZYPK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/LoggerFactoryFriend.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/ZYPK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/MDC$1.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/ZYPK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/MDC$MDCCloseable.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/ZYPK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/MDC.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/ZYPK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/Marker.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/ZYPK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/MarkerFactory.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/ZYPK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/event/DefaultLoggingEvent.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/ZYPK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/event/EventConstants.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/ZYPK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/event/EventRecordingLogger.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/ZYPK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/event/KeyValuePair.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/ZYPK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/event/Level.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/ZYPK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/event/LoggingEvent.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/ZYPK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/event/SubstituteLoggingEvent.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/ZYPK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/AbstractLogger.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/ZYPK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/BasicMDCAdapter$1.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/ZYPK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/BasicMDCAdapter.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/ZYPK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/BasicMarker.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/ZYPK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/BasicMarkerFactory.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/ZYPK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/CheckReturnValue.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/ZYPK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/FormattingTuple.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/ZYPK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/LegacyAbstractLogger.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/ZYPK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/MarkerIgnoringBase.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/ZYPK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/MessageFormatter.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/ZYPK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/NOPLogger.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/ZYPK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/NOPLoggerFactory.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/ZYPK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/NOPMDCAdapter.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/ZYPK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/NOP_FallbackServiceProvider.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/ZYPK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/NamedLoggerBase.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/ZYPK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/NormalizedParameters.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/ZYPK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/SubstituteLogger.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/ZYPK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/SubstituteLoggerFactory.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/ZYPK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/SubstituteServiceProvider.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/ZYPK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/ThreadLocalMapOfStacks.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/ZYPK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/Util$1.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/ZYPK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/Util$ClassContextSecurityManager.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/ZYPK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/Util.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/ZYPK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/CallerBoundaryAware.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/ZYPK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/DefaultLoggingEventBuilder$1.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/ZYPK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/DefaultLoggingEventBuilder.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/ZYPK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/LocationAwareLogger.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/ZYPK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/LoggerFactoryBinder.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/ZYPK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/LoggingEventAware.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/ZYPK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/LoggingEventBuilder.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/ZYPK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/MDCAdapter.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/ZYPK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/MarkerFactoryBinder.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/ZYPK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/NOPLoggingEventBuilder.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/ZYPK/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/SLF4JServiceProvider.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/ZYPK/target/runtime/lib"
+    },
+    {
+      "class": "module-info.class",
+      "jars": [
+        "disruptor-4.0.0.jar",
+        "guava-33.7.1-jre.jar",
+        "jackson-annotations-2.22.jar",
+        "jackson-core-3.1.5.jar",
+        "jackson-databind-3.1.5.jar",
+        "jakarta.activation-api-2.1.4.jar",
+        "jakarta.xml.bind-api-4.0.4.jar",
+        "jctools-core-4.0.6.jar",
+        "jspecify-1.0.1.jar",
+        "logback-classic-1.6.3.jar",
+        "logback-core-1.6.3.jar",
+        "opentelemetry-exporter-prometheus-1.44.1-alpha.jar"
+      ],
+      "module": "server/gameServer/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/ILoggerFactory.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/gameServer/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/IMarkerFactory.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/gameServer/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/Logger.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/gameServer/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/LoggerFactory.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/gameServer/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/LoggerFactoryFriend.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/gameServer/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/MDC$1.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/gameServer/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/MDC$MDCCloseable.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/gameServer/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/MDC.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/gameServer/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/Marker.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/gameServer/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/MarkerFactory.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/gameServer/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/event/DefaultLoggingEvent.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/gameServer/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/event/EventConstants.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/gameServer/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/event/EventRecordingLogger.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/gameServer/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/event/KeyValuePair.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/gameServer/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/event/Level.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/gameServer/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/event/LoggingEvent.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/gameServer/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/event/SubstituteLoggingEvent.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/gameServer/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/AbstractLogger.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/gameServer/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/BasicMDCAdapter$1.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/gameServer/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/BasicMDCAdapter.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/gameServer/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/BasicMarker.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/gameServer/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/BasicMarkerFactory.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/gameServer/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/CheckReturnValue.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/gameServer/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/FormattingTuple.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/gameServer/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/LegacyAbstractLogger.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/gameServer/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/MarkerIgnoringBase.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/gameServer/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/MessageFormatter.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/gameServer/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/NOPLogger.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/gameServer/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/NOPLoggerFactory.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/gameServer/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/NOPMDCAdapter.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/gameServer/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/NOP_FallbackServiceProvider.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/gameServer/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/NamedLoggerBase.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/gameServer/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/NormalizedParameters.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/gameServer/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/SubstituteLogger.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/gameServer/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/SubstituteLoggerFactory.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/gameServer/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/SubstituteServiceProvider.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/gameServer/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/ThreadLocalMapOfStacks.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/gameServer/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/Util$1.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/gameServer/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/Util$ClassContextSecurityManager.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/gameServer/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/helpers/Util.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/gameServer/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/CallerBoundaryAware.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/gameServer/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/DefaultLoggingEventBuilder$1.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/gameServer/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/DefaultLoggingEventBuilder.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/gameServer/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/LocationAwareLogger.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/gameServer/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/LoggerFactoryBinder.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/gameServer/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/LoggingEventAware.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/gameServer/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/LoggingEventBuilder.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/gameServer/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/MDCAdapter.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/gameServer/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/MarkerFactoryBinder.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/gameServer/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/NOPLoggingEventBuilder.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/gameServer/target/runtime/lib"
+    },
+    {
+      "class": "org/apache/rocketmq/logging/org/slf4j/spi/SLF4JServiceProvider.class",
+      "jars": [
+        "rocketmq-logback-classic-1.0.1.jar",
+        "rocketmq-slf4j-api-1.0.1.jar"
+      ],
+      "module": "server/gameServer/target/runtime/lib"
+    }
+  ],
+  "passed": false
+}

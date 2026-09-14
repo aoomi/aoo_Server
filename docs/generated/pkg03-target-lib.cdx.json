@@ -1,0 +1,5930 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "version": 1,
+  "components": [
+    {
+      "type": "library",
+      "name": "HikariCP-7.0.2.jar",
+      "purl": "pkg:maven/com.zaxxer/HikariCP@7.0.2",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "f1e612fa27345be3107a85431e8a8aeb205c15364ab2f2d411e40a9d7bb08095"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "The Apache Software License, Version 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/HikariCP-7.0.2.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "angus-activation-2.0.3.jar",
+      "purl": "pkg:maven/org.eclipse.angus/angus-activation@2.0.3",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "a6bd35c538cf90fff941ad6258c40c08fca0b5c9c3f536c657114f27ce0527a7"
+        }
+      ],
+      "licenses": [
+
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/angus-activation-2.0.3.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "animal-sniffer-annotations-1.26.jar",
+      "purl": "pkg:maven/org.codehaus.mojo/animal-sniffer-annotations@1.26",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "342f4d815eae69bb980620d0a622862709be37d38f47577675b42c739a962da9"
+        }
+      ],
+      "licenses": [
+
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/animal-sniffer-annotations-1.26.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "annotations-13.0.jar",
+      "purl": "pkg:maven/org.jetbrains/annotations@13.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "ace2a10dc8e2d5fd34925ecac03e4988b2c0f851650c94b8cef49ba1bd111478"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "The Apache Software License, Version 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/annotations-13.0.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "annotations-4.1.1.4.jar",
+      "purl": "pkg:maven/com.google.android/annotations@4.1.1.4",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "ba734e1e84c09d615af6a09d33034b4f0442f8772dec120efb376d86a565ae15"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "Apache 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/annotations-4.1.1.4.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "annotations-api-6.0.53.jar",
+      "purl": "pkg:maven/org.apache.tomcat/annotations-api@6.0.53",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "253829d3c12b7381d1044fc22c6436cff025fe0d459e4a329413e560a7d0dd13"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "Apache License, Version 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/annotations-api-6.0.53.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "antlr4-runtime-4.13.2.jar",
+      "purl": "pkg:maven/org.antlr/antlr4-runtime@4.13.2",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "dd3e8a13a2d669bf84fb8d834de35ce4875f27157698d206241ec8488aadcaf7"
+        }
+      ],
+      "licenses": [
+
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/antlr4-runtime-4.13.2.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "aspectjweaver-1.9.25.1.jar",
+      "purl": "pkg:maven/org.aspectj/aspectjweaver@1.9.25.1",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "4fe86fdc18faea571f29129c70eaad5d121363504a06d7907be88f6c60ba3116"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "Eclipse Public License - v 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/aspectjweaver-1.9.25.1.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "bson-5.10.0.jar",
+      "purl": "pkg:maven/org.mongodb/bson@5.10.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "1b0a3d8830e89574557cd4067f73d17b72e6e30d8699c529044abe79bd7f0edf"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "The Apache License, Version 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/bson-5.10.0.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "bson-record-codec-5.8.0.jar",
+      "purl": "pkg:maven/org.mongodb/bson-record-codec@5.8.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "7ff03630fcb12395324f540f5df163130b7be6a9f4c0ab49e38a53d61f634df2"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "The Apache License, Version 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/bson-record-codec-5.8.0.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "byte-buddy-1.18.10.jar",
+      "purl": "pkg:maven/net.bytebuddy/byte-buddy@1.18.10",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "8b31f4ea806afaa900b67bffd8498760d1f65464f4c2ea78cdbda2f3e633898b"
+        }
+      ],
+      "licenses": [
+
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/byte-buddy-1.18.10.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "cache-api-1.1.1.jar",
+      "purl": "pkg:maven/javax.cache/cache-api@1.1.1",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "9f34e007edfa82a7b2a2e1b969477dcf5099ce7f4f926fb54ce7e27c4a0cd54b"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "Apache License, Version 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/cache-api-1.1.1.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "classmate-1.7.3.jar",
+      "purl": "pkg:maven/com.fasterxml/classmate@1.7.3",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "75fbda45456f123fb6e2028a6189442d8d0730b357adce4c0a6d7e789f70669b"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "Apache License, Version 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/classmate-1.7.3.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "commdef-0.0.1.jar",
+      "purl": null,
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "bffec2532bbb44cc4322411addea96c2395ee614f875e14cd76fc72c1d05eea0"
+        }
+      ],
+      "licenses": [
+
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/commdef-0.0.1.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": "server/LegacyAccountServer/commdef/target/commdef-0.0.1.jar"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "common-0.0.1.jar",
+      "purl": null,
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "16791b37918d6697b8b9c54a3139243f6ef207b3725476b7ad6ad9bb0e11405c"
+        }
+      ],
+      "licenses": [
+
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/common-0.0.1.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": "server/LegacyAccountServer/common/target/common-0.0.1.jar"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "commons-beanutils-1.11.0.jar",
+      "purl": "pkg:maven/commons-beanutils/commons-beanutils@1.11.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "9e44ba68ec9a3f21286fa2a8bbb003b735c0f69101bb43144b79f4f8aaa74709"
+        }
+      ],
+      "licenses": [
+
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/commons-beanutils-1.11.0.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "commons-codec-1.21.0.jar",
+      "purl": "pkg:maven/commons-codec/commons-codec@1.21.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "4da851cb6abfb98bfe9eb77c5e5fc47f5414fa28b94e21b7fd9a646705dc167f"
+        }
+      ],
+      "licenses": [
+
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/commons-codec-1.21.0.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "commons-collections-3.2.2.jar",
+      "purl": "pkg:maven/commons-collections/commons-collections@3.2.2",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "eeeae917917144a68a741d4c0dff66aa5c5c5fd85593ff217bced3fc8ca783b8"
+        }
+      ],
+      "licenses": [
+
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/commons-collections-3.2.2.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "commons-collections4-4.6.0.jar",
+      "purl": "pkg:maven/org.apache.commons/commons-collections4@4.6.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "4e0d0896bac5356cead277bac0283f09813e14417e3e84e0c86b573b54d218a3"
+        }
+      ],
+      "licenses": [
+
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/commons-collections4-4.6.0.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "commons-dbutils-1.8.1.jar",
+      "purl": "pkg:maven/commons-dbutils/commons-dbutils@1.8.1",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "e64501edba68fb4e674a3c350955e743b1f55a878c8fd348adf0ebffc008e7b0"
+        }
+      ],
+      "licenses": [
+
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/commons-dbutils-1.8.1.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "commons-digester-2.1.jar",
+      "purl": "pkg:maven/commons-digester/commons-digester@2.1",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "e0b2b980a84fc6533c5ce291f1917b32c507f62bcad64198fff44368c2196a3d"
+        }
+      ],
+      "licenses": [
+
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/commons-digester-2.1.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "commons-io-2.21.0.jar",
+      "purl": "pkg:maven/commons-io/commons-io@2.21.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "7d643a2afea8b058b762aa6fb90e5b256f6c729739f8b3784c3370ddc609e88d"
+        }
+      ],
+      "licenses": [
+
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/commons-io-2.21.0.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "commons-lang3-3.20.0.jar",
+      "purl": "pkg:maven/org.apache.commons/commons-lang3@3.20.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "69e5c9fa35da7a51a5fd2099dfe56a2d8d32cf233e2f6d770e796146440263f4"
+        }
+      ],
+      "licenses": [
+
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/commons-lang3-3.20.0.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "commons-logging-1.3.6.jar",
+      "purl": "pkg:maven/commons-logging/commons-logging@1.3.6",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "f8ead8943401081dea0aa824b5b1ba40a0e4ed297a572a0f02258150a0b62357"
+        }
+      ],
+      "licenses": [
+
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/commons-logging-1.3.6.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "commons-validator-1.10.0.jar",
+      "purl": "pkg:maven/commons-validator/commons-validator@1.10.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "0d1600cddc24af7f49b5eb01e31adda3ce3b25f236c8c75eaecdf78428469eb9"
+        }
+      ],
+      "licenses": [
+
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/commons-validator-1.10.0.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "dao-0.0.1.jar",
+      "purl": null,
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "624b054d95bf09ddd30402acddfe8bc75f00aa8a9071227a8ed669b16119a694"
+        }
+      ],
+      "licenses": [
+
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/dao-0.0.1.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": "server/LegacyAccountServer/dao/target/dao-0.0.1.jar"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "disruptor-4.0.0.jar",
+      "purl": "pkg:maven/com.lmax/disruptor@4.0.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "c2ba80841541272bc815bcadab910d2d716aa563eca15762450ab4c889440505"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "The Apache License, Version 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/disruptor-4.0.0.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "druid-1.2.28.jar",
+      "purl": "pkg:maven/com.alibaba/druid@1.2.28",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "c4cec3792390a2bbe6020d59be52160fd38d15de0f00dc52702eb91128c695a5"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "Apache 2"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/druid-1.2.28.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "druid-spring-boot-starter-1.2.28.jar",
+      "purl": "pkg:maven/com.alibaba/druid-spring-boot-starter@1.2.28",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "68cd67cfd9893af1a2ded0429f9eedcba4309055988e8037fa519c564068d394"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "Apache 2"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/druid-spring-boot-starter-1.2.28.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "error_prone_annotations-2.50.0.jar",
+      "purl": "pkg:maven/com.google.errorprone/error_prone_annotations@2.50.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "4667724877f1d37a689202da191e23efa7657c62eef93ccdac406eccfe5cdd0a"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "Apache 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/error_prone_annotations-2.50.0.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "failureaccess-1.0.3.jar",
+      "purl": "pkg:maven/com.google.guava/failureaccess@1.0.3",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "cbfc3906b19b8f55dd7cfd6dfe0aa4532e834250d7f080bd8d211a3e246b59cb"
+        }
+      ],
+      "licenses": [
+
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/failureaccess-1.0.3.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "fastjson-2.0.64.jar",
+      "purl": "pkg:maven/com.alibaba/fastjson@2.0.64",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "655d520f9849abf48b33ef82501490872cdbbc449d0cc4f3dc11500d33676a19"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "Apache 2"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/fastjson-2.0.64.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "fastjson2-2.0.64.jar",
+      "purl": "pkg:maven/com.alibaba.fastjson2/fastjson2@2.0.64",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "c3de8edf8705981deaf53f344c01544479f6db6925968bf934e3b9ef6f0b1f98"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "Apache 2"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/fastjson2-2.0.64.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "fastjson2-extension-2.0.64.jar",
+      "purl": "pkg:maven/com.alibaba.fastjson2/fastjson2-extension@2.0.64",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "9c680abdccd4a800270fa8ff8778b81b5958e1a1fbaed898d5712d41e03245b4"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "Apache 2"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/fastjson2-extension-2.0.64.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "grpc-api-1.80.0.jar",
+      "purl": "pkg:maven/io.grpc/grpc-api@1.80.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "3af18798cf5d705fb40187d47548345d017df9a22791b9c028d9643441be9759"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "Apache 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/grpc-api-1.80.0.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "grpc-context-1.80.0.jar",
+      "purl": "pkg:maven/io.grpc/grpc-context@1.80.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "74a6fc8e6c9fc873c3683db41bc0ab5869bfd55b733cc62ac63eb276f37b0b0a"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "Apache 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/grpc-context-1.80.0.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "grpc-core-1.80.0.jar",
+      "purl": "pkg:maven/io.grpc/grpc-core@1.80.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "b617121f33ea79b0cfc26e2e19475e64e0c4161d28c78cf56f7db7bbb9a81fbe"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "Apache 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/grpc-core-1.80.0.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "grpc-netty-shaded-1.80.0.jar",
+      "purl": "pkg:maven/io.grpc/grpc-netty-shaded@1.80.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "331d182ea3b7e2cb2f2442b94bf572a70856b5883a16ea8ebf74d76c0f4c00a8"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "Apache 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/grpc-netty-shaded-1.80.0.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "grpc-stub-1.80.0.jar",
+      "purl": "pkg:maven/io.grpc/grpc-stub@1.80.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "23c04f1c29c210084182dbeca5d3091b200e0dd97cd0bcee086d72f0b9dca2c9"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "Apache 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/grpc-stub-1.80.0.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "grpc-util-1.80.0.jar",
+      "purl": "pkg:maven/io.grpc/grpc-util@1.80.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "8bfa179dc59e44e46cb8b8642cfd86524a0833801e7c95632d6d4dd5cc532e6e"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "Apache 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/grpc-util-1.80.0.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "gson-2.14.0.jar",
+      "purl": "pkg:maven/com.google.code.gson/gson@2.14.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "2cbd119bf1961c28788310963dc80ba65f58cdeec1dd139c8bdb1240faa2c36f"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "Apache-2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/gson-2.14.0.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "guava-33.7.1-jre.jar",
+      "purl": "pkg:maven/com.google.guava/guava@33.7.1-jre",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "796d8e28ac64e83a47c4c5935a8fecc4682650a04bbdead738ef0f5a3a0e6c46"
+        }
+      ],
+      "licenses": [
+
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/guava-33.7.1-jre.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "hall-0.0.1.jar",
+      "purl": null,
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "5dd2c46451ebd4a82815cc100cf4ea112a49620449bce06ef8116e98087cd8c7"
+        }
+      ],
+      "licenses": [
+
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/hall-0.0.1.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": "server/LegacyAccountServer/hall/target/hall-0.0.1.jar"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "hibernate-core-7.4.1.Final.jar",
+      "purl": "pkg:maven/org.hibernate.orm/hibernate-core@7.4.1.Final",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "e4bfe7df423f3555f322eefb1ab51f28df439844610ef76c36d92a85d483004e"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "Apache License, Version 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/hibernate-core-7.4.1.Final.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "hibernate-models-1.1.1.jar",
+      "purl": "pkg:maven/org.hibernate.models/hibernate-models@1.1.1",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "7cb645f2ebe5fcb63e21d26259cef62d93a1ca77c400bda6992c92cb19826a89"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "Apache License Version 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/hibernate-models-1.1.1.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "hibernate-validator-9.1.0.Final.jar",
+      "purl": "pkg:maven/org.hibernate.validator/hibernate-validator@9.1.0.Final",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "4dea20c780d12e8ad6e1fe7d695460af74f8668df9eb58910991919194412188"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "Apache License 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/hibernate-validator-9.1.0.Final.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "istack-commons-runtime-4.1.2.jar",
+      "purl": "pkg:maven/com.sun.istack/istack-commons-runtime@4.1.2",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "7fd6792361f4dd00f8c56af4a20cecc0066deea4a8f3dec38348af23fc2296ee"
+        }
+      ],
+      "licenses": [
+
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/istack-commons-runtime-4.1.2.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "j2objc-annotations-3.1.jar",
+      "purl": "pkg:maven/com.google.j2objc/j2objc-annotations@3.1",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "84d3a150518485f8140ea99b8a985656749629f6433c92b80c75b36aba3b099b"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "Apache License, Version 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/j2objc-annotations-3.1.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "jackson-annotations-2.22.jar",
+      "purl": "pkg:maven/com.fasterxml.jackson.core/jackson-annotations@2.22",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "21ddb598807d3a51a876704eb979d9296e1c6a6f47ab1826ff88c6d6a127a2d0"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "The Apache Software License, Version 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/jackson-annotations-2.22.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "jackson-core-2.21.4.jar",
+      "purl": "pkg:maven/com.fasterxml.jackson.core/jackson-core@2.21.4",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "4b40a06396f239f8de2da57419adde6e94e5edc18a2171d471ea05eeed4e5c2d"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "The Apache Software License, Version 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/jackson-core-2.21.4.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "jackson-core-3.2.2.jar",
+      "purl": "pkg:maven/tools.jackson.core/jackson-core@3.2.2",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "93d9090b8c505b2f942ad85dd5821e8c401bfbafafff11708a3fbe2ef9da18ca"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "The Apache Software License, Version 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/jackson-core-3.2.2.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "jackson-databind-3.2.2.jar",
+      "purl": "pkg:maven/tools.jackson.core/jackson-databind@3.2.2",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "d27509f990d990fc779a01f3f612005ff6c67dc3bb0a720f5f4d9b2f5c713401"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "The Apache Software License, Version 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/jackson-databind-3.2.2.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "jakarta.activation-api-2.1.4.jar",
+      "purl": "pkg:maven/jakarta.activation/jakarta.activation-api@2.1.4",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "c9db52100ce6c8aac95cc39075f95720d2e561b11f8051b81c121ad4effd7004"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "EDL 1.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/jakarta.activation-api-2.1.4.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "jakarta.annotation-api-3.0.0.jar",
+      "purl": "pkg:maven/jakarta.annotation/jakarta.annotation-api@3.0.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "b01f55552284cfb149411e64eabca75e942d26d2e1786b32914250e4330afaa2"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "EPL 2.0"
+          }
+        },
+        {
+          "license": {
+            "name": "GPL2 w/ CPE"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/jakarta.annotation-api-3.0.0.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "jakarta.inject-api-2.0.1.jar",
+      "purl": "pkg:maven/jakarta.inject/jakarta.inject-api@2.0.1",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "f7dc98062fccf14126abb751b64fab12c312566e8cbdc8483598bffcea93af7c"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "The Apache Software License, Version 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/jakarta.inject-api-2.0.1.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "jakarta.persistence-api-3.2.0.jar",
+      "purl": "pkg:maven/jakarta.persistence/jakarta.persistence-api@3.2.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "be8a26b0e75c84c1b7600f759256fbc68d60333d89ec0ce3f784fc3ffa09aa8c"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "Eclipse Public License v. 2.0"
+          }
+        },
+        {
+          "license": {
+            "name": "Eclipse Distribution License v. 1.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/jakarta.persistence-api-3.2.0.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "jakarta.transaction-api-2.0.1.jar",
+      "purl": "pkg:maven/jakarta.transaction/jakarta.transaction-api@2.0.1",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "50c0a7c760c13ae6c042acf182b28f0047413db95b4636fb8879bcffab5ba875"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "EPL 2.0"
+          }
+        },
+        {
+          "license": {
+            "name": "GPL2 w/ CPE"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/jakarta.transaction-api-2.0.1.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "jakarta.validation-api-3.1.1.jar",
+      "purl": "pkg:maven/jakarta.validation/jakarta.validation-api@3.1.1",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "63ce00156388c365f3ac1be71fcfaf114682fc0c452020b5df6e7ec236e142ab"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "Apache License 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/jakarta.validation-api-3.1.1.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "jakarta.xml.bind-api-4.0.5.jar",
+      "purl": "pkg:maven/jakarta.xml.bind/jakarta.xml.bind-api@4.0.5",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "5e489b6c874c4119e003ff1403db523ee3a8959ec499f3de29e77245efccf216"
+        }
+      ],
+      "licenses": [
+
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/jakarta.xml.bind-api-4.0.5.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "javassist-3.32.0-GA.jar",
+      "purl": "pkg:maven/org.javassist/javassist@3.32.0-GA",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "712ef75bc3406782bb4529b0408cce8155b53f2124c6ae03d2c5fbfa13d62c1c"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "MPL 1.1"
+          }
+        },
+        {
+          "license": {
+            "name": "LGPL 2.1"
+          }
+        },
+        {
+          "license": {
+            "name": "Apache License 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/javassist-3.32.0-GA.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "jaxb-core-4.0.9.jar",
+      "purl": "pkg:maven/org.glassfish.jaxb/jaxb-core@4.0.9",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "6b014df25d22c8446cc2df0a378c5b2137747f197a731d99eb24c756b26f7e8d"
+        }
+      ],
+      "licenses": [
+
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/jaxb-core-4.0.9.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "jaxb-runtime-4.0.9.jar",
+      "purl": "pkg:maven/org.glassfish.jaxb/jaxb-runtime@4.0.9",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "93e09b7316b6af68d6e2083e4c297daf28e8957f45d725077af812c0b12c39ab"
+        }
+      ],
+      "licenses": [
+
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/jaxb-runtime-4.0.9.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "jboss-logging-3.6.3.Final.jar",
+      "purl": "pkg:maven/org.jboss.logging/jboss-logging@3.6.3.Final",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "7c12ee575508f81e22b1db9334b969d0ec54ef0fd1dcba24eeab1a44235fc366"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "Apache License 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/jboss-logging-3.6.3.Final.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "jctools-core-4.0.6.jar",
+      "purl": "pkg:maven/org.jctools/jctools-core@4.0.6",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "374fb4660436a70ba131e15ca7bab8423424c737898a894fb276841c94bdd962"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "Apache License, Version 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/jctools-core-4.0.6.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "joda-time-2.14.3.jar",
+      "purl": "pkg:maven/joda-time/joda-time@2.14.3",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "43533e9df6431839d0865c897d7d43a9ca75378a52b7f60b3e08b037a5c94986"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "Apache License, Version 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/joda-time-2.14.3.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "jodd-util-6.3.0.jar",
+      "purl": "pkg:maven/org.jodd/jodd-util@6.3.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "e5c676715897124101f74900dd1f98ebbcad9da3ab2dffbac6e7712612094427"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "BSD-2-Clause"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/jodd-util-6.3.0.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "jprotobuf-2.4.23.jar",
+      "purl": "pkg:maven/com.baidu/jprotobuf@2.4.23",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "83bd764d2f260a3b0195b1a898f1a001a2f1b469ca51c9f36eb2238ed31f6b96"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "Apache 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/jprotobuf-2.4.23.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "jprotobuf-protoparser-1.0.1.jar",
+      "purl": "pkg:maven/com.baidu/jprotobuf-protoparser@1.0.1",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "7c95868ebcfa96763b5a884c2276eb66334977e47804d85c858195049919dbf6"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "Apache 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/jprotobuf-protoparser-1.0.1.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "jspecify-1.0.0.jar",
+      "purl": "pkg:maven/org.jspecify/jspecify@1.0.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "1fad6e6be7557781e4d33729d49ae1cdc8fdda6fe477bb0cc68ce351eafdfbab"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "The Apache License, Version 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/jspecify-1.0.0.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "jsr305-3.0.2.jar",
+      "purl": "pkg:maven/com.google.code.findbugs/jsr305@3.0.2",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "766ad2a0783f2687962c8ad74ceecc38a28b9f72a2d085ee438b7813e928d0c7"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "The Apache Software License, Version 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/jsr305-3.0.2.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "jul-to-slf4j-2.0.18.jar",
+      "purl": "pkg:maven/org.slf4j/jul-to-slf4j@2.0.18",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "cbb7d1aaaa9e871eb1a06594abd911bf97027152976edf1edc315be75239204e"
+        }
+      ],
+      "licenses": [
+
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/jul-to-slf4j-2.0.18.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "kotlin-stdlib-2.3.21.jar",
+      "purl": "pkg:maven/org.jetbrains.kotlin/kotlin-stdlib@2.3.21",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "6f64eac736db9434dd6925b4a518b9d1d17177652320c37916cf9ba3ce7d7d7a"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "Apache-2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/kotlin-stdlib-2.3.21.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "kryo-5.6.2.jar",
+      "purl": "pkg:maven/com.esotericsoftware/kryo@5.6.2",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "4e8b1d2f4977187af8a51a957329722dc1cdc56a7c94fbb5a791e82897629cff"
+        }
+      ],
+      "licenses": [
+
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/kryo-5.6.2.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "lettuce-core-7.5.2.RELEASE.jar",
+      "purl": "pkg:maven/io.lettuce/lettuce-core@7.5.2.RELEASE",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "86e245a6cfc36a40aaa1f54027e639a70cb4008d12717164041aefe9bbd072c1"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "MIT"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/lettuce-core-7.5.2.RELEASE.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar",
+      "purl": "pkg:maven/com.google.guava/listenablefuture@9999.0-empty-to-avoid-conflict-with-guava",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "b372a037d4230aa57fbeffdef30fd6123f9c0c2db85d0aced00c91b974f33f99"
+        }
+      ],
+      "licenses": [
+
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "log4j-api-2.25.4.jar",
+      "purl": "pkg:maven/org.apache.logging.log4j/log4j-api@2.25.4",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "c4b642a7f047275215de117e0e3847eb2c7711d84a0aa7433e7b3c096daf341d"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "Apache-2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/log4j-api-2.25.4.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "log4j-to-slf4j-2.25.4.jar",
+      "purl": "pkg:maven/org.apache.logging.log4j/log4j-to-slf4j@2.25.4",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "d7b78fc0aaaa5e8ada388b29d718b0ab187e512965bed0b259bb4ab299f13db2"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "Apache-2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/log4j-to-slf4j-2.25.4.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "logback-classic-1.5.34.jar",
+      "purl": "pkg:maven/ch.qos.logback/logback-classic@1.5.34",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "b65e05076a5c1aadb659b4fe4bc5fee31cb26cd70390292eb03e4a7a24cff10f"
+        }
+      ],
+      "licenses": [
+
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/logback-classic-1.5.34.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "logback-core-1.5.34.jar",
+      "purl": "pkg:maven/ch.qos.logback/logback-core@1.5.34",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "42eda264c0c650c2bec59e66151a88b708a8663dc1b49d788202d53e78b8caae"
+        }
+      ],
+      "licenses": [
+
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/logback-core-1.5.34.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "lz4-java-1.11.2.jar",
+      "purl": "pkg:maven/at.yawk.lz4/lz4-java@1.11.2",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "8a7458657938e9b692224db83aac458c13abd7a59ab75c3d3b08bd2233a646a2"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "Apache License, Version 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/lz4-java-1.11.2.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "micrometer-commons-1.17.0.jar",
+      "purl": "pkg:maven/io.micrometer/micrometer-commons@1.17.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "03919dc71e2417ec4b5c254c4ba924963c972e124190f73cdcb68ed51c6eede6"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "The Apache Software License, Version 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/micrometer-commons-1.17.0.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "micrometer-observation-1.17.0.jar",
+      "purl": "pkg:maven/io.micrometer/micrometer-observation@1.17.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "2fc95a327578d3b2a81c3ff40e646a4a21e46b0153ccbbf91690142bf80d9661"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "The Apache Software License, Version 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/micrometer-observation-1.17.0.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "minlog-1.3.1.jar",
+      "purl": "pkg:maven/com.esotericsoftware/minlog@1.3.1",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "5d4d632cfbebfe0a7644501cc303570b691406181bee65e9916b921c767d7c72"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "3-Clause BSD License"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/minlog-1.3.1.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "mongodb-driver-core-5.10.0.jar",
+      "purl": "pkg:maven/org.mongodb/mongodb-driver-core@5.10.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "5fa92c726704a7dd3211874e34db6cb7ddfedfd1ad32883b588267ee077829f1"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "The Apache License, Version 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/mongodb-driver-core-5.10.0.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "mongodb-driver-sync-5.10.0.jar",
+      "purl": "pkg:maven/org.mongodb/mongodb-driver-sync@5.10.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "7a89c4e454ea102efaa8b379068f2d24d191f5f68583622c7764d1ce0d970e38"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "The Apache License, Version 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/mongodb-driver-sync-5.10.0.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "mysql-connector-j-9.7.0.jar",
+      "purl": "pkg:maven/com.mysql/mysql-connector-j@9.7.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "0353648eaa1c91e0f4020c959abf756bc866ffd583df22ae6b6f6e0cbd43eb44"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "The GNU General Public License, v2 with Universal FOSS Exception, v1.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/mysql-connector-j-9.7.0.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "netty-all-4.2.17.Final.jar",
+      "purl": "pkg:maven/io.netty/netty-all@4.2.17.Final",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "fd66659c35601336df8c3586bfc504549bbedce29755dac6572287f9443c4237"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "Apache License, Version 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/netty-all-4.2.17.Final.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "netty-buffer-4.2.17.Final.jar",
+      "purl": "pkg:maven/io.netty/netty-buffer@4.2.17.Final",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "0d249178ec0204b35a6ad3e5ac8a6c2ecb3eb496c6cdae40b8eca4fa3cb6a0c7"
+        }
+      ],
+      "licenses": [
+
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/netty-buffer-4.2.17.Final.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "netty-codec-4.2.17.Final.jar",
+      "purl": "pkg:maven/io.netty/netty-codec@4.2.17.Final",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "ac76f972446a2f72818441f746d0e73c58519a4687bf680d2b687d7dc5e28e2e"
+        }
+      ],
+      "licenses": [
+
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/netty-codec-4.2.17.Final.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "netty-codec-base-4.2.17.Final.jar",
+      "purl": "pkg:maven/io.netty/netty-codec-base@4.2.17.Final",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "3b92bc3b7d231fa6f4889b2b9281cae6b634428b8121fb1b9b5fccba1543d352"
+        }
+      ],
+      "licenses": [
+
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/netty-codec-base-4.2.17.Final.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "netty-codec-classes-quic-4.2.17.Final.jar",
+      "purl": "pkg:maven/io.netty/netty-codec-classes-quic@4.2.17.Final",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "542e718fdd8fa4f6d57bef9f91a5fa01200940cb8b381fd4c21fb5c170276c71"
+        }
+      ],
+      "licenses": [
+
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/netty-codec-classes-quic-4.2.17.Final.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "netty-codec-compression-4.2.17.Final.jar",
+      "purl": "pkg:maven/io.netty/netty-codec-compression@4.2.17.Final",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "425b287a1f36986a5c8edd76379a49decdf99d284f3454f3fa607a073bfb2c18"
+        }
+      ],
+      "licenses": [
+
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/netty-codec-compression-4.2.17.Final.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "netty-codec-dns-4.2.17.Final.jar",
+      "purl": "pkg:maven/io.netty/netty-codec-dns@4.2.17.Final",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "394f4649a824683735f28b299d0a48caff059ae30e654e2abf8b3f392af4d374"
+        }
+      ],
+      "licenses": [
+
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/netty-codec-dns-4.2.17.Final.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "netty-codec-haproxy-4.2.17.Final.jar",
+      "purl": "pkg:maven/io.netty/netty-codec-haproxy@4.2.17.Final",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "6650894f9c429fc29ad7876092a25cc973e8435d13fa70c0e48aab1ca73a6d37"
+        }
+      ],
+      "licenses": [
+
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/netty-codec-haproxy-4.2.17.Final.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "netty-codec-http-4.2.17.Final.jar",
+      "purl": "pkg:maven/io.netty/netty-codec-http@4.2.17.Final",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "a5bde91ac82ab90579df6559c0bd7ea6ae37460e3f18116ab4122194283b3669"
+        }
+      ],
+      "licenses": [
+
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/netty-codec-http-4.2.17.Final.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "netty-codec-http2-4.2.17.Final.jar",
+      "purl": "pkg:maven/io.netty/netty-codec-http2@4.2.17.Final",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "450af97424cf58d2d72ad4d476d9e290f2fdf69fa181c289a6e6dd176bb86a7b"
+        }
+      ],
+      "licenses": [
+
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/netty-codec-http2-4.2.17.Final.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "netty-codec-http3-4.2.17.Final.jar",
+      "purl": "pkg:maven/io.netty/netty-codec-http3@4.2.17.Final",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "9fcf9873e31b2899c407b42d320aaf6afeb69807e63d9a865c391b4339fa24c7"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "Apache License, Version 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/netty-codec-http3-4.2.17.Final.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "netty-codec-marshalling-4.2.17.Final.jar",
+      "purl": "pkg:maven/io.netty/netty-codec-marshalling@4.2.17.Final",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "ee5ffed638da6b7e2b4567559bd5f78b18f635cdaa4f3b6d23aa27ccf6cb57c2"
+        }
+      ],
+      "licenses": [
+
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/netty-codec-marshalling-4.2.17.Final.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "netty-codec-memcache-4.2.17.Final.jar",
+      "purl": "pkg:maven/io.netty/netty-codec-memcache@4.2.17.Final",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "7627b976a405de4169d972acf7e170a4dfc27d5a0d6e5e2bcc41ea2cb5f6fef9"
+        }
+      ],
+      "licenses": [
+
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/netty-codec-memcache-4.2.17.Final.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "netty-codec-mqtt-4.2.17.Final.jar",
+      "purl": "pkg:maven/io.netty/netty-codec-mqtt@4.2.17.Final",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "420ddb6d8135165f8755804230033d6b1093da146169c30eb36dbac3ed3b394d"
+        }
+      ],
+      "licenses": [
+
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/netty-codec-mqtt-4.2.17.Final.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "netty-codec-protobuf-4.2.17.Final.jar",
+      "purl": "pkg:maven/io.netty/netty-codec-protobuf@4.2.17.Final",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "44b2fcc4bc1d6c01edafe6ae6c8a7de7c3c5bad59697a93b6b879a45a78a5387"
+        }
+      ],
+      "licenses": [
+
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/netty-codec-protobuf-4.2.17.Final.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "netty-codec-redis-4.2.17.Final.jar",
+      "purl": "pkg:maven/io.netty/netty-codec-redis@4.2.17.Final",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "7d72146f09c2e63be307a6a24516e1bc208bc345328b9c59540da131ccf5754c"
+        }
+      ],
+      "licenses": [
+
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/netty-codec-redis-4.2.17.Final.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "netty-codec-smtp-4.2.17.Final.jar",
+      "purl": "pkg:maven/io.netty/netty-codec-smtp@4.2.17.Final",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "32e30ffe89acda2a457f16cf6f8b366f58d0b4b025563803bb0854962b81de3c"
+        }
+      ],
+      "licenses": [
+
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/netty-codec-smtp-4.2.17.Final.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "netty-codec-socks-4.2.17.Final.jar",
+      "purl": "pkg:maven/io.netty/netty-codec-socks@4.2.17.Final",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "6b5760cc512cee1f7515e25010892471f3995045f84cd6c1d1b6e6cee534733c"
+        }
+      ],
+      "licenses": [
+
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/netty-codec-socks-4.2.17.Final.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "netty-codec-stomp-4.2.17.Final.jar",
+      "purl": "pkg:maven/io.netty/netty-codec-stomp@4.2.17.Final",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "179dd61246bbe15468032a071faa21d392bfeaff9341a80e5ce2b744e509e687"
+        }
+      ],
+      "licenses": [
+
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/netty-codec-stomp-4.2.17.Final.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "netty-codec-xml-4.2.17.Final.jar",
+      "purl": "pkg:maven/io.netty/netty-codec-xml@4.2.17.Final",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "c453be5dda52127ac82e4883cf03b3326741ff460a4ceebe9a54b23058537fb1"
+        }
+      ],
+      "licenses": [
+
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/netty-codec-xml-4.2.17.Final.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "netty-common-4.2.17.Final.jar",
+      "purl": "pkg:maven/io.netty/netty-common@4.2.17.Final",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "502aae2a6680e9bca3558a3fa098f06dc4d87340b8b714e925a6d690871c092a"
+        }
+      ],
+      "licenses": [
+
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/netty-common-4.2.17.Final.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "netty-handler-4.2.17.Final.jar",
+      "purl": "pkg:maven/io.netty/netty-handler@4.2.17.Final",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "4df11c7520b556c5e2c84b939182699d48fcbb09e97a6bb5e1c0b6835227d126"
+        }
+      ],
+      "licenses": [
+
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/netty-handler-4.2.17.Final.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "netty-handler-proxy-4.2.17.Final.jar",
+      "purl": "pkg:maven/io.netty/netty-handler-proxy@4.2.17.Final",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "94089bea6ba6f3248725f2bf233aa2bc70ac1547c21b9bdfc7548f710a845aa0"
+        }
+      ],
+      "licenses": [
+
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/netty-handler-proxy-4.2.17.Final.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "netty-handler-ssl-ocsp-4.2.17.Final.jar",
+      "purl": "pkg:maven/io.netty/netty-handler-ssl-ocsp@4.2.17.Final",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "6cf70966f679e58c9c5fcb3e85cac30ab112911bdfd0645522bb5ee15ceffc7f"
+        }
+      ],
+      "licenses": [
+
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/netty-handler-ssl-ocsp-4.2.17.Final.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "netty-resolver-4.2.17.Final.jar",
+      "purl": "pkg:maven/io.netty/netty-resolver@4.2.17.Final",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "7a4b599b9c0c29a505d3b7311f142df883fb27d0f67495a7cbaf533b0e456623"
+        }
+      ],
+      "licenses": [
+
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/netty-resolver-4.2.17.Final.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "netty-resolver-dns-4.2.17.Final.jar",
+      "purl": "pkg:maven/io.netty/netty-resolver-dns@4.2.17.Final",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "d332481c22136a68c2ee9e45e86212174932587d93a5dd4d201e196828bf9f91"
+        }
+      ],
+      "licenses": [
+
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/netty-resolver-dns-4.2.17.Final.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "netty-resolver-dns-classes-macos-4.2.17.Final.jar",
+      "purl": "pkg:maven/io.netty/netty-resolver-dns-classes-macos@4.2.17.Final",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "e5708301fe173ce03d31f1a76ac0682d0a7b955451c968314a13e661855b33c5"
+        }
+      ],
+      "licenses": [
+
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/netty-resolver-dns-classes-macos-4.2.17.Final.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "netty-transport-4.2.17.Final.jar",
+      "purl": "pkg:maven/io.netty/netty-transport@4.2.17.Final",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "d2409ce3a735cbab4188d0ea5d82abed823a6a07a8389f49af4a9e1243a562bc"
+        }
+      ],
+      "licenses": [
+
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/netty-transport-4.2.17.Final.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "netty-transport-classes-epoll-4.2.17.Final.jar",
+      "purl": "pkg:maven/io.netty/netty-transport-classes-epoll@4.2.17.Final",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "4e21d8a2e3429d9de967a716d58119f57585786bd2f7213bf5b27770425269de"
+        }
+      ],
+      "licenses": [
+
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/netty-transport-classes-epoll-4.2.17.Final.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "netty-transport-classes-io_uring-4.2.17.Final.jar",
+      "purl": "pkg:maven/io.netty/netty-transport-classes-io_uring@4.2.17.Final",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "c6dafc0fd8514b816b9ba724a031c21de6b0fe3215773feb38b6b0bff15a9f34"
+        }
+      ],
+      "licenses": [
+
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/netty-transport-classes-io_uring-4.2.17.Final.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "netty-transport-classes-kqueue-4.2.17.Final.jar",
+      "purl": "pkg:maven/io.netty/netty-transport-classes-kqueue@4.2.17.Final",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "f0b2dd4757a22345b0b28e2856dc7ee44e5dea256cc520ddc27e4dce4ea9efb3"
+        }
+      ],
+      "licenses": [
+
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/netty-transport-classes-kqueue-4.2.17.Final.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "netty-transport-native-unix-common-4.2.17.Final.jar",
+      "purl": "pkg:maven/io.netty/netty-transport-native-unix-common@4.2.17.Final",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "e01aa467b9104de54a57c08c290f70b22e53ec97cf5583c87c112170ef5832cc"
+        }
+      ],
+      "licenses": [
+
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/netty-transport-native-unix-common-4.2.17.Final.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "netty-transport-rxtx-4.2.17.Final.jar",
+      "purl": "pkg:maven/io.netty/netty-transport-rxtx@4.2.17.Final",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "2940945bcf9b249ebf06c1c2cefa9266eafdf4abd45dc178a9127e4824208bb0"
+        }
+      ],
+      "licenses": [
+
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/netty-transport-rxtx-4.2.17.Final.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "netty-transport-sctp-4.2.17.Final.jar",
+      "purl": "pkg:maven/io.netty/netty-transport-sctp@4.2.17.Final",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "5345dabce2cbf10bc9c6a80a8d7beeaa4cd975028aa04f1903a96b8e440529f6"
+        }
+      ],
+      "licenses": [
+
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/netty-transport-sctp-4.2.17.Final.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "netty-transport-udt-4.2.17.Final.jar",
+      "purl": "pkg:maven/io.netty/netty-transport-udt@4.2.17.Final",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "bd3d40e949077dd0f0ba62e87db5f0f55afc8fab99d20450ec22c2b84267badb"
+        }
+      ],
+      "licenses": [
+
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/netty-transport-udt-4.2.17.Final.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "objenesis-3.4.jar",
+      "purl": "pkg:maven/org.objenesis/objenesis@3.4",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "95488102feaf2e2858adf6b299353677dac6c15294006f8ed1c5556f8e3cd251"
+        }
+      ],
+      "licenses": [
+
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/objenesis-3.4.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "okhttp-jvm-5.3.0.jar",
+      "purl": "pkg:maven/com.squareup.okhttp3/okhttp-jvm@5.3.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "7d6033eea0eb0045615e36bd5a250f2e0320885ffedb99d5c27a85e6f5f2f8ec"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "The Apache Software License, Version 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/okhttp-jvm-5.3.0.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "okio-jvm-3.18.1.jar",
+      "purl": "pkg:maven/com.squareup.okio/okio-jvm@3.18.1",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "b97b640557a650d15411f2be29aef558c4e422a83653cb18ba494311dbed18be"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "The Apache Software License, Version 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/okio-jvm-3.18.1.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "opentelemetry-api-1.62.0.jar",
+      "purl": "pkg:maven/io.opentelemetry/opentelemetry-api@1.62.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "d58143928c049233653e6bf1282ff8a767ebdd5e6a82b3f336158c30e40b431d"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "The Apache License, Version 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/opentelemetry-api-1.62.0.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "opentelemetry-common-1.62.0.jar",
+      "purl": "pkg:maven/io.opentelemetry/opentelemetry-common@1.62.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "d6310bebde67d65c1519696728d8604005315ed08ab14071956fc0826fd71815"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "The Apache License, Version 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/opentelemetry-common-1.62.0.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "opentelemetry-context-1.62.0.jar",
+      "purl": "pkg:maven/io.opentelemetry/opentelemetry-context@1.62.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "8ec86c3609222b9b6307bf40154c1f1c288d1f18ada0155409e7797adbdbe517"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "The Apache License, Version 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/opentelemetry-context-1.62.0.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "opentelemetry-exporter-common-1.62.0.jar",
+      "purl": "pkg:maven/io.opentelemetry/opentelemetry-exporter-common@1.62.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "50f84b5b58048f69bd684ec874413944209995e01c177200555c151dabfe1ec9"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "The Apache License, Version 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/opentelemetry-exporter-common-1.62.0.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "opentelemetry-exporter-logging-1.62.0.jar",
+      "purl": "pkg:maven/io.opentelemetry/opentelemetry-exporter-logging@1.62.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "2fa59f0b8b7e6ffbde3dbbafac995fb5191ff00c634bd193aa00093ef2601063"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "The Apache License, Version 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/opentelemetry-exporter-logging-1.62.0.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "opentelemetry-exporter-logging-otlp-1.62.0.jar",
+      "purl": "pkg:maven/io.opentelemetry/opentelemetry-exporter-logging-otlp@1.62.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "acdc6d168b451b6a8979b7f53ccfc46f731b385391662452153edfdb5ef5bdff"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "The Apache License, Version 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/opentelemetry-exporter-logging-otlp-1.62.0.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "opentelemetry-exporter-otlp-1.62.0.jar",
+      "purl": "pkg:maven/io.opentelemetry/opentelemetry-exporter-otlp@1.62.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "59df47fdc4bef6866ed39eb6a04892c68e28d7938eaeaa21801ac5dd2dcb0d65"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "The Apache License, Version 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/opentelemetry-exporter-otlp-1.62.0.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "opentelemetry-exporter-otlp-common-1.62.0.jar",
+      "purl": "pkg:maven/io.opentelemetry/opentelemetry-exporter-otlp-common@1.62.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "79eaaaf044df15209ee1461b668f7c93547734a793d6cf6ad5e57290d3f8c0ea"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "The Apache License, Version 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/opentelemetry-exporter-otlp-common-1.62.0.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "opentelemetry-exporter-prometheus-1.44.1-alpha.jar",
+      "purl": "pkg:maven/io.opentelemetry/opentelemetry-exporter-prometheus@1.44.1-alpha",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "0d339f76c0d331ae1edd38765ff249e94efa6116bdcead642459ce76036a4b70"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "The Apache License, Version 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/opentelemetry-exporter-prometheus-1.44.1-alpha.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "opentelemetry-exporter-sender-okhttp-1.62.0.jar",
+      "purl": "pkg:maven/io.opentelemetry/opentelemetry-exporter-sender-okhttp@1.62.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "8c9b2c4394543c4f28e0a6c66d16259a1bfaf67a47a689fb001bd9a92dafb6ea"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "The Apache License, Version 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/opentelemetry-exporter-sender-okhttp-1.62.0.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "opentelemetry-sdk-1.62.0.jar",
+      "purl": "pkg:maven/io.opentelemetry/opentelemetry-sdk@1.62.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "99d421ea0e5a1ca8e45cb67f1d5db7f0e8a718dd55eeb86c1323597e1f10aed3"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "The Apache License, Version 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/opentelemetry-sdk-1.62.0.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "opentelemetry-sdk-common-1.62.0.jar",
+      "purl": "pkg:maven/io.opentelemetry/opentelemetry-sdk-common@1.62.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "bf9d13df9a50e49a5db664ba8ebfad79f73f03219d2ac6f6709d432f6896eba0"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "The Apache License, Version 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/opentelemetry-sdk-common-1.62.0.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "opentelemetry-sdk-extension-autoconfigure-spi-1.62.0.jar",
+      "purl": "pkg:maven/io.opentelemetry/opentelemetry-sdk-extension-autoconfigure-spi@1.62.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "220c22bcf420faae59b7225c789f572eaa22e7af2304d55508aaf2a3efcfecf8"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "The Apache License, Version 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/opentelemetry-sdk-extension-autoconfigure-spi-1.62.0.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "opentelemetry-sdk-logs-1.62.0.jar",
+      "purl": "pkg:maven/io.opentelemetry/opentelemetry-sdk-logs@1.62.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "51c94329bc8e335ed79027d29d49c075c11b91b39e48679edf590e784a392406"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "The Apache License, Version 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/opentelemetry-sdk-logs-1.62.0.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "opentelemetry-sdk-metrics-1.62.0.jar",
+      "purl": "pkg:maven/io.opentelemetry/opentelemetry-sdk-metrics@1.62.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "50b057fbf063f6801f623212f4b51b6a3fefc77837314a1316b2f54894c8b5d4"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "The Apache License, Version 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/opentelemetry-sdk-metrics-1.62.0.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "opentelemetry-sdk-trace-1.62.0.jar",
+      "purl": "pkg:maven/io.opentelemetry/opentelemetry-sdk-trace@1.62.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "fb6c0953b229a6da1db813135ae11a621bf9da56b7356c1e93049ed4b088c232"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "The Apache License, Version 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/opentelemetry-sdk-trace-1.62.0.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "perfmark-api-0.27.0.jar",
+      "purl": "pkg:maven/io.perfmark/perfmark-api@0.27.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "c7b478503ec524e55df19b424d46d27c8a68aeb801664fadd4f069b71f52d0f6"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "Apache 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/perfmark-api-0.27.0.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "prometheus-metrics-config-1.5.1.jar",
+      "purl": "pkg:maven/io.prometheus/prometheus-metrics-config@1.5.1",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "77ac62a4676e82d5428f259da4541b30c9f6dba245d25ed1792e88022ce0f849"
+        }
+      ],
+      "licenses": [
+
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/prometheus-metrics-config-1.5.1.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "prometheus-metrics-exporter-common-1.5.1.jar",
+      "purl": "pkg:maven/io.prometheus/prometheus-metrics-exporter-common@1.5.1",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "67e62cfc12b9566a04809fe722f686767ebab8a8951ac03b641ac9d27c1df965"
+        }
+      ],
+      "licenses": [
+
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/prometheus-metrics-exporter-common-1.5.1.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "prometheus-metrics-exporter-httpserver-1.5.1.jar",
+      "purl": "pkg:maven/io.prometheus/prometheus-metrics-exporter-httpserver@1.5.1",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "ef35dfe6546daa01715a0b6c888def3fb5084dee4d08d5aa26d11738f2c04c40"
+        }
+      ],
+      "licenses": [
+
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/prometheus-metrics-exporter-httpserver-1.5.1.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "prometheus-metrics-exposition-formats-1.5.1.jar",
+      "purl": "pkg:maven/io.prometheus/prometheus-metrics-exposition-formats@1.5.1",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "d21ac460c15baa4949101c72dc59cd80b7c7d359578be68b635fcf8aed057ab9"
+        }
+      ],
+      "licenses": [
+
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/prometheus-metrics-exposition-formats-1.5.1.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "prometheus-metrics-exposition-textformats-1.5.1.jar",
+      "purl": "pkg:maven/io.prometheus/prometheus-metrics-exposition-textformats@1.5.1",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "4b39c6034b2f63865e12a7ef297a5a3d88efa06fcd90c9ff1a5fccfac80289f5"
+        }
+      ],
+      "licenses": [
+
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/prometheus-metrics-exposition-textformats-1.5.1.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "prometheus-metrics-model-1.5.1.jar",
+      "purl": "pkg:maven/io.prometheus/prometheus-metrics-model@1.5.1",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "381d107abe62e353cdefee3f01e0ee4d71631ae155ba528f08c9c5393da1183e"
+        }
+      ],
+      "licenses": [
+
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/prometheus-metrics-model-1.5.1.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "protobuf-java-4.36.0.jar",
+      "purl": "pkg:maven/com.google.protobuf/protobuf-java@4.36.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "06515776b10bfed334b610273ffdd8884098a9333cb816314b4e4876bfcd2041"
+        }
+      ],
+      "licenses": [
+
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/protobuf-java-4.36.0.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "reactive-streams-1.0.4.jar",
+      "purl": "pkg:maven/org.reactivestreams/reactive-streams@1.0.4",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "f75ca597789b3dac58f61857b9ac2e1034a68fa672db35055a8fb4509e325f28"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "MIT-0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/reactive-streams-1.0.4.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "reactor-core-3.8.6.jar",
+      "purl": "pkg:maven/io.projectreactor/reactor-core@3.8.6",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "ffc646b225465efce55d3ea350f1bcd1d27d4a56e912323e316dd8e6d04bff11"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "Apache License, Version 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/reactor-core-3.8.6.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "redis-authx-core-0.1.1-beta2.jar",
+      "purl": "pkg:maven/redis.clients.authentication/redis-authx-core@0.1.1-beta2",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "cc56edb08b3df8562cddac108dca61907d21cc4ad04de05e9f5d1b01058390af"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "MIT"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/redis-authx-core-0.1.1-beta2.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "redisson-4.7.0.jar",
+      "purl": "pkg:maven/org.redisson/redisson@4.7.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "1b0bc132adbc8063d33cfad952c835c31dc2ab6f8c9cef26a08d7d5eeb1eb799"
+        }
+      ],
+      "licenses": [
+
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/redisson-4.7.0.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "redisson-spring-data-41-4.7.0.jar",
+      "purl": "pkg:maven/org.redisson/redisson-spring-data-41@4.7.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "15e7df93281ec9f94770ba37d6e6bc9cd99b3aa61b6aecfa62d7d8ed560813a5"
+        }
+      ],
+      "licenses": [
+
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/redisson-spring-data-41-4.7.0.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "reflectasm-1.11.9.jar",
+      "purl": "pkg:maven/com.esotericsoftware/reflectasm@1.11.9",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "712b44da79a5b7f47a28cbfcb3d8ecfc872fae349c48aa4d3e38a5d69956afce"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "3-Clause BSD License"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/reflectasm-1.11.9.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "reflections-0.9.11.jar",
+      "purl": "pkg:maven/org.reflections/reflections@0.9.11",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "cca88428f8a8919df885105833d45ff07bd26f985f96ee55690551216b58b4a1"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "WTFPL"
+          }
+        },
+        {
+          "license": {
+            "name": "The New BSD License"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/reflections-0.9.11.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "rocketmq-client-5.5.0.jar",
+      "purl": "pkg:maven/org.apache.rocketmq/rocketmq-client@5.5.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "50a00394c13545f6cc03a6dae3708142d81ca11a34fb60583c3bcc507ca21962"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "Apache License, Version 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/rocketmq-client-5.5.0.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "rocketmq-common-5.5.0.jar",
+      "purl": "pkg:maven/org.apache.rocketmq/rocketmq-common@5.5.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "74b7942dbc2ac66353717d22c104fcc6bb6e5c65108b1b9120e960e5d7c0b595"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "Apache License, Version 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/rocketmq-common-5.5.0.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "rocketmq-logback-classic-1.0.1.jar",
+      "purl": "pkg:maven/io.github.aliyunmq/rocketmq-logback-classic@1.0.1",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "5c1a776192eb54ffceb00a8fbb474077bf74982ebf2512b1101485f4c1982386"
+        }
+      ],
+      "licenses": [
+
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/rocketmq-logback-classic-1.0.1.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "rocketmq-remoting-5.5.0.jar",
+      "purl": "pkg:maven/org.apache.rocketmq/rocketmq-remoting@5.5.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "1273e2c5cd49692ac954f36a40251c7c89cbb7c5093a66bfcfbce7ce597dfd95"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "Apache License, Version 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/rocketmq-remoting-5.5.0.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "rocketmq-rocksdb-1.0.6.jar",
+      "purl": "pkg:maven/org.apache.rocketmq/rocketmq-rocksdb@1.0.6",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "28944d11fd6e5216b6275eb51eedd253c7f521e565ba44008fe2e5cdca4498a0"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "Apache License 2.0"
+          }
+        },
+        {
+          "license": {
+            "name": "GNU General Public License, version 2"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/rocketmq-rocksdb-1.0.6.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "rocketmq-slf4j-api-1.0.1.jar",
+      "purl": "pkg:maven/io.github.aliyunmq/rocketmq-slf4j-api@1.0.1",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "6ebbefd23c89e5617577100585e2205fe6d91413f7fae7af75e4eb397b1ee895"
+        }
+      ],
+      "licenses": [
+
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/rocketmq-slf4j-api-1.0.1.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "rxjava-3.1.12.jar",
+      "purl": "pkg:maven/io.reactivex.rxjava3/rxjava@3.1.12",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "1808a433ef55dcc2965523e512ab914a5d0d727228a2683ed7559d7cccf44e37"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "The Apache Software License, Version 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/rxjava-3.1.12.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "server-0.0.1.jar",
+      "purl": null,
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "ea92f588b9202be935e8ecabca5d676c7849b7753318cbb5c052df7be678479b"
+        }
+      ],
+      "licenses": [
+
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/server-0.0.1.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": "server/LegacyAccountServer/server/target/server-0.0.1.jar"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "slf4j-api-2.0.18.jar",
+      "purl": "pkg:maven/org.slf4j/slf4j-api@2.0.18",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "44508fd1576500688c790b190acdd16fec4f8c79a3e0b900afd70503cf055f55"
+        }
+      ],
+      "licenses": [
+
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/slf4j-api-2.0.18.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "snakeyaml-2.6.jar",
+      "purl": "pkg:maven/org.yaml/snakeyaml@2.6",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "c8f7a98e7394adda02f6317249710e4d1b4c7a25aa8c7eace0c2eea52eb8bf85"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "Apache License, Version 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/snakeyaml-2.6.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "spring-aop-7.0.8.jar",
+      "purl": "pkg:maven/org.springframework/spring-aop@7.0.8",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "1178f039e087884174e2affc46e484f4a8bd7f2a4e011d33dd9137709f740f80"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "Apache License, Version 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/spring-aop-7.0.8.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "spring-aspects-7.0.8.jar",
+      "purl": "pkg:maven/org.springframework/spring-aspects@7.0.8",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "f5e7eb54ff5b6355976977401852c0f0670312aa2f18c153d29ff02943883b06"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "Apache License, Version 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/spring-aspects-7.0.8.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "spring-beans-7.0.8.jar",
+      "purl": "pkg:maven/org.springframework/spring-beans@7.0.8",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "6ec2e361a8872a71d8b1ff66f1bcb8cfa29fcc437931998919da7cecfb59b45b"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "Apache License, Version 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/spring-beans-7.0.8.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "spring-boot-4.1.0.jar",
+      "purl": "pkg:maven/org.springframework.boot/spring-boot@4.1.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "b23951a3a7f867e38db4729b8594e1b72374516f386b1dd9cf4d5317d6d3f91f"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "Apache License, Version 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/spring-boot-4.1.0.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "spring-boot-autoconfigure-4.1.0.jar",
+      "purl": "pkg:maven/org.springframework.boot/spring-boot-autoconfigure@4.1.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "0fcaa3050ba835ca6b3879f81cd48dc590a6262f53bbf10d2a95c70bf7c048ac"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "Apache License, Version 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/spring-boot-autoconfigure-4.1.0.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "spring-boot-data-commons-4.1.0.jar",
+      "purl": "pkg:maven/org.springframework.boot/spring-boot-data-commons@4.1.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "44613292a91c231d81d39d05b10550b9988e7dcaf3b931b700e86fb0ac029937"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "Apache License, Version 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/spring-boot-data-commons-4.1.0.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "spring-boot-data-jpa-4.1.0.jar",
+      "purl": "pkg:maven/org.springframework.boot/spring-boot-data-jpa@4.1.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "5c9fe8ee830a45bba829e7bd150aa0633c18d50870561d85299af1e8418daac4"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "Apache License, Version 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/spring-boot-data-jpa-4.1.0.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "spring-boot-data-mongodb-4.1.0.jar",
+      "purl": "pkg:maven/org.springframework.boot/spring-boot-data-mongodb@4.1.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "03b2e77644ec0f063aee6baf60fdc9e85cccb5da0818b0b6ee02dfeea528ff61"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "Apache License, Version 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/spring-boot-data-mongodb-4.1.0.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "spring-boot-data-redis-4.1.0.jar",
+      "purl": "pkg:maven/org.springframework.boot/spring-boot-data-redis@4.1.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "a3cee050807b8e0b437678ab40319930dfcffc7eb1da9bb57bf8e10900967e24"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "Apache License, Version 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/spring-boot-data-redis-4.1.0.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "spring-boot-hibernate-4.1.0.jar",
+      "purl": "pkg:maven/org.springframework.boot/spring-boot-hibernate@4.1.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "fcdcf4b490a8fa0e6ce466334bc8ae752a80e1ff1c9eb58a101e2fff878a2863"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "Apache License, Version 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/spring-boot-hibernate-4.1.0.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "spring-boot-http-converter-4.1.0.jar",
+      "purl": "pkg:maven/org.springframework.boot/spring-boot-http-converter@4.1.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "f82c8913ea17a60630a5d26fa006cf79f28c7d920dbbef8760f5bc7053706fea"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "Apache License, Version 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/spring-boot-http-converter-4.1.0.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "spring-boot-jackson-4.1.0.jar",
+      "purl": "pkg:maven/org.springframework.boot/spring-boot-jackson@4.1.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "10b6e63a40b257168854093f413eaab8b8a9afb7e989fcc7f6732b42c3f173d1"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "Apache License, Version 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/spring-boot-jackson-4.1.0.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "spring-boot-jdbc-4.1.0.jar",
+      "purl": "pkg:maven/org.springframework.boot/spring-boot-jdbc@4.1.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "3b5aab97e72d8a15a40546c31365ed2090cf25451e18762add8ed22cbb4ead43"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "Apache License, Version 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/spring-boot-jdbc-4.1.0.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "spring-boot-jpa-4.1.0.jar",
+      "purl": "pkg:maven/org.springframework.boot/spring-boot-jpa@4.1.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "cd61301aebef59f3d2874ebd51862ed52d342d8c162874791475486232316d95"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "Apache License, Version 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/spring-boot-jpa-4.1.0.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "spring-boot-mongodb-4.1.0.jar",
+      "purl": "pkg:maven/org.springframework.boot/spring-boot-mongodb@4.1.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "da678b6e54f488d8e49a94535beaffb42ca4d6e3695bedf3302c41236a3f7a76"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "Apache License, Version 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/spring-boot-mongodb-4.1.0.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "spring-boot-netty-4.1.0.jar",
+      "purl": "pkg:maven/org.springframework.boot/spring-boot-netty@4.1.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "397e145402d1c556b1ac2ea154218ba88a83153adac9a7e5a4534dc6cc7d780c"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "Apache License, Version 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/spring-boot-netty-4.1.0.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "spring-boot-persistence-4.1.0.jar",
+      "purl": "pkg:maven/org.springframework.boot/spring-boot-persistence@4.1.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "d9d926224c738bd6152718c078134e3aea1057db4d6a452c37ad120893e0e4d6"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "Apache License, Version 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/spring-boot-persistence-4.1.0.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "spring-boot-servlet-4.1.0.jar",
+      "purl": "pkg:maven/org.springframework.boot/spring-boot-servlet@4.1.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "5f694a7c6c357a87032bc92db0e7e0e03b64010f77892e5992c86b10f568a5ae"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "Apache License, Version 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/spring-boot-servlet-4.1.0.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "spring-boot-sql-4.1.0.jar",
+      "purl": "pkg:maven/org.springframework.boot/spring-boot-sql@4.1.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "2826a5380675337f4c5b3e90db02279e68a2c9a7eb2b2ac312828c05fb827a9a"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "Apache License, Version 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/spring-boot-sql-4.1.0.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "spring-boot-starter-4.1.0.jar",
+      "purl": "pkg:maven/org.springframework.boot/spring-boot-starter@4.1.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "40352b3fc0834d5830f66d40100fc8afa8ac73e24a134c7779bd42b72f2d6506"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "Apache License, Version 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/spring-boot-starter-4.1.0.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "spring-boot-starter-data-jpa-4.1.0.jar",
+      "purl": "pkg:maven/org.springframework.boot/spring-boot-starter-data-jpa@4.1.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "9fe4c797d98e10c3761c1ff6bc14fa5ca68bc0e4b9941a951f39b99502f57d56"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "Apache License, Version 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/spring-boot-starter-data-jpa-4.1.0.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "spring-boot-starter-data-mongodb-4.1.0.jar",
+      "purl": "pkg:maven/org.springframework.boot/spring-boot-starter-data-mongodb@4.1.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "3e049c9b88647b26ae8273c64fe11bc74da8d744f36be6d1ab1307ee5db4cdfc"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "Apache License, Version 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/spring-boot-starter-data-mongodb-4.1.0.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "spring-boot-starter-data-redis-4.1.0.jar",
+      "purl": "pkg:maven/org.springframework.boot/spring-boot-starter-data-redis@4.1.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "85d475bcc240f0c8e2a142b0278d6063d11e64522823abe34d92a8c4dfb50c75"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "Apache License, Version 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/spring-boot-starter-data-redis-4.1.0.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "spring-boot-starter-jackson-4.1.0.jar",
+      "purl": "pkg:maven/org.springframework.boot/spring-boot-starter-jackson@4.1.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "4214c534cca5c7c7e1cf92db90f178a3dffdede503fb68ac3c0dd905f331431f"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "Apache License, Version 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/spring-boot-starter-jackson-4.1.0.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "spring-boot-starter-jdbc-4.1.0.jar",
+      "purl": "pkg:maven/org.springframework.boot/spring-boot-starter-jdbc@4.1.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "ce3e3dfdde267f11d21960715967b59713575cab8e5e8b3b00fba6a3bb022c99"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "Apache License, Version 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/spring-boot-starter-jdbc-4.1.0.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "spring-boot-starter-logging-4.1.0.jar",
+      "purl": "pkg:maven/org.springframework.boot/spring-boot-starter-logging@4.1.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "73a6a42d2b6a589bd722aa107800829d0b20b731d94135f53c4b744db8beafbf"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "Apache License, Version 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/spring-boot-starter-logging-4.1.0.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "spring-boot-starter-mongodb-4.1.0.jar",
+      "purl": "pkg:maven/org.springframework.boot/spring-boot-starter-mongodb@4.1.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "08894d052409a2e3014d4630dcfcbbc0103900559a29e2b0b68c9d12aebe85a3"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "Apache License, Version 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/spring-boot-starter-mongodb-4.1.0.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "spring-boot-starter-tomcat-4.1.0.jar",
+      "purl": "pkg:maven/org.springframework.boot/spring-boot-starter-tomcat@4.1.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "3e8cbd141ee6f4f2acfaf6320f1951307816f086de426d08eac19ef4a57d7e90"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "Apache License, Version 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/spring-boot-starter-tomcat-4.1.0.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "spring-boot-starter-tomcat-runtime-4.1.0.jar",
+      "purl": "pkg:maven/org.springframework.boot/spring-boot-starter-tomcat-runtime@4.1.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "135fa0b7a4232c64b975f348cab39e2259d36a18e14768f5f213147a4febf68d"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "Apache License, Version 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/spring-boot-starter-tomcat-runtime-4.1.0.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "spring-boot-starter-validation-4.1.0.jar",
+      "purl": "pkg:maven/org.springframework.boot/spring-boot-starter-validation@4.1.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "f4a15a63712f4a097347cae20dca5456be4a7d87a6f2791be3815ecf58638837"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "Apache License, Version 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/spring-boot-starter-validation-4.1.0.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "spring-boot-starter-web-4.1.0.jar",
+      "purl": "pkg:maven/org.springframework.boot/spring-boot-starter-web@4.1.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "d2732bdc307d3628d680d32758b300972109f499ec8e023bd663cdad002c67c6"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "Apache License, Version 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/spring-boot-starter-web-4.1.0.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "spring-boot-tomcat-4.1.0.jar",
+      "purl": "pkg:maven/org.springframework.boot/spring-boot-tomcat@4.1.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "011e662eb6f9f4a80c5dacf914cfca8a25a33fcd753736ec453dcf701337dd24"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "Apache License, Version 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/spring-boot-tomcat-4.1.0.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "spring-boot-transaction-4.1.0.jar",
+      "purl": "pkg:maven/org.springframework.boot/spring-boot-transaction@4.1.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "5402dfeef5d6633b485d6ce8d1cfb2116c7a55e70f8f5dbd31b69ca43e006f13"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "Apache License, Version 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/spring-boot-transaction-4.1.0.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "spring-boot-validation-4.1.0.jar",
+      "purl": "pkg:maven/org.springframework.boot/spring-boot-validation@4.1.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "38e3409dc8050e14afcfe14b7bb09f10d1077c7fbd33150ba2698d53dd79b4cc"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "Apache License, Version 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/spring-boot-validation-4.1.0.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "spring-boot-web-server-4.1.0.jar",
+      "purl": "pkg:maven/org.springframework.boot/spring-boot-web-server@4.1.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "a8541ccbd29f5a8db7e6092fa83463aa4d1c002fac07b8b5babe118ad6c4a3d3"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "Apache License, Version 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/spring-boot-web-server-4.1.0.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "spring-boot-webmvc-4.1.0.jar",
+      "purl": "pkg:maven/org.springframework.boot/spring-boot-webmvc@4.1.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "ab21735a550cbfefaa4ad6ffbb1a891592580ef05ad729cd2025bc0245862b55"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "Apache License, Version 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/spring-boot-webmvc-4.1.0.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "spring-context-7.0.8.jar",
+      "purl": "pkg:maven/org.springframework/spring-context@7.0.8",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "1eb7d552414ebac00e30ab3e809138d810785f6d2c4271db77cdf0181f308f19"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "Apache License, Version 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/spring-context-7.0.8.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "spring-context-support-7.0.8.jar",
+      "purl": "pkg:maven/org.springframework/spring-context-support@7.0.8",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "9ab80715682c47ad66a1a2c0e9ab2be9ec3d828276f281597f12c5208147b92e"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "Apache License, Version 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/spring-context-support-7.0.8.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "spring-core-7.0.8.jar",
+      "purl": "pkg:maven/org.springframework/spring-core@7.0.8",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "726ba2a5130833644bdf267a55ff26e1f52e8dcc9aa1ffa06904ca9c14619f25"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "Apache License, Version 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/spring-core-7.0.8.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "spring-data-commons-4.1.0.jar",
+      "purl": "pkg:maven/org.springframework.data/spring-data-commons@4.1.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "c9e41d45b30aacc0ce50c4426f0650a3544c066ab5d6d0304840e6f878388c5c"
+        }
+      ],
+      "licenses": [
+
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/spring-data-commons-4.1.0.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "spring-data-jpa-4.1.0.jar",
+      "purl": "pkg:maven/org.springframework.data/spring-data-jpa@4.1.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "60b72b0513faecb3ef51f53f35d74de68b193af06dc7c1c66b54e265762bad66"
+        }
+      ],
+      "licenses": [
+
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/spring-data-jpa-4.1.0.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "spring-data-keyvalue-4.1.0.jar",
+      "purl": "pkg:maven/org.springframework.data/spring-data-keyvalue@4.1.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "1cab6685ee820428a9fb48eab4a5cb48ddcab1dfdb2467b9afb3c47f5455d19b"
+        }
+      ],
+      "licenses": [
+
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/spring-data-keyvalue-4.1.0.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "spring-data-mongodb-5.1.0.jar",
+      "purl": "pkg:maven/org.springframework.data/spring-data-mongodb@5.1.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "3b35496217abf69d5f6e54c4a0ca292e4ab48ed10fbafd73b37ccdb08038c637"
+        }
+      ],
+      "licenses": [
+
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/spring-data-mongodb-5.1.0.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "spring-data-redis-4.1.0.jar",
+      "purl": "pkg:maven/org.springframework.data/spring-data-redis@4.1.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "c9f7c6d38c98e4240250c0c3969758b26763c4e0e87726915a71855062ae6cb2"
+        }
+      ],
+      "licenses": [
+
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/spring-data-redis-4.1.0.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "spring-expression-7.0.8.jar",
+      "purl": "pkg:maven/org.springframework/spring-expression@7.0.8",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "3c97c38ab59c77ee886e08ccf8096f6bb58a1245f68dfed7a40e93f41c435f9a"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "Apache License, Version 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/spring-expression-7.0.8.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "spring-jdbc-7.0.8.jar",
+      "purl": "pkg:maven/org.springframework/spring-jdbc@7.0.8",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "7d6bbf130ed919d5f4f01ec0ea771ab59ac3936ab29f50fd3a705c0119871e32"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "Apache License, Version 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/spring-jdbc-7.0.8.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "spring-messaging-7.0.8.jar",
+      "purl": "pkg:maven/org.springframework/spring-messaging@7.0.8",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "0f96694ebb88fed6bf4aef608010c23ee922a476dd71e0fab76ca9ed0eaa70b0"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "Apache License, Version 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/spring-messaging-7.0.8.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "spring-orm-7.0.8.jar",
+      "purl": "pkg:maven/org.springframework/spring-orm@7.0.8",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "3ff1ad6ab4ebcc7dc9ef02f40aa60790bddead11b0e0fc7f75cb20f41f7d291e"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "Apache License, Version 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/spring-orm-7.0.8.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "spring-oxm-7.0.8.jar",
+      "purl": "pkg:maven/org.springframework/spring-oxm@7.0.8",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "67f91ffb41a94cf0e443f02ee6f740d52e10a84cabae218cdb0de65f87a82172"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "Apache License, Version 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/spring-oxm-7.0.8.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "spring-tx-7.0.8.jar",
+      "purl": "pkg:maven/org.springframework/spring-tx@7.0.8",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "57e8fdb6de949e7ec2617683fec03af0253bdbdf4bf3d2651a926a94413df283"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "Apache License, Version 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/spring-tx-7.0.8.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "spring-web-7.0.8.jar",
+      "purl": "pkg:maven/org.springframework/spring-web@7.0.8",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "4d4ed7ecb0453d25d735ea27d025ea36b003c3d29cb7d006bedd6d5188a2f5c0"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "Apache License, Version 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/spring-web-7.0.8.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "spring-webmvc-7.0.8.jar",
+      "purl": "pkg:maven/org.springframework/spring-webmvc@7.0.8",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "48f7e1e2d0d46e98ed3fa30d5a64cb1f7ed2aa339a82edcd87289ed8ff216f04"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "Apache License, Version 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/spring-webmvc-7.0.8.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "tomcat-embed-core-11.0.22.jar",
+      "purl": "pkg:maven/org.apache.tomcat.embed/tomcat-embed-core@11.0.22",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "78cd7cd7c104b6b87142c1b0bd902e1ce005b0245c3cefa8a06759148947200b"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "Apache License, Version 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/tomcat-embed-core-11.0.22.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "tomcat-embed-el-11.0.22.jar",
+      "purl": "pkg:maven/org.apache.tomcat.embed/tomcat-embed-el@11.0.22",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "1b34c33b858c141df36c501b4d809e68036c406bca3671a86facae297917c7de"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "Apache License, Version 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/tomcat-embed-el-11.0.22.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "tomcat-embed-websocket-11.0.22.jar",
+      "purl": "pkg:maven/org.apache.tomcat.embed/tomcat-embed-websocket@11.0.22",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "210e0c7ab194a76cc7283df0be365276091b042369dae125fb477828ba67e922"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "Apache License, Version 2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/tomcat-embed-websocket-11.0.22.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "txw2-4.0.9.jar",
+      "purl": "pkg:maven/org.glassfish.jaxb/txw2@4.0.9",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "d6343e5945d87266ca4e8974a0a2a876e1bd147a00fb65ed3f2e1a3a00f3a82a"
+        }
+      ],
+      "licenses": [
+
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/txw2-4.0.9.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "zstd-jni-1.5.2-2.jar",
+      "purl": "pkg:maven/com.github.luben/zstd-jni@1.5.2-2",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "fedeb4c59d9593e84bc0b1cca30c90da7f3452e78d3a1b9d5dd7370efc474b1d"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "BSD 2-Clause License"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "aoo:sourcePath",
+          "value": "server/LegacyAccountServer/package_hall/target/lib/zstd-jni-1.5.2-2.jar"
+        },
+        {
+          "name": "aoo:reactorArtifacts",
+          "value": ""
+        }
+      ]
+    }
+  ]
+}

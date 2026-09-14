@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-23T08:14:46Z",
+  "task": "CP07",
+  "assemblyPolicy": "Thin application classpath: provider resources remain in dependency jars; no shade-time overwrite is permitted.",
+  "declarations": [
+    {
+      "module": "src",
+      "provider": "business.global.mj.cdxzmj.CDXZMJGameProvider",
+      "resource": "server/CDXZMJ/src/main/resources/META-INF/services/com.aoo.bcg.gamespi.GameProvider"
+    },
+    {
+      "module": "src",
+      "provider": "business.global.pk.njpdk.NJPDKGameProvider",
+      "resource": "server/NJPDK/src/main/resources/META-INF/services/com.aoo.bcg.gamespi.GameProvider"
+    },
+    {
+      "module": "src",
+      "provider": "business.global.mj.scjymj.SCJYMJGameProvider",
+      "resource": "server/SCJYMJ/src/main/resources/META-INF/services/com.aoo.bcg.gamespi.GameProvider"
+    },
+    {
+      "module": "src",
+      "provider": "business.global.pk.xcpdk.XCPDKGameProvider",
+      "resource": "server/XCPDK/src/main/resources/META-INF/services/com.aoo.bcg.gamespi.GameProvider"
+    },
+    {
+      "module": "src",
+      "provider": "business.global.pk.zjh.ZJHGameProvider",
+      "resource": "server/ZJH/src/main/resources/META-INF/services/com.aoo.bcg.gamespi.GameProvider"
+    },
+    {
+      "module": "src",
+      "provider": "business.global.pk.zypk.ZYPKGameProvider",
+      "resource": "server/ZYPK/src/main/resources/META-INF/services/com.aoo.bcg.gamespi.GameProvider"
+    }
+  ],
+  "duplicateProviders": [
+
+  ],
+  "testReport": "server/Bootstrap/target/surefire-reports/TEST-com.aoo.bcg.bootstrap.GameProviderServiceLoaderTest.xml",
+  "checks": {
+    "sixNativeDeclarations": true,
+    "uniqueProviderDeclarations": true,
+    "runtimeServiceLoaderTestPassed": true,
+    "thinClasspathAssembly": true
+  },
+  "passed": true
+}

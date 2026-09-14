@@ -1,0 +1,9 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+require 'json';require 'fileutils';require 'time'
+root=File.expand_path('..',__dir__);migration=File.read(File.join(root,'database/migrations/V20260823_09__immutable_room_event_history.sql'),encoding:'UTF-8');journal=File.read(File.join(root,'server/GameCommon/src/main/java/com/aoo/bcg/common/event/JdbcRoomEventJournal.java'),encoding:'UTF-8');model=File.read(File.join(root,'server/GameCommon/src/main/java/com/aoo/bcg/common/event/CompensationEvent.java'),encoding:'UTF-8')
+production=Dir.glob(File.join(root,'server','**','*.java')).reject{|p|p.include?('/test/')||p.include?('/target/')||p.include?('/build/')}.map do |path|
+  text=File.read(path,encoding:'UTF-8').encode('UTF-8',invalid: :replace,undef: :replace,replace:'');next unless text.match?(/(?:UPDATE|DELETE\s+FROM)\s+aoo_room_event/i);path.delete_prefix(root+'/')
+end.compact
+checks={updateTrigger:migration.include?('trg_aoo_room_event_no_update'),deleteTrigger:migration.include?('trg_aoo_room_event_no_delete'),appendOnlySignal:migration.scan(/SIGNAL SQLSTATE/).length==2,compensationColumns:migration.include?('compensates_business_event_id'),compensationConstraint:migration.include?('chk_room_event_compensation'),compensationModel:model.include?('compensatesBusinessEventId'),appendApi:journal.include?('appendCompensation'),noProductionMutation:production.empty?}
+report={generatedAt:Time.now.utc.iso8601,checks:checks,productionMutationPaths:production,passed:checks.values.all?};output=File.join(root,'work/audit/immutable-event-history.json');FileUtils.mkdir_p(File.dirname(output));File.write(output,JSON.pretty_generate(report)+"\n");puts JSON.generate(checks:checks.length,passedChecks:checks.values.count(true),mutationPaths:production.length,passed:report[:passed]);exit(report[:passed] ? 0 : 1)

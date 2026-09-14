@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/xsd/maven-4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent><groupId>com.aoo.bcg</groupId><artifactId>aoo-server-parent</artifactId><version>${revision}</version><relativePath>../../pom.xml</relativePath></parent>
+  <artifactId>zypk</artifactId><name>Ziyou Poker (ZYPK)</name>
+  <dependencies>
+    <dependency><groupId>com.aoo.bcg</groupId><artifactId>game-spi</artifactId><version>${project.version}</version></dependency>
+    <dependency><groupId>com.aoo.bcg</groupId><artifactId>game-common</artifactId><version>${project.version}</version></dependency>
+    <dependency><groupId>com.aoo.bcg</groupId><artifactId>game-category-poker</artifactId><version>${project.version}</version></dependency>
+    <dependency><groupId>com.aoo.bcg</groupId><artifactId>game-server-framework</artifactId><version>${project.version}</version></dependency>
+    <dependency><groupId>org.junit.jupiter</groupId><artifactId>junit-jupiter</artifactId><scope>test</scope></dependency>
+          <dependency><groupId>com.fasterxml.jackson.core</groupId><artifactId>jackson-databind</artifactId></dependency>
+</dependencies>
+  <build>
+    <sourceDirectory>src</sourceDirectory><testSourceDirectory>test</testSourceDirectory>
+    <resources><resource><directory>src/main/resources</directory><filtering>false</filtering></resource></resources>
+    <plugins><plugin><groupId>org.apache.maven.plugins</groupId><artifactId>maven-compiler-plugin</artifactId><configuration><excludes>
+      <exclude>business/global/pk/zypk/ZYPKRoom.java</exclude><exclude>business/global/pk/zypk/ZYPKRoomSet.java</exclude>
+      <exclude>business/global/pk/zypk/ZYPKRoomPos.java</exclude><exclude>business/global/pk/zypk/ZYPKRoomPosMgr.java</exclude>
+      <exclude>business/global/pk/zypk/ZYPKRoundPos.java</exclude><exclude>business/global/pk/zypk/ZYPKSetSound.java</exclude>
+      <exclude>business/global/pk/zypk/ZYPKNextRoundOpPos.java</exclude><exclude>business/global/pk/zypk/ZYPKSetCard.java</exclude>
+      <exclude>core/network/client2game/handler/zypk/**</exclude>
+    </excludes></configuration></plugin></plugins>
+  </build>
+</project>

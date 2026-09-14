@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aoo.example/schemas/sync-evidence.schema.json",
+  "type": "object",
+  "required": ["traceId", "roomId", "playVersion", "eventSeq", "eventType", "beforeDigest", "message", "afterDigest", "uiAssertions"],
+  "properties": {
+    "traceId": { "type": "string", "minLength": 1 },
+    "roomId": { "type": "integer", "minimum": 1 },
+    "playVersion": { "type": "string", "minLength": 1 },
+    "eventSeq": { "type": "integer", "minimum": 0 },
+    "eventType": { "type": "string", "minLength": 1 },
+    "beforeDigest": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "message": { "type": "object" },
+    "afterDigest": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "uiAssertions": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["selector", "expected", "actual", "passed"],
+        "properties": {
+          "selector": { "type": "string" },
+          "expected": {},
+          "actual": {},
+          "passed": { "const": true }
+        }
+      }
+    }
+  },
+  "additionalProperties": true
+}

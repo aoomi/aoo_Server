@@ -1,0 +1,243 @@
+{
+  "schemaVersion": 1,
+  "commonFiles": 10723,
+  "compatibilityDomains": [
+    {
+      "name": "aqmj",
+      "files": 28,
+      "classification": "CONCRETE_GAME"
+    },
+    {
+      "name": "club",
+      "files": 52,
+      "classification": "PLATFORM_OR_UNRESOLVED"
+    },
+    {
+      "name": "subgame",
+      "files": 2,
+      "classification": "PLATFORM_OR_UNRESOLVED"
+    },
+    {
+      "name": "ui",
+      "files": 10,
+      "classification": "PLATFORM_OR_UNRESOLVED"
+    },
+    {
+      "name": "role",
+      "files": 4,
+      "classification": "PLATFORM_OR_UNRESOLVED"
+    },
+    {
+      "name": "core",
+      "files": 14,
+      "classification": "PLATFORM_OR_UNRESOLVED"
+    },
+    {
+      "name": "bootstrap",
+      "files": 4,
+      "classification": "PLATFORM_OR_UNRESOLVED"
+    },
+    {
+      "name": "bdjhmj",
+      "files": 28,
+      "classification": "CONCRETE_GAME"
+    },
+    {
+      "name": "config",
+      "files": 4,
+      "classification": "PLATFORM_OR_UNRESOLVED"
+    },
+    {
+      "name": "auth",
+      "files": 16,
+      "classification": "PLATFORM_OR_UNRESOLVED"
+    },
+    {
+      "name": "bamj",
+      "files": 28,
+      "classification": "CONCRETE_GAME"
+    },
+    {
+      "name": "aypdk",
+      "files": 42,
+      "classification": "CONCRETE_GAME"
+    },
+    {
+      "name": "ak159mj",
+      "files": 28,
+      "classification": "CONCRETE_GAME"
+    },
+    {
+      "name": "platform",
+      "files": 26,
+      "classification": "PLATFORM_OR_UNRESOLVED"
+    },
+    {
+      "name": "network",
+      "files": 8,
+      "classification": "PLATFORM_OR_UNRESOLVED"
+    },
+    {
+      "name": "lobby",
+      "files": 18,
+      "classification": "PLATFORM_OR_UNRESOLVED"
+    },
+    {
+      "name": "hzmj",
+      "files": 30,
+      "classification": "CONCRETE_GAME"
+    },
+    {
+      "name": "navigation",
+      "files": 4,
+      "classification": "PLATFORM_OR_UNRESOLVED"
+    },
+    {
+      "name": "ahhnmj",
+      "files": 28,
+      "classification": "CONCRETE_GAME"
+    },
+    {
+      "name": "asmj",
+      "files": 28,
+      "classification": "CONCRETE_GAME"
+    },
+    {
+      "name": "aymj",
+      "files": 28,
+      "classification": "CONCRETE_GAME"
+    },
+    {
+      "name": "bdmj",
+      "files": 13,
+      "classification": "CONCRETE_GAME"
+    },
+    {
+      "name": "a3pk",
+      "files": 24,
+      "classification": "CONCRETE_GAME"
+    },
+    {
+      "name": "aydss",
+      "files": 24,
+      "classification": "CONCRETE_GAME"
+    },
+    {
+      "name": "njpdk",
+      "files": 32,
+      "classification": "PLATFORM_OR_UNRESOLVED"
+    },
+    {
+      "name": "aycp",
+      "files": 24,
+      "classification": "CONCRETE_GAME"
+    },
+    {
+      "name": "ahmj",
+      "files": 28,
+      "classification": "CONCRETE_GAME"
+    },
+    {
+      "name": "scjymj",
+      "files": 28,
+      "classification": "PLATFORM_OR_UNRESOLVED"
+    },
+    {
+      "name": "afmj",
+      "files": 28,
+      "classification": "CONCRETE_GAME"
+    },
+    {
+      "name": "ahhbmj",
+      "files": 28,
+      "classification": "CONCRETE_GAME"
+    }
+  ],
+  "concreteGamesInCommon": [
+    {
+      "name": "aqmj",
+      "files": 28,
+      "classification": "CONCRETE_GAME"
+    },
+    {
+      "name": "bdjhmj",
+      "files": 28,
+      "classification": "CONCRETE_GAME"
+    },
+    {
+      "name": "bamj",
+      "files": 28,
+      "classification": "CONCRETE_GAME"
+    },
+    {
+      "name": "aypdk",
+      "files": 42,
+      "classification": "CONCRETE_GAME"
+    },
+    {
+      "name": "ak159mj",
+      "files": 28,
+      "classification": "CONCRETE_GAME"
+    },
+    {
+      "name": "hzmj",
+      "files": 30,
+      "classification": "CONCRETE_GAME"
+    },
+    {
+      "name": "ahhnmj",
+      "files": 28,
+      "classification": "CONCRETE_GAME"
+    },
+    {
+      "name": "asmj",
+      "files": 28,
+      "classification": "CONCRETE_GAME"
+    },
+    {
+      "name": "aymj",
+      "files": 28,
+      "classification": "CONCRETE_GAME"
+    },
+    {
+      "name": "bdmj",
+      "files": 13,
+      "classification": "CONCRETE_GAME"
+    },
+    {
+      "name": "a3pk",
+      "files": 24,
+      "classification": "CONCRETE_GAME"
+    },
+    {
+      "name": "aydss",
+      "files": 24,
+      "classification": "CONCRETE_GAME"
+    },
+    {
+      "name": "aycp",
+      "files": 24,
+      "classification": "CONCRETE_GAME"
+    },
+    {
+      "name": "ahmj",
+      "files": 28,
+      "classification": "CONCRETE_GAME"
+    },
+    {
+      "name": "afmj",
+      "files": 28,
+      "classification": "CONCRETE_GAME"
+    },
+    {
+      "name": "ahhbmj",
+      "files": 28,
+      "classification": "CONCRETE_GAME"
+    }
+  ],
+  "checks": {
+    "noConcreteGamesInCommon": false,
+    "boundedCommon": false
+  },
+  "verdict": "blocked-common-boundary"
+}

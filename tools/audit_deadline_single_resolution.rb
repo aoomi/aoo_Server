@@ -1,0 +1,6 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+require 'json';require 'fileutils';require 'open3'
+root=File.expand_path('..',__dir__);jdk=File.expand_path('../.toolchains/jdk-26.0.2.1.jdk/Contents/Home',root);source=File.read(File.join(root,'server/GameSPI/src/main/java/com/aoo/bcg/gamespi/time/OperationDeadlineArbiter.java'));spi=File.read(File.join(root,'server/GameSPI/src/main/java/com/aoo/bcg/gamespi/AuthoritativeGameSession.java'))
+stdout,stderr,status=Open3.capture3({'JAVA_HOME'=>jdk,'PATH'=>"#{jdk}/bin:#{ENV['PATH']}"},'./mvnw','-q','-pl','server/Mahjong,server/Poker','-am','-Dtest=OperationDeadlineArbiterTest,MahjongAuthoritativeSessionTest,PokerAuthoritativeSessionTest','-Dsurefire.failIfNoSpecifiedTests=false','test',chdir:root)
+checks={linearized:source.include?('synchronized <T> PlayerResult'),exact_deadline_timeout:source.include?('!now.isBefore(window.deadline())'),authority_requires_arbiter:spi.include?('OperationDeadlineArbiter deadlineArbiter()'),tests_passed:status.success?};result={task:'TIME04',passed:checks.values.all?,checks:checks,testStdout:stdout.strip,testStderr:stderr.strip};out=File.join(root,'work/audit/deadline-single-resolution.json');FileUtils.mkdir_p(File.dirname(out));File.write(out,JSON.pretty_generate(result)+"\n");puts JSON.generate(result);exit(result[:passed] ? 0 : 1)

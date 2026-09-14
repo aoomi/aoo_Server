@@ -1,0 +1,662 @@
+{
+  "schemaVersion": 1,
+  "leafAssetDirectories": 53,
+  "rows": [
+    {
+      "archivePath": "ZiPai-Games",
+      "files": 1,
+      "matches": [
+
+      ]
+    },
+    {
+      "archivePath": "ZiPai-Games/GameTemplate",
+      "files": 7,
+      "matches": [
+        {
+          "gameId": "19",
+          "code": "sg",
+          "category": "POKER",
+          "family": "poker-pao-de-kuai"
+        }
+      ]
+    },
+    {
+      "archivePath": "Mahjong-Games",
+      "files": 7,
+      "matches": [
+
+      ]
+    },
+    {
+      "archivePath": "Mahjong-Games/SiChuan",
+      "files": 3,
+      "matches": [
+
+      ]
+    },
+    {
+      "archivePath": "Mahjong-Games/SiChuan/LuZhou",
+      "files": 7,
+      "matches": [
+
+      ]
+    },
+    {
+      "archivePath": "Mahjong-Games/SiChuan/ChengDu",
+      "files": 7,
+      "matches": [
+        {
+          "gameId": "39",
+          "code": "gd",
+          "category": "POKER",
+          "family": "poker-pao-de-kuai"
+        }
+      ]
+    },
+    {
+      "archivePath": "Mahjong-Games/SiChuan/YiBin",
+      "files": 7,
+      "matches": [
+
+      ]
+    },
+    {
+      "archivePath": "Mahjong-Games/GuiZhou",
+      "files": 1,
+      "matches": [
+        {
+          "gameId": "19",
+          "code": "sg",
+          "category": "POKER",
+          "family": "poker-pao-de-kuai"
+        }
+      ]
+    },
+    {
+      "archivePath": "Mahjong-Games/GuiZhou/GuiYang",
+      "files": 7,
+      "matches": [
+        {
+          "gameId": "19",
+          "code": "sg",
+          "category": "POKER",
+          "family": "poker-pao-de-kuai"
+        }
+      ]
+    },
+    {
+      "archivePath": "Mahjong-Games/ChongQing",
+      "files": 1,
+      "matches": [
+
+      ]
+    },
+    {
+      "archivePath": "Mahjong-Games/ChongQing/ChongQing",
+      "files": 7,
+      "matches": [
+
+      ]
+    },
+    {
+      "archivePath": "Mahjong-Games/GameTemplate",
+      "files": 7,
+      "matches": [
+        {
+          "gameId": "19",
+          "code": "sg",
+          "category": "POKER",
+          "family": "poker-pao-de-kuai"
+        }
+      ]
+    },
+    {
+      "archivePath": "Mahjong-Games/HeBei",
+      "files": 3,
+      "matches": [
+
+      ]
+    },
+    {
+      "archivePath": "Mahjong-Games/HeBei/TangShan",
+      "files": 7,
+      "matches": [
+
+      ]
+    },
+    {
+      "archivePath": "Mahjong-Games/HeBei/ShiJiaZhuang",
+      "files": 7,
+      "matches": [
+
+      ]
+    },
+    {
+      "archivePath": "Mahjong-Games/HeBei/BaoDing",
+      "files": 7,
+      "matches": [
+
+      ]
+    },
+    {
+      "archivePath": "Poker-Games",
+      "files": 3,
+      "matches": [
+
+      ]
+    },
+    {
+      "archivePath": "Poker-Games/Unclassified",
+      "files": 1,
+      "matches": [
+
+      ]
+    },
+    {
+      "archivePath": "Poker-Games/Unclassified/NJPDK",
+      "files": 7,
+      "matches": [
+        {
+          "gameId": "8",
+          "code": "pdk",
+          "category": "POKER",
+          "family": "poker-pao-de-kuai"
+        }
+      ]
+    },
+    {
+      "archivePath": "Poker-Games/Unclassified/NJPDK/Config",
+      "files": 2,
+      "matches": [
+        {
+          "gameId": "8",
+          "code": "pdk",
+          "category": "POKER",
+          "family": "poker-pao-de-kuai"
+        }
+      ]
+    },
+    {
+      "archivePath": "Poker-Games/Unclassified/NJPDK/Code",
+      "files": 20,
+      "matches": [
+        {
+          "gameId": "8",
+          "code": "pdk",
+          "category": "POKER",
+          "family": "poker-pao-de-kuai"
+        }
+      ]
+    },
+    {
+      "archivePath": "Poker-Games/Unclassified/NJPDK/Code/logic",
+      "files": 2,
+      "matches": [
+        {
+          "gameId": "8",
+          "code": "pdk",
+          "category": "POKER",
+          "family": "poker-pao-de-kuai"
+        }
+      ]
+    },
+    {
+      "archivePath": "Poker-Games/Unclassified/NJPDK/Code/model",
+      "files": 10,
+      "matches": [
+        {
+          "gameId": "8",
+          "code": "pdk",
+          "category": "POKER",
+          "family": "poker-pao-de-kuai"
+        }
+      ]
+    },
+    {
+      "archivePath": "Poker-Games/Unclassified/NJPDK/Prefab",
+      "files": 1,
+      "matches": [
+        {
+          "gameId": "8",
+          "code": "pdk",
+          "category": "POKER",
+          "family": "poker-pao-de-kuai"
+        }
+      ]
+    },
+    {
+      "archivePath": "Poker-Games/Unclassified/NJPDK/Prefab/game-entry",
+      "files": 1,
+      "matches": [
+        {
+          "gameId": "8",
+          "code": "pdk",
+          "category": "POKER",
+          "family": "poker-pao-de-kuai"
+        }
+      ]
+    },
+    {
+      "archivePath": "Poker-Games/Unclassified/NJPDK/Prefab/game-entry/texture",
+      "files": 1,
+      "matches": [
+        {
+          "gameId": "8",
+          "code": "pdk",
+          "category": "POKER",
+          "family": "poker-pao-de-kuai"
+        }
+      ]
+    },
+    {
+      "archivePath": "Poker-Games/Unclassified/NJPDK/Prefab/game-entry/texture/game",
+      "files": 1,
+      "matches": [
+        {
+          "gameId": "8",
+          "code": "pdk",
+          "category": "POKER",
+          "family": "poker-pao-de-kuai"
+        }
+      ]
+    },
+    {
+      "archivePath": "Poker-Games/Unclassified/NJPDK/Prefab/game-entry/texture/game/njpdk",
+      "files": 1,
+      "matches": [
+        {
+          "gameId": "8",
+          "code": "pdk",
+          "category": "POKER",
+          "family": "poker-pao-de-kuai"
+        }
+      ]
+    },
+    {
+      "archivePath": "Poker-Games/Unclassified/NJPDK/Prefab/game-entry/texture/game/njpdk/play",
+      "files": 8,
+      "matches": [
+        {
+          "gameId": "8",
+          "code": "pdk",
+          "category": "POKER",
+          "family": "poker-pao-de-kuai"
+        }
+      ]
+    },
+    {
+      "archivePath": "Poker-Games/Unclassified/NJPDK/Atlas",
+      "files": 6,
+      "matches": [
+        {
+          "gameId": "8",
+          "code": "pdk",
+          "category": "POKER",
+          "family": "poker-pao-de-kuai"
+        }
+      ]
+    },
+    {
+      "archivePath": "Poker-Games/Unclassified/NJPDK/Atlas/ui",
+      "files": 1,
+      "matches": [
+        {
+          "gameId": "8",
+          "code": "pdk",
+          "category": "POKER",
+          "family": "poker-pao-de-kuai"
+        }
+      ]
+    },
+    {
+      "archivePath": "Poker-Games/Unclassified/NJPDK/Atlas/ui/imported",
+      "files": 44,
+      "matches": [
+        {
+          "gameId": "8",
+          "code": "pdk",
+          "category": "POKER",
+          "family": "poker-pao-de-kuai"
+        }
+      ]
+    },
+    {
+      "archivePath": "Poker-Games/Unclassified/NJPDK/Atlas/game-ui",
+      "files": 1,
+      "matches": [
+        {
+          "gameId": "8",
+          "code": "pdk",
+          "category": "POKER",
+          "family": "poker-pao-de-kuai"
+        },
+        {
+          "gameId": "19",
+          "code": "sg",
+          "category": "POKER",
+          "family": "poker-pao-de-kuai"
+        }
+      ]
+    },
+    {
+      "archivePath": "Poker-Games/Unclassified/NJPDK/Atlas/game-ui/imported",
+      "files": 2,
+      "matches": [
+        {
+          "gameId": "8",
+          "code": "pdk",
+          "category": "POKER",
+          "family": "poker-pao-de-kuai"
+        },
+        {
+          "gameId": "19",
+          "code": "sg",
+          "category": "POKER",
+          "family": "poker-pao-de-kuai"
+        }
+      ]
+    },
+    {
+      "archivePath": "Poker-Games/Unclassified/NJPDK/Atlas/game-ui/imported/effect",
+      "files": 5,
+      "matches": [
+        {
+          "gameId": "8",
+          "code": "pdk",
+          "category": "POKER",
+          "family": "poker-pao-de-kuai"
+        },
+        {
+          "gameId": "19",
+          "code": "sg",
+          "category": "POKER",
+          "family": "poker-pao-de-kuai"
+        }
+      ]
+    },
+    {
+      "archivePath": "Poker-Games/Unclassified/NJPDK/Atlas/game-ui/imported/effect/zhadan",
+      "files": 2,
+      "matches": [
+        {
+          "gameId": "8",
+          "code": "pdk",
+          "category": "POKER",
+          "family": "poker-pao-de-kuai"
+        },
+        {
+          "gameId": "19",
+          "code": "sg",
+          "category": "POKER",
+          "family": "poker-pao-de-kuai"
+        }
+      ]
+    },
+    {
+      "archivePath": "Poker-Games/Unclassified/NJPDK/Atlas/game-ui/imported/effect/xianchu",
+      "files": 2,
+      "matches": [
+        {
+          "gameId": "8",
+          "code": "pdk",
+          "category": "POKER",
+          "family": "poker-pao-de-kuai"
+        },
+        {
+          "gameId": "19",
+          "code": "sg",
+          "category": "POKER",
+          "family": "poker-pao-de-kuai"
+        }
+      ]
+    },
+    {
+      "archivePath": "Poker-Games/Unclassified/NJPDK/Atlas/game-ui/imported/effect/liandui",
+      "files": 2,
+      "matches": [
+        {
+          "gameId": "8",
+          "code": "pdk",
+          "category": "POKER",
+          "family": "poker-pao-de-kuai"
+        },
+        {
+          "gameId": "19",
+          "code": "sg",
+          "category": "POKER",
+          "family": "poker-pao-de-kuai"
+        }
+      ]
+    },
+    {
+      "archivePath": "Poker-Games/Unclassified/NJPDK/Atlas/game-ui/imported/effect/sandaiyi",
+      "files": 2,
+      "matches": [
+        {
+          "gameId": "8",
+          "code": "pdk",
+          "category": "POKER",
+          "family": "poker-pao-de-kuai"
+        },
+        {
+          "gameId": "19",
+          "code": "sg",
+          "category": "POKER",
+          "family": "poker-pao-de-kuai"
+        }
+      ]
+    },
+    {
+      "archivePath": "Poker-Games/Unclassified/NJPDK/Atlas/game-ui/imported/effect/sandaier",
+      "files": 2,
+      "matches": [
+        {
+          "gameId": "8",
+          "code": "pdk",
+          "category": "POKER",
+          "family": "poker-pao-de-kuai"
+        },
+        {
+          "gameId": "19",
+          "code": "sg",
+          "category": "POKER",
+          "family": "poker-pao-de-kuai"
+        }
+      ]
+    },
+    {
+      "archivePath": "Poker-Games/Unclassified/NJPDK/Atlas/game-ui/imported/NJPDK",
+      "files": 24,
+      "matches": [
+        {
+          "gameId": "8",
+          "code": "pdk",
+          "category": "POKER",
+          "family": "poker-pao-de-kuai"
+        },
+        {
+          "gameId": "19",
+          "code": "sg",
+          "category": "POKER",
+          "family": "poker-pao-de-kuai"
+        }
+      ]
+    },
+    {
+      "archivePath": "Poker-Games/Unclassified/NJPDK/Atlas/scenes",
+      "files": 1,
+      "matches": [
+        {
+          "gameId": "8",
+          "code": "pdk",
+          "category": "POKER",
+          "family": "poker-pao-de-kuai"
+        }
+      ]
+    },
+    {
+      "archivePath": "Poker-Games/Unclassified/NJPDK/Atlas/scenes/imported",
+      "files": 1,
+      "matches": [
+        {
+          "gameId": "8",
+          "code": "pdk",
+          "category": "POKER",
+          "family": "poker-pao-de-kuai"
+        }
+      ]
+    },
+    {
+      "archivePath": "Poker-Games/Unclassified/NJPDK/Atlas/scenes/imported/Layer",
+      "files": 8,
+      "matches": [
+        {
+          "gameId": "8",
+          "code": "pdk",
+          "category": "POKER",
+          "family": "poker-pao-de-kuai"
+        }
+      ]
+    },
+    {
+      "archivePath": "Poker-Games/Unclassified/NJPDK/Atlas/effects",
+      "files": 1,
+      "matches": [
+        {
+          "gameId": "8",
+          "code": "pdk",
+          "category": "POKER",
+          "family": "poker-pao-de-kuai"
+        }
+      ]
+    },
+    {
+      "archivePath": "Poker-Games/Unclassified/NJPDK/Atlas/effects/imported",
+      "files": 2,
+      "matches": [
+        {
+          "gameId": "8",
+          "code": "pdk",
+          "category": "POKER",
+          "family": "poker-pao-de-kuai"
+        }
+      ]
+    },
+    {
+      "archivePath": "Poker-Games/Unclassified/NJPDK/Atlas/effects/imported/WaitNet",
+      "files": 2,
+      "matches": [
+        {
+          "gameId": "8",
+          "code": "pdk",
+          "category": "POKER",
+          "family": "poker-pao-de-kuai"
+        }
+      ]
+    },
+    {
+      "archivePath": "Poker-Games/Unclassified/NJPDK/Atlas/effects/imported/WaitForm",
+      "files": 2,
+      "matches": [
+        {
+          "gameId": "8",
+          "code": "pdk",
+          "category": "POKER",
+          "family": "poker-pao-de-kuai"
+        }
+      ]
+    },
+    {
+      "archivePath": "Poker-Games/Unclassified/NJPDK/Atlas/source-metadata",
+      "files": 5,
+      "matches": [
+        {
+          "gameId": "8",
+          "code": "pdk",
+          "category": "POKER",
+          "family": "poker-pao-de-kuai"
+        }
+      ]
+    },
+    {
+      "archivePath": "Poker-Games/Unclassified/NJPDK/Atlas/animations",
+      "files": 1,
+      "matches": [
+        {
+          "gameId": "8",
+          "code": "pdk",
+          "category": "POKER",
+          "family": "poker-pao-de-kuai"
+        }
+      ]
+    },
+    {
+      "archivePath": "Poker-Games/Unclassified/NJPDK/Atlas/animations/imported",
+      "files": 1,
+      "matches": [
+        {
+          "gameId": "8",
+          "code": "pdk",
+          "category": "POKER",
+          "family": "poker-pao-de-kuai"
+        }
+      ]
+    },
+    {
+      "archivePath": "Poker-Games/Unclassified/NJPDK/Atlas/animations/imported/gift",
+      "files": 14,
+      "matches": [
+        {
+          "gameId": "8",
+          "code": "pdk",
+          "category": "POKER",
+          "family": "poker-pao-de-kuai"
+        }
+      ]
+    },
+    {
+      "archivePath": "Poker-Games/GameTemplate",
+      "files": 7,
+      "matches": [
+        {
+          "gameId": "19",
+          "code": "sg",
+          "category": "POKER",
+          "family": "poker-pao-de-kuai"
+        }
+      ]
+    }
+  ],
+  "unmapped": [
+    "ZiPai-Games",
+    "Mahjong-Games",
+    "Mahjong-Games/SiChuan",
+    "Mahjong-Games/SiChuan/LuZhou",
+    "Mahjong-Games/SiChuan/YiBin",
+    "Mahjong-Games/ChongQing",
+    "Mahjong-Games/ChongQing/ChongQing",
+    "Mahjong-Games/HeBei",
+    "Mahjong-Games/HeBei/TangShan",
+    "Mahjong-Games/HeBei/ShiJiaZhuang",
+    "Mahjong-Games/HeBei/BaoDing",
+    "Poker-Games",
+    "Poker-Games/Unclassified"
+  ],
+  "ambiguous": [
+    "Poker-Games/Unclassified/NJPDK/Atlas/game-ui",
+    "Poker-Games/Unclassified/NJPDK/Atlas/game-ui/imported",
+    "Poker-Games/Unclassified/NJPDK/Atlas/game-ui/imported/effect",
+    "Poker-Games/Unclassified/NJPDK/Atlas/game-ui/imported/effect/zhadan",
+    "Poker-Games/Unclassified/NJPDK/Atlas/game-ui/imported/effect/xianchu",
+    "Poker-Games/Unclassified/NJPDK/Atlas/game-ui/imported/effect/liandui",
+    "Poker-Games/Unclassified/NJPDK/Atlas/game-ui/imported/effect/sandaiyi",
+    "Poker-Games/Unclassified/NJPDK/Atlas/game-ui/imported/effect/sandaier",
+    "Poker-Games/Unclassified/NJPDK/Atlas/game-ui/imported/NJPDK"
+  ],
+  "checks": {
+    "allMapped": false,
+    "unambiguous": false
+  },
+  "verdict": "blocked-incomplete-archive-map"
+}

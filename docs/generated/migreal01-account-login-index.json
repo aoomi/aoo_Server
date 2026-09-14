@@ -1,0 +1,12 @@
+{
+  "rows": 10000000,
+  "distinctAccountIds": 10000000,
+  "accountIdentityType": "numeric-case-neutral",
+  "index": "uk_db_player_account",
+  "samples": 2000,
+  "p95Ms": 0.431,
+  "p99Ms": 0.680,
+  "p95BudgetMs": 20,
+  "p99BudgetMs": 50,
+  "status": "passed"
+}

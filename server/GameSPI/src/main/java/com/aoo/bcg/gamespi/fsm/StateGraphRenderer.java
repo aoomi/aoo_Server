@@ -1,0 +1,3 @@
+package com.aoo.bcg.gamespi.fsm;
+import java.util.Collection;
+public final class StateGraphRenderer{public <S extends Enum<S>,E extends Enum<E>>String mermaid(String title,Collection<StateTransition<S,E>>edges){StringBuilder out=new StringBuilder("# ").append(title).append("\n\n```mermaid\nstateDiagram-v2\n");edges.stream().sorted(java.util.Comparator.comparing(edge->edge.source().name()+edge.event().name())).forEach(edge->out.append("    ").append(edge.source()).append(" --> ").append(edge.target()).append(" : ").append(edge.event()).append(" [").append(edge.guardName()).append("] / ").append(edge.sideEffectName()).append("\n"));return out.append("```\n").toString();}}

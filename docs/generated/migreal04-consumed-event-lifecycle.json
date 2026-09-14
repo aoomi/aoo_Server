@@ -1,0 +1,14 @@
+{
+  "task": "MIGREAL04",
+  "checks": {
+    "fencedLease": true,
+    "crashTakeover": true,
+    "boundedCleanup": true,
+    "realDatabaseTestScheduled": true,
+    "realRocketMqTestScheduled": true,
+    "deduplicationAsserted": true
+  },
+  "dynamicTest": "com.aoo.bcg.common.event.RocketMqOutboxIntegrationTest",
+  "dynamicEvidencePolicy": "The clean reactor schedules the test; CUR-06 separately runs it with real MySQL and RocketMQ environment variables.",
+  "status": "passed"
+}

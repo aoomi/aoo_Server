@@ -1,0 +1,91 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-24T10:45:12Z",
+  "task": "LARGE08",
+  "passed": false,
+  "baseline": "config/artifact-size-baseline.json",
+  "maximumGrowthPercent": 10,
+  "comparisons": [
+    {
+      "artifact": "clientBuild",
+      "baselineBytes": 66326492,
+      "currentBytes": 66326492,
+      "changePercent": 0.0,
+      "withinBudget": true
+    },
+    {
+      "artifact": "clientAssets",
+      "baselineBytes": 61061160,
+      "currentBytes": 61061160,
+      "changePercent": 0.0,
+      "withinBudget": true
+    },
+    {
+      "artifact": "bundle:mahjong01-prefab",
+      "baselineBytes": 9628769,
+      "currentBytes": 9628769,
+      "changePercent": 0.0,
+      "withinBudget": true
+    },
+    {
+      "artifact": "bundle:common-prefab",
+      "baselineBytes": 3913576,
+      "currentBytes": 3913576,
+      "changePercent": 0.0,
+      "withinBudget": true
+    },
+    {
+      "artifact": "bundle:poker01-prefab",
+      "baselineBytes": 8454094,
+      "currentBytes": 8454094,
+      "changePercent": 0.0,
+      "withinBudget": true
+    },
+    {
+      "artifact": "bundle:main",
+      "baselineBytes": 2669213,
+      "currentBytes": 2669213,
+      "changePercent": 0.0,
+      "withinBudget": true
+    },
+    {
+      "artifact": "bundle:login-prefab",
+      "baselineBytes": 3401726,
+      "currentBytes": 3401726,
+      "changePercent": 0.0,
+      "withinBudget": true
+    },
+    {
+      "artifact": "bundle:lobby-prefab",
+      "baselineBytes": 17628769,
+      "currentBytes": 17628769,
+      "changePercent": 0.0,
+      "withinBudget": true
+    },
+    {
+      "artifact": "bundle:club-prefab",
+      "baselineBytes": 14238405,
+      "currentBytes": 14238405,
+      "changePercent": 0.0,
+      "withinBudget": true
+    },
+    {
+      "artifact": "serverJars",
+      "baselineBytes": 6942763,
+      "currentBytes": 6942763,
+      "changePercent": 0.0,
+      "withinBudget": true
+    }
+  ],
+  "checks": {
+    "currentClientBuildPresent": true,
+    "allBaselineArtifactsPresent": true,
+    "allWithinGrowthBudget": true,
+    "perCommitCiHistory": false,
+    "containerImageApplicable": false
+  },
+  "blockers": [
+    "Creator clean build is not reproducible in CI, so per-commit Client package trend cannot be enforced",
+    "No container image artifact exists to measure"
+  ]
+}

@@ -1,0 +1,7 @@
+package com.aoo.bcg.gamespi.resource;
+import static org.junit.jupiter.api.Assertions.*;import java.util.*;import org.junit.jupiter.api.Test;
+class PlayComponentLifecycleManagerTest{
+ static final class Component implements ManagedPlayComponent{final String id;final List<String> events;final boolean failStart;Component(String id,List<String> events,boolean failStart){this.id=id;this.events=events;this.failStart=failStart;}public String componentId(){return id;}public void initialize(){events.add("init-"+id);}public void start(){events.add("start-"+id);if(failStart)throw new IllegalStateException("start");}public void resetBetweenRounds(){events.add("reset-"+id);}public void destroy(){events.add("destroy-"+id);}}
+ @Test void initializesResetsAndDestroysEveryComponent(){var events=new ArrayList<String>();var manager=new PlayComponentLifecycleManager(List.of(new Component("a",events,false),new Component("b",events,false)));manager.initializeAndStart();manager.resetBetweenRounds();manager.close();assertEquals(List.of("init-a","init-b","start-a","start-b","reset-a","reset-b","destroy-b","destroy-a"),events);}
+ @Test void startupFailureCleansAllInitializedComponentsInReverse(){var events=new ArrayList<String>();var manager=new PlayComponentLifecycleManager(List.of(new Component("a",events,false),new Component("b",events,true)));assertThrows(IllegalStateException.class,manager::initializeAndStart);assertTrue(events.indexOf("destroy-b")<events.indexOf("destroy-a"));}
+}

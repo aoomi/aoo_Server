@@ -1,0 +1,2088 @@
+{
+  "schemaVersion": 1,
+  "riskCount": 520,
+  "risks": [
+    {
+      "path": "assets/Club/Code/Runtime/LegacyJoinClubController.ts",
+      "line": 30
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyJoinClubController.ts",
+      "line": 32
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyJoinClubController.ts",
+      "line": 33
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyJoinClubController.ts",
+      "line": 34
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyJoinClubController.ts",
+      "line": 35
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyJoinClubController.ts",
+      "line": 55
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyJoinClubController.ts",
+      "line": 57
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyRecordAllResultController.ts",
+      "line": 53
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyRecordAllResultController.ts",
+      "line": 54
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyRecordAllResultController.ts",
+      "line": 55
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyRecordAllResultController.ts",
+      "line": 56
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyRecordAllResultController.ts",
+      "line": 57
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyRecordAllResultController.ts",
+      "line": 92
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyRecordAllResultController.ts",
+      "line": 115
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyRecordAllResultController.ts",
+      "line": 170
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyRecordAllResultController.ts",
+      "line": 216
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyRecordAllResultController.ts",
+      "line": 239
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyRecordAllResultController.ts",
+      "line": 265
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyRecordAllResultController.ts",
+      "line": 270
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyRecordAllResultController.ts",
+      "line": 273
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyRecordAllResultController.ts",
+      "line": 293
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyRecordAllResultController.ts",
+      "line": 299
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMemberController.ts",
+      "line": 61
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMemberController.ts",
+      "line": 62
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMemberController.ts",
+      "line": 63
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMemberController.ts",
+      "line": 64
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMemberController.ts",
+      "line": 65
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMemberController.ts",
+      "line": 66
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMemberController.ts",
+      "line": 67
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMemberController.ts",
+      "line": 69
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMemberController.ts",
+      "line": 72
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMemberController.ts",
+      "line": 74
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMemberController.ts",
+      "line": 81
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMemberController.ts",
+      "line": 88
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMemberController.ts",
+      "line": 89
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMemberController.ts",
+      "line": 102
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMemberController.ts",
+      "line": 103
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMemberController.ts",
+      "line": 104
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMemberController.ts",
+      "line": 127
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMemberController.ts",
+      "line": 139
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMemberController.ts",
+      "line": 152
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMemberController.ts",
+      "line": 153
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMemberController.ts",
+      "line": 164
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMemberController.ts",
+      "line": 165
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMemberController.ts",
+      "line": 174
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMemberController.ts",
+      "line": 175
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMemberController.ts",
+      "line": 180
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMemberController.ts",
+      "line": 190
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMemberController.ts",
+      "line": 192
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMemberController.ts",
+      "line": 193
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMemberController.ts",
+      "line": 198
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMemberController.ts",
+      "line": 209
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMemberController.ts",
+      "line": 213
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMemberController.ts",
+      "line": 215
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMemberController.ts",
+      "line": 219
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMemberController.ts",
+      "line": 220
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMemberController.ts",
+      "line": 240
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMemberController.ts",
+      "line": 246
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMemberController.ts",
+      "line": 276
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMemberController.ts",
+      "line": 277
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMemberController.ts",
+      "line": 284
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMemberController.ts",
+      "line": 288
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMemberController.ts",
+      "line": 314
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMemberController.ts",
+      "line": 315
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMemberController.ts",
+      "line": 316
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMemberController.ts",
+      "line": 317
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubRecordListController.ts",
+      "line": 78
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubRecordListController.ts",
+      "line": 79
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubRecordListController.ts",
+      "line": 80
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubRecordListController.ts",
+      "line": 81
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubRecordListController.ts",
+      "line": 82
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubRecordListController.ts",
+      "line": 83
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubRecordListController.ts",
+      "line": 84
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubRecordListController.ts",
+      "line": 85
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubRecordListController.ts",
+      "line": 86
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubRecordListController.ts",
+      "line": 87
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubRecordListController.ts",
+      "line": 88
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubRecordListController.ts",
+      "line": 89
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubRecordListController.ts",
+      "line": 90
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubRecordListController.ts",
+      "line": 106
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubRecordListController.ts",
+      "line": 108
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubRecordListController.ts",
+      "line": 110
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubRecordListController.ts",
+      "line": 112
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubRecordListController.ts",
+      "line": 114
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubRecordListController.ts",
+      "line": 131
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubRecordListController.ts",
+      "line": 133
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubRecordListController.ts",
+      "line": 172
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubRecordListController.ts",
+      "line": 173
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubRecordListController.ts",
+      "line": 189
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubRecordListController.ts",
+      "line": 191
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubRecordListController.ts",
+      "line": 192
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubRecordListController.ts",
+      "line": 199
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubRecordListController.ts",
+      "line": 200
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubRecordListController.ts",
+      "line": 221
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubRecordListController.ts",
+      "line": 231
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubRecordListController.ts",
+      "line": 259
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubRecordListController.ts",
+      "line": 273
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubRecordListController.ts",
+      "line": 284
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubRecordListController.ts",
+      "line": 291
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubRecordListController.ts",
+      "line": 295
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubRecordListController.ts",
+      "line": 317
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubRecordListController.ts",
+      "line": 351
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubRecordListController.ts",
+      "line": 356
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubRecordListController.ts",
+      "line": 361
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubRecordListController.ts",
+      "line": 366
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubRecordListController.ts",
+      "line": 382
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubRecordListController.ts",
+      "line": 384
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMainController.ts",
+      "line": 152
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMainController.ts",
+      "line": 219
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMainController.ts",
+      "line": 221
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMainController.ts",
+      "line": 223
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMainController.ts",
+      "line": 224
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMainController.ts",
+      "line": 226
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMainController.ts",
+      "line": 229
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMainController.ts",
+      "line": 230
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMainController.ts",
+      "line": 233
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMainController.ts",
+      "line": 236
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMainController.ts",
+      "line": 239
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMainController.ts",
+      "line": 244
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMainController.ts",
+      "line": 245
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMainController.ts",
+      "line": 248
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMainController.ts",
+      "line": 249
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMainController.ts",
+      "line": 252
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMainController.ts",
+      "line": 256
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMainController.ts",
+      "line": 259
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMainController.ts",
+      "line": 263
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMainController.ts",
+      "line": 268
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMainController.ts",
+      "line": 269
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMainController.ts",
+      "line": 272
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMainController.ts",
+      "line": 275
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMainController.ts",
+      "line": 276
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMainController.ts",
+      "line": 277
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMainController.ts",
+      "line": 278
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMainController.ts",
+      "line": 279
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMainController.ts",
+      "line": 280
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMainController.ts",
+      "line": 281
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMainController.ts",
+      "line": 283
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMainController.ts",
+      "line": 286
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMainController.ts",
+      "line": 289
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMainController.ts",
+      "line": 290
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMainController.ts",
+      "line": 293
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMainController.ts",
+      "line": 294
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMainController.ts",
+      "line": 295
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMainController.ts",
+      "line": 296
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMainController.ts",
+      "line": 297
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMainController.ts",
+      "line": 336
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMainController.ts",
+      "line": 340
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMainController.ts",
+      "line": 342
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMainController.ts",
+      "line": 352
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMainController.ts",
+      "line": 391
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMainController.ts",
+      "line": 393
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMainController.ts",
+      "line": 394
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMainController.ts",
+      "line": 395
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMainController.ts",
+      "line": 402
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMainController.ts",
+      "line": 423
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMainController.ts",
+      "line": 434
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMainController.ts",
+      "line": 548
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMainController.ts",
+      "line": 549
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMainController.ts",
+      "line": 550
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMainController.ts",
+      "line": 579
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMainController.ts",
+      "line": 580
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMainController.ts",
+      "line": 624
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMainController.ts",
+      "line": 626
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMainController.ts",
+      "line": 627
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMainController.ts",
+      "line": 634
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMainController.ts",
+      "line": 639
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMainController.ts",
+      "line": 641
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMainController.ts",
+      "line": 670
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMainController.ts",
+      "line": 674
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMainController.ts",
+      "line": 691
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMainController.ts",
+      "line": 692
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMainController.ts",
+      "line": 693
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMainController.ts",
+      "line": 744
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMainController.ts",
+      "line": 749
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMainController.ts",
+      "line": 753
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMainController.ts",
+      "line": 760
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMainController.ts",
+      "line": 868
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMainController.ts",
+      "line": 869
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMainController.ts",
+      "line": 870
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMainController.ts",
+      "line": 893
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMainController.ts",
+      "line": 944
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMainController.ts",
+      "line": 945
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMainController.ts",
+      "line": 946
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMainController.ts",
+      "line": 947
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMainController.ts",
+      "line": 964
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMainController.ts",
+      "line": 985
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMainController.ts",
+      "line": 1022
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMainController.ts",
+      "line": 1026
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMainController.ts",
+      "line": 1028
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubPromotionController.ts",
+      "line": 261
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubPromotionController.ts",
+      "line": 288
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubPromotionController.ts",
+      "line": 289
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubPromotionController.ts",
+      "line": 296
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubPromotionController.ts",
+      "line": 297
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubRecordUserDayController.ts",
+      "line": 48
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubRecordUserDayController.ts",
+      "line": 54
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubRecordUserDayController.ts",
+      "line": 55
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubRecordUserDayController.ts",
+      "line": 57
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubEntryController.ts",
+      "line": 62
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubEntryController.ts",
+      "line": 63
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubEntryController.ts",
+      "line": 64
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubEntryController.ts",
+      "line": 81
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubEntryController.ts",
+      "line": 82
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubEntryController.ts",
+      "line": 85
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubEntryController.ts",
+      "line": 87
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubEntryController.ts",
+      "line": 89
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubEntryController.ts",
+      "line": 98
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubEntryController.ts",
+      "line": 99
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubEntryController.ts",
+      "line": 100
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubEntryController.ts",
+      "line": 101
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubEntryController.ts",
+      "line": 102
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubEntryController.ts",
+      "line": 120
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubEntryController.ts",
+      "line": 121
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubEntryController.ts",
+      "line": 132
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubEntryController.ts",
+      "line": 135
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubEntryController.ts",
+      "line": 209
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubEntryController.ts",
+      "line": 236
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubEntryController.ts",
+      "line": 264
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubEntryController.ts",
+      "line": 265
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubEntryController.ts",
+      "line": 270
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubEntryController.ts",
+      "line": 286
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubEntryController.ts",
+      "line": 287
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubEntryController.ts",
+      "line": 290
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubEntryController.ts",
+      "line": 294
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubEntryController.ts",
+      "line": 370
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubEntryController.ts",
+      "line": 374
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubEntryController.ts",
+      "line": 376
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyUnionZhongzhiManagerController.ts",
+      "line": 169
+    },
+    {
+      "path": "assets/Lobby/Code/Runtime/LegacyLobbyScreen.ts",
+      "line": 600
+    },
+    {
+      "path": "assets/Lobby/Code/Runtime/LegacyLobbyScreen.ts",
+      "line": 985
+    },
+    {
+      "path": "assets/Lobby/Code/Runtime/LegacyLobbyScreen.ts",
+      "line": 1096
+    },
+    {
+      "path": "assets/Lobby/Code/Runtime/LegacyLobbyScreen.ts",
+      "line": 1121
+    },
+    {
+      "path": "assets/Lobby/Code/Runtime/LegacyLobbyScreen.ts",
+      "line": 1122
+    },
+    {
+      "path": "assets/Lobby/Code/Runtime/LegacyLobbyScreen.ts",
+      "line": 1167
+    },
+    {
+      "path": "assets/Lobby/Code/Runtime/LegacyLobbyScreen.ts",
+      "line": 1205
+    },
+    {
+      "path": "assets/Lobby/Code/Runtime/LegacyLobbyScreen.ts",
+      "line": 1241
+    },
+    {
+      "path": "assets/Lobby/Code/Runtime/LegacyLobbyScreen.ts",
+      "line": 1249
+    },
+    {
+      "path": "assets/Lobby/Code/Runtime/LegacyLobbyScreen.ts",
+      "line": 1295
+    },
+    {
+      "path": "assets/Lobby/Code/Runtime/LegacyLobbyScreen.ts",
+      "line": 1299
+    },
+    {
+      "path": "assets/Lobby/Code/Runtime/LegacyLobbyScreen.ts",
+      "line": 1301
+    },
+    {
+      "path": "assets/Lobby/Code/Runtime/Privacy/LegacyPrivacyController.ts",
+      "line": 14
+    },
+    {
+      "path": "assets/Lobby/Code/Runtime/Privacy/LegacyPrivacyController.ts",
+      "line": 18
+    },
+    {
+      "path": "assets/Lobby/Code/Runtime/Identity/AooIdentityController.ts",
+      "line": 24
+    },
+    {
+      "path": "assets/Lobby/Code/Runtime/Identity/AooIdentityController.ts",
+      "line": 25
+    },
+    {
+      "path": "assets/Lobby/Code/Runtime/Identity/AooIdentityController.ts",
+      "line": 26
+    },
+    {
+      "path": "assets/Lobby/Code/Runtime/Identity/AooIdentityController.ts",
+      "line": 27
+    },
+    {
+      "path": "assets/Lobby/Code/Runtime/Identity/AooIdentityController.ts",
+      "line": 28
+    },
+    {
+      "path": "assets/Lobby/Code/Runtime/LegacyNoticeBarController.ts",
+      "line": 18
+    },
+    {
+      "path": "assets/Lobby/Code/Runtime/LegacyNoticeBarController.ts",
+      "line": 19
+    },
+    {
+      "path": "assets/Lobby/Code/Runtime/LegacyNoticeBarController.ts",
+      "line": 70
+    },
+    {
+      "path": "assets/Lobby/Code/Runtime/LegacyNoticeBarController.ts",
+      "line": 72
+    },
+    {
+      "path": "assets/Lobby/Code/Runtime/Gifting/LegacyGiftingController.ts",
+      "line": 8
+    },
+    {
+      "path": "assets/Lobby/Code/Runtime/Gifting/LegacyGiftingController.ts",
+      "line": 11
+    },
+    {
+      "path": "assets/Lobby/Code/Runtime/LegacyGameCatalogController.ts",
+      "line": 39
+    },
+    {
+      "path": "assets/Lobby/Code/Runtime/LegacyGameCatalogController.ts",
+      "line": 53
+    },
+    {
+      "path": "assets/Lobby/Code/Runtime/LegacyGameCatalogController.ts",
+      "line": 54
+    },
+    {
+      "path": "assets/Lobby/Code/Runtime/LegacyGameCatalogController.ts",
+      "line": 55
+    },
+    {
+      "path": "assets/Lobby/Code/Runtime/LegacyGameCatalogController.ts",
+      "line": 94
+    },
+    {
+      "path": "assets/Lobby/Code/Runtime/LegacyGameCatalogController.ts",
+      "line": 95
+    },
+    {
+      "path": "assets/Lobby/Code/Runtime/LegacyGameCatalogController.ts",
+      "line": 96
+    },
+    {
+      "path": "assets/Lobby/Code/Runtime/LegacyGameCatalogController.ts",
+      "line": 112
+    },
+    {
+      "path": "assets/Lobby/Code/Runtime/LegacyGameCatalogController.ts",
+      "line": 114
+    },
+    {
+      "path": "assets/Lobby/Code/Runtime/LegacyGameCatalogController.ts",
+      "line": 127
+    },
+    {
+      "path": "assets/Lobby/Code/Runtime/LegacyGameCatalogController.ts",
+      "line": 128
+    },
+    {
+      "path": "assets/Lobby/Code/Runtime/LegacyGameCatalogController.ts",
+      "line": 129
+    },
+    {
+      "path": "assets/Lobby/Code/Runtime/LegacyGameCatalogController.ts",
+      "line": 138
+    },
+    {
+      "path": "assets/Lobby/Code/Runtime/LegacyJoinRoomController.ts",
+      "line": 35
+    },
+    {
+      "path": "assets/Lobby/Code/Runtime/LegacyJoinRoomController.ts",
+      "line": 37
+    },
+    {
+      "path": "assets/Lobby/Code/Runtime/LegacyJoinRoomController.ts",
+      "line": 38
+    },
+    {
+      "path": "assets/Lobby/Code/Runtime/LegacyJoinRoomController.ts",
+      "line": 39
+    },
+    {
+      "path": "assets/Lobby/Code/Runtime/LegacyJoinRoomController.ts",
+      "line": 62
+    },
+    {
+      "path": "assets/Lobby/Code/Runtime/LegacyTopBarController.ts",
+      "line": 76
+    },
+    {
+      "path": "assets/Lobby/Code/Runtime/LegacyTopBarController.ts",
+      "line": 85
+    },
+    {
+      "path": "assets/Lobby/Code/Runtime/LegacyTopBarController.ts",
+      "line": 86
+    },
+    {
+      "path": "assets/Lobby/Code/Runtime/LegacyTopBarController.ts",
+      "line": 87
+    },
+    {
+      "path": "assets/Lobby/Code/Runtime/LegacyTopBarController.ts",
+      "line": 88
+    },
+    {
+      "path": "assets/Lobby/Code/Runtime/LegacyTopBarController.ts",
+      "line": 101
+    },
+    {
+      "path": "assets/Lobby/Code/Runtime/LegacyRegionController.ts",
+      "line": 65
+    },
+    {
+      "path": "assets/Lobby/Code/Runtime/LegacyRegionController.ts",
+      "line": 68
+    },
+    {
+      "path": "assets/Lobby/Code/Runtime/LegacyRegionController.ts",
+      "line": 69
+    },
+    {
+      "path": "assets/Lobby/Code/Runtime/LegacyRegionController.ts",
+      "line": 101
+    },
+    {
+      "path": "assets/Lobby/Code/Runtime/LegacyRegionController.ts",
+      "line": 120
+    },
+    {
+      "path": "assets/Lobby/Code/Runtime/LegacyRegionController.ts",
+      "line": 137
+    },
+    {
+      "path": "assets/Lobby/Code/Runtime/LegacyRegionController.ts",
+      "line": 150
+    },
+    {
+      "path": "assets/Lobby/Code/Runtime/LegacyRegionController.ts",
+      "line": 174
+    },
+    {
+      "path": "assets/Lobby/Code/Runtime/LegacyRegionController.ts",
+      "line": 188
+    },
+    {
+      "path": "assets/Lobby/Code/Runtime/LegacyRegionController.ts",
+      "line": 209
+    },
+    {
+      "path": "assets/Lobby/Code/Runtime/LegacyRegionController.ts",
+      "line": 210
+    },
+    {
+      "path": "assets/Lobby/Code/Runtime/LegacyRegionController.ts",
+      "line": 231
+    },
+    {
+      "path": "assets/Lobby/Code/Runtime/LegacyRegionController.ts",
+      "line": 241
+    },
+    {
+      "path": "assets/Lobby/Code/Runtime/LegacyRegionController.ts",
+      "line": 246
+    },
+    {
+      "path": "assets/Lobby/Code/Runtime/LegacyRegionController.ts",
+      "line": 248
+    },
+    {
+      "path": "assets/Lobby/Code/Runtime/LegacyRegionController.ts",
+      "line": 254
+    },
+    {
+      "path": "assets/Lobby/Code/Runtime/LegacyRegionController.ts",
+      "line": 255
+    },
+    {
+      "path": "assets/Lobby/Code/Runtime/LegacyRegionController.ts",
+      "line": 278
+    },
+    {
+      "path": "assets/Lobby/Code/Runtime/LegacyRegionController.ts",
+      "line": 294
+    },
+    {
+      "path": "assets/Lobby/Code/Runtime/LegacyRegionController.ts",
+      "line": 295
+    },
+    {
+      "path": "assets/Lobby/Code/Runtime/LegacyRegionController.ts",
+      "line": 315
+    },
+    {
+      "path": "assets/Lobby/Code/Runtime/LegacyRegionController.ts",
+      "line": 329
+    },
+    {
+      "path": "assets/Lobby/Code/Runtime/LegacyCreateRoomController.ts",
+      "line": 64
+    },
+    {
+      "path": "assets/Lobby/Code/Runtime/LegacyCreateRoomController.ts",
+      "line": 65
+    },
+    {
+      "path": "assets/Lobby/Code/Runtime/LegacyCreateRoomController.ts",
+      "line": 81
+    },
+    {
+      "path": "assets/Lobby/Code/Runtime/LegacyCreateRoomController.ts",
+      "line": 98
+    },
+    {
+      "path": "assets/Lobby/Code/Runtime/LegacyCreateRoomController.ts",
+      "line": 103
+    },
+    {
+      "path": "assets/Lobby/Code/Runtime/LegacyCreateRoomController.ts",
+      "line": 108
+    },
+    {
+      "path": "assets/Lobby/Code/Runtime/LegacyCreateRoomController.ts",
+      "line": 109
+    },
+    {
+      "path": "assets/Lobby/Code/Runtime/LegacyCreateRoomController.ts",
+      "line": 110
+    },
+    {
+      "path": "assets/Lobby/Code/Runtime/LegacyCreateRoomController.ts",
+      "line": 119
+    },
+    {
+      "path": "assets/Lobby/Code/Runtime/LegacyCreateRoomController.ts",
+      "line": 127
+    },
+    {
+      "path": "assets/Lobby/Code/Runtime/LegacyCreateRoomController.ts",
+      "line": 139
+    },
+    {
+      "path": "assets/Lobby/Code/Runtime/LegacyCreateRoomController.ts",
+      "line": 141
+    },
+    {
+      "path": "assets/Lobby/Code/Runtime/LegacyCreateRoomController.ts",
+      "line": 143
+    },
+    {
+      "path": "assets/Lobby/Code/Runtime/LegacyCreateRoomController.ts",
+      "line": 152
+    },
+    {
+      "path": "assets/Lobby/Code/Runtime/LegacyCreateRoomController.ts",
+      "line": 154
+    },
+    {
+      "path": "assets/Lobby/Code/Runtime/LegacyCreateRoomController.ts",
+      "line": 165
+    },
+    {
+      "path": "assets/Lobby/Code/Runtime/LegacyCreateRoomController.ts",
+      "line": 167
+    },
+    {
+      "path": "assets/Lobby/Code/Runtime/LegacyCreateRoomController.ts",
+      "line": 168
+    },
+    {
+      "path": "assets/Lobby/Code/Runtime/LegacyCreateRoomController.ts",
+      "line": 169
+    },
+    {
+      "path": "assets/Lobby/Code/Runtime/LegacyCreateRoomController.ts",
+      "line": 174
+    },
+    {
+      "path": "assets/Lobby/Code/Runtime/LegacyCreateRoomController.ts",
+      "line": 177
+    },
+    {
+      "path": "assets/Lobby/Code/Runtime/LegacyCreateRoomController.ts",
+      "line": 185
+    },
+    {
+      "path": "assets/Lobby/Code/Runtime/LegacyCreateRoomController.ts",
+      "line": 186
+    },
+    {
+      "path": "assets/Lobby/Code/Runtime/LegacyCreateRoomController.ts",
+      "line": 308
+    },
+    {
+      "path": "assets/Lobby/Code/Runtime/LegacyCreateRoomController.ts",
+      "line": 311
+    },
+    {
+      "path": "assets/Lobby/Code/Runtime/LegacyCreateRoomController.ts",
+      "line": 312
+    },
+    {
+      "path": "assets/Lobby/Code/Runtime/LegacyReplayCodeController.ts",
+      "line": 35
+    },
+    {
+      "path": "assets/Lobby/Code/Runtime/LegacyReplayCodeController.ts",
+      "line": 37
+    },
+    {
+      "path": "assets/Lobby/Code/Runtime/LegacyReplayCodeController.ts",
+      "line": 38
+    },
+    {
+      "path": "assets/Lobby/Code/Runtime/LegacyReplayCodeController.ts",
+      "line": 39
+    },
+    {
+      "path": "assets/Lobby/Code/Runtime/LegacyReplayCodeController.ts",
+      "line": 40
+    },
+    {
+      "path": "assets/Lobby/Code/Runtime/LegacyReplayCodeController.ts",
+      "line": 41
+    },
+    {
+      "path": "assets/Lobby/Code/Runtime/LegacyReplayCodeController.ts",
+      "line": 47
+    },
+    {
+      "path": "assets/Lobby/Code/Runtime/LuckDraw/LegacyLuckDrawController.ts",
+      "line": 37
+    },
+    {
+      "path": "assets/Lobby/Code/Runtime/LuckDraw/LegacyLuckDrawController.ts",
+      "line": 85
+    },
+    {
+      "path": "assets/Lobby/Code/Runtime/LuckDraw/LegacyLuckDrawController.ts",
+      "line": 99
+    },
+    {
+      "path": "assets/Lobby/Code/Support/SupportController.ts",
+      "line": 13
+    },
+    {
+      "path": "assets/Lobby/Code/Support/SupportController.ts",
+      "line": 17
+    },
+    {
+      "path": "assets/Lobby/Code/Support/SupportController.ts",
+      "line": 18
+    },
+    {
+      "path": "assets/Lobby/Code/Support/SupportController.ts",
+      "line": 24
+    },
+    {
+      "path": "assets/Common/Code/Runtime/ui/LegacyFormManager.ts",
+      "line": 96
+    },
+    {
+      "path": "assets/Common/Code/Runtime/ui/LegacyFormManager.ts",
+      "line": 98
+    },
+    {
+      "path": "assets/Common/Code/Runtime/ui/LegacyFormManager.ts",
+      "line": 571
+    },
+    {
+      "path": "assets/Common/Code/Runtime/ui/LegacyPrefabRenderer.ts",
+      "line": 312
+    },
+    {
+      "path": "assets/Common/Code/Runtime/ui/LegacyPrefabRenderer.ts",
+      "line": 313
+    },
+    {
+      "path": "assets/Common/Code/Runtime/ui/LegacyPrefabRenderer.ts",
+      "line": 324
+    },
+    {
+      "path": "assets/Common/Code/Runtime/ServerDirectory/ServerDirectoryPolicy.ts",
+      "line": 4
+    },
+    {
+      "path": "assets/Common/Code/Runtime/ServerDirectory/ServerDirectoryPolicy.ts",
+      "line": 7
+    },
+    {
+      "path": "assets/Common/Code/Runtime/ServerDirectory/ServerDirectoryPolicy.ts",
+      "line": 14
+    },
+    {
+      "path": "assets/Common/Code/Runtime/role/LegacyRoleGateway.ts",
+      "line": 115
+    },
+    {
+      "path": "assets/Common/Code/Runtime/role/LegacyRoleGateway.ts",
+      "line": 119
+    },
+    {
+      "path": "assets/Common/Code/Runtime/core/VersionedStorage.ts",
+      "line": 37
+    },
+    {
+      "path": "assets/Common/Code/Runtime/bootstrap/BootstrapRuntime.ts",
+      "line": 30
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/aqmj/AqmjTableController.ts",
+      "line": 100
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/aqmj/AqmjTableController.ts",
+      "line": 133
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/aqmj/AqmjTableController.ts",
+      "line": 167
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/aqmj/AqmjTableController.ts",
+      "line": 176
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/aqmj/AqmjTableController.ts",
+      "line": 180
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/aqmj/model/LegacyAqmjRoomSet.ts",
+      "line": 230
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/aqmj/model/LegacyAqmjRoomSet.ts",
+      "line": 250
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/role/LegacyRoleGateway.ts",
+      "line": 110
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/role/LegacyRoleGateway.ts",
+      "line": 114
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/bdjhmj/model/LegacyBdjhmjRoomSet.ts",
+      "line": 289
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/bdjhmj/model/LegacyBdjhmjRoomSet.ts",
+      "line": 309
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/bdjhmj/BdjhmjTableController.ts",
+      "line": 100
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/bdjhmj/BdjhmjTableController.ts",
+      "line": 133
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/bdjhmj/BdjhmjTableController.ts",
+      "line": 167
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/bdjhmj/BdjhmjTableController.ts",
+      "line": 176
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/bdjhmj/BdjhmjTableController.ts",
+      "line": 180
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/bamj/model/LegacyBamjRoomSet.ts",
+      "line": 236
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/bamj/model/LegacyBamjRoomSet.ts",
+      "line": 257
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/bamj/BamjTableController.ts",
+      "line": 100
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/bamj/BamjTableController.ts",
+      "line": 133
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/bamj/BamjTableController.ts",
+      "line": 167
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/bamj/BamjTableController.ts",
+      "line": 176
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/bamj/BamjTableController.ts",
+      "line": 180
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/aypdk/AypdkCardRenderer.ts",
+      "line": 39
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/aypdk/AypdkCardRenderer.ts",
+      "line": 41
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/aypdk/AypdkCardRenderer.ts",
+      "line": 45
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/aypdk/AypdkPlayController.ts",
+      "line": 325
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/aypdk/AypdkPlayController.ts",
+      "line": 400
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/aypdk/AypdkPlayController.ts",
+      "line": 434
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/aypdk/AypdkRecordController.ts",
+      "line": 19
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/aypdk/AypdkRecordController.ts",
+      "line": 20
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/aypdk/AypdkRecordController.ts",
+      "line": 21
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/aypdk/AypdkRecordController.ts",
+      "line": 22
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/aypdk/AypdkRecordController.ts",
+      "line": 79
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/aypdk/AypdkResultController.ts",
+      "line": 17
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/aypdk/AypdkResultController.ts",
+      "line": 18
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/aypdk/AypdkResultController.ts",
+      "line": 76
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/aypdk/AypdkDissolveController.ts",
+      "line": 17
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/aypdk/AypdkDissolveController.ts",
+      "line": 18
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/aypdk/AypdkDissolveController.ts",
+      "line": 19
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/aypdk/AypdkDissolveController.ts",
+      "line": 94
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/aypdk/AypdkReplayController.ts",
+      "line": 166
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/aypdk/AypdkShareController.ts",
+      "line": 28
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/aypdk/AypdkShareController.ts",
+      "line": 48
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/ak159mj/Ak159mjTableController.ts",
+      "line": 102
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/ak159mj/Ak159mjTableController.ts",
+      "line": 135
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/ak159mj/Ak159mjTableController.ts",
+      "line": 169
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/ak159mj/Ak159mjTableController.ts",
+      "line": 178
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/ak159mj/Ak159mjTableController.ts",
+      "line": 182
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/ak159mj/model/LegacyAk159mjRoomSet.ts",
+      "line": 226
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/ak159mj/model/LegacyAk159mjRoomSet.ts",
+      "line": 248
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/ahhnmj/AhhnmjTableController.ts",
+      "line": 104
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/ahhnmj/AhhnmjTableController.ts",
+      "line": 137
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/ahhnmj/AhhnmjTableController.ts",
+      "line": 171
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/ahhnmj/AhhnmjTableController.ts",
+      "line": 180
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/ahhnmj/AhhnmjTableController.ts",
+      "line": 184
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/ahhnmj/model/LegacyAhhnmjRoomSet.ts",
+      "line": 236
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/ahhnmj/model/LegacyAhhnmjRoomSet.ts",
+      "line": 256
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/asmj/AsmjTableController.ts",
+      "line": 100
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/asmj/AsmjTableController.ts",
+      "line": 133
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/asmj/AsmjTableController.ts",
+      "line": 167
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/asmj/AsmjTableController.ts",
+      "line": 176
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/asmj/AsmjTableController.ts",
+      "line": 180
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/asmj/model/LegacyAsmjRoomSet.ts",
+      "line": 221
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/asmj/model/LegacyAsmjRoomSet.ts",
+      "line": 241
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/asmj/model/LegacyAsmjRoomSet.ts",
+      "line": 265
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/aymj/AymjTableController.ts",
+      "line": 100
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/aymj/AymjTableController.ts",
+      "line": 133
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/aymj/AymjTableController.ts",
+      "line": 167
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/aymj/AymjTableController.ts",
+      "line": 176
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/aymj/AymjTableController.ts",
+      "line": 180
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/aymj/model/LegacyAymjRoomSet.ts",
+      "line": 211
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/aymj/model/LegacyAymjRoomSet.ts",
+      "line": 231
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/bdmj/model/LegacyBdmjRoomSet.ts",
+      "line": 208
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/bdmj/model/LegacyBdmjRoomSet.ts",
+      "line": 228
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/a3pk/A3pkPlayController.ts",
+      "line": 35
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/a3pk/A3pkPlayController.ts",
+      "line": 62
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/a3pk/A3pkPlayController.ts",
+      "line": 65
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/a3pk/A3pkPlayController.ts",
+      "line": 67
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/aydss/AydssPlayController.ts",
+      "line": 24
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/aydss/AydssPlayController.ts",
+      "line": 29
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/aydss/AydssPlayController.ts",
+      "line": 30
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/aydss/model/LegacyAydssRoomSet.ts",
+      "line": 186
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/aydss/model/LegacyAydssRoomSet.ts",
+      "line": 205
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/aydss/model/LegacyAydssRoomSet.ts",
+      "line": 220
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/aycp/model/LegacyAycpRoomSet.ts",
+      "line": 203
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/aycp/model/LegacyAycpRoomSet.ts",
+      "line": 222
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/aycp/model/LegacyAycpRoomSet.ts",
+      "line": 237
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/aycp/AycpPlayController.ts",
+      "line": 24
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/aycp/AycpPlayController.ts",
+      "line": 29
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/aycp/AycpPlayController.ts",
+      "line": 30
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/ahmj/AhmjTableController.ts",
+      "line": 100
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/ahmj/AhmjTableController.ts",
+      "line": 133
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/ahmj/AhmjTableController.ts",
+      "line": 167
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/ahmj/AhmjTableController.ts",
+      "line": 176
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/ahmj/AhmjTableController.ts",
+      "line": 180
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/ahmj/model/LegacyAhmjRoomSet.ts",
+      "line": 214
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/ahmj/model/LegacyAhmjRoomSet.ts",
+      "line": 238
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/scjymj/ScjymjSceneBootstrap.ts",
+      "line": 93
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/scjymj/ScjymjRoomButtonController.ts",
+      "line": 77
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/scjymj/ScjymjRoomButtonController.ts",
+      "line": 84
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/scjymj/ScjymjRoomButtonController.ts",
+      "line": 88
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/scjymj/ScjymjRoomButtonController.ts",
+      "line": 91
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/scjymj/model/LegacyScjymjRoomSet.ts",
+      "line": 230
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/scjymj/model/LegacyScjymjRoomSet.ts",
+      "line": 250
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/afmj/AfmjTableController.ts",
+      "line": 100
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/afmj/AfmjTableController.ts",
+      "line": 133
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/afmj/AfmjTableController.ts",
+      "line": 167
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/afmj/AfmjTableController.ts",
+      "line": 176
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/afmj/AfmjTableController.ts",
+      "line": 180
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/afmj/model/LegacyAfmjRoomSet.ts",
+      "line": 237
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/afmj/model/LegacyAfmjRoomSet.ts",
+      "line": 257
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/ahhbmj/AhhbmjTableController.ts",
+      "line": 102
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/ahhbmj/AhhbmjTableController.ts",
+      "line": 135
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/ahhbmj/AhhbmjTableController.ts",
+      "line": 169
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/ahhbmj/AhhbmjTableController.ts",
+      "line": 178
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/ahhbmj/AhhbmjTableController.ts",
+      "line": 182
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/ahhbmj/model/LegacyAhhbmjRoomSet.ts",
+      "line": 229
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/ahhbmj/model/LegacyAhhbmjRoomSet.ts",
+      "line": 249
+    },
+    {
+      "path": "assets/Games/Poker/Packs/Pack01/Code/Runtime/njpdk/LegacyNJPdkShareController.ts",
+      "line": 28
+    },
+    {
+      "path": "assets/Games/Poker/Packs/Pack01/Code/Runtime/njpdk/LegacyNJPdkShareController.ts",
+      "line": 48
+    },
+    {
+      "path": "assets/Games/Poker/Packs/Pack01/Code/Runtime/njpdk/LegacyNJPdkResultController.ts",
+      "line": 17
+    },
+    {
+      "path": "assets/Games/Poker/Packs/Pack01/Code/Runtime/njpdk/LegacyNJPdkResultController.ts",
+      "line": 18
+    },
+    {
+      "path": "assets/Games/Poker/Packs/Pack01/Code/Runtime/njpdk/LegacyNJPdkResultController.ts",
+      "line": 80
+    },
+    {
+      "path": "assets/Games/Poker/Packs/Pack01/Code/Runtime/njpdk/LegacyNJPdkReplayController.ts",
+      "line": 166
+    },
+    {
+      "path": "assets/Games/Poker/Packs/Pack01/Code/Runtime/njpdk/LegacyNJPdkRecordController.ts",
+      "line": 19
+    },
+    {
+      "path": "assets/Games/Poker/Packs/Pack01/Code/Runtime/njpdk/LegacyNJPdkRecordController.ts",
+      "line": 20
+    },
+    {
+      "path": "assets/Games/Poker/Packs/Pack01/Code/Runtime/njpdk/LegacyNJPdkRecordController.ts",
+      "line": 21
+    },
+    {
+      "path": "assets/Games/Poker/Packs/Pack01/Code/Runtime/njpdk/LegacyNJPdkRecordController.ts",
+      "line": 22
+    },
+    {
+      "path": "assets/Games/Poker/Packs/Pack01/Code/Runtime/njpdk/LegacyNJPdkRecordController.ts",
+      "line": 79
+    },
+    {
+      "path": "assets/Games/Poker/Packs/Pack01/Code/Runtime/njpdk/LegacyNJPdkDissolveController.ts",
+      "line": 17
+    },
+    {
+      "path": "assets/Games/Poker/Packs/Pack01/Code/Runtime/njpdk/LegacyNJPdkDissolveController.ts",
+      "line": 18
+    },
+    {
+      "path": "assets/Games/Poker/Packs/Pack01/Code/Runtime/njpdk/LegacyNJPdkDissolveController.ts",
+      "line": 19
+    },
+    {
+      "path": "assets/Games/Poker/Packs/Pack01/Code/Runtime/njpdk/LegacyNJPdkDissolveController.ts",
+      "line": 96
+    },
+    {
+      "path": "assets/Games/Poker/Packs/Pack01/Code/Runtime/njpdk/LegacyNJPdkChatController.ts",
+      "line": 19
+    },
+    {
+      "path": "assets/Games/Poker/Packs/Pack01/Code/Runtime/njpdk/LegacyNJPdkChatController.ts",
+      "line": 22
+    },
+    {
+      "path": "assets/Games/Poker/Packs/Pack01/Code/Runtime/njpdk/LegacyNJPdkCardRenderer.ts",
+      "line": 38
+    },
+    {
+      "path": "assets/Games/Poker/Packs/Pack01/Code/Runtime/njpdk/LegacyNJPdkCardRenderer.ts",
+      "line": 40
+    },
+    {
+      "path": "assets/Games/Poker/Packs/Pack01/Code/Runtime/njpdk/LegacyNJPdkCardRenderer.ts",
+      "line": 44
+    },
+    {
+      "path": "assets/Games/Poker/Packs/Pack01/Code/Runtime/njpdk/LegacyNJPdkPlayController.ts",
+      "line": 383
+    },
+    {
+      "path": "assets/Games/Poker/Packs/Pack01/Code/Runtime/njpdk/LegacyNJPdkPlayController.ts",
+      "line": 468
+    },
+    {
+      "path": "assets/Games/Poker/Packs/Pack01/Code/Runtime/njpdk/LegacyNJPdkPlayController.ts",
+      "line": 502
+    },
+    {
+      "path": "assets/Games/WordCard/Packs/Pack01/Code/Runtime/byzp/ByzpSwitchCoordinator.ts",
+      "line": 13
+    },
+    {
+      "path": "assets/Games/Mahjong/Packs/Pack01/Code/Runtime/hzmj/HzmjPlayView.ts",
+      "line": 121
+    },
+    {
+      "path": "assets/Games/Mahjong/Packs/Pack01/Code/Runtime/hzmj/HzmjReplayController.ts",
+      "line": 187
+    },
+    {
+      "path": "assets/Games/Mahjong/Packs/Pack01/Code/Runtime/hzmj/HzmjReplayController.ts",
+      "line": 189
+    },
+    {
+      "path": "assets/Games/Mahjong/Packs/Pack01/Code/Runtime/hzmj/HzmjReplayController.ts",
+      "line": 228
+    },
+    {
+      "path": "assets/Games/Mahjong/Packs/Pack01/Code/Runtime/hzmj/HzmjReplayController.ts",
+      "line": 229
+    },
+    {
+      "path": "assets/Games/Mahjong/Packs/Pack01/Code/Runtime/hzmj/HzmjReplayController.ts",
+      "line": 277
+    },
+    {
+      "path": "assets/Games/Mahjong/Packs/Pack01/Code/Runtime/hzmj/HzmjReplayController.ts",
+      "line": 293
+    },
+    {
+      "path": "assets/Games/Mahjong/Packs/Pack01/Code/Runtime/hzmj/HzmjReplayController.ts",
+      "line": 297
+    },
+    {
+      "path": "assets/Games/Mahjong/Packs/Pack01/Code/Runtime/hzmj/HzmjReplayController.ts",
+      "line": 300
+    },
+    {
+      "path": "assets/Games/Mahjong/Packs/Pack01/Code/Runtime/hzmj/model/LegacyHzmjRoomSet.ts",
+      "line": 202
+    },
+    {
+      "path": "assets/Games/Mahjong/Packs/Pack01/Code/Runtime/hzmj/model/LegacyHzmjRoomSet.ts",
+      "line": 222
+    },
+    {
+      "path": "assets/Games/Mahjong/Packs/Pack01/Code/Runtime/hzmj/HzmjTableController.ts",
+      "line": 102
+    },
+    {
+      "path": "assets/Games/Mahjong/Packs/Pack01/Code/Runtime/hzmj/HzmjTableController.ts",
+      "line": 132
+    },
+    {
+      "path": "assets/Games/Mahjong/Packs/Pack01/Code/Runtime/hzmj/HzmjTableController.ts",
+      "line": 179
+    },
+    {
+      "path": "assets/Games/Mahjong/Packs/Pack01/Code/Runtime/hzmj/HzmjTableController.ts",
+      "line": 188
+    },
+    {
+      "path": "assets/Games/Mahjong/Packs/Pack01/Code/Runtime/hzmj/HzmjTableController.ts",
+      "line": 192
+    },
+    {
+      "path": "assets/Login/Code/Runtime/bootstrap/LoginScreenBootstrap.ts",
+      "line": 93
+    },
+    {
+      "path": "assets/Login/Code/Runtime/bootstrap/LoginScreenBootstrap.ts",
+      "line": 102
+    },
+    {
+      "path": "assets/Login/Code/Runtime/bootstrap/LoginScreenBootstrap.ts",
+      "line": 114
+    },
+    {
+      "path": "assets/Login/Code/Runtime/bootstrap/LoginScreenBootstrap.ts",
+      "line": 116
+    },
+    {
+      "path": "assets/Login/Code/Runtime/bootstrap/LoginScreenBootstrap.ts",
+      "line": 130
+    },
+    {
+      "path": "assets/Login/Code/Runtime/bootstrap/LoginScreenBootstrap.ts",
+      "line": 138
+    },
+    {
+      "path": "assets/Login/Code/Runtime/bootstrap/LoginScreenBootstrap.ts",
+      "line": 215
+    },
+    {
+      "path": "assets/Login/Code/Runtime/bootstrap/AooClientManager.ts",
+      "line": 123
+    },
+    {
+      "path": "assets/Login/Code/Runtime/auth/LegacyHttpAuthGateway.ts",
+      "line": 91
+    }
+  ],
+  "stableReferenceGate": false,
+  "passed": false
+}

@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "requiredPatterns": [
+    "**/target/",
+    "**/build/",
+    "**/library/",
+    "**/temp/",
+    "**/node_modules/"
+  ],
+  "checks": {
+    "sourceIgnore": true,
+    "releaseIgnore": true,
+    "packageHallForbidden": true
+  },
+  "passed": true
+}

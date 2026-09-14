@@ -1,0 +1,107 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-24T10:42:29Z",
+  "task": "LARGE05",
+  "passed": false,
+  "thresholdBytes": 1048576,
+  "budgets": {
+    "nodes": 1000,
+    "components": 1200,
+    "sourceBytes": 2097152
+  },
+  "prefabs": [
+    {
+      "path": "Club/Prefab/Native/default/UnionManager.prefab",
+      "bytes": 2383546,
+      "sha256": "f8026be065fe25f0cab2fa8d4504da524090ec6fb04eaff554f1e318a5fa903c",
+      "nodes": 683,
+      "components": 1665,
+      "prefabInstances": 0,
+      "nativeVariant": true,
+      "counterpart": "Club/Prefab/default/UnionManager.prefab"
+    },
+    {
+      "path": "Club/Prefab/Native/skin-2/UnionManagerZhongZhi.prefab",
+      "bytes": 1718670,
+      "sha256": "6b526d9e8a67939cab3d8f7709c28aca6bc6d2aba316249c4f933077459d73e2",
+      "nodes": 486,
+      "components": 1175,
+      "prefabInstances": 0,
+      "nativeVariant": true,
+      "counterpart": "Club/Prefab/skin-2/UnionManagerZhongZhi.prefab"
+    },
+    {
+      "path": "Club/Prefab/Native/skin-2/UnionManager_2.prefab",
+      "bytes": 2733222,
+      "sha256": "e40e8960e7cd9b19c25fea0d0e770b77e41a601bc6c3a59b323ef20070470830",
+      "nodes": 781,
+      "components": 1913,
+      "prefabInstances": 0,
+      "nativeVariant": true,
+      "counterpart": "Club/Prefab/skin-2/UnionManager_2.prefab"
+    },
+    {
+      "path": "Club/Prefab/default/UnionManager.prefab",
+      "bytes": 2383546,
+      "sha256": "f8026be065fe25f0cab2fa8d4504da524090ec6fb04eaff554f1e318a5fa903c",
+      "nodes": 683,
+      "components": 1665,
+      "prefabInstances": 0,
+      "nativeVariant": false,
+      "counterpart": null
+    },
+    {
+      "path": "Club/Prefab/skin-2/UnionManagerZhongZhi.prefab",
+      "bytes": 1718670,
+      "sha256": "6b526d9e8a67939cab3d8f7709c28aca6bc6d2aba316249c4f933077459d73e2",
+      "nodes": 486,
+      "components": 1175,
+      "prefabInstances": 0,
+      "nativeVariant": false,
+      "counterpart": null
+    },
+    {
+      "path": "Club/Prefab/skin-2/UnionManager_2.prefab",
+      "bytes": 2733222,
+      "sha256": "e40e8960e7cd9b19c25fea0d0e770b77e41a601bc6c3a59b323ef20070470830",
+      "nodes": 781,
+      "components": 1913,
+      "prefabInstances": 0,
+      "nativeVariant": false,
+      "counterpart": null
+    }
+  ],
+  "pairs": [
+    {
+      "native": "Club/Prefab/Native/default/UnionManager.prefab",
+      "counterpart": "Club/Prefab/default/UnionManager.prefab",
+      "counterpartExists": true,
+      "identical": true
+    },
+    {
+      "native": "Club/Prefab/Native/skin-2/UnionManagerZhongZhi.prefab",
+      "counterpart": "Club/Prefab/skin-2/UnionManagerZhongZhi.prefab",
+      "counterpartExists": true,
+      "identical": true
+    },
+    {
+      "native": "Club/Prefab/Native/skin-2/UnionManager_2.prefab",
+      "counterpart": "Club/Prefab/skin-2/UnionManager_2.prefab",
+      "counterpartExists": true,
+      "identical": true
+    }
+  ],
+  "checks": {
+    "allParse": true,
+    "nodeBudget": true,
+    "componentBudget": false,
+    "nativePairsNotByteDuplicates": false,
+    "subPrefabExtraction": false,
+    "instantiationBenchmark": false
+  },
+  "blockers": [
+    "large Native/default prefab variants remain byte-identical",
+    "large monoliths lack extracted sub-Prefab instances",
+    "Creator runtime instantiation p50/p99 benchmark evidence is absent"
+  ]
+}

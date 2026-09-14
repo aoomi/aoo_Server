@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "capturedAt": "2026-08-24",
+  "maximumGrowthPercent": 10,
+  "artifacts": {
+    "clientBuild": 66326492,
+    "clientAssets": 61061160,
+    "bundle:mahjong01-prefab": 9628769,
+    "bundle:common-prefab": 3913576,
+    "bundle:poker01-prefab": 8454094,
+    "bundle:main": 2669213,
+    "bundle:login-prefab": 3401726,
+    "bundle:lobby-prefab": 17628769,
+    "bundle:club-prefab": 14238405,
+    "serverJars": 6942763
+  },
+  "containerImage": null,
+  "containerImageReason": "No container image is defined by the current release architecture."
+}

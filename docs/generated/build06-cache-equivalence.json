@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "runs": [
+    {
+      "isolatedRepository": "work/build06/39913/repo-1",
+      "passed": true,
+      "artifacts": {
+        "game-spi-1.0.0-SNAPSHOT.jar": "af095026eac42a0b04cd7c694c35dad05b9d2e1d4edc2ed32314bde01f4ce433"
+      },
+      "stderr": ""
+    },
+    {
+      "isolatedRepository": "work/build06/39913/repo-2",
+      "passed": true,
+      "artifacts": {
+        "game-spi-1.0.0-SNAPSHOT.jar": "af095026eac42a0b04cd7c694c35dad05b9d2e1d4edc2ed32314bde01f4ce433"
+      },
+      "stderr": ""
+    }
+  ],
+  "checks": {
+    "bothBuildsPassed": true,
+    "identicalArtifacts": true,
+    "isolatedRepositories": true
+  }
+}

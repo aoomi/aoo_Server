@@ -1,0 +1,1264 @@
+{
+  "schemaVersion": 1,
+  "cacheKey": "aoo-v1-4400c41d90ccf2dbda5abe2e51403874895389c367dfec4dd58c9fe55a524449",
+  "inputs": [
+    {
+      "path": ".mvn/wrapper/maven-wrapper.properties",
+      "sha256": "4f923fb166269bad05ed392dead374d2bd749836111fe435373277cd4bdee930"
+    },
+    {
+      "path": ".node-version",
+      "sha256": "fddb96b9eade5edf9c5227b2ea8a34e82f0c3eb388a667753497e1e9a821757b"
+    },
+    {
+      "path": "${CLIENT_ROOT}/package.json",
+      "sha256": "76687dda73e7aa45b67da2e19712764dcfc142e1934412fa70cc42ebedbae035"
+    },
+    {
+      "path": "${CLIENT_ROOT}/pnpm-lock.yaml",
+      "sha256": "17c814b167307942d3609c7b9d916ceddb85839573ab39baa114e30edb132a1a"
+    },
+    {
+      "path": "database/migrations/V20260822_01__business_closure.sql",
+      "sha256": "07b9089634ba724d46bf9adf59c846e9309b6c3430fb89da16841efe33143723"
+    },
+    {
+      "path": "database/migrations/V20260822_02__admin_control_plane.sql",
+      "sha256": "f6a806d05ad32236c14210d0951cbeeac0fc75aea0424cd2d089ff488683f1a9"
+    },
+    {
+      "path": "database/migrations/V20260822_03__game_profile_publication.sql",
+      "sha256": "b7bb8dc04ed0785196fbcd3647061c543e9c020388fc4a22a87f04e72f4e1337"
+    },
+    {
+      "path": "database/migrations/V20260822_04_1__room_recovery.sql",
+      "sha256": "d25e2605cb92f91afe60fe1c823518c6e6590440f60c2bb44d0b893a23057324"
+    },
+    {
+      "path": "database/migrations/V20260822_04_2__currency_balance.sql",
+      "sha256": "46fa484931c8b4588abd0dfdd41b2c6de4305a86c2320150ff71b368d08433d3"
+    },
+    {
+      "path": "database/migrations/V20260822_04_3__outbox_retry.sql",
+      "sha256": "6cb760dca036d8b0f0968462fa770064f291d80bc179a2538075d1b71fff7724"
+    },
+    {
+      "path": "database/migrations/V20260822_04__admin_permissions.sql",
+      "sha256": "94cefa0f35de2df7680b9c610b3f006691afe8208b4f979ea55b3fceb5f2b3de"
+    },
+    {
+      "path": "database/migrations/V20260822_05__ledger_reconciliation_indexes.sql",
+      "sha256": "75ac838c17188a67ab7a1cc0b47163e8ea97fea634a42e55d7095a99a8143ef5"
+    },
+    {
+      "path": "database/migrations/V20260822_06__million_member_club_indexes.sql",
+      "sha256": "ff8554e9bbbcf826050de3cb79c7ce3a8c3e36a9de70c64d44581a28f41885fb"
+    },
+    {
+      "path": "database/migrations/V20260822_07__ten_million_player_indexes.sql",
+      "sha256": "a301741cb027c23b62d33b305c58175fde04406ecb0ec41423b0809ec787f011"
+    },
+    {
+      "path": "database/migrations/V20260822_08__perspective_replay.sql",
+      "sha256": "bd06b3e7dadc57d80217405e07e9592c0621f1ed5fc1a40f1739318b50e9a5c6"
+    },
+    {
+      "path": "database/migrations/V20260822_09__replay_retention.sql",
+      "sha256": "48548ff3064773fd713a8586563a33eaddc43e1a6b66150f8771b0444965cea9"
+    },
+    {
+      "path": "database/migrations/V20260822_10__perspective_room_events.sql",
+      "sha256": "82d8753b2aeb681e3facf3d39a588cb3d28653a27ba83aa36631ea4955e65345"
+    },
+    {
+      "path": "database/migrations/V20260822_11__consumed_events.sql",
+      "sha256": "c47d7e8ce4f2fb10758a37bea875aa200b10ce4e0cf1a13f6f991fd60b19eb91"
+    },
+    {
+      "path": "database/migrations/V20260822_12__consumed_event_claim.sql",
+      "sha256": "4fcf7bdaf45c3bc50ab895de2e0f5418627a28ce65ce58ed9ce98aa3f3df9f6e"
+    },
+    {
+      "path": "database/migrations/V20260822_13__room_event_visibility_identity.sql",
+      "sha256": "e7c7c9c1ae8e188e5192eda882bd9369db06404c8f3c5a61c1c7dfd6bcc60510"
+    },
+    {
+      "path": "database/migrations/V20260822_14__scalable_club_members.sql",
+      "sha256": "bd85e8153e587d0d1f810fd9b2541177b1421a2dd04e292814ad5c31bd02d375"
+    },
+    {
+      "path": "database/migrations/V20260822_15__account_login_index.sql",
+      "sha256": "c985f46b580e2cd0307690bcd65a57826d7d968d1a1b9c98db57cceb665e1bc6"
+    },
+    {
+      "path": "database/migrations/V20260823_01__room_event_business_identity.sql",
+      "sha256": "baf0084d5a8ffd3ca13d847650b14fdc0edb954688cb7b0dd3edda0c4cacecaf"
+    },
+    {
+      "path": "database/migrations/V20260823_02__outbox_claim_dlq_lifecycle.sql",
+      "sha256": "5b87582327d25f243f67f43fa9e850ace9eab1b344267f3e6c76fbad8334b4e7"
+    },
+    {
+      "path": "database/migrations/V20260823_03__consumed_event_repeatable_result.sql",
+      "sha256": "eeb859d3804a290110d0d5d57c90cd5930ad849485260c5607715d1f2c4ba618"
+    },
+    {
+      "path": "database/migrations/V20260823_04__consumer_dead_letter_replay.sql",
+      "sha256": "0e710e6f7cf10102e90ce8e70b1f97c93bd30a5919a4a6f68944afd1b1081341"
+    },
+    {
+      "path": "database/migrations/V20260823_05__idempotency_result_model.sql",
+      "sha256": "a6adc62245d73890a08b962ae08a6fed9495a0d3af3b611a159cd2231201fd40"
+    },
+    {
+      "path": "database/migrations/V20260823_06__idempotency_business_scope.sql",
+      "sha256": "fcd114ee70d75f6c589aeeb6d0218895ec85d474e91b507ec4d5fd61216aec43"
+    },
+    {
+      "path": "database/migrations/V20260823_07__snapshot_state_version.sql",
+      "sha256": "a1571420de0d09880d27d6a8d83ff3bd686fb87ca01d6bdd451851344be76667"
+    },
+    {
+      "path": "database/migrations/V20260823_08__outbox_schema_version.sql",
+      "sha256": "607f944efa7ae2064a7ab0631b340bc9df63b0fa9a5071b66935894e6915f532"
+    },
+    {
+      "path": "database/migrations/V20260823_09__immutable_room_event_history.sql",
+      "sha256": "ea13e156677d471f56a2ca59a66c6cbdedeade9d487c13df01e6efdc6778a148"
+    },
+    {
+      "path": "database/migrations/V20260823_10__connection_generation.sql",
+      "sha256": "479ca1f71519cd93a74c2d909c3c148ff99cf8669871213375da39472e562951"
+    },
+    {
+      "path": "database/migrations/V20260823_11__required_business_semantics.sql",
+      "sha256": "c391a43f49dcce65dea6e8e07e7213962898bcce591fec6cd87c7dabe48f5fca"
+    },
+    {
+      "path": "database/migrations/V20260823_12__play_member_template_business_keys.sql",
+      "sha256": "b49cabf4cf801d93a84fd848aa828376331b5971a9fa7963ca59b3d530503322"
+    },
+    {
+      "path": "database/migrations/V20260823_13__enforced_domain_checks.sql",
+      "sha256": "d8a8dcde3e4b67ad1800060f49917d61bc8ac9013f368bf1e316b43450040b89"
+    },
+    {
+      "path": "database/migrations/V20260823_14__query_shape_indexes.sql",
+      "sha256": "b19acecce6b193822a746a998a66bf04ec7464a009bfea54cd308575fd02e118"
+    },
+    {
+      "path": "database/migrations/V20260823_15__canonical_column_types.sql",
+      "sha256": "6ed94b56f7376e59efe7f08bdc4b0f28ec1450396fe063d7ff5a0ffe2dd6442c"
+    },
+    {
+      "path": "database/migrations/V20260823_16__utc_millisecond_time.sql",
+      "sha256": "d0bc0546c2e53b0756af98b5242e592aedc6c66c9ac9e7d1f37457aff07604dd"
+    },
+    {
+      "path": "database/migrations/V20260823_17__distributed_id_ownership.sql",
+      "sha256": "ffcff24a6d2f92d93d6f7ef1a627ce8fda3b0b3ff82002855088bbe78d645e53"
+    },
+    {
+      "path": "database/migrations/V20260823_18__club_aggregate_concurrency.sql",
+      "sha256": "b501de594855d56eb160b983a93a665c06ae3a658bf3096628e0d94417e7b352"
+    },
+    {
+      "path": "database/migrations/V20260823_19__canonical_storage_layout.sql",
+      "sha256": "b0d952e64becb5676348b1635126d7a9cfce6d0dcd7a69a0e86b56ed2a0c6654"
+    },
+    {
+      "path": "database/migrations/V20260823_20__account_login_unique_index.sql",
+      "sha256": "cefc2d6d994c86f1d858b327532ffa192a53674a8f1a42b8acf212780d591444"
+    },
+    {
+      "path": "database/migrations/V20260823_21__consumed_event_fenced_lease.sql",
+      "sha256": "ac5ec3cdafe28040601e8def67919389c6bb73428cb0411ec72d409a3a7afa18"
+    },
+    {
+      "path": "database/migrations/V20260823_22__versioned_replay_archive.sql",
+      "sha256": "8bffa21a5cc3ae6582a1e3a045be1bb4e282345063225f79f391604fe07c9d40"
+    },
+    {
+      "path": "database/migrations/V20260823_23__ledger_reconciliation_dimensions.sql",
+      "sha256": "0c2798af341fdd6420ab1f494fffe6ce89be1ad7956ef0581f50069757517f94"
+    },
+    {
+      "path": "database/migrations/V20260823_24__admin_rbac_audit.sql",
+      "sha256": "1c6993c925205e94461f584db249b36df7ba22b00c1bae3b1140e24370e2c457"
+    },
+    {
+      "path": "database/migrations/V20260823_25__outbox_fencing_and_retention.sql",
+      "sha256": "e0f90a2486007ca6d5d5b2f1b13117f8f03f4034f4c3eb632848c41369fda1ac"
+    },
+    {
+      "path": "database/migrations/V20260823_26__currency_catalog_and_authority.sql",
+      "sha256": "033e76c166e2abea450f2b9ba9d758a4a7c4d0158721cedc687853efd4f4e498"
+    },
+    {
+      "path": "pom.xml",
+      "sha256": "22ce07b0e925ba8fcee3d321153a3537329403fb29ac1cda2082c73f7487a138"
+    },
+    {
+      "path": "scripts/audit-build01-maven-wrapper.rb",
+      "sha256": "af4e1d1aba44a2b5aae872b7b8b11301dbf373f93a5fd11c3c34dfb22c9bbd14"
+    },
+    {
+      "path": "scripts/audit-build02-repositories.rb",
+      "sha256": "8cdfcc18f3b05f4ed1908e3c5eaa12f3143481b924f7676d643c180b4bd55685"
+    },
+    {
+      "path": "scripts/audit-build03-dynamic-versions.rb",
+      "sha256": "11d6d541589df607c617a34d066d48552db03ff28e47345d03f8d968282297e2"
+    },
+    {
+      "path": "scripts/audit-build04-reproducibility.rb",
+      "sha256": "cec40a0f54da95be0146baaed4fd9f534fd146b4335b157d555b6378d5f07989"
+    },
+    {
+      "path": "scripts/audit-build05-cache-key.rb",
+      "sha256": "cb6af6ce8b6a2a71c199e06015d86ee4c35cda0c638232aaccf32cb4115ef5dd"
+    },
+    {
+      "path": "scripts/audit-con01-required-semantics.rb",
+      "sha256": "c0063a7058a54d98ff0a832f7751d297dab4515aa33c37a660ef41073913e6cf"
+    },
+    {
+      "path": "scripts/audit-con02-business-keys.rb",
+      "sha256": "8952df9be2c619d633236a2243604cfec3d57c511006a5695c3441cefcf4bd9f"
+    },
+    {
+      "path": "scripts/audit-con03-enforced-checks.rb",
+      "sha256": "9074334617bb320aa020cf5660e3668216ce6b04a709a2cb7896dc5d2a0a8fb6"
+    },
+    {
+      "path": "scripts/audit-con04-foreign-key-integrity.rb",
+      "sha256": "8b8f3ebe3551c19029ae71d10b75810d4a78254baf06cf8facb15df6862e9e84"
+    },
+    {
+      "path": "scripts/audit-con05-query-plans.rb",
+      "sha256": "2ec3880084e36eaeb2ec73086ed7c411614fe9a808a5e40b0adb1380a5d18ec3"
+    },
+    {
+      "path": "scripts/audit-con06-canonical-types.rb",
+      "sha256": "e829fa04d5da85c4e2249eb960b6c6a038f1e0cac0a9af69398473089f7941d1"
+    },
+    {
+      "path": "scripts/audit-con07-temporal-authority.rb",
+      "sha256": "5088cc2e6e1d97ee0983adf4635825074b3d16a66b80dcd26d08f2be08d16bdd"
+    },
+    {
+      "path": "scripts/audit-con08-distributed-ids.rb",
+      "sha256": "a723b3ec628f0f2dd621e766fe04493216c408b0dfe8ecfe05cb87dfc0ff6110"
+    },
+    {
+      "path": "scripts/audit-con09-concurrency-anomalies.rb",
+      "sha256": "e232b85d1e8534c1f6c314dfff5a059bbd7059322ba0cd6edede11b8828edad8"
+    },
+    {
+      "path": "scripts/audit-con10-sql-errors.rb",
+      "sha256": "7f0d551f2135710148a225016df0bc97507711f53da514921c3a94a895f3f4d3"
+    },
+    {
+      "path": "scripts/audit-con11-post-import.rb",
+      "sha256": "61e21e6a6e08369ef5698e96abf780947f907c66663bc772a6fca573d6eb3c6b"
+    },
+    {
+      "path": "scripts/audit-con12-storage-layout.rb",
+      "sha256": "626b157f29ef0428159fd6a7bda16ef4b6819cf981eb44c599a5522a04a2b11e"
+    },
+    {
+      "path": "scripts/audit-conf01-precedence.rb",
+      "sha256": "73ed9e55f03882c0e95f4dc61ef52388c3242ca2865dd1a0f91f3541f1598b50"
+    },
+    {
+      "path": "scripts/audit-conf02-key-catalog.rb",
+      "sha256": "e2ca9737dc1558540e471fc979e7f51f1d59d977cc2065679a08fce04d61f0c0"
+    },
+    {
+      "path": "scripts/audit-conf03-strict-schema.rb",
+      "sha256": "04fdf37e4642ee4377bc4f3154ab27ea500ebfa2f2e4258e6d6d930933b48d3b"
+    },
+    {
+      "path": "scripts/audit-conf04-closed-production.rb",
+      "sha256": "a29a1126fb93b42bd22ace5939da83f8bdf87bea460470cefb7faa933793f342"
+    },
+    {
+      "path": "scripts/audit-conf05-secret-reference.rb",
+      "sha256": "fc49f2899934ad0b7917593e050b9d5e9e78be6ec35ee2de212d0976ec1d8535"
+    },
+    {
+      "path": "scripts/audit-conf06-redaction.rb",
+      "sha256": "5ca97c8a5fb02becb77fa22b9dda564fdf30449f328361d8e2a2275616e878d7"
+    },
+    {
+      "path": "scripts/audit-conf07-reload-boundary.rb",
+      "sha256": "2d13b892ac4a79e056ad79097e418e0de4802698b1a26e238a8fe1d98f43a44d"
+    },
+    {
+      "path": "scripts/audit-conf08-atomic-release.rb",
+      "sha256": "2681646ed7c2b6d120de2d306c09915c5c8cc7520d63d19952adac1fde284d77"
+    },
+    {
+      "path": "scripts/audit-conf09-environment-diff.rb",
+      "sha256": "f4306e41df3fdfc885c489b74145f35b2ee64a7928a3c79705707d2c9806b63c"
+    },
+    {
+      "path": "scripts/audit-conf10-modern-config.rb",
+      "sha256": "6286e5971f52972d0fa29dfedf5de20dc1b9abe101ae8519b53e834407e1dbc5"
+    },
+    {
+      "path": "scripts/audit-conf11-config-rbac.rb",
+      "sha256": "f137284601f2924afb7386e84c08da91d2d94e368c25cbeda1370b737413cfd8"
+    },
+    {
+      "path": "scripts/audit-conf12-signed-lkg.rb",
+      "sha256": "4fac093f1e3669bb5e29ccb914f8f3e5cac453f291b830707d67e2bd3f6ab8cb"
+    },
+    {
+      "path": "scripts/audit-cp01-duplicate-fqcn.rb",
+      "sha256": "4c6b2c56ba2d55feedc159f53c910f7802558361cbe23fd11517de5ecd4c1bb6"
+    },
+    {
+      "path": "scripts/audit-cp02-resource-collisions.rb",
+      "sha256": "f686310c1b0bafa8b03303fe44130438516ac855f867217c12289377a4aa8e55"
+    },
+    {
+      "path": "scripts/audit-cp03-artifact-coordinates.rb",
+      "sha256": "905f94ba3038962f984ee67bcd218681954e463d213f3780ac2331e66944aa73"
+    },
+    {
+      "path": "scripts/audit-cp04-jpms-boundary.rb",
+      "sha256": "330186976c3019c9c31d626e59989c5edaa9796e6b2a894bd0ba467657780480"
+    },
+    {
+      "path": "scripts/audit-cp05-reactor-order.rb",
+      "sha256": "351306dbff8b9917669694d226eae41d772dfd307142173b60b6382bd38c4d01"
+    },
+    {
+      "path": "scripts/audit-cp06-build-version.rb",
+      "sha256": "554f34bd02255bf26d449259bca1ea9f75ffd476a4f36966be205e899e88dad9"
+    },
+    {
+      "path": "scripts/audit-cp07-service-loader.rb",
+      "sha256": "98d0aee2c6d2c0f6497be1cc1edf14b406c0249ef660eb3aca649f66480c39e6"
+    },
+    {
+      "path": "scripts/audit-cp08-spring-metadata.rb",
+      "sha256": "787512c91ca24001a1392fd1c4a94c2ce38dce9ff9d84e2d6875129449a675ea"
+    },
+    {
+      "path": "scripts/audit-cp09-resource-filtering.rb",
+      "sha256": "f10cb524041f5a865439250e1486f5268f115e1b7070a6fe8c91bf0a8e3b6e21"
+    },
+    {
+      "path": "scripts/audit-cp10-classpath-parity.rb",
+      "sha256": "d70df2da68fd0575836c7408abd5384015c9d821d1ed28e19448718430d45db6"
+    },
+    {
+      "path": "scripts/audit-cp11-class-origins.rb",
+      "sha256": "85ffc438ed272f03e729a54d96c59a1c1c3083af3a91bd4294fea62c6224476f"
+    },
+    {
+      "path": "scripts/audit-cp12-clean-isolated.rb",
+      "sha256": "ea0cebeea769fea192672b9167222564d1f855b995d5cbbea407d1bee191dfb0"
+    },
+    {
+      "path": "scripts/audit-dbreal01-original-isolation.rb",
+      "sha256": "bcba39cb30aa39afb284e3eedb262ecda83477070afce44888b1cf8134fd31cb"
+    },
+    {
+      "path": "scripts/audit-dbreal02-backup-security.rb",
+      "sha256": "5620d1d8e57a7414bcdc568abdfd4fb04f046a32141eac007c8af978edafd799"
+    },
+    {
+      "path": "scripts/audit-dbreal03-zle-map.rb",
+      "sha256": "a1a7341477fd7be2c2c9c6bcd92e9ad748a5bb888a9ec5b49680efa62e96fc5c"
+    },
+    {
+      "path": "scripts/audit-dbreal04-log-map.rb",
+      "sha256": "44b6a9e1c00ab59cdec09f16a72ea1244308df92d392fa4dcc12b6b77952f80a"
+    },
+    {
+      "path": "scripts/audit-dbreal05-game-map.rb",
+      "sha256": "eebace9304967efecbe8fa2dca37c67b2afbe65d72e68458fce9423bc0816ee8"
+    },
+    {
+      "path": "scripts/audit-dbreal06-baseline-authority.rb",
+      "sha256": "713c816f5f3a56553b7a48ea062f041cfa337d10298ead031396baa278b9e8e0"
+    },
+    {
+      "path": "scripts/audit-dbreal07-migration-order.rb",
+      "sha256": "6b74988ba3cc229599710d62e24772fb6ecd92938a894418a1fe776bda7c74f1"
+    },
+    {
+      "path": "scripts/audit-dbreal08-boundary.rb",
+      "sha256": "077527010ed4764eee3c621027e90d30220be66ffeeb1109f7c8a01f809299ff"
+    },
+    {
+      "path": "scripts/audit-dbreal09-column-ledger.rb",
+      "sha256": "036ab0a0772c31c19e260aad6b1c4f3043fd420afc4abe9eeeac8b288199316d"
+    },
+    {
+      "path": "scripts/audit-dbreal10-sensitive-data.rb",
+      "sha256": "c85a035a7d057066bd24747ec15382053449dccb220785a37901f3ba5fe53de5"
+    },
+    {
+      "path": "scripts/audit-dbreal11-sql-compatibility.rb",
+      "sha256": "7cff7fbb047c4865b6dda59f34c1ca51e0150cee1022a8c1fe106741d2a92eb2"
+    },
+    {
+      "path": "scripts/audit-dbreal12-flyway-authority.rb",
+      "sha256": "cb2276f13d50496f3154020dc739e1586462bd4137343d0fba6421256a8cc7f4"
+    },
+    {
+      "path": "scripts/audit-dead01-reachability.rb",
+      "sha256": "c632dcdfcad5cff6582a2e3e2a919ea2d89a6bf43669465a6a8e2a0dfb413eb6"
+    },
+    {
+      "path": "scripts/audit-dead03-registration-reverse.rb",
+      "sha256": "64f1969289fcee539e48e7e4f3b7ba6b72a833e67e8df7c2cb347894f0ea0ccc"
+    },
+    {
+      "path": "scripts/audit-dead09-exception-policy.rb",
+      "sha256": "8b9006a01238cdf446bfba8244501f59dd2e189425215c5777e2257f81f37066"
+    },
+    {
+      "path": "scripts/audit-dead11-database-object-matrix.rb",
+      "sha256": "ecdd2c19697476863a6785340d5a7f188ab971ab37a056be6b591bc788651400"
+    },
+    {
+      "path": "scripts/audit-dead12-client-resource-reachability.rb",
+      "sha256": "2e25cf4739f1a23d1c01268ebe45390b82fc3cb30c5348078cecfc885454c116"
+    },
+    {
+      "path": "scripts/audit-dead13-test-effectiveness.rb",
+      "sha256": "fb350ffc0b241441f7731d1f89cb682122b882d747ec743bc6b178d702d949b8"
+    },
+    {
+      "path": "scripts/audit-dead14-deletion-proof.rb",
+      "sha256": "7b684458a06ccd74105e79e807d7673d515b4d9bc6c93aa89ce38d6aba28c0a8"
+    },
+    {
+      "path": "scripts/audit-drift01-module-reconciliation.rb",
+      "sha256": "9a8c9bb64f165e8c3c10382a26fdc7eb2e885090795a7ec5a9f39d06a9911aac"
+    },
+    {
+      "path": "scripts/audit-drift02-version-build.rb",
+      "sha256": "9976d9e629fdb21dd04b19ce03e93528b1ef0f1c78f22cf49d8d159e9bca84a5"
+    },
+    {
+      "path": "scripts/audit-drift03-interface-routing.rb",
+      "sha256": "485daa5cacfcd7eb68de728eaf88aade4db14c3c059096fdfd52202508f20a8e"
+    },
+    {
+      "path": "scripts/audit-drift04-schema-dictionary.rb",
+      "sha256": "7ca8ce06b97b3a89b6273e3d249112200648567c3b87879283773d5fd8664d93"
+    },
+    {
+      "path": "scripts/audit-drift05-play-documentation.rb",
+      "sha256": "701035a688bbf5605058bf749f31fb96a7e0d5f6dde92b0aa1277ff48bf2c406"
+    },
+    {
+      "path": "scripts/audit-drift06-client-prefab.rb",
+      "sha256": "893321724915601821f8e1bf13436509efd2f970140e4c1c6ebbbe30c796e69d"
+    },
+    {
+      "path": "scripts/audit-drift07-deployment.rb",
+      "sha256": "18f79a31ffac7eac0cba874c59b0dcd8b8ca44bb9368bb388ed4346fa8d45b1b"
+    },
+    {
+      "path": "scripts/audit-drift08-operations-runbook.rb",
+      "sha256": "6d807dae1a1c9adff3d9d5eeb47997e03cfeb59c51cc26b05ad5b89e376e6710"
+    },
+    {
+      "path": "scripts/audit-drift09-ledger-evidence.rb",
+      "sha256": "c5ba1f49a58917e5bf65187419950ef7dd24a4efc48b76d9abcced60383cf0cd"
+    },
+    {
+      "path": "scripts/audit-drift10-continuous-drift.rb",
+      "sha256": "335842af2569543fba8caa1160b63e51a04e42c51e02f6dfad10a7852e235e91"
+    },
+    {
+      "path": "scripts/audit-fs01-casefold.rb",
+      "sha256": "0acf49f404410166c0cb085267139a6599ff68618800386d0a5a9a385566fdd5"
+    },
+    {
+      "path": "scripts/audit-fs02-illegal-names.rb",
+      "sha256": "3972be13a9b9499745e55ffae41057eaa3de16e2a4bb3e3d2d2791123d8fa9af"
+    },
+    {
+      "path": "scripts/audit-fs03-unicode-normalization.rb",
+      "sha256": "d573c43576fc47abc477aacd55c3a30dbca15edddf6409974c22cc6ab095c3f6"
+    },
+    {
+      "path": "scripts/audit-fs04-utf8.rb",
+      "sha256": "5dc01cf216f700213f7b72728b63e0a0ae0d29038739a651a07ec0466c3ec4a2"
+    },
+    {
+      "path": "scripts/audit-fs05-line-endings.rb",
+      "sha256": "eb0e576f68b7d5ec76f615239163038062724701596a94ffb76c2db218a91a69"
+    },
+    {
+      "path": "scripts/audit-fs06-bom.rb",
+      "sha256": "002cba24e3a384fd0f8d2a1bf3fbe6a3b49dbcfadb0ad878617cbfeedff6f991"
+    },
+    {
+      "path": "scripts/audit-fs07-executable-permissions.rb",
+      "sha256": "1adda85751a77bd5e8dcabb1bf69b609966f67b261aca06318d36e993a1d2978"
+    },
+    {
+      "path": "scripts/audit-fs08-symlinks.rb",
+      "sha256": "2ecc369cd05113a73117c4ec09c239a3d8f29c27fe8e70fa16167fe068feb4e0"
+    },
+    {
+      "path": "scripts/audit-fs09-runtime-permissions.rb",
+      "sha256": "e4fb5815a0566350590c932d21ba3be5d589855260d1f8071e14c1e3b2941d92"
+    },
+    {
+      "path": "scripts/audit-fs10-atomic-writes.rb",
+      "sha256": "ab96d373585d17a020205f99891b0265aeedc5b3f25e4d8690147eaa6379291c"
+    },
+    {
+      "path": "scripts/audit-fs11-disk-full.rb",
+      "sha256": "7fbd2eede423067ec54914f1a92aa9cd4e5d3f5c114ff134519ac5f7faad2275"
+    },
+    {
+      "path": "scripts/audit-fs12-path-traversal.rb",
+      "sha256": "846df40575f9c3c585ade0266a1f190797c9ce0c4e0c371f03c624a036241ae9"
+    },
+    {
+      "path": "scripts/audit-game01-njpdk.rb",
+      "sha256": "0a8120c96c2a0708d69e00a63483c7e8daf980085fd6ac28cbbeae615992fe3c"
+    },
+    {
+      "path": "scripts/audit-game02-xcpdk.rb",
+      "sha256": "01a7e624fbe9a55030cacaba67006578b75a01b668147b15bbef5c9f501c3532"
+    },
+    {
+      "path": "scripts/audit-game03-cdxzmj.rb",
+      "sha256": "2836b96ee0f8753125b87c4a1cbadc6fce52559c49ae45424974aa4c057e129f"
+    },
+    {
+      "path": "scripts/audit-game04-scjymj.rb",
+      "sha256": "3e4d809c19da44d9e4da3ef5cac8dc2e9ed2eb74f24cf554d88e090dbf7b89a2"
+    },
+    {
+      "path": "scripts/audit-game05-zjh.rb",
+      "sha256": "1d13f4916c80e1e714f660137d231c3a2c71ffdbed1ffe136488a0ee9774b26a"
+    },
+    {
+      "path": "scripts/audit-game06-zypk.rb",
+      "sha256": "c612652b4b33b8b58ca5a4f182ba76605cf88e62078b3d0af095886f1fdd6213"
+    },
+    {
+      "path": "scripts/audit-game07-families.rb",
+      "sha256": "323f34f7f23aa83b9378511ded39b64cc838ebb43af9dfb95a98bcb6736a40d9"
+    },
+    {
+      "path": "scripts/audit-game08-catalog-expansion.rb",
+      "sha256": "43e259a27dad316551cd01d0c38a165cc87e073d7153a46cfa31d22e44fcfb47"
+    },
+    {
+      "path": "scripts/audit-hygiene01-root-logs.rb",
+      "sha256": "962dd4a7b31d870633f1c1c9a7eddfd0948f635831cec3cd22395cb4bd29eef6"
+    },
+    {
+      "path": "scripts/audit-hygiene02-module-logs.rb",
+      "sha256": "e5505f9d18ff17b59afa949d9963bb57e2d28d341aafbf03f134a9caca859ecc"
+    },
+    {
+      "path": "scripts/audit-hygiene03-legacy-jdk.rb",
+      "sha256": "a20d5262fcd6af30170b28488c3380111cc05c231d1cb5ad7ef1c196a092c605"
+    },
+    {
+      "path": "scripts/audit-hygiene04-toolchains.rb",
+      "sha256": "0f9c679b4b54b57cdd4174cb26ec3ac6addef1d898d35643a91c905a7e0345fb"
+    },
+    {
+      "path": "scripts/audit-hygiene05-local-runtime.rb",
+      "sha256": "d24b74b8c21705f30638a30d1a68a42c4e1733b3fcf45367a2687458ada68ffd"
+    },
+    {
+      "path": "scripts/audit-hygiene06-common-binaries.rb",
+      "sha256": "0394a320ea3dcfdbd6556ba0ef81a9fbbd545540f8a157d010c6fc55083a37a1"
+    },
+    {
+      "path": "scripts/audit-hygiene07-python-cache.rb",
+      "sha256": "705b298f1124db95452890cc7c1af506044190639417f90d4cf1cb4f5b5c306d"
+    },
+    {
+      "path": "scripts/audit-hygiene08-tool-quality.rb",
+      "sha256": "7baa3b19f12edbec0f25112c8745424a7829bafe1986bd3cefd37192087db99f"
+    },
+    {
+      "path": "scripts/audit-hygiene09-portable-paths.rb",
+      "sha256": "21681c11a15108575f0a18447fe49c57873fa64d1a84e879b9e221427d5b5b47"
+    },
+    {
+      "path": "scripts/audit-hygiene10-ignore-policy.rb",
+      "sha256": "18e58e1c2b7c515c6f8e165c8dc4c33b851b8c1461e4bf525ba8f2e0db0cb647"
+    },
+    {
+      "path": "scripts/audit-hygiene11-runtime-pollution.rb",
+      "sha256": "55d5462091fed31cb6b32022a7c18b4636065be9d38936b17314a87244ed0a0c"
+    },
+    {
+      "path": "scripts/audit-hygiene12-generated-boundary.rb",
+      "sha256": "ec3841441a14d9367c4b49d4506765cd43c6f37556be52f3ef5500b50ab96523"
+    },
+    {
+      "path": "scripts/audit-life01-api-owners.rb",
+      "sha256": "5bb4b9cd4c411c73b4e3fad2facec3f5d2b051b3f7d4316a63422be69b64af84"
+    },
+    {
+      "path": "scripts/audit-life02-introduced-version.rb",
+      "sha256": "2e9cb2bbdcc159eec00e728ac0b6285c619f5057e8ac3ea4400b58d4fcdcd039"
+    },
+    {
+      "path": "scripts/audit-life03-deprecation.rb",
+      "sha256": "1b987633d1d33cfa6dde4aa8b7b10f68626c2505db1b11e68ff46d069195f809"
+    },
+    {
+      "path": "scripts/audit-life04-field-retirement.rb",
+      "sha256": "7883e151707c4cea6e6f02926532b325d1204aa74943eea3fcf5634ec8bcdef5"
+    },
+    {
+      "path": "scripts/audit-life05-error-codes.rb",
+      "sha256": "e58c378a01649b82e9b2075fecba239d562df35cc3b2b7ca19344bfb48958757"
+    },
+    {
+      "path": "scripts/audit-life06-message-ledger.rb",
+      "sha256": "0916dea0be5aa47abdb8f319fe697296edcf5fcb9e065999e2765014cbf167b7"
+    },
+    {
+      "path": "scripts/audit-life07-compat-window.rb",
+      "sha256": "8433977d2707d3851eb99f09a35072add73f2a79621975a19ff76eacbe0165df"
+    },
+    {
+      "path": "scripts/audit-life08-client-usage.rb",
+      "sha256": "08ca1dcbb7cc430f0cd3216fd903adf04eaca11a9fe171d1d303426b9a83c056"
+    },
+    {
+      "path": "scripts/audit-life09-entry-block.rb",
+      "sha256": "afb57094795ff60611a3281260787c375177b86a57a6a3ca73c0955c68cb7547"
+    },
+    {
+      "path": "scripts/audit-life10-shadow-api.rb",
+      "sha256": "ba34b2a00646e643afc0d669f21a13e5bba196b1b75a49108b2b8a5a1f4808cb"
+    },
+    {
+      "path": "scripts/audit-life11-version-negotiation.rb",
+      "sha256": "87848871412a20feee1cbb3402ea9a8b3a6c483c15c6e4b38295cad86e4c0724"
+    },
+    {
+      "path": "scripts/audit-life12-change-log.rb",
+      "sha256": "dc8ecf3d42b303a431eca5212d516d4da87ccbfac08512002d00c66d3df9d5ab"
+    },
+    {
+      "path": "scripts/audit-lock01-order.rb",
+      "sha256": "d8516ccc489c0ef12176e41bb4e39ab6e2f3b638d66ccd87efdafc49256a0405"
+    },
+    {
+      "path": "scripts/audit-lock02-boundaries.rb",
+      "sha256": "143da68158c90105e28031899d6365bd867ea8d7d8c4ab4ab8678078872eeb30"
+    },
+    {
+      "path": "scripts/audit-lock03-timeouts.rb",
+      "sha256": "efef480a8e6a782b4210d487e0a7bbbce4bb71ef38169deda0d7a209d1090b23"
+    },
+    {
+      "path": "scripts/audit-lock04-livelock.rb",
+      "sha256": "c9f0d8717db10cf29d73415f5bd26302643635abb67cbd629d7103a57924c356"
+    },
+    {
+      "path": "scripts/audit-lock05-pool-isolation.rb",
+      "sha256": "ed679dd5412d72d6de0a0f583a8cff69ce189664f91a46d1876b6bb0896604d3"
+    },
+    {
+      "path": "scripts/audit-lock06-fair-queue.rb",
+      "sha256": "b5270ab70802185036984f05ce3e49608f55bb393aec538b5b202e4ef7f3a293"
+    },
+    {
+      "path": "scripts/audit-lock07-future-blocking.rb",
+      "sha256": "61b1f613c6f8eccaf7cab7babf71ef9f61efb42be6810176f16600ab623385b5"
+    },
+    {
+      "path": "scripts/audit-lock08-eventloop-blocking.rb",
+      "sha256": "d99110e45788bbf32363b4ab03f69bd5c2cc7b595929304763a7681c78644f05"
+    },
+    {
+      "path": "scripts/audit-lock09-db-deadlock.rb",
+      "sha256": "d897a90b9f06f23c76158b3a8bbeb4ad9d7cebc3efaabba31945904ef9c7d69e"
+    },
+    {
+      "path": "scripts/audit-lock10-stall-monitor.rb",
+      "sha256": "c375e3e6170bb0abce6fe1cdf8b4584b57c132ef1c1b9a1dfaad61520be2307b"
+    },
+    {
+      "path": "scripts/audit-lock11-room-stuck.rb",
+      "sha256": "73c9fc7a026c143a076988ac57b51789825ab39aa47fdce27174691e0c761678"
+    },
+    {
+      "path": "scripts/audit-lock12-fault-injection.rb",
+      "sha256": "6906bf8ffdb298daeda01eff5ce21624799c9da3e2361f184faefab0b228750f"
+    },
+    {
+      "path": "scripts/audit-logreal01-backend-runtime.rb",
+      "sha256": "3801222a7235fc0af737fbfd4490d0ddd2f050bcdc1f43e1ca92bd9621f08c3c"
+    },
+    {
+      "path": "scripts/audit-logreal02-hall.rb",
+      "sha256": "3e929c70724daebec3ef28628b1171708a226564974fd94ebdfc7f38475865b0"
+    },
+    {
+      "path": "scripts/audit-logreal03-game-log-map.rb",
+      "sha256": "994811109a26e9ef61d92eb94b22d56b728edcac16fcac678ad2906d4563726e"
+    },
+    {
+      "path": "scripts/audit-logreal05-repeated-errors.rb",
+      "sha256": "d28660f28bafa9b37da3848f2e5e5ba977b0b6e6c61dcd654b1791d19bc89c01"
+    },
+    {
+      "path": "scripts/audit-logreal09-legacy-entrypoints.rb",
+      "sha256": "4b44049e88fccbe1ecaca15911bdda8103fa8a0ff41b2d751746c0049629ff99"
+    },
+    {
+      "path": "scripts/audit-logreal10-sensitive-logging.rb",
+      "sha256": "cf7a20fd2d364ba8ae9cfebf710afedaaaba4e745a3dbe15fbff9801fc23f9bc"
+    },
+    {
+      "path": "scripts/audit-logreal11-noise-policy.rb",
+      "sha256": "4e5eb16df562dca9716e477c2bc27e5cc7291c1e03fa0e828f18368ad19433d2"
+    },
+    {
+      "path": "scripts/audit-logreal12-current-evidence.rb",
+      "sha256": "65b1702645b6c8e6f6c49f6b4c8b7bcbe396e533f6408a972307162c1519a23d"
+    },
+    {
+      "path": "scripts/audit-loop02-progress.rb",
+      "sha256": "45b8f81c07d5b6cffbb454fb7495c3b1f02e3ba5e39f71b8747e40fc62f417c0"
+    },
+    {
+      "path": "scripts/audit-loop03-card-search-budget.rb",
+      "sha256": "fb0f1a16552d49443bb650e105cf0ed27e5d065953aa4466d060959e7050fdd8"
+    },
+    {
+      "path": "scripts/audit-loop04-state-cycles.rb",
+      "sha256": "a4c52d0f4e1f82dfa9357541b81aea63598371bd782faccd6207e7da6e8c90da"
+    },
+    {
+      "path": "scripts/audit-loop05-recursion.rb",
+      "sha256": "78c62d15c508492f30f676b9082a50b2cac489aa1725370e573fef544c73129c"
+    },
+    {
+      "path": "scripts/audit-loop06-dependency-cycles.rb",
+      "sha256": "3dd33787952704ba56cbf51fe2d2437a040c5e358a72cb926d4e9db669768ff2"
+    },
+    {
+      "path": "scripts/audit-loop07-retries.rb",
+      "sha256": "9d5295d44116d296b56d715b23f4a5636df8a0105035d5871650307c3fdf045a"
+    },
+    {
+      "path": "scripts/audit-loop08-client-reconnect.rb",
+      "sha256": "3fa0373f8cccba4d5ae6da33445854dad8b276ba40ed6c3d7d87db288e1df684"
+    },
+    {
+      "path": "scripts/audit-loop09-event-causality.rb",
+      "sha256": "ff29f07570781dfbe77c498b1a02d7eab6db02a88075ca833231cd873fda29dd"
+    },
+    {
+      "path": "scripts/audit-loop10-scheduler-ownership.rb",
+      "sha256": "856fd2d92ac861db868ac29d38718bcb5fe19bc06d2953e49baf946bc259963d"
+    },
+    {
+      "path": "scripts/audit-loop11-busy-wait.rb",
+      "sha256": "159dd21f2390b22f7adb5a94c76c538175f5419b80148aa68e9ef5921ac080fa"
+    },
+    {
+      "path": "scripts/audit-loop12-pagination.rb",
+      "sha256": "2385a46044cf2b990579a8f74ac0695f5c112b4cfb3f6ebbce48b9f465409a65"
+    },
+    {
+      "path": "scripts/audit-loop13-repair-requeue.rb",
+      "sha256": "a25af15abf0b4fb60c287cac5d82bdf0290fd52a67b9ff3d1a40178b7206c1dc"
+    },
+    {
+      "path": "scripts/audit-loop14-ui-animation.rb",
+      "sha256": "82ff18aa38331d16dda1d2188c3d1fca287f9061bfd4ecac1ceba2ab3dfa0bd8"
+    },
+    {
+      "path": "scripts/audit-loop15-runtime-budgets.rb",
+      "sha256": "f296899f236d06640d738630269c6923185292ccd562b8dab3e3d82ffdccfe15"
+    },
+    {
+      "path": "scripts/audit-loop16-cpu-recovery.rb",
+      "sha256": "2735f2f16c4dbf81a8cb36bc49b9528705a5ada8217d944737b4e42ddfa45329"
+    },
+    {
+      "path": "scripts/audit-migreal01-account-login-index.rb",
+      "sha256": "26d2107cd515e06acfc83e8e39b4e93218cb67ff3864146ea4023d2fff7b2d2d"
+    },
+    {
+      "path": "scripts/audit-migreal02-club-member-scale.rb",
+      "sha256": "45d7c980b659e3558fb3a0f5db1561ec4a773cb0a106dc7ee7318f8ee69d9436"
+    },
+    {
+      "path": "scripts/audit-migreal03-viewer-identity.rb",
+      "sha256": "f0f7c3a4839dc5af71ea5e07c5fdd139e1e998a2600467f23f6a6a6e1de9e7a0"
+    },
+    {
+      "path": "scripts/audit-migreal04-consumed-events.rb",
+      "sha256": "19d20c19a76ca5aed9b84c5870c0ffd0dc6e12e21cbd16f37b38f4651d6ebf34"
+    },
+    {
+      "path": "scripts/audit-migreal05-perspective-reconnect.rb",
+      "sha256": "1b9f490f904647136c7ff16323f4ef55354b7a72dae23da9c38383d94a43ba38"
+    },
+    {
+      "path": "scripts/audit-migreal06-replay-archive.rb",
+      "sha256": "c45e9932a28bc06a8a52e277a638dc2d2b4614e3f74e4ef1e2336160ac62579e"
+    },
+    {
+      "path": "scripts/audit-migreal07-player-scale.rb",
+      "sha256": "0f8228aa3e9c14fee2afea837b358b80b2c566eb3e718eed5324da2386df352f"
+    },
+    {
+      "path": "scripts/audit-migreal08-club-scale.rb",
+      "sha256": "56826325c85125daa05dc3aa88041bfe298a0e90b39bd2b5b842ca1dbc08dc18"
+    },
+    {
+      "path": "scripts/audit-migreal09-ledger-reconciliation.rb",
+      "sha256": "1783773f7976d9086d88f734eb616235f7d711681534dad40c6645701dff3048"
+    },
+    {
+      "path": "scripts/audit-migreal10-admin-rbac.rb",
+      "sha256": "81ac17d1d2da5e567bf76fbd6574597bb7ae89c247af487c885d5526150a8232"
+    },
+    {
+      "path": "scripts/audit-migreal11-outbox.rb",
+      "sha256": "de76dbb679d41a3b784fef59720a78cdc90550125921c1f1c33b56d4a30087d7"
+    },
+    {
+      "path": "scripts/audit-migreal12-currency.rb",
+      "sha256": "c2c410cf65cd1edb501428a8bbd4e5d7f482060a7ee4cd54648fe59f1374abd3"
+    },
+    {
+      "path": "scripts/audit-migreal13-room-recovery.rb",
+      "sha256": "b33ec7228b1678da0a614762fc474171947365576703357440757a31fc23b99b"
+    },
+    {
+      "path": "scripts/audit-migreal14-game-profile.rb",
+      "sha256": "47d3b7e793c1fe1d07708c4891317acb35fb312841bf7261c7ce8173e9d1a270"
+    },
+    {
+      "path": "scripts/audit-migreal15-admin-control-plane.rb",
+      "sha256": "e681597177f5e98bce66f377d11d388e49aa4ffb5595d626a64d706eee82ec01"
+    },
+    {
+      "path": "scripts/audit-migreal16-business-closure.rb",
+      "sha256": "153cb8a5a9df81d5ac8876b6ac5fdb16ceac870e3cefaf7861e916bdde71998d"
+    },
+    {
+      "path": "scripts/audit-proto01-authority.rb",
+      "sha256": "c388f719aa253f5f8f59c48fae257088844087c5107c5dd02dcce40adff69c92"
+    },
+    {
+      "path": "scripts/audit-proto02-tool-responsibility.rb",
+      "sha256": "4552b77691f319de096fa58ecfcc242652fcb9bfa7a5eb47836d58f8eaf2c177"
+    },
+    {
+      "path": "scripts/audit-proto03-dto-drift.rb",
+      "sha256": "4a69e504b52053ba9b930e426acfc75d07f13d5efb1917ec8a581632fe909f7f"
+    },
+    {
+      "path": "scripts/audit-proto04-message-registry.rb",
+      "sha256": "cea5c18295858d8ca1bfe5a76f6dbf2e56db69a438fb0a0e42033c399cfabfd5"
+    },
+    {
+      "path": "scripts/audit-proto05-reproducible.rb",
+      "sha256": "cc1e392ec2d3725e96dfc0c80892a037b8aeacd76f714353a47adb16e809df80"
+    },
+    {
+      "path": "scripts/audit-proto06-generated-policy.rb",
+      "sha256": "c7616cab7891cd6ef1d727681ea3f4097f0a19cef3dedaa8fad1d05ce309c0ae"
+    },
+    {
+      "path": "scripts/audit-proto07-generated-isolation.rb",
+      "sha256": "3370fdb1949aca3ad8132fc44634c5ab3a960e033208a7eb9df7f5875328aca2"
+    },
+    {
+      "path": "scripts/audit-proto08-type-mapping.rb",
+      "sha256": "13c3f9dee7f79a3d9874d293f6e7756d815031e5a6ea9b599f9d560726f1aada"
+    },
+    {
+      "path": "scripts/audit-proto09-protocol-docs.rb",
+      "sha256": "86cb5aaf0520e71fc445f8792e538b6ae80f21021b9a4de59cd255f508663ce3"
+    },
+    {
+      "path": "scripts/audit-proto10-difference-gate.rb",
+      "sha256": "2ff71298b8aef5a1e9c0f43a57449060806e57bf78565922c25ea032c71cfc66"
+    },
+    {
+      "path": "scripts/audit-proto11-generator-security.rb",
+      "sha256": "20d4f037fac4c3f74c3d3afa9e7d410377c7567b4adcb285ef95ef2b94b3b999"
+    },
+    {
+      "path": "scripts/audit-proto12-legacy-boundary.rb",
+      "sha256": "bb605662966eb97b243bc7e99d87aa4f9a50fb83a8c669f3d3e3fe01b6cfb574"
+    },
+    {
+      "path": "scripts/audit-real01-common-boundary.rb",
+      "sha256": "0dd9637139918690c218a61cd0a3828f1439bbcde1027dc6228e5d0c876faf56"
+    },
+    {
+      "path": "scripts/audit-real02-protocol-boundary.rb",
+      "sha256": "159cea789cec4fe55094ccd4442e36a8138d406b9f0f6f070cb6a59c648a2864"
+    },
+    {
+      "path": "scripts/audit-real03-hall-layering.rb",
+      "sha256": "e6509c6fdde365b3ec81d11c4f63f4cd0ad476c0c58200ae172b700a4b84c460"
+    },
+    {
+      "path": "scripts/audit-real04-game-server-boundary.rb",
+      "sha256": "5cb8da69a866c990563ab043b08a11eb75b1c33abfcaf01d7d61da071feed009"
+    },
+    {
+      "path": "scripts/audit-real05-account-ownership.rb",
+      "sha256": "e34b8d6ca14880f52d1e3500f1f83ef3579a320d5cb2de2c719d12ae7209304d"
+    },
+    {
+      "path": "scripts/audit-real06-bootstrap-entry.rb",
+      "sha256": "ffc4cc6eb07387e00df405dfc21afcad3571a713d0b66996de72d53d7e66ff58"
+    },
+    {
+      "path": "scripts/audit-real07-gateway-direction.rb",
+      "sha256": "defee7fc6582446c1d609e7ae4bf131e3c4da9d014b295078ccc345f7cd70c8f"
+    },
+    {
+      "path": "scripts/audit-real08-config-ownership.rb",
+      "sha256": "8aead58956524b0a11b740e61f3ead39f2a0a6720e61e12f07cdcfd52f0067d8"
+    },
+    {
+      "path": "scripts/audit-real09-billing-ownership.rb",
+      "sha256": "f819d1a5dc9f0ddc1678cfb75391864617ce58a24ab24fc8f47369cc465190b2"
+    },
+    {
+      "path": "scripts/audit-real10-admin-isolation.rb",
+      "sha256": "41f98ad37754a714f102c9f61be7e7a4c7ba7f88278af90bbc54d72a0f6d90c1"
+    },
+    {
+      "path": "scripts/audit-real11-category-game-separation.rb",
+      "sha256": "8f191ccd3e39c5b762898024c87ec784d08223bb3b72b48422326a4d50f53243"
+    },
+    {
+      "path": "scripts/audit-real12-concrete-game-ownership.rb",
+      "sha256": "7d0306a3638c0974bd93bbf4eca508505d72156cf1544204271f51383177c934"
+    },
+    {
+      "path": "scripts/audit-real13-family-usage.rb",
+      "sha256": "65fa121114e0cb58d3236c99efe90d95f6082d83ca1b66778d0f6d8e775635a9"
+    },
+    {
+      "path": "scripts/audit-real14-maven-module-graph.rb",
+      "sha256": "c7c7a344a9c27ca923a6ebb38a4c705b74e33081148653336c8568d832b90def"
+    },
+    {
+      "path": "scripts/audit-res01-room-inventory.rb",
+      "sha256": "75614fdbe42f61054b9c8694a7f35ba69eb250ee50d9b7c260dab8bab42b8fa0"
+    },
+    {
+      "path": "scripts/audit-res02-connection-scope.rb",
+      "sha256": "d4501d541942dfc2a177bef2eef2b6185de9c28fc21b6d0a0ecfe54eecf260e0"
+    },
+    {
+      "path": "scripts/audit-res03-component-lifecycle.rb",
+      "sha256": "1a324e2f9117848c91ff4c423d2e800e88bb2ae28d1f801b2bb16f6dfbeea729"
+    },
+    {
+      "path": "scripts/audit-res04-jdbc-resources.rb",
+      "sha256": "733e44d09e33465475035c3565d9a59dca4957582293817df8b70519a11efa2c"
+    },
+    {
+      "path": "scripts/audit-res05-file-scope.rb",
+      "sha256": "a478797092a0a1a0435eb1bb637cf370f644abaf650cd802b61fb8e3b0d1d1ab"
+    },
+    {
+      "path": "scripts/audit-res06-netty-buffer.rb",
+      "sha256": "2e67385da013dc839989d78fdde2017e7096153bb93660058b9a382c869aa040"
+    },
+    {
+      "path": "scripts/audit-res07-cache-lifecycle.rb",
+      "sha256": "f331e6660e801ec37ce3fbbcd4468008c3f706735bca68caa06b72fd16cca2f9"
+    },
+    {
+      "path": "scripts/audit-res08-metric-lifecycle.rb",
+      "sha256": "4ec5ebb9a7443970103099a5ac0e7de67e9fb8f5011d664093ba07709f776f26"
+    },
+    {
+      "path": "scripts/audit-res09-heap-reclaim.rb",
+      "sha256": "89d2215fd04dfea2b094d5c8dcb810ee4270f92157f1c42aca6829404c9a95a8"
+    },
+    {
+      "path": "scripts/audit-res10-native-budget.rb",
+      "sha256": "8c0465f22ba552fac18b562fe182c4dfd26d396f3007c6e3316a4b2d9d2731d0"
+    },
+    {
+      "path": "scripts/audit-res11-client-assets.rb",
+      "sha256": "7d2916a51b9e34225ba917b4f936634f223c0443236a40b224b55b3c67ee3141"
+    },
+    {
+      "path": "scripts/audit-res12-leak-regression.rb",
+      "sha256": "5108b0122859313345e7c66ecb7283ba7a06155a06ef485a889a111ac28fb331"
+    },
+    {
+      "path": "scripts/audit-stage01-scjymj.rb",
+      "sha256": "69c281181ae55f5f55f586af8d3fe2e4831ad46832637c703f4b2a4c0cc508ff"
+    },
+    {
+      "path": "scripts/audit-stage02-xcpdk.rb",
+      "sha256": "aa81a7970eabc2a7be3c3e234545db3a00b6001ccf746ee4fa8c4a83861919df"
+    },
+    {
+      "path": "scripts/audit-stage03-directory-classification.rb",
+      "sha256": "6ece54c8d97f59377d42fd4f8e264a59a169bfb5b877246c788ea35c61742f95"
+    },
+    {
+      "path": "scripts/audit-stage04-staging-reachability.rb",
+      "sha256": "a78cca565b0f54bf15a1a1aa7440d6e2da6884e83af0665cd9f05b1e60853c93"
+    },
+    {
+      "path": "scripts/audit-stage05-disposition-ledger.rb",
+      "sha256": "53c0dedaa28433b90afabf14967836ddf40afb63e94ae3d135f9f6edbddcb27a"
+    },
+    {
+      "path": "scripts/audit-stage06-batch-conservation.rb",
+      "sha256": "1b739ea6d91acb53c3a2b41b83a08b2a65db458c95a346745252df7126dac7f7"
+    },
+    {
+      "path": "scripts/audit-stage07-build-source-drift.rb",
+      "sha256": "c644d0ffc18ecef5587129bd2cad921febe3c13e4cf9da25115570a939203506"
+    },
+    {
+      "path": "scripts/audit-stage08-cleanup-readiness.rb",
+      "sha256": "c366e4fd8dff5c4af7605526a968aa69d87a9c92eb260f940c078f484fa31db4"
+    },
+    {
+      "path": "scripts/audit-third01-inventory.rb",
+      "sha256": "56b6b90f52fea7fc8582da1805ba76ec6222681a1a1a4a6d9cae8df5c795f9f2"
+    },
+    {
+      "path": "scripts/audit-third02-maven-overlap.rb",
+      "sha256": "ea96ab75609eb7dbee5244c94b3c040f69dc07d24307cd42621092a9b5813893"
+    },
+    {
+      "path": "scripts/audit-third03-necessity.rb",
+      "sha256": "df9796ab4a013892bc78f4ab9c719981dc402940c3b8035d0efbb37a62c2504d"
+    },
+    {
+      "path": "scripts/audit-third04-security-path.rb",
+      "sha256": "42a0b9e9731d96f04010bb04468f54d3ad158e5eaaffe086a989399b58c93815"
+    },
+    {
+      "path": "scripts/audit-third05-modification-dossier.rb",
+      "sha256": "19398bd6a624a46cab5b729ae3a50c851fbf0b601fef2f88563ade65931f8eeb"
+    },
+    {
+      "path": "scripts/audit-third06-classloading.rb",
+      "sha256": "5d60298e0e8cb91f52134b6c0d36d59de2bac0118159889bbd8826094f0bd620"
+    },
+    {
+      "path": "scripts/audit-third07-licenses.rb",
+      "sha256": "b2f7f1d41edca8bdfa354a4e7734c91309b26621122b60fd6326244d3cf4db5f"
+    },
+    {
+      "path": "scripts/audit-third08-sbom.rb",
+      "sha256": "0505be63b0b8561c8f975705786503c2e54fd391daaf713ae9488e4283e9f27f"
+    },
+    {
+      "path": "scripts/audit-third09-deserialization-boundary.rb",
+      "sha256": "80b22614c503a2a0da405a1ce0ecb558731239991f5f63fc2020a278df21b912"
+    },
+    {
+      "path": "scripts/audit-third10-release-minimization.rb",
+      "sha256": "d7e7ea4c4c492b3bc8461c990a618da2f1853ed27ad9c1ef1d43222b7e80de00"
+    },
+    {
+      "path": "scripts/audit-type09-typed-documents.rb",
+      "sha256": "c886e4a823b37cbfb6d1e09ed354a04b94446f1a9c34c5cf5ee3d806b3882ad0"
+    },
+    {
+      "path": "scripts/audit-type10-field-conservation.rb",
+      "sha256": "1a8dc04eb58f4ab2757a800035b956c1560a0c59191124027c8ac1916102209d"
+    },
+    {
+      "path": "scripts/audit-type11-domain-construction.rb",
+      "sha256": "b52816186d8ad8993f5c9bdf8833d343de46beb02c386058133b7fc3c6438820"
+    },
+    {
+      "path": "scripts/audit-type12-validated-decode.rb",
+      "sha256": "5e24f127cd5005b4700f7259d545bd40fbb81e5451be730c7b631597db612633"
+    },
+    {
+      "path": "scripts/audit-unused01-direct-dependencies.rb",
+      "sha256": "c02f989beb36ae58cde8f7c16cb081156b06ccf04679f8fd5628a12a95244838"
+    },
+    {
+      "path": "scripts/audit-unused02-undeclared.rb",
+      "sha256": "bbf1cb041beeb01e7185a2a60f664dcefd4c34e3de9eb2ee777d944fd379500e"
+    },
+    {
+      "path": "scripts/audit-unused03-capability-convergence.rb",
+      "sha256": "f625dedb1a5dcdb32c39dfd3abbbb6f7c2908d3078f32d46daf9d2fc10d401f0"
+    },
+    {
+      "path": "scripts/audit-unused04-scopes.rb",
+      "sha256": "87dfa20f110958fc723c11bd885da7f7c2a96a5e4a4a3bf54f3a7849f312af0e"
+    },
+    {
+      "path": "scripts/audit-unused05-optional-boundary.rb",
+      "sha256": "09e9c377a5fcf9e810a57bdc9cfca7f2be405a150d7a3c797fd2b1f9355547da"
+    },
+    {
+      "path": "scripts/audit-unused06-bom-properties.rb",
+      "sha256": "37c89462e47e265823634836d4ef295dc29d20c03037cdef10316c4104b13cd4"
+    },
+    {
+      "path": "scripts/audit-unused07-build-plugins.rb",
+      "sha256": "f6d540f14aae7d4996029f0207a8fa583887ebd7738f0f32b6186c3c5c8f4eb5"
+    },
+    {
+      "path": "scripts/audit-unused08-plugin-executions.rb",
+      "sha256": "430e4ad264201930cf74eea96449e068b838bddcf825a67e125400e2425bc6c0"
+    },
+    {
+      "path": "scripts/audit-unused09-processors.rb",
+      "sha256": "66603a9396f4523793a8b00f9d8663fab0dc3e5a194c0cb1e18a700265d989d1"
+    },
+    {
+      "path": "scripts/audit-unused10-java-agents.rb",
+      "sha256": "f30dfbc8e07e548bf0724610bff39f02083a6fce374f48b9a1a8a8f6c01f9fb3"
+    },
+    {
+      "path": "scripts/audit-unused11-local-binaries.rb",
+      "sha256": "c4dd4452257e48cbaace87e54fa8cc0e48eb602f97e3c7d2fcb3f457d2f88316"
+    },
+    {
+      "path": "scripts/audit-unused12-logging.rb",
+      "sha256": "2671e2d3926b8eef7356ae179d2eb73126810fc3651e569df23d897133076af4"
+    },
+    {
+      "path": "scripts/audit-unused13-library-boundaries.rb",
+      "sha256": "6453e5fe80610e440c17094b61995865479c340b7e929619b60c30aebf48865b"
+    },
+    {
+      "path": "scripts/audit-unused14-database-drivers.rb",
+      "sha256": "79c2dca7249a203e2bc676507999cf5f9f371b7feeaa0e0f752e424dbbdb4173"
+    },
+    {
+      "path": "scripts/audit-unused15-native.rb",
+      "sha256": "4be319b23a002b8857c7adb7f1941ece758fce1b7dbf300ed74d8232fa418a08"
+    },
+    {
+      "path": "scripts/audit-unused16-npm-production.rb",
+      "sha256": "31ccfe9cd2630c24132f0d8e0d1088dc2d26198b896808d7ea164f94a4fdd1de"
+    },
+    {
+      "path": "scripts/audit-unused17-npm-development.rb",
+      "sha256": "2744fff8a0d1049a0538027c77546154f8db58a6a6898f1f7b0c4442df62f44d"
+    },
+    {
+      "path": "scripts/audit-unused18-cocos-extensions.rb",
+      "sha256": "8c91b9753e02402bbe751d64e3fd3bbf87f6c7d6890b4d08b3ce19ee69bc9fa0"
+    },
+    {
+      "path": "scripts/audit-unused19-build-templates.rb",
+      "sha256": "e768a1ce3faebca9503aab5dbea10d5298c1d3e188be2dad0c3ee48b33e8d7fe"
+    },
+    {
+      "path": "scripts/audit-unused20-frontend-sdks.rb",
+      "sha256": "ad962695bdb6751c541389ceaafa1adf1f7021a2c9d88ed9fac62e6c881e5849"
+    },
+    {
+      "path": "scripts/audit-unused21-resource-tooling.rb",
+      "sha256": "a8befbcd2b1018ad0a1f4e5ddf0f79b8edfda6b4e7336019c03a2a73e01d18f5"
+    },
+    {
+      "path": "scripts/audit-unused22-container-system-packages.rb",
+      "sha256": "74256e829cee7f4f119633e47e8f8e1540c994aebbfe510a7cb1c80b0ee3039e"
+    },
+    {
+      "path": "scripts/audit-unused23-ci-plugins.rb",
+      "sha256": "29e93d7a941ddde52e95bdd521714f7a0cde61ae10d7b085f262fce4ed515915"
+    },
+    {
+      "path": "scripts/audit-unused24-operations-monitoring.rb",
+      "sha256": "8ceab1860ce4339c400620ca30d0f1d972bfd1ee2dbee11872a9a61ba0d2ebc8"
+    },
+    {
+      "path": "scripts/audit-unused25-reflection-spi.rb",
+      "sha256": "ab4b5d155f91a631fc7088a849b45ed78de895e4da88763fad04d9850cac5d3b"
+    },
+    {
+      "path": "scripts/audit-unused26-historical-formats.rb",
+      "sha256": "ca59761a91fe66a57ac858d3f29275aa5ad316760391375a58fd180c617b1b2b"
+    },
+    {
+      "path": "scripts/audit-unused27-artifact-comparison.rb",
+      "sha256": "d01b497220afb43e005cdfd0287e7d2183838605ca41b2b7d34af7afef9d0e3c"
+    },
+    {
+      "path": "scripts/audit-unused28-full-chain.rb",
+      "sha256": "e0a1aeb26e20805e69bb8962b21f7b5bcb48e94777de1dce36da8b859337082b"
+    },
+    {
+      "path": "scripts/audit-unused29-runtime-classloading.rb",
+      "sha256": "39354b9f49c665146441be058b07215a8b7e4a0bc867c6ffad0476c36b29bc64"
+    },
+    {
+      "path": "scripts/audit-unused30-continuous-gate.rb",
+      "sha256": "6d5565209c202d30ae326ff11c408cf0cdf7dcf9232dcbd4984e7cf9903d823f"
+    },
+    {
+      "path": "scripts/audit-unused31-legacy-necessary-ledger.rb",
+      "sha256": "eaac50c2c0f71f8bb25229919210ee6a8bfbfc15da02af91a42e610de8ff0fd4"
+    },
+    {
+      "path": "scripts/audit-unused32-plugin-artifacts.rb",
+      "sha256": "92ac8d0aba7c10055dfab6e531b9d4a98902083e461dde2337c46374b16a94e0"
+    },
+    {
+      "path": "scripts/audit-unused33-historical-read-protection.rb",
+      "sha256": "f3e0cfd771fff1f3c6e3a86161854e4a5ac662d5691786245dab9903d5b92831"
+    },
+    {
+      "path": "scripts/audit-unused34-equivalent-replacement.rb",
+      "sha256": "b685c004b5ac72c914dfef21ad7b49fbb9586e89dd1be046cd65e7bfbd512f3d"
+    },
+    {
+      "path": "scripts/audit-unused35-upgrade-not-delete.rb",
+      "sha256": "87fcca9acda84b0a965b2f7be7aca6ef5ff26dc806e8ee2bce83d947900d1387"
+    },
+    {
+      "path": "scripts/audit-unused36-isolated-retention.rb",
+      "sha256": "a506592f2caf107eed1d60bcf007fc92bf64c4c9f9a326648f04c2ea82ffa7cd"
+    },
+    {
+      "path": "scripts/audit-unused37-deletion-approval.rb",
+      "sha256": "5e58a6ab038b47b543ec63cc8d4b671390a37cad3cc79b8005a1653b84fd72a5"
+    },
+    {
+      "path": "scripts/audit-unused38-clean-recovery.rb",
+      "sha256": "2dfc9fa655747f118c8cf2f2985b406444e63302aa77eaecaecafff0404864cb"
+    }
+  ],
+  "dimensions": [
+    "java",
+    "maven",
+    "node",
+    "cocos",
+    "plugins",
+    "dependencies",
+    "schema",
+    "generators"
+  ]
+}

@@ -1,0 +1,2870 @@
+{
+  "schemaVersion": 1,
+  "generatedDirectories": [
+    {
+      "path": "server/Account/target",
+      "files": 22,
+      "bytes": 7609902,
+      "sampleHashes": [
+        {
+          "path": "server/Account/target/classes/com/aoo/bcg/account/AccountAssetView.class",
+          "sha256": "b4ee33906b59644838e250b9b22999655f5e90cb653fe65432d8561e1254b23e"
+        },
+        {
+          "path": "server/Account/target/classes/com/aoo/bcg/account/AccountService$DeviceBinding.class",
+          "sha256": "2368ea3bcce08576acfd3391881713c5bd629ed663cee15c0218a2bcc2ac2113"
+        },
+        {
+          "path": "server/Account/target/classes/com/aoo/bcg/account/AccountService$AuthenticatedAccount.class",
+          "sha256": "24f5b77985ab84e5fe42d53b7cbec26fcf15d70441fff9f0f1d9e7a4744b8d4d"
+        },
+        {
+          "path": "server/Account/target/classes/com/aoo/bcg/account/AccountService$PasswordCredential.class",
+          "sha256": "e218d27aec247d7224c034355e7f720277d10852376e99cf2f5b20e7c36ee687"
+        },
+        {
+          "path": "server/Account/target/classes/com/aoo/bcg/account/AccountService$SessionRevocation.class",
+          "sha256": "77487db287a80b47600ac25aec06e752ea616efdc4b887c3c3904d5711e18e30"
+        },
+        {
+          "path": "server/Account/target/classes/com/aoo/bcg/account/AccountService$PlatformCredential.class",
+          "sha256": "492372359513b7382fd6eb2da5165abfca2f4d946585608b73fceb14ffb1da90"
+        },
+        {
+          "path": "server/Account/target/classes/com/aoo/bcg/account/AccountService$PlayerProfile.class",
+          "sha256": "be79418d69e9ce2e963803cb8684825e44d0b11d232560b93e20f3ded4e0a258"
+        },
+        {
+          "path": "server/Account/target/classes/com/aoo/bcg/account/AccountService.class",
+          "sha256": "8f482f4213565e96564f6fd6d08bf9e99c5a5b35d4f15bb5b606aca89c27dfc5"
+        },
+        {
+          "path": "server/Account/target/classes/com/aoo/bcg/account/AccountService$LoginCredential.class",
+          "sha256": "8466ff4a38159a15ffe2cd9d04802a0d5afe8fff5dcaf6cd94113ee27a63060d"
+        },
+        {
+          "path": "server/Account/target/runtime/lib/protobuf-java-4.36.0.jar",
+          "sha256": "06515776b10bfed334b610273ffdd8884098a9333cb816314b4e4876bfcd2041"
+        },
+        {
+          "path": "server/Account/target/runtime/lib/game-spi-1.0.0-SNAPSHOT.jar",
+          "sha256": "78fbc3e7c239ab8430d1a206f1e9d572e7b668b4ed537735f7c5d0638aad3bc2"
+        },
+        {
+          "path": "server/Account/target/runtime/lib/game-billing-1.0.0-SNAPSHOT.jar",
+          "sha256": "2f7e520f35f92c4a7a52663f38868f368b4bc468907e94fd09f90f57de1e596d"
+        },
+        {
+          "path": "server/Account/target/runtime/lib/jackson-databind-2.22.2.jar",
+          "sha256": "d0da14c12b16b5d54719aa172d83b542ff4abeb8b0fb7db476fde8ceece760ca"
+        },
+        {
+          "path": "server/Account/target/runtime/lib/game-common-1.0.0-SNAPSHOT.jar",
+          "sha256": "3ca77405d7cc2fdd911ca1d182c175bb62a853c6f56d42ccc690f4fe60d46102"
+        },
+        {
+          "path": "server/Account/target/runtime/lib/jackson-datatype-jsr310-2.22.2.jar",
+          "sha256": "9df71cc7fb3781fd0bed6c05eebbfa8b39292a49f5619e76fdd0d889f64c8f33"
+        },
+        {
+          "path": "server/Account/target/runtime/lib/mysql-connector-j-26.7.0.jar",
+          "sha256": "69084713593a4aa8d07c383619b9639276f08bccf8faf1c562178147d389b1e1"
+        },
+        {
+          "path": "server/Account/target/runtime/lib/jackson-annotations-2.22.jar",
+          "sha256": "21ddb598807d3a51a876704eb979d9296e1c6a6f47ab1826ff88c6d6a127a2d0"
+        },
+        {
+          "path": "server/Account/target/runtime/lib/jackson-core-2.22.2.jar",
+          "sha256": "ff167a6317be15895706c26668f45b898efe40ab8780970658210fe1393d52a6"
+        },
+        {
+          "path": "server/Account/target/account-domain-1.0.0-SNAPSHOT.jar",
+          "sha256": "a715f33f58a688214ac83d93da4635b9fb91ba152afd4b657dc22e4987b0a54d"
+        },
+        {
+          "path": "server/Account/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst",
+          "sha256": "3194c1cea40dafad8a41d03790f8983840afbdedf7e91440c99c9e4ceb600a8e"
+        }
+      ]
+    },
+    {
+      "path": "server/AdminApi/target",
+      "files": 37,
+      "bytes": 3498128,
+      "sampleHashes": [
+        {
+          "path": "server/AdminApi/target/test-classes/com/aoo/bcg/admin/AdminRbacIntegrationTest.class",
+          "sha256": "292683b524b27cc62e42c2d743f97c4d4956cc8789352a4ddf00c447433ddce2"
+        },
+        {
+          "path": "server/AdminApi/target/classes/com/aoo/bcg/admin/AdminApiApplication$IoAction.class",
+          "sha256": "8092e35c10d9313d815ac6eb8603426712990b352ff40d9d8b67868041bfc8d3"
+        },
+        {
+          "path": "server/AdminApi/target/classes/com/aoo/bcg/admin/JdbcAdminResourceRepository$ConnectionFactory.class",
+          "sha256": "c6c4ad2702c62bf2a7e3f5cd3f9d865bcc5b94dd130f1eab7f31660068c5ba86"
+        },
+        {
+          "path": "server/AdminApi/target/classes/com/aoo/bcg/admin/AdminResourceStore.class",
+          "sha256": "81c91a88af720c23e01c40eaf5576cfe665028a4c21440b5aca81ed08d86ec36"
+        },
+        {
+          "path": "server/AdminApi/target/classes/com/aoo/bcg/admin/AdminCommandValidator.class",
+          "sha256": "b783a6bec022b70f5790068722be8873eb7b4d8e22c9b5d8487d4a135052ce82"
+        },
+        {
+          "path": "server/AdminApi/target/classes/com/aoo/bcg/admin/AdminResourceRepository.class",
+          "sha256": "55566313325e363a6c171e9e96d4379c882f655bc49ae919495b51eefb38fb69"
+        },
+        {
+          "path": "server/AdminApi/target/classes/com/aoo/bcg/admin/JdbcAdminResourceRepository.class",
+          "sha256": "2721b3d42e8873b8cda0c073ce38c90674cb9cf57e6562b45d2074db0f67f670"
+        },
+        {
+          "path": "server/AdminApi/target/classes/com/aoo/bcg/admin/JdbcGameProfileRepository.class",
+          "sha256": "a8c74e71c34c1def288ff2701ee00f78da5187337540fa73afa46e2d75196bdd"
+        },
+        {
+          "path": "server/AdminApi/target/classes/com/aoo/bcg/admin/JdbcAdminResourceRepository$1.class",
+          "sha256": "2aff6f6a0e3a276131f6455fd89cb48961a3c84d4798f70a05010640a9ba29ca"
+        },
+        {
+          "path": "server/AdminApi/target/classes/com/aoo/bcg/admin/AdminAuthorizationAudit.class",
+          "sha256": "831651e2d8c24ac416c0f373c9ef0bca6dae7edc81e9a55e4e8fd540a8b5affd"
+        },
+        {
+          "path": "server/AdminApi/target/classes/com/aoo/bcg/admin/AdminAuthorizationService.class",
+          "sha256": "7f7c96c60725b9a2dd8da6bb0d9de3fb0b1107b3283c9fa500abf517698da5e2"
+        },
+        {
+          "path": "server/AdminApi/target/classes/com/aoo/bcg/admin/AdminPermissionCatalog.class",
+          "sha256": "feb1f581f9af2ee4b5431cb32d091461f4a8591839683217ee7139e7f798e7c7"
+        },
+        {
+          "path": "server/AdminApi/target/classes/com/aoo/bcg/admin/JdbcAdminAuthorizationService.class",
+          "sha256": "277b0fcd7909a145251608d0fa1d6052742ea846a607536c645da0b9f9415072"
+        },
+        {
+          "path": "server/AdminApi/target/classes/com/aoo/bcg/admin/JdbcAdminAuthorizationAudit.class",
+          "sha256": "7b839320604a5fdd4f314492fed81a0f63723204aacdcf2b42069d87e6f85a1f"
+        },
+        {
+          "path": "server/AdminApi/target/classes/com/aoo/bcg/admin/AdminPermissionCatalog$Route.class",
+          "sha256": "b5e47f553826fb142af2f86092ebebc6c6845fe3abed93c62224016bf6e7313a"
+        },
+        {
+          "path": "server/AdminApi/target/classes/com/aoo/bcg/admin/AdminApiApplication.class",
+          "sha256": "42627f71fdf10be6f768d29a6e2056c7f678f711e5074f3bc590a12ea3bff860"
+        },
+        {
+          "path": "server/AdminApi/target/runtime/lib/game-spi-1.0.0-SNAPSHOT.jar",
+          "sha256": "78fbc3e7c239ab8430d1a206f1e9d572e7b668b4ed537735f7c5d0638aad3bc2"
+        },
+        {
+          "path": "server/AdminApi/target/runtime/lib/game-families-1.0.0-SNAPSHOT.jar",
+          "sha256": "af3e0f990616171aad89778e84f1d6f9df19ac59595e9cd6d4ec48f6467bf534"
+        },
+        {
+          "path": "server/AdminApi/target/runtime/lib/game-billing-1.0.0-SNAPSHOT.jar",
+          "sha256": "2f7e520f35f92c4a7a52663f38868f368b4bc468907e94fd09f90f57de1e596d"
+        },
+        {
+          "path": "server/AdminApi/target/runtime/lib/jackson-databind-2.22.2.jar",
+          "sha256": "d0da14c12b16b5d54719aa172d83b542ff4abeb8b0fb7db476fde8ceece760ca"
+        }
+      ]
+    },
+    {
+      "path": "server/AooKernel/target",
+      "files": 47,
+      "bytes": 1165682,
+      "sampleHashes": [
+        {
+          "path": "server/AooKernel/target/test-classes/BaseThread/CosMutexTimeoutTest.class",
+          "sha256": "eab4e53642c611a54dcb05664c2e84975cfecb537cff0e54e401478d0f4be49f"
+        },
+        {
+          "path": "server/AooKernel/target/classes/BaseThread/MutexInfo.class",
+          "sha256": "262cda459b204432c51d49337e62ab0fa9cbd89f7600e676fa0b933e0508ab53"
+        },
+        {
+          "path": "server/AooKernel/target/classes/BaseThread/ThreadManager.class",
+          "sha256": "df8014aa2005b7ccb3e90b930900f78f01bf91ba4b6e93ade01af5c53ce3cd67"
+        },
+        {
+          "path": "server/AooKernel/target/classes/BaseThread/CosMutexException.class",
+          "sha256": "f45fa1612d0f1ab4f9eed1288972122247d89f4a3b41701b89fd7a5a61a5f233"
+        },
+        {
+          "path": "server/AooKernel/target/classes/BaseThread/BaseMutexInstance.class",
+          "sha256": "22fb22653172e0a1c586ea878fdd568892070b73eab8a6342b6394d5ba28b815"
+        },
+        {
+          "path": "server/AooKernel/target/classes/BaseThread/BaseMutexObject.class",
+          "sha256": "6e9556cfa799ca554b25f46808ff147f6c92e0af409a56a548ccbb46d504a6c0"
+        },
+        {
+          "path": "server/AooKernel/target/classes/BaseThread/ThreadMutexInfo.class",
+          "sha256": "1aeebce06a4145212b17882ebf0b88a1dbd227dd3387ecaeb3b6dc2c703cd69f"
+        },
+        {
+          "path": "server/AooKernel/target/classes/BaseThread/CosMutex.class",
+          "sha256": "01ca063b2413bda4b6834bce110478e17709e1d9ead3ead37d0f46754c36d9e2"
+        },
+        {
+          "path": "server/AooKernel/target/classes/BaseThread/BaseMutexManager.class",
+          "sha256": "41ac924455aad3a8f90018ad34e92ef7be612aa2dab8237d24ef59e0c518a360"
+        },
+        {
+          "path": "server/AooKernel/target/classes/BaseCommon/CommClass$1.class",
+          "sha256": "0f9b46a96edd712a465a8e82c83be1d1bc141f110ae8a22356a84368288f9484"
+        },
+        {
+          "path": "server/AooKernel/target/classes/BaseCommon/CommLog.class",
+          "sha256": "6dc525f760d0f7fbfc22c6c6ffd0a398f51ec601f56e5543e88faf4ca714d7da"
+        },
+        {
+          "path": "server/AooKernel/target/classes/BaseCommon/ByteUtils.class",
+          "sha256": "f3e4f3050333e5608766be4e8e00fbb0307a2798f902b3f2b92e7cf77ca6b026"
+        },
+        {
+          "path": "server/AooKernel/target/classes/BaseCommon/BaseCommonFun.class",
+          "sha256": "49c7ffabf4e6dba301d1e4615e79a6cf8a1c26c0fea22ad0c1168c68494345fc"
+        },
+        {
+          "path": "server/AooKernel/target/classes/BaseCommon/CommClass.class",
+          "sha256": "bda6767f9155b53030c18d9e9c638d61ddc00347bb6fd80ca5281ee83771b8a4"
+        },
+        {
+          "path": "server/AooKernel/target/classes/BaseTask/SyncTask/SyncTaskDealThread.class",
+          "sha256": "45d4ce6449dd0c3eb999fb865117382ea78cc447d5e48c23a5331045cb7a2eb7"
+        },
+        {
+          "path": "server/AooKernel/target/classes/BaseTask/SyncTask/SyncTaskWrapper.class",
+          "sha256": "a39f2e9f89ed32168248b207f14da69d4913baa7fd1c3cc619d0454ee0308f13"
+        },
+        {
+          "path": "server/AooKernel/target/classes/BaseTask/SyncTask/SyncTaskTimerCheckThread.class",
+          "sha256": "01e1ce118356e7b6393bcf0d33e965a931f8c10a9ec71f17876c531188715625"
+        },
+        {
+          "path": "server/AooKernel/target/classes/BaseTask/SyncTask/SyncTaskQueue.class",
+          "sha256": "6dead6aa49ff24ad29df9294b4807bee0fe52a450428070f67ea2ee3cf0afd93"
+        },
+        {
+          "path": "server/AooKernel/target/classes/BaseTask/SyncTask/SyncTaskManager.class",
+          "sha256": "2fc947960229b6f013b7c662332d6a65e6f67c1ca4a0ba7b7b7409a7b1cd28e1"
+        },
+        {
+          "path": "server/AooKernel/target/classes/BaseTask/SyncTask/SyncTask.class",
+          "sha256": "3cba4f433491a08bd723cde9ef2f9dfd98f1e6fd2a5de756fd721b66226ab481"
+        }
+      ]
+    },
+    {
+      "path": "server/Billing/target",
+      "files": 42,
+      "bytes": 7697241,
+      "sampleHashes": [
+        {
+          "path": "server/Billing/target/test-classes/com/aoo/bcg/billing/InMemoryBillingServiceTest.class",
+          "sha256": "97c29f1314b296217d3d4d73b49c8fa664315536496fe7d4da2dfb190b583022"
+        },
+        {
+          "path": "server/Billing/target/test-classes/com/aoo/bcg/billing/JdbcBillingIntegrationTest.class",
+          "sha256": "9265a53d492c2cb0ed2516b5cb421944609c69d9d916ca9aa9f516caea43f4ad"
+        },
+        {
+          "path": "server/Billing/target/test-classes/com/aoo/bcg/billing/JdbcCurrencyAuthorityIntegrationTest.class",
+          "sha256": "4002e9478da5d15584b2a11b32bb5d6aa25f6889a3041d41f855854c4b9580eb"
+        },
+        {
+          "path": "server/Billing/target/test-classes/com/aoo/bcg/billing/LedgerCorrectionServiceTest.class",
+          "sha256": "7db8a4b134fe50b839cc7d18836290ef0aa3ee04ade842fd5df8231695356932"
+        },
+        {
+          "path": "server/Billing/target/classes/com/aoo/bcg/billing/LedgerCorrectionService.class",
+          "sha256": "91cbc0f9062dd05de96a61de7081da4c81f77bddef46d0b958fe73e4ec3ae2da"
+        },
+        {
+          "path": "server/Billing/target/classes/com/aoo/bcg/billing/ReconciliationService.class",
+          "sha256": "c0c715b5aeecc30e5439d63780acbf5ed2cb6b885062ffeb3677b80adc1c3643"
+        },
+        {
+          "path": "server/Billing/target/classes/com/aoo/bcg/billing/JdbcReconciliationService$ConnectionFactory.class",
+          "sha256": "5a0d427c160a399aacf9e880940a86fb8dec043f3f2fbeb7c8470cca30e7c956"
+        },
+        {
+          "path": "server/Billing/target/classes/com/aoo/bcg/billing/InMemoryBillingService.class",
+          "sha256": "0fe81d6b9ba7ba6aaca6f9b33f674cbe456e755f9d460a0e5dc2364edbed5127"
+        },
+        {
+          "path": "server/Billing/target/classes/com/aoo/bcg/billing/InMemoryLedgerRepository.class",
+          "sha256": "630fc190d5e39f43d1300653f7d6434ab83b9cf0d184e1b42a2bc1eef3531c31"
+        },
+        {
+          "path": "server/Billing/target/classes/com/aoo/bcg/billing/JdbcLedgerRepository.class",
+          "sha256": "0bd62139955580a5df31ada51044a73dba5529231d6b090652511d9cf00a0c0b"
+        },
+        {
+          "path": "server/Billing/target/classes/com/aoo/bcg/billing/InMemoryBillingService$Account.class",
+          "sha256": "713b97704f6ed217be719cd7ef0fbd60a3d5f4106698a820944ca50843aa8819"
+        },
+        {
+          "path": "server/Billing/target/classes/com/aoo/bcg/billing/JdbcBillingService.class",
+          "sha256": "ecdc05924b598adab9c16592274fd327226b1f64d8f81df1a7f20cee05c7eec6"
+        },
+        {
+          "path": "server/Billing/target/classes/com/aoo/bcg/billing/LedgerEntry.class",
+          "sha256": "c85ecb677fe8af881d1cb8a2c33d9706ac2163ea310173f5d3c3f1a1eca56a5b"
+        },
+        {
+          "path": "server/Billing/target/classes/com/aoo/bcg/billing/ReconciliationService$Difference.class",
+          "sha256": "f106290ba23c0cc93ad15eba2a6076e90102040baef0d80a98eb0732c7fb2fb0"
+        },
+        {
+          "path": "server/Billing/target/classes/com/aoo/bcg/billing/LedgerRepository.class",
+          "sha256": "a17dfb9e14911a19b47fccf2e50cbc6aa10151eb85a0b97b55ecb3fe5da4732c"
+        },
+        {
+          "path": "server/Billing/target/classes/com/aoo/bcg/billing/CurrencyAccount.class",
+          "sha256": "5c867a60731acb3589d3b4c3a2a26625bcc9dbffe440c58781056f2d8b682634"
+        },
+        {
+          "path": "server/Billing/target/classes/com/aoo/bcg/billing/BillingService.class",
+          "sha256": "10c390f377261ba9b08a1044d9d80299e8daff083c718d9b575f500df3b4313d"
+        },
+        {
+          "path": "server/Billing/target/classes/com/aoo/bcg/billing/JdbcReconciliationService.class",
+          "sha256": "6b90ad8079d56d819645c18ca11e72c38b35a83d155cee9dbcfe3cd9fda7bbfd"
+        },
+        {
+          "path": "server/Billing/target/classes/com/aoo/bcg/billing/RoomBillingBusinessIds.class",
+          "sha256": "d426c6b41da89052a4415568294ee63ddebdb53e6895a5471bc11ee08d9b2309"
+        },
+        {
+          "path": "server/Billing/target/classes/com/aoo/bcg/billing/ReconciliationService$Report.class",
+          "sha256": "64a666cfb0ce17cfc72b5c03b616c60fa64731d300c09e5ae7f9e863b507dab8"
+        }
+      ]
+    },
+    {
+      "path": "server/Bootstrap/target",
+      "files": 211,
+      "bytes": 126621473,
+      "sampleHashes": [
+        {
+          "path": "server/Bootstrap/target/test-classes/com/aoo/bcg/bootstrap/DurableGameSettlementServiceTest$1.class",
+          "sha256": "d121d0a564dc1a6e1019d06a3cadb4e39921794faa3283340d33badc46912388"
+        },
+        {
+          "path": "server/Bootstrap/target/test-classes/com/aoo/bcg/bootstrap/BootstrapAPPTest$1.class",
+          "sha256": "a9312bcc28bc6dea72adb44db6980f7410f7a74f71710fc41eafe4a052674c81"
+        },
+        {
+          "path": "server/Bootstrap/target/test-classes/com/aoo/bcg/bootstrap/DurableGameSettlementServiceTest$2.class",
+          "sha256": "0c40fe5b4521d4e5aa2762ead9bc94d203ba7d5a9993c18cd89789e47d8b0ddb"
+        },
+        {
+          "path": "server/Bootstrap/target/test-classes/com/aoo/bcg/bootstrap/GameProviderServiceLoaderTest.class",
+          "sha256": "4e66ff2ed3fa21a5a42afee8102ac43f8155f1c99851daccb42c6c30fc922444"
+        },
+        {
+          "path": "server/Bootstrap/target/test-classes/com/aoo/bcg/bootstrap/CatalogLifecycleContractTest$1.class",
+          "sha256": "cae6eddf39b47f2bcda8324fa83344a39165ecec70a6ad12fc870b6f1600f32d"
+        },
+        {
+          "path": "server/Bootstrap/target/test-classes/com/aoo/bcg/bootstrap/CatalogLifecycleContractTest.class",
+          "sha256": "c55027d40049cc7e868e68f07902fee2d30d1a4ba768f81f7d4d89279fb2d2ad"
+        },
+        {
+          "path": "server/Bootstrap/target/test-classes/com/aoo/bcg/bootstrap/BootstrapAPPTest$NonConnectingDataSource.class",
+          "sha256": "753358c7a9058ecab9527fa770c61b6b78fcbbb695cf2c88e657874e2f120fd8"
+        },
+        {
+          "path": "server/Bootstrap/target/test-classes/com/aoo/bcg/bootstrap/DurableGameSettlementServiceTest.class",
+          "sha256": "10c0fa25aee3f9ecd6aba22c45a27599b24a901b1d8289e4ef701bc913d4d31d"
+        },
+        {
+          "path": "server/Bootstrap/target/test-classes/com/aoo/bcg/bootstrap/BootstrapAPPTest.class",
+          "sha256": "b024b3fc4ca60cd2b1f8dc5866009ec96ad7bd94082a12ef4f9e4970b7e4957e"
+        },
+        {
+          "path": "server/Bootstrap/target/classes/game-catalog-528.tsv",
+          "sha256": "62c5d9ae0509cd2e317c9afea142d480c3111db6934120bc6379ab40014fa3e3"
+        },
+        {
+          "path": "server/Bootstrap/target/classes/com/aoo/bcg/bootstrap/CatalogGameProvider$CatalogGameSession.class",
+          "sha256": "d489ccee5865aef54306e5265cd2691d27cc25b2c4f349293e4fd4d1d64ca25d"
+        },
+        {
+          "path": "server/Bootstrap/target/classes/com/aoo/bcg/bootstrap/CatalogGameProvider$2.class",
+          "sha256": "dc136c0b2a8d18a5255b6663dcec0f104ee33d15445c56db3361828649e2a8eb"
+        },
+        {
+          "path": "server/Bootstrap/target/classes/com/aoo/bcg/bootstrap/CatalogGameProvider$1.class",
+          "sha256": "1476b4b972b80712c5dc972a8969485a01b5c1d7f1f9035ca28a242209cc8428"
+        },
+        {
+          "path": "server/Bootstrap/target/classes/com/aoo/bcg/bootstrap/GameCatalogLoader.class",
+          "sha256": "07449346c7db61a3aad74f636b873949061111002f2c07bfba6060315acc3262"
+        },
+        {
+          "path": "server/Bootstrap/target/classes/com/aoo/bcg/bootstrap/CatalogGameProvider.class",
+          "sha256": "a238cca6971c8812a8e6a08088ecdd9c4da13a770fb43fcc3d62c1dfe81cfabf"
+        },
+        {
+          "path": "server/Bootstrap/target/classes/com/aoo/bcg/bootstrap/BootstrapAPP.class",
+          "sha256": "edde0a05d7c25feefc4bfd861f439bacbd5fa8c05023604b976ad5c4374431e5"
+        },
+        {
+          "path": "server/Bootstrap/target/classes/com/aoo/bcg/bootstrap/ProductionPersistenceAssembly.class",
+          "sha256": "a0d47319d374f47f1bd6bb33e6f3d6e363a37dc815a9d08f89f96b288e613147"
+        },
+        {
+          "path": "server/Bootstrap/target/classes/com/aoo/bcg/bootstrap/DurableGameSettlementService.class",
+          "sha256": "f691c68311bba097cf5a54811c4ac6df2bfcc6dccff683b656d527f897116ab2"
+        },
+        {
+          "path": "server/Bootstrap/target/runtime/lib/prometheus-metrics-exporter-httpserver-1.3.3.jar",
+          "sha256": "c8a4b3e21c6fa1d10524f1167023841a4d315e3eef0c5980d7b270ccec47ddef"
+        },
+        {
+          "path": "server/Bootstrap/target/runtime/lib/objenesis-3.4.jar",
+          "sha256": "95488102feaf2e2858adf6b299353677dac6c15294006f8ed1c5556f8e3cd251"
+        }
+      ]
+    },
+    {
+      "path": "server/CDXZMJ/build",
+      "files": 96,
+      "bytes": 287240,
+      "sampleHashes": [
+        {
+          "path": "server/CDXZMJ/build/CDXZMJ.jar",
+          "sha256": "9218aa524975b8dec8ba787f8c924fd23cab7d6de9992114c7698d8facc11b72"
+        },
+        {
+          "path": "server/CDXZMJ/build/classes/core/network/client2game/handler/cdxzmj/CCDXZMJContinueEnterRoom.class",
+          "sha256": "d6894542e8c65fc225ca2818bf1d79b814bcbcc32b184ca96bc6f32b6a250ec8"
+        },
+        {
+          "path": "server/CDXZMJ/build/classes/core/network/client2game/handler/cdxzmj/CCDXZMJRoomInvitationOperation.class",
+          "sha256": "383333010ca97e12512b2d12f6a38799a2af8be9471d2e43f645ba5162139d7e"
+        },
+        {
+          "path": "server/CDXZMJ/build/classes/core/network/client2game/handler/cdxzmj/CCDXZMJChangePlayerNum.class",
+          "sha256": "42b492dd496c6f25c56d4a19139779986018d6c90a4296612a5acd8ea00a7215"
+        },
+        {
+          "path": "server/CDXZMJ/build/classes/core/network/client2game/handler/cdxzmj/CCDXZMJOpCard.class",
+          "sha256": "3a4b66aff7dcbbc8c3526223cf74997e6abb99636a69db0646208b7751d34ba8"
+        },
+        {
+          "path": "server/CDXZMJ/build/classes/core/network/client2game/handler/cdxzmj/CCDXZMJAutoChoose.class",
+          "sha256": "5a198ec077444ce8e1ab0a6087fdca792439e0a92b92b8215c5d4ed6501faab8"
+        },
+        {
+          "path": "server/CDXZMJ/build/classes/core/network/client2game/handler/cdxzmj/CCDXZMJVoice.class",
+          "sha256": "0a02aa9fc97f26479c76ab16c590f9923bd0ab224968b06ea08ca3e62dc6049a"
+        },
+        {
+          "path": "server/CDXZMJ/build/classes/core/network/client2game/handler/cdxzmj/CCDXZMJDissolveRoomRefuse.class",
+          "sha256": "3fe76749c97c7ae54e518a1b7e8480817bcfacc6c92c6d639dc10db3cd928457"
+        },
+        {
+          "path": "server/CDXZMJ/build/classes/core/network/client2game/handler/cdxzmj/CCDXZMJGetPlayBackCode.class",
+          "sha256": "fa19a9f4bad16a806ed83a1d5ab20d50e7896d609972432692436e88f278e0d0"
+        },
+        {
+          "path": "server/CDXZMJ/build/classes/core/network/client2game/handler/cdxzmj/CCDXZMJDissolveRoomAgree.class",
+          "sha256": "467619f492b0a54a4ff52ee896d3b99864fbd080d47348f559f0d8f63af647db"
+        },
+        {
+          "path": "server/CDXZMJ/build/classes/core/network/client2game/handler/cdxzmj/CCDXZMJGetRoomID.class",
+          "sha256": "a54735b4c2a79463061af432e9fcd01a9f5ea3e8d920b9012cac77371ea8fd26"
+        },
+        {
+          "path": "server/CDXZMJ/build/classes/core/network/client2game/handler/cdxzmj/CCDXZMJChatMessageList.class",
+          "sha256": "b7dc2b4891a7c36af3a5f8cdb9391c089e58a4b70fa971f534494cf82e9b4286"
+        },
+        {
+          "path": "server/CDXZMJ/build/classes/core/network/client2game/handler/cdxzmj/CCDXZMJChat.class",
+          "sha256": "c608dc54d2ee3ba9f4902ec1768b05b47192c7a1044b71be1af4c4f770181447"
+        },
+        {
+          "path": "server/CDXZMJ/build/classes/core/network/client2game/handler/cdxzmj/CCDXZMJPiaoFen.class",
+          "sha256": "fcaab8b8bce0e05f9a8d7274c7ac4967889d698a2102dfa7f29babc58d2b9a56"
+        },
+        {
+          "path": "server/CDXZMJ/build/classes/core/network/client2game/handler/cdxzmj/CCDXZMJTrusteeship.class",
+          "sha256": "b7284c21f7dbd7404193e772aaa6c86c6ad54319089e42de9079abf94a6f7470"
+        },
+        {
+          "path": "server/CDXZMJ/build/classes/core/network/client2game/handler/cdxzmj/CCDXZMJUnionRoom.class",
+          "sha256": "6680cf766ec8ca30edade83b0aede23e0e85fc814843dbae309d7ba8cf389fdf"
+        },
+        {
+          "path": "server/CDXZMJ/build/classes/core/network/client2game/handler/cdxzmj/CCDXZMJSendGift.class",
+          "sha256": "d9db7baa4e6a3fcae11196c96ad4873a944b4e83bf8a2512189bde2cb1910dd1"
+        },
+        {
+          "path": "server/CDXZMJ/build/classes/core/network/client2game/handler/cdxzmj/CCDXZMJGoldRoom.class",
+          "sha256": "abca878fbf656898aa552c935c60adedbc423df8d063bdcb9679c46e893d8533"
+        },
+        {
+          "path": "server/CDXZMJ/build/classes/core/network/client2game/handler/cdxzmj/CCDXZMJCreateRoom.class",
+          "sha256": "159d72f723b830ee791df8e17915acd3ae34232e43f54f509508f35855094bfa"
+        },
+        {
+          "path": "server/CDXZMJ/build/classes/core/network/client2game/handler/cdxzmj/CCDXZMJGetRoomInfo.class",
+          "sha256": "f79149cebeb30950eb54c4bb888718f32216b40f5ba663d784811eebe50797fd"
+        }
+      ]
+    },
+    {
+      "path": "server/CDXZMJ/target",
+      "files": 270,
+      "bytes": 125695632,
+      "sampleHashes": [
+        {
+          "path": "server/CDXZMJ/target/test-classes/business/global/mj/cdxzmj/CDXZMJGameProviderTest.class",
+          "sha256": "8909d2437d0e94794c0bf852c04902a705a37e69a6b8e19629f6f81de121a0d4"
+        },
+        {
+          "path": "server/CDXZMJ/target/cdxzmj-1.0.0-SNAPSHOT.jar",
+          "sha256": "39b284c1aa8a449741ccadba8a348552520ee2798a0fe63f17b070fbadc7cff4"
+        },
+        {
+          "path": "server/CDXZMJ/target/classes/core/network/client2game/handler/cdxzmj/CCDXZMJContinueEnterRoom.class",
+          "sha256": "3465ea983a5692f9231d37c96801c27f42de5813c46d3c39d222c208716b1852"
+        },
+        {
+          "path": "server/CDXZMJ/target/classes/core/network/client2game/handler/cdxzmj/CCDXZMJRoomInvitationOperation.class",
+          "sha256": "7ec3c9bf21d03e927a3e2a9815bb273c2a5b7de83e90b4b8bc23b18006b0041e"
+        },
+        {
+          "path": "server/CDXZMJ/target/classes/core/network/client2game/handler/cdxzmj/CCDXZMJChangePlayerNum.class",
+          "sha256": "ea3984090794bf0302c4c11f9b10dc88edd7c041268f99875a7674d161e86a0d"
+        },
+        {
+          "path": "server/CDXZMJ/target/classes/core/network/client2game/handler/cdxzmj/CCDXZMJOpCard.class",
+          "sha256": "bf178587aefcd727a0868b04e6c8366b75ca5bdb8269e623248a2b71c21bf8e7"
+        },
+        {
+          "path": "server/CDXZMJ/target/classes/core/network/client2game/handler/cdxzmj/CCDXZMJAutoChoose.class",
+          "sha256": "c9b657aedf2df63791063737fb3a3824f43f3f1da14474e77b99d73f1295f478"
+        },
+        {
+          "path": "server/CDXZMJ/target/classes/core/network/client2game/handler/cdxzmj/CCDXZMJVoice.class",
+          "sha256": "12315ce35c4cb8ec69fde2248e936991733a63e3cea0d5ddec87c1add7a168e6"
+        },
+        {
+          "path": "server/CDXZMJ/target/classes/core/network/client2game/handler/cdxzmj/CCDXZMJDissolveRoomRefuse.class",
+          "sha256": "51f5c2c879f6374cd452a284fd314abab673f6986a961088c0c21638cce38d4b"
+        },
+        {
+          "path": "server/CDXZMJ/target/classes/core/network/client2game/handler/cdxzmj/CCDXZMJGetPlayBackCode.class",
+          "sha256": "7ca0c4b096207d7d851b17b6c1cb87432ef798fe44c4ca6e4094203b4b688085"
+        },
+        {
+          "path": "server/CDXZMJ/target/classes/core/network/client2game/handler/cdxzmj/CCDXZMJDissolveRoomAgree.class",
+          "sha256": "3f34ceb6af569e586344471fcbe828e9764f3d5cb35fed73fea1032751a86c02"
+        },
+        {
+          "path": "server/CDXZMJ/target/classes/core/network/client2game/handler/cdxzmj/CCDXZMJGetRoomID.class",
+          "sha256": "03b0478d16d8dd45d7523ac1e63ac2b163c26e09938d34ea8a9ea3b3b6debec7"
+        },
+        {
+          "path": "server/CDXZMJ/target/classes/core/network/client2game/handler/cdxzmj/CCDXZMJChatMessageList.class",
+          "sha256": "06b5ed41e51edb870fd8a321cba9fd9f1e8e76f816861ba9f825c0df1d2fced7"
+        },
+        {
+          "path": "server/CDXZMJ/target/classes/core/network/client2game/handler/cdxzmj/CCDXZMJChat.class",
+          "sha256": "c070e970711779fbfb5ba79c92724bb8eed67768ab7fb8d4a58e2d29c8e55e3d"
+        },
+        {
+          "path": "server/CDXZMJ/target/classes/core/network/client2game/handler/cdxzmj/CCDXZMJPiaoFen.class",
+          "sha256": "272860e2119610cf35849379c543bd22931d4b186bbcfcc99d4007354308edf7"
+        },
+        {
+          "path": "server/CDXZMJ/target/classes/core/network/client2game/handler/cdxzmj/CCDXZMJTrusteeship.class",
+          "sha256": "0b691e89438a05d243d57856b4ff5abc5d49dae2e4e2e8a997dff8050fbdf2db"
+        },
+        {
+          "path": "server/CDXZMJ/target/classes/core/network/client2game/handler/cdxzmj/CCDXZMJUnionRoom.class",
+          "sha256": "0d93c452e80e5359cf815b583c52011c49564ac34b962d9bc116f413e0414f0b"
+        },
+        {
+          "path": "server/CDXZMJ/target/classes/core/network/client2game/handler/cdxzmj/CCDXZMJSendGift.class",
+          "sha256": "6ff1556b61fdf00525f326e7d46338786b6293036facbb05d9fa4fc72e39fde2"
+        },
+        {
+          "path": "server/CDXZMJ/target/classes/core/network/client2game/handler/cdxzmj/CCDXZMJGoldRoom.class",
+          "sha256": "3f22971fe56da806acc3570be4f0d96dee5f14bfd5938ff3c0ac2daafd512d1f"
+        },
+        {
+          "path": "server/CDXZMJ/target/classes/core/network/client2game/handler/cdxzmj/CCDXZMJCreateRoom.class",
+          "sha256": "dc6b7ac00ef67b47522b662192b95c7c1d7f55e2343ca410dcdf25a3051f8af2"
+        }
+      ]
+    },
+    {
+      "path": "server/ConfigCenter/target",
+      "files": 47,
+      "bytes": 3435423,
+      "sampleHashes": [
+        {
+          "path": "server/ConfigCenter/target/test-classes/com/aoo/bcg/config/AtomicConfigurationReleaseStoreTest.class",
+          "sha256": "4b007028c0d26c8a7e36967d304d4b17492a224cbdd5f389ee0ffc7eb8a03422"
+        },
+        {
+          "path": "server/ConfigCenter/target/test-classes/com/aoo/bcg/config/InMemoryGameConfigurationRepositoryTest.class",
+          "sha256": "c566b18f56ab140252fffdc40bb7e8c60c843fe958dc04ce6636b1f9153f8daa"
+        },
+        {
+          "path": "server/ConfigCenter/target/test-classes/com/aoo/bcg/config/SignedLastKnownGoodConfigurationTest.class",
+          "sha256": "eb0276a91d828824b860d096b1515d9eda4f5d3f0e8d3dcb0318347e23b8b195"
+        },
+        {
+          "path": "server/ConfigCenter/target/classes/com/aoo/bcg/config/JdbcGameConfigurationRepository.class",
+          "sha256": "9790581750220ecd68aa75fb5f25c380b9be304b1bcda55823ed8e13f95832a3"
+        },
+        {
+          "path": "server/ConfigCenter/target/classes/com/aoo/bcg/config/SignedLastKnownGoodConfiguration$Envelope.class",
+          "sha256": "bb64edd30498fef6cc32cbfd126f65e310c14e6470a980b7c8e49cfb2d026a35"
+        },
+        {
+          "path": "server/ConfigCenter/target/classes/com/aoo/bcg/config/InMemoryGameProfileRepository$ProfileKey.class",
+          "sha256": "5ab8696ceb2b4bec67252eb8ac47a91edbb8d5043b42fcc1769a173cfa320a1f"
+        },
+        {
+          "path": "server/ConfigCenter/target/classes/com/aoo/bcg/config/GameConfigurationCodec.class",
+          "sha256": "35099fd7b48bf60a6bfb304952e23ff3cd49e9ddd8064f3b347760f877d54e75"
+        },
+        {
+          "path": "server/ConfigCenter/target/classes/com/aoo/bcg/config/ConfigurationRelease.class",
+          "sha256": "3b8d4cb84b93c9ec420fc208be38852dacb9ed6121ef34dcd7a79e1fa766ecc9"
+        },
+        {
+          "path": "server/ConfigCenter/target/classes/com/aoo/bcg/config/SignedLastKnownGoodConfiguration.class",
+          "sha256": "cedf52f42ea2391d90d1673c588f2c148866684d01c01aaf64a2a29ef1667e7c"
+        },
+        {
+          "path": "server/ConfigCenter/target/classes/com/aoo/bcg/config/InMemoryGameConfigurationRepository$Key.class",
+          "sha256": "649e30e021995b33a97dcddb1f52cf648ee26cc685b19d362ead01e9f4ef9e49"
+        },
+        {
+          "path": "server/ConfigCenter/target/classes/com/aoo/bcg/config/AtomicConfigurationReleaseStore.class",
+          "sha256": "1fbb38818206fead580889306439f5735444588217d4d7466cacccd74e66b200"
+        },
+        {
+          "path": "server/ConfigCenter/target/classes/com/aoo/bcg/config/ProfileAuditEntry$Action.class",
+          "sha256": "6dfba965f7b128f70cbbc3879d489d4afb96dd2b074c4f8a4403b987c51e204c"
+        },
+        {
+          "path": "server/ConfigCenter/target/classes/com/aoo/bcg/config/ProfileAuditEntry.class",
+          "sha256": "3145ac8ded098c50a18925c1b66c0dc22b537cea5a173186953160a82f3c2c18"
+        },
+        {
+          "path": "server/ConfigCenter/target/classes/com/aoo/bcg/config/InMemoryGameProfileRepository.class",
+          "sha256": "27e9656fb7ff495fd009c0925cbb29dd36fd7eb52418afe56f63bf3191277ae6"
+        },
+        {
+          "path": "server/ConfigCenter/target/classes/com/aoo/bcg/config/GameConfigurationRepository.class",
+          "sha256": "996d2e453778626fb5b390165273d513d2429fac4281838df69d32ee57e55faf"
+        },
+        {
+          "path": "server/ConfigCenter/target/classes/com/aoo/bcg/config/GameProfilePublicationService.class",
+          "sha256": "cf7642ca1d4e3890226490e1b80021ecdb75e496c34edaeb298a9b27765cb43b"
+        },
+        {
+          "path": "server/ConfigCenter/target/classes/com/aoo/bcg/config/PublishedGameConfiguration.class",
+          "sha256": "d916a2d232c20126af37d760017d2e447bf348eea5469b6fff11beecbc42ee74"
+        },
+        {
+          "path": "server/ConfigCenter/target/classes/com/aoo/bcg/config/RegionalGameCatalog$1.class",
+          "sha256": "3b5cb0c06d331dce5fc2428ffbeb78b8ad5c19b8826e7c4b6304e0173facbb06"
+        },
+        {
+          "path": "server/ConfigCenter/target/classes/com/aoo/bcg/config/PublishedGameProfile$Scope.class",
+          "sha256": "56bed347b4b32256db7122f40794899fdaf9c763295be275ef9e8a0af74d9b3b"
+        },
+        {
+          "path": "server/ConfigCenter/target/classes/com/aoo/bcg/config/ReleaseManifest.class",
+          "sha256": "e2bb1b1e17c566d2c5f1adaef8d4e7da72ed3bf68df7290a9ab1e957cc9ceb00"
+        }
+      ]
+    },
+    {
+      "path": "server/Families/target",
+      "files": 23,
+      "bytes": 3313400,
+      "sampleHashes": [
+        {
+          "path": "server/Families/target/test-classes/com/aoo/bcg/families/CompiledRuleChainTest$1.class",
+          "sha256": "e58693f09979f6e6596cb2ce5eef91020291e4a3510e15326819bd31751617db"
+        },
+        {
+          "path": "server/Families/target/test-classes/com/aoo/bcg/families/CompiledRuleChainTest.class",
+          "sha256": "65e523cab5d0ba2072aa0eb3f0d5c3d7da87ce5ec718930083d3cf74faa14d0b"
+        },
+        {
+          "path": "server/Families/target/game-families-1.0.0-SNAPSHOT.jar",
+          "sha256": "af3e0f990616171aad89778e84f1d6f9df19ac59595e9cd6d4ec48f6467bf534"
+        },
+        {
+          "path": "server/Families/target/classes/com/aoo/bcg/families/FamilyRuleExtension.class",
+          "sha256": "21bde50503d65798ec388b84fd77d87058179bc81632e9f2c84e55be98b4b6fa"
+        },
+        {
+          "path": "server/Families/target/classes/com/aoo/bcg/families/BuiltinFamilies.class",
+          "sha256": "6cbd923440ce2e4d1705837c6f85859b350f6f5dc1f784e25f535ebbeb69d2ff"
+        },
+        {
+          "path": "server/Families/target/classes/com/aoo/bcg/families/CompiledRuleChain.class",
+          "sha256": "fe733b0c709e29355b88d78e4a17fe09390d91046a5cb557777e0135e92fc760"
+        },
+        {
+          "path": "server/Families/target/runtime/lib/game-spi-1.0.0-SNAPSHOT.jar",
+          "sha256": "78fbc3e7c239ab8430d1a206f1e9d572e7b668b4ed537735f7c5d0638aad3bc2"
+        },
+        {
+          "path": "server/Families/target/runtime/lib/jackson-databind-2.22.2.jar",
+          "sha256": "d0da14c12b16b5d54719aa172d83b542ff4abeb8b0fb7db476fde8ceece760ca"
+        },
+        {
+          "path": "server/Families/target/runtime/lib/game-category-poker-1.0.0-SNAPSHOT.jar",
+          "sha256": "a13115c800a169c872ceb2f8a00d10f6c2ea3bb78e909e1a3aa273ac3793aa80"
+        },
+        {
+          "path": "server/Families/target/runtime/lib/game-common-1.0.0-SNAPSHOT.jar",
+          "sha256": "3ca77405d7cc2fdd911ca1d182c175bb62a853c6f56d42ccc690f4fe60d46102"
+        },
+        {
+          "path": "server/Families/target/runtime/lib/jackson-datatype-jsr310-2.22.2.jar",
+          "sha256": "9df71cc7fb3781fd0bed6c05eebbfa8b39292a49f5619e76fdd0d889f64c8f33"
+        },
+        {
+          "path": "server/Families/target/runtime/lib/game-category-mahjong-1.0.0-SNAPSHOT.jar",
+          "sha256": "c270583b4c256e4b0b83116b31d4c591cda87cc6c404c32432d5154be3aeba68"
+        },
+        {
+          "path": "server/Families/target/runtime/lib/jackson-annotations-2.22.jar",
+          "sha256": "21ddb598807d3a51a876704eb979d9296e1c6a6f47ab1826ff88c6d6a127a2d0"
+        },
+        {
+          "path": "server/Families/target/runtime/lib/game-category-word-card-1.0.0-SNAPSHOT.jar",
+          "sha256": "f017ca91e5a6e140dbcb7dd60328cd4ac9f6fde929b6974d2303e3deb80cf5e5"
+        },
+        {
+          "path": "server/Families/target/runtime/lib/jackson-core-2.22.2.jar",
+          "sha256": "ff167a6317be15895706c26668f45b898efe40ab8780970658210fe1393d52a6"
+        },
+        {
+          "path": "server/Families/target/runtime/lib/game-category-long-card-1.0.0-SNAPSHOT.jar",
+          "sha256": "7183530bff7d324e7850c2cec76d19af4bd024eb98d7322356597e5166eb5d56"
+        },
+        {
+          "path": "server/Families/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst",
+          "sha256": "2912fd6445007a1f69b01e142b866abe93fa0fd1496d6887478224c17d99f61c"
+        },
+        {
+          "path": "server/Families/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst",
+          "sha256": "2c1af63f9ff242c1a62c6031a9b9a4c5eb2d670e8c003aeed51e5b1777f88be1"
+        },
+        {
+          "path": "server/Families/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst",
+          "sha256": "9299dc95b00ece8c1629a595c79b75dd1b1b0555a6d8ec2ecd1f6e0138518b5f"
+        },
+        {
+          "path": "server/Families/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst",
+          "sha256": "a131550edcadb4f001bbae64ac2997d86126a814063a922900664f2ff3b86bfb"
+        }
+      ]
+    },
+    {
+      "path": "server/GameCommon/target",
+      "files": 796,
+      "bytes": 96530487,
+      "sampleHashes": [
+        {
+          "path": "server/GameCommon/target/test-classes/core/replay/PerspectiveReplayEventValueTest.class",
+          "sha256": "0e5db97ed69e950798acc23206843a969bda9c7d836e2ebff398dd42ddf000d4"
+        },
+        {
+          "path": "server/GameCommon/target/test-classes/core/replay/ReplayArchiveIntegrationTest.class",
+          "sha256": "f1f437b5f7cdb09be28c66ae38d381f77e45427384751a3e31d659e075945c1d"
+        },
+        {
+          "path": "server/GameCommon/target/test-classes/com/aoo/bcg/common/club/JdbcClubMemberIndexIntegrationTest.class",
+          "sha256": "4418bddc61c305e510eec6013fa1dd70efb99b7e85b2a5542c33a3c5a582836e"
+        },
+        {
+          "path": "server/GameCommon/target/test-classes/com/aoo/bcg/common/club/ClubConcurrencyIntegrationTest.class",
+          "sha256": "791303e342d3e9ce91fd04fb11f9571f8db6b7d7095ed3574f07ce3c5563e9a1"
+        },
+        {
+          "path": "server/GameCommon/target/test-classes/com/aoo/bcg/common/metrics/DynamicMetricRegistryTest.class",
+          "sha256": "2eee441fdcee4b3ad6f9be226ee32ba34d251e3e82657d2eb046ea17aca92535"
+        },
+        {
+          "path": "server/GameCommon/target/test-classes/com/aoo/bcg/common/transaction/JdbcTransactionBoundaryTest.class",
+          "sha256": "eb68826468571ef0b0daa26ef7809a23349a66aaca5c85b6e97fa1745c3baa4f"
+        },
+        {
+          "path": "server/GameCommon/target/test-classes/com/aoo/bcg/common/transaction/ConsistencyRoutingPolicyTest.class",
+          "sha256": "7ec21623f76661717fa3416d508f1bb55d8cb30d6d33df95522ee319e10799c6"
+        },
+        {
+          "path": "server/GameCommon/target/test-classes/com/aoo/bcg/common/room/AuthoritativeRoomTest$OwnedRoom.class",
+          "sha256": "7e9f4e01512bab3c97ca4c7c57b61c5a3a510c4f1b9b85ba4fb0aecbc2e9feb6"
+        },
+        {
+          "path": "server/GameCommon/target/test-classes/com/aoo/bcg/common/room/AuthoritativeRoomTest.class",
+          "sha256": "89b0a202cf7526e3d4764775187c30d2afd8b97ad0ac2b2274e66b9b0662865b"
+        },
+        {
+          "path": "server/GameCommon/target/test-classes/com/aoo/bcg/common/room/PlayerExitCleanupCoordinatorTest.class",
+          "sha256": "272aed42bdaf11e37cd5a170d3355f1987fd00beec0cc3761aab4c245a3b50ba"
+        },
+        {
+          "path": "server/GameCommon/target/test-classes/com/aoo/bcg/common/room/RoomCodePolicyTest.class",
+          "sha256": "2b4977a4130850cf08bc67f629cecac916f8bfff23431f5201c27f4fee0f54c4"
+        },
+        {
+          "path": "server/GameCommon/target/test-classes/com/aoo/bcg/common/room/AuthoritativeRoomTest$TestRoom.class",
+          "sha256": "ada454bc3137f54f79b491a10f4080359dad36d4b2087dc72ae27183ec502b20"
+        },
+        {
+          "path": "server/GameCommon/target/test-classes/com/aoo/bcg/common/cache/ProtectedLookupCacheTest.class",
+          "sha256": "4e79330efdb9d64b2141d938834c5e5f400b8899c2becc7812ca3050584b3507"
+        },
+        {
+          "path": "server/GameCommon/target/test-classes/com/aoo/bcg/common/cache/RedisAtomicKeyMigrationTest.class",
+          "sha256": "0acb5609fb3292e055a5c655f318e31a4b7c11ffc5e5482d631406d864dcacd7"
+        },
+        {
+          "path": "server/GameCommon/target/test-classes/com/aoo/bcg/common/cache/CacheKeyTest.class",
+          "sha256": "053db41f9f024b88eb44f691cec57a686c296c0bae6fa6e5f52c85d11fc84609"
+        },
+        {
+          "path": "server/GameCommon/target/test-classes/com/aoo/bcg/common/cache/ReadThroughCacheMigrationTest.class",
+          "sha256": "ec51b85d51120fec34f22d533adec60150c0afce753a5b5f4a0d446a4acb7a59"
+        },
+        {
+          "path": "server/GameCommon/target/test-classes/com/aoo/bcg/common/cache/RedisAtomicKeyMigrationTest$AtomicFake.class",
+          "sha256": "0e43908cacec5e9cba65f8e3ebbc17218e7ab224ccb51604af0bc86d38f48f88"
+        },
+        {
+          "path": "server/GameCommon/target/test-classes/com/aoo/bcg/common/cache/ClubMemberCacheScaleTest.class",
+          "sha256": "a2a4aade2d3147a3eb9be62e9a6c969202fc992728cbd2fc62086ff54f1716c6"
+        },
+        {
+          "path": "server/GameCommon/target/test-classes/com/aoo/bcg/common/cache/RedisLuaContractTest.class",
+          "sha256": "3725d4068cb27d4039198f60f05b0ed2c6081d21cd898d70c42707346f31a8ce"
+        },
+        {
+          "path": "server/GameCommon/target/test-classes/com/aoo/bcg/common/cache/RemainingTtlPolicyTest.class",
+          "sha256": "0fbcd8fee3d138a296665482df733a663802f214e5631527a24dff537b10132c"
+        }
+      ]
+    },
+    {
+      "path": "server/GameSPI/target",
+      "files": 253,
+      "bytes": 915013,
+      "sampleHashes": [
+        {
+          "path": "server/GameSPI/target/test-classes/com/aoo/bcg/gamespi/ImmutableValueTest.class",
+          "sha256": "df82d21dd4e3de93b54fbd1b8de85a9201ec7ad6b91b3d676eb4a30d2ab88f8a"
+        },
+        {
+          "path": "server/GameSPI/target/test-classes/com/aoo/bcg/gamespi/GameRegistryTest.class",
+          "sha256": "15c21b7e627af2ce6bb40ef764a73a731f0acea9a75f42e8665bbcfd33c8de77"
+        },
+        {
+          "path": "server/GameSPI/target/test-classes/com/aoo/bcg/gamespi/CommandPayloadTest.class",
+          "sha256": "1c5872010ab72fc998189f5fd375c547c80a833860deeb413a82324f53585ad6"
+        },
+        {
+          "path": "server/GameSPI/target/test-classes/com/aoo/bcg/gamespi/GameRegistryTest$1.class",
+          "sha256": "b3c46dacf261c9c77678ea6b9036497b7c7e41afb2fb541c211b0ee0b95fca05"
+        },
+        {
+          "path": "server/GameSPI/target/test-classes/com/aoo/bcg/gamespi/fsm/StateGraphRendererTest.class",
+          "sha256": "8cd200b1214147d454f4c8904cb420556b667c37a5ee68a32b154dbf0e1217f7"
+        },
+        {
+          "path": "server/GameSPI/target/test-classes/com/aoo/bcg/gamespi/fsm/StateMigrationRegistryTest.class",
+          "sha256": "dfb90d1d3fe71374984df7305da0b15bd3930ab2c59807e090b29aa3f15f32c3"
+        },
+        {
+          "path": "server/GameSPI/target/test-classes/com/aoo/bcg/gamespi/fsm/AutomaticTransitionCycleGuardTest.class",
+          "sha256": "d7b0c91828dcaa5d3c6e1586a5fe3c2de21d91f541f1956f0a2375ef1a2b6971"
+        },
+        {
+          "path": "server/GameSPI/target/test-classes/com/aoo/bcg/gamespi/fsm/UndeclaredTransitionSideEffectTest.class",
+          "sha256": "db6cbcddfda05a4d270b050b79a65b29b69ad120c301a3309f573b9ceed8467f"
+        },
+        {
+          "path": "server/GameSPI/target/test-classes/com/aoo/bcg/gamespi/fsm/StateTransitionTableTest.class",
+          "sha256": "7cea24bb446216140a51beb88a5696c06aee7ceb09e44827681e271d1b7bf195"
+        },
+        {
+          "path": "server/GameSPI/target/test-classes/com/aoo/bcg/gamespi/fsm/LivenessValidatorTest.class",
+          "sha256": "bbcf9b15ebf8fb0662daf9a22f5cd944dbf986ed9e074ed5f37188078f241b00"
+        },
+        {
+          "path": "server/GameSPI/target/test-classes/com/aoo/bcg/gamespi/fsm/BoundedStateModelCheckerTest$Event.class",
+          "sha256": "f738b96d53874456ac850243b98ca53d16bd9172e2f660e83960fe8cc375ad6a"
+        },
+        {
+          "path": "server/GameSPI/target/test-classes/com/aoo/bcg/gamespi/fsm/StateTransitionTableTest$Event.class",
+          "sha256": "a6aae9c923a6f74eb28acddde08eba50117c36ccafc549cb847fdb42a537448e"
+        },
+        {
+          "path": "server/GameSPI/target/test-classes/com/aoo/bcg/gamespi/fsm/AutomaticTransitionCycleGuardTest$State.class",
+          "sha256": "1e69358b56c287079810d389d4ca4e411501e8088f752be3938f77a77f113695"
+        },
+        {
+          "path": "server/GameSPI/target/test-classes/com/aoo/bcg/gamespi/fsm/StateMachineCoverageTest.class",
+          "sha256": "fb2f5108ca6a101814c50b2897a4d9f9500bd51bf4a37b38e9fed3898f0e2eba"
+        },
+        {
+          "path": "server/GameSPI/target/test-classes/com/aoo/bcg/gamespi/fsm/StateMigrationRegistryTest$1.class",
+          "sha256": "43571c940501ce317db162b41d15a537a1931726ece317822540ed6eb08a2bb9"
+        },
+        {
+          "path": "server/GameSPI/target/test-classes/com/aoo/bcg/gamespi/fsm/BoundedStateModelCheckerTest.class",
+          "sha256": "244b0b65cda8fd2cc7c9dde4e5295293547bbfb258382ef51655b6ece9ad6ec9"
+        },
+        {
+          "path": "server/GameSPI/target/test-classes/com/aoo/bcg/gamespi/fsm/CompositeGameStateTest.class",
+          "sha256": "832753edc9c6d36235ffd32b0df51bb905c2b3f043b4e0b6db29cb171060781b"
+        },
+        {
+          "path": "server/GameSPI/target/test-classes/com/aoo/bcg/gamespi/fsm/StateMachineCoverageTest$Event.class",
+          "sha256": "02fc78313ca4fa41e65a4d4e8dcbe19c61aae3f4855b7f0a850230a498d6fc2e"
+        },
+        {
+          "path": "server/GameSPI/target/test-classes/com/aoo/bcg/gamespi/fsm/TerminalStateIrreversibilityTest$Event.class",
+          "sha256": "ef75d1e4ce69ef7c705ab241b10ac9f46960e3662cca15f7b59566ac542ef158"
+        },
+        {
+          "path": "server/GameSPI/target/test-classes/com/aoo/bcg/gamespi/fsm/CompositeStateValidatorTest.class",
+          "sha256": "81dae729c42a8c9d780c2942eab8828f6f8e47c4f5bcf8253e1ea71a4d62321c"
+        }
+      ]
+    },
+    {
+      "path": "server/Games/target",
+      "files": 171,
+      "bytes": 126151539,
+      "sampleHashes": [
+        {
+          "path": "server/Games/target/runtime/lib/prometheus-metrics-exporter-httpserver-1.3.3.jar",
+          "sha256": "c8a4b3e21c6fa1d10524f1167023841a4d315e3eef0c5980d7b270ccec47ddef"
+        },
+        {
+          "path": "server/Games/target/runtime/lib/objenesis-3.4.jar",
+          "sha256": "95488102feaf2e2858adf6b299353677dac6c15294006f8ed1c5556f8e3cd251"
+        },
+        {
+          "path": "server/Games/target/runtime/lib/opentelemetry-exporter-logging-otlp-1.44.1.jar",
+          "sha256": "57e6bb990168973cc69125c877ee57e38cbb35db0a74f8a531768bc012eae4cf"
+        },
+        {
+          "path": "server/Games/target/runtime/lib/annotations-4.1.1.4.jar",
+          "sha256": "ba734e1e84c09d615af6a09d33034b4f0442f8772dec120efb376d86a565ae15"
+        },
+        {
+          "path": "server/Games/target/runtime/lib/commons-logging-1.3.5.jar",
+          "sha256": "6d7a744e4027649fbb50895df9497d109f98c766a637062fe8d2eabbb3140ba4"
+        },
+        {
+          "path": "server/Games/target/runtime/lib/error_prone_annotations-2.50.0.jar",
+          "sha256": "4667724877f1d37a689202da191e23efa7657c62eef93ccdac406eccfe5cdd0a"
+        },
+        {
+          "path": "server/Games/target/runtime/lib/rocketmq-common-5.5.0.jar",
+          "sha256": "74b7942dbc2ac66353717d22c104fcc6bb6e5c65108b1b9120e960e5d7c0b595"
+        },
+        {
+          "path": "server/Games/target/runtime/lib/netty-codec-dns-4.2.17.Final.jar",
+          "sha256": "394f4649a824683735f28b299d0a48caff059ae30e654e2abf8b3f392af4d374"
+        },
+        {
+          "path": "server/Games/target/runtime/lib/jackson-databind-3.1.5.jar",
+          "sha256": "3a2338d996fd3056791df8d335fa9ba8a62a706ed4245ecf81b3e583df37d08a"
+        },
+        {
+          "path": "server/Games/target/runtime/lib/netty-codec-xml-4.2.17.Final.jar",
+          "sha256": "c453be5dda52127ac82e4883cf03b3326741ff460a4ceebe9a54b23058537fb1"
+        },
+        {
+          "path": "server/Games/target/runtime/lib/netty-common-4.2.17.Final.jar",
+          "sha256": "502aae2a6680e9bca3558a3fa098f06dc4d87340b8b714e925a6d690871c092a"
+        },
+        {
+          "path": "server/Games/target/runtime/lib/jackson-core-3.1.5.jar",
+          "sha256": "9431b7fa2673bbb618c11d865fe15e13222fd182a214ff998cb7e56afd8f35d2"
+        },
+        {
+          "path": "server/Games/target/runtime/lib/opentelemetry-exporter-logging-1.44.1.jar",
+          "sha256": "9e8f887dcee2d71cab1a0215e09560f03f8d5c1d11edb41cf5512e4c75d3c483"
+        },
+        {
+          "path": "server/Games/target/runtime/lib/animal-sniffer-annotations-1.21.jar",
+          "sha256": "2f25841c937e24959a57b630e2c4b8525b3d0f536f2e511c9b2bed30b1651d54"
+        },
+        {
+          "path": "server/Games/target/runtime/lib/reflections-0.9.11.jar",
+          "sha256": "cca88428f8a8919df885105833d45ff07bd26f985f96ee55690551216b58b4a1"
+        },
+        {
+          "path": "server/Games/target/runtime/lib/grpc-core-1.53.0.jar",
+          "sha256": "0077b9ff9a3b1a6ba3fad2e559c821e8f5176981068a6923647c7486b598aa03"
+        },
+        {
+          "path": "server/Games/target/runtime/lib/opentelemetry-api-1.44.1.jar",
+          "sha256": "097e2e71c8b8c813f4a13176baafbbbb124b1253f5c9fffd110bc2add74ace93"
+        },
+        {
+          "path": "server/Games/target/runtime/lib/json-20260719.jar",
+          "sha256": "c243f45f9590c12694a4142ed3f07fc70dfb71e4daebd05ae234bf92a2da92a6"
+        },
+        {
+          "path": "server/Games/target/runtime/lib/netty-codec-http3-4.2.17.Final.jar",
+          "sha256": "9fcf9873e31b2899c407b42d320aaf6afeb69807e63d9a865c391b4339fa24c7"
+        },
+        {
+          "path": "server/Games/target/runtime/lib/netty-transport-4.2.17.Final.jar",
+          "sha256": "d2409ce3a735cbab4188d0ea5d82abed823a6a07a8389f49af4a9e1243a562bc"
+        }
+      ]
+    },
+    {
+      "path": "server/Gateway/target",
+      "files": 65,
+      "bytes": 4590374,
+      "sampleHashes": [
+        {
+          "path": "server/Gateway/target/test-classes/com/aoo/bcg/gateway/GameWebSocketRouterTest.class",
+          "sha256": "f5264a064ecab010e31fd9810f720bce98df41ccf4db6124299c87199eec3e78"
+        },
+        {
+          "path": "server/Gateway/target/test-classes/com/aoo/bcg/gateway/SecureWsTicketServiceTest.class",
+          "sha256": "c16c462e710cdb3eab93b0dd16ad902865311d66f1eb407606881d94663de00e"
+        },
+        {
+          "path": "server/Gateway/target/test-classes/com/aoo/bcg/gateway/NettyBufferLeaseTest.class",
+          "sha256": "9858966ee86a7fd0bf5f403ae4cc55f9ca1d6b4a38b3e6ac13e4e8de65853e87"
+        },
+        {
+          "path": "server/Gateway/target/test-classes/com/aoo/bcg/gateway/ConnectionResourceScopeTest.class",
+          "sha256": "8b76b951b69bd7a0fc9924930f10e40e0cd1f12fbb7036dc7460408a4981b26b"
+        },
+        {
+          "path": "server/Gateway/target/test-classes/com/aoo/bcg/gateway/RuntimeGameRoomRegistryTest.class",
+          "sha256": "93ba589c9f469e0bb05f8944bcdbfcafd903846776d2e69e2b5d5232101128fc"
+        },
+        {
+          "path": "server/Gateway/target/test-classes/com/aoo/bcg/gateway/WebSocketRequestGuardTest.class",
+          "sha256": "20d3258cace7cf3668e2259eb5c579484e1241fe24dde081be3b7ed433449550"
+        },
+        {
+          "path": "server/Gateway/target/test-classes/com/aoo/bcg/gateway/GameWebSocketRouterTest$1.class",
+          "sha256": "4b2f5f763c6c578398aa2c80fa897457c56d2afc38a5c37a5eb865ca810bf1be"
+        },
+        {
+          "path": "server/Gateway/target/test-classes/com/aoo/bcg/gateway/RuntimeGameRoomRegistryTest$1.class",
+          "sha256": "590a47133bd42ac7438a0799240e2bc90e4831f72cfe60a519a820a684b30175"
+        },
+        {
+          "path": "server/Gateway/target/test-classes/com/aoo/bcg/gateway/GameOperationTimelineTest.class",
+          "sha256": "0f024b44bb132ffa71a1b06697f4dea5d3d8701a61065811dd39375bc8c13ea8"
+        },
+        {
+          "path": "server/Gateway/target/classes/com/aoo/bcg/gateway/ConnectionPresenceRegistry.class",
+          "sha256": "2ecf5f10206c9b1085fca8f9b8cab2df93fb88ae45f70f8dcdbf63b3b438e251"
+        },
+        {
+          "path": "server/Gateway/target/classes/com/aoo/bcg/gateway/ConnectionGenerationStore.class",
+          "sha256": "dadfde6220b88359f3988111fb6e08ca92fa4827f0a1d20964c20774d6c6a9db"
+        },
+        {
+          "path": "server/Gateway/target/classes/com/aoo/bcg/gateway/WebSocketRequestGuard.class",
+          "sha256": "5807034f9d3c88202afaf4eb50756f2fee0786bbed73225d4cd750185c95b540"
+        },
+        {
+          "path": "server/Gateway/target/classes/com/aoo/bcg/gateway/GameWebSocketRouter$RoutedResult.class",
+          "sha256": "8597c6e13a8c5a1ea59f52ee6894467071d976bafb90c4cce0edfecd0b1ab1aa"
+        },
+        {
+          "path": "server/Gateway/target/classes/com/aoo/bcg/gateway/ErrorDomain.class",
+          "sha256": "73a876d4b497a3a6096af26637bec827421970bd1009659b0a6182d6c31d9cfc"
+        },
+        {
+          "path": "server/Gateway/target/classes/com/aoo/bcg/gateway/ConnectionPresence$Status.class",
+          "sha256": "d2686b20a503314146707f25da6448bb8a9c67c4a02471b75315c27d46be9a59"
+        },
+        {
+          "path": "server/Gateway/target/classes/com/aoo/bcg/gateway/GameOperationTimeline$Entry.class",
+          "sha256": "19592ee8eff0fd1ae51e67418ce23c8d67a9011cfe2736c34ff756b57492e7a8"
+        },
+        {
+          "path": "server/Gateway/target/classes/com/aoo/bcg/gateway/ConnectionSessionFactory.class",
+          "sha256": "01851936a903a233ccfc10eb2dd25669c79ad61b637b44e802a7d87840649e16"
+        },
+        {
+          "path": "server/Gateway/target/classes/com/aoo/bcg/gateway/JdbcConnectionGenerationStore.class",
+          "sha256": "9491bb4dc5458a1e64de283a7d4bb1bd325b1b25aeb9c82c7c92b250b5d75518"
+        },
+        {
+          "path": "server/Gateway/target/classes/com/aoo/bcg/gateway/NettyBufferLease.class",
+          "sha256": "61136d64ba9edc70f467c5b8a18931c7c2e5f293e858e01487e95a79c8d5f72a"
+        },
+        {
+          "path": "server/Gateway/target/classes/com/aoo/bcg/gateway/InMemoryConnectionGenerationStore.class",
+          "sha256": "bf662572abc6a779a7ac070641808cbc77c2eaff43408a316113068d29a27ca9"
+        }
+      ]
+    },
+    {
+      "path": "server/Hall/target",
+      "files": 29,
+      "bytes": 7794981,
+      "sampleHashes": [
+        {
+          "path": "server/Hall/target/test-classes/com/aoo/bcg/hall/HallLayeringTest.class",
+          "sha256": "d37c0312fc02df63c7ac821cea59dc6351eb064f15184d03abb39c1b197e5149"
+        },
+        {
+          "path": "server/Hall/target/classes/com/aoo/bcg/hall/HallApplication.class",
+          "sha256": "4f63fae889ba63cd3cd80a694b3cc01b1d48885b9ebaefc9832afdc66200bcb7"
+        },
+        {
+          "path": "server/Hall/target/classes/com/aoo/bcg/hall/HallApplication$State.class",
+          "sha256": "687533fa7a704f32ce11aa6f97969aa6e9c8ca6056bdade5c57e6edb56027382"
+        },
+        {
+          "path": "server/Hall/target/classes/com/aoo/bcg/hall/package-info.class",
+          "sha256": "0e8d147289344a63df944acec4d2ff9462cf1df88a8c40576a308b0fe87f39ac"
+        },
+        {
+          "path": "server/Hall/target/classes/com/aoo/bcg/hall/HallApplication$HallCapabilityCatalog.class",
+          "sha256": "59175312c85f38d82c4b38fda67e3276f2181035246dd40d625d08e94b2a59b5"
+        },
+        {
+          "path": "server/Hall/target/runtime/lib/protobuf-java-4.36.0.jar",
+          "sha256": "06515776b10bfed334b610273ffdd8884098a9333cb816314b4e4876bfcd2041"
+        },
+        {
+          "path": "server/Hall/target/runtime/lib/game-spi-1.0.0-SNAPSHOT.jar",
+          "sha256": "78fbc3e7c239ab8430d1a206f1e9d572e7b668b4ed537735f7c5d0638aad3bc2"
+        },
+        {
+          "path": "server/Hall/target/runtime/lib/game-families-1.0.0-SNAPSHOT.jar",
+          "sha256": "af3e0f990616171aad89778e84f1d6f9df19ac59595e9cd6d4ec48f6467bf534"
+        },
+        {
+          "path": "server/Hall/target/runtime/lib/game-billing-1.0.0-SNAPSHOT.jar",
+          "sha256": "2f7e520f35f92c4a7a52663f38868f368b4bc468907e94fd09f90f57de1e596d"
+        },
+        {
+          "path": "server/Hall/target/runtime/lib/jackson-databind-2.22.2.jar",
+          "sha256": "d0da14c12b16b5d54719aa172d83b542ff4abeb8b0fb7db476fde8ceece760ca"
+        },
+        {
+          "path": "server/Hall/target/runtime/lib/game-category-poker-1.0.0-SNAPSHOT.jar",
+          "sha256": "a13115c800a169c872ceb2f8a00d10f6c2ea3bb78e909e1a3aa273ac3793aa80"
+        },
+        {
+          "path": "server/Hall/target/runtime/lib/game-common-1.0.0-SNAPSHOT.jar",
+          "sha256": "3ca77405d7cc2fdd911ca1d182c175bb62a853c6f56d42ccc690f4fe60d46102"
+        },
+        {
+          "path": "server/Hall/target/runtime/lib/account-domain-1.0.0-SNAPSHOT.jar",
+          "sha256": "a715f33f58a688214ac83d93da4635b9fb91ba152afd4b657dc22e4987b0a54d"
+        },
+        {
+          "path": "server/Hall/target/runtime/lib/jackson-datatype-jsr310-2.22.2.jar",
+          "sha256": "9df71cc7fb3781fd0bed6c05eebbfa8b39292a49f5619e76fdd0d889f64c8f33"
+        },
+        {
+          "path": "server/Hall/target/runtime/lib/mysql-connector-j-26.7.0.jar",
+          "sha256": "69084713593a4aa8d07c383619b9639276f08bccf8faf1c562178147d389b1e1"
+        },
+        {
+          "path": "server/Hall/target/runtime/lib/game-category-mahjong-1.0.0-SNAPSHOT.jar",
+          "sha256": "c270583b4c256e4b0b83116b31d4c591cda87cc6c404c32432d5154be3aeba68"
+        },
+        {
+          "path": "server/Hall/target/runtime/lib/jackson-annotations-2.22.jar",
+          "sha256": "21ddb598807d3a51a876704eb979d9296e1c6a6f47ab1826ff88c6d6a127a2d0"
+        },
+        {
+          "path": "server/Hall/target/runtime/lib/game-category-word-card-1.0.0-SNAPSHOT.jar",
+          "sha256": "f017ca91e5a6e140dbcb7dd60328cd4ac9f6fde929b6974d2303e3deb80cf5e5"
+        },
+        {
+          "path": "server/Hall/target/runtime/lib/jackson-core-2.22.2.jar",
+          "sha256": "ff167a6317be15895706c26668f45b898efe40ab8780970658210fe1393d52a6"
+        },
+        {
+          "path": "server/Hall/target/runtime/lib/game-config-center-1.0.0-SNAPSHOT.jar",
+          "sha256": "3f063deb2c9fefe00034338982654fbc4d192ce595740d14b98ffcc378a37cc5"
+        }
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/commdef/target",
+      "files": 39,
+      "bytes": 145604,
+      "sampleHashes": [
+        {
+          "path": "server/LegacyAccountServer/commdef/target/classes/jsproto/c2s/SData_Result.class",
+          "sha256": "574d03b6b745fce38a0d63c8d82d252b27dcb82cf47cd90b372d99dad410ea38"
+        },
+        {
+          "path": "server/LegacyAccountServer/commdef/target/classes/jsproto/c2s/cclass/token/CreateAccountTokenInfo.class",
+          "sha256": "5e0abd82fac417bdcd89ea8345f0d805bb07637e5955e2c50b639ba067cf1e70"
+        },
+        {
+          "path": "server/LegacyAccountServer/commdef/target/classes/jsproto/c2s/cclass/token/AccountTokenInfo.class",
+          "sha256": "872720601ec6a4c0fc035918d0fa906919e5764a8561982b63476e7f502b0bca"
+        },
+        {
+          "path": "server/LegacyAccountServer/commdef/target/classes/jsproto/c2s/cclass/general/GeneralInfo.class",
+          "sha256": "1fe6c9aba2b773c9ae8d332f9754591f649e30ce7681d41f7f6c6853487acc3e"
+        },
+        {
+          "path": "server/LegacyAccountServer/commdef/target/classes/jsproto/c2s/cclass/general/WeChat.class",
+          "sha256": "ebfff83f5b35afc3d1fb9bdad2653571f2a08ea79a5ba47ea854d293d82c2c64"
+        },
+        {
+          "path": "server/LegacyAccountServer/commdef/target/classes/jsproto/c2s/cclass/general/LogLevelD.class",
+          "sha256": "4ad47b6a8435454c68989bfc2fb90e02adb8cc969c746d1c22ec51509d829b9f"
+        },
+        {
+          "path": "server/LegacyAccountServer/commdef/target/classes/jsproto/c2s/cclass/general/Mobile.class",
+          "sha256": "f78564c1d5975ef110aa56c09a116eddc7929e5494a3f751fad17ce916018b60"
+        },
+        {
+          "path": "server/LegacyAccountServer/commdef/target/classes/jsproto/c2s/cclass/general/TokenInfo.class",
+          "sha256": "13031fd00a09246ff7ade4fc7a03187f51469df34b3002baed4a9d1937af0563"
+        },
+        {
+          "path": "server/LegacyAccountServer/commdef/target/classes/jsproto/c2s/cclass/user/UserInfo.class",
+          "sha256": "f82df9ad8a7fb936bdbf4f762f2e32d46164ba2fcfb4fd5a7f7669d232713eef"
+        },
+        {
+          "path": "server/LegacyAccountServer/commdef/target/classes/jsproto/c2s/cclass/user/UserValidityInfo.class",
+          "sha256": "d87e381cd651ccbd6a1da54defdce5de0e86cd1fc8e77ba144246e74f78d3a79"
+        },
+        {
+          "path": "server/LegacyAccountServer/commdef/target/classes/jsproto/c2s/cclass/user/UserAccessTokenInfo.class",
+          "sha256": "132da7d4768336209a4e61e2e615103e477d4f5db332464f79f0bb22edc54cc2"
+        },
+        {
+          "path": "server/LegacyAccountServer/commdef/target/classes/jsproto/c2s/cclass/BaseSendMsg.class",
+          "sha256": "12f486fcacac8cc122252da48abd491e5d75f0cbf5079271a83db39aa2580c3b"
+        },
+        {
+          "path": "server/LegacyAccountServer/commdef/target/classes/jsproto/c2s/iclass/server/SS000D_CheckAccountAuthToken.class",
+          "sha256": "57776d3b74c9e5bef326e32c026af7a954b60ee12dedf7be5138f3f35db7ca4e"
+        },
+        {
+          "path": "server/LegacyAccountServer/commdef/target/classes/jsproto/c2s/iclass/server/CS000D_CheckAccountAuthToken.class",
+          "sha256": "3b003c0bda5bc5c61aed38fa135bc47aaf65020e6fafa7d9ae52f66079e2c698"
+        },
+        {
+          "path": "server/LegacyAccountServer/commdef/target/classes/jsproto/c2s/iclass/server/CS000F_AccountAssociationBinding.class",
+          "sha256": "ed4ffcd28a2ef97ca5b6b3d52de2a961a845b40e0556f92a0d10a3249272e1a3"
+        },
+        {
+          "path": "server/LegacyAccountServer/commdef/target/classes/jsproto/c2s/iclass/client/CFF07_RegAccount.class",
+          "sha256": "0e6188d78411db3ba580a6eb89709f80a51b797723bdd3431c0044f07a4fe65b"
+        },
+        {
+          "path": "server/LegacyAccountServer/commdef/target/classes/jsproto/c2s/iclass/client/CFF02_LoginAccountBySDK.class",
+          "sha256": "c1db2b18be47d940aba6b3ac09dd93e5204cecca7568bc1ee147929d9e2b8f54"
+        },
+        {
+          "path": "server/LegacyAccountServer/commdef/target/classes/jsproto/c2s/iclass/client/CFF03_LoginAccount.class",
+          "sha256": "a13534208c114795f78719ad0ba70e9d2fa2b89ccfb55db5036d4615d4e52bcc"
+        },
+        {
+          "path": "server/LegacyAccountServer/commdef/target/classes/jsproto/c2s/iclass/client/CFF08_ChangeAccountPsw.class",
+          "sha256": "86a7afc6b47317342e862e2e5c1e7182d5928ab19310fcbc85c71ba7d78c01c4"
+        },
+        {
+          "path": "server/LegacyAccountServer/commdef/target/classes/jsproto/c2s/iclass/client/S0000_AccountLogin.class",
+          "sha256": "0ffde6ecec9fb228fe4d9d77e103d7ff39b907f09e5b48703755c1c277c24096"
+        }
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/common/target",
+      "files": 90,
+      "bytes": 454728,
+      "sampleHashes": [
+        {
+          "path": "server/LegacyAccountServer/common/target/classes/application-common.yml",
+          "sha256": "59a4a6a6b3def40cd93cd2a650bbdbb57a82c2ca2620d07a99c94d5b04f6b530"
+        },
+        {
+          "path": "server/LegacyAccountServer/common/target/classes/com/ddm/server/result/ResultBody.class",
+          "sha256": "bfeb2b482051cf05c56dc65816f6cbeba0ccc6a47761c9a319103dc7b2119ea4"
+        },
+        {
+          "path": "server/LegacyAccountServer/common/target/classes/com/ddm/server/redis/jedis/impl/RedisClientImpl.class",
+          "sha256": "7e9974bd9203a01ab25c8b01796147bb56d0f85201a7973342c98ac5ac1034b4"
+        },
+        {
+          "path": "server/LegacyAccountServer/common/target/classes/com/ddm/server/redis/jedis/RedisSet.class",
+          "sha256": "b0df77157b864ecc2197ba32d0f962d93dfbd68623f828a182dd76d94f855cee"
+        },
+        {
+          "path": "server/LegacyAccountServer/common/target/classes/com/ddm/server/redis/jedis/RedisMap.class",
+          "sha256": "84dbffab60824962a139a65ab6d37fffd3f1e305ff7cd6135b7832a564faf582"
+        },
+        {
+          "path": "server/LegacyAccountServer/common/target/classes/com/ddm/server/redis/jedis/RedisSetTuple.class",
+          "sha256": "7f2df7ad475d231ff4ac7eb694b8c0afa8eb11e5356972b10e70116d54f1c7d0"
+        },
+        {
+          "path": "server/LegacyAccountServer/common/target/classes/com/ddm/server/redis/jedis/RedisSource.class",
+          "sha256": "0680735cd8331d7e04f6f56927010fe6f80138771748aea8d09185fec11987ff"
+        },
+        {
+          "path": "server/LegacyAccountServer/common/target/classes/com/ddm/server/redis/jedis/RedisUtil.class",
+          "sha256": "cb2c5b4d8ce6a0396a4c04a32a3aef3d092cd6a7b7600e20c4bbef1e926ca08d"
+        },
+        {
+          "path": "server/LegacyAccountServer/common/target/classes/com/ddm/server/redis/jedis/RedisClient.class",
+          "sha256": "e1e38a20cffeaef01cc61ca36a817d945799fff6ebeb4dfdb7d27083b12bae5a"
+        },
+        {
+          "path": "server/LegacyAccountServer/common/target/classes/com/ddm/server/redis/redission/impl/RedissonDistributedLocker.class",
+          "sha256": "d16cf4b6a999c0781890aebd64c864baa3d9c45583d8bd75f8f59cddde51a7a8"
+        },
+        {
+          "path": "server/LegacyAccountServer/common/target/classes/com/ddm/server/redis/redission/RedissLockUtil.class",
+          "sha256": "63d962d589e37998db42ad3df0a84e72c43de226a5365fe5c4e1251e7c773caf"
+        },
+        {
+          "path": "server/LegacyAccountServer/common/target/classes/com/ddm/server/redis/redission/DistributedLocker.class",
+          "sha256": "08e324f5ee3afc4cab5d63656a25a0c4ac0984fb7f44a45ff1e188f01d7cb12c"
+        },
+        {
+          "path": "server/LegacyAccountServer/common/target/classes/com/ddm/server/dispatcher/DispatchHandle.class",
+          "sha256": "2948f2ae84e669a9bacc656b4761bf54c967910f3795e1ae7a704fbf120e7bb1"
+        },
+        {
+          "path": "server/LegacyAccountServer/common/target/classes/com/ddm/server/dispatcher/ChannelInactiveHandle.class",
+          "sha256": "b2ee038591486f5b112276babe680b10cec3af85555b59cca08e26112506b6a2"
+        },
+        {
+          "path": "server/LegacyAccountServer/common/target/classes/com/ddm/server/dispatcher/disruptor/MessageThread.class",
+          "sha256": "89705f0250079783370ff23a45df2d00bdaae232ceebbe44b6d6ca95d207ca7b"
+        },
+        {
+          "path": "server/LegacyAccountServer/common/target/classes/com/ddm/server/dispatcher/disruptor/Producer.class",
+          "sha256": "c5cad80dbbbc9cb1dc5eb86b61fb4d7e5bea9b6be7c9141d581f7b702f040ae3"
+        },
+        {
+          "path": "server/LegacyAccountServer/common/target/classes/com/ddm/server/dispatcher/disruptor/RingBufferWorkerPoolFactory.class",
+          "sha256": "8fb7176ec87ee2a3f00d4d9b4b370a570c14ae0a806cf3d46d11c7f384d6b36d"
+        },
+        {
+          "path": "server/LegacyAccountServer/common/target/classes/com/ddm/server/dispatcher/disruptor/MessageBuffer.class",
+          "sha256": "669df91062c3b5f6ee815875f1eaca5696609769d32f995b18fc150ca099a6fb"
+        },
+        {
+          "path": "server/LegacyAccountServer/common/target/classes/com/ddm/server/dispatcher/disruptor/ErrorHandler.class",
+          "sha256": "b175eb30c09faac422976e5e5ea6a892db9fb505514f226383eb0ccf9f86651d"
+        },
+        {
+          "path": "server/LegacyAccountServer/common/target/classes/com/ddm/server/dispatcher/disruptor/DisruptorService.class",
+          "sha256": "edad0fffc87269f4af2f1053408fa8207341f8f772e9c75f688fb8720919f6d9"
+        }
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/dao/target",
+      "files": 74,
+      "bytes": 447585,
+      "sampleHashes": [
+        {
+          "path": "server/LegacyAccountServer/dao/target/test-classes/Test.class",
+          "sha256": "121767bb1514d17bf634a25efb63cc4244ad80b17d3d6b4d9fa7359d3070a402"
+        },
+        {
+          "path": "server/LegacyAccountServer/dao/target/test-classes/business/global/pk/teenpatti/TEENPATTIRoomEnum$BaiYeChuang.class",
+          "sha256": "c808c3f9d1a40fc078d53cd77140131aa690fbc290004ddfa7aaea9683a9b548"
+        },
+        {
+          "path": "server/LegacyAccountServer/dao/target/test-classes/business/global/pk/teenpatti/TEENPATTIRoomEnum$QiDongJinE.class",
+          "sha256": "31019a8e0d72db7b66d5ae62b04593378f61ef7dbd4b771e6219229459e043e3"
+        },
+        {
+          "path": "server/LegacyAccountServer/dao/target/test-classes/business/global/pk/teenpatti/TEENPATTIRoomEnum$CardType.class",
+          "sha256": "571ad8177760ca1aec9f698a4028ff0c33b653a29b32ee5e60f640de7acea7ac"
+        },
+        {
+          "path": "server/LegacyAccountServer/dao/target/test-classes/business/global/pk/teenpatti/TEENPATTIRoomEnum.class",
+          "sha256": "33bb0a053d9054b3eeca958d80985b7754d82933ee0c44cb98dcb5ed3766c49e"
+        },
+        {
+          "path": "server/LegacyAccountServer/dao/target/test-classes/RefTeenpattiType.class",
+          "sha256": "1f95cba3dc8db8c320d3809b772d66e3451d87195018ef07598dc80f7d9f31ad"
+        },
+        {
+          "path": "server/LegacyAccountServer/dao/target/classes/server/aoo/dao/BeanContext.class",
+          "sha256": "9fb1519f6864973ddd9b64af5a65b6acc89d0c92538c548b8a9c4ae43d8c028a"
+        },
+        {
+          "path": "server/LegacyAccountServer/dao/target/classes/server/aoo/dao/page/PageUtils.class",
+          "sha256": "77ec7f87684c5b829159e28e6d60f50b3bc32f862b2e9c5509ab097592cd1593"
+        },
+        {
+          "path": "server/LegacyAccountServer/dao/target/classes/server/aoo/dao/config/MongoGameDataSourceConfiguration.class",
+          "sha256": "0b7929cec06ff56836965b4bb428611b892ba683483c2065e1441e702b27b194"
+        },
+        {
+          "path": "server/LegacyAccountServer/dao/target/classes/server/aoo/dao/config/util/MatchMode$4.class",
+          "sha256": "e1707c5860d3d273c829b7b105c8e8c5d54b7bdf9641aedda16c7c240cb0f04b"
+        },
+        {
+          "path": "server/LegacyAccountServer/dao/target/classes/server/aoo/dao/config/util/MatchMode$2.class",
+          "sha256": "9c86343dded06592276f8dc7fd20b1899b75d33345da92de1c02f12acc78ff0b"
+        },
+        {
+          "path": "server/LegacyAccountServer/dao/target/classes/server/aoo/dao/config/util/MatchMode.class",
+          "sha256": "bc41ab8a4daec586210deb97183b54ed3d30f8f482ea52975fdb3fa1c73d840a"
+        },
+        {
+          "path": "server/LegacyAccountServer/dao/target/classes/server/aoo/dao/config/util/ReflectionUtils.class",
+          "sha256": "fcb6bd72ca7b7974778603b0f3d62506031335ba8bb3163927c39227a8ac03fb"
+        },
+        {
+          "path": "server/LegacyAccountServer/dao/target/classes/server/aoo/dao/config/util/MatchMode$1.class",
+          "sha256": "c41f5f1c6ffa90bac7f8253e5901ecfc020dbf4351c0a3590458e6bed572b46f"
+        },
+        {
+          "path": "server/LegacyAccountServer/dao/target/classes/server/aoo/dao/config/util/MatchMode$3.class",
+          "sha256": "3efed7c7f102e761d7d50a0d6dcc659792733e5ab94380db0237df9f763c7f5f"
+        },
+        {
+          "path": "server/LegacyAccountServer/dao/target/classes/server/aoo/dao/config/util/CustomerDaoImpl.class",
+          "sha256": "cdd88d7a0152306b15ca0e94567d53ca2142686ff629d862e669250b82e9e1ac"
+        },
+        {
+          "path": "server/LegacyAccountServer/dao/target/classes/server/aoo/dao/config/util/CustomerRepository.class",
+          "sha256": "8c31c98133a8c0c34175b419378a7ccbc50bbcc7f7e8dce33b656b152b225e85"
+        },
+        {
+          "path": "server/LegacyAccountServer/dao/target/classes/server/aoo/dao/config/util/Criteria.class",
+          "sha256": "f9027055dc954b29f5ddfa5dd8d52c9e949b613ecb65f507cc4c346da955ecca"
+        },
+        {
+          "path": "server/LegacyAccountServer/dao/target/classes/server/aoo/dao/config/util/Criteria$LogicalType.class",
+          "sha256": "0b6d9f6fb8288a159bc18ca5b7554a224454f1258044fe7436d1b216895081a3"
+        },
+        {
+          "path": "server/LegacyAccountServer/dao/target/classes/server/aoo/dao/config/util/DBUtil.class",
+          "sha256": "a3427bbf55f0bd8bcb8f52b3642097a1d42947d9338568af82e6c281c108702c"
+        }
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/hall/target",
+      "files": 7,
+      "bytes": 4414,
+      "sampleHashes": [
+        {
+          "path": "server/LegacyAccountServer/hall/target/classes/core/server/hall/HallAPP.class",
+          "sha256": "9fcc1da498cf609d6d894c5170ba60ac75a843b5d1889de5a57c67d8e87f1259"
+        },
+        {
+          "path": "server/LegacyAccountServer/hall/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "server/LegacyAccountServer/hall/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "server/LegacyAccountServer/hall/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst",
+          "sha256": "5a0c15d2fbe61335cb5d3ee648372ea87621b6417a317dfde17a9648e536c672"
+        },
+        {
+          "path": "server/LegacyAccountServer/hall/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst",
+          "sha256": "0bbe2de9c593b3d2bfaf6b5b880e2a45794c80b8f1d24ed0aab4d092fec373bb"
+        },
+        {
+          "path": "server/LegacyAccountServer/hall/target/maven-archiver/pom.properties",
+          "sha256": "0a2a374404e52a9a7d1be0658c0e739d76cf2e58b8f7394d2baee7565164ae7b"
+        },
+        {
+          "path": "server/LegacyAccountServer/hall/target/hall-0.0.1.jar",
+          "sha256": "5dd2c46451ebd4a82815cc100cf4ea112a49620449bce06ef8116e98087cd8c7"
+        }
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall",
+      "files": 229,
+      "bytes": 161472318,
+      "sampleHashes": [
+        {
+          "path": "server/LegacyAccountServer/package_hall/target/package_hall-1.0-protobuf.jar",
+          "sha256": "6119576c8cf96ed5b9b4fa89405d824371b3e156425eb65f8a0c000135db278d"
+        },
+        {
+          "path": "server/LegacyAccountServer/package_hall/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "server/LegacyAccountServer/package_hall/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "server/LegacyAccountServer/package_hall/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "server/LegacyAccountServer/package_hall/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "server/LegacyAccountServer/package_hall/target/maven-archiver/pom.properties",
+          "sha256": "620757de9ebc9a0a83771c4f04f35aeb751d2c086991917cbd01723fa8f4064d"
+        },
+        {
+          "path": "server/LegacyAccountServer/package_hall/target/lib/spring-boot-starter-logging-4.1.0.jar",
+          "sha256": "73a6a42d2b6a589bd722aa107800829d0b20b731d94135f53c4b744db8beafbf"
+        },
+        {
+          "path": "server/LegacyAccountServer/package_hall/target/lib/spring-boot-jackson-4.1.0.jar",
+          "sha256": "10b6e63a40b257168854093f413eaab8b8a9afb7e989fcc7f6732b42c3f173d1"
+        },
+        {
+          "path": "server/LegacyAccountServer/package_hall/target/lib/objenesis-3.4.jar",
+          "sha256": "95488102feaf2e2858adf6b299353677dac6c15294006f8ed1c5556f8e3cd251"
+        },
+        {
+          "path": "server/LegacyAccountServer/package_hall/target/lib/lettuce-core-7.5.2.RELEASE.jar",
+          "sha256": "86e245a6cfc36a40aaa1f54027e639a70cb4008d12717164041aefe9bbd072c1"
+        },
+        {
+          "path": "server/LegacyAccountServer/package_hall/target/lib/annotations-4.1.1.4.jar",
+          "sha256": "ba734e1e84c09d615af6a09d33034b4f0442f8772dec120efb376d86a565ae15"
+        },
+        {
+          "path": "server/LegacyAccountServer/package_hall/target/lib/error_prone_annotations-2.50.0.jar",
+          "sha256": "4667724877f1d37a689202da191e23efa7657c62eef93ccdac406eccfe5cdd0a"
+        },
+        {
+          "path": "server/LegacyAccountServer/package_hall/target/lib/rocketmq-common-5.5.0.jar",
+          "sha256": "74b7942dbc2ac66353717d22c104fcc6bb6e5c65108b1b9120e960e5d7c0b595"
+        },
+        {
+          "path": "server/LegacyAccountServer/package_hall/target/lib/netty-codec-dns-4.2.17.Final.jar",
+          "sha256": "394f4649a824683735f28b299d0a48caff059ae30e654e2abf8b3f392af4d374"
+        },
+        {
+          "path": "server/LegacyAccountServer/package_hall/target/lib/netty-codec-xml-4.2.17.Final.jar",
+          "sha256": "c453be5dda52127ac82e4883cf03b3326741ff460a4ceebe9a54b23058537fb1"
+        },
+        {
+          "path": "server/LegacyAccountServer/package_hall/target/lib/opentelemetry-api-1.62.0.jar",
+          "sha256": "d58143928c049233653e6bf1282ff8a767ebdd5e6a82b3f336158c30e40b431d"
+        },
+        {
+          "path": "server/LegacyAccountServer/package_hall/target/lib/netty-common-4.2.17.Final.jar",
+          "sha256": "502aae2a6680e9bca3558a3fa098f06dc4d87340b8b714e925a6d690871c092a"
+        },
+        {
+          "path": "server/LegacyAccountServer/package_hall/target/lib/spring-aop-7.0.8.jar",
+          "sha256": "1178f039e087884174e2affc46e484f4a8bd7f2a4e011d33dd9137709f740f80"
+        },
+        {
+          "path": "server/LegacyAccountServer/package_hall/target/lib/spring-boot-starter-jackson-4.1.0.jar",
+          "sha256": "4214c534cca5c7c7e1cf92db90f178a3dffdede503fb68ac3c0dd905f331431f"
+        },
+        {
+          "path": "server/LegacyAccountServer/package_hall/target/lib/spring-boot-starter-data-jpa-4.1.0.jar",
+          "sha256": "9fe4c797d98e10c3761c1ff6bc14fa5ca68bc0e4b9941a951f39b99502f57d56"
+        }
+      ]
+    },
+    {
+      "path": "server/LegacyAccountServer/server/target",
+      "files": 54,
+      "bytes": 250795,
+      "sampleHashes": [
+        {
+          "path": "server/LegacyAccountServer/server/target/classes/application-mq.yml",
+          "sha256": "ec31cce6d0dc16cbf40f68f6d69a1109840ba8b4abdb24884e6682da809ba25a"
+        },
+        {
+          "path": "server/LegacyAccountServer/server/target/classes/core/security/AccountSessionRegistryHolder.class",
+          "sha256": "08d1cea0e3b20f97c946af0b15158acf3ca67da7aeab7d88c88b143fea39b2a9"
+        },
+        {
+          "path": "server/LegacyAccountServer/server/target/classes/core/security/AccountSessionRegistry.class",
+          "sha256": "edbd2340d7ea6d8bcc771010e76e08f74905a9ccb6496cac0d27e0c4e61b3ec2"
+        },
+        {
+          "path": "server/LegacyAccountServer/server/target/classes/core/security/SerializationFilterConfiguration.class",
+          "sha256": "61ddcd2f47ad83b21eaf03d3df61640f5b730a224c5841e49a8d1f45a7a69267"
+        },
+        {
+          "path": "server/LegacyAccountServer/server/target/classes/core/security/WsTicketSigner.class",
+          "sha256": "e3bca3a5a24e964f2a789b8bf54140fed469365dc29f4685ca0802f0cdd72906"
+        },
+        {
+          "path": "server/LegacyAccountServer/server/target/classes/core/security/RedisAccountSessionRegistry.class",
+          "sha256": "8d4d30bc24069804e260310aa9db87539de9c5f97f422d3cad9ae855b25057a4"
+        },
+        {
+          "path": "server/LegacyAccountServer/server/target/classes/core/security/AccountSessionRegistry$SessionTokens.class",
+          "sha256": "6dca900e2c07e7dbe24ff8bf3e73a997c5885e36384d15291eeaaa884a9eb5b6"
+        },
+        {
+          "path": "server/LegacyAccountServer/server/target/classes/core/dispatch/Dispatcher.class",
+          "sha256": "11c5728475e5f7276e3bd8e2d07ed21d10fffe59e419e364e6246279e0112b3f"
+        },
+        {
+          "path": "server/LegacyAccountServer/server/target/classes/core/dispatch/DispatcherComponent$SingletonHolder.class",
+          "sha256": "f2709c60b0582040982c250b954d17e0b311650f50ed42624cacdcd99352b1b9"
+        },
+        {
+          "path": "server/LegacyAccountServer/server/target/classes/core/dispatch/DispatcherComponent.class",
+          "sha256": "49929f76a5abdd561eb44c09ef50914f174a57c2e6e9f4a4f924be81a9021a92"
+        },
+        {
+          "path": "server/LegacyAccountServer/server/target/classes/core/dispatch/event/player/ReleasEvent.class",
+          "sha256": "21b62f63bd3e949333284b88adeb6c3aba01cf8f3394d72270fc54b809d04ca7"
+        },
+        {
+          "path": "server/LegacyAccountServer/server/target/classes/core/network/http/RequestSecurityGuard$RateWindow.class",
+          "sha256": "38fc6e81d3e70d25e88ba419b411e9fa4c853be3f6361b06435ea14a8811e277"
+        },
+        {
+          "path": "server/LegacyAccountServer/server/target/classes/core/network/http/HealthController.class",
+          "sha256": "830bb6291a6195f74feb05eb5c0a77a74289e471eb4e6cb29147cd3ce4cc55c6"
+        },
+        {
+          "path": "server/LegacyAccountServer/server/target/classes/core/network/http/RequestSecurityGuard.class",
+          "sha256": "23f3580e56218ef1d564d2cf652a8326f92094ba6bbf1c06b5751110559d9a7b"
+        },
+        {
+          "path": "server/LegacyAccountServer/server/target/classes/core/network/http/client/HttpProtocolEnvelope.class",
+          "sha256": "002468a02349e14d9b7901702b68afba81994882a74341637c88a5a24b57ba69"
+        },
+        {
+          "path": "server/LegacyAccountServer/server/target/classes/core/network/http/client/HttpProtocolIdempotency.class",
+          "sha256": "c618ff93337bea12a1cadf15bd5184c9168560a5b17784b31980c140151fdf8c"
+        },
+        {
+          "path": "server/LegacyAccountServer/server/target/classes/core/network/http/client/ClientPackRequst.class",
+          "sha256": "fddba6443c6498d8d0b60255db82232d7863e15e7f14796aab8713c9e697bb92"
+        },
+        {
+          "path": "server/LegacyAccountServer/server/target/classes/core/server/App.class",
+          "sha256": "84e62a88ba74edbbfb694e2dd96cee63c26150205e2c8b39ed9891f03771d1bf"
+        },
+        {
+          "path": "server/LegacyAccountServer/server/target/classes/core/aop/OperLogAspect.class",
+          "sha256": "caf8209d610498baf6a8fa0754c56904b7db4acf7fff33a2a443b0adc3d6ea50"
+        },
+        {
+          "path": "server/LegacyAccountServer/server/target/classes/core/timing/TimingProcessor.class",
+          "sha256": "fcdcaa82a5eaa6c0f1f549e1ac4268984f7a5967aa59bbf510b3c24c831524ab"
+        }
+      ]
+    },
+    {
+      "path": "server/LegacyCommon/target",
+      "files": 24,
+      "bytes": 37988,
+      "sampleHashes": [
+        {
+          "path": "server/LegacyCommon/target/classes/com/aoo/bcg/common/trustee/TrusteePolicy.class",
+          "sha256": "04a13d631fa7be07aae4a17d691a5b3299908ef0a420d23361d7dfed81d13c88"
+        },
+        {
+          "path": "server/LegacyCommon/target/classes/com/aoo/bcg/common/trustee/PlayerIntent.class",
+          "sha256": "214819f6b5b21d09b3522001dc021d9c5c00c9be87567175d6623d7276426ec7"
+        },
+        {
+          "path": "server/LegacyCommon/target/classes/com/aoo/bcg/common/room/RoomSeat.class",
+          "sha256": "cf63c9fd6e436b78b8b22c120a721e44b1e24bd7dc67d9dc9428eec5cebdad0d"
+        },
+        {
+          "path": "server/LegacyCommon/target/classes/com/aoo/bcg/common/room/AuthoritativeRoom$1.class",
+          "sha256": "e0201a03bfb2c40bd3dc3ad99aa9f7f4478bc179fadc5153949a1bad10a2db8b"
+        },
+        {
+          "path": "server/LegacyCommon/target/classes/com/aoo/bcg/common/room/AuthoritativeRoom.class",
+          "sha256": "1c9d98f97ed5e887ab126d06256f1268acfafbc93f965581ee0dcdc7da957ed9"
+        },
+        {
+          "path": "server/LegacyCommon/target/classes/com/aoo/bcg/common/room/SeatStatus.class",
+          "sha256": "6f5b8ad1d33236997b2bf756ad2e6475abc576676f42b9b43b032ea148e5d29d"
+        },
+        {
+          "path": "server/LegacyCommon/target/classes/com/aoo/bcg/common/reconnect/ReconnectService.class",
+          "sha256": "52c7adb7ab0a1a0b29d9352a38e2b4da6547b96a38e23cecb1ce93df63f551ec"
+        },
+        {
+          "path": "server/LegacyCommon/target/classes/com/aoo/bcg/common/reconnect/ReconnectResult.class",
+          "sha256": "27be1c97866c21ad1c4a8669e528397963d0091e49a82e9dbeee14c6d226e290"
+        },
+        {
+          "path": "server/LegacyCommon/target/classes/com/aoo/bcg/common/reconnect/PerspectiveViewBuilder.class",
+          "sha256": "bbf14f9096d4cd8bd2769c6637ec73efb4700e70932a41309dbd96456d364d56"
+        },
+        {
+          "path": "server/LegacyCommon/target/classes/com/aoo/bcg/common/settlement/SettlementResult.class",
+          "sha256": "7667c54f00682e6b6bed063948fdf5448994d78deb56e432369b82436bdd5b0f"
+        },
+        {
+          "path": "server/LegacyCommon/target/classes/com/aoo/bcg/common/settlement/SettlementPolicy.class",
+          "sha256": "3bd10b8e50037e954c80d1bbef5343ce3d64ffb8a9159858b2e28735e1b1a0f9"
+        },
+        {
+          "path": "server/LegacyCommon/target/classes/com/aoo/bcg/common/settlement/SettlementEntry.class",
+          "sha256": "d8921c26f159354ac516961a53cef5caa980843a7ec5c9a3e37d92174dec399c"
+        },
+        {
+          "path": "server/LegacyCommon/target/classes/com/aoo/bcg/common/config/RoomRuleSnapshot.class",
+          "sha256": "161f2dc82cfe4da6bb4fb5f166a6e023c24c57bfa414d1f171a0998ad5440c03"
+        },
+        {
+          "path": "server/LegacyCommon/target/classes/com/aoo/bcg/common/idempotency/IdempotencyStore.class",
+          "sha256": "4f861dd6830ffac045bed2b8d9b9268d0926284137cb1cf9cf103b796a717faa"
+        },
+        {
+          "path": "server/LegacyCommon/target/classes/com/aoo/bcg/common/turn/TurnOrder.class",
+          "sha256": "146582ba5f52f9a617fd02d168a63824d07de000c4387ccdeb82dc9f3584ee8b"
+        },
+        {
+          "path": "server/LegacyCommon/target/classes/com/aoo/bcg/common/command/CommandGuard.class",
+          "sha256": "32da2e5891f37f7d4e2d5481d5d3d0db2dbb20998df619aef7e498b8d29bb524"
+        },
+        {
+          "path": "server/LegacyCommon/target/classes/com/aoo/bcg/common/command/AuthoritativeCommand.class",
+          "sha256": "b0b0d52d53f359c9f4c1f26831b08b4e0c3b1057fd675cde25876d0ce17a96af"
+        },
+        {
+          "path": "server/LegacyCommon/target/classes/com/aoo/bcg/common/replay/ReplayRecorder.class",
+          "sha256": "46f67cfa0072fa09aef75d6c6e8ef863c5db25f7259f2e897415cc13dc4a015c"
+        },
+        {
+          "path": "server/LegacyCommon/target/classes/com/aoo/bcg/common/replay/ReplayFrame.class",
+          "sha256": "9e3941b3c8b5e32924f22046c54e09a8ff71e59d9f1cd05df1bf38add1952563"
+        },
+        {
+          "path": "server/LegacyCommon/target/classes/com/aoo/bcg/common/event/RoomEventJournal.class",
+          "sha256": "70a50e5c90c9bc078aff49b3f43b292612005a44382eb3fb1a23bc5759703bb4"
+        }
+      ]
+    },
+    {
+      "path": "server/LegacyGameHall/target",
+      "files": 176,
+      "bytes": 121896560,
+      "sampleHashes": [
+        {
+          "path": "server/LegacyGameHall/target/classes/core/server/gamehall/GameHallAPP.class",
+          "sha256": "026636650b761204d5c1afd9e901e7cb6abbc2ef9fb24ccff7cda65ac3971338"
+        },
+        {
+          "path": "server/LegacyGameHall/target/classes/business/rocketmq/consumer/ClubMemberAllUpdateConsumer.class",
+          "sha256": "58691ef37fb3e5faae1f51168c0df4ef82616a7bade242502110cb4d9580e1f0"
+        },
+        {
+          "path": "server/LegacyGameHall/target/classes/business/rocketmq/consumer/ClubAllByClubMinsterNotifyConsumer.class",
+          "sha256": "095021fd63fa51ec1d9efef6cf56ee70f5c799804465c5bc73c1125f417995a2"
+        },
+        {
+          "path": "server/LegacyGameHall/target/classes/business/rocketmq/consumer/PlayerChangeConsumer.class",
+          "sha256": "612a08a00993997e3d885f37fa69930ea7586dd0e83c238a63b45ce7b75bcb58"
+        },
+        {
+          "path": "server/LegacyGameHall/target/classes/business/rocketmq/consumer/AllHallBackConsumer.class",
+          "sha256": "77282e1056f4bd60e7cb171da6613400a2cd918be3b0167104a05d1a4caa896e"
+        },
+        {
+          "path": "server/LegacyGameHall/target/classes/business/rocketmq/consumer/RoomInvitationOperationNotifyConsumer.class",
+          "sha256": "73fa2366b61e42c014491cd0d7a07f309069354b92115d9dbfd50f78b194802f"
+        },
+        {
+          "path": "server/LegacyGameHall/target/classes/business/rocketmq/consumer/ClubAllMinsterByClubNotifyConsumer.class",
+          "sha256": "20fb03cf1d2416c4bfc26c83303be23f63c4e43f36d3cb64dac94ebda0837c3a"
+        },
+        {
+          "path": "server/LegacyGameHall/target/classes/business/rocketmq/consumer/ClubAllMinisterAndPidByClubNotifyConsumer.class",
+          "sha256": "d6af0981588ce997829ddb0f860268cabcc897509628448d2a4a18c1084ce334"
+        },
+        {
+          "path": "server/LegacyGameHall/target/classes/business/rocketmq/consumer/GameStartToHallConsumer.class",
+          "sha256": "6be994f547a4f96549f6f2ebbfceb15385bab6ca80fa8e235f58605815316fc3"
+        },
+        {
+          "path": "server/LegacyGameHall/target/classes/business/rocketmq/consumer/UnionAllByClubNotifyConsumer.class",
+          "sha256": "ba60a9cfd68c3bbc80427fa32be63cdc81502a58838fdebed72181ba2a5c4d41"
+        },
+        {
+          "path": "server/LegacyGameHall/target/classes/business/rocketmq/consumer/ClubAllByClubNotifyConsumer.class",
+          "sha256": "348ba6000aeefb0092aee65728f2c84e1ec22614f235bc70d2455927491e4f86"
+        },
+        {
+          "path": "server/LegacyGameHall/target/classes/business/rocketmq/consumer/UnionNotify2ClubAllMemberConsumer.class",
+          "sha256": "4a814937e005d331df266a7ef3c4666f556f4c987f8c0061b3ebcf39f5360789"
+        },
+        {
+          "path": "server/LegacyGameHall/target/runtime/lib/prometheus-metrics-exporter-httpserver-1.3.3.jar",
+          "sha256": "c8a4b3e21c6fa1d10524f1167023841a4d315e3eef0c5980d7b270ccec47ddef"
+        },
+        {
+          "path": "server/LegacyGameHall/target/runtime/lib/objenesis-3.4.jar",
+          "sha256": "95488102feaf2e2858adf6b299353677dac6c15294006f8ed1c5556f8e3cd251"
+        },
+        {
+          "path": "server/LegacyGameHall/target/runtime/lib/opentelemetry-exporter-logging-otlp-1.44.1.jar",
+          "sha256": "57e6bb990168973cc69125c877ee57e38cbb35db0a74f8a531768bc012eae4cf"
+        },
+        {
+          "path": "server/LegacyGameHall/target/runtime/lib/annotations-4.1.1.4.jar",
+          "sha256": "ba734e1e84c09d615af6a09d33034b4f0442f8772dec120efb376d86a565ae15"
+        },
+        {
+          "path": "server/LegacyGameHall/target/runtime/lib/commons-logging-1.3.5.jar",
+          "sha256": "6d7a744e4027649fbb50895df9497d109f98c766a637062fe8d2eabbb3140ba4"
+        },
+        {
+          "path": "server/LegacyGameHall/target/runtime/lib/error_prone_annotations-2.50.0.jar",
+          "sha256": "4667724877f1d37a689202da191e23efa7657c62eef93ccdac406eccfe5cdd0a"
+        },
+        {
+          "path": "server/LegacyGameHall/target/runtime/lib/rocketmq-common-5.5.0.jar",
+          "sha256": "74b7942dbc2ac66353717d22c104fcc6bb6e5c65108b1b9120e960e5d7c0b595"
+        },
+        {
+          "path": "server/LegacyGameHall/target/runtime/lib/netty-codec-dns-4.2.17.Final.jar",
+          "sha256": "394f4649a824683735f28b299d0a48caff059ae30e654e2abf8b3f392af4d374"
+        }
+      ]
+    },
+    {
+      "path": "server/LongCard/target",
+      "files": 26,
+      "bytes": 81748,
+      "sampleHashes": [
+        {
+          "path": "server/LongCard/target/test-classes/com/aoo/bcg/longcard/LongCardCoreEngineTest.class",
+          "sha256": "76a3f9788f9436885fb6348b7169abc57fbee3c9f82b014d04884a31be65ca32"
+        },
+        {
+          "path": "server/LongCard/target/test-classes/com/aoo/bcg/longcard/LongCardCoreEngineTest$1.class",
+          "sha256": "aa1e8bb99743787eca452b457fd514c6ac095e1df2e88e892ca86674b3f8b63b"
+        },
+        {
+          "path": "server/LongCard/target/test-classes/com/aoo/bcg/longcard/BuiltinLongCardFamiliesTest.class",
+          "sha256": "9047df4367dc8a0a02223838caa2f35d42411bbf5731365c43781c1a01abe90e"
+        },
+        {
+          "path": "server/LongCard/target/classes/com/aoo/bcg/longcard/LongCardCoreEngine.class",
+          "sha256": "47e5e1324d13ba9c0331bd768d82e17635ffb5087ee8d6c25db54695125679d5"
+        },
+        {
+          "path": "server/LongCard/target/classes/com/aoo/bcg/longcard/LongCardRuleFamily.class",
+          "sha256": "1d4f13e9617710e5b03f695554b25f099a852a2fdf6072ad06fae911146cc4f7"
+        },
+        {
+          "path": "server/LongCard/target/classes/com/aoo/bcg/longcard/RegionalLongCardProfile.class",
+          "sha256": "49067ee77f09ef93389183f7a6550e24994dbb20aecd586170a12eb89608f94c"
+        },
+        {
+          "path": "server/LongCard/target/classes/com/aoo/bcg/longcard/LongCardCoreEngine$1.class",
+          "sha256": "eb36fe3eb73c2a722bbbc1f852471fa5ba90fcbbcd2ed49ed67a7514de31c2c7"
+        },
+        {
+          "path": "server/LongCard/target/classes/com/aoo/bcg/longcard/LongCardPhase.class",
+          "sha256": "837fd56c1dc36c62769d58adbccbb329380cb8af3fe3c0cca6a547fb9de8f45c"
+        },
+        {
+          "path": "server/LongCard/target/classes/com/aoo/bcg/longcard/LongCardOperation.class",
+          "sha256": "297e9308c8ae0676f41bb117f0e76ff042d118052dd1cf5874a94986af78f09c"
+        },
+        {
+          "path": "server/LongCard/target/classes/com/aoo/bcg/longcard/LongCardRuleSet.class",
+          "sha256": "128e791c3da352aea4c83994e5f58baeede7563f56155be06f318524aed258c7"
+        },
+        {
+          "path": "server/LongCard/target/classes/com/aoo/bcg/longcard/BuiltinLongCardFamilies.class",
+          "sha256": "63b1f329042e92c39936aef7b28d75af611c1b6915acccf1d4bd164806197a35"
+        },
+        {
+          "path": "server/LongCard/target/classes/com/aoo/bcg/longcard/LongCardRuleContext.class",
+          "sha256": "afe838382195d113e7e3e7d5ddae8b058b31039da4a6897f95ee70d3334bde2f"
+        },
+        {
+          "path": "server/LongCard/target/classes/com/aoo/bcg/longcard/LongCardState.class",
+          "sha256": "0fc7d0cf615945ce8d686992655c8fd514231562f8462e0124e7eb16cd3640af"
+        },
+        {
+          "path": "server/LongCard/target/classes/com/aoo/bcg/longcard/LongCardCommand.class",
+          "sha256": "1f2d311beebfb29ecfbac562a4c4475dd8697ea6b01f75afa64b3ee01fd1b43f"
+        },
+        {
+          "path": "server/LongCard/target/classes/com/aoo/bcg/longcard/RegionalLongCardFamily.class",
+          "sha256": "dd86152300fe8f600ad1c9bd01bf274d05dfb17ae253d31877a907c2b3cd2dc3"
+        },
+        {
+          "path": "server/LongCard/target/classes/com/aoo/bcg/longcard/RegionalLongCardFamily$1.class",
+          "sha256": "08cf4e8a36e69b0bdf98f797de237803a0c5f7555244c250a06c956fbfc35f16"
+        },
+        {
+          "path": "server/LongCard/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst",
+          "sha256": "80c31e7b6043571d6f806478d8254b971f36be430b75cb4bf21e1751415e0582"
+        },
+        {
+          "path": "server/LongCard/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst",
+          "sha256": "97094d187a04aa194ecd5139e55269c6019c0ce352477b754e6c0c945e65a5f8"
+        },
+        {
+          "path": "server/LongCard/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst",
+          "sha256": "46f7fb4a3378130d955bcbf5f5c3c0604c7081d8ceb173f25c66c2e2fa39f978"
+        },
+        {
+          "path": "server/LongCard/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst",
+          "sha256": "14d0f785927fcaf5840af5b61a3538c0607975c70c934f4d59d805ce97f55dd8"
+        }
+      ]
+    },
+    {
+      "path": "server/Mahjong/target",
+      "files": 63,
+      "bytes": 1684061,
+      "sampleHashes": [
+        {
+          "path": "server/Mahjong/target/test-classes/com/aoo/bcg/mahjong/MahjongAuthoritativeSessionTest.class",
+          "sha256": "4d9e6be6757fff2e040aa06f491844056007942ea46f3f5a08f20093fece97be"
+        },
+        {
+          "path": "server/Mahjong/target/test-classes/com/aoo/bcg/mahjong/XueLiuFlowTest.class",
+          "sha256": "cd453fe6d14f6a7629b640e1c10af5359fcba69007abac76192005f9f0cdbdbe"
+        },
+        {
+          "path": "server/Mahjong/target/test-classes/com/aoo/bcg/mahjong/TuiDaoHuRoundFlowTest.class",
+          "sha256": "d69d3ea0634c466493ad467047fc7dfa613cd3a9099a2fc81ca6a6dde017e8ec"
+        },
+        {
+          "path": "server/Mahjong/target/test-classes/com/aoo/bcg/mahjong/LaiZiMahjongWinDetectorTest.class",
+          "sha256": "78f5e88d6c5c8c516cd24c972c08104ac437c7519aad7be5c53b46c46f3e2827"
+        },
+        {
+          "path": "server/Mahjong/target/test-classes/com/aoo/bcg/mahjong/StandardMahjongRuleSetTest.class",
+          "sha256": "fbcb3ec3c10ca161ab49618947c274709525871d424a84ca47a08f3d8825f087"
+        },
+        {
+          "path": "server/Mahjong/target/test-classes/com/aoo/bcg/mahjong/XueZhanFlowTest.class",
+          "sha256": "75cf2283ba8f4854d93a47e7abdbf55c784b8631739fd5cd35a61f168ad6e57c"
+        },
+        {
+          "path": "server/Mahjong/target/test-classes/com/aoo/bcg/mahjong/MahjongCoreEngineTest$1.class",
+          "sha256": "e58da4c8b0ec21a3be89ceee2e9ce48a8d3513894bd8c0fbc25f8b5867fda9cd"
+        },
+        {
+          "path": "server/Mahjong/target/test-classes/com/aoo/bcg/mahjong/MahjongCoreEngineTest.class",
+          "sha256": "d43490a4010284f5a07745ec18154f05a23eb131189842d331a1ca7d4582a68d"
+        },
+        {
+          "path": "server/Mahjong/target/classes/com/aoo/bcg/mahjong/XueZhanState.class",
+          "sha256": "662f022995d0c4f24afdbb65717bb8b1a1b646897eb2a35dcbe70871c4201c34"
+        },
+        {
+          "path": "server/Mahjong/target/classes/com/aoo/bcg/mahjong/MahjongCoreEngine$1.class",
+          "sha256": "f18522f3f74a1bf1ab7a91695bf18dbf410d6e11f77daecb699d94a70ef808e6"
+        },
+        {
+          "path": "server/Mahjong/target/classes/com/aoo/bcg/mahjong/XueLiuMahjongFamily.class",
+          "sha256": "40fa106598797ad928a2b7cf38074e5d40cd20cee1019ca7e8d87a67959de936"
+        },
+        {
+          "path": "server/Mahjong/target/classes/com/aoo/bcg/mahjong/TuiDaoHuMahjongFamily.class",
+          "sha256": "f557513026bacedcd44a274098d8b5e90a2130ab47098d88baadcaa683c847e9"
+        },
+        {
+          "path": "server/Mahjong/target/classes/com/aoo/bcg/mahjong/XueZhanMahjongFamily.class",
+          "sha256": "bc396d43c5a2f40c24dab652bc6f2ae899fc7aa30718bd3ea41325a3fcbf745d"
+        },
+        {
+          "path": "server/Mahjong/target/classes/com/aoo/bcg/mahjong/XueLiuFlow.class",
+          "sha256": "e3fbfcdabd16ffbdb54841201c1c4db72d64b6693893688916f476b819447105"
+        },
+        {
+          "path": "server/Mahjong/target/classes/com/aoo/bcg/mahjong/XueLiuState.class",
+          "sha256": "27bbd9ce99296a4d331e91cc1236f847c02ee1f77364a53c97f97984a2e8d0f3"
+        },
+        {
+          "path": "server/Mahjong/target/classes/com/aoo/bcg/mahjong/MahjongState.class",
+          "sha256": "7b9444080e06d72f3318d1254635d660a5a4dc0006bf809cfd0dc25589620242"
+        },
+        {
+          "path": "server/Mahjong/target/classes/com/aoo/bcg/mahjong/MahjongGameProvider.class",
+          "sha256": "2fc2d8e012fe8d4982be377b51265d24f44c4298017614159bfbdc8cd4158e91"
+        },
+        {
+          "path": "server/Mahjong/target/classes/com/aoo/bcg/mahjong/XueZhanFlow.class",
+          "sha256": "1929e63bc6d3aa0ead2aeaa2eb8a13ebc6ebeca29c1b6ec61200c32354014a04"
+        },
+        {
+          "path": "server/Mahjong/target/classes/com/aoo/bcg/mahjong/MahjongSuit.class",
+          "sha256": "f2a589b8813426bd322c3715c3de8270c5591da6dbd9b15658aa8b56e5ee761e"
+        },
+        {
+          "path": "server/Mahjong/target/classes/com/aoo/bcg/mahjong/XueZhanPhase.class",
+          "sha256": "bf616640db46d4289fe4f4661ce2c7a131426aabf4e3e2d8c77c2a8e4b0b7e83"
+        }
+      ]
+    },
+    {
+      "path": "server/NJPDK/build",
+      "files": 132,
+      "bytes": 480046,
+      "sampleHashes": [
+        {
+          "path": "server/NJPDK/build/classes/core/network/client2game/handler/njpdk/CNJPDKDissolveRoom.class",
+          "sha256": "a955e2cc29e22ff95213873badcbae1bb7889bdb8c5a9bc6c349a633bbf0193d"
+        },
+        {
+          "path": "server/NJPDK/build/classes/core/network/client2game/handler/njpdk/CNJPDKGetRoomInfo.class",
+          "sha256": "f4a141a1a17bacd0b0f42458d6c7ef6fa56ae3db254fc05f5b25e2b1717a4fa3"
+        },
+        {
+          "path": "server/NJPDK/build/classes/core/network/client2game/handler/njpdk/CNJPDKXiPai.class",
+          "sha256": "184b03c56bb71e45246db07fd207e899942a14ded1504bdf1b7ec1acc310a347"
+        },
+        {
+          "path": "server/NJPDK/build/classes/core/network/client2game/handler/njpdk/CNJPDKExitRoom.class",
+          "sha256": "d935b8a8680847bd09b13687ce38852185a5b514029127a88188e8f211eef517"
+        },
+        {
+          "path": "server/NJPDK/build/classes/core/network/client2game/handler/njpdk/CNJPDKChangePlayerNumAgree.class",
+          "sha256": "6dfe640a7cb5f2f458c5916c083d96d781e604e31848d5fe3c4f2758a0ecbfbb"
+        },
+        {
+          "path": "server/NJPDK/build/classes/core/network/client2game/handler/njpdk/CNJPDKCreateRoom.class",
+          "sha256": "13cf1e9bb4a2c5577846266dd68a1c0b0579ad7cc58d2912872ff694564ef7cf"
+        },
+        {
+          "path": "server/NJPDK/build/classes/core/network/client2game/handler/njpdk/CNJPDKShowLeave.class",
+          "sha256": "962b2a973e8bbd2de480c88b8bc1440afd6f84aae716332279677ac5efe86279"
+        },
+        {
+          "path": "server/NJPDK/build/classes/core/network/client2game/handler/njpdk/CNJPDKStartGame.class",
+          "sha256": "a5533b65a354af721f1083acebc2177b856138f5dd0db99aa06f73eb0bffc292"
+        },
+        {
+          "path": "server/NJPDK/build/classes/core/network/client2game/handler/njpdk/CNJPDKChat.class",
+          "sha256": "3fcacac5bdc8826aaa8ac8bed1330e46a83e8c334985230c98bb24793b89f431"
+        },
+        {
+          "path": "server/NJPDK/build/classes/core/network/client2game/handler/njpdk/CNJPDKContinueGame.class",
+          "sha256": "7595dd59a46f2e605c513797c21b45f5d97673d063116fe7da480817424d45ef"
+        },
+        {
+          "path": "server/NJPDK/build/classes/core/network/client2game/handler/njpdk/CNJPDKContinueEnterRoom.class",
+          "sha256": "7a7c1643ad5fc15d0125c8041e3db2c0fdb637f20afe058f530bd67e1c1cc124"
+        },
+        {
+          "path": "server/NJPDK/build/classes/core/network/client2game/handler/njpdk/CNJPDKReadyRoom.class",
+          "sha256": "0081260362aee11aa44dee23a1710158e2e473e5905e33f77f4705605fced834"
+        },
+        {
+          "path": "server/NJPDK/build/classes/core/network/client2game/handler/njpdk/CNJPDKChangePlayerNum.class",
+          "sha256": "4cf9bc55789bb9a287f1f5c7e2b4a293cd651944a325e2c6046e11d253ff956a"
+        },
+        {
+          "path": "server/NJPDK/build/classes/core/network/client2game/handler/njpdk/CNJPDKRoomInvitationList.class",
+          "sha256": "879820620b5babe849dd1b63f45337c880311adbb36bd7cf886ed10a90452cf9"
+        },
+        {
+          "path": "server/NJPDK/build/classes/core/network/client2game/handler/njpdk/CNJPDKKickRoom.class",
+          "sha256": "4c87556914a0e3466e0ee83bd72ce6e59ecd7436e2ec677157820c84fbe9fa64"
+        },
+        {
+          "path": "server/NJPDK/build/classes/core/network/client2game/handler/njpdk/CNJPDKDissolveRoomAgree.class",
+          "sha256": "dd7c461dec4ba3c108eb7e8617e289834efadb6e05cc5fa0ba7973f368ddb811"
+        },
+        {
+          "path": "server/NJPDK/build/classes/core/network/client2game/handler/njpdk/CNJPDKEnterRoom.class",
+          "sha256": "f418635e4df8959f311790f31715f0dd65c7371dff3fe5d24090e7d1ab6056a3"
+        },
+        {
+          "path": "server/NJPDK/build/classes/core/network/client2game/handler/njpdk/CNJPDKGetPlayBackCode.class",
+          "sha256": "7d828ffd2b0fa98341bd585f215c76424cf152cd37d79ab062ee8d63a9c8cad0"
+        },
+        {
+          "path": "server/NJPDK/build/classes/core/network/client2game/handler/njpdk/CNJPDKGoldList.class",
+          "sha256": "db395bb4492660bbc26f898899e2c345e440b71bbce3d244276678cc2b53b7c4"
+        },
+        {
+          "path": "server/NJPDK/build/classes/core/network/client2game/handler/njpdk/CNJPDKClubRoom.class",
+          "sha256": "4f509e8a7c8c6aad5a5dce30bc609498378f4b0ed5daf2ba2f7692c422563d74"
+        }
+      ]
+    },
+    {
+      "path": "server/NJPDK/target",
+      "files": 306,
+      "bytes": 125941214,
+      "sampleHashes": [
+        {
+          "path": "server/NJPDK/target/test-classes/business/global/pk/njpdk/NJPDKGameProviderTest.class",
+          "sha256": "2a38aef29bb2bf5823a4d1cfe89919d4b628c471f05305e1c6b2129ae1c9e08c"
+        },
+        {
+          "path": "server/NJPDK/target/classes/core/network/client2game/handler/njpdk/CNJPDKDissolveRoom.class",
+          "sha256": "296b619de52eed598ec51d6cd171e876cc9a2a6a4eee491d110c80622cbc7fe8"
+        },
+        {
+          "path": "server/NJPDK/target/classes/core/network/client2game/handler/njpdk/CNJPDKGetRoomInfo.class",
+          "sha256": "00c71db713d2c9a641f93aa8ff43b618830a45bb2597ebd154bc2ae80bd5ea9a"
+        },
+        {
+          "path": "server/NJPDK/target/classes/core/network/client2game/handler/njpdk/CNJPDKXiPai.class",
+          "sha256": "83a3eb4e25403c98ceca1be72056a04cde67b4ad2fa58d059fa59f02a1f46cb4"
+        },
+        {
+          "path": "server/NJPDK/target/classes/core/network/client2game/handler/njpdk/CNJPDKExitRoom.class",
+          "sha256": "fc895bd2643b9ee5c8e3e903aa38f566b1191164524c96d5b9cac7423986a378"
+        },
+        {
+          "path": "server/NJPDK/target/classes/core/network/client2game/handler/njpdk/CNJPDKChangePlayerNumAgree.class",
+          "sha256": "04ab9b94f8104bd461299846d913b932750511fb6a1192080e5cffc0487161ae"
+        },
+        {
+          "path": "server/NJPDK/target/classes/core/network/client2game/handler/njpdk/CNJPDKCreateRoom.class",
+          "sha256": "e76db7abdbfbfbf8292b203d7b138a9cf7cd2da7cada6d6d446fb3d48a5c601b"
+        },
+        {
+          "path": "server/NJPDK/target/classes/core/network/client2game/handler/njpdk/CNJPDKShowLeave.class",
+          "sha256": "4662a1e422551c92c0db54a24f4c0e04bda63a8744f9c1cb1eb620dfcc18ee44"
+        },
+        {
+          "path": "server/NJPDK/target/classes/core/network/client2game/handler/njpdk/CNJPDKStartGame.class",
+          "sha256": "26f557b81f8cf2fb8c18a9434b9a3a63581417a3ec2d3c29ed7d350189986ff6"
+        },
+        {
+          "path": "server/NJPDK/target/classes/core/network/client2game/handler/njpdk/CNJPDKChat.class",
+          "sha256": "9aed2ffad1a14e0c96602d1c7e507ef41e2a56b9504c6dd0719719175ef558b7"
+        },
+        {
+          "path": "server/NJPDK/target/classes/core/network/client2game/handler/njpdk/CNJPDKContinueGame.class",
+          "sha256": "8d83f545a7da3f983424284d464191350edb80aa424e60c96c458206811fc45c"
+        },
+        {
+          "path": "server/NJPDK/target/classes/core/network/client2game/handler/njpdk/CNJPDKContinueEnterRoom.class",
+          "sha256": "018c7aa65a24caf253afb0709b0b70bd204a0e33d33123135023bbe092b22074"
+        },
+        {
+          "path": "server/NJPDK/target/classes/core/network/client2game/handler/njpdk/CNJPDKReadyRoom.class",
+          "sha256": "84d8879098aa1fad6cb3f79d93112fcae50e917d5c3e390c5ac44945ebfc7b6f"
+        },
+        {
+          "path": "server/NJPDK/target/classes/core/network/client2game/handler/njpdk/CNJPDKChangePlayerNum.class",
+          "sha256": "c5a9448bade318d6533860584006d93024f9139474f0d98be946d75cc858352f"
+        },
+        {
+          "path": "server/NJPDK/target/classes/core/network/client2game/handler/njpdk/CNJPDKRoomInvitationList.class",
+          "sha256": "056c621bf0ce75c09f69374d3bd18039ec4abdbc625d98e3704aaf9e4fd11962"
+        },
+        {
+          "path": "server/NJPDK/target/classes/core/network/client2game/handler/njpdk/CNJPDKKickRoom.class",
+          "sha256": "7038f020bac4dc620d8a1010a494891ada7890ba7a8f976a1f89761c5ef1c474"
+        },
+        {
+          "path": "server/NJPDK/target/classes/core/network/client2game/handler/njpdk/CNJPDKDissolveRoomAgree.class",
+          "sha256": "cf04139f2a17fa762a430623af5b578eb9a232dc128e1ee35c31a49bdce20fb5"
+        },
+        {
+          "path": "server/NJPDK/target/classes/core/network/client2game/handler/njpdk/CNJPDKEnterRoom.class",
+          "sha256": "33aec1a5c63c016136d513e87106a1c0f6f4fce41dcf7a9b0641a1132468374c"
+        },
+        {
+          "path": "server/NJPDK/target/classes/core/network/client2game/handler/njpdk/CNJPDKGetPlayBackCode.class",
+          "sha256": "ef1d310459daa4782ea62cf889d903d1c768ab2f79f94c6e00285d562ab45e1d"
+        },
+        {
+          "path": "server/NJPDK/target/classes/core/network/client2game/handler/njpdk/CNJPDKGoldList.class",
+          "sha256": "276cc127bbc345f63ff83dbf09d289e77686e8f36b6a79267162512e5338e8b3"
+        }
+      ]
+    },
+    {
+      "path": "server/Poker/target",
+      "files": 60,
+      "bytes": 1689505,
+      "sampleHashes": [
+        {
+          "path": "server/Poker/target/test-classes/com/aoo/bcg/poker/PokerCoreEngineTest.class",
+          "sha256": "935164fde455fdb440a18c0f442d51aa076a05316c7b52a127918a992d954f8c"
+        },
+        {
+          "path": "server/Poker/target/test-classes/com/aoo/bcg/poker/PaoDeKuaiRuleSetTest.class",
+          "sha256": "1c9666c4ff7af6454544e3c4f18dee13c5aad9d0410f1ef9a779055873d47afd"
+        },
+        {
+          "path": "server/Poker/target/test-classes/com/aoo/bcg/poker/ShengJiEngineTest.class",
+          "sha256": "b7b575a4f2f9144d8afe1ca96cc6b05d47fb8ee4c8e0f85b99bd11e55e1fad39"
+        },
+        {
+          "path": "server/Poker/target/test-classes/com/aoo/bcg/poker/ComparePokerEngineTest.class",
+          "sha256": "f671e2a83f64f257ee0f017ce67a6760b575ada0c59ecba02293f308c60259f6"
+        },
+        {
+          "path": "server/Poker/target/test-classes/com/aoo/bcg/poker/TrickTakingEngineTest.class",
+          "sha256": "06b3a37306de11e3424d8cca05899c00c972e47299b9df2668560169169c1c61"
+        },
+        {
+          "path": "server/Poker/target/test-classes/com/aoo/bcg/poker/PokerAuthoritativeSessionTest.class",
+          "sha256": "514887b7403cd6a058c19d916e87562eb89c8a72139c13789c7c27744197991b"
+        },
+        {
+          "path": "server/Poker/target/test-classes/com/aoo/bcg/poker/TrickTakingEngineTest$1.class",
+          "sha256": "c2e518809d6ce6dcbfb1f42e2561967b332b3e2f525d2178908b5f92bb22fe6c"
+        },
+        {
+          "path": "server/Poker/target/classes/com/aoo/bcg/poker/PaoDeKuaiFamily.class",
+          "sha256": "b800b70f1ca5c2fe7dfa869d4521cd0570b536ab4bbaa8db6db57eebca183554"
+        },
+        {
+          "path": "server/Poker/target/classes/com/aoo/bcg/poker/ComparePokerView.class",
+          "sha256": "8951c801af31ad57f349cbf22e076dd725b70a3de66034f3bce13f301ab452dc"
+        },
+        {
+          "path": "server/Poker/target/classes/com/aoo/bcg/poker/TrickTakingState.class",
+          "sha256": "e8a884d599b9d5a499799afc82638bd183736b84607977720d5271b48680e5bd"
+        },
+        {
+          "path": "server/Poker/target/classes/com/aoo/bcg/poker/TrickTakingFamily.class",
+          "sha256": "2e29cfb1aa9340e4d7311708ea88289f606e01ff0e84503470975cb218031b0c"
+        },
+        {
+          "path": "server/Poker/target/classes/com/aoo/bcg/poker/ComparePokerSeat.class",
+          "sha256": "2fc9d31ecd0883ebf135b64d106b3af281d6bfdfd27517bbf2382dff973035a1"
+        },
+        {
+          "path": "server/Poker/target/classes/com/aoo/bcg/poker/ShengJiEngine.class",
+          "sha256": "505835c2c7dd9d8f5c724cc5a430c828eeb39aefd1513a4eca5471d6d3d9197d"
+        },
+        {
+          "path": "server/Poker/target/classes/com/aoo/bcg/poker/PaoDeKuaiEngine.class",
+          "sha256": "c7f3553b0f89595c79ad26ce040178e7274eff4790ee5562e5a5e72d166f674a"
+        },
+        {
+          "path": "server/Poker/target/classes/com/aoo/bcg/poker/PaoDeKuaiContext.class",
+          "sha256": "aea17b4c59fb78c591345e6ef1f3c0bee4b65691750da247dc1cc993252885de"
+        },
+        {
+          "path": "server/Poker/target/classes/com/aoo/bcg/poker/TrickTakingEngine.class",
+          "sha256": "187a0cf21069bb4ca11f25527f9a78dda8a36d8a0e671bbab6d355d15534e85f"
+        },
+        {
+          "path": "server/Poker/target/classes/com/aoo/bcg/poker/ShengJiFamily.class",
+          "sha256": "5437065eef9050c0a55e24773af664322629520097976c46afac97bd6869c06d"
+        },
+        {
+          "path": "server/Poker/target/classes/com/aoo/bcg/poker/PokerGameProvider$1.class",
+          "sha256": "e3ef286aa2a494d31db8bf0a2ff9e89cdfe97d6b26430d2acb30f7daff2bfe2a"
+        },
+        {
+          "path": "server/Poker/target/classes/com/aoo/bcg/poker/ComparePokerEngine.class",
+          "sha256": "34438f5f91a17171a4472d8a7fb1427cace86a9e56c3baa3e7a91e1885e75e15"
+        },
+        {
+          "path": "server/Poker/target/classes/com/aoo/bcg/poker/ShengJiConfig.class",
+          "sha256": "b6737cc1ec6f9421e5441af97a7986d5d3427dbe3ab2e1264aed5963edbecc8f"
+        }
+      ]
+    },
+    {
+      "path": "server/SCJYMJ/target",
+      "files": 296,
+      "bytes": 125888610,
+      "sampleHashes": [
+        {
+          "path": "server/SCJYMJ/target/test-classes/business/global/mj/scjymj/SCJYMJGameProviderTest.class",
+          "sha256": "a159caaae0264380a09ddb01b949e6843fd83dab18b711507a00dbdcc3a30dc6"
+        },
+        {
+          "path": "server/SCJYMJ/target/classes/core/network/client2game/handler/scjymj/CSCJYMJDissolveRoomRefuse.class",
+          "sha256": "36cf0b9b8f599c72cd18ddad18d1ce48ab793b16612329bacece8429b42bed6c"
+        },
+        {
+          "path": "server/SCJYMJ/target/classes/core/network/client2game/handler/scjymj/CSCJYMJGetPlayBackCode.class",
+          "sha256": "1e0d986d8be39e30c2764d326cc86160179d5c82fc849f272229cdb047d7c264"
+        },
+        {
+          "path": "server/SCJYMJ/target/classes/core/network/client2game/handler/scjymj/CSCJYMJChangePlayerNumAgree.class",
+          "sha256": "fce071de2ef131af5285a7a93b9b7288c5b762ccad2e0e4ba5cd5470afe4b2a8"
+        },
+        {
+          "path": "server/SCJYMJ/target/classes/core/network/client2game/handler/scjymj/CSCJYMJChatMessageList.class",
+          "sha256": "4335fd4ea71b552a3267274207012d3816ea3dd077c1a43f1fc4e39a8d46720a"
+        },
+        {
+          "path": "server/SCJYMJ/target/classes/core/network/client2game/handler/scjymj/CSCJYMJContinueGame.class",
+          "sha256": "ab47b31e671966543b60b21a3b3d6145eb747ce66b26c22b6691a36135766672"
+        },
+        {
+          "path": "server/SCJYMJ/target/classes/core/network/client2game/handler/scjymj/CSCJYMJExitRoom.class",
+          "sha256": "9724858b064c7023d7bad1c07e09dee26545bfc0f7132c4e4f008b84fafa00fc"
+        },
+        {
+          "path": "server/SCJYMJ/target/classes/core/network/client2game/handler/scjymj/CSCJYMJVoice.class",
+          "sha256": "2014c81eca67184900cc2df04d64e72be0ead9c0e90ef9698b95d244e58793fa"
+        },
+        {
+          "path": "server/SCJYMJ/target/classes/core/network/client2game/handler/scjymj/CSCJYMJEnterRoom.class",
+          "sha256": "afe0d8a5e57b90edb7f25259339ffbc719136102c41d99f3995afe5447e18d90"
+        },
+        {
+          "path": "server/SCJYMJ/target/classes/core/network/client2game/handler/scjymj/CSCJYMJDissolveRoom.class",
+          "sha256": "1781c4f10b04cdbff18207113ba719835d41963cecef79f97b0f0cd7d173f2fe"
+        },
+        {
+          "path": "server/SCJYMJ/target/classes/core/network/client2game/handler/scjymj/CSCJYMJGoldList.class",
+          "sha256": "b4b5f7c38df8aea53492244e23a2ce82c4947e7f04b692d3715415d522e53fb6"
+        },
+        {
+          "path": "server/SCJYMJ/target/classes/core/network/client2game/handler/scjymj/CSCJYMJClubRoom.class",
+          "sha256": "92a82460560aca84438a4f367c0a931d8bcbc59d5f45f0c38159928e8a512360"
+        },
+        {
+          "path": "server/SCJYMJ/target/classes/core/network/client2game/handler/scjymj/CSCJYMJReadyRoom.class",
+          "sha256": "ee464cc6e5a4f6aab39041651a533e0d7a7df1a2b27a89dbd98adb060192ae82"
+        },
+        {
+          "path": "server/SCJYMJ/target/classes/core/network/client2game/handler/scjymj/CSCJYMJChangePlayerNum.class",
+          "sha256": "55b7dabe12f9579fa560f5e36865d0e6c08779b85b445e6527d9252d02e2050e"
+        },
+        {
+          "path": "server/SCJYMJ/target/classes/core/network/client2game/handler/scjymj/CSCJYMJKickRoom.class",
+          "sha256": "895927925436cb7e19e3a919f7e70089b50af0c5f3312419f157a6de5864332c"
+        },
+        {
+          "path": "server/SCJYMJ/target/classes/core/network/client2game/handler/scjymj/CSCJYMJRoomEndResult.class",
+          "sha256": "b77712f83ffa37c8b3d5d58ce8ede75f00f9223f810035b4ec02ac9e0f96fedb"
+        },
+        {
+          "path": "server/SCJYMJ/target/classes/core/network/client2game/handler/scjymj/CSCJYMJStartGame.class",
+          "sha256": "a86ea2df0bf21b86371e96d0f032f172432879aa77139e8030c1f3825bf471c2"
+        },
+        {
+          "path": "server/SCJYMJ/target/classes/core/network/client2game/handler/scjymj/CSCJYMJRoomInvitationOperation.class",
+          "sha256": "708d9aa52c1d9072be4a0d6dce14fc0cefbc1796d535159789f37016b2619e04"
+        },
+        {
+          "path": "server/SCJYMJ/target/classes/core/network/client2game/handler/scjymj/CSCJYMJShowLeave.class",
+          "sha256": "645c6403e47afc09f3f36068086793daa0d1fbfc23f25bfbe9af61519d1da134"
+        },
+        {
+          "path": "server/SCJYMJ/target/classes/core/network/client2game/handler/scjymj/CSCJYMJTrusteeship.class",
+          "sha256": "db3ddacafb079803a90d415044be07e1a331ae2d9f8880a9137f9dea3d0b5f8a"
+        }
+      ]
+    },
+    {
+      "path": "server/WordCard/target",
+      "files": 26,
+      "bytes": 80296,
+      "sampleHashes": [
+        {
+          "path": "server/WordCard/target/test-classes/com/aoo/bcg/wordcard/WordCardCoreEngineTest$1.class",
+          "sha256": "4789c1338abe969268bf9fde81b828118a41bc4d51406fe4dbb889733cd10444"
+        },
+        {
+          "path": "server/WordCard/target/test-classes/com/aoo/bcg/wordcard/WordCardCoreEngineTest.class",
+          "sha256": "2cf31bf70d4ec48c64ba830a5ed24dfed735fc797466ad4b8ac7ce45d9d9f390"
+        },
+        {
+          "path": "server/WordCard/target/test-classes/com/aoo/bcg/wordcard/BuiltinPaoHuZiFamiliesTest.class",
+          "sha256": "5b97c1e4e6490b08f2bb49609f6ecc6fe88242c445454c42e82da1c905a1f890"
+        },
+        {
+          "path": "server/WordCard/target/classes/com/aoo/bcg/wordcard/WordCardCommand.class",
+          "sha256": "688a7e8e48554f73f0985752df483f9cb96062c5cc025f330da32458ca3a09f9"
+        },
+        {
+          "path": "server/WordCard/target/classes/com/aoo/bcg/wordcard/WordCardRuleContext.class",
+          "sha256": "cb348d15e62f9f843e83c5801cdb47f2a75e7457bac642e3dc6f48f21689510b"
+        },
+        {
+          "path": "server/WordCard/target/classes/com/aoo/bcg/wordcard/WordCardOperation.class",
+          "sha256": "bfcccd7485307b114926b1dd622e264266091177cc3de19f1bc337a1aa00faa5"
+        },
+        {
+          "path": "server/WordCard/target/classes/com/aoo/bcg/wordcard/WordCardPhase.class",
+          "sha256": "18d0dbcd924d7c856f7772d2eaf04ad83f9540a87ae3479ded004d54148cc34d"
+        },
+        {
+          "path": "server/WordCard/target/classes/com/aoo/bcg/wordcard/WordCardRuleSet.class",
+          "sha256": "12a6edf45a84730ba25d5e5ea7ab34c0d86f915d60fd1d786c3dc7a84462a4f3"
+        },
+        {
+          "path": "server/WordCard/target/classes/com/aoo/bcg/wordcard/WordCardRuleFamily.class",
+          "sha256": "938af616a3c630e5e804e0d1ee4ee8eab988778c74ece636417959ac38c03be1"
+        },
+        {
+          "path": "server/WordCard/target/classes/com/aoo/bcg/wordcard/WordCardCoreEngine.class",
+          "sha256": "69fddbcc092f7816345a36c3cfe2820beaa4f259f4fecfdf9cef4f3adddc59f6"
+        },
+        {
+          "path": "server/WordCard/target/classes/com/aoo/bcg/wordcard/PaoHuZiFamily$1.class",
+          "sha256": "fa0ddb792abef2d71c32d1373cff0ec429954d644e06d76145635dfce1854f8d"
+        },
+        {
+          "path": "server/WordCard/target/classes/com/aoo/bcg/wordcard/BuiltinPaoHuZiFamilies.class",
+          "sha256": "4750de27261b0959914cfbdfc3c7beb4a10a120e4105711bfa425018c4124263"
+        },
+        {
+          "path": "server/WordCard/target/classes/com/aoo/bcg/wordcard/WordCardState.class",
+          "sha256": "95c55c4eca04a336dbb9efd7538f0815f7f14f8f0608448a173577aef2f17641"
+        },
+        {
+          "path": "server/WordCard/target/classes/com/aoo/bcg/wordcard/PaoHuZiFamily.class",
+          "sha256": "9e487c15f42673e63cbd6240f71c632372d782f3211226cf831f998e7cdb786d"
+        },
+        {
+          "path": "server/WordCard/target/classes/com/aoo/bcg/wordcard/PaoHuZiProfile.class",
+          "sha256": "009e3b798266c62b611748e4d50fe636f6328b0ad9a306f4010a8b52abe3c544"
+        },
+        {
+          "path": "server/WordCard/target/classes/com/aoo/bcg/wordcard/WordCardCoreEngine$1.class",
+          "sha256": "de16bc6c454d0d20a5950436f1d886433b003e45da84fb7be79b84f7d8236111"
+        },
+        {
+          "path": "server/WordCard/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst",
+          "sha256": "82e93af9206afac606f30ad49c54cecb7b2231231aa2a9b3384f6bff56f11412"
+        },
+        {
+          "path": "server/WordCard/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst",
+          "sha256": "3cdd6117c75ccd880e7fc0bbc62344dc52d333008aa65f59f27783a781647188"
+        },
+        {
+          "path": "server/WordCard/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst",
+          "sha256": "0dd4341eaf7f668af3a51c062bc0b3c2a8658e58959317dddaf9d2d150fcb7b5"
+        },
+        {
+          "path": "server/WordCard/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst",
+          "sha256": "6440a1d46160912a3932eab694868846786bc69a307af4a4dd3a99d4bb3b030e"
+        }
+      ]
+    },
+    {
+      "path": "server/XCPDK/target",
+      "files": 299,
+      "bytes": 125893662,
+      "sampleHashes": [
+        {
+          "path": "server/XCPDK/target/test-classes/business/global/pk/xcpdk/XCPDKGameProviderTest.class",
+          "sha256": "09d3e1a4ae14f64ca3d59a2381075d4451b5e4679d11605b3da5d648d11202e9"
+        },
+        {
+          "path": "server/XCPDK/target/classes/core/network/client2game/handler/xcpdk/CXCPDKDissolveRoom.class",
+          "sha256": "1fabc3c2b170c7e6bd92baa2e71f48418caaf03d5c714e18d6a28061f5da418c"
+        },
+        {
+          "path": "server/XCPDK/target/classes/core/network/client2game/handler/xcpdk/CXCPDKShowLeave.class",
+          "sha256": "c5fbf8ab89c15bcccabe3b598ede9ded0dbd95eb92821b61ecd6f12ad06befbe"
+        },
+        {
+          "path": "server/XCPDK/target/classes/core/network/client2game/handler/xcpdk/CXCPDKStartGame.class",
+          "sha256": "65bac8223db47846333f0306de6c6fc246b6e4a62e55aa7659428d30e709f053"
+        },
+        {
+          "path": "server/XCPDK/target/classes/core/network/client2game/handler/xcpdk/CXCPDKContinueGame.class",
+          "sha256": "278d6e8db5e04649fe2b70fa68985e168d38ae9740073e306b0eac8a198bb4e1"
+        },
+        {
+          "path": "server/XCPDK/target/classes/core/network/client2game/handler/xcpdk/CXCPDKKickRoom.class",
+          "sha256": "7e4bf3fbd5c9d81be5999dfeb0e80763fa5a2c3144ce00515bf320d3917c069d"
+        },
+        {
+          "path": "server/XCPDK/target/classes/core/network/client2game/handler/xcpdk/CXCPDKClubRoom.class",
+          "sha256": "8d066318edc0323b5b3155496c60271886bb83eae2c2c14db99d5b0dcfbafce4"
+        },
+        {
+          "path": "server/XCPDK/target/classes/core/network/client2game/handler/xcpdk/CXCPDKGoldList.class",
+          "sha256": "725754be39967d69e43299fa5995cb242cc8c0320eeb23aa4aae69c88d03ee45"
+        },
+        {
+          "path": "server/XCPDK/target/classes/core/network/client2game/handler/xcpdk/CXCPDKChangePlayerNumAgree.class",
+          "sha256": "3428a5e00f8c680944febe598277c0c99d7dc428055d9fcdd76f356acc5eeb74"
+        },
+        {
+          "path": "server/XCPDK/target/classes/core/network/client2game/handler/xcpdk/CXCPDKReadyRoom.class",
+          "sha256": "940fa7765aca2646b7c327a06872b62c331f8a343eaaec008d1ea27cb8633707"
+        },
+        {
+          "path": "server/XCPDK/target/classes/core/network/client2game/handler/xcpdk/CXCPDKChangePlayerNum.class",
+          "sha256": "12018998678d0664f7ad813ad6eb32741bb9194fedb1e717afb62c8fbfa954ee"
+        },
+        {
+          "path": "server/XCPDK/target/classes/core/network/client2game/handler/xcpdk/CXCPDKTrusteeship.class",
+          "sha256": "d9c47c5d4660dc4724b1a92503dce9b90a2078081c04e17c2ce1c16092230ed3"
+        },
+        {
+          "path": "server/XCPDK/target/classes/core/network/client2game/handler/xcpdk/CXCPDKContinueRoom.class",
+          "sha256": "dab78de941d55de942c3dc37e2fe3ad6d2050682814a48061e73153c5d3cd9a2"
+        },
+        {
+          "path": "server/XCPDK/target/classes/core/network/client2game/handler/xcpdk/CXCPDKEnterRoom.class",
+          "sha256": "596173c2f3324af3b9c59e4b5cac0efe5c42f82837923c7d84c5e18d675a405d"
+        },
+        {
+          "path": "server/XCPDK/target/classes/core/network/client2game/handler/xcpdk/CXCPDKFaPaiJieShu.class",
+          "sha256": "3b8c5ed288e87f39eb7c2eb11122a290ff98405af6f7ef335053e06249068f89"
+        },
+        {
+          "path": "server/XCPDK/target/classes/core/network/client2game/handler/xcpdk/CXCPDKExitRoom.class",
+          "sha256": "604f74be9cca2c4af3209a0da571885a13da2f8a7896b54adb0ea5dd94d9aa57"
+        },
+        {
+          "path": "server/XCPDK/target/classes/core/network/client2game/handler/xcpdk/CXCPDKVoice.class",
+          "sha256": "2bf38c96e4b5bbbace88f75142a408b97fe1b9c13c2cf100711f6654ee645b61"
+        },
+        {
+          "path": "server/XCPDK/target/classes/core/network/client2game/handler/xcpdk/CXCPDKOpCard.class",
+          "sha256": "d1909cab94f8fd735db0bf07ae7e9342380a2b66565b14d1ab7ce7ad8dab3186"
+        },
+        {
+          "path": "server/XCPDK/target/classes/core/network/client2game/handler/xcpdk/CXCPDKChatMessageList.class",
+          "sha256": "36499feb23032fa11b004b79fc3426bd929844e64f2bb065007ecf7bc60426a8"
+        },
+        {
+          "path": "server/XCPDK/target/classes/core/network/client2game/handler/xcpdk/CXCPDKGetPlayBackCode.class",
+          "sha256": "8542a79d3575b279cc0341d3d51e58079f41fecd2a68ea206a5a524fc506f69f"
+        }
+      ]
+    },
+    {
+      "path": "server/ZJH/target",
+      "files": 214,
+      "bytes": 125642918,
+      "sampleHashes": [
+        {
+          "path": "server/ZJH/target/test-classes/business/global/pk/zjh/ZJHGameProviderTest.class",
+          "sha256": "3b8c901b839ba854143830216fb8a49030c911075fe7d4a397a3cf3cbbfc980f"
+        },
+        {
+          "path": "server/ZJH/target/test-classes/business/global/pk/zjh/ZJHConfigMgrTest.class",
+          "sha256": "8f0a80f129f4bcff9bd0afe96a99a5e4bdda02fe2c650f55ac7030b7b4cb6c1a"
+        },
+        {
+          "path": "server/ZJH/target/test-classes/business/global/pk/zjh/ZJHUnifiedProtocolTest.class",
+          "sha256": "f0b09d5c8541ea8006b7cc08bcdc8c5cbc96b3bf6585bfb7b5c7ea4830aa9ea8"
+        },
+        {
+          "path": "server/ZJH/target/test-classes/business/global/pk/zjh/ZJHGameLogicTest.class",
+          "sha256": "6017d5ff95475e98bc677c5c5c91d938ac38bd829cf42fce94a33f8b1a519c2b"
+        },
+        {
+          "path": "server/ZJH/target/zjh-1.0.0-SNAPSHOT.jar",
+          "sha256": "180bb0d9402a04067e2c651ca52e2b47e53a83426e4cc1cf233f13b7523070d3"
+        },
+        {
+          "path": "server/ZJH/target/classes/business/global/pk/zjh/ZJHGameLogic.class",
+          "sha256": "216f6f8f0ba17f24818cbdd832ee5046e28e4b45c62032e4f57b4cc35eab5813"
+        },
+        {
+          "path": "server/ZJH/target/classes/business/global/pk/zjh/ZJHProductionCommitter$Runtime.class",
+          "sha256": "fea05403dd78deae67a35ab03b9055fe9126cb02b195f61d8557665be2fdbb05"
+        },
+        {
+          "path": "server/ZJH/target/classes/business/global/pk/zjh/ZJHCommandHandler.class",
+          "sha256": "ea13f4086bf9a81d3fc8279f6cff387d4daceedcb7a886389c4a415f59940d2d"
+        },
+        {
+          "path": "server/ZJH/target/classes/business/global/pk/zjh/ZJHTable.class",
+          "sha256": "746dcd1c345c95309eb9fc01b070c3e247c6ba0d95fc4bbc6aca765b730e7c72"
+        },
+        {
+          "path": "server/ZJH/target/classes/business/global/pk/zjh/ZJHSettlementService.class",
+          "sha256": "1d2b798ef36b1024dfdcc6aaaf9f11787b5e622e62184cc710b0946fafd04faf"
+        },
+        {
+          "path": "server/ZJH/target/classes/business/global/pk/zjh/ZJHReconnectViewService.class",
+          "sha256": "4714274f2edd1f16045748e4715dce8653f33bc13aaed64388638a6ab893bb75"
+        },
+        {
+          "path": "server/ZJH/target/classes/business/global/pk/zjh/ZJHSetCard.class",
+          "sha256": "47d1900a7258aee12545e56ad7ca1f7e783c366d0db5ccb42382de7e8b131962"
+        },
+        {
+          "path": "server/ZJH/target/classes/business/global/pk/zjh/ZJHGameProvider.class",
+          "sha256": "13ee4fb1a04785e063f1c82c7e809112b1ba2db433dcd1fec7bb491a1dbc0f8b"
+        },
+        {
+          "path": "server/ZJH/target/classes/business/global/pk/zjh/ZJHTable$State.class",
+          "sha256": "a5969fa2eafd70025641bdf7fa741379d8feb9350ff33545659faa0fb26698a7"
+        },
+        {
+          "path": "server/ZJH/target/classes/business/global/pk/zjh/ZJHProductionCommitter.class",
+          "sha256": "670098fcfcc288356ea4db8e709ac3cfe9bbc36a27a6a8500a46e6842198201c"
+        },
+        {
+          "path": "server/ZJH/target/classes/business/global/pk/zjh/ZJHConfigMgr.class",
+          "sha256": "f8541c07e1fd736614d67b04266595dac3bd78cd9e9e9fd5d1429a10d16252fa"
+        },
+        {
+          "path": "server/ZJH/target/classes/business/global/pk/zjh/ZJHPersistenceService.class",
+          "sha256": "af4b28686e7f7d6af0f7db13f516e66623c077e2b09985f0d8f46f73401bb0a6"
+        },
+        {
+          "path": "server/ZJH/target/classes/META-INF/services/com.aoo.bcg.gamespi.GameProvider",
+          "sha256": "a5301ad163b7cc7bc042ece59476025f9ee079d44a03ba2f2d3c5819d05deefc"
+        },
+        {
+          "path": "server/ZJH/target/classes/jsproto/c2s/cclass/zjh/ZJH_define$ZJH_StatusType.class",
+          "sha256": "f03d8b6cd368fe0e4f884ed621ceac6f473a423634c4fd64a9c8411dad7f4ea2"
+        },
+        {
+          "path": "server/ZJH/target/classes/jsproto/c2s/cclass/zjh/ZJHRoom_Set.class",
+          "sha256": "38baeb88a6c0e380dc977643a68750abc87719bd26eec3d2e7decd672f9b663b"
+        }
+      ]
+    },
+    {
+      "path": "server/ZYPK/target",
+      "files": 224,
+      "bytes": 125604522,
+      "sampleHashes": [
+        {
+          "path": "server/ZYPK/target/test-classes/business/global/pk/zypk/ZYPKTableTest.class",
+          "sha256": "966ead571cc4a88f5f71fc6f22ea6f3f222b97a2d84017e4950e4e598bb30d1c"
+        },
+        {
+          "path": "server/ZYPK/target/classes/business/global/pk/zypk/ZYPKTable.class",
+          "sha256": "863dcc49b9fb051c822ce074c80e173900c09f048c9eb76676096870186404e1"
+        },
+        {
+          "path": "server/ZYPK/target/classes/business/global/pk/zypk/ZYPKProductionCommitter.class",
+          "sha256": "6ba2a7c20e546aad361120ac9bed43f59f09b04697ff943e1fdc9c8a08addd87"
+        },
+        {
+          "path": "server/ZYPK/target/classes/business/global/pk/zypk/ZYPKTable$SeatState.class",
+          "sha256": "e1420b2ac0ece54c49c0e5aaace2a82350ca79add4b331a94364d5fd5d94628d"
+        },
+        {
+          "path": "server/ZYPK/target/classes/business/global/pk/zypk/ZYPKPersistenceService.class",
+          "sha256": "a48cdbf7fdd9c8c761efac496f460b2c2de0b847ff31b6350072df559a921164"
+        },
+        {
+          "path": "server/ZYPK/target/classes/business/global/pk/zypk/ZYPKTable$TurnSnapshot.class",
+          "sha256": "f1590424598f20f56fc5509759279c00d66fedf43d1c4076865a273b168921db"
+        },
+        {
+          "path": "server/ZYPK/target/classes/business/global/pk/zypk/ZYPKPlayerView.class",
+          "sha256": "061bc48123308ce6a0f829cdc6d7c4f4b8bc3b0c9415a859caeb2c88d160ba2f"
+        },
+        {
+          "path": "server/ZYPK/target/classes/business/global/pk/zypk/ZYPKPlayerView$SeatView.class",
+          "sha256": "769a5f606aba1b5232f2cd8d420b07e4c09c7a7c7f0e52d1cc02de49d03f068b"
+        },
+        {
+          "path": "server/ZYPK/target/classes/business/global/pk/zypk/ZYPKConfigMgr.class",
+          "sha256": "9f7bc99b946f206e0be3758def97fcc490f6e0d47f7e2289726a38f64322aa54"
+        },
+        {
+          "path": "server/ZYPK/target/classes/business/global/pk/zypk/ZYPKTable$OperationMode.class",
+          "sha256": "64dd1fea9a0e1d82f6730fd3d880bbeea77dc6bd85b5f907c5abe8ff755e6d49"
+        },
+        {
+          "path": "server/ZYPK/target/classes/business/global/pk/zypk/ZYPKProductionCommitter$Runtime.class",
+          "sha256": "3ce917a83e32cf09642e6a17781bd4336aefbd18ae66bfe3b3aae8eb29406356"
+        },
+        {
+          "path": "server/ZYPK/target/classes/business/global/pk/zypk/ZYPKTable$State.class",
+          "sha256": "bd30eb2e3495faf11ae659788063624ade7525b9b16145b791f8ba2c789f1f71"
+        },
+        {
+          "path": "server/ZYPK/target/classes/business/global/pk/zypk/ZYPKTable$DealerPolicy.class",
+          "sha256": "e180187171e13f059eea023190a2246143138758c425d08697d5019e2e3182d2"
+        },
+        {
+          "path": "server/ZYPK/target/classes/business/global/pk/zypk/ZYPKStateRestorer.class",
+          "sha256": "13b7d56a0c8ff645c3223523814cde558c33a85c09ff4306a33ce12c9c600429"
+        },
+        {
+          "path": "server/ZYPK/target/classes/business/global/pk/zypk/ZYPKGameProvider.class",
+          "sha256": "8638c6152ca7692b9bd93b4f5e20798d647a97beb114ab110f3e0052ca948de5"
+        },
+        {
+          "path": "server/ZYPK/target/classes/business/global/pk/zypk/ZYPKTable$1.class",
+          "sha256": "76be3747518901ff4dac5c339e63ee4f7f171ecd49a4cb40a750d58de09efce4"
+        },
+        {
+          "path": "server/ZYPK/target/classes/business/global/pk/zypk/ZYPKCommandHandler.class",
+          "sha256": "f6e4c0102aca1e53b02114c73f0cddc08f9abe34ae21b791bc337bcba5d834b0"
+        },
+        {
+          "path": "server/ZYPK/target/classes/META-INF/services/com.aoo.bcg.gamespi.GameProvider",
+          "sha256": "b4269740cf3c71cc55d18c42636bc4388f0a11ea9f6ce9bef60f4f9f346ed859"
+        },
+        {
+          "path": "server/ZYPK/target/classes/jsproto/c2s/cclass/zypk/ZYPKRoom_Cfg.class",
+          "sha256": "d5c63aa2e463f188cdb5868016d5a6e88a09cd1e48de4da184bd993bf98dc97e"
+        },
+        {
+          "path": "server/ZYPK/target/classes/jsproto/c2s/cclass/zypk/ZYPKRoom_RoundPos.class",
+          "sha256": "143ef2bd75df1db66cb168324650d06cc8532933cbdf69ed8fe947f80209bb91"
+        }
+      ]
+    },
+    {
+      "path": "server/gameServer/target",
+      "files": 2866,
+      "bytes": 136335824,
+      "sampleHashes": [
+        {
+          "path": "server/gameServer/target/classes/core/logger/flow/impl/DBFlowLogger.class",
+          "sha256": "66f7a43484550919e69760fa7063f34fc70036f45e32270c7ea57a71f6407897"
+        },
+        {
+          "path": "server/gameServer/target/classes/core/logger/flow/impl/RedisFlowLogger.class",
+          "sha256": "5a9e5f1d61a6c5d8120f9c4089521bc75b5dfee43a931252830e4847e91c5926"
+        },
+        {
+          "path": "server/gameServer/target/classes/core/logger/flow/FlowLogger.class",
+          "sha256": "c988b4c3b2b674b867a340ecd9d6acbf11ef43162b91e37f27585fda7215b665"
+        },
+        {
+          "path": "server/gameServer/target/classes/core/logger/flow/GameFlowLogger.class",
+          "sha256": "19397fb81eaf2f3ed2a07636f07311af2e5716b8d59f43cb3d3ff9df19e86247"
+        },
+        {
+          "path": "server/gameServer/target/classes/core/logger/flow/disruptor/union/UnionMatchFactory$SingletonHolder.class",
+          "sha256": "4b0b3c41de20f562d13dbbe8376ba7e97233f3196a9c3fe1f77983ceb5be8071"
+        },
+        {
+          "path": "server/gameServer/target/classes/core/logger/flow/disruptor/union/UnionMatchFactory.class",
+          "sha256": "3486e9617eaffdc87224bb1a4179e2e8a5f6c9e6e572cf36e35cb21a425abbb7"
+        },
+        {
+          "path": "server/gameServer/target/classes/core/logger/flow/disruptor/union/UnionMatchErrorHandler.class",
+          "sha256": "f4d7c923bdc96ae788bf90ddb02fab6fe8fd8f2b6542fbc85c862e1d0bf665fb"
+        },
+        {
+          "path": "server/gameServer/target/classes/core/logger/flow/disruptor/union/UnionMatchBuffer.class",
+          "sha256": "b8ae675d29511fa05c0c669fd2750049f3666ec1a8565bb1c057ba6890ec7619"
+        },
+        {
+          "path": "server/gameServer/target/classes/core/logger/flow/disruptor/union/UnionMatchLogEventHandler.class",
+          "sha256": "fe76b0807eb277f8d75c16f53acc61435304fc7d79a48061d357ce3f6a81f43a"
+        },
+        {
+          "path": "server/gameServer/target/classes/core/logger/flow/disruptor/log/BatchDbLogErrorHandler.class",
+          "sha256": "8f3a5c6ee1e0590fb7afd2647f65eb0ab74f8ae5610cb2478b6db739fff6676d"
+        },
+        {
+          "path": "server/gameServer/target/classes/core/logger/flow/disruptor/log/BatchDbLogComponent.class",
+          "sha256": "67d622a6650eba9d41e8179140215cb3a624d57b92422d47e7274115d32f425c"
+        },
+        {
+          "path": "server/gameServer/target/classes/core/logger/flow/disruptor/log/BatchDbLogComponent$SingletonHolder.class",
+          "sha256": "0ccb03832b9b86bd9663b8fad635ec2ebc56672b2ba0531926f96374824ec3ef"
+        },
+        {
+          "path": "server/gameServer/target/classes/core/logger/flow/disruptor/log/BatchDbLogService.class",
+          "sha256": "cd362c69d27c55f2ed6720fc0d64e5ab2b47c88cae2e67253dcccfd9f1410f40"
+        },
+        {
+          "path": "server/gameServer/target/classes/core/logger/flow/disruptor/log/BatchDbLog.class",
+          "sha256": "be5e219c0c1a3d21ac1a7311c35e72f050dd0c611e557c77d661e79dc017b0e7"
+        },
+        {
+          "path": "server/gameServer/target/classes/core/logger/flow/disruptor/log/BatchDbLogBuffer.class",
+          "sha256": "184f0dcae334e145096d7d9d210735a660ca56c603eed00193c8336b6dd695fe"
+        },
+        {
+          "path": "server/gameServer/target/classes/core/logger/flow/disruptor/log/BatchDbLogEventHandler.class",
+          "sha256": "d0597e77a1b1be4920629f309683d27e4714b5e18cb894da577ca9ddf5d4ff7f"
+        },
+        {
+          "path": "server/gameServer/target/classes/core/logger/flow/disruptor/log/BatchDbLogThread.class",
+          "sha256": "ea49ab403f8d2e9ebbf640b2930db96badd66c2198c2323c7ae288c4505bfe8b"
+        },
+        {
+          "path": "server/gameServer/target/classes/core/proxy/ProxyFactory.class",
+          "sha256": "26d5acc3b379572454d6812828bfc39c5b6c31d42d9ba5ea58568ecc845242f3"
+        },
+        {
+          "path": "server/gameServer/target/classes/core/proxy/ProxyUtil.class",
+          "sha256": "b23e4575c7b0b9ab6ce8a2a51cc4405656fc0f049424190c41377afe9e11cf83"
+        },
+        {
+          "path": "server/gameServer/target/classes/core/proxy/ProxyMethodInterceptor.class",
+          "sha256": "8762b1b0cbebffce2ff6117253694757c7e887846fc2f702893c3740eeffe361"
+        }
+      ]
+    }
+  ],
+  "mixedRoleDirectories": [
+    "server/Account/target",
+    "server/AdminApi/target",
+    "server/AooKernel/target",
+    "server/Billing/target",
+    "server/Bootstrap/target",
+    "server/CDXZMJ/target",
+    "server/ConfigCenter/target",
+    "server/Families/target",
+    "server/GameCommon/target",
+    "server/GameSPI/target",
+    "server/Games/target",
+    "server/Gateway/target",
+    "server/Hall/target",
+    "server/LegacyAccountServer/commdef/target",
+    "server/LegacyAccountServer/common/target",
+    "server/LegacyAccountServer/dao/target",
+    "server/LegacyAccountServer/hall/target",
+    "server/LegacyAccountServer/package_hall",
+    "server/LegacyAccountServer/server/target",
+    "server/LegacyCommon/target",
+    "server/LegacyGameHall/target",
+    "server/LongCard/target",
+    "server/Mahjong/target",
+    "server/NJPDK/target",
+    "server/Poker/target",
+    "server/SCJYMJ/target",
+    "server/WordCard/target",
+    "server/XCPDK/target",
+    "server/ZJH/target",
+    "server/ZYPK/target",
+    "server/gameServer/target"
+  ],
+  "releaseForbidden": [
+    "target/classes",
+    "target/test-classes",
+    "*-sources.jar",
+    "*-javadoc.jar",
+    ".idea",
+    ".vscode",
+    "*.iml",
+    "work/local-runtime",
+    "server/Legacy*/target"
+  ],
+  "sourceGeneratedRolesSeparated": false,
+  "passed": false
+}

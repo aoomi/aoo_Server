@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "approved": false,
+  "metrics": {
+    "startupMillis": { "max": null },
+    "rssBytes": { "max": null },
+    "heapUsedBytes": { "max": null },
+    "throughputOpsPerSecond": { "min": null },
+    "p99Millis": { "max": null },
+    "serverPackageBytes": { "max": null },
+    "clientPackageBytes": { "max": null }
+  },
+  "note": "Limits remain null until measured baselines and product capacity targets are approved; null never passes the release gate."
+}

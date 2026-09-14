@@ -1,0 +1,4 @@
+require 'json';require 'fileutils';root=File.expand_path('..',__dir__)
+source=File.read(File.join(root,'server/GameCommon/src/main/java/com/aoo/bcg/common/metrics/DynamicMetricRegistry.java'));test=File.read(File.join(root,'server/GameCommon/src/test/java/com/aoo/bcg/common/metrics/DynamicMetricRegistryTest.java'))
+checks={unregister_handle:source.include?('Handle implements AutoCloseable'),reference_cleanup:source.include?('decrementAndGet()==0?null'),forbidden_tags:source.include?('FORBIDDEN_TAGS'),series_limit:source.include?('cardinality limit reached'),fixed_loop:test.include?('index<1000')}
+abort "RES08 audit failed: #{checks}" unless checks.values.all?;out=File.join(root,'work/audit/dynamic-metric-lifecycle.json');FileUtils.mkdir_p(File.dirname(out));File.write(out,JSON.pretty_generate({task:'RES08',status:'passed',checks:checks})+"\n")

@@ -1,0 +1,15 @@
+{
+  "rows": 10000000,
+  "createdCursorIndex": "idx_db_player_created_cursor",
+  "lastLoginCursorIndex": "idx_db_player_last_login_cursor",
+  "secondaryIndexes": 3,
+  "estimatedBtreeMutationsPerWrite": 4,
+  "querySamples": 5000,
+  "p95Ms": 0.612,
+  "p99Ms": 0.891,
+  "writeSamples": 10000,
+  "writesPerSecond": 7309.7,
+  "mysqlVersion": "8.0.46",
+  "availableProcessors": 18,
+  "status": "passed"
+}

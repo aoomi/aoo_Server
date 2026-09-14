@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "compileTarget": {
+    "javaRelease": 25,
+    "compatibilityPolicy": "Java 25 LTS bytecode/API"
+  },
+  "validationRuntime": {
+    "java": "Java version: 26.0.2.1, vendor: Oracle Corporation, runtime: /Users/aoo/Code/Game/BCG/Aoo/.toolchains/jdk-26.0.2.1.jdk/Contents/Home",
+    "canonicalExternalToolchain": "../.toolchains/jdk-26.0.2.1.jdk/Contents/Home"
+  },
+  "buildTool": {
+    "maven": "Apache Maven 3.9.16 (2bdd9fddda4b155ebf8000e807eb73fd829a51d5)",
+    "wrapperProperties": ".mvn/wrapper/maven-wrapper.properties"
+  },
+  "clientGeneratorTool": {
+    "node": "24.19.0",
+    "scope": "protocol/client generation only"
+  },
+  "managedVersions": {
+    "druid.version": "1.2.28",
+    "fastjson.version": "2.0.64",
+    "flyway.version": "13.3.0",
+    "gson.version": "2.14.0",
+    "guava.version": "33.7.1-jre",
+    "jedis.version": "8.0.0",
+    "junit.version": "6.0.3",
+    "logback.version": "1.6.3",
+    "lombok.version": "1.18.46",
+    "maven.dependency.plugin.version": "3.11.0",
+    "mina.version": "2.2.9",
+    "mongodb.version": "5.10.0",
+    "mysql.connector.version": "26.7.0",
+    "netty.version": "4.2.17.Final",
+    "protobuf.version": "4.36.0",
+    "quartz.version": "2.5.2",
+    "rocketmq.version": "5.5.0",
+    "slf4j.version": "2.0.17"
+  },
+  "checks": {
+    "compileRuntimeCompatible": true,
+    "canonicalRuntimeScript": true,
+    "canonicalWrapper": true,
+    "noMvnwFork": true
+  }
+}

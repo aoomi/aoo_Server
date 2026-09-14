@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent><groupId>com.aoo.bcg</groupId><artifactId>aoo-server-parent</artifactId><version>${revision}</version><relativePath>../../pom.xml</relativePath></parent>
+    <artifactId>cdxzmj</artifactId><name>Chengdu Xuezhan Mahjong</name>
+    <dependencies>
+        <dependency><groupId>com.aoo.bcg</groupId><artifactId>game-spi</artifactId><version>${project.version}</version></dependency>
+        <dependency><groupId>com.aoo.bcg</groupId><artifactId>game-common</artifactId><version>${project.version}</version></dependency>
+        <dependency><groupId>com.aoo.bcg</groupId><artifactId>game-category-mahjong</artifactId><version>${project.version}</version></dependency>
+        <dependency><groupId>com.aoo.bcg</groupId><artifactId>game-server-framework</artifactId><version>${project.version}</version></dependency>
+        <dependency><groupId>com.google.code.gson</groupId><artifactId>gson</artifactId></dependency>
+        <dependency><groupId>org.apache.commons</groupId><artifactId>commons-lang3</artifactId><version>3.20.0</version></dependency>
+        <dependency><groupId>org.projectlombok</groupId><artifactId>lombok</artifactId><scope>provided</scope></dependency>
+        <dependency><groupId>org.junit.jupiter</groupId><artifactId>junit-jupiter</artifactId><scope>test</scope></dependency>
+            <dependency><groupId>com.aoo.bcg</groupId><artifactId>aoo-kernel</artifactId><version>${project.version}</version></dependency>
+</dependencies>
+    <build><sourceDirectory>src</sourceDirectory><testSourceDirectory>test</testSourceDirectory><plugins><plugin><groupId>org.apache.maven.plugins</groupId><artifactId>maven-compiler-plugin</artifactId></plugin><plugin><groupId>org.apache.maven.plugins</groupId><artifactId>maven-jar-plugin</artifactId></plugin></plugins></build>
+</project>

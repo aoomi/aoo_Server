@@ -1,0 +1,8 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+require 'json';require 'fileutils';require 'open3'
+root=File.expand_path('..',__dir__);client=File.expand_path('../Client',root);jdk=File.expand_path('../.toolchains/jdk-26.0.2.1.jdk/Contents/Home',root)
+server=File.read(File.join(root,'server/GameSPI/src/main/java/com/aoo/bcg/gamespi/GameCommandResult.java'));router=File.read(File.join(root,'server/Gateway/src/main/java/com/aoo/bcg/gateway/GameWebSocketRouter.java'));clock=File.read(File.join(client,'assets/Common/Code/Runtime/state/ServerDeadlineClock.ts'))
+java_out,java_err,java_status=Open3.capture3({'JAVA_HOME'=>jdk,'PATH'=>"#{jdk}/bin:#{ENV['PATH']}"},'./mvnw','-q','-pl','server/Gateway','-am','-Dtest=GameWebSocketRouterTest','-Dsurefire.failIfNoSpecifiedTests=false','test',chdir:root)
+node_out,node_err,node_status=Open3.capture3('node','tests/unit/server-deadline-clock.test.mjs',chdir:client)
+checks={response_has_server_time:server.include?('serverTimeEpochMillis'),response_has_deadline:server.include?('operationDeadline'),router_uses_authoritative_clock:router.include?('time.epochMillis()'),client_uses_server_offset:clock.include?('serverOffsetMillis'),client_marks_display_only:clock.include?('presentation-only'),java_tests_passed:java_status.success?,client_tests_passed:node_status.success?};result={task:'TIME03',passed:checks.values.all?,checks:checks,javaStdout:java_out.strip,javaStderr:java_err.strip,nodeStdout:node_out.strip,nodeStderr:node_err.strip};out=File.join(root,'work/audit/server-deadline-response.json');FileUtils.mkdir_p(File.dirname(out));File.write(out,JSON.pretty_generate(result)+"\n");puts JSON.generate(result);exit(result[:passed] ? 0 : 1)

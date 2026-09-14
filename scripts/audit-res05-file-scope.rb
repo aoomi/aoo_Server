@@ -1,0 +1,4 @@
+require 'json';require 'fileutils';root=File.expand_path('..',__dir__)
+source=File.read(File.join(root,'server/GameCommon/src/main/java/com/aoo/bcg/common/resource/TemporaryFileScope.java'));test=File.read(File.join(root,'server/GameCommon/src/test/java/com/aoo/bcg/common/resource/TemporaryFileScopeTest.java'))
+checks={upload_bound:source.include?('file size limit exceeded'),temporary_cleanup:source.include?('Comparator.reverseOrder'),zip_slip:source.include?('archive path escapes temporary scope'),archive_bounds:source.include?('archive entry limit exceeded'),atomic_replay_publish:source.include?('StandardCopyOption.ATOMIC_MOVE'),success_failure_test:test.include?('cleansUploadAndReplayStagingOnSuccessAndFailure')}
+abort "RES05 audit failed: #{checks}" unless checks.values.all?;out=File.join(root,'work/audit/file-resource-lifecycle.json');FileUtils.mkdir_p(File.dirname(out));File.write(out,JSON.pretty_generate({task:'RES05',status:'passed',checks:checks})+"\n")

@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="gameHall" default="zip" basedir=".">
+    <!-- 引入第三方jar包 -->
+    <property name="ant-contrib.jar" location="E:\project\game-server/common/lib/ant-contrib-1.0b3.jar"/>
+    <taskdef resource="net/sf/antcontrib/antcontrib.properties" classpath="${ant-contrib.jar}"/>
+    <!-- 其他路径 -->
+    <property name="build.dir" location="build"/>
+    <property name="src.dir" location="build/src"/>
+    <property name="bconf.dir" location="build/conf"/>
+    <property name="classes.dir" value="build/classes"/>
+    <property name="tolib.dir" value="build/lib"/>
+    <property name="common.dir" location="E:\project\game-server/common"/>
+    <property name="gameserver.dir" location="E:\project\game-server/gameServer"/>
+    <property name="lib.dir" location="E:\project\game-server/common/lib"/>
+    <property name="commdef.dir" location="E:\project\game-server/commdef"/>
+    <property name="conf.dir" location="conf"/>
+    <property name="robots.dir" location="robots.txt"/>
+    <!-- 打包路口和打包文件-->
+    <property name="main-class" value="core.server.gamehall.GameHallAPP"/>
+    <property name="jar.file" value="build/gameHall.jar"/>
+    <!-- 子游戏列表 -->
+    <!--	<property name="game-list" value="DZPK,DDZ,HZMJ,WZMJ,FZMJ,NDMJ,SSS,ZJMJ,PDK,XYMJ,PTMJ,PXZZMJ,PX6GT,PX3GT,PX258MJ,GDY,WNMJ,WNYH,WNPDK,JSYZMJ,YXMJ,YXTDH,HBPDK,HBMJ,YTMJ,BDYXMJ,FQPLS,BDMJ,DYMJ,ZJPLS,YCMJ,PXCN,LPMJ,XLQMJ,FDMJ,PBYHMJ,TDHMJ,ZPMJ,LYMJ,AYMJ,YHZMJ,PNYHMJ,AYPDK,SGMJ,DX,NAMJ,YXLS,TZMJ,AYDSS,YXPDK,NHMJ,BW,PYPDK,TCMJ,QZMJ,ZZMJ,JXFZMJ,SSMJ,ZJQZMJ,PYPP,PYZHW,YGMJ,LPPDK,WL,JXFZPDK,HAMJ,FDDZ,CHMJ,XHMJ,ZJQZSK,JXFZGP,HNXYMJ,HBYXMJ,TWMJ,DLE,HNZZMJ,ZA16MJ,JNMJ,JMHHMJ,ERDDZ,PXPDK,TZKZMJ,TBZFBMJ,XHBBMJ,HNPDK,DCZBMJ,NYKWXMJ,ZA13MJ,DCWDMJ,DHD,LZMJ,SDFJMJ,NN,FJYXMJ,ZJJHMJ,BYZP,QDMJ,HNCSMJ,CTWSK,NPGZMJ,HSMJ,NPMJ,SDLYMJ,CZMJ,ZASS,SRMJ,BJPK,YZMJ,DCTS,SMMJ,XGKWXMJ" />-->
+    <property name="game-list"
+              value="SCJYMJ,HZMJ,DZPK,SCNJMJ,PDK,DDZ,ERDDZ,SG,FQPLS,NN,NJPDK,AYMJ,AYPDK"/>
+    <!--			  value="SCJYMJ,A3PK,AFMJ,AHHBMJ,AHHNMJ,AHMJ,AHPHZ,AK159MJ,AQMJ,ASMJ,AYCP,AYDSS,AYMJ,AYPDK,BAMJ,BDJHMJ,BDMJ,BDYXMJ,BFMJ,BJPK,BP,BSL,BSMJ,BW,BXMD,BYZP,BZMJ,BZP,BZPDK,BZQZMJ,BZTDH,CBDG,CCMJ,CDP,CDXZMJ,CHMJ,CNMJ,CP,CQCP,CaooSZMJ,CSMJ,CTPK,CTWSK,CXMJ,CXYXMJ,CYLYMJ,CZCZMJ,CZDZMJ,CZMJ,DCTS,DCWDMJ,DCZBMJ,DD,DDA,DDZ,DEMOMJ,DGLZ,DHD,DKGMJ,DLE,DLaooMJ,DNMJ,DPHMJ,DQDZ,DSMJ,DTLGFMJ,DTMJ,DX,DXBJMJ,DYMJ,DZMJ,DZPK,DZSJZMJ,DZZJ,EQW,ERDDZ,ESYD,FCGP,FCMJ,FCSJ,FCTDHMJ,FCZHA,FDDZ,FDMJ,FJYXMJ,FKBD,FQPLS,FQSBP,FXMJ,FYDDZMJ,FYMJ,FZGCMJ,FZJXMJ,FZMJ,GADDZ,GAMJ,GAPDK,GAST,GAWSK,GCBGMJ,GCMJ,GD,GDCZMJ,GDJYMJ,GDMJ,GDY,GFT258MJ,GJ,GJMJ,GLPP,GLQZMJ,GLSDH,GLWSK,GLZP,GNMJ,GSDDZ,GSJMJ,GSLZMJ,GSMJ,GSPDK,GXCDD,GXMJ,GYMJ,GYZJMJ,GZ,GZMJ,GZTH,HAMJ,HAXYMJ,HBHBMJ,HBMJ,HBPDK,HBTDHMJ,HBWHMJ,HBYXMJ,HCNG,HCPDK,HEBMJ,HFBZMJ,HFMJ,HHHGW,HHPDK,HJMJ,HLDMJ,HNAYMJ,HNCSMJ,HNDZP,HNHBMJ,HNJYMJ,HNJZMJ,HNMJ,HNPDK,HNPDSMJ,HNSYMJ,HNXCMJ,HNXYMJ,HNYJMJ,HNZZMJ,HSMJ,HSTDHMJ,HTMJ,HW,HYHSMJ,HYLYMJ,HZBDMJ,HZJDMJ,HZMJ,HZWMJ,JAMJ,JAPDK,JAWZ,JAYXDDZ,JAYXMJ,JCAHMJ,JCHHMJ,JCMJ,JDMJ,JDZMJ,JDZPDK,JDZTS,JJMJ,JLMJ,JLPK,JMGGHMJ,JMHHMJ,JMJSMJ,JMSKMJ,JNMJ,JSCZMJ,JSGYMJ,JSHAMJ,JSMJ,JSNYZMJ,JSSNMJ,JSSQMJ,JSTDHMJ,JSXYMJ,JSYCMJ,JSYZMJ,JTMJ,JTPDK,JXFZGP,JXFZMJ,JXFZPDK,JXHS,JXMJ,JXNDMJ,JXNDPDK,JXXYMJ,JXYZ,JYESSZ,JYMJ,JZMJ,JZWZMJ,KFMJ,KLMJ,KSMJ,LAMJ,LBHZMJ,LBMJ,LCMJ,LCZP,LFPHMJ,LGMJ,LHGMMJ,LHMJ,LHZP,LJWSK4,LKMJ,LKWSK,LLFYMJ,LNJZMJ,LNMJ,LNSYMJ,LPMJ,LPPDK,LPSMJ,LPTS,LS13579,LSKJJMJ,LSLWZMJ,LSMJ,LSXZMJ,LSYJMJ,LWMJ,LXMJ,LYGCMJ,LYGMJ,LYMJ,LZMJ,LZXZMJ,MASMJ,MMMJ,MSMJ,MYMJ,MZMJ,NAMJ,NBCXMJ,NBMJ,NCAYMJ,NCMJ,NDMJ,NHMJ,NJLHMJ,NJMJ,NKBHMJ,NMGYZMJ,NN,NPGZMJ,NPMJ,NTCP,NXKWMJ,NXMJ,NYKWXMJ,NYTHMJ,NYXXMJ,NZDL,NZMJ,NZWSK,PBYHMJ,PCMJ,PDK,PDSJXMJ,PDSLSMJ,PDSYXMJ,PHMJ,PNYHMJ,PT13MJ,PTMJ,PX258MJ,PX3GT,PX6GT,PXCN,PXMJ,PXPDK,PXPHZ,PXZZMJ,PY,PYDD,PYMJ,PYPDK,PYPP,PYSFT,PYZHW,PZMJ,QBSK,QCDG,QDBH,QDJT,QDMJ,QJFBBMJ,QJFXJMJ,QWWES,QXWQ,QYMJ,QYPHMJ,QZCSMJ,QZKHMJ,QZMJ,RBMJ,RCMJ,RCWSK,RCWSK3,RCWSK6,RGJAMJ,RJMJ,RQMJ,RXEW,RZMJ,SCDYMJ,SCGAMJ,SCGXMJ,SCMJ,SCNJMJ,SCPK,SD,SDB,SDFJMJ,SDH,SDHZMJ,SDJNMJ,SDLCMJ,SDLYMJ,SDZZMJ,SFPHMJ,SG,SGEW,SGLK,SGMJ,SHQMMJ,SJ,SJMS,SMMJ,SQMJ,SQSYMJ,SQYCMJ,SRDDZ,SRMJ,SSE,SSMJ,SSPMJ,SSS,SSTX,ST,STMJ,STSTMJ,SWMJ,SXHTMJ,SXLSMJ,SXMJ,SXMMJ,SXZJMJ,SYMJ,SYS,SYSYBP,SZD,SZMJ,TAMJ,TBHMJ,TBZFBMJ,TCMJ,TDHMJ,TGMJ,TGWSK,THBBZ,THGJMJ,THGZ,THJGL,THKB,TJMJ,TJTGMJ,TJTJMJ,TMHHMJ,TSDG,TTZ,TWGZ,TWMJ,TXMJ,TZJJMJ,TZKZMJ,TZMJ,TZPDK,WFBH,WGFHMJ,WHBH,WHMJ,WJMJ,WK,WL,WNMJ,WNPDK,WNYH,WSBEA,WSK,WXLS,WXMJ,WXZMMJ,WZMJ,WZQSMJ,XCMJ,XFGZMJ,XGKWXMJ,XGPDK,XHBBMJ,XHMJ,XHZMJ,XJBJMJ,XJLSHMJ,XJMJ,XJXZMJ,XL2VS2MJ,XLHZMJ,XLQMJ,XMMJ,XNMJ,XPLP,XPPHZ,XSDQ,XSMJ,XSY,XTLHMJ,XTMJ,XWMJ,XXFQMJ,XXMJ,XXTDHMJ,XYGSMJ,XYHCMJ,XYMJ,XYSCMJ,XYWSK,XYXMJ,XYXXMJ,XYXXPDK,XYZB,XZMJ,YBGXMJ,YCFXMJ,YCHP,YCMJ,YCSDR,YCSGMJ,YCTJMJ,YDDGMJ,YFCGMJ,YFMJ,YGJZMJ,YGLFL,YGMJ,YGPDK,YGWSK,YHMJ,YHZMJ,YJLYMJ,YJMJ,YJNXMJ,YKMJ,YLDGZMJ,YSDZ,YSMJ,YSZMJ,YTMJ,YTYJMJ,YXBZMJ,YXDDZ,YXLS,YXMJ,YXPDK,YXSRDDZ,YXTDH,YYMJ,YZCHZ,YZGYMJ,YZMJ,YZPDK,YZYZMJ,ZA13MJ,ZA16MJ,ZASS,ZCMJ,ZD,ZGCP,ZGDSS,ZGMJ,ZGQZMJ,ZGZ,ZJGMJ,ZJHZMJ,ZJJHMJ,ZJMJ,ZJPLS,ZJQZMJ,ZJQZSK,ZJSHZMJ,ZJTZMJ,ZJWZMJ,ZKLYMJ,ZKMJ,ZLMZ,ZMDMJ,ZPMJ,ZXMJ,ZYMJ,ZZDMZ,ZZMJ,ZZNSB,ZZPH"/>-->
+    <!--	&lt;!&ndash;			  value="HZMJ,DZPK,AYMJ,CDXZMJ,DDZ,ERDDZ,FQPLS,NN,PDK,SG"/>&ndash;&gt;-->
+    <path id="classpath">
+        <fileset dir="${lib.dir}">
+            <include name="**/*.jar"/>
+        </fileset>
+    </path>
+    <target name="clean" description="清理所有">
+        <delete dir="${build.dir}"/>
+        <echo level="info">构建开始</echo>
+    </target>
+    <!-- 循环复制子游戏到主目录 -->
+    <target name="copyGame">
+        <echo>${game}</echo>
+        <copy todir="${src.dir}">
+            <fileset dir="../${game}/src">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <!-- 复制依赖jar包，common和commdef，大厅代码,子游戏到主目录的编译目录build-->
+    <target name="init" depends="clean" description="初始化,建立目录,复制文件">
+        <mkdir dir="${build.dir}"/>
+        <mkdir dir="${classes.dir}"/>
+        <mkdir dir="${src.dir}"/>
+        <copy todir="${src.dir}">
+            <fileset dir=".">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+        <copy todir="${src.dir}">
+            <fileset dir="${commdef.dir}/src">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+        <copy todir="${src.dir}">
+            <fileset dir="${common.dir}/src">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+        <copy todir="${src.dir}">
+            <fileset dir="${gameserver.dir}/src">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+        <!--复制子游戏到主目录 -->
+        <foreach list="${game-list}" target="copyGame" param="game" delimiter=",">
+        </foreach>
+
+        <copy todir="${bconf.dir}">
+            <fileset dir="${conf.dir}"/>
+        </copy>
+        <copy file="${robots.dir}" todir="${build.dir}"/>
+        <echo level="info">前期创建复制完毕</echo>
+    </target>
+    <!-- 编译主目录的build-->
+    <target name="compile" depends="init" description="编译">
+        <javac includeantruntime="on" srcdir="${src.dir}" destdir="${classes.dir}" fork="true" memorymaximumsize="8192M"
+               classpathref="classpath" source="1.8" target="1.8" verbose="no" failonerror="on" debug="true">
+            <compilerarg line="-encoding UTF-8 -Xlint:unchecked "/>
+        </javac>
+        <echo level="info">编译完毕</echo>
+    </target>
+    <!-- 打包编译class文件成jar包-->
+    <target name="jar" depends="compile" description="打包类文件">
+        <!-- 剥离依赖jar包到lib里面，减少gameSever.jar的文件大小-->
+        <pathconvert property="mf.classpath" pathsep=" ">
+            <mapper>
+                <chainedmapper>
+                    <flattenmapper/>
+                    <globmapper from="*" to="lib/*"/>
+                </chainedmapper>
+            </mapper>
+            <path refid="classpath"/>
+        </pathconvert>
+        <!-- 打包gameServer.jar-->
+        <jar jarfile="${jar.file}">
+            <fileset dir="${classes.dir}" includes="**/*.*"/>
+            <manifest>
+                <attribute name="Main-Class" value="${main-class}"/>
+                <attribute name="Class-Path" value="${mf.classpath}"/>
+            </manifest>
+        </jar>
+        <!-- 复制生成build/lib-->
+        <copy todir="${tolib.dir}" flatten="true">
+            <fileset dir="${lib.dir}">
+                <include name="**/*.jar"/>
+                <type type="file"/>
+            </fileset>
+        </copy>
+        <echo level="info">打包完毕</echo>
+    </target>
+    <!-- 清理主目录的build底下的src和classes-->
+    <target name="end" depends="jar" description="清理,删除临时目录">
+        <delete dir="${classes.dir}"/>
+        <delete dir="${src.dir}"/>
+        <echo level="info">清理完毕</echo>
+    </target>
+    <!-- 创建zip -->
+    <target name="zip" depends="end" description="压缩lib和游戏以及配置">
+        <!-- 创建zip -->
+        <zip basedir="${build.dir}/conf" zipfile="${build.dir}/conf.zip"/>
+        <zip basedir="${build.dir}/lib" zipfile="${build.dir}/lib.zip"/>
+        <delete dir="${build.dir}/conf"/>
+        <delete dir="${build.dir}/lib"/>
+        <echo level="info">压缩lib和游戏以及配置完毕</echo>
+    </target>
+
+    <!--target name="run" depends="compile" description="运行">
+        <java classname="powerwind.Sample" fork="yes" dir="${basedir}">
+            <classpath refid="run.classpath" />
+            <arg line="1" />
+        </java>
+    </target-->
+</project>

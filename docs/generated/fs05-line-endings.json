@@ -1,0 +1,12 @@
+{
+  "task": "FS05",
+  "passed": true,
+  "policy": "LF",
+  "scannedTextFiles": 21770,
+  "crlfFiles": [
+
+  ],
+  "bareCarriageReturnFiles": [
+
+  ]
+}

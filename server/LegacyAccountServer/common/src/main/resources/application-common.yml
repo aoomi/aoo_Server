@@ -1,0 +1,33 @@
+#
+okhttp:
+  connect-timeout-ms: 50
+  read-timeout-ms: 50
+  write-timeout-ms: 50
+  max-idle: 50
+  keep-alive-duration-sec: 50
+
+
+
+# jedis 客户端
+redis:
+  host: 127.0.0.1
+  port: 6379
+  password: ${ACCOUNT_REDIS_PASSWORD:}
+  timeout : 30000
+  database: 0
+  jedis:
+    pool:
+      max-idle: 6
+      max-active: 32
+      max-wait : 100
+      min-idle : 4
+
+# redisson lock 单机模式
+redisson:
+  address: redis://127.0.0.1:6379
+  password: ${ACCOUNT_REDIS_PASSWORD:}
+
+#哨兵模式
+#redisson.master-name= master
+#redisson.password=
+#redisson.sentinel-addresses=10.47.91.83:26379,10.47.91.83:26380,10.47.91.83:26381

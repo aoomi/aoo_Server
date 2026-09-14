@@ -1,0 +1,425 @@
+{
+  "schemaVersion": 1,
+  "gamesTs": 30,
+  "compatibilityTs": 312,
+  "concreteGamesInCommon": [
+    {
+      "code": "aqmj",
+      "expected": {
+        "category": "MAHJONG",
+        "family": "mahjong-standard"
+      },
+      "commonTs": 13,
+      "gamesMatches": [
+
+      ]
+    },
+    {
+      "code": "bdjhmj",
+      "expected": {
+        "category": "MAHJONG",
+        "family": "mahjong-standard"
+      },
+      "commonTs": 13,
+      "gamesMatches": [
+
+      ]
+    },
+    {
+      "code": "bamj",
+      "expected": {
+        "category": "MAHJONG",
+        "family": "mahjong-lai-zi"
+      },
+      "commonTs": 13,
+      "gamesMatches": [
+
+      ]
+    },
+    {
+      "code": "aypdk",
+      "expected": {
+        "category": "POKER",
+        "family": "poker-pao-de-kuai"
+      },
+      "commonTs": 20,
+      "gamesMatches": [
+
+      ]
+    },
+    {
+      "code": "ak159mj",
+      "expected": {
+        "category": "MAHJONG",
+        "family": "mahjong-lai-zi"
+      },
+      "commonTs": 13,
+      "gamesMatches": [
+
+      ]
+    },
+    {
+      "code": "hzmj",
+      "expected": {
+        "category": "MAHJONG",
+        "family": "mahjong-standard"
+      },
+      "commonTs": 14,
+      "gamesMatches": [
+        "assets/Games/Mahjong/Packs/Pack01/Spine/Legacy/hzmj-source",
+        "assets/Games/Mahjong/Packs/Pack01/Spine/Legacy/hzmj-source.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Config/Legacy/hzmj-source",
+        "assets/Games/Mahjong/Packs/Pack01/Config/Legacy/hzmj-source.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Code/Runtime/hzmj.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Code/Runtime/hzmj",
+        "assets/Games/Mahjong/Packs/Pack01/Code/Runtime/hzmj/HzmjReplayController.ts.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Code/Runtime/hzmj/HzmjRuntime.ts",
+        "assets/Games/Mahjong/Packs/Pack01/Code/Runtime/hzmj/HzmjPlayStateController.ts.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Code/Runtime/hzmj/HzmjPlayView.ts",
+        "assets/Games/Mahjong/Packs/Pack01/Code/Runtime/hzmj/HzmjSceneBootstrap.ts.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Code/Runtime/hzmj/network/HzmjNetworkAdapter.ts.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Code/Runtime/hzmj/network/HzmjNetworkAdapter.ts",
+        "assets/Games/Mahjong/Packs/Pack01/Code/Runtime/hzmj/HzmjPlayStateController.ts",
+        "assets/Games/Mahjong/Packs/Pack01/Code/Runtime/hzmj/HzmjSceneBootstrap.ts",
+        "assets/Games/Mahjong/Packs/Pack01/Code/Runtime/hzmj/HzmjPlayView.ts.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Code/Runtime/hzmj/HzmjRuntime.ts.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Code/Runtime/hzmj/HzmjTableController.ts.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Code/Runtime/hzmj/HzmjSwitchCoordinator.ts.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Code/Runtime/hzmj/HzmjReplayController.ts",
+        "assets/Games/Mahjong/Packs/Pack01/Code/Runtime/hzmj/model/LegacyHzmjSetPosition.ts.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Code/Runtime/hzmj/model/LegacyHzmjRoomPositionManager.ts",
+        "assets/Games/Mahjong/Packs/Pack01/Code/Runtime/hzmj/model/LegacyHzmjRoomPositionManager.ts.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Code/Runtime/hzmj/model/LegacyHzmjRoomSet.ts",
+        "assets/Games/Mahjong/Packs/Pack01/Code/Runtime/hzmj/model/LegacyHzmjSetPosition.ts",
+        "assets/Games/Mahjong/Packs/Pack01/Code/Runtime/hzmj/model/LegacyHzmjRoomManager.ts.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Code/Runtime/hzmj/model/LegacyHzmjRoom.ts",
+        "assets/Games/Mahjong/Packs/Pack01/Code/Runtime/hzmj/model/LegacyHzmjRoom.ts.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Code/Runtime/hzmj/model/LegacyHzmjRoomManager.ts",
+        "assets/Games/Mahjong/Packs/Pack01/Code/Runtime/hzmj/model/LegacyHzmjRoomSet.ts.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Code/Runtime/hzmj/HzmjTableController.ts",
+        "assets/Games/Mahjong/Packs/Pack01/Code/Runtime/hzmj/HzmjSwitchCoordinator.ts",
+        "assets/Games/Mahjong/Packs/Pack01/Audio/Legacy/hzmj-source",
+        "assets/Games/Mahjong/Packs/Pack01/Audio/Legacy/hzmj-source.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/ui/HZMJXYCard03.prefab.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/ui/HZMJYXPlay.prefab",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/ui/HZMJWZCard02.prefab.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/ui/HZMJYXCard01.prefab.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/ui/HZMJWZCard02.prefab",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/ui/HZMJHuPai.prefab.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/ui/HZMJVideo.prefab.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/ui/HZMJXYCard04.prefab",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/ui/HZMJXYPlay.prefab",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/ui/HZMJYXCard03.prefab",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/ui/HZMJYXCard01.prefab",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/ui/HZMJYXCard04.prefab.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/ui/HZMJCard03.prefab.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/ui/HZMJXYCard02.prefab",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/ui/HZMJWZCard04.prefab.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/ui/HZMJPlay.prefab.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/ui/HZMJWZCard04.prefab",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/ui/HZMJCard03.prefab",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/ui/HZMJWZPlay.prefab.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/ui/HZMJYXCard02.prefab.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/ui/HZMJWZCard01.prefab.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/ui/HZMJCard01.prefab",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/ui/HZMJVideo.prefab",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/ui/HZMJCard02.prefab.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/ui/HZMJYXCard02.prefab",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/ui/HZMJHuPai.prefab",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/ui/HZMJWZCard03.prefab",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/ui/HZMJCard04.prefab",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/ui/HZMJWZPlay.prefab",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/ui/HZMJWZCard03.prefab.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/ui/HZMJXYCard02.prefab.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/ui/HZMJWZCard01.prefab",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/ui/HZMJXYCard01.prefab.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/ui/HZMJPlay.prefab",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/ui/HZMJYXCard03.prefab.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/ui/HZMJCard04.prefab.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/ui/HZMJCard02.prefab",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/ui/HZMJXYPlay.prefab.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/ui/HZMJXYCard03.prefab",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/ui/HZMJYXCard04.prefab",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/ui/HZMJXYCard01.prefab",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/ui/HZMJXYCard04.prefab.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/ui/HZMJCard01.prefab.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/ui/HZMJYXPlay.prefab.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/scenes/hzmjVideoScene.scene.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/scenes/hzmjLaunchScene.scene.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/scenes/hzmjScene.scene.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/scenes/hzmjLoginScene.scene",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/scenes/hzmjMainScene.scene",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/scenes/hzmjScene.scene",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/scenes/hzmjLaunchScene.scene",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/scenes/hzmjVideoScene.scene",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/scenes/hzmjLoginScene.scene.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/scenes/hzmjMainScene.scene.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/common/ui/hzmj_UIMessage02.prefab.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/common/ui/hzmj_ToggleGroup2Item.prefab",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/common/ui/hzmj_UISetting02.prefab.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/common/ui/hzmj_giftPrefab.prefab",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/common/ui/hzmj_UIMessage03.prefab",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/common/ui/hzmj_UIJoin.prefab.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/common/ui/hzmj_UITop.prefab.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/common/ui/hzmj_UIMain.prefab",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/common/ui/hzmj_UIMessageTip.prefab",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/common/ui/hzmj_UIPractice.prefab.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/common/ui/hzmj_UIMessage_Drift.prefab",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/common/ui/hzmj_UIMain.prefab.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/common/ui/hzmj_UIChat.prefab",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/common/ui/hzmj_UIRoomCopy.prefab",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/common/ui/hzmj_UIPractice.prefab",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/common/ui/hzmj_ToggleGroup2Item.prefab.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/common/ui/hzmj_UIMessageTip.prefab.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/common/ui/hzmj_UINoticeBar.prefab",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/common/ui/hzmj_UIWaitForm.prefab.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/common/ui/hzmj_UILogin.prefab.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/common/ui/hzmj_UIAudio.prefab",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/common/ui/hzmj_UIUserInfo.prefab",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/common/ui/hzmj_UICreatRoom.prefab",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/common/ui/hzmj_UITop.prefab",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/common/ui/hzmj_UIUserInfo.prefab.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/common/ui/hzmj_UIJoin.prefab",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/common/ui/hzmj_giftPrefab.prefab.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/common/ui/hzmj_UIChat.prefab.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/common/ui/hzmj_UINoticeBar.prefab.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/common/ui/hzmj_UIMessage_Drift.prefab.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/common/ui/hzmj_UIWaitForm.prefab",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/common/ui/hzmj_UIMessageJoin.prefab",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/common/ui/hzmj_UIMessage.prefab.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/common/ui/hzmj_UIMessage02.prefab",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/common/ui/hzmj_UIMessage03.prefab.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/common/ui/hzmj_UICreatRoom.prefab.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/common/ui/hzmj_UIRoomCopy.prefab.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/common/ui/hzmj_UIMessage.prefab",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/common/ui/hzmj_UIMessageJoin.prefab.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/common/ui/hzmj_UIGPSLoation.prefab.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/common/ui/hzmj_UIAutoPlay.prefab.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/common/ui/hzmj_UIGameHelp.prefab",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/common/ui/hzmj_UILogin.prefab",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/common/ui/hzmj_UISetting02.prefab",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/common/ui/hzmj_UIGPSLoation.prefab",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/common/ui/hzmj_UIAutoPlay.prefab",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/common/ui/hzmj_UIGameHelp.prefab.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/common/ui/hzmj_UIAudio.prefab.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/common/texture/ui/hzmj_record.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/common/texture/ui/hzmj_record",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/base/hzmj_kehuPrefab.prefab.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/base/hzmj_nd_out03.prefab.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/base/hzmj_UIMJKeHu.prefab",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/base/hzmj_UIPublicHeadXY.prefab",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/base/hzmj_UIMJResultDetailYX.prefab",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/base/hzmj_UIChooseCard.prefab.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/base/hzmj_UIMJResultDetailYX.prefab.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/base/hzmj_UIMJWinLost.prefab",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/base/hzmj_UIPublicHeadXY.prefab.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/base/hzmj_UIPublicHeadWZ.prefab",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/base/hzmj_nd_out04.prefab",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/base/hzmj_UIMJWinLost.prefab.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/base/hzmj_UIMJZhaMaXY.prefab.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/base/hzmj_UIMJKeHuYX.prefab",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/base/hzmj_UIMJWinLostYX.prefab",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/base/hzmj_UIMJKeHuYX.prefab.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/base/hzmj_UIPublicHead.prefab",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/base/hzmj_UIChooseChiWZ.prefab",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/base/hzmj_UIChooseGangWZ.prefab.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/base/hzmj_winlost_child_guangze.prefab.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/base/hzmj_UIMJKeHu.prefab.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/base/hzmj_UIMJWinLostXY.prefab.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/base/hzmj_UIChooseChiWZ.prefab.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/base/hzmj_nd_out02.prefab",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/base/hzmj_UIMJResultDetailWZ.prefab.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/base/hzmj_UIMJResultDetail.prefab.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/base/hzmj_UIMJWinLostWZ.prefab",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/base/hzmj_UIPublicHeadYX.prefab.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/base/hzmj_UIChooseGangWZ.prefab",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/base/hzmj_UIMJWinLostWZ.prefab.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/base/hzmj_UIInvitation.prefab.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/base/hzmj_UIMJWinLostXY.prefab",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/base/hzmj_UIMJXiPai.prefab",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/base/hzmj_UIInvitation.prefab",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/base/hzmj_UIMJResultDetailXY.prefab.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/base/hzmj_UIPublicHeadYX.prefab",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/base/hzmj_UIMJResultDetailXY.prefab",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/base/hzmj_kehuPrefab.prefab",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/base/hzmj_UIPublicHead.prefab.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/base/hzmj_UIMJResultDetailWZ.prefab",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/base/hzmj_UIMJResultDetail.prefab",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/base/hzmj_nd_out02.prefab.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/base/hzmj_nd_out01.prefab.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/base/hzmj_UIMJXiPai.prefab.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/base/hzmj_UIMJHuPai.prefab.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/base/hzmj_nd_out01.prefab",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/base/hzmj_UIMJZhaMa.prefab.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/base/hzmj_UIMJHuPai.prefab",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/base/hzmj_nd_out03.prefab",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/base/hzmj_UIMJZhaMaXY.prefab",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/base/hzmj_UIMJWinLostYX.prefab.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/base/hzmj_UIMJZhaMa.prefab",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/base/hzmj_UIChooseChi.prefab",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/base/hzmj_UIChooseChi.prefab.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/base/hzmj_winlost_child_guangze.prefab",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/base/hzmj_UIChooseCard.prefab",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/base/hzmj_nd_out04.prefab.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/base/hzmj_UIPublicHeadWZ.prefab.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Font/Legacy/hzmj-source",
+        "assets/Games/Mahjong/Packs/Pack01/Font/Legacy/hzmj-source/texture/ui/hzmj_UIJoin",
+        "assets/Games/Mahjong/Packs/Pack01/Font/Legacy/hzmj-source/texture/ui/hzmj_UIJoin.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Font/Legacy/hzmj-source.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Atlas/Legacy/hzmj-source",
+        "assets/Games/Mahjong/Packs/Pack01/Atlas/Legacy/hzmj-source/texture/ui/hzmj_UIUserInfo",
+        "assets/Games/Mahjong/Packs/Pack01/Atlas/Legacy/hzmj-source/texture/ui/hzmj_UIGameHelp.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Atlas/Legacy/hzmj-source/texture/ui/hzmj_roomcopy.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Atlas/Legacy/hzmj-source/texture/ui/hzmj_gps.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Atlas/Legacy/hzmj-source/texture/ui/hzmj_UIUserInfo.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Atlas/Legacy/hzmj-source/texture/ui/hzmj_setting.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Atlas/Legacy/hzmj-source/texture/ui/hzmj_UIGameHelp",
+        "assets/Games/Mahjong/Packs/Pack01/Atlas/Legacy/hzmj-source/texture/ui/hzmj_Audio",
+        "assets/Games/Mahjong/Packs/Pack01/Atlas/Legacy/hzmj-source/texture/ui/hzmj_UIMessage.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Atlas/Legacy/hzmj-source/texture/ui/hzmj_UIJoin",
+        "assets/Games/Mahjong/Packs/Pack01/Atlas/Legacy/hzmj-source/texture/ui/hzmj_UIMain.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Atlas/Legacy/hzmj-source/texture/ui/hzmj_practice.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Atlas/Legacy/hzmj-source/texture/ui/hzmj_UIMessage02.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Atlas/Legacy/hzmj-source/texture/ui/hzmj_play.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Atlas/Legacy/hzmj-source/texture/ui/hzmj_UIMessage",
+        "assets/Games/Mahjong/Packs/Pack01/Atlas/Legacy/hzmj-source/texture/ui/hzmj_chat",
+        "assets/Games/Mahjong/Packs/Pack01/Atlas/Legacy/hzmj-source/texture/ui/hzmj_UIMessage02",
+        "assets/Games/Mahjong/Packs/Pack01/Atlas/Legacy/hzmj-source/texture/ui/hzmj_practice",
+        "assets/Games/Mahjong/Packs/Pack01/Atlas/Legacy/hzmj-source/texture/ui/hzmj_record.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Atlas/Legacy/hzmj-source/texture/ui/hzmj_UICreateRoom.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Atlas/Legacy/hzmj-source/texture/ui/hzmj_play",
+        "assets/Games/Mahjong/Packs/Pack01/Atlas/Legacy/hzmj-source/texture/ui/hzmj_chat.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Atlas/Legacy/hzmj-source/texture/ui/hzmj_UILogin.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Atlas/Legacy/hzmj-source/texture/ui/hzmj_setting",
+        "assets/Games/Mahjong/Packs/Pack01/Atlas/Legacy/hzmj-source/texture/ui/hzmj_roomcopy",
+        "assets/Games/Mahjong/Packs/Pack01/Atlas/Legacy/hzmj-source/texture/ui/hzmj_UIMain",
+        "assets/Games/Mahjong/Packs/Pack01/Atlas/Legacy/hzmj-source/texture/ui/hzmj_UIJoin.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Atlas/Legacy/hzmj-source/texture/ui/hzmj_record",
+        "assets/Games/Mahjong/Packs/Pack01/Atlas/Legacy/hzmj-source/texture/ui/hzmj_gps",
+        "assets/Games/Mahjong/Packs/Pack01/Atlas/Legacy/hzmj-source/texture/ui/hzmj_UILogin",
+        "assets/Games/Mahjong/Packs/Pack01/Atlas/Legacy/hzmj-source/texture/ui/hzmj_Audio.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Atlas/Legacy/hzmj-source/texture/ui/hzmj_UICreateRoom",
+        "assets/Games/Mahjong/Packs/Pack01/Atlas/Legacy/hzmj-source/texture/game/XY/winlost/img_t_hzmj.png",
+        "assets/Games/Mahjong/Packs/Pack01/Atlas/Legacy/hzmj-source/texture/game/XY/winlost/img_t_hzmj.png.meta",
+        "assets/Games/Mahjong/Packs/Pack01/Atlas/Legacy/hzmj-source.meta"
+      ]
+    },
+    {
+      "code": "ahhnmj",
+      "expected": {
+        "category": "MAHJONG",
+        "family": "mahjong-standard"
+      },
+      "commonTs": 13,
+      "gamesMatches": [
+
+      ]
+    },
+    {
+      "code": "asmj",
+      "expected": {
+        "category": "MAHJONG",
+        "family": "mahjong-lai-zi"
+      },
+      "commonTs": 13,
+      "gamesMatches": [
+
+      ]
+    },
+    {
+      "code": "aymj",
+      "expected": {
+        "category": "MAHJONG",
+        "family": "mahjong-xue-zhan"
+      },
+      "commonTs": 13,
+      "gamesMatches": [
+
+      ]
+    },
+    {
+      "code": "bdmj",
+      "expected": {
+        "category": "MAHJONG",
+        "family": "mahjong-tui-dao-hu"
+      },
+      "commonTs": 6,
+      "gamesMatches": [
+
+      ]
+    },
+    {
+      "code": "a3pk",
+      "expected": {
+        "category": "POKER",
+        "family": "poker-pao-de-kuai"
+      },
+      "commonTs": 11,
+      "gamesMatches": [
+
+      ]
+    },
+    {
+      "code": "aydss",
+      "expected": {
+        "category": "LONG_CARD",
+        "family": "long-card-regional"
+      },
+      "commonTs": 11,
+      "gamesMatches": [
+
+      ]
+    },
+    {
+      "code": "aycp",
+      "expected": {
+        "category": "LONG_CARD",
+        "family": "long-card-regional"
+      },
+      "commonTs": 11,
+      "gamesMatches": [
+
+      ]
+    },
+    {
+      "code": "ahmj",
+      "expected": {
+        "category": "MAHJONG",
+        "family": "mahjong-standard"
+      },
+      "commonTs": 13,
+      "gamesMatches": [
+
+      ]
+    },
+    {
+      "code": "afmj",
+      "expected": {
+        "category": "MAHJONG",
+        "family": "mahjong-lai-zi"
+      },
+      "commonTs": 13,
+      "gamesMatches": [
+
+      ]
+    },
+    {
+      "code": "ahhbmj",
+      "expected": {
+        "category": "MAHJONG",
+        "family": "mahjong-standard"
+      },
+      "commonTs": 13,
+      "gamesMatches": [
+
+      ]
+    }
+  ],
+  "checks": {
+    "allConcreteGamesUnderGames": false,
+    "categoryAlignment": false
+  },
+  "verdict": "blocked-game-code-placement"
+}

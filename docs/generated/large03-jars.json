@@ -1,0 +1,325 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-24T10:40:47Z",
+  "task": "LARGE03",
+  "passed": false,
+  "largeJarThresholdBytes": 5242880,
+  "largeJars": [
+    {
+      "path": "server/Bootstrap/target/runtime/lib/grpc-netty-shaded-1.53.0.jar",
+      "bytes": 9342610,
+      "sha256": "516f3879970d5526af4651d220d2b776f370ecdeb0bd9f6badbe4be88692fea2",
+      "zone": "maven-output"
+    },
+    {
+      "path": "server/Bootstrap/target/runtime/lib/rocketmq-rocksdb-1.0.6.jar",
+      "bytes": 34221488,
+      "sha256": "28944d11fd6e5216b6275eb51eedd253c7f521e565ba44008fe2e5cdca4498a0",
+      "zone": "maven-output"
+    },
+    {
+      "path": "server/Bootstrap/target/runtime/lib/zstd-jni-1.5.2-2.jar",
+      "bytes": 5396193,
+      "sha256": "fedeb4c59d9593e84bc0b1cca30c90da7f3452e78d3a1b9d5dd7370efc474b1d",
+      "zone": "maven-output"
+    },
+    {
+      "path": "server/CDXZMJ/target/runtime/lib/grpc-netty-shaded-1.53.0.jar",
+      "bytes": 9342610,
+      "sha256": "516f3879970d5526af4651d220d2b776f370ecdeb0bd9f6badbe4be88692fea2",
+      "zone": "maven-output"
+    },
+    {
+      "path": "server/CDXZMJ/target/runtime/lib/rocketmq-rocksdb-1.0.6.jar",
+      "bytes": 34221488,
+      "sha256": "28944d11fd6e5216b6275eb51eedd253c7f521e565ba44008fe2e5cdca4498a0",
+      "zone": "maven-output"
+    },
+    {
+      "path": "server/CDXZMJ/target/runtime/lib/zstd-jni-1.5.2-2.jar",
+      "bytes": 5396193,
+      "sha256": "fedeb4c59d9593e84bc0b1cca30c90da7f3452e78d3a1b9d5dd7370efc474b1d",
+      "zone": "maven-output"
+    },
+    {
+      "path": "server/GameCommon/target/runtime/lib/grpc-netty-shaded-1.53.0.jar",
+      "bytes": 9342610,
+      "sha256": "516f3879970d5526af4651d220d2b776f370ecdeb0bd9f6badbe4be88692fea2",
+      "zone": "maven-output"
+    },
+    {
+      "path": "server/GameCommon/target/runtime/lib/rocketmq-rocksdb-1.0.6.jar",
+      "bytes": 34221488,
+      "sha256": "28944d11fd6e5216b6275eb51eedd253c7f521e565ba44008fe2e5cdca4498a0",
+      "zone": "maven-output"
+    },
+    {
+      "path": "server/GameCommon/target/runtime/lib/zstd-jni-1.5.2-2.jar",
+      "bytes": 5396193,
+      "sha256": "fedeb4c59d9593e84bc0b1cca30c90da7f3452e78d3a1b9d5dd7370efc474b1d",
+      "zone": "maven-output"
+    },
+    {
+      "path": "server/Games/target/runtime/lib/grpc-netty-shaded-1.53.0.jar",
+      "bytes": 9342610,
+      "sha256": "516f3879970d5526af4651d220d2b776f370ecdeb0bd9f6badbe4be88692fea2",
+      "zone": "maven-output"
+    },
+    {
+      "path": "server/Games/target/runtime/lib/rocketmq-rocksdb-1.0.6.jar",
+      "bytes": 34221488,
+      "sha256": "28944d11fd6e5216b6275eb51eedd253c7f521e565ba44008fe2e5cdca4498a0",
+      "zone": "maven-output"
+    },
+    {
+      "path": "server/Games/target/runtime/lib/zstd-jni-1.5.2-2.jar",
+      "bytes": 5396193,
+      "sha256": "fedeb4c59d9593e84bc0b1cca30c90da7f3452e78d3a1b9d5dd7370efc474b1d",
+      "zone": "maven-output"
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/grpc-netty-shaded-1.80.0.jar",
+      "bytes": 10724556,
+      "sha256": "331d182ea3b7e2cb2f2442b94bf572a70856b5883a16ea8ebf74d76c0f4c00a8",
+      "zone": "unclassified"
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/hibernate-core-7.4.1.Final.jar",
+      "bytes": 15258514,
+      "sha256": "e4bfe7df423f3555f322eefb1ab51f28df439844610ef76c36d92a85d483004e",
+      "zone": "unclassified"
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/rocketmq-rocksdb-1.0.6.jar",
+      "bytes": 34221488,
+      "sha256": "28944d11fd6e5216b6275eb51eedd253c7f521e565ba44008fe2e5cdca4498a0",
+      "zone": "unclassified"
+    },
+    {
+      "path": "server/LegacyAccountServer/package_hall/target/lib/zstd-jni-1.5.2-2.jar",
+      "bytes": 5396193,
+      "sha256": "fedeb4c59d9593e84bc0b1cca30c90da7f3452e78d3a1b9d5dd7370efc474b1d",
+      "zone": "unclassified"
+    },
+    {
+      "path": "server/LegacyGameHall/target/runtime/lib/grpc-netty-shaded-1.53.0.jar",
+      "bytes": 9342610,
+      "sha256": "516f3879970d5526af4651d220d2b776f370ecdeb0bd9f6badbe4be88692fea2",
+      "zone": "maven-output"
+    },
+    {
+      "path": "server/LegacyGameHall/target/runtime/lib/rocketmq-rocksdb-1.0.6.jar",
+      "bytes": 34221488,
+      "sha256": "28944d11fd6e5216b6275eb51eedd253c7f521e565ba44008fe2e5cdca4498a0",
+      "zone": "maven-output"
+    },
+    {
+      "path": "server/LegacyGameHall/target/runtime/lib/zstd-jni-1.5.2-2.jar",
+      "bytes": 5396193,
+      "sha256": "fedeb4c59d9593e84bc0b1cca30c90da7f3452e78d3a1b9d5dd7370efc474b1d",
+      "zone": "maven-output"
+    },
+    {
+      "path": "server/NJPDK/target/runtime/lib/grpc-netty-shaded-1.53.0.jar",
+      "bytes": 9342610,
+      "sha256": "516f3879970d5526af4651d220d2b776f370ecdeb0bd9f6badbe4be88692fea2",
+      "zone": "maven-output"
+    },
+    {
+      "path": "server/NJPDK/target/runtime/lib/rocketmq-rocksdb-1.0.6.jar",
+      "bytes": 34221488,
+      "sha256": "28944d11fd6e5216b6275eb51eedd253c7f521e565ba44008fe2e5cdca4498a0",
+      "zone": "maven-output"
+    },
+    {
+      "path": "server/NJPDK/target/runtime/lib/zstd-jni-1.5.2-2.jar",
+      "bytes": 5396193,
+      "sha256": "fedeb4c59d9593e84bc0b1cca30c90da7f3452e78d3a1b9d5dd7370efc474b1d",
+      "zone": "maven-output"
+    },
+    {
+      "path": "server/SCJYMJ/target/runtime/lib/grpc-netty-shaded-1.53.0.jar",
+      "bytes": 9342610,
+      "sha256": "516f3879970d5526af4651d220d2b776f370ecdeb0bd9f6badbe4be88692fea2",
+      "zone": "maven-output"
+    },
+    {
+      "path": "server/SCJYMJ/target/runtime/lib/rocketmq-rocksdb-1.0.6.jar",
+      "bytes": 34221488,
+      "sha256": "28944d11fd6e5216b6275eb51eedd253c7f521e565ba44008fe2e5cdca4498a0",
+      "zone": "maven-output"
+    },
+    {
+      "path": "server/SCJYMJ/target/runtime/lib/zstd-jni-1.5.2-2.jar",
+      "bytes": 5396193,
+      "sha256": "fedeb4c59d9593e84bc0b1cca30c90da7f3452e78d3a1b9d5dd7370efc474b1d",
+      "zone": "maven-output"
+    },
+    {
+      "path": "server/XCPDK/target/runtime/lib/grpc-netty-shaded-1.53.0.jar",
+      "bytes": 9342610,
+      "sha256": "516f3879970d5526af4651d220d2b776f370ecdeb0bd9f6badbe4be88692fea2",
+      "zone": "maven-output"
+    },
+    {
+      "path": "server/XCPDK/target/runtime/lib/rocketmq-rocksdb-1.0.6.jar",
+      "bytes": 34221488,
+      "sha256": "28944d11fd6e5216b6275eb51eedd253c7f521e565ba44008fe2e5cdca4498a0",
+      "zone": "maven-output"
+    },
+    {
+      "path": "server/XCPDK/target/runtime/lib/zstd-jni-1.5.2-2.jar",
+      "bytes": 5396193,
+      "sha256": "fedeb4c59d9593e84bc0b1cca30c90da7f3452e78d3a1b9d5dd7370efc474b1d",
+      "zone": "maven-output"
+    },
+    {
+      "path": "server/ZJH/target/runtime/lib/grpc-netty-shaded-1.53.0.jar",
+      "bytes": 9342610,
+      "sha256": "516f3879970d5526af4651d220d2b776f370ecdeb0bd9f6badbe4be88692fea2",
+      "zone": "maven-output"
+    },
+    {
+      "path": "server/ZJH/target/runtime/lib/rocketmq-rocksdb-1.0.6.jar",
+      "bytes": 34221488,
+      "sha256": "28944d11fd6e5216b6275eb51eedd253c7f521e565ba44008fe2e5cdca4498a0",
+      "zone": "maven-output"
+    },
+    {
+      "path": "server/ZJH/target/runtime/lib/zstd-jni-1.5.2-2.jar",
+      "bytes": 5396193,
+      "sha256": "fedeb4c59d9593e84bc0b1cca30c90da7f3452e78d3a1b9d5dd7370efc474b1d",
+      "zone": "maven-output"
+    },
+    {
+      "path": "server/ZYPK/target/runtime/lib/grpc-netty-shaded-1.53.0.jar",
+      "bytes": 9342610,
+      "sha256": "516f3879970d5526af4651d220d2b776f370ecdeb0bd9f6badbe4be88692fea2",
+      "zone": "maven-output"
+    },
+    {
+      "path": "server/ZYPK/target/runtime/lib/rocketmq-rocksdb-1.0.6.jar",
+      "bytes": 34221488,
+      "sha256": "28944d11fd6e5216b6275eb51eedd253c7f521e565ba44008fe2e5cdca4498a0",
+      "zone": "maven-output"
+    },
+    {
+      "path": "server/ZYPK/target/runtime/lib/zstd-jni-1.5.2-2.jar",
+      "bytes": 5396193,
+      "sha256": "fedeb4c59d9593e84bc0b1cca30c90da7f3452e78d3a1b9d5dd7370efc474b1d",
+      "zone": "maven-output"
+    },
+    {
+      "path": "server/gameServer/target/runtime/lib/grpc-netty-shaded-1.53.0.jar",
+      "bytes": 9342610,
+      "sha256": "516f3879970d5526af4651d220d2b776f370ecdeb0bd9f6badbe4be88692fea2",
+      "zone": "maven-output"
+    },
+    {
+      "path": "server/gameServer/target/runtime/lib/rocketmq-rocksdb-1.0.6.jar",
+      "bytes": 34221488,
+      "sha256": "28944d11fd6e5216b6275eb51eedd253c7f521e565ba44008fe2e5cdca4498a0",
+      "zone": "maven-output"
+    },
+    {
+      "path": "server/gameServer/target/runtime/lib/zstd-jni-1.5.2-2.jar",
+      "bytes": 5396193,
+      "sha256": "fedeb4c59d9593e84bc0b1cca30c90da7f3452e78d3a1b9d5dd7370efc474b1d",
+      "zone": "maven-output"
+    },
+    {
+      "path": "work/audit/cp12-m2/com/github/luben/zstd-jni/1.5.2-2/zstd-jni-1.5.2-2.jar",
+      "bytes": 5396193,
+      "sha256": "fedeb4c59d9593e84bc0b1cca30c90da7f3452e78d3a1b9d5dd7370efc474b1d",
+      "zone": "work-evidence-or-quarantine"
+    },
+    {
+      "path": "work/audit/cp12-m2/com/github/luben/zstd-jni/1.5.7-6/zstd-jni-1.5.7-6.jar",
+      "bytes": 7404108,
+      "sha256": "8d6feb1da335f3ab13c584c613e23c7b3c61b392e37956872057baf8f0ca1d6f",
+      "zone": "work-evidence-or-quarantine"
+    },
+    {
+      "path": "work/audit/cp12-m2/com/github/luben/zstd-jni/1.5.7-9/zstd-jni-1.5.7-9.jar",
+      "bytes": 7569779,
+      "sha256": "087d02f39a46ab79b18f883ac7c3a3d6c2df1fd3bf7eaafeade699e0743d0dbe",
+      "zone": "work-evidence-or-quarantine"
+    },
+    {
+      "path": "work/audit/cp12-m2/io/grpc/grpc-netty-shaded/1.53.0/grpc-netty-shaded-1.53.0.jar",
+      "bytes": 9342610,
+      "sha256": "516f3879970d5526af4651d220d2b776f370ecdeb0bd9f6badbe4be88692fea2",
+      "zone": "work-evidence-or-quarantine"
+    },
+    {
+      "path": "work/audit/cp12-m2/org/apache/rocketmq/rocketmq-rocksdb/1.0.6/rocketmq-rocksdb-1.0.6.jar",
+      "bytes": 34221488,
+      "sha256": "28944d11fd6e5216b6275eb51eedd253c7f521e565ba44008fe2e5cdca4498a0",
+      "zone": "work-evidence-or-quarantine"
+    },
+    {
+      "path": "work/build06/39913/repo-1/com/github/luben/zstd-jni/1.5.7-6/zstd-jni-1.5.7-6.jar",
+      "bytes": 7404108,
+      "sha256": "8d6feb1da335f3ab13c584c613e23c7b3c61b392e37956872057baf8f0ca1d6f",
+      "zone": "work-evidence-or-quarantine"
+    },
+    {
+      "path": "work/build06/39913/repo-1/com/github/luben/zstd-jni/1.5.7-9/zstd-jni-1.5.7-9.jar",
+      "bytes": 7569779,
+      "sha256": "087d02f39a46ab79b18f883ac7c3a3d6c2df1fd3bf7eaafeade699e0743d0dbe",
+      "zone": "work-evidence-or-quarantine"
+    },
+    {
+      "path": "work/build06/39913/repo-2/com/github/luben/zstd-jni/1.5.7-6/zstd-jni-1.5.7-6.jar",
+      "bytes": 7404108,
+      "sha256": "8d6feb1da335f3ab13c584c613e23c7b3c61b392e37956872057baf8f0ca1d6f",
+      "zone": "work-evidence-or-quarantine"
+    },
+    {
+      "path": "work/build06/39913/repo-2/com/github/luben/zstd-jni/1.5.7-9/zstd-jni-1.5.7-9.jar",
+      "bytes": 7569779,
+      "sha256": "087d02f39a46ab79b18f883ac7c3a3d6c2df1fd3bf7eaafeade699e0743d0dbe",
+      "zone": "work-evidence-or-quarantine"
+    },
+    {
+      "path": "work/quarantine/third10-package-hall-lib-before-minimization-20260823/grpc-netty-shaded-1.80.0.jar",
+      "bytes": 10724556,
+      "sha256": "331d182ea3b7e2cb2f2442b94bf572a70856b5883a16ea8ebf74d76c0f4c00a8",
+      "zone": "work-evidence-or-quarantine"
+    },
+    {
+      "path": "work/quarantine/third10-package-hall-lib-before-minimization-20260823/hibernate-core-7.4.1.Final.jar",
+      "bytes": 15258514,
+      "sha256": "e4bfe7df423f3555f322eefb1ab51f28df439844610ef76c36d92a85d483004e",
+      "zone": "work-evidence-or-quarantine"
+    },
+    {
+      "path": "work/quarantine/third10-package-hall-lib-before-minimization-20260823/rocketmq-rocksdb-1.0.6.jar",
+      "bytes": 34221488,
+      "sha256": "28944d11fd6e5216b6275eb51eedd253c7f521e565ba44008fe2e5cdca4498a0",
+      "zone": "work-evidence-or-quarantine"
+    },
+    {
+      "path": "work/quarantine/third10-package-hall-lib-before-minimization-20260823/zstd-jni-1.5.2-2.jar",
+      "bytes": 5396193,
+      "sha256": "fedeb4c59d9593e84bc0b1cca30c90da7f3452e78d3a1b9d5dd7370efc474b1d",
+      "zone": "work-evidence-or-quarantine"
+    }
+  ],
+  "zoneCounts": {
+    "maven-output": 33,
+    "unclassified": 4,
+    "work-evidence-or-quarantine": 13
+  },
+  "checks": {
+    "allLargeJarsClassified": false,
+    "releaseUsesReactorOnly": true,
+    "thinJarStrategy": true,
+    "allLicensesKnown": false,
+    "noDuplicateRuntimeClasses": false
+  },
+  "blockers": [
+    "82 JAR components lack declared license metadata",
+    "runtime dependency analysis still reports duplicate classes; platform-native and shaded collisions require per-artifact disposition"
+  ]
+}

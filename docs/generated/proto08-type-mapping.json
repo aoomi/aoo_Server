@@ -1,0 +1,15 @@
+{
+  "all_machine_types_documented": true,
+  "typescript_scalar_mapping": true,
+  "required_optional_mapping": true,
+  "id_string_rule": true,
+  "bytes_enum_map_optional_policy": true,
+  "passed": true,
+  "machineTypes": [
+    "array",
+    "boolean",
+    "integer",
+    "object",
+    "string"
+  ]
+}

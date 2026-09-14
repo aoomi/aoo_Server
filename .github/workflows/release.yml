@@ -1,0 +1,66 @@
+name: signed-release
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: macos-15
+    permissions: {contents: read}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ruby/setup-ruby@v1
+        with: {ruby-version: '3.3.9'}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12.11', cache: pip}
+      - run: python -m pip install --requirement requirements-tools.txt
+      - uses: actions/setup-java@v4
+        with: {distribution: oracle, java-version: '25', cache: maven}
+      - run: tools/build-release.sh verify
+        env:
+          AOO_SOURCE_REVISION: ${{ github.sha }}
+          AOO_PIPELINE_ID: ${{ github.run_id }}
+      - name: Package immutable release evidence
+        run: |
+          tar -czf aoo-release-${{ github.sha }}.tar.gz server/*/target/*.jar deploy/ops
+          shasum -a 256 aoo-release-${{ github.sha }}.tar.gz > aoo-release-${{ github.sha }}.sha256
+      - uses: actions/upload-artifact@v4
+        with:
+          name: unsigned-release-${{ github.sha }}
+          path: |
+            aoo-release-${{ github.sha }}.tar.gz
+            aoo-release-${{ github.sha }}.sha256
+          if-no-files-found: error
+  sign:
+    needs: build
+    environment: production-release
+    runs-on: macos-15
+    permissions: {contents: read, id-token: write}
+    steps:
+      - uses: actions/download-artifact@v4
+        with: {name: unsigned-release-${{ github.sha }}}
+      - uses: sigstore/cosign-installer@v3.9.2
+      - name: Verify digest, keyless-sign, and verify identity
+        env:
+          COSIGN_EXPERIMENTAL: "1"
+        run: |
+          shasum -a 256 -c aoo-release-${{ github.sha }}.sha256
+          cosign sign-blob --yes \
+            --output-signature aoo-release-${{ github.sha }}.sig \
+            --output-certificate aoo-release-${{ github.sha }}.pem \
+            aoo-release-${{ github.sha }}.tar.gz
+          cosign verify-blob \
+            --certificate aoo-release-${{ github.sha }}.pem \
+            --signature aoo-release-${{ github.sha }}.sig \
+            --certificate-identity-regexp '^https://github.com/.+/.github/workflows/release.yml@refs/heads/main$' \
+            --certificate-oidc-issuer https://token.actions.githubusercontent.com \
+            aoo-release-${{ github.sha }}.tar.gz
+      - uses: actions/upload-artifact@v4
+        with:
+          name: signed-release-${{ github.sha }}
+          path: |
+            aoo-release-${{ github.sha }}.tar.gz
+            aoo-release-${{ github.sha }}.sha256
+            aoo-release-${{ github.sha }}.sig
+            aoo-release-${{ github.sha }}.pem
+          if-no-files-found: error

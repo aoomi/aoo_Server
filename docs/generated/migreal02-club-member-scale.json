@@ -1,0 +1,13 @@
+{
+  "members": 1000000,
+  "pageIndex": "PRIMARY",
+  "permissionIndex": "idx_club_manager_online",
+  "softDeleteExcluded": true,
+  "hotspotWinners": 1,
+  "sustainedSamples": 5000,
+  "p95Ms": 1.534,
+  "p99Ms": 2.161,
+  "p95BudgetMs": 25,
+  "p99BudgetMs": 60,
+  "status": "passed"
+}

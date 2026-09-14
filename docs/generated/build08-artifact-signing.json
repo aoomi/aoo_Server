@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "artifactCount": 72,
+  "checksumManifest": "work/release/SHA512SUMS",
+  "checks": {
+    "artifactsInventoried": true,
+    "sha512Manifest": true,
+    "explicitKeyInjection": true,
+    "signatureVerification": true,
+    "signaturePresent": false
+  },
+  "verdict": "awaiting-approved-signing-key"
+}

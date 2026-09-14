@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "sharedPayloadFiles": 0,
+  "specificResultPrefabs": [
+    "assets/Games/Poker/Packs/Pack01/Prefab/Native/njpdk/ui/njpdk_resultPrefab01.prefab",
+    "assets/Games/Poker/Packs/Pack01/Prefab/Native/njpdk/game/NJPDK/NJPDK_Result.prefab",
+    "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/base/hzmj_UIMJResultDetailYX.prefab",
+    "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/base/hzmj_UIMJResultDetailXY.prefab",
+    "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/base/hzmj_UIMJResultDetailWZ.prefab",
+    "assets/Games/Mahjong/Packs/Pack01/Prefab/Native/game/hzmj/base/hzmj_UIMJResultDetail.prefab"
+  ],
+  "resultControllers": [
+    "assets/Club/Code/Runtime/LegacyRecordAllResultController.ts",
+    "assets/Common/Code/Runtime/CompatibilityApp/club/LegacyRecordAllResultController.ts",
+    "assets/Common/Code/Runtime/CompatibilityApp/aypdk/AypdkResultController.ts",
+    "assets/Common/Code/Runtime/CompatibilityApp/njpdk/LegacyNJPdkResultController.ts",
+    "assets/Games/Poker/Packs/Pack01/Code/Runtime/njpdk/LegacyNJPdkResultController.ts"
+  ],
+  "checks": {
+    "archivePayloadEmpty": true,
+    "sharedResultImplementation": false,
+    "specificLayoutsUseSharedController": false
+  },
+  "verdict": "blocked-result-layer-equivalence"
+}

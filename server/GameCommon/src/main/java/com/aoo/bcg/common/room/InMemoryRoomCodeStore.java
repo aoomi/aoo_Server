@@ -1,0 +1,3 @@
+package com.aoo.bcg.common.room;
+import java.time.Instant;import java.util.concurrent.ConcurrentHashMap;
+public final class InMemoryRoomCodeStore implements RoomCodeStore{private record Lease(Instant activeUntil,Instant reusableAfter){}private final ConcurrentHashMap<String,Lease>leases=new ConcurrentHashMap<>();public boolean reserve(String code,Instant now,Instant activeUntil,Instant reusableAfter){var reserved=new java.util.concurrent.atomic.AtomicBoolean();leases.compute(code,(key,old)->{if(old==null||!old.reusableAfter().isAfter(now)){reserved.set(true);return new Lease(activeUntil,reusableAfter);}return old;});return reserved.get();}public boolean active(String code,Instant now){Lease lease=leases.get(code);return lease!=null&&lease.activeUntil().isAfter(now);}}

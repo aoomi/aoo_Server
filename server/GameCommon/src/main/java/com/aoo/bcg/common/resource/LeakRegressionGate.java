@@ -1,0 +1,10 @@
+package com.aoo.bcg.common.resource;
+import java.util.ArrayList;import java.util.List;import java.util.Objects;import java.util.function.Supplier;
+/** Deterministic fixed-cycle gate for heap, direct/native, texture and listener growth. */
+public final class LeakRegressionGate{
+ public record Sample(long heapBytes,long directBytes,long textureCount,long listenerCount){}
+ public record Budget(int warmupCycles,int measuredCycles,long heapGrowthBytes,long directGrowthBytes,long textureGrowth,long listenerGrowth){public Budget{if(warmupCycles<0||measuredCycles<2||heapGrowthBytes<0||directGrowthBytes<0||textureGrowth<0||listenerGrowth<0)throw new IllegalArgumentException("invalid leak regression budget");}}
+ public record Report(Sample first,Sample last,Sample growth,List<String> violations){public Report{violations=List.copyOf(violations);}public boolean passed(){return violations.isEmpty();}public void requirePassed(){if(!passed())throw new IllegalStateException("leak regression budget exceeded: "+violations);}}
+ private LeakRegressionGate(){}
+ public static Report run(Runnable completeCycle,Supplier<Sample> sampler,Budget budget){Objects.requireNonNull(completeCycle);Objects.requireNonNull(sampler);Objects.requireNonNull(budget);for(int index=0;index<budget.warmupCycles();index++)completeCycle.run();var values=new ArrayList<Sample>(budget.measuredCycles());for(int index=0;index<budget.measuredCycles();index++){completeCycle.run();values.add(Objects.requireNonNull(sampler.get(),"leak sample"));}var first=values.getFirst();var last=values.getLast();var growth=new Sample(last.heapBytes()-first.heapBytes(),last.directBytes()-first.directBytes(),last.textureCount()-first.textureCount(),last.listenerCount()-first.listenerCount());var failures=new ArrayList<String>();if(growth.heapBytes()>budget.heapGrowthBytes())failures.add("heap");if(growth.directBytes()>budget.directGrowthBytes())failures.add("direct");if(growth.textureCount()>budget.textureGrowth())failures.add("texture");if(growth.listenerCount()>budget.listenerGrowth())failures.add("listener");return new Report(first,last,growth,failures);}
+}

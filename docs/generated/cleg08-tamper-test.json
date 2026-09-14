@@ -1,0 +1,6 @@
+{
+  "schemaVersion": 1,
+  "attack": "modify client roomcost and verify server charge/assets unchanged",
+  "implemented": false,
+  "passed": false
+}

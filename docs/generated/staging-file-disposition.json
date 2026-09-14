@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "task": "STAGE05",
+  "allowedDispositions": [
+    "MIGRATED",
+    "IDENTICAL",
+    "REWRITE_REQUIRED",
+    "APPROVED_OBSOLETE",
+    "BLOCKED"
+  ],
+  "entries": [
+
+  ]
+}

@@ -1,0 +1,8 @@
+package com.aoo.bcg.common.concurrency;
+import com.aoo.bcg.common.recovery.*;import org.junit.jupiter.api.Test;import java.time.*;import java.util.concurrent.*;import java.util.concurrent.locks.ReentrantLock;import static org.junit.jupiter.api.Assertions.*;
+class LockRecoveryFaultInjectionTest{
+ static final class MutableClock extends Clock{Instant now=Instant.EPOCH;public ZoneId getZone(){return ZoneOffset.UTC;}public Clock withZone(ZoneId z){return this;}public Instant instant(){return now;}void advance(Duration d){now=now.plus(d);}}
+ @Test void lockHolderCrashAndTimeoutFailClosedWithoutHanging()throws Exception{var lock=new ReentrantLock();var crashed=new Thread(lock::lock);crashed.start();crashed.join();assertFalse(lock.tryLock(30,TimeUnit.MILLISECONDS));}
+ @Test void networkPartitionDoesNotAssumeLeaseOwnership(){RoomLeaseStore partitioned=new RoomLeaseStore(){public RoomLease acquire(long r,String n,Duration t){throw new IllegalStateException("partition");}public boolean isCurrent(RoomLease l){return false;}public void release(RoomLease l){throw new IllegalStateException("partition");}};assertThrows(IllegalStateException.class,()->partitioned.acquire(1,"a",Duration.ofSeconds(1)));assertFalse(partitioned.isCurrent(new RoomLease(1,"a",1,Instant.MAX)));}
+ @Test void expiredLeaseIsLostAndNewOwnerGetsHigherFence(){var clock=new MutableClock();var leases=new InMemoryRoomLeaseStore(clock);var old=leases.acquire(1,"a",Duration.ofSeconds(1));assertTrue(leases.isCurrent(old));clock.advance(Duration.ofSeconds(2));assertFalse(leases.isCurrent(old));var next=leases.acquire(1,"b",Duration.ofSeconds(1));assertTrue(next.fencingToken()>old.fencingToken());assertFalse(leases.isCurrent(old));}
+}

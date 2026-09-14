@@ -1,0 +1,1 @@
+{"schemaVersion":1,"creatorVersion":"3.8.8","allowedPlatforms":["web-desktop"],"allowedProfilePackages":["builder.json","cocos-service.json","device.json","engine.json","program.json","project.json","reference-image.json","scene.json","server.json","web-desktop.json"],"forbiddenPublicationRoots":["profiles","settings","temp","library"],"forbiddenPlugins":["adsense-h5g-plugin"]}

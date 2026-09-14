@@ -1,0 +1,838 @@
+{
+  "schemaVersion": 1,
+  "task": "DBREAL05",
+  "source": "database/original/clark_game_qh.sql",
+  "sourceReadOnly": true,
+  "legacyTableCount": 90,
+  "mappedCanonicalCount": 72,
+  "reviewedSeparateOrArchiveCount": 18,
+  "canonicalModels": [
+    "aoo_play_variant",
+    "aoo_game_profile_version",
+    "aoo_room_template",
+    "aoo_room_snapshot",
+    "aoo_room_event",
+    "aoo_settlement",
+    "aoo_ledger",
+    "aoo_currency_balance",
+    "aoo_club_member"
+  ],
+  "roomCreationAuthority": {
+    "catalog": "aoo_play_variant",
+    "publishedProfile": "aoo_game_profile_version",
+    "template": "aoo_room_template",
+    "rule": "room creation resolves indexed gameCode + regionCode + ruleKey + ruleVersion and stores the immutable profile/version reference"
+  },
+  "tables": [
+    {
+      "legacyTable": "activityItem",
+      "category": "PLAYER_AND_SOCIAL",
+      "canonicalTarget": null,
+      "disposition": "REVIEWED_SEPARATE_CONTEXT_OR_ARCHIVE",
+      "regionRule": null,
+      "roomCreateIndex": null,
+      "rationale": "legacy lobby/social capability; reviewed for separate bounded context"
+    },
+    {
+      "legacyTable": "arena",
+      "category": "PLATFORM_ARCHIVE",
+      "canonicalTarget": null,
+      "disposition": "REVIEWED_SEPARATE_CONTEXT_OR_ARCHIVE",
+      "regionRule": null,
+      "roomCreateIndex": null,
+      "rationale": "legacy platform metadata; immutable reference only"
+    },
+    {
+      "legacyTable": "arenaAwardRecord",
+      "category": "RESULT_AND_REPLAY",
+      "canonicalTarget": "aoo_settlement",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "regionRule": null,
+      "roomCreateIndex": null,
+      "rationale": "settlement and perspective replay"
+    },
+    {
+      "legacyTable": "arenaPlayer",
+      "category": "PLAYER_AND_SOCIAL",
+      "canonicalTarget": null,
+      "disposition": "REVIEWED_SEPARATE_CONTEXT_OR_ARCHIVE",
+      "regionRule": null,
+      "roomCreateIndex": null,
+      "rationale": "legacy lobby/social capability; reviewed for separate bounded context"
+    },
+    {
+      "legacyTable": "banCity",
+      "category": "REGION_AND_LOCATION",
+      "canonicalTarget": "aoo_game_profile_version",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "regionRule": "region metadata is versioned with the published game profile",
+      "roomCreateIndex": null,
+      "rationale": "versioned region/profile metadata"
+    },
+    {
+      "legacyTable": "bigUnion",
+      "category": "CLUB_AND_UNION",
+      "canonicalTarget": "aoo_club_member",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "regionRule": null,
+      "roomCreateIndex": null,
+      "rationale": "club aggregate, membership or template projection"
+    },
+    {
+      "legacyTable": "bigUnionMember",
+      "category": "CLUB_AND_UNION",
+      "canonicalTarget": "aoo_club_member",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "regionRule": null,
+      "roomCreateIndex": null,
+      "rationale": "club aggregate, membership or template projection"
+    },
+    {
+      "legacyTable": "bigUnionRoomConfig",
+      "category": "PLAY_RULE_AND_CATALOG",
+      "canonicalTarget": "aoo_play_variant",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "regionRule": null,
+      "roomCreateIndex": "aoo_play_variant(game_code, region_code, rule_key, rule_version)",
+      "rationale": "versioned gameplay and rule catalog"
+    },
+    {
+      "legacyTable": "chatMessage",
+      "category": "PLAYER_AND_SOCIAL",
+      "canonicalTarget": null,
+      "disposition": "REVIEWED_SEPARATE_CONTEXT_OR_ARCHIVE",
+      "regionRule": null,
+      "roomCreateIndex": null,
+      "rationale": "legacy lobby/social capability; reviewed for separate bounded context"
+    },
+    {
+      "legacyTable": "cityGive",
+      "category": "REGION_AND_LOCATION",
+      "canonicalTarget": "aoo_game_profile_version",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "regionRule": "region metadata is versioned with the published game profile",
+      "roomCreateIndex": null,
+      "rationale": "versioned region/profile metadata"
+    },
+    {
+      "legacyTable": "clubBanPlayer",
+      "category": "CLUB_AND_UNION",
+      "canonicalTarget": "aoo_club_member",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "regionRule": null,
+      "roomCreateIndex": null,
+      "rationale": "club aggregate, membership or template projection"
+    },
+    {
+      "legacyTable": "clubBanRoomConfig",
+      "category": "PLAY_RULE_AND_CATALOG",
+      "canonicalTarget": "aoo_play_variant",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "regionRule": null,
+      "roomCreateIndex": "aoo_play_variant(game_code, region_code, rule_key, rule_version)",
+      "rationale": "versioned gameplay and rule catalog"
+    },
+    {
+      "legacyTable": "clubDynamic",
+      "category": "CLUB_AND_UNION",
+      "canonicalTarget": "aoo_club_member",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "regionRule": null,
+      "roomCreateIndex": null,
+      "rationale": "club aggregate, membership or template projection"
+    },
+    {
+      "legacyTable": "clubFatigueDynamic",
+      "category": "ASSET_AND_LEDGER",
+      "canonicalTarget": "aoo_ledger",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "regionRule": null,
+      "roomCreateIndex": null,
+      "rationale": "immutable ledger and authoritative balance"
+    },
+    {
+      "legacyTable": "ClubGrouping",
+      "category": "CLUB_AND_UNION",
+      "canonicalTarget": "aoo_club_member",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "regionRule": null,
+      "roomCreateIndex": null,
+      "rationale": "club aggregate, membership or template projection"
+    },
+    {
+      "legacyTable": "clubMemberLatelyConfigId",
+      "category": "PLAY_RULE_AND_CATALOG",
+      "canonicalTarget": "aoo_play_variant",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "regionRule": null,
+      "roomCreateIndex": "aoo_play_variant(game_code, region_code, rule_key, rule_version)",
+      "rationale": "versioned gameplay and rule catalog"
+    },
+    {
+      "legacyTable": "clubMemberPowerZhongZhi",
+      "category": "CLUB_AND_UNION",
+      "canonicalTarget": "aoo_club_member",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "regionRule": null,
+      "roomCreateIndex": null,
+      "rationale": "club aggregate, membership or template projection"
+    },
+    {
+      "legacyTable": "ClubMemberRelation",
+      "category": "CLUB_AND_UNION",
+      "canonicalTarget": "aoo_club_member",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "regionRule": null,
+      "roomCreateIndex": null,
+      "rationale": "club aggregate, membership or template projection"
+    },
+    {
+      "legacyTable": "ClubMemberReversedValue",
+      "category": "CLUB_AND_UNION",
+      "canonicalTarget": "aoo_club_member",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "regionRule": null,
+      "roomCreateIndex": null,
+      "rationale": "club aggregate, membership or template projection"
+    },
+    {
+      "legacyTable": "clubPlayerRemarkName",
+      "category": "CLUB_AND_UNION",
+      "canonicalTarget": "aoo_club_member",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "regionRule": null,
+      "roomCreateIndex": null,
+      "rationale": "club aggregate, membership or template projection"
+    },
+    {
+      "legacyTable": "dailyPlayerRefresh",
+      "category": "PLAYER_AND_SOCIAL",
+      "canonicalTarget": null,
+      "disposition": "REVIEWED_SEPARATE_CONTEXT_OR_ARCHIVE",
+      "regionRule": null,
+      "roomCreateIndex": null,
+      "rationale": "legacy lobby/social capability; reviewed for separate bounded context"
+    },
+    {
+      "legacyTable": "dailyWorldRefresh",
+      "category": "PLAYER_AND_SOCIAL",
+      "canonicalTarget": null,
+      "disposition": "REVIEWED_SEPARATE_CONTEXT_OR_ARCHIVE",
+      "regionRule": null,
+      "roomCreateIndex": null,
+      "rationale": "legacy lobby/social capability; reviewed for separate bounded context"
+    },
+    {
+      "legacyTable": "dbClubList",
+      "category": "CLUB_AND_UNION",
+      "canonicalTarget": "aoo_club_member",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "regionRule": null,
+      "roomCreateIndex": null,
+      "rationale": "club aggregate, membership or template projection"
+    },
+    {
+      "legacyTable": "dbClubmember",
+      "category": "CLUB_AND_UNION",
+      "canonicalTarget": "aoo_club_member",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "regionRule": null,
+      "roomCreateIndex": null,
+      "rationale": "club aggregate, membership or template projection"
+    },
+    {
+      "legacyTable": "dictionariesMap",
+      "category": "PLAY_RULE_AND_CATALOG",
+      "canonicalTarget": "aoo_play_variant",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "regionRule": null,
+      "roomCreateIndex": "aoo_play_variant(game_code, region_code, rule_key, rule_version)",
+      "rationale": "versioned gameplay and rule catalog"
+    },
+    {
+      "legacyTable": "discount",
+      "category": "ASSET_AND_LEDGER",
+      "canonicalTarget": "aoo_ledger",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "regionRule": null,
+      "roomCreateIndex": null,
+      "rationale": "immutable ledger and authoritative balance"
+    },
+    {
+      "legacyTable": "email",
+      "category": "PLAYER_AND_SOCIAL",
+      "canonicalTarget": null,
+      "disposition": "REVIEWED_SEPARATE_CONTEXT_OR_ARCHIVE",
+      "regionRule": null,
+      "roomCreateIndex": null,
+      "rationale": "legacy lobby/social capability; reviewed for separate bounded context"
+    },
+    {
+      "legacyTable": "family",
+      "category": "CLUB_AND_UNION",
+      "canonicalTarget": "aoo_club_member",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "regionRule": null,
+      "roomCreateIndex": null,
+      "rationale": "club aggregate, membership or template projection"
+    },
+    {
+      "legacyTable": "familyCityCurrency",
+      "category": "REGION_AND_LOCATION",
+      "canonicalTarget": "aoo_game_profile_version",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "regionRule": "region metadata is versioned with the published game profile",
+      "roomCreateIndex": null,
+      "rationale": "versioned region/profile metadata"
+    },
+    {
+      "legacyTable": "friendsHelpUnfoldRedPack",
+      "category": "ASSET_AND_LEDGER",
+      "canonicalTarget": "aoo_ledger",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "regionRule": null,
+      "roomCreateIndex": null,
+      "rationale": "immutable ledger and authoritative balance"
+    },
+    {
+      "legacyTable": "friendsHelpUnfoldRedPackConfig",
+      "category": "PLAY_RULE_AND_CATALOG",
+      "canonicalTarget": "aoo_play_variant",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "regionRule": null,
+      "roomCreateIndex": "aoo_play_variant(game_code, region_code, rule_key, rule_version)",
+      "rationale": "versioned gameplay and rule catalog"
+    },
+    {
+      "legacyTable": "gameNode",
+      "category": "PLATFORM_ARCHIVE",
+      "canonicalTarget": null,
+      "disposition": "REVIEWED_SEPARATE_CONTEXT_OR_ARCHIVE",
+      "regionRule": null,
+      "roomCreateIndex": null,
+      "rationale": "legacy platform metadata; immutable reference only"
+    },
+    {
+      "legacyTable": "gameRoom",
+      "category": "ROOM_RUNTIME",
+      "canonicalTarget": "aoo_room_snapshot",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "regionRule": null,
+      "roomCreateIndex": null,
+      "rationale": "authoritative room state plus event journal"
+    },
+    {
+      "legacyTable": "gameRoom_temp",
+      "category": "ROOM_RUNTIME",
+      "canonicalTarget": "aoo_room_snapshot",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "regionRule": null,
+      "roomCreateIndex": null,
+      "rationale": "authoritative room state plus event journal"
+    },
+    {
+      "legacyTable": "gameSet",
+      "category": "PLAY_RULE_AND_CATALOG",
+      "canonicalTarget": "aoo_play_variant",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "regionRule": null,
+      "roomCreateIndex": "aoo_play_variant(game_code, region_code, rule_key, rule_version)",
+      "rationale": "versioned gameplay and rule catalog"
+    },
+    {
+      "legacyTable": "gameSet_temp",
+      "category": "PLAY_RULE_AND_CATALOG",
+      "canonicalTarget": "aoo_play_variant",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "regionRule": null,
+      "roomCreateIndex": "aoo_play_variant(game_code, region_code, rule_key, rule_version)",
+      "rationale": "versioned gameplay and rule catalog"
+    },
+    {
+      "legacyTable": "gameType",
+      "category": "PLAY_RULE_AND_CATALOG",
+      "canonicalTarget": "aoo_play_variant",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "regionRule": null,
+      "roomCreateIndex": "aoo_play_variant(game_code, region_code, rule_key, rule_version)",
+      "rationale": "versioned gameplay and rule catalog"
+    },
+    {
+      "legacyTable": "huRewardConfig",
+      "category": "PLAY_RULE_AND_CATALOG",
+      "canonicalTarget": "aoo_play_variant",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "regionRule": null,
+      "roomCreateIndex": "aoo_play_variant(game_code, region_code, rule_key, rule_version)",
+      "rationale": "versioned gameplay and rule catalog"
+    },
+    {
+      "legacyTable": "huRewardRecord",
+      "category": "RESULT_AND_REPLAY",
+      "canonicalTarget": "aoo_settlement",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "regionRule": null,
+      "roomCreateIndex": null,
+      "rationale": "settlement and perspective replay"
+    },
+    {
+      "legacyTable": "luckDraw",
+      "category": "ASSET_AND_LEDGER",
+      "canonicalTarget": "aoo_ledger",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "regionRule": null,
+      "roomCreateIndex": null,
+      "rationale": "immutable ledger and authoritative balance"
+    },
+    {
+      "legacyTable": "luckDrawConfig",
+      "category": "PLAY_RULE_AND_CATALOG",
+      "canonicalTarget": "aoo_play_variant",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "regionRule": null,
+      "roomCreateIndex": "aoo_play_variant(game_code, region_code, rule_key, rule_version)",
+      "rationale": "versioned gameplay and rule catalog"
+    },
+    {
+      "legacyTable": "maintainGame",
+      "category": "PLAY_RULE_AND_CATALOG",
+      "canonicalTarget": "aoo_play_variant",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "regionRule": null,
+      "roomCreateIndex": "aoo_play_variant(game_code, region_code, rule_key, rule_version)",
+      "rationale": "versioned gameplay and rule catalog"
+    },
+    {
+      "legacyTable": "maintainServer",
+      "category": "PLATFORM_ARCHIVE",
+      "canonicalTarget": null,
+      "disposition": "REVIEWED_SEPARATE_CONTEXT_OR_ARCHIVE",
+      "regionRule": null,
+      "roomCreateIndex": null,
+      "rationale": "legacy platform metadata; immutable reference only"
+    },
+    {
+      "legacyTable": "playBackServer",
+      "category": "RESULT_AND_REPLAY",
+      "canonicalTarget": "aoo_settlement",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "regionRule": null,
+      "roomCreateIndex": null,
+      "rationale": "settlement and perspective replay"
+    },
+    {
+      "legacyTable": "player",
+      "category": "PLAYER_AND_SOCIAL",
+      "canonicalTarget": null,
+      "disposition": "REVIEWED_SEPARATE_CONTEXT_OR_ARCHIVE",
+      "regionRule": null,
+      "roomCreateIndex": null,
+      "rationale": "legacy lobby/social capability; reviewed for separate bounded context"
+    },
+    {
+      "legacyTable": "playerArena",
+      "category": "PLAYER_AND_SOCIAL",
+      "canonicalTarget": null,
+      "disposition": "REVIEWED_SEPARATE_CONTEXT_OR_ARCHIVE",
+      "regionRule": null,
+      "roomCreateIndex": null,
+      "rationale": "legacy lobby/social capability; reviewed for separate bounded context"
+    },
+    {
+      "legacyTable": "playerBindingFamily",
+      "category": "CLUB_AND_UNION",
+      "canonicalTarget": "aoo_club_member",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "regionRule": null,
+      "roomCreateIndex": null,
+      "rationale": "club aggregate, membership or template projection"
+    },
+    {
+      "legacyTable": "playerCityCurrency",
+      "category": "REGION_AND_LOCATION",
+      "canonicalTarget": "aoo_game_profile_version",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "regionRule": "region metadata is versioned with the published game profile",
+      "roomCreateIndex": null,
+      "rationale": "versioned region/profile metadata"
+    },
+    {
+      "legacyTable": "playerClub",
+      "category": "CLUB_AND_UNION",
+      "canonicalTarget": "aoo_club_member",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "regionRule": null,
+      "roomCreateIndex": null,
+      "rationale": "club aggregate, membership or template projection"
+    },
+    {
+      "legacyTable": "playerCurrency",
+      "category": "ASSET_AND_LEDGER",
+      "canonicalTarget": "aoo_ledger",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "regionRule": null,
+      "roomCreateIndex": null,
+      "rationale": "immutable ledger and authoritative balance"
+    },
+    {
+      "legacyTable": "playerFriendsHelpUnfoldRedPack",
+      "category": "ASSET_AND_LEDGER",
+      "canonicalTarget": "aoo_ledger",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "regionRule": null,
+      "roomCreateIndex": null,
+      "rationale": "immutable ledger and authoritative balance"
+    },
+    {
+      "legacyTable": "playerFriendsRedPack",
+      "category": "ASSET_AND_LEDGER",
+      "canonicalTarget": "aoo_ledger",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "regionRule": null,
+      "roomCreateIndex": null,
+      "rationale": "immutable ledger and authoritative balance"
+    },
+    {
+      "legacyTable": "PlayerGameRoomId",
+      "category": "ROOM_RUNTIME",
+      "canonicalTarget": "aoo_room_snapshot",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "regionRule": null,
+      "roomCreateIndex": null,
+      "rationale": "authoritative room state plus event journal"
+    },
+    {
+      "legacyTable": "playerGPS",
+      "category": "REGION_AND_LOCATION",
+      "canonicalTarget": "aoo_game_profile_version",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "regionRule": "region metadata is versioned with the published game profile",
+      "roomCreateIndex": null,
+      "rationale": "versioned region/profile metadata"
+    },
+    {
+      "legacyTable": "playerLuckDrawInfo",
+      "category": "ASSET_AND_LEDGER",
+      "canonicalTarget": "aoo_ledger",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "regionRule": null,
+      "roomCreateIndex": null,
+      "rationale": "immutable ledger and authoritative balance"
+    },
+    {
+      "legacyTable": "PlayerPlayBack",
+      "category": "RESULT_AND_REPLAY",
+      "canonicalTarget": "aoo_settlement",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "regionRule": null,
+      "roomCreateIndex": null,
+      "rationale": "settlement and perspective replay"
+    },
+    {
+      "legacyTable": "playerPlayGame",
+      "category": "RESULT_AND_REPLAY",
+      "canonicalTarget": "aoo_settlement",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "regionRule": null,
+      "roomCreateIndex": null,
+      "rationale": "settlement and perspective replay"
+    },
+    {
+      "legacyTable": "playerrecharge",
+      "category": "ASSET_AND_LEDGER",
+      "canonicalTarget": "aoo_ledger",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "regionRule": null,
+      "roomCreateIndex": null,
+      "rationale": "immutable ledger and authoritative balance"
+    },
+    {
+      "legacyTable": "playerRedPackDrawMoney",
+      "category": "ASSET_AND_LEDGER",
+      "canonicalTarget": "aoo_ledger",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "regionRule": null,
+      "roomCreateIndex": null,
+      "rationale": "immutable ledger and authoritative balance"
+    },
+    {
+      "legacyTable": "playerRedPackPond",
+      "category": "ASSET_AND_LEDGER",
+      "canonicalTarget": "aoo_ledger",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "regionRule": null,
+      "roomCreateIndex": null,
+      "rationale": "immutable ledger and authoritative balance"
+    },
+    {
+      "legacyTable": "playerRedPackRecord",
+      "category": "ASSET_AND_LEDGER",
+      "canonicalTarget": "aoo_ledger",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "regionRule": null,
+      "roomCreateIndex": null,
+      "rationale": "immutable ledger and authoritative balance"
+    },
+    {
+      "legacyTable": "playerRedPackTaskTime",
+      "category": "ASSET_AND_LEDGER",
+      "canonicalTarget": "aoo_ledger",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "regionRule": null,
+      "roomCreateIndex": null,
+      "rationale": "immutable ledger and authoritative balance"
+    },
+    {
+      "legacyTable": "PlayerRoomAlone",
+      "category": "ROOM_TEMPLATE",
+      "canonicalTarget": "aoo_room_template",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "regionRule": null,
+      "roomCreateIndex": "aoo_room_template(club_id, play_variant_id, template_name)",
+      "rationale": "validated room template component"
+    },
+    {
+      "legacyTable": "PlayerRoomAlone_temp",
+      "category": "ROOM_TEMPLATE",
+      "canonicalTarget": "aoo_room_template",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "regionRule": null,
+      "roomCreateIndex": "aoo_room_template(club_id, play_variant_id, template_name)",
+      "rationale": "validated room template component"
+    },
+    {
+      "legacyTable": "playerSign",
+      "category": "PLAYER_AND_SOCIAL",
+      "canonicalTarget": null,
+      "disposition": "REVIEWED_SEPARATE_CONTEXT_OR_ARCHIVE",
+      "regionRule": null,
+      "roomCreateIndex": null,
+      "rationale": "legacy lobby/social capability; reviewed for separate bounded context"
+    },
+    {
+      "legacyTable": "playerTaskInfo",
+      "category": "PLAYER_AND_SOCIAL",
+      "canonicalTarget": null,
+      "disposition": "REVIEWED_SEPARATE_CONTEXT_OR_ARCHIVE",
+      "regionRule": null,
+      "roomCreateIndex": null,
+      "rationale": "legacy lobby/social capability; reviewed for separate bounded context"
+    },
+    {
+      "legacyTable": "promotionDynamic",
+      "category": "PLAYER_AND_SOCIAL",
+      "canonicalTarget": null,
+      "disposition": "REVIEWED_SEPARATE_CONTEXT_OR_ARCHIVE",
+      "regionRule": null,
+      "roomCreateIndex": null,
+      "rationale": "legacy lobby/social capability; reviewed for separate bounded context"
+    },
+    {
+      "legacyTable": "promotionLevelRoomConfigScorePercent",
+      "category": "PLAY_RULE_AND_CATALOG",
+      "canonicalTarget": "aoo_play_variant",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "regionRule": null,
+      "roomCreateIndex": "aoo_play_variant(game_code, region_code, rule_key, rule_version)",
+      "rationale": "versioned gameplay and rule catalog"
+    },
+    {
+      "legacyTable": "PromotionShareSection",
+      "category": "PLAYER_AND_SOCIAL",
+      "canonicalTarget": null,
+      "disposition": "REVIEWED_SEPARATE_CONTEXT_OR_ARCHIVE",
+      "regionRule": null,
+      "roomCreateIndex": null,
+      "rationale": "legacy lobby/social capability; reviewed for separate bounded context"
+    },
+    {
+      "legacyTable": "rank_record",
+      "category": "RESULT_AND_REPLAY",
+      "canonicalTarget": "aoo_settlement",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "regionRule": null,
+      "roomCreateIndex": null,
+      "rationale": "settlement and perspective replay"
+    },
+    {
+      "legacyTable": "rebate",
+      "category": "ASSET_AND_LEDGER",
+      "canonicalTarget": "aoo_ledger",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "regionRule": null,
+      "roomCreateIndex": null,
+      "rationale": "immutable ledger and authoritative balance"
+    },
+    {
+      "legacyTable": "red_bag_record",
+      "category": "ASSET_AND_LEDGER",
+      "canonicalTarget": "aoo_ledger",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "regionRule": null,
+      "roomCreateIndex": null,
+      "rationale": "immutable ledger and authoritative balance"
+    },
+    {
+      "legacyTable": "RedBagActivity",
+      "category": "ASSET_AND_LEDGER",
+      "canonicalTarget": "aoo_ledger",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "regionRule": null,
+      "roomCreateIndex": null,
+      "rationale": "immutable ledger and authoritative balance"
+    },
+    {
+      "legacyTable": "refererReceiveList",
+      "category": "PLAYER_AND_SOCIAL",
+      "canonicalTarget": null,
+      "disposition": "REVIEWED_SEPARATE_CONTEXT_OR_ARCHIVE",
+      "regionRule": null,
+      "roomCreateIndex": null,
+      "rationale": "legacy lobby/social capability; reviewed for separate bounded context"
+    },
+    {
+      "legacyTable": "refererShare",
+      "category": "PLAYER_AND_SOCIAL",
+      "canonicalTarget": null,
+      "disposition": "REVIEWED_SEPARATE_CONTEXT_OR_ARCHIVE",
+      "regionRule": null,
+      "roomCreateIndex": null,
+      "rationale": "legacy lobby/social capability; reviewed for separate bounded context"
+    },
+    {
+      "legacyTable": "roomConfigCalcActive",
+      "category": "PLAY_RULE_AND_CATALOG",
+      "canonicalTarget": "aoo_play_variant",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "regionRule": null,
+      "roomCreateIndex": "aoo_play_variant(game_code, region_code, rule_key, rule_version)",
+      "rationale": "versioned gameplay and rule catalog"
+    },
+    {
+      "legacyTable": "TableVersionInfo",
+      "category": "PLATFORM_ARCHIVE",
+      "canonicalTarget": null,
+      "disposition": "REVIEWED_SEPARATE_CONTEXT_OR_ARCHIVE",
+      "regionRule": null,
+      "roomCreateIndex": null,
+      "rationale": "legacy platform metadata; immutable reference only"
+    },
+    {
+      "legacyTable": "taskConfig",
+      "category": "PLAY_RULE_AND_CATALOG",
+      "canonicalTarget": "aoo_play_variant",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "regionRule": null,
+      "roomCreateIndex": "aoo_play_variant(game_code, region_code, rule_key, rule_version)",
+      "rationale": "versioned gameplay and rule catalog"
+    },
+    {
+      "legacyTable": "unionAwardRecord",
+      "category": "RESULT_AND_REPLAY",
+      "canonicalTarget": "aoo_settlement",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "regionRule": null,
+      "roomCreateIndex": null,
+      "rationale": "settlement and perspective replay"
+    },
+    {
+      "legacyTable": "UnionBanCfgZhongZhi",
+      "category": "CLUB_AND_UNION",
+      "canonicalTarget": "aoo_club_member",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "regionRule": null,
+      "roomCreateIndex": null,
+      "rationale": "club aggregate, membership or template projection"
+    },
+    {
+      "legacyTable": "unionBanClub",
+      "category": "CLUB_AND_UNION",
+      "canonicalTarget": "aoo_club_member",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "regionRule": null,
+      "roomCreateIndex": null,
+      "rationale": "club aggregate, membership or template projection"
+    },
+    {
+      "legacyTable": "unionBanGamePlayer",
+      "category": "CLUB_AND_UNION",
+      "canonicalTarget": "aoo_club_member",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "regionRule": null,
+      "roomCreateIndex": null,
+      "rationale": "club aggregate, membership or template projection"
+    },
+    {
+      "legacyTable": "unionBanPlayer",
+      "category": "CLUB_AND_UNION",
+      "canonicalTarget": "aoo_club_member",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "regionRule": null,
+      "roomCreateIndex": null,
+      "rationale": "club aggregate, membership or template projection"
+    },
+    {
+      "legacyTable": "unionBanRoomConfig",
+      "category": "PLAY_RULE_AND_CATALOG",
+      "canonicalTarget": "aoo_play_variant",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "regionRule": null,
+      "roomCreateIndex": "aoo_play_variant(game_code, region_code, rule_key, rule_version)",
+      "rationale": "versioned gameplay and rule catalog"
+    },
+    {
+      "legacyTable": "unionDynamic",
+      "category": "CLUB_AND_UNION",
+      "canonicalTarget": "aoo_club_member",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "regionRule": null,
+      "roomCreateIndex": null,
+      "rationale": "club aggregate, membership or template projection"
+    },
+    {
+      "legacyTable": "UnionGrouping",
+      "category": "CLUB_AND_UNION",
+      "canonicalTarget": "aoo_club_member",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "regionRule": null,
+      "roomCreateIndex": null,
+      "rationale": "club aggregate, membership or template projection"
+    },
+    {
+      "legacyTable": "unionNotify",
+      "category": "CLUB_AND_UNION",
+      "canonicalTarget": "aoo_club_member",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "regionRule": null,
+      "roomCreateIndex": null,
+      "rationale": "club aggregate, membership or template projection"
+    },
+    {
+      "legacyTable": "unionRoomConfigScorePercent",
+      "category": "PLAY_RULE_AND_CATALOG",
+      "canonicalTarget": "aoo_play_variant",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "regionRule": null,
+      "roomCreateIndex": "aoo_play_variant(game_code, region_code, rule_key, rule_version)",
+      "rationale": "versioned gameplay and rule catalog"
+    },
+    {
+      "legacyTable": "UnionShareSection",
+      "category": "CLUB_AND_UNION",
+      "canonicalTarget": "aoo_club_member",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "regionRule": null,
+      "roomCreateIndex": null,
+      "rationale": "club aggregate, membership or template projection"
+    },
+    {
+      "legacyTable": "zleRecharge",
+      "category": "ASSET_AND_LEDGER",
+      "canonicalTarget": "aoo_ledger",
+      "disposition": "MAPPED_TO_CANONICAL_MODEL",
+      "regionRule": null,
+      "roomCreateIndex": null,
+      "rationale": "immutable ledger and authoritative balance"
+    }
+  ]
+}

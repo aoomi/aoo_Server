@@ -1,0 +1,7 @@
+{
+  "committed_outputs_registered": true,
+  "stale_output_gate": true,
+  "maven_validate_gate": true,
+  "passed": true,
+  "strategy": "generated outputs are committed, manifest-owned, and validated against canonical input"
+}

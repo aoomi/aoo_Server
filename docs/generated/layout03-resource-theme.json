@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "variantResources": [
+    {
+      "path": "assets/Games/Poker/Packs/Pack01/Atlas/Native/game/njpdk/texture/game/njpdk/play/pkcm_bg_9.png",
+      "variant": "native",
+      "normalizedPath": "assets/Games/Poker/Packs/Pack01/Atlas/{variant}/game/njpdk/texture/game/njpdk/play/pkcm_bg_9.png",
+      "category": "resource",
+      "bytes": 46796,
+      "sha256": "59c5edcd52b8caa9404f6827333b06b28e81f391a06a893e7da33fb6d62dbff3"
+    },
+    {
+      "path": "assets/Games/Poker/Packs/Pack01/Atlas/Native/game/njpdk/texture/game/njpdk/play/pkcm_bg_9_left.png",
+      "variant": "native",
+      "normalizedPath": "assets/Games/Poker/Packs/Pack01/Atlas/{variant}/game/njpdk/texture/game/njpdk/play/pkcm_bg_9_left.png",
+      "category": "resource",
+      "bytes": 63840,
+      "sha256": "8a3d108df565ae9a8f9712271cbc122cd8730a41099eb658001560e0ca6914e5"
+    },
+    {
+      "path": "assets/Games/Poker/Packs/Pack01/Atlas/Native/game/njpdk/texture/game/njpdk/play/pkcm_bg_9_right.png",
+      "variant": "native",
+      "normalizedPath": "assets/Games/Poker/Packs/Pack01/Atlas/{variant}/game/njpdk/texture/game/njpdk/play/pkcm_bg_9_right.png",
+      "category": "resource",
+      "bytes": 76005,
+      "sha256": "e5b6c6c26fe0a42081b211f2af2bbcd3b6b9dfbc5731430dd53f6f2df068253e"
+    }
+  ],
+  "themeMapFiles": [
+
+  ],
+  "completeThemeMapping": false,
+  "passed": false
+}

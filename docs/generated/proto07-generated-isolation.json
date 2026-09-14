@@ -1,0 +1,15 @@
+{
+  "generated_header": true,
+  "adapter_only_consumers": true,
+  "legacy_commdef_outside_active_reactor": true,
+  "manifest_owned": true,
+  "passed": true,
+  "consumers": [
+    "server/LegacyCommon/src/com/ddm/server/protocol/v2/ProtocolV2Bridge.java",
+    "server/LegacyCommon/src/com/ddm/server/protocol/v2/ProtocolRegistry.java"
+  ],
+  "allowedAdapters": [
+    "server/LegacyCommon/src/com/ddm/server/protocol/v2/ProtocolRegistry.java",
+    "server/LegacyCommon/src/com/ddm/server/protocol/v2/ProtocolV2Bridge.java"
+  ]
+}

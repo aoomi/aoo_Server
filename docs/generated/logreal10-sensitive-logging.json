@@ -1,0 +1,13 @@
+{
+  "task": "LOGREAL10",
+  "status": "passed",
+  "checks": {
+    "credential_redaction": true,
+    "identity_redaction": true,
+    "structured_private_card_redaction": true,
+    "direct_sensitive_console_findings": 0
+  },
+  "findings": [
+
+  ]
+}

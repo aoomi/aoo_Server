@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "defaultMode": "read-only-or-dry-run",
+  "productionMutation": "forbidden without a separate approved deployment control plane",
+  "controlledTools": [
+    {
+      "path": "tools/clean-client-generated.sh",
+      "scope": "Client build/library/temp only",
+      "controls": ["dry-run default", "explicit --apply", "Creator process guard", "canonical path allow-list"]
+    },
+    {
+      "path": "tools/verify_fresh_migrations.sh",
+      "scope": "isolated aoo_*_verify database only",
+      "controls": ["explicit credential", "database suffix allow-list", "temporary directory cleanup"]
+    },
+    {
+      "path": "tools/prepare_backend_smoke_sandbox.py",
+      "scope": "aoo_smoke_game and aoo-smoke-redis only",
+      "controls": ["dry-run default", "explicit --apply", "test environment only", "isolated database/container", "bounded rows"]
+    },
+    {
+      "path": "tools/f03_fault_injection.sh",
+      "scope": "explicit local aoo-* containers only",
+      "controls": ["test environment only", "explicit confirmation", "1..60 second outage bound", "EXIT restoration trap"]
+    },
+    {
+      "path": "tools/local_service_control.py",
+      "scope": "declared local service PID and ports only",
+      "controls": ["explicit action", "PID identity", "port preflight", "graceful stop", "concurrent lock"]
+    }
+  ]
+}

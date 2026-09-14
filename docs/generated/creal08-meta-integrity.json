@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "metaFiles": 13632,
+  "uuidCount": 13632,
+  "checks": {
+    "metaParseErrors": true,
+    "uniqueUuids": true,
+    "noOrphanMeta": true,
+    "allAssetSourcesHaveMeta": true,
+    "noMissingDirectReferences": true
+  },
+  "duplicates": {
+  },
+  "parseErrors": [
+
+  ],
+  "orphanMeta": [
+
+  ],
+  "missingMeta": [
+
+  ],
+  "referenceAudit": {
+    "metaUuids": 33634,
+    "directReferences": 145675,
+    "engineBuiltinReferences": 21836,
+    "missingDirectReferences": 0,
+    "duplicateMetaUuids": 0,
+    "metaParseErrors": 0
+  }
+}

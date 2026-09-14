@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "server": {
+    "image": "mongo:8.0.29-noble",
+    "version": "8.0.29",
+    "role": "production/default"
+  },
+  "javaDriver": {
+    "version": "5.10.0"
+  },
+  "futureCompatibilityTarget": {
+    "version": "8.3.8",
+    "enabledByDefault": false
+  },
+  "checks": {
+    "productionImagePinned": true,
+    "javaDriverPinned": true,
+    "noFloatingOrWrongMongoImage": true,
+    "futureTargetNotProductionDependency": true
+  },
+  "scannedFiles": 5924,
+  "violations": [
+
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "task": "THIRD04",
+  "policy": "docs/第三方安全更新与隔离策略.md",
+  "entries": [
+    {
+      "legacyCoordinate": "aoo.legacy:kernel:1.0.0",
+      "exposure": "archive-only",
+      "activeReplacement": "server/AooKernel",
+      "updateAuthority": "Aoo source ownership plus centrally managed SLF4J/Logback",
+      "response": "patch active source/dependencies; never reactivate archive"
+    },
+    {
+      "legacyCoordinate": "aoo.legacy:nettosphere:3.2.2-qh",
+      "exposure": "archive-only",
+      "activeReplacement": "server/Gateway with centrally managed Netty BOM",
+      "updateAuthority": "Netty upstream and Aoo Gateway ownership",
+      "response": "upgrade netty.version and run transport/protocol regressions; never reactivate archive"
+    }
+  ]
+}

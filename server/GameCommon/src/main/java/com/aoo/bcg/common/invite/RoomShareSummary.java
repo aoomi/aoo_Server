@@ -1,0 +1,2 @@
+package com.aoo.bcg.common.invite;
+public record RoomShareSummary(int gameId,String playVersion,String regionName,int playerCount,int roundCount,String ruleDescription){public RoomShareSummary{if(gameId<=0||playVersion==null||playVersion.isBlank()||regionName==null||regionName.isBlank()||playerCount<2||roundCount<=0||ruleDescription==null||ruleDescription.isBlank())throw new IllegalArgumentException("incomplete share summary");}}

@@ -1,0 +1,10 @@
+{
+  "all_messages_documented": true,
+  "field_tables": true,
+  "metadata": true,
+  "examples": true,
+  "generated_warning": true,
+  "passed": true,
+  "messageCount": 35,
+  "reference": "docs/generated/protocol-reference.md"
+}

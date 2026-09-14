@@ -1,0 +1,10 @@
+#!/usr/bin/env ruby
+require 'json';require 'pathname'
+root=Pathname(__dir__).join('..').expand_path
+poms=Dir[root.join('**/pom.xml').to_s].reject{|p|p.include?('/target/')}.to_h{|p|[Pathname(p).relative_path_from(root).to_s,File.read(p)]}
+legacy=root.join('server/LegacyCommon');canonical=root.join('server/GameCommon');root_common=root.join('common')
+legacy_refs=poms.select{|path,text|text.include?('../LegacyCommon/src')||text.include?('server/LegacyCommon')}
+public_common_refs=poms.select{|_path,text|text.include?('<artifactId>game-common</artifactId>')}
+legacy_launchers=Dir[legacy.join('**/*APP.java').to_s].select{|path|File.basename(path).end_with?('APP.java')&&File.read(path,encoding:'UTF-8',invalid: :replace,undef: :replace).match?(/static\s+void\s+main\s*\(/)}
+checks={rootCommonRemoved:!root_common.exist?,canonicalCommonIsMavenArtifact:canonical.join('pom.xml').exist?&&canonical.join('pom.xml').read.include?('<artifactId>game-common</artifactId>'),legacyHasNoArtifactOrLibraries:!legacy.join('pom.xml').exist?&&Dir[legacy.join('**/*.jar').to_s].empty?,legacyHasNoLauncher:legacy_launchers.empty?,legacyEmbeddedOnlyByGameServer:legacy_refs.keys==['server/gameServer/pom.xml'],gameServerEmbeddingExplicit:legacy_refs.values.first&.include?('<id>shared-sources</id>'),modernModulesUseCanonical:public_common_refs.length>=8,quarantinedBinaries:Dir[root.join('reference/legacy-2.22/common-lib/**/*.jar').to_s].length>=100,productionRuntimeNoLocalJars:root.join('tools/runtime_start_backend_apps.py').read.include?('return []')}
+errors=checks.reject{|_,v|v}.keys;report={task:'REAL01',status:errors.empty? ? 'passed':'failed',checks:checks,canonicalArtifact:'com.aoo.bcg:game-common',canonicalConsumers:public_common_refs.keys,legacySourceConsumer:legacy_refs.keys,errors:errors};root.join('work/audit/real01-common-boundary.json').write(JSON.pretty_generate(report)+"\n");abort("REAL01 failed: #{errors.join(', ')}")unless errors.empty?;puts "REAL01 passed: GameCommon is sole public common artifact; LegacyCommon is private source compatibility boundary"

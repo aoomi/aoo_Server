@@ -1,0 +1,293 @@
+{
+  "schemaVersion": 1,
+  "hits": [
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMainController.ts",
+      "line": 599
+    },
+    {
+      "path": "assets/Club/Code/Runtime/LegacyClubMainController.ts",
+      "line": 627
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/a3pk/A3pkSceneBootstrap.ts",
+      "line": 31
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/afmj/AfmjPlayView.ts",
+      "line": 142
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/afmj/AfmjPlayView.ts",
+      "line": 148
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/afmj/AfmjSceneBootstrap.ts",
+      "line": 48
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/afmj/AfmjTableController.ts",
+      "line": 195
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/ahhbmj/AhhbmjPlayView.ts",
+      "line": 143
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/ahhbmj/AhhbmjPlayView.ts",
+      "line": 149
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/ahhbmj/AhhbmjSceneBootstrap.ts",
+      "line": 49
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/ahhbmj/AhhbmjTableController.ts",
+      "line": 197
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/ahhnmj/AhhnmjPlayView.ts",
+      "line": 142
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/ahhnmj/AhhnmjPlayView.ts",
+      "line": 148
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/ahhnmj/AhhnmjSceneBootstrap.ts",
+      "line": 48
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/ahhnmj/AhhnmjTableController.ts",
+      "line": 199
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/ahmj/AhmjPlayView.ts",
+      "line": 142
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/ahmj/AhmjPlayView.ts",
+      "line": 148
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/ahmj/AhmjSceneBootstrap.ts",
+      "line": 48
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/ahmj/AhmjTableController.ts",
+      "line": 195
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/ak159mj/Ak159mjPlayView.ts",
+      "line": 143
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/ak159mj/Ak159mjPlayView.ts",
+      "line": 149
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/ak159mj/Ak159mjSceneBootstrap.ts",
+      "line": 49
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/ak159mj/Ak159mjTableController.ts",
+      "line": 197
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/aqmj/AqmjPlayView.ts",
+      "line": 142
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/aqmj/AqmjPlayView.ts",
+      "line": 148
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/aqmj/AqmjSceneBootstrap.ts",
+      "line": 48
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/aqmj/AqmjTableController.ts",
+      "line": 195
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/asmj/AsmjPlayView.ts",
+      "line": 141
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/asmj/AsmjPlayView.ts",
+      "line": 147
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/asmj/AsmjSceneBootstrap.ts",
+      "line": 48
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/asmj/AsmjTableController.ts",
+      "line": 195
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/aycp/AycpSceneBootstrap.ts",
+      "line": 23
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/aydss/AydssSceneBootstrap.ts",
+      "line": 23
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/aymj/AymjPlayView.ts",
+      "line": 142
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/aymj/AymjPlayView.ts",
+      "line": 148
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/aymj/AymjSceneBootstrap.ts",
+      "line": 48
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/aymj/AymjTableController.ts",
+      "line": 195
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/aypdk/AypdkCardRenderer.ts",
+      "line": 52
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/bamj/BamjPlayView.ts",
+      "line": 142
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/bamj/BamjPlayView.ts",
+      "line": 148
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/bamj/BamjSceneBootstrap.ts",
+      "line": 48
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/bamj/BamjTableController.ts",
+      "line": 195
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/bdjhmj/BdjhmjPlayView.ts",
+      "line": 142
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/bdjhmj/BdjhmjPlayView.ts",
+      "line": 148
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/bdjhmj/BdjhmjSceneBootstrap.ts",
+      "line": 48
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/bdjhmj/BdjhmjTableController.ts",
+      "line": 195
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/platform/LegacySubgameBundleService.ts",
+      "line": 25
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/scjymj/ScjymjPlayView.ts",
+      "line": 132
+    },
+    {
+      "path": "assets/Common/Code/Runtime/CompatibilityApp/scjymj/ScjymjSceneBootstrap.ts",
+      "line": 84
+    },
+    {
+      "path": "assets/Common/Code/Runtime/core/LegacyAudioService.ts",
+      "line": 83
+    },
+    {
+      "path": "assets/Common/Code/Runtime/ui/LegacyFormManager.ts",
+      "line": 865
+    },
+    {
+      "path": "assets/Common/Code/Runtime/ui/LegacyPrefabRenderer.ts",
+      "line": 586
+    },
+    {
+      "path": "assets/Common/Code/UI/CommonHeadController.ts",
+      "line": 151
+    },
+    {
+      "path": "assets/Common/Code/UI/Infrastructure.ts",
+      "line": 35
+    },
+    {
+      "path": "assets/Common/Code/UI/Infrastructure.ts",
+      "line": 49
+    },
+    {
+      "path": "assets/Games/Common/Code/QuickTextAudioCatalog.ts",
+      "line": 66
+    },
+    {
+      "path": "assets/Games/Common/Code/SettlementBundlePreloader.ts",
+      "line": 54
+    },
+    {
+      "path": "assets/Games/Mahjong/Packs/Pack01/Code/Runtime/hzmj/HzmjPlayView.ts",
+      "line": 197
+    },
+    {
+      "path": "assets/Games/Mahjong/Packs/Pack01/Code/Runtime/hzmj/HzmjPrefabLoader.ts",
+      "line": 37
+    },
+    {
+      "path": "assets/Games/Mahjong/Packs/Pack01/Code/Runtime/hzmj/HzmjReplayController.ts",
+      "line": 248
+    },
+    {
+      "path": "assets/Games/Poker/PDK/Common/Code/Runtime/CommonPdkGameSceneLauncher.ts",
+      "line": 238
+    },
+    {
+      "path": "assets/Games/Poker/PDK/Common/Code/Runtime/PdkAnimationResolver.ts",
+      "line": 77
+    },
+    {
+      "path": "assets/Games/Poker/PDK/Common/Code/Runtime/Room/MagicExpressionPresenter.ts",
+      "line": 108
+    },
+    {
+      "path": "assets/Games/Poker/PDK/Common/Code/Runtime/Room/PdkGameAudioPresenter.ts",
+      "line": 121
+    },
+    {
+      "path": "assets/Games/Poker/PDK/Common/Code/Runtime/Room/PdkRoomAudioPresenter.ts",
+      "line": 86
+    },
+    {
+      "path": "assets/Lobby/Code/Runtime/LegacyLobbyScreen.ts",
+      "line": 614
+    },
+    {
+      "path": "assets/Lobby/Code/Runtime/Replay/AuthoritativePdkReplayController.ts",
+      "line": 275
+    },
+    {
+      "path": "assets/Lobby/Code/Runtime/Replay/LegacyReplayController.ts",
+      "line": 340
+    },
+    {
+      "path": "assets/Login/Code/Auth/LegacyLoginScreen.ts",
+      "line": 111
+    },
+    {
+      "path": "assets/Login/Code/Bootstrap/LoginScreenBootstrap.ts",
+      "line": 430
+    },
+    {
+      "path": "assets/Login/Code/Navigation/SceneRouter.ts",
+      "line": 377
+    }
+  ],
+  "referenceCounting": false,
+  "cancellation": false,
+  "failureRecovery": false,
+  "passed": false
+}

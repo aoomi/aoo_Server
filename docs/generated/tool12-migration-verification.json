@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "task": "TOOL12",
+  "passed": true,
+  "database": "aoo_fresh_verify",
+  "migrationCount": 44,
+  "successfulHistoryRows": 44,
+  "tableCount": 36,
+  "checks": ["empty database", "every incremental version", "repeat no-op", "checksum validation", "failed migration repair and retry", "history/file parity", "required schema objects"]
+}

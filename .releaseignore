@@ -1,0 +1,47 @@
+# Local runtime and diagnostics
+logs/
+server/logs/
+work/
+**/work/runtime/
+**/work/local-runtime/
+
+# Build, editor, cache and package-manager output
+**/target/
+**/build/
+**/bin/
+**/library/
+**/temp/
+**/node_modules/
+**/__pycache__/
+**/*.pyc
+**/*.pyo
+**/*.class
+**/*.iml
+**/.classpath
+**/.project
+**/.settings/
+**/.DS_Store
+
+# Secrets and local credentials
+**/.env
+**/.env.*
+!**/.env.example
+**/*.pem
+**/*.key
+**/*.p12
+**/*.jks
+
+# Historical and migration-only sources
+reference/
+database/original/
+database/backups/
+test-move/
+Archive/
+
+# Backup and local state files
+**/*.bak
+**/*.backup
+**/*.dump
+**/*.sql.gz
+**/*.pid
+**/runtime-classpath.txt

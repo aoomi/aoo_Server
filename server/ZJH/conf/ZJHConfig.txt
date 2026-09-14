@@ -1,0 +1,30 @@
+#底注
+bottomPoint =[1,2,5,10];
+#顶注
+topPoint =[5,10];
+#可比轮数
+comporeCount = [2,3,4];
+#炸金花底分配置
+difenList = [0,100,200,500];
+#机器人看牌的概率
+robotOpenCard = 80;
+#机器人棋牌的概率
+robotQiPai = 50;
+#机器人加注的概率
+robotJiaZhu = 20;
+#加注等级
+robotJiaZhuList = [1,2,3,4,5];
+#喜钱陪数
+xiQianBeiShu=[3,5];
+#全压顶注的5倍
+addScoreAll = 5;
+#轮数
+lunshushangxian=[10,20,30];
+
+#public final static int ZJH_DUIZI		=101;		//对子
+#public final static int ZJH_SHUNZI		=102;		//顺子
+#public final static int ZJH_JINHUA		=103;		//金华
+#public final static int ZJH_SHUNJIN	=104;		//顺金
+#public final static int ZJH_PAOZI      =105;  		//豹子
+#public final static int ZJH_TESHU      =106;  		//特殊
+#

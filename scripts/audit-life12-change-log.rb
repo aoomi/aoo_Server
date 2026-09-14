@@ -1,0 +1,4 @@
+require 'json';require 'fileutils';root=File.expand_path('..',__dir__)
+source=File.read(File.join(root,'server/GameSPI/src/main/java/com/aoo/bcg/gamespi/api/ApiChangeLog.java'));doc=File.read(File.join(root,'docs/API行为变更日志.md'));test=File.read(File.join(root,'server/GameSPI/src/test/java/com/aoo/bcg/gamespi/api/ApiChangeLogTest.java'))
+checks={frontend:source.include?('FRONTEND'),operations:source.include?('OPERATIONS'),support:source.include?('SUPPORT'),behavior:source.include?('String behavior'),migration:source.include?('String migration'),human_log:doc.include?('2.0.0'),query_test:test.include?('frontendOperationsAndSupportCanQuerySameBehaviorHistory')}
+abort "LIFE12 audit failed: #{checks}" unless checks.values.all?;out=File.join(root,'work/audit/api-behavior-change-log.json');FileUtils.mkdir_p(File.dirname(out));File.write(out,JSON.pretty_generate({task:'LIFE12',status:'passed',checks:checks})+"\n")

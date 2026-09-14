@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "requiredFields": [
+    "path",
+    "sha256",
+    "usageScan",
+    "replacementMapping",
+    "artifactComparison",
+    "historicalDataTest",
+    "ownerConclusion",
+    "approvedBy",
+    "approvedAt"
+  ],
+  "approvals": [
+
+  ]
+}

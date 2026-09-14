@@ -1,0 +1,2 @@
+package com.aoo.bcg.wordcard;import org.junit.jupiter.api.Test;import java.util.*;import static org.junit.jupiter.api.Assertions.*;
+class XpphzRulesTest{@Test void authoritativeDeckHuXiAndTypes(){assertEquals(80,XpphzRules.deck().size());assertEquals(12,XpphzRules.meldHuXi(WordCardOperation.TI,1011));assertEquals(9,XpphzRules.meldHuXi(WordCardOperation.TI,2011));assertEquals(6,XpphzRules.chiHuXi(List.of(1021,1071,1101)));assertEquals(XpphzRules.HuType.BLACK,XpphzRules.huType(List.of(2011,2021),false,false));assertEquals(4,XpphzRules.score(18,XpphzRules.HuType.NONE,1,1));}}

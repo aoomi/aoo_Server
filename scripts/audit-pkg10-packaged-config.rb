@@ -1,0 +1,6 @@
+#!/usr/bin/env ruby
+require 'json';require 'open3';require 'fileutils'
+root=File.expand_path('..',__dir__);patterns={localAddress:/(?:jdbc:[^\s]+(?:127\.0\.0\.1|localhost)|(?:https?|wss?):\/\/(?:127\.0\.0\.1|localhost))/i,oldInterface:/(?:protocol[._-]?v1|\/api\/v0\/|qinghuaimajiang|qicaiaoo)/i,testAccount:/(?:test[_-]?(?:user|account)|mock[_-]?(?:user|account))\s*[:=]/i,embeddedSecret:/(?:password|secret|access[_-]?token|private[_-]?key)\s*[:=]\s*(?!\$\{|\{\{|<|$)[^\s]{4,}/i}
+files=Dir.glob(File.join(root,'server/*/target/*.jar')).sort;hits=[]
+files.each do|jar|;list,_,status=Open3.capture3('unzip','-Z1',jar);next unless status.success?;list.lines.map(&:strip).grep(/\.(?:properties|ya?ml|json|xml|conf|txt)\z/i).each do|entry|;data,_,ok=Open3.capture3('unzip','-p',jar,entry);next unless ok.success?;patterns.each{|kind,re|hits<<{jar:jar.delete_prefix(root+'/'),entry:entry,kind:kind} if data.match?(re)};end;end
+report={schemaVersion:1,scannedJars:files.length,patterns:patterns.keys,hits:hits,passed:hits.empty?};out=File.join(root,'docs/generated/pkg10-packaged-config.json');FileUtils.mkdir_p(File.dirname(out));File.write(out,JSON.pretty_generate(report)+"\n");abort "PKG10 blocked: #{hits.length} packaged configuration findings" unless report[:passed];puts 'PKG10 PASS: packaged configuration contains no secret/local/test/old-interface findings'

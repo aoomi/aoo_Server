@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "strategy": "thin-jar",
+  "applicationArtifact": "<module>/target/<artifactId>-<version>.jar",
+  "dependencyDirectory": "<module>/target/runtime/lib",
+  "classpathOrder": ["applicationArtifact", "dependencyDirectory/*"],
+  "forbidden": ["shaded application jar", "target/classes", "target/lib", "package_hall/target/lib", "IDE classpath"],
+  "dependencyUpdateAuthority": "Maven dependencyManagement and locked repository policy",
+  "serviceLoaderPolicy": "provider metadata remains in dependency jars; no shade-time merge",
+  "vulnerabilityUpdatePolicy": "rebuild runtime/lib exclusively from the current Maven graph and regenerate SBOM"
+}

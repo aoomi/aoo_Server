@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "archiveRoots": [
+    "development/archived-common-room-folders",
+    "development/archived-result-layouts",
+    "development/archived-game-folders",
+    "development/archived-orientation-folders",
+    "development/archived-direct-game-folders",
+    "development/migration/aoo_DFMJ-3.8.8"
+  ],
+  "archiveUuids": 525,
+  "hits": [
+
+  ],
+  "checks": {
+    "noArchivedUuidReferences": true,
+    "noArchivedPathReferences": true,
+    "archivesOutsideAssets": true
+  }
+}

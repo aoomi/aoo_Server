@@ -1,0 +1,3839 @@
+{
+  "schemaVersion": 1,
+  "completedClaims": 292,
+  "issueClaims": 273,
+  "issues": [
+    {
+      "file": "docs/Aoo-非等价改进台账.md",
+      "line": 53,
+      "evidence": [
+        "docs/Aoo-"
+      ],
+      "missingEvidence": [
+        "docs/Aoo-"
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": false
+    },
+    {
+      "file": "docs/Aoo-非等价改进台账.md",
+      "line": 54,
+      "evidence": [
+        "docs/Aoo-"
+      ],
+      "missingEvidence": [
+        "docs/Aoo-"
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": false
+    },
+    {
+      "file": "docs/Aoo-非等价改进台账.md",
+      "line": 56,
+      "evidence": [
+        "docs/Aoo-",
+        "tools/AooBrandBoundaryCheck.java"
+      ],
+      "missingEvidence": [
+        "docs/Aoo-"
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": false
+    },
+    {
+      "file": "docs/Aoo-非等价改进台账.md",
+      "line": 58,
+      "evidence": [
+        "docs/Aoo-"
+      ],
+      "missingEvidence": [
+        "docs/Aoo-"
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": false
+    },
+    {
+      "file": "docs/Aoo-非等价改进台账.md",
+      "line": 61,
+      "evidence": [
+        "docs/Aoo-"
+      ],
+      "missingEvidence": [
+        "docs/Aoo-"
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": false
+    },
+    {
+      "file": "docs/Aoo-非等价改进台账.md",
+      "line": 62,
+      "evidence": [
+        "docs/Aoo-"
+      ],
+      "missingEvidence": [
+        "docs/Aoo-"
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": false
+    },
+    {
+      "file": "docs/Aoo-非等价改进台账.md",
+      "line": 69,
+      "evidence": [
+        "docs/Aoo-"
+      ],
+      "missingEvidence": [
+        "docs/Aoo-"
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": false
+    },
+    {
+      "file": "docs/Aoo-非等价改进台账.md",
+      "line": 304,
+      "evidence": [
+        "docs/Aoo-"
+      ],
+      "missingEvidence": [
+        "docs/Aoo-"
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": false
+    },
+    {
+      "file": "docs/Aoo-非等价改进台账.md",
+      "line": 305,
+      "evidence": [
+        "docs/Aoo-"
+      ],
+      "missingEvidence": [
+        "docs/Aoo-"
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": false
+    },
+    {
+      "file": "docs/Aoo-非等价改进台账.md",
+      "line": 312,
+      "evidence": [
+        "docs/Aoo-"
+      ],
+      "missingEvidence": [
+        "docs/Aoo-"
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": false
+    },
+    {
+      "file": "docs/Aoo-非等价改进台账.md",
+      "line": 366,
+      "evidence": [
+        "docs/Aoo-"
+      ],
+      "missingEvidence": [
+        "docs/Aoo-"
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": false
+    },
+    {
+      "file": "docs/Aoo-非等价改进台账.md",
+      "line": 447,
+      "evidence": [
+        "docs/Aoo-",
+        "tools/scan_cocos_interactions.rb"
+      ],
+      "missingEvidence": [
+        "docs/Aoo-"
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": false
+    },
+    {
+      "file": "docs/parallel-stage-1/01-kernel-common.md",
+      "line": 211,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/01-kernel-common.md",
+      "line": 213,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/01-kernel-common.md",
+      "line": 214,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/02-gateway-protocol.md",
+      "line": 26,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/02-gateway-protocol.md",
+      "line": 27,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/02-gateway-protocol.md",
+      "line": 29,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/02-gateway-protocol.md",
+      "line": 30,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/02-gateway-protocol.md",
+      "line": 31,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/02-gateway-protocol.md",
+      "line": 32,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/02-gateway-protocol.md",
+      "line": 34,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/02-gateway-protocol.md",
+      "line": 36,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/02-gateway-protocol.md",
+      "line": 37,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/02-gateway-protocol.md",
+      "line": 38,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/02-gateway-protocol.md",
+      "line": 39,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/02-gateway-protocol.md",
+      "line": 40,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/02-gateway-protocol.md",
+      "line": 42,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/02-gateway-protocol.md",
+      "line": 43,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/02-gateway-protocol.md",
+      "line": 44,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/02-gateway-protocol.md",
+      "line": 45,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/02-gateway-protocol.md",
+      "line": 49,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/02-gateway-protocol.md",
+      "line": 50,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/02-gateway-protocol.md",
+      "line": 53,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/02-gateway-protocol.md",
+      "line": 55,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/02-gateway-protocol.md",
+      "line": 56,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/02-gateway-protocol.md",
+      "line": 57,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/03-account-hall.md",
+      "line": 28,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/03-account-hall.md",
+      "line": 30,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/03-account-hall.md",
+      "line": 34,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/03-account-hall.md",
+      "line": 36,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/03-account-hall.md",
+      "line": 38,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/03-account-hall.md",
+      "line": 39,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/03-account-hall.md",
+      "line": 40,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/03-account-hall.md",
+      "line": 41,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/03-account-hall.md",
+      "line": 44,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/03-account-hall.md",
+      "line": 46,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/04-billing.md",
+      "line": 26,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/04-billing.md",
+      "line": 27,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/04-billing.md",
+      "line": 29,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/04-billing.md",
+      "line": 30,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/04-billing.md",
+      "line": 31,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/04-billing.md",
+      "line": 32,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/04-billing.md",
+      "line": 34,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/04-billing.md",
+      "line": 35,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/04-billing.md",
+      "line": 36,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/04-billing.md",
+      "line": 37,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/04-billing.md",
+      "line": 38,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/04-billing.md",
+      "line": 39,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/04-billing.md",
+      "line": 41,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/04-billing.md",
+      "line": 42,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/05-config-center.md",
+      "line": 25,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/05-config-center.md",
+      "line": 26,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/05-config-center.md",
+      "line": 27,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/05-config-center.md",
+      "line": 28,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/05-config-center.md",
+      "line": 29,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/05-config-center.md",
+      "line": 30,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/05-config-center.md",
+      "line": 31,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/05-config-center.md",
+      "line": 32,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/05-config-center.md",
+      "line": 33,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/05-config-center.md",
+      "line": 34,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/05-config-center.md",
+      "line": 35,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/05-config-center.md",
+      "line": 36,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/05-config-center.md",
+      "line": 37,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/05-config-center.md",
+      "line": 38,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/05-config-center.md",
+      "line": 39,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/05-config-center.md",
+      "line": 40,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/05-config-center.md",
+      "line": 41,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/05-config-center.md",
+      "line": 42,
+      "evidence": [
+        "protocol/ui/switches/regions"
+      ],
+      "missingEvidence": [
+        "protocol/ui/switches/regions"
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": false
+    },
+    {
+      "file": "docs/parallel-stage-1/05-config-center.md",
+      "line": 43,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/05-config-center.md",
+      "line": 44,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/05-config-center.md",
+      "line": 45,
+      "evidence": [
+        "protocol/switches/regions"
+      ],
+      "missingEvidence": [
+        "protocol/switches/regions"
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": false
+    },
+    {
+      "file": "docs/parallel-stage-1/05-config-center.md",
+      "line": 46,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/05-config-center.md",
+      "line": 47,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/06-admin-backend.md",
+      "line": 26,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/06-admin-backend.md",
+      "line": 30,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/07-mahjong-backend.md",
+      "line": 27,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/07-mahjong-backend.md",
+      "line": 28,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/07-mahjong-backend.md",
+      "line": 29,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/07-mahjong-backend.md",
+      "line": 30,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/07-mahjong-backend.md",
+      "line": 31,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/07-mahjong-backend.md",
+      "line": 32,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/07-mahjong-backend.md",
+      "line": 33,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/07-mahjong-backend.md",
+      "line": 34,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/07-mahjong-backend.md",
+      "line": 35,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/07-mahjong-backend.md",
+      "line": 36,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/07-mahjong-backend.md",
+      "line": 37,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/07-mahjong-backend.md",
+      "line": 38,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/07-mahjong-backend.md",
+      "line": 39,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/07-mahjong-backend.md",
+      "line": 40,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/08-poker-backend.md",
+      "line": 29,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/08-poker-backend.md",
+      "line": 30,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/08-poker-backend.md",
+      "line": 31,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/08-poker-backend.md",
+      "line": 32,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/08-poker-backend.md",
+      "line": 33,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/08-poker-backend.md",
+      "line": 34,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/08-poker-backend.md",
+      "line": 35,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/08-poker-backend.md",
+      "line": 36,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/08-poker-backend.md",
+      "line": 37,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/08-poker-backend.md",
+      "line": 38,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/08-poker-backend.md",
+      "line": 39,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/08-poker-backend.md",
+      "line": 40,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/08-poker-backend.md",
+      "line": 41,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/08-poker-backend.md",
+      "line": 42,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/09-other-game-backend.md",
+      "line": 29,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/09-other-game-backend.md",
+      "line": 30,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/09-other-game-backend.md",
+      "line": 31,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/09-other-game-backend.md",
+      "line": 32,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/09-other-game-backend.md",
+      "line": 33,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/09-other-game-backend.md",
+      "line": 34,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/09-other-game-backend.md",
+      "line": 35,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/10-legacy-runtime.md",
+      "line": 41,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/11-database.md",
+      "line": 25,
+      "evidence": [
+        "database/migrations/V20260824_01__game_catalog_component_model.sql",
+        "database/target/legacy-2.22-structured/manifest.json",
+        "database/.work/audit/mysql-integration-gate.json"
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+        "database/target/legacy-2.22-structured/manifest.json"
+      ],
+      "noEvidenceDeclared": false
+    },
+    {
+      "file": "docs/parallel-stage-1/11-database.md",
+      "line": 26,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/11-database.md",
+      "line": 27,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/11-database.md",
+      "line": 28,
+      "evidence": [
+        "database/target/legacy-2.22-structured/create_ui_options.jsonl"
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+        "database/target/legacy-2.22-structured/create_ui_options.jsonl"
+      ],
+      "noEvidenceDeclared": false
+    },
+    {
+      "file": "docs/parallel-stage-1/11-database.md",
+      "line": 29,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/11-database.md",
+      "line": 30,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/11-database.md",
+      "line": 31,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/11-database.md",
+      "line": 32,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/11-database.md",
+      "line": 33,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/11-database.md",
+      "line": 34,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/11-database.md",
+      "line": 36,
+      "evidence": [
+        "database/target/data-dictionary.json"
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+        "database/target/data-dictionary.json"
+      ],
+      "noEvidenceDeclared": false
+    },
+    {
+      "file": "docs/parallel-stage-1/11-database.md",
+      "line": 40,
+      "evidence": [
+        "database/target/data-dictionary.json"
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+        "database/target/data-dictionary.json"
+      ],
+      "noEvidenceDeclared": false
+    },
+    {
+      "file": "docs/parallel-stage-1/11-database.md",
+      "line": 41,
+      "evidence": [
+        "database/target/legacy-2.22-structured/legacy_field_mapping.csv"
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+        "database/target/legacy-2.22-structured/legacy_field_mapping.csv"
+      ],
+      "noEvidenceDeclared": false
+    },
+    {
+      "file": "docs/parallel-stage-1/11-database.md",
+      "line": 42,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/11-database.md",
+      "line": 44,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/11-database.md",
+      "line": 45,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/11-database.md",
+      "line": 47,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/11-database.md",
+      "line": 49,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/11-database.md",
+      "line": 51,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/11-database.md",
+      "line": 52,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/11-database.md",
+      "line": 53,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/11-database.md",
+      "line": 54,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/11-database.md",
+      "line": 55,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/11-database.md",
+      "line": 56,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/11-database.md",
+      "line": 58,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/11-database.md",
+      "line": 60,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/11-database.md",
+      "line": 61,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/11-database.md",
+      "line": 62,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/11-database.md",
+      "line": 64,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/11-database.md",
+      "line": 66,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/11-database.md",
+      "line": 67,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/11-database.md",
+      "line": 69,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/11-database.md",
+      "line": 72,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/11-database.md",
+      "line": 83,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/11-database.md",
+      "line": 86,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/11-database.md",
+      "line": 99,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/12-client-common.md",
+      "line": 29,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/12-client-common.md",
+      "line": 30,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/12-client-common.md",
+      "line": 31,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/12-client-common.md",
+      "line": 45,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/12-client-common.md",
+      "line": 46,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/12-client-common.md",
+      "line": 53,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/12-client-common.md",
+      "line": 57,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/12-client-common.md",
+      "line": 58,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/12-client-common.md",
+      "line": 59,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/12-client-common.md",
+      "line": 60,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/12-client-common.md",
+      "line": 61,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/12-client-common.md",
+      "line": 69,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/12-client-common.md",
+      "line": 70,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/12-client-common.md",
+      "line": 71,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/12-client-common.md",
+      "line": 77,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/12-client-common.md",
+      "line": 79,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/12-client-common.md",
+      "line": 81,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/12-client-common.md",
+      "line": 84,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/12-client-common.md",
+      "line": 89,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/12-client-common.md",
+      "line": 90,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/12-client-common.md",
+      "line": 114,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/14-engineering-governance.md",
+      "line": 36,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/14-engineering-governance.md",
+      "line": 40,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/14-engineering-governance.md",
+      "line": 49,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/14-engineering-governance.md",
+      "line": 52,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/14-engineering-governance.md",
+      "line": 53,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/14-engineering-governance.md",
+      "line": 54,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/14-engineering-governance.md",
+      "line": 60,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/14-engineering-governance.md",
+      "line": 67,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/S01-naming-brand-inventory.md",
+      "line": 35,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/S01-naming-brand-inventory.md",
+      "line": 36,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/S01-naming-brand-inventory.md",
+      "line": 37,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/S01-naming-brand-inventory.md",
+      "line": 60,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-1/S02-scope-size-deadcode-inventory.md",
+      "line": 50,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-2/15-client-common-integration.md",
+      "line": 36,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-2/15-client-common-integration.md",
+      "line": 37,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-2/15-client-common-integration.md",
+      "line": 38,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-2/15-client-common-integration.md",
+      "line": 39,
+      "evidence": [
+        "work/ProtocolClient.ts"
+      ],
+      "missingEvidence": [
+        "work/ProtocolClient.ts"
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": false
+    },
+    {
+      "file": "docs/parallel-stage-2/15-client-common-integration.md",
+      "line": 40,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-2/15-client-common-integration.md",
+      "line": 41,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-2/15-client-common-integration.md",
+      "line": 42,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-2/15-client-common-integration.md",
+      "line": 43,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-2/19-client-other-games-integration.md",
+      "line": 32,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-2/19-client-other-games-integration.md",
+      "line": 36,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-2/20-admin-frontend-integration.md",
+      "line": 30,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-2/20-admin-frontend-integration.md",
+      "line": 31,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-2/20-admin-frontend-integration.md",
+      "line": 32,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-2/20-admin-frontend-integration.md",
+      "line": 33,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-2/20-admin-frontend-integration.md",
+      "line": 34,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-2/20-admin-frontend-integration.md",
+      "line": 35,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-2/20-admin-frontend-integration.md",
+      "line": 36,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-2/20-admin-frontend-integration.md",
+      "line": 37,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-2/20-admin-frontend-integration.md",
+      "line": 38,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-2/20-admin-frontend-integration.md",
+      "line": 39,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-2/20-admin-frontend-integration.md",
+      "line": 40,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-3/21-admin-security-backend.md",
+      "line": 14,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-3/21-admin-security-backend.md",
+      "line": 15,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-3/21-admin-security-backend.md",
+      "line": 17,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-3/24-edge-end-to-end-closure.md",
+      "line": 12,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-3/24-edge-end-to-end-closure.md",
+      "line": 13,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-3/24-edge-end-to-end-closure.md",
+      "line": 14,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-3/24-edge-end-to-end-closure.md",
+      "line": 15,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-3/24-edge-end-to-end-closure.md",
+      "line": 16,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-3/24-edge-end-to-end-closure.md",
+      "line": 17,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-3/24-edge-end-to-end-closure.md",
+      "line": 18,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/parallel-stage-3/24-edge-end-to-end-closure.md",
+      "line": 19,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/后端框架全玩法整改任务列表.md",
+      "line": 32,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/后端框架全玩法整改任务列表.md",
+      "line": 33,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/后端框架全玩法整改任务列表.md",
+      "line": 34,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/后端框架全玩法整改任务列表.md",
+      "line": 35,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/后端框架全玩法整改任务列表.md",
+      "line": 36,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/后端框架全玩法整改任务列表.md",
+      "line": 37,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/后端框架全玩法整改任务列表.md",
+      "line": 38,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/后端框架全玩法整改任务列表.md",
+      "line": 39,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/后端框架全玩法整改任务列表.md",
+      "line": 40,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/后端框架全玩法整改任务列表.md",
+      "line": 41,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/后端框架全玩法整改任务列表.md",
+      "line": 42,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/后端框架全玩法整改任务列表.md",
+      "line": 43,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/后端框架全玩法整改任务列表.md",
+      "line": 44,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/后端框架全玩法整改任务列表.md",
+      "line": 45,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/后端框架全玩法整改任务列表.md",
+      "line": 46,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/后端框架全玩法整改任务列表.md",
+      "line": 47,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/后端框架全玩法整改任务列表.md",
+      "line": 48,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/后端框架全玩法整改任务列表.md",
+      "line": 49,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/后端框架全玩法整改任务列表.md",
+      "line": 50,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/后端框架全玩法整改任务列表.md",
+      "line": 51,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/后端框架全玩法整改任务列表.md",
+      "line": 52,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/后端框架全玩法整改任务列表.md",
+      "line": 53,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/后端框架全玩法整改任务列表.md",
+      "line": 54,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/后端框架全玩法整改任务列表.md",
+      "line": 55,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/后端框架全玩法整改任务列表.md",
+      "line": 56,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/后端框架全玩法整改任务列表.md",
+      "line": 57,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/后端框架全玩法整改任务列表.md",
+      "line": 58,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/后端框架全玩法整改任务列表.md",
+      "line": 59,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/后端框架全玩法整改任务列表.md",
+      "line": 60,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/后端框架全玩法整改任务列表.md",
+      "line": 61,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/后端框架全玩法整改任务列表.md",
+      "line": 62,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/后端框架全玩法整改任务列表.md",
+      "line": 63,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/后端框架全玩法整改任务列表.md",
+      "line": 64,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/后端框架全玩法整改任务列表.md",
+      "line": 65,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/后端框架全玩法整改任务列表.md",
+      "line": 66,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/后端框架全玩法整改任务列表.md",
+      "line": 67,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/后端框架全玩法整改任务列表.md",
+      "line": 68,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/后端框架全玩法整改任务列表.md",
+      "line": 69,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/后端框架全玩法整改任务列表.md",
+      "line": 70,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/后端框架全玩法整改任务列表.md",
+      "line": 71,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/后端框架全玩法整改任务列表.md",
+      "line": 72,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/后端框架全玩法整改任务列表.md",
+      "line": 73,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/后端框架全玩法整改任务列表.md",
+      "line": 74,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/后端框架全玩法整改任务列表.md",
+      "line": 75,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/后端框架全玩法整改任务列表.md",
+      "line": 76,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/后端框架全玩法整改任务列表.md",
+      "line": 77,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/后端框架全玩法整改任务列表.md",
+      "line": 78,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/后端框架全玩法整改任务列表.md",
+      "line": 79,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    },
+    {
+      "file": "docs/后端框架全玩法整改任务列表.md",
+      "line": 80,
+      "evidence": [
+
+      ],
+      "missingEvidence": [
+
+      ],
+      "historicalTargetEvidence": [
+
+      ],
+      "noEvidenceDeclared": true
+    }
+  ],
+  "checks": {
+    "noMissingEvidence": false,
+    "noTargetEvidence": false,
+    "everyClaimHasEvidence": false
+  },
+  "verdict": "blocked-ledger-remediation"
+}

@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "archiveRoots": [
+    "development/archived-common-room-folders",
+    "development/archived-direct-game-folders",
+    "development/archived-game-folders",
+    "development/archived-orientation-folders",
+    "development/archived-result-layouts",
+    "development/migration/aoo_DFMJ-3.8.8"
+  ],
+  "hashesRecorded": true,
+  "historicalTraceabilityRecorded": true,
+  "uiRegressionEvidenceComplete": false,
+  "unresolvedEntries": 72,
+  "deletionAllowed": false,
+  "decision": "retain",
+  "reason": "Archive deletion is blocked until every blocked disposition has an equivalent active replacement and Creator/browser UI regression evidence is complete."
+}

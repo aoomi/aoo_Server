@@ -1,0 +1,441 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-23T10:16:36Z",
+  "policy": "Runtime server IDs, catalog game IDs and legacy runtime game IDs are distinct fields. Protocol registration alone is not treated as proof when an authoritative room binding or startup config exists.",
+  "summary": {
+    "directories": 5,
+    "mapped": 5,
+    "unresolved": 0
+  },
+  "entries": [
+    {
+      "logDirectory": "logs/game516",
+      "runtimeServerId": 516,
+      "catalogGameId": 517,
+      "runtimeGameIds": [
+        516
+      ],
+      "code": "cdxzmj",
+      "displayName": "成都血战麻将",
+      "category": "MAHJONG",
+      "family": "mahjong-xue-zhan",
+      "region": "四川省成都市",
+      "sourceModule": "server/CDXZMJ",
+      "confidence": "authoritative-runtime-binding",
+      "evidence": {
+        "authoritativeBindings": [
+          {
+            "roomId": 159870,
+            "gameId": 516,
+            "provider": "cdxzmj"
+          },
+          {
+            "roomId": 159871,
+            "gameId": 516,
+            "provider": "cdxzmj"
+          },
+          {
+            "roomId": 159872,
+            "gameId": 516,
+            "provider": "cdxzmj"
+          },
+          {
+            "roomId": 159873,
+            "gameId": 516,
+            "provider": "cdxzmj"
+          },
+          {
+            "roomId": 159874,
+            "gameId": 516,
+            "provider": "cdxzmj"
+          },
+          {
+            "roomId": 159875,
+            "gameId": 516,
+            "provider": "cdxzmj"
+          },
+          {
+            "roomId": 159876,
+            "gameId": 516,
+            "provider": "cdxzmj"
+          },
+          {
+            "roomId": 159877,
+            "gameId": 516,
+            "provider": "cdxzmj"
+          },
+          {
+            "roomId": 159878,
+            "gameId": 516,
+            "provider": "cdxzmj"
+          },
+          {
+            "roomId": 159879,
+            "gameId": 516,
+            "provider": "cdxzmj"
+          },
+          {
+            "roomId": 159880,
+            "gameId": 516,
+            "provider": "cdxzmj"
+          },
+          {
+            "roomId": 159881,
+            "gameId": 516,
+            "provider": "cdxzmj"
+          },
+          {
+            "roomId": 159882,
+            "gameId": 516,
+            "provider": "cdxzmj"
+          },
+          {
+            "roomId": 159883,
+            "gameId": 516,
+            "provider": "cdxzmj"
+          },
+          {
+            "roomId": 159884,
+            "gameId": 516,
+            "provider": "cdxzmj"
+          },
+          {
+            "roomId": 159885,
+            "gameId": 516,
+            "provider": "cdxzmj"
+          },
+          {
+            "roomId": 159886,
+            "gameId": 516,
+            "provider": "cdxzmj"
+          },
+          {
+            "roomId": 159887,
+            "gameId": 516,
+            "provider": "cdxzmj"
+          },
+          {
+            "roomId": 159888,
+            "gameId": 516,
+            "provider": "cdxzmj"
+          },
+          {
+            "roomId": 159889,
+            "gameId": 516,
+            "provider": "cdxzmj"
+          }
+        ],
+        "startupConfigs": [
+          "work/local-runtime/conf-smoke-cdxzmj"
+        ],
+        "protocolNamespaceCounts": {
+          "cdxzmj": 548
+        }
+      }
+    },
+    {
+      "logDirectory": "logs/game7103",
+      "runtimeServerId": 7103,
+      "catalogGameId": 629,
+      "runtimeGameIds": [
+        629
+      ],
+      "code": "njpdk",
+      "displayName": "内江跑得快",
+      "category": "POKER",
+      "family": "poker-paodekuai",
+      "region": "四川省内江市",
+      "sourceModule": "server/NJPDK",
+      "confidence": "authoritative-runtime-binding",
+      "evidence": {
+        "authoritativeBindings": [
+          {
+            "roomId": 159799,
+            "gameId": 629,
+            "provider": "njpdk"
+          },
+          {
+            "roomId": 159800,
+            "gameId": 629,
+            "provider": "njpdk"
+          },
+          {
+            "roomId": 159801,
+            "gameId": 629,
+            "provider": "njpdk"
+          },
+          {
+            "roomId": 159802,
+            "gameId": 629,
+            "provider": "njpdk"
+          },
+          {
+            "roomId": 159803,
+            "gameId": 629,
+            "provider": "njpdk"
+          },
+          {
+            "roomId": 159804,
+            "gameId": 629,
+            "provider": "njpdk"
+          },
+          {
+            "roomId": 159805,
+            "gameId": 629,
+            "provider": "njpdk"
+          },
+          {
+            "roomId": 159806,
+            "gameId": 629,
+            "provider": "njpdk"
+          },
+          {
+            "roomId": 159807,
+            "gameId": 629,
+            "provider": "njpdk"
+          },
+          {
+            "roomId": 159808,
+            "gameId": 629,
+            "provider": "njpdk"
+          },
+          {
+            "roomId": 159809,
+            "gameId": 629,
+            "provider": "njpdk"
+          },
+          {
+            "roomId": 159810,
+            "gameId": 629,
+            "provider": "njpdk"
+          },
+          {
+            "roomId": 159811,
+            "gameId": 629,
+            "provider": "njpdk"
+          },
+          {
+            "roomId": 159812,
+            "gameId": 629,
+            "provider": "njpdk"
+          },
+          {
+            "roomId": 159813,
+            "gameId": 629,
+            "provider": "njpdk"
+          },
+          {
+            "roomId": 159814,
+            "gameId": 629,
+            "provider": "njpdk"
+          },
+          {
+            "roomId": 159815,
+            "gameId": 629,
+            "provider": "njpdk"
+          },
+          {
+            "roomId": 159816,
+            "gameId": 629,
+            "provider": "njpdk"
+          },
+          {
+            "roomId": 159817,
+            "gameId": 629,
+            "provider": "njpdk"
+          },
+          {
+            "roomId": 159818,
+            "gameId": 629,
+            "provider": "njpdk"
+          }
+        ],
+        "startupConfigs": [
+          "work/local-runtime/conf-njpdk"
+        ],
+        "protocolNamespaceCounts": {
+          "cdxzmj": 340,
+          "njpdk": 1963
+        }
+      }
+    },
+    {
+      "logDirectory": "logs/game990051",
+      "runtimeServerId": 990051,
+      "catalogGameId": 629,
+      "runtimeGameIds": [
+        629
+      ],
+      "code": "njpdk",
+      "displayName": "内江跑得快",
+      "category": "POKER",
+      "family": "poker-paodekuai",
+      "region": "四川省内江市",
+      "sourceModule": "server/NJPDK",
+      "confidence": "namespace-binding",
+      "evidence": {
+        "authoritativeBindings": [
+
+        ],
+        "startupConfigs": [
+
+        ],
+        "protocolNamespaceCounts": {
+          "njpdk": 96
+        }
+      }
+    },
+    {
+      "logDirectory": "logs/game990516",
+      "runtimeServerId": 990516,
+      "catalogGameId": 517,
+      "runtimeGameIds": [
+        516
+      ],
+      "code": "cdxzmj",
+      "displayName": "成都血战麻将",
+      "category": "MAHJONG",
+      "family": "mahjong-xue-zhan",
+      "region": "四川省成都市",
+      "sourceModule": "server/CDXZMJ",
+      "confidence": "authoritative-runtime-binding",
+      "evidence": {
+        "authoritativeBindings": [
+          {
+            "roomId": 159798,
+            "gameId": 516,
+            "provider": "cdxzmj"
+          },
+          {
+            "roomId": 159799,
+            "gameId": 516,
+            "provider": "cdxzmj"
+          },
+          {
+            "roomId": 159800,
+            "gameId": 516,
+            "provider": "cdxzmj"
+          },
+          {
+            "roomId": 159801,
+            "gameId": 516,
+            "provider": "cdxzmj"
+          },
+          {
+            "roomId": 159802,
+            "gameId": 516,
+            "provider": "cdxzmj"
+          },
+          {
+            "roomId": 159803,
+            "gameId": 516,
+            "provider": "cdxzmj"
+          },
+          {
+            "roomId": 159804,
+            "gameId": 516,
+            "provider": "cdxzmj"
+          },
+          {
+            "roomId": 159805,
+            "gameId": 516,
+            "provider": "cdxzmj"
+          },
+          {
+            "roomId": 159806,
+            "gameId": 516,
+            "provider": "cdxzmj"
+          },
+          {
+            "roomId": 159807,
+            "gameId": 516,
+            "provider": "cdxzmj"
+          },
+          {
+            "roomId": 159808,
+            "gameId": 516,
+            "provider": "cdxzmj"
+          },
+          {
+            "roomId": 159809,
+            "gameId": 516,
+            "provider": "cdxzmj"
+          },
+          {
+            "roomId": 159810,
+            "gameId": 516,
+            "provider": "cdxzmj"
+          },
+          {
+            "roomId": 159811,
+            "gameId": 516,
+            "provider": "cdxzmj"
+          },
+          {
+            "roomId": 159812,
+            "gameId": 516,
+            "provider": "cdxzmj"
+          },
+          {
+            "roomId": 159813,
+            "gameId": 516,
+            "provider": "cdxzmj"
+          },
+          {
+            "roomId": 159814,
+            "gameId": 516,
+            "provider": "cdxzmj"
+          },
+          {
+            "roomId": 159815,
+            "gameId": 516,
+            "provider": "cdxzmj"
+          },
+          {
+            "roomId": 159816,
+            "gameId": 516,
+            "provider": "cdxzmj"
+          },
+          {
+            "roomId": 159817,
+            "gameId": 516,
+            "provider": "cdxzmj"
+          }
+        ],
+        "startupConfigs": [
+
+        ],
+        "protocolNamespaceCounts": {
+          "cdxzmj": 1016
+        }
+      }
+    },
+    {
+      "logDirectory": "logs/game990629",
+      "runtimeServerId": 990629,
+      "catalogGameId": 629,
+      "runtimeGameIds": [
+        629
+      ],
+      "code": "njpdk",
+      "displayName": "内江跑得快",
+      "category": "POKER",
+      "family": "poker-paodekuai",
+      "region": "四川省内江市",
+      "sourceModule": "server/NJPDK",
+      "confidence": "directory-id-and-namespace-binding",
+      "evidence": {
+        "authoritativeBindings": [
+
+        ],
+        "startupConfigs": [
+
+        ],
+        "protocolNamespaceCounts": {
+          "cdxzmj": 34,
+          "njpdk": 32
+        }
+      }
+    }
+  ]
+}

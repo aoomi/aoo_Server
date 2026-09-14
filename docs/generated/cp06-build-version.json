@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-23T08:13:35Z",
+  "task": "CP06",
+  "revision": "1.0.0-14f3d362f860ac86",
+  "checks": {
+    "ciFriendlyVersionInEveryReactorPom": true,
+    "deterministicContentVersion": true,
+    "nonSnapshotReleaseVersion": true,
+    "mavenResolvesRevision": true,
+    "releaseWrapperExists": true,
+    "fixedOutputTimestamp": true
+  },
+  "reactorPomVersions": {
+    "pom.xml": "${revision}",
+    "server/AooKernel/pom.xml": "${revision}",
+    "server/GameSPI/pom.xml": "${revision}",
+    "server/GameCommon/pom.xml": "${revision}",
+    "server/Mahjong/pom.xml": "${revision}",
+    "server/Poker/pom.xml": "${revision}",
+    "server/LongCard/pom.xml": "${revision}",
+    "server/WordCard/pom.xml": "${revision}",
+    "server/Families/pom.xml": "${revision}",
+    "server/Gateway/pom.xml": "${revision}",
+    "server/ConfigCenter/pom.xml": "${revision}",
+    "server/AdminApi/pom.xml": "${revision}",
+    "server/Billing/pom.xml": "${revision}",
+    "server/Games/pom.xml": "${revision}",
+    "server/gameServer/pom.xml": "${revision}",
+    "server/CDXZMJ/pom.xml": "${revision}",
+    "server/NJPDK/pom.xml": "${revision}",
+    "server/SCJYMJ/pom.xml": "${revision}",
+    "server/XCPDK/pom.xml": "${revision}",
+    "server/ZJH/pom.xml": "${revision}",
+    "server/ZYPK/pom.xml": "${revision}",
+    "server/Hall/pom.xml": "${revision}",
+    "server/Account/pom.xml": "${revision}",
+    "server/Bootstrap/pom.xml": "${revision}"
+  },
+  "diagnostics": [
+
+  ],
+  "passed": true
+}

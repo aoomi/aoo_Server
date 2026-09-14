@@ -1,0 +1,22 @@
+#麻将牌编号说明
+# 1101-1701 将-兵  1101-1104 4张将
+# 2101-2701 将-兵
+# 3101-3701 将-兵
+
+
+#神牌模式(0:关,1:开)
+God_Card = 0;
+#基础基数
+BasisRadix = 20;
+#输分基数
+LoseRadix = 0.7;
+#最大上线
+MaxRadix = 40;
+#玩家一
+Private_Card1 = [];
+#玩家二
+Private_Card2 = [];
+#玩家三
+Private_Card3 = [];
+#玩家四
+Private_Card4 = [];

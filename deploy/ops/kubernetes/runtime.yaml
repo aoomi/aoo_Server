@@ -1,0 +1,98 @@
+apiVersion: v1
+kind: List
+items:
+  - {apiVersion: v1, kind: Namespace, metadata: {name: aoo-production, labels: {aoo.io/environment: production}}}
+  - apiVersion: v1
+    kind: ServiceAccount
+    metadata: {name: aoo-server, namespace: aoo-production}
+    automountServiceAccountToken: false
+  - apiVersion: v1
+    kind: ConfigMap
+    metadata: {name: aoo-runtime, namespace: aoo-production}
+    data: {AOO_ENVIRONMENT: production, AOO_LOG_FORMAT: json, JAVA_OPTS: "-XX:MaxRAMPercentage=75 -XX:+ExitOnOutOfMemoryError -Dfile.encoding=UTF-8"}
+  # aoo-runtime-secrets is provisioned by the release environment's secret manager.
+  - &workload
+    apiVersion: apps/v1
+    kind: Deployment
+    metadata: {name: aoo-account, namespace: aoo-production}
+    spec:
+      replicas: 2
+      strategy: {type: RollingUpdate, rollingUpdate: {maxUnavailable: 0, maxSurge: 1}}
+      progressDeadlineSeconds: 600
+      revisionHistoryLimit: 10
+      selector: {matchLabels: {app.kubernetes.io/name: aoo-account}}
+      template:
+        metadata: {labels: {app.kubernetes.io/name: aoo-account, aoo.io/plane: player}}
+        spec:
+          serviceAccountName: aoo-server
+          automountServiceAccountToken: false
+          terminationGracePeriodSeconds: 45
+          securityContext: {runAsNonRoot: true, runAsUser: 10001, runAsGroup: 10001, fsGroup: 10001, seccompProfile: {type: RuntimeDefault}}
+          containers:
+            - &container
+              name: account
+              image: aoo/account:release
+              ports: [{name: http, containerPort: 904}]
+              envFrom: [{configMapRef: {name: aoo-runtime}}, {secretRef: {name: aoo-runtime-secrets}}]
+              env: [{name: AOO_MAIN_CLASS, value: core.server.App}]
+              startupProbe: {httpGet: {path: /health, port: http}, failureThreshold: 30, periodSeconds: 5}
+              readinessProbe: {httpGet: {path: /health, port: http}, failureThreshold: 3, periodSeconds: 10}
+              livenessProbe: {httpGet: {path: /health, port: http}, failureThreshold: 3, periodSeconds: 20}
+              lifecycle: {preStop: {exec: {command: [sh, -c, "sleep 10"]}}}
+              securityContext: {allowPrivilegeEscalation: false, readOnlyRootFilesystem: true, capabilities: {drop: [ALL]}}
+              resources: {requests: {cpu: 500m, memory: 512Mi}, limits: {cpu: "2", memory: 2Gi}}
+              volumeMounts: [{name: tmp, mountPath: /tmp}]
+          volumes: [{name: tmp, emptyDir: {sizeLimit: 128Mi}}]
+  - <<: *workload
+    metadata: {name: aoo-gateway, namespace: aoo-production}
+    spec: &gateway_spec
+      replicas: 3
+      strategy: {type: RollingUpdate, rollingUpdate: {maxUnavailable: 0, maxSurge: 1}}
+      progressDeadlineSeconds: 600
+      revisionHistoryLimit: 10
+      selector: {matchLabels: {app.kubernetes.io/name: aoo-gateway}}
+      template:
+        metadata: {labels: {app.kubernetes.io/name: aoo-gateway, aoo.io/plane: player}}
+        spec: &pod
+          serviceAccountName: aoo-server
+          automountServiceAccountToken: false
+          terminationGracePeriodSeconds: 45
+          securityContext: {runAsNonRoot: true, runAsUser: 10001, runAsGroup: 10001, fsGroup: 10001, seccompProfile: {type: RuntimeDefault}}
+          containers:
+            - <<: *container
+              name: gateway
+              image: aoo/gateway:release
+              ports: [{name: http, containerPort: 8080}]
+              env: [{name: AOO_MAIN_CLASS, value: com.aoo.bcg.gateway.GatewayApplication}]
+              startupProbe: {tcpSocket: {port: http}, failureThreshold: 30, periodSeconds: 5}
+              readinessProbe: {tcpSocket: {port: http}, failureThreshold: 3, periodSeconds: 10}
+              livenessProbe: {tcpSocket: {port: http}, failureThreshold: 3, periodSeconds: 20}
+          volumes: [{name: tmp, emptyDir: {sizeLimit: 128Mi}}]
+  - <<: *workload
+    metadata: {name: aoo-bootstrap, namespace: aoo-production}
+    spec:
+      <<: *gateway_spec
+      replicas: 2
+      selector: {matchLabels: {app.kubernetes.io/name: aoo-bootstrap}}
+      template: {metadata: {labels: {app.kubernetes.io/name: aoo-bootstrap, aoo.io/plane: player}}, spec: {<<: *pod, containers: [{<<: *container, name: bootstrap, image: "aoo/bootstrap:release", ports: [{name: http, containerPort: 8081}], env: [{name: AOO_MAIN_CLASS, value: com.aoo.bcg.bootstrap.BootstrapAPP}], startupProbe: {tcpSocket: {port: http}, failureThreshold: 30, periodSeconds: 5}, readinessProbe: {tcpSocket: {port: http}, failureThreshold: 3, periodSeconds: 10}, livenessProbe: {tcpSocket: {port: http}, failureThreshold: 3, periodSeconds: 20}}]}}
+  - <<: *workload
+    metadata: {name: aoo-hall, namespace: aoo-production}
+    spec: {<<: *gateway_spec, replicas: 2, selector: {matchLabels: {app.kubernetes.io/name: aoo-hall}}, template: {metadata: {labels: {app.kubernetes.io/name: aoo-hall, aoo.io/plane: player}}, spec: {<<: *pod, containers: [{<<: *container, name: hall, image: "aoo/hall:release", ports: [{name: wss, containerPort: 9998}, {name: http, containerPort: 9888}], env: [{name: AOO_MAIN_CLASS, value: core.server.gamehall.GameHallAPP}], startupProbe: {tcpSocket: {port: wss}}, readinessProbe: {tcpSocket: {port: wss}}, livenessProbe: {tcpSocket: {port: wss}}}]}}}
+  - <<: *workload
+    metadata: {name: aoo-njpdk, namespace: aoo-production}
+    spec: {<<: *gateway_spec, replicas: 2, selector: {matchLabels: {app.kubernetes.io/name: aoo-njpdk}}, template: {metadata: {labels: {app.kubernetes.io/name: aoo-njpdk, aoo.io/plane: player}}, spec: {<<: *pod, terminationGracePeriodSeconds: 60, containers: [{<<: *container, name: njpdk, image: "aoo/njpdk:release", ports: [{name: wss, containerPort: 9996}], env: [{name: AOO_MAIN_CLASS, value: core.server.GameServer}], startupProbe: {tcpSocket: {port: wss}}, readinessProbe: {tcpSocket: {port: wss}}, livenessProbe: {tcpSocket: {port: wss}}}]}}}
+  - <<: *workload
+    metadata: {name: aoo-cdxzmj, namespace: aoo-production}
+    spec: {<<: *gateway_spec, replicas: 2, selector: {matchLabels: {app.kubernetes.io/name: aoo-cdxzmj}}, template: {metadata: {labels: {app.kubernetes.io/name: aoo-cdxzmj, aoo.io/plane: player}}, spec: {<<: *pod, terminationGracePeriodSeconds: 60, containers: [{<<: *container, name: cdxzmj, image: "aoo/cdxzmj:release", ports: [{name: wss, containerPort: 19996}], env: [{name: AOO_MAIN_CLASS, value: core.server.GameServer}], startupProbe: {tcpSocket: {port: wss}}, readinessProbe: {tcpSocket: {port: wss}}, livenessProbe: {tcpSocket: {port: wss}}}]}}}
+  - <<: *workload
+    metadata: {name: aoo-admin, namespace: aoo-production}
+    spec: {<<: *gateway_spec, replicas: 2, selector: {matchLabels: {app.kubernetes.io/name: aoo-admin}}, template: {metadata: {labels: {app.kubernetes.io/name: aoo-admin, aoo.io/plane: control}}, spec: {<<: *pod, containers: [{<<: *container, name: admin, image: "aoo/admin:release", ports: [{name: http, containerPort: 8080}], env: [], startupProbe: {httpGet: {path: /healthz, port: http}}, readinessProbe: {httpGet: {path: /healthz, port: http}}, livenessProbe: {httpGet: {path: /healthz, port: http}}, resources: {requests: {cpu: 200m, memory: 256Mi}, limits: {cpu: "1", memory: 1Gi}}}]}}}
+  - {apiVersion: v1, kind: Service, metadata: {name: aoo-account, namespace: aoo-production}, spec: {selector: {app.kubernetes.io/name: aoo-account}, ports: [{name: http, port: 904, targetPort: http}]}}
+  - {apiVersion: v1, kind: Service, metadata: {name: aoo-gateway, namespace: aoo-production}, spec: {selector: {app.kubernetes.io/name: aoo-gateway}, ports: [{name: http, port: 8080, targetPort: http}]}}
+  - {apiVersion: v1, kind: Service, metadata: {name: aoo-bootstrap, namespace: aoo-production}, spec: {selector: {app.kubernetes.io/name: aoo-bootstrap}, ports: [{name: http, port: 8081, targetPort: http}]}}
+  - {apiVersion: v1, kind: Service, metadata: {name: aoo-hall, namespace: aoo-production}, spec: {selector: {app.kubernetes.io/name: aoo-hall}, ports: [{name: wss, port: 9998, targetPort: wss}]}}
+  - {apiVersion: v1, kind: Service, metadata: {name: aoo-njpdk, namespace: aoo-production}, spec: {selector: {app.kubernetes.io/name: aoo-njpdk}, ports: [{name: wss, port: 9996, targetPort: wss}]}}
+  - {apiVersion: v1, kind: Service, metadata: {name: aoo-cdxzmj, namespace: aoo-production}, spec: {selector: {app.kubernetes.io/name: aoo-cdxzmj}, ports: [{name: wss, port: 19996, targetPort: wss}]}}
+  - {apiVersion: v1, kind: Service, metadata: {name: aoo-admin, namespace: aoo-production}, spec: {selector: {app.kubernetes.io/name: aoo-admin}, ports: [{name: http, port: 8080, targetPort: http}]}}
+  - {apiVersion: networking.k8s.io/v1, kind: NetworkPolicy, metadata: {name: namespace-default-deny, namespace: aoo-production}, spec: {podSelector: {}, policyTypes: [Ingress, Egress]}}
+  - {apiVersion: policy/v1, kind: PodDisruptionBudget, metadata: {name: aoo-player-services, namespace: aoo-production}, spec: {maxUnavailable: 1, selector: {matchLabels: {aoo.io/plane: player}}}}

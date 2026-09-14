@@ -1,0 +1,7 @@
+require 'json';require 'fileutils';require 'digest'
+root=File.expand_path('..',__dir__);stage=File.join(root,'test-move/scjymj');official=File.join(root,'server/SCJYMJ')
+staged=Dir[File.join(stage,'**/*')].select{|p|File.file?(p)};formal=Dir[File.join(official,'**/*')].select{|p|File.file?(p)&&!p.include?('/target/')&& !p.include?('/build/')}
+matrix=staged.map{|p|rel=p.delete_prefix(stage+'/');target=File.join(official,rel);{path:rel,status:File.exist?(target)?(Digest::SHA256.file(p)==Digest::SHA256.file(target)?'identical':'different'):'missing',target:target.delete_prefix(root+'/')}}
+runtime_files=Dir[File.join(root,'{pom.xml,server/**/pom.xml,server/**/src/**/*,deploy/**/*}')].select{|p|File.file?(p)&&!p.include?('/target/')&&!p.include?('/build/')}
+checks={stage_has_no_unclassified_file:staged.empty?||matrix.all?{|r|%w[identical migrated approved-obsolete].include?(r[:status])},formal_module_present:formal.any?{|p|p.end_with?('.java')},no_stage_runtime_reference:runtime_files.none?{|p|File.read(p).include?('test-move/scjymj')}}
+result={task:'STAGE01',passed:checks.values.all?,checks:checks,stagedFiles:staged.length,formalFiles:formal.length,matrix:matrix};out=File.join(root,'work/audit/stage01-scjymj.json');FileUtils.mkdir_p(File.dirname(out));File.write(out,JSON.pretty_generate(result)+"\n");puts "STAGE01 #{result[:passed]?'passed':'failed'}: #{staged.length} staged files, #{formal.length} formal files";exit(result[:passed]?0:1)

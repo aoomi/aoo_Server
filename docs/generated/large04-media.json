@@ -1,0 +1,667 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-24T10:41:46Z",
+  "task": "LARGE04",
+  "passed": false,
+  "thresholdBytes": 524288,
+  "budgets": {
+    "singleSourceBytes": 1048576,
+    "singleDecodedTextureBytes": 16777216,
+    "audioSampleRateHz": 48000
+  },
+  "assets": [
+    {
+      "path": "Common/Atlas/Legacy/assets/njpdk/animation/spine/guan/skeleton.png",
+      "bytes": 575391,
+      "sha256": "6eea20c44c906252e4eb79ef86ed451a66548d6d2e8170b22a03c088a39477f6",
+      "type": "png",
+      "width": 2048,
+      "height": 512,
+      "decodedBytes": 4194304,
+      "sampleRateHz": null,
+      "bundle": "common",
+      "spine": true
+    },
+    {
+      "path": "Common/Atlas/Legacy/assets/njpdk/animation/spine/guan/skeleton_png.png",
+      "bytes": 575391,
+      "sha256": "6eea20c44c906252e4eb79ef86ed451a66548d6d2e8170b22a03c088a39477f6",
+      "type": "png",
+      "width": 2048,
+      "height": 512,
+      "decodedBytes": 4194304,
+      "sampleRateHz": null,
+      "bundle": "common",
+      "spine": true
+    },
+    {
+      "path": "Common/Atlas/Legacy/assets/njpdk/animation/spine/sandaier/skeleton.png",
+      "bytes": 562633,
+      "sha256": "f4e7cdacfee26477dfed41c06d9a2b191bfdcd325c027a1182ae97252f5e4b1f",
+      "type": "png",
+      "width": 2048,
+      "height": 512,
+      "decodedBytes": 4194304,
+      "sampleRateHz": null,
+      "bundle": "common",
+      "spine": true
+    },
+    {
+      "path": "Common/Atlas/Legacy/assets/njpdk/animation/spine/sandaier/skeleton_png.png",
+      "bytes": 562633,
+      "sha256": "f4e7cdacfee26477dfed41c06d9a2b191bfdcd325c027a1182ae97252f5e4b1f",
+      "type": "png",
+      "width": 2048,
+      "height": 512,
+      "decodedBytes": 4194304,
+      "sampleRateHz": null,
+      "bundle": "common",
+      "spine": true
+    },
+    {
+      "path": "Common/Atlas/Legacy/assets/njpdk/animation/spine/sandaiyi/skeleton.png",
+      "bytes": 561396,
+      "sha256": "5b874b0b2182b6c274ad6dcc98f065671da0fe200b65c39dcd45ec64f147beb2",
+      "type": "png",
+      "width": 2048,
+      "height": 512,
+      "decodedBytes": 4194304,
+      "sampleRateHz": null,
+      "bundle": "common",
+      "spine": true
+    },
+    {
+      "path": "Common/Atlas/Legacy/assets/njpdk/animation/spine/sandaiyi/skeleton_png.png",
+      "bytes": 561396,
+      "sha256": "5b874b0b2182b6c274ad6dcc98f065671da0fe200b65c39dcd45ec64f147beb2",
+      "type": "png",
+      "width": 2048,
+      "height": 512,
+      "decodedBytes": 4194304,
+      "sampleRateHz": null,
+      "bundle": "common",
+      "spine": true
+    },
+    {
+      "path": "Common/Atlas/Legacy/assets/njpdk/animation/spine/sidaier/skeleton.png",
+      "bytes": 562830,
+      "sha256": "38dfec6cb55bbe8a64c63890dd1995a293daca4a72e9466bbb105f86e85f97f5",
+      "type": "png",
+      "width": 2048,
+      "height": 512,
+      "decodedBytes": 4194304,
+      "sampleRateHz": null,
+      "bundle": "common",
+      "spine": true
+    },
+    {
+      "path": "Common/Atlas/Legacy/assets/njpdk/animation/spine/sidaier/skeleton_png.png",
+      "bytes": 562830,
+      "sha256": "38dfec6cb55bbe8a64c63890dd1995a293daca4a72e9466bbb105f86e85f97f5",
+      "type": "png",
+      "width": 2048,
+      "height": 512,
+      "decodedBytes": 4194304,
+      "sampleRateHz": null,
+      "bundle": "common",
+      "spine": true
+    },
+    {
+      "path": "Common/Atlas/Legacy/assets/njpdk/animation/spine/sidaisan/skeleton.png",
+      "bytes": 563343,
+      "sha256": "4349422164bae97ed909bf86bc2bb1d25b1e3e05b127308ce328deb1f58935d5",
+      "type": "png",
+      "width": 2048,
+      "height": 512,
+      "decodedBytes": 4194304,
+      "sampleRateHz": null,
+      "bundle": "common",
+      "spine": true
+    },
+    {
+      "path": "Common/Atlas/Legacy/assets/njpdk/animation/spine/sidaisan/skeleton_png.png",
+      "bytes": 563343,
+      "sha256": "4349422164bae97ed909bf86bc2bb1d25b1e3e05b127308ce328deb1f58935d5",
+      "type": "png",
+      "width": 2048,
+      "height": 512,
+      "decodedBytes": 4194304,
+      "sampleRateHz": null,
+      "bundle": "common",
+      "spine": true
+    },
+    {
+      "path": "Common/Atlas/Legacy/assets/njpdk/animation/spine/sidaiyi/skeleton.png",
+      "bytes": 561520,
+      "sha256": "2022e9fb82ddf08c92c901275695b8984d52dee9449795034c5e129e4f4edb2d",
+      "type": "png",
+      "width": 2048,
+      "height": 512,
+      "decodedBytes": 4194304,
+      "sampleRateHz": null,
+      "bundle": "common",
+      "spine": true
+    },
+    {
+      "path": "Common/Atlas/Legacy/assets/njpdk/animation/spine/sidaiyi/skeleton_png.png",
+      "bytes": 561520,
+      "sha256": "2022e9fb82ddf08c92c901275695b8984d52dee9449795034c5e129e4f4edb2d",
+      "type": "png",
+      "width": 2048,
+      "height": 512,
+      "decodedBytes": 4194304,
+      "sampleRateHz": null,
+      "bundle": "common",
+      "spine": true
+    },
+    {
+      "path": "Common/Atlas/Legacy/assets/njpdk/texture/background/bg1.png",
+      "bytes": 1150161,
+      "sha256": "46e3b546967dcd45c8fcf3a51e42b2641308d9a57541903fd6731217eab6d838",
+      "type": "png",
+      "width": 1700,
+      "height": 720,
+      "decodedBytes": 4896000,
+      "sampleRateHz": null,
+      "bundle": "common",
+      "spine": false
+    },
+    {
+      "path": "Common/Atlas/Legacy/assets/njpdk/texture/game/njpdk/play/table.png",
+      "bytes": 1077686,
+      "sha256": "47d0cf3bd908f7e1c773126e3055367a4a2316b216f0215782ffe3690b23b265",
+      "type": "png",
+      "width": 1540,
+      "height": 630,
+      "decodedBytes": 3880800,
+      "sampleRateHz": null,
+      "bundle": "common",
+      "spine": false
+    },
+    {
+      "path": "Common/Atlas/Legacy/assets/texture/1AddImage/Button/zhuangshi_01.png",
+      "bytes": 608030,
+      "sha256": "421ac7b1bf430185ae07d6f06f457a33a613addd36692af644fe82e68089852e",
+      "type": "png",
+      "width": 635,
+      "height": 714,
+      "decodedBytes": 1813560,
+      "sampleRateHz": null,
+      "bundle": "common",
+      "spine": false
+    },
+    {
+      "path": "Common/Atlas/Legacy/assets/texture/1AddImage/NewImage/bj_01.png",
+      "bytes": 1470253,
+      "sha256": "246d02107918b69a4f7a41d6eef7f475d8a3cca04788b40d20d7c9f5a27362a9",
+      "type": "png",
+      "width": 2340,
+      "height": 1080,
+      "decodedBytes": 10108800,
+      "sampleRateHz": null,
+      "bundle": "common",
+      "spine": false
+    },
+    {
+      "path": "Common/Atlas/Legacy/assets/texture/1AddImage/bg_01.png",
+      "bytes": 1020630,
+      "sha256": "48f94ba4d6604b9f011df519481e2b00b012e0b245386947e08240527563fa2f",
+      "type": "png",
+      "width": 2340,
+      "height": 1080,
+      "decodedBytes": 10108800,
+      "sampleRateHz": null,
+      "bundle": "common",
+      "spine": false
+    },
+    {
+      "path": "Common/Atlas/Legacy/assets/texture/1AddImage/bj_01.png",
+      "bytes": 1470253,
+      "sha256": "246d02107918b69a4f7a41d6eef7f475d8a3cca04788b40d20d7c9f5a27362a9",
+      "type": "png",
+      "width": 2340,
+      "height": 1080,
+      "decodedBytes": 10108800,
+      "sampleRateHz": null,
+      "bundle": "common",
+      "spine": false
+    },
+    {
+      "path": "Common/Atlas/Legacy/assets/texture/clubnone/bj_qyq.png",
+      "bytes": 895668,
+      "sha256": "ac016c989e8b051cf05ddeba2b793d45eba19f19dc983db0e40b0c7d7f874a96",
+      "type": "png",
+      "width": 1750,
+      "height": 800,
+      "decodedBytes": 5600000,
+      "sampleRateHz": null,
+      "bundle": "common",
+      "spine": false
+    },
+    {
+      "path": "Common/Atlas/Legacy/assets/texture/newmain/zhuangshi_01.png",
+      "bytes": 608030,
+      "sha256": "421ac7b1bf430185ae07d6f06f457a33a613addd36692af644fe82e68089852e",
+      "type": "png",
+      "width": 635,
+      "height": 714,
+      "decodedBytes": 1813560,
+      "sampleRateHz": null,
+      "bundle": "common",
+      "spine": false
+    },
+    {
+      "path": "Common/Audio/Legacy/assets/njpdk/sound/background/kaishipaiju.mp3",
+      "bytes": 1000727,
+      "sha256": "08904e8c6eee3924081f94881fc84a866a8b6bd7aec194251fee4cf0f9091a70",
+      "type": "mp3",
+      "width": null,
+      "height": null,
+      "decodedBytes": null,
+      "sampleRateHz": null,
+      "bundle": "common",
+      "spine": false
+    },
+    {
+      "path": "Common/Audio/Legacy/assets/njpdk/sound/njpdk/back_1.mp3",
+      "bytes": 831364,
+      "sha256": "a03794cf0d9ffcb44f8b948f8819b1516e8219c84b1acfe22f59b235da9cfd48",
+      "type": "mp3",
+      "width": null,
+      "height": null,
+      "decodedBytes": null,
+      "sampleRateHz": null,
+      "bundle": "common",
+      "spine": false
+    },
+    {
+      "path": "Games/Mahjong/Packs/Pack01/Atlas/Legacy/hzmj-source/texture/game/1.png",
+      "bytes": 731461,
+      "sha256": "fac797df665175925e8f52789c7b6727de1cdd03323f98b2d313c96e32c07cee",
+      "type": "png",
+      "width": 1334,
+      "height": 750,
+      "decodedBytes": 4002000,
+      "sampleRateHz": null,
+      "bundle": "mahjong01",
+      "spine": false
+    },
+    {
+      "path": "Games/Mahjong/Packs/Pack01/Atlas/Legacy/hzmj-source/texture/game/2.png",
+      "bytes": 678134,
+      "sha256": "0bde80ee93430b01443ad69f0548bf0687a0afd2ecace638ff0f659bf9b030be",
+      "type": "png",
+      "width": 1334,
+      "height": 750,
+      "decodedBytes": 4002000,
+      "sampleRateHz": null,
+      "bundle": "mahjong01",
+      "spine": false
+    },
+    {
+      "path": "Games/Mahjong/Packs/Pack01/Atlas/Legacy/hzmj-source/texture/game/3.png",
+      "bytes": 684819,
+      "sha256": "925f36632fe3d7eafe755aefac83f4c9590366bfb338893d61aec41597faa6f3",
+      "type": "png",
+      "width": 1334,
+      "height": 750,
+      "decodedBytes": 4002000,
+      "sampleRateHz": null,
+      "bundle": "mahjong01",
+      "spine": false
+    },
+    {
+      "path": "Games/Mahjong/Packs/Pack01/Atlas/Legacy/hzmj-source/texture/game/XY/game/bg.png",
+      "bytes": 534200,
+      "sha256": "c06ad47fa6f14e7f9684af86d6dfa39d2ce675d47f646d12b8fb523a6190a0b0",
+      "type": "png",
+      "width": 1750,
+      "height": 800,
+      "decodedBytes": 5600000,
+      "sampleRateHz": null,
+      "bundle": "mahjong01",
+      "spine": false
+    },
+    {
+      "path": "Games/Mahjong/Packs/Pack01/Audio/Legacy/hzmj-source/sound/background/kaishipaiju.mp3",
+      "bytes": 1000727,
+      "sha256": "08904e8c6eee3924081f94881fc84a866a8b6bd7aec194251fee4cf0f9091a70",
+      "type": "mp3",
+      "width": null,
+      "height": null,
+      "decodedBytes": null,
+      "sampleRateHz": null,
+      "bundle": "mahjong01",
+      "spine": false
+    },
+    {
+      "path": "Games/Poker/Packs/Pack01/Atlas/Legacy/assets/njpdk/animation/spine/guan/skeleton.png",
+      "bytes": 575391,
+      "sha256": "6eea20c44c906252e4eb79ef86ed451a66548d6d2e8170b22a03c088a39477f6",
+      "type": "png",
+      "width": 2048,
+      "height": 512,
+      "decodedBytes": 4194304,
+      "sampleRateHz": null,
+      "bundle": "poker01",
+      "spine": true
+    },
+    {
+      "path": "Games/Poker/Packs/Pack01/Atlas/Legacy/assets/njpdk/animation/spine/guan/skeleton_png.png",
+      "bytes": 575391,
+      "sha256": "6eea20c44c906252e4eb79ef86ed451a66548d6d2e8170b22a03c088a39477f6",
+      "type": "png",
+      "width": 2048,
+      "height": 512,
+      "decodedBytes": 4194304,
+      "sampleRateHz": null,
+      "bundle": "poker01",
+      "spine": true
+    },
+    {
+      "path": "Games/Poker/Packs/Pack01/Atlas/Legacy/assets/njpdk/animation/spine/sandaier/skeleton.png",
+      "bytes": 562633,
+      "sha256": "f4e7cdacfee26477dfed41c06d9a2b191bfdcd325c027a1182ae97252f5e4b1f",
+      "type": "png",
+      "width": 2048,
+      "height": 512,
+      "decodedBytes": 4194304,
+      "sampleRateHz": null,
+      "bundle": "poker01",
+      "spine": true
+    },
+    {
+      "path": "Games/Poker/Packs/Pack01/Atlas/Legacy/assets/njpdk/animation/spine/sandaier/skeleton_png.png",
+      "bytes": 562633,
+      "sha256": "f4e7cdacfee26477dfed41c06d9a2b191bfdcd325c027a1182ae97252f5e4b1f",
+      "type": "png",
+      "width": 2048,
+      "height": 512,
+      "decodedBytes": 4194304,
+      "sampleRateHz": null,
+      "bundle": "poker01",
+      "spine": true
+    },
+    {
+      "path": "Games/Poker/Packs/Pack01/Atlas/Legacy/assets/njpdk/animation/spine/sandaiyi/skeleton.png",
+      "bytes": 561396,
+      "sha256": "5b874b0b2182b6c274ad6dcc98f065671da0fe200b65c39dcd45ec64f147beb2",
+      "type": "png",
+      "width": 2048,
+      "height": 512,
+      "decodedBytes": 4194304,
+      "sampleRateHz": null,
+      "bundle": "poker01",
+      "spine": true
+    },
+    {
+      "path": "Games/Poker/Packs/Pack01/Atlas/Legacy/assets/njpdk/animation/spine/sandaiyi/skeleton_png.png",
+      "bytes": 561396,
+      "sha256": "5b874b0b2182b6c274ad6dcc98f065671da0fe200b65c39dcd45ec64f147beb2",
+      "type": "png",
+      "width": 2048,
+      "height": 512,
+      "decodedBytes": 4194304,
+      "sampleRateHz": null,
+      "bundle": "poker01",
+      "spine": true
+    },
+    {
+      "path": "Games/Poker/Packs/Pack01/Atlas/Legacy/assets/njpdk/animation/spine/sidaier/skeleton.png",
+      "bytes": 562830,
+      "sha256": "38dfec6cb55bbe8a64c63890dd1995a293daca4a72e9466bbb105f86e85f97f5",
+      "type": "png",
+      "width": 2048,
+      "height": 512,
+      "decodedBytes": 4194304,
+      "sampleRateHz": null,
+      "bundle": "poker01",
+      "spine": true
+    },
+    {
+      "path": "Games/Poker/Packs/Pack01/Atlas/Legacy/assets/njpdk/animation/spine/sidaier/skeleton_png.png",
+      "bytes": 562830,
+      "sha256": "38dfec6cb55bbe8a64c63890dd1995a293daca4a72e9466bbb105f86e85f97f5",
+      "type": "png",
+      "width": 2048,
+      "height": 512,
+      "decodedBytes": 4194304,
+      "sampleRateHz": null,
+      "bundle": "poker01",
+      "spine": true
+    },
+    {
+      "path": "Games/Poker/Packs/Pack01/Atlas/Legacy/assets/njpdk/animation/spine/sidaisan/skeleton.png",
+      "bytes": 563343,
+      "sha256": "4349422164bae97ed909bf86bc2bb1d25b1e3e05b127308ce328deb1f58935d5",
+      "type": "png",
+      "width": 2048,
+      "height": 512,
+      "decodedBytes": 4194304,
+      "sampleRateHz": null,
+      "bundle": "poker01",
+      "spine": true
+    },
+    {
+      "path": "Games/Poker/Packs/Pack01/Atlas/Legacy/assets/njpdk/animation/spine/sidaisan/skeleton_png.png",
+      "bytes": 563343,
+      "sha256": "4349422164bae97ed909bf86bc2bb1d25b1e3e05b127308ce328deb1f58935d5",
+      "type": "png",
+      "width": 2048,
+      "height": 512,
+      "decodedBytes": 4194304,
+      "sampleRateHz": null,
+      "bundle": "poker01",
+      "spine": true
+    },
+    {
+      "path": "Games/Poker/Packs/Pack01/Atlas/Legacy/assets/njpdk/animation/spine/sidaiyi/skeleton.png",
+      "bytes": 561520,
+      "sha256": "2022e9fb82ddf08c92c901275695b8984d52dee9449795034c5e129e4f4edb2d",
+      "type": "png",
+      "width": 2048,
+      "height": 512,
+      "decodedBytes": 4194304,
+      "sampleRateHz": null,
+      "bundle": "poker01",
+      "spine": true
+    },
+    {
+      "path": "Games/Poker/Packs/Pack01/Atlas/Legacy/assets/njpdk/animation/spine/sidaiyi/skeleton_png.png",
+      "bytes": 561520,
+      "sha256": "2022e9fb82ddf08c92c901275695b8984d52dee9449795034c5e129e4f4edb2d",
+      "type": "png",
+      "width": 2048,
+      "height": 512,
+      "decodedBytes": 4194304,
+      "sampleRateHz": null,
+      "bundle": "poker01",
+      "spine": true
+    },
+    {
+      "path": "Games/Poker/Packs/Pack01/Atlas/Legacy/assets/njpdk/texture/background/bg1.png",
+      "bytes": 1150161,
+      "sha256": "46e3b546967dcd45c8fcf3a51e42b2641308d9a57541903fd6731217eab6d838",
+      "type": "png",
+      "width": 1700,
+      "height": 720,
+      "decodedBytes": 4896000,
+      "sampleRateHz": null,
+      "bundle": "poker01",
+      "spine": false
+    },
+    {
+      "path": "Games/Poker/Packs/Pack01/Atlas/Legacy/assets/njpdk/texture/game/njpdk/play/table.png",
+      "bytes": 1077686,
+      "sha256": "47d0cf3bd908f7e1c773126e3055367a4a2316b216f0215782ffe3690b23b265",
+      "type": "png",
+      "width": 1540,
+      "height": 630,
+      "decodedBytes": 3880800,
+      "sampleRateHz": null,
+      "bundle": "poker01",
+      "spine": false
+    },
+    {
+      "path": "Games/Poker/Packs/Pack01/Audio/Legacy/assets/njpdk/sound/background/kaishipaiju.mp3",
+      "bytes": 1000727,
+      "sha256": "08904e8c6eee3924081f94881fc84a866a8b6bd7aec194251fee4cf0f9091a70",
+      "type": "mp3",
+      "width": null,
+      "height": null,
+      "decodedBytes": null,
+      "sampleRateHz": null,
+      "bundle": "poker01",
+      "spine": false
+    },
+    {
+      "path": "Games/Poker/Packs/Pack01/Audio/Legacy/assets/njpdk/sound/njpdk/back_1.mp3",
+      "bytes": 831364,
+      "sha256": "a03794cf0d9ffcb44f8b948f8819b1516e8219c84b1acfe22f59b235da9cfd48",
+      "type": "mp3",
+      "width": null,
+      "height": null,
+      "decodedBytes": null,
+      "sampleRateHz": null,
+      "bundle": "poker01",
+      "spine": false
+    },
+    {
+      "path": "Lobby/Atlas/Legacy/texture/zhuangshi_01.png",
+      "bytes": 608030,
+      "sha256": "421ac7b1bf430185ae07d6f06f457a33a613addd36692af644fe82e68089852e",
+      "type": "png",
+      "width": 635,
+      "height": 714,
+      "decodedBytes": 1813560,
+      "sampleRateHz": null,
+      "bundle": "lobby",
+      "spine": false
+    }
+  ],
+  "duplicates": [
+    {
+      "sha256": "6eea20c44c906252e4eb79ef86ed451a66548d6d2e8170b22a03c088a39477f6",
+      "bytes": 575391,
+      "copies": [
+        "Common/Atlas/Legacy/assets/njpdk/animation/spine/guan/skeleton.png",
+        "Common/Atlas/Legacy/assets/njpdk/animation/spine/guan/skeleton_png.png",
+        "Games/Poker/Packs/Pack01/Atlas/Legacy/assets/njpdk/animation/spine/guan/skeleton.png",
+        "Games/Poker/Packs/Pack01/Atlas/Legacy/assets/njpdk/animation/spine/guan/skeleton_png.png"
+      ]
+    },
+    {
+      "sha256": "f4e7cdacfee26477dfed41c06d9a2b191bfdcd325c027a1182ae97252f5e4b1f",
+      "bytes": 562633,
+      "copies": [
+        "Common/Atlas/Legacy/assets/njpdk/animation/spine/sandaier/skeleton.png",
+        "Common/Atlas/Legacy/assets/njpdk/animation/spine/sandaier/skeleton_png.png",
+        "Games/Poker/Packs/Pack01/Atlas/Legacy/assets/njpdk/animation/spine/sandaier/skeleton.png",
+        "Games/Poker/Packs/Pack01/Atlas/Legacy/assets/njpdk/animation/spine/sandaier/skeleton_png.png"
+      ]
+    },
+    {
+      "sha256": "5b874b0b2182b6c274ad6dcc98f065671da0fe200b65c39dcd45ec64f147beb2",
+      "bytes": 561396,
+      "copies": [
+        "Common/Atlas/Legacy/assets/njpdk/animation/spine/sandaiyi/skeleton.png",
+        "Common/Atlas/Legacy/assets/njpdk/animation/spine/sandaiyi/skeleton_png.png",
+        "Games/Poker/Packs/Pack01/Atlas/Legacy/assets/njpdk/animation/spine/sandaiyi/skeleton.png",
+        "Games/Poker/Packs/Pack01/Atlas/Legacy/assets/njpdk/animation/spine/sandaiyi/skeleton_png.png"
+      ]
+    },
+    {
+      "sha256": "38dfec6cb55bbe8a64c63890dd1995a293daca4a72e9466bbb105f86e85f97f5",
+      "bytes": 562830,
+      "copies": [
+        "Common/Atlas/Legacy/assets/njpdk/animation/spine/sidaier/skeleton.png",
+        "Common/Atlas/Legacy/assets/njpdk/animation/spine/sidaier/skeleton_png.png",
+        "Games/Poker/Packs/Pack01/Atlas/Legacy/assets/njpdk/animation/spine/sidaier/skeleton.png",
+        "Games/Poker/Packs/Pack01/Atlas/Legacy/assets/njpdk/animation/spine/sidaier/skeleton_png.png"
+      ]
+    },
+    {
+      "sha256": "4349422164bae97ed909bf86bc2bb1d25b1e3e05b127308ce328deb1f58935d5",
+      "bytes": 563343,
+      "copies": [
+        "Common/Atlas/Legacy/assets/njpdk/animation/spine/sidaisan/skeleton.png",
+        "Common/Atlas/Legacy/assets/njpdk/animation/spine/sidaisan/skeleton_png.png",
+        "Games/Poker/Packs/Pack01/Atlas/Legacy/assets/njpdk/animation/spine/sidaisan/skeleton.png",
+        "Games/Poker/Packs/Pack01/Atlas/Legacy/assets/njpdk/animation/spine/sidaisan/skeleton_png.png"
+      ]
+    },
+    {
+      "sha256": "2022e9fb82ddf08c92c901275695b8984d52dee9449795034c5e129e4f4edb2d",
+      "bytes": 561520,
+      "copies": [
+        "Common/Atlas/Legacy/assets/njpdk/animation/spine/sidaiyi/skeleton.png",
+        "Common/Atlas/Legacy/assets/njpdk/animation/spine/sidaiyi/skeleton_png.png",
+        "Games/Poker/Packs/Pack01/Atlas/Legacy/assets/njpdk/animation/spine/sidaiyi/skeleton.png",
+        "Games/Poker/Packs/Pack01/Atlas/Legacy/assets/njpdk/animation/spine/sidaiyi/skeleton_png.png"
+      ]
+    },
+    {
+      "sha256": "46e3b546967dcd45c8fcf3a51e42b2641308d9a57541903fd6731217eab6d838",
+      "bytes": 1150161,
+      "copies": [
+        "Common/Atlas/Legacy/assets/njpdk/texture/background/bg1.png",
+        "Games/Poker/Packs/Pack01/Atlas/Legacy/assets/njpdk/texture/background/bg1.png"
+      ]
+    },
+    {
+      "sha256": "47d0cf3bd908f7e1c773126e3055367a4a2316b216f0215782ffe3690b23b265",
+      "bytes": 1077686,
+      "copies": [
+        "Common/Atlas/Legacy/assets/njpdk/texture/game/njpdk/play/table.png",
+        "Games/Poker/Packs/Pack01/Atlas/Legacy/assets/njpdk/texture/game/njpdk/play/table.png"
+      ]
+    },
+    {
+      "sha256": "421ac7b1bf430185ae07d6f06f457a33a613addd36692af644fe82e68089852e",
+      "bytes": 608030,
+      "copies": [
+        "Common/Atlas/Legacy/assets/texture/1AddImage/Button/zhuangshi_01.png",
+        "Common/Atlas/Legacy/assets/texture/newmain/zhuangshi_01.png",
+        "Lobby/Atlas/Legacy/texture/zhuangshi_01.png"
+      ]
+    },
+    {
+      "sha256": "246d02107918b69a4f7a41d6eef7f475d8a3cca04788b40d20d7c9f5a27362a9",
+      "bytes": 1470253,
+      "copies": [
+        "Common/Atlas/Legacy/assets/texture/1AddImage/NewImage/bj_01.png",
+        "Common/Atlas/Legacy/assets/texture/1AddImage/bj_01.png"
+      ]
+    },
+    {
+      "sha256": "08904e8c6eee3924081f94881fc84a866a8b6bd7aec194251fee4cf0f9091a70",
+      "bytes": 1000727,
+      "copies": [
+        "Common/Audio/Legacy/assets/njpdk/sound/background/kaishipaiju.mp3",
+        "Games/Mahjong/Packs/Pack01/Audio/Legacy/hzmj-source/sound/background/kaishipaiju.mp3",
+        "Games/Poker/Packs/Pack01/Audio/Legacy/assets/njpdk/sound/background/kaishipaiju.mp3"
+      ]
+    },
+    {
+      "sha256": "a03794cf0d9ffcb44f8b948f8819b1516e8219c84b1acfe22f59b235da9cfd48",
+      "bytes": 831364,
+      "copies": [
+        "Common/Audio/Legacy/assets/njpdk/sound/njpdk/back_1.mp3",
+        "Games/Poker/Packs/Pack01/Audio/Legacy/assets/njpdk/sound/njpdk/back_1.mp3"
+      ]
+    }
+  ],
+  "checks": {
+    "inventoryPresent": true,
+    "dimensionsCollected": true,
+    "audioMetadataCollected": false,
+    "allAssignedToBundle": true,
+    "duplicatePayloadsRemoved": false,
+    "oversizeDecodedTexturesAbsent": true,
+    "compressedDeviceTextureProfiles": false
+  },
+  "blockers": [
+    "identical media remains duplicated between Common and game packs",
+    "PNG sources do not declare verified per-device ASTC/ETC2 compression profiles"
+  ]
+}

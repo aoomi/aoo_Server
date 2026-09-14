@@ -1,0 +1,1401 @@
+{
+  "schemaVersion": 1,
+  "task": "DBREAL03",
+  "source": "database/original/db_zle_qh.sql",
+  "sourceSha256": "901b19e6f999f3200a37592531ced0b608f9d003a11b1a2e5c5bf012e6c67a2f",
+  "immutableMode": "0444",
+  "entries": [
+    {
+      "sourceTable": "ClubLevelRoomCountLog",
+      "disposition": "MAPPED_CLUB_AND_TEMPLATE",
+      "canonicalTargets": [
+        "aoo_club_member",
+        "aoo_room_template"
+      ],
+      "migrationEvidence": [
+        "database/migrations/V20260822_01__business_closure.sql",
+        "database/migrations/V20260822_14__scalable_club_members.sql"
+      ],
+      "archiveReason": null
+    },
+    {
+      "sourceTable": "activity_content",
+      "disposition": "REVIEWED_ARCHIVE_ONLY",
+      "canonicalTargets": [
+
+      ],
+      "migrationEvidence": [
+
+      ],
+      "archiveReason": "legacy CMS/reporting/support object is outside authoritative login-hall-club-room-game-billing runtime; retained for offline historical lookup"
+    },
+    {
+      "sourceTable": "activity_detail",
+      "disposition": "REVIEWED_ARCHIVE_ONLY",
+      "canonicalTargets": [
+
+      ],
+      "migrationEvidence": [
+
+      ],
+      "archiveReason": "legacy CMS/reporting/support object is outside authoritative login-hall-club-room-game-billing runtime; retained for offline historical lookup"
+    },
+    {
+      "sourceTable": "activity_time",
+      "disposition": "REVIEWED_ARCHIVE_ONLY",
+      "canonicalTargets": [
+
+      ],
+      "migrationEvidence": [
+
+      ],
+      "archiveReason": "legacy CMS/reporting/support object is outside authoritative login-hall-club-room-game-billing runtime; retained for offline historical lookup"
+    },
+    {
+      "sourceTable": "agentsuplevel",
+      "disposition": "MAPPED_ADMIN_CONTROL",
+      "canonicalTargets": [
+        "aoo_admin_audit",
+        "admin_operator_permission",
+        "admin_control_resource"
+      ],
+      "migrationEvidence": [
+        "database/migrations/V20260822_02__admin_control_plane.sql",
+        "database/migrations/V20260822_04__admin_permissions.sql"
+      ],
+      "archiveReason": null
+    },
+    {
+      "sourceTable": "arena",
+      "disposition": "REVIEWED_ARCHIVE_ONLY",
+      "canonicalTargets": [
+
+      ],
+      "migrationEvidence": [
+
+      ],
+      "archiveReason": "legacy CMS/reporting/support object is outside authoritative login-hall-club-room-game-billing runtime; retained for offline historical lookup"
+    },
+    {
+      "sourceTable": "db_WxMwebPay",
+      "disposition": "MAPPED_LEDGER_AND_BALANCE",
+      "canonicalTargets": [
+        "aoo_ledger",
+        "aoo_currency_balance"
+      ],
+      "migrationEvidence": [
+        "database/migrations/V20260822_01__business_closure.sql",
+        "database/migrations/V20260822_04_2__currency_balance.sql"
+      ],
+      "archiveReason": null
+    },
+    {
+      "sourceTable": "db_admin_access",
+      "disposition": "MAPPED_ADMIN_CONTROL",
+      "canonicalTargets": [
+        "aoo_admin_audit",
+        "admin_operator_permission",
+        "admin_control_resource"
+      ],
+      "migrationEvidence": [
+        "database/migrations/V20260822_02__admin_control_plane.sql",
+        "database/migrations/V20260822_04__admin_permissions.sql"
+      ],
+      "archiveReason": null
+    },
+    {
+      "sourceTable": "db_admin_history",
+      "disposition": "MAPPED_ADMIN_CONTROL",
+      "canonicalTargets": [
+        "aoo_admin_audit",
+        "admin_operator_permission",
+        "admin_control_resource"
+      ],
+      "migrationEvidence": [
+        "database/migrations/V20260822_02__admin_control_plane.sql",
+        "database/migrations/V20260822_04__admin_permissions.sql"
+      ],
+      "archiveReason": null
+    },
+    {
+      "sourceTable": "db_admin_node",
+      "disposition": "MAPPED_ADMIN_CONTROL",
+      "canonicalTargets": [
+        "aoo_admin_audit",
+        "admin_operator_permission",
+        "admin_control_resource"
+      ],
+      "migrationEvidence": [
+        "database/migrations/V20260822_02__admin_control_plane.sql",
+        "database/migrations/V20260822_04__admin_permissions.sql"
+      ],
+      "archiveReason": null
+    },
+    {
+      "sourceTable": "db_admin_role",
+      "disposition": "MAPPED_ADMIN_CONTROL",
+      "canonicalTargets": [
+        "aoo_admin_audit",
+        "admin_operator_permission",
+        "admin_control_resource"
+      ],
+      "migrationEvidence": [
+        "database/migrations/V20260822_02__admin_control_plane.sql",
+        "database/migrations/V20260822_04__admin_permissions.sql"
+      ],
+      "archiveReason": null
+    },
+    {
+      "sourceTable": "db_admin_role_user",
+      "disposition": "MAPPED_ADMIN_CONTROL",
+      "canonicalTargets": [
+        "aoo_admin_audit",
+        "admin_operator_permission",
+        "admin_control_resource"
+      ],
+      "migrationEvidence": [
+        "database/migrations/V20260822_02__admin_control_plane.sql",
+        "database/migrations/V20260822_04__admin_permissions.sql"
+      ],
+      "archiveReason": null
+    },
+    {
+      "sourceTable": "db_administrator",
+      "disposition": "MAPPED_ADMIN_CONTROL",
+      "canonicalTargets": [
+        "aoo_admin_audit",
+        "admin_operator_permission",
+        "admin_control_resource"
+      ],
+      "migrationEvidence": [
+        "database/migrations/V20260822_02__admin_control_plane.sql",
+        "database/migrations/V20260822_04__admin_permissions.sql"
+      ],
+      "archiveReason": null
+    },
+    {
+      "sourceTable": "db_adminlog",
+      "disposition": "MAPPED_ADMIN_CONTROL",
+      "canonicalTargets": [
+        "aoo_admin_audit",
+        "admin_operator_permission",
+        "admin_control_resource"
+      ],
+      "migrationEvidence": [
+        "database/migrations/V20260822_02__admin_control_plane.sql",
+        "database/migrations/V20260822_04__admin_permissions.sql"
+      ],
+      "archiveReason": null
+    },
+    {
+      "sourceTable": "db_advice",
+      "disposition": "REVIEWED_ARCHIVE_ONLY",
+      "canonicalTargets": [
+
+      ],
+      "migrationEvidence": [
+
+      ],
+      "archiveReason": "legacy CMS/reporting/support object is outside authoritative login-hall-club-room-game-billing runtime; retained for offline historical lookup"
+    },
+    {
+      "sourceTable": "db_agentsInformation",
+      "disposition": "MAPPED_ADMIN_CONTROL",
+      "canonicalTargets": [
+        "aoo_admin_audit",
+        "admin_operator_permission",
+        "admin_control_resource"
+      ],
+      "migrationEvidence": [
+        "database/migrations/V20260822_02__admin_control_plane.sql",
+        "database/migrations/V20260822_04__admin_permissions.sql"
+      ],
+      "archiveReason": null
+    },
+    {
+      "sourceTable": "db_agents_acting",
+      "disposition": "MAPPED_ADMIN_CONTROL",
+      "canonicalTargets": [
+        "aoo_admin_audit",
+        "admin_operator_permission",
+        "admin_control_resource"
+      ],
+      "migrationEvidence": [
+        "database/migrations/V20260822_02__admin_control_plane.sql",
+        "database/migrations/V20260822_04__admin_permissions.sql"
+      ],
+      "archiveReason": null
+    },
+    {
+      "sourceTable": "db_agents_earlywarning",
+      "disposition": "MAPPED_ADMIN_CONTROL",
+      "canonicalTargets": [
+        "aoo_admin_audit",
+        "admin_operator_permission",
+        "admin_control_resource"
+      ],
+      "migrationEvidence": [
+        "database/migrations/V20260822_02__admin_control_plane.sql",
+        "database/migrations/V20260822_04__admin_permissions.sql"
+      ],
+      "archiveReason": null
+    },
+    {
+      "sourceTable": "db_agents_oplog",
+      "disposition": "MAPPED_ADMIN_CONTROL",
+      "canonicalTargets": [
+        "aoo_admin_audit",
+        "admin_operator_permission",
+        "admin_control_resource"
+      ],
+      "migrationEvidence": [
+        "database/migrations/V20260822_02__admin_control_plane.sql",
+        "database/migrations/V20260822_04__admin_permissions.sql"
+      ],
+      "archiveReason": null
+    },
+    {
+      "sourceTable": "db_agents_roomcard",
+      "disposition": "MAPPED_LEDGER_AND_BALANCE",
+      "canonicalTargets": [
+        "aoo_ledger",
+        "aoo_currency_balance"
+      ],
+      "migrationEvidence": [
+        "database/migrations/V20260822_01__business_closure.sql",
+        "database/migrations/V20260822_04_2__currency_balance.sql"
+      ],
+      "archiveReason": null
+    },
+    {
+      "sourceTable": "db_agents_tixian",
+      "disposition": "MAPPED_LEDGER_AND_BALANCE",
+      "canonicalTargets": [
+        "aoo_ledger",
+        "aoo_currency_balance"
+      ],
+      "migrationEvidence": [
+        "database/migrations/V20260822_01__business_closure.sql",
+        "database/migrations/V20260822_04_2__currency_balance.sql"
+      ],
+      "archiveReason": null
+    },
+    {
+      "sourceTable": "db_agentsphoto",
+      "disposition": "MAPPED_ADMIN_CONTROL",
+      "canonicalTargets": [
+        "aoo_admin_audit",
+        "admin_operator_permission",
+        "admin_control_resource"
+      ],
+      "migrationEvidence": [
+        "database/migrations/V20260822_02__admin_control_plane.sql",
+        "database/migrations/V20260822_04__admin_permissions.sql"
+      ],
+      "archiveReason": null
+    },
+    {
+      "sourceTable": "db_apply_agency",
+      "disposition": "MAPPED_ADMIN_CONTROL",
+      "canonicalTargets": [
+        "aoo_admin_audit",
+        "admin_operator_permission",
+        "admin_control_resource"
+      ],
+      "migrationEvidence": [
+        "database/migrations/V20260822_02__admin_control_plane.sql",
+        "database/migrations/V20260822_04__admin_permissions.sql"
+      ],
+      "archiveReason": null
+    },
+    {
+      "sourceTable": "db_apply_agency_828",
+      "disposition": "MAPPED_ADMIN_CONTROL",
+      "canonicalTargets": [
+        "aoo_admin_audit",
+        "admin_operator_permission",
+        "admin_control_resource"
+      ],
+      "migrationEvidence": [
+        "database/migrations/V20260822_02__admin_control_plane.sql",
+        "database/migrations/V20260822_04__admin_permissions.sql"
+      ],
+      "archiveReason": null
+    },
+    {
+      "sourceTable": "db_approcard_config",
+      "disposition": "REVIEWED_ARCHIVE_ONLY",
+      "canonicalTargets": [
+
+      ],
+      "migrationEvidence": [
+
+      ],
+      "archiveReason": "legacy CMS/reporting/support object is outside authoritative login-hall-club-room-game-billing runtime; retained for offline historical lookup"
+    },
+    {
+      "sourceTable": "db_area",
+      "disposition": "MAPPED_GAME_PROFILE",
+      "canonicalTargets": [
+        "aoo_game_profile_version",
+        "aoo_play_variant"
+      ],
+      "migrationEvidence": [
+        "database/migrations/V20260822_03__game_profile_publication.sql"
+      ],
+      "archiveReason": null
+    },
+    {
+      "sourceTable": "db_category",
+      "disposition": "MAPPED_GAME_PROFILE",
+      "canonicalTargets": [
+        "aoo_game_profile_version",
+        "aoo_play_variant"
+      ],
+      "migrationEvidence": [
+        "database/migrations/V20260822_03__game_profile_publication.sql"
+      ],
+      "archiveReason": null
+    },
+    {
+      "sourceTable": "db_citybokaconfig",
+      "disposition": "REVIEWED_ARCHIVE_ONLY",
+      "canonicalTargets": [
+
+      ],
+      "migrationEvidence": [
+
+      ],
+      "archiveReason": "legacy CMS/reporting/support object is outside authoritative login-hall-club-room-game-billing runtime; retained for offline historical lookup"
+    },
+    {
+      "sourceTable": "db_clubcard_count",
+      "disposition": "MAPPED_CLUB_AND_TEMPLATE",
+      "canonicalTargets": [
+        "aoo_club_member",
+        "aoo_room_template"
+      ],
+      "migrationEvidence": [
+        "database/migrations/V20260822_01__business_closure.sql",
+        "database/migrations/V20260822_14__scalable_club_members.sql"
+      ],
+      "archiveReason": null
+    },
+    {
+      "sourceTable": "db_clubconfig",
+      "disposition": "MAPPED_CLUB_AND_TEMPLATE",
+      "canonicalTargets": [
+        "aoo_club_member",
+        "aoo_room_template"
+      ],
+      "migrationEvidence": [
+        "database/migrations/V20260822_01__business_closure.sql",
+        "database/migrations/V20260822_14__scalable_club_members.sql"
+      ],
+      "archiveReason": null
+    },
+    {
+      "sourceTable": "db_clublist",
+      "disposition": "MAPPED_CLUB_AND_TEMPLATE",
+      "canonicalTargets": [
+        "aoo_club_member",
+        "aoo_room_template"
+      ],
+      "migrationEvidence": [
+        "database/migrations/V20260822_01__business_closure.sql",
+        "database/migrations/V20260822_14__scalable_club_members.sql"
+      ],
+      "archiveReason": null
+    },
+    {
+      "sourceTable": "db_clubmember",
+      "disposition": "MAPPED_CLUB_AND_TEMPLATE",
+      "canonicalTargets": [
+        "aoo_club_member",
+        "aoo_room_template"
+      ],
+      "migrationEvidence": [
+        "database/migrations/V20260822_01__business_closure.sql",
+        "database/migrations/V20260822_14__scalable_club_members.sql"
+      ],
+      "archiveReason": null
+    },
+    {
+      "sourceTable": "db_clubplayersetnum_count",
+      "disposition": "MAPPED_CLUB_AND_TEMPLATE",
+      "canonicalTargets": [
+        "aoo_club_member",
+        "aoo_room_template"
+      ],
+      "migrationEvidence": [
+        "database/migrations/V20260822_01__business_closure.sql",
+        "database/migrations/V20260822_14__scalable_club_members.sql"
+      ],
+      "archiveReason": null
+    },
+    {
+      "sourceTable": "db_clubroomcard",
+      "disposition": "MAPPED_CLUB_AND_TEMPLATE",
+      "canonicalTargets": [
+        "aoo_club_member",
+        "aoo_room_template"
+      ],
+      "migrationEvidence": [
+        "database/migrations/V20260822_01__business_closure.sql",
+        "database/migrations/V20260822_14__scalable_club_members.sql"
+      ],
+      "archiveReason": null
+    },
+    {
+      "sourceTable": "db_contact",
+      "disposition": "REVIEWED_ARCHIVE_ONLY",
+      "canonicalTargets": [
+
+      ],
+      "migrationEvidence": [
+
+      ],
+      "archiveReason": "legacy CMS/reporting/support object is outside authoritative login-hall-club-room-game-billing runtime; retained for offline historical lookup"
+    },
+    {
+      "sourceTable": "db_content",
+      "disposition": "REVIEWED_ARCHIVE_ONLY",
+      "canonicalTargets": [
+
+      ],
+      "migrationEvidence": [
+
+      ],
+      "archiveReason": "legacy CMS/reporting/support object is outside authoritative login-hall-club-room-game-billing runtime; retained for offline historical lookup"
+    },
+    {
+      "sourceTable": "db_disable_account",
+      "disposition": "MAPPED_ACCOUNT_SESSION",
+      "canonicalTargets": [
+        "aoo_session"
+      ],
+      "migrationEvidence": [
+        "database/migrations/V20260822_01__business_closure.sql",
+        "database/migrations/V20260822_15__account_login_index.sql"
+      ],
+      "archiveReason": null
+    },
+    {
+      "sourceTable": "db_drawbackmoney",
+      "disposition": "MAPPED_LEDGER_AND_BALANCE",
+      "canonicalTargets": [
+        "aoo_ledger",
+        "aoo_currency_balance"
+      ],
+      "migrationEvidence": [
+        "database/migrations/V20260822_01__business_closure.sql",
+        "database/migrations/V20260822_04_2__currency_balance.sql"
+      ],
+      "archiveReason": null
+    },
+    {
+      "sourceTable": "db_drawroomcard",
+      "disposition": "MAPPED_LEDGER_AND_BALANCE",
+      "canonicalTargets": [
+        "aoo_ledger",
+        "aoo_currency_balance"
+      ],
+      "migrationEvidence": [
+        "database/migrations/V20260822_01__business_closure.sql",
+        "database/migrations/V20260822_04_2__currency_balance.sql"
+      ],
+      "archiveReason": null
+    },
+    {
+      "sourceTable": "db_employee",
+      "disposition": "MAPPED_ADMIN_CONTROL",
+      "canonicalTargets": [
+        "aoo_admin_audit",
+        "admin_operator_permission",
+        "admin_control_resource"
+      ],
+      "migrationEvidence": [
+        "database/migrations/V20260822_02__admin_control_plane.sql",
+        "database/migrations/V20260822_04__admin_permissions.sql"
+      ],
+      "archiveReason": null
+    },
+    {
+      "sourceTable": "db_family",
+      "disposition": "MAPPED_CLUB_AND_TEMPLATE",
+      "canonicalTargets": [
+        "aoo_club_member",
+        "aoo_room_template"
+      ],
+      "migrationEvidence": [
+        "database/migrations/V20260822_01__business_closure.sql",
+        "database/migrations/V20260822_14__scalable_club_members.sql"
+      ],
+      "archiveReason": null
+    },
+    {
+      "sourceTable": "db_fencheng_count",
+      "disposition": "MAPPED_LEDGER_AND_BALANCE",
+      "canonicalTargets": [
+        "aoo_ledger",
+        "aoo_currency_balance"
+      ],
+      "migrationEvidence": [
+        "database/migrations/V20260822_01__business_closure.sql",
+        "database/migrations/V20260822_04_2__currency_balance.sql"
+      ],
+      "archiveReason": null
+    },
+    {
+      "sourceTable": "db_fenshu_count",
+      "disposition": "REVIEWED_ARCHIVE_ONLY",
+      "canonicalTargets": [
+
+      ],
+      "migrationEvidence": [
+
+      ],
+      "archiveReason": "legacy CMS/reporting/support object is outside authoritative login-hall-club-room-game-billing runtime; retained for offline historical lookup"
+    },
+    {
+      "sourceTable": "db_gamesettings",
+      "disposition": "MAPPED_GAME_PROFILE",
+      "canonicalTargets": [
+        "aoo_game_profile_version",
+        "aoo_play_variant"
+      ],
+      "migrationEvidence": [
+        "database/migrations/V20260822_03__game_profile_publication.sql"
+      ],
+      "archiveReason": null
+    },
+    {
+      "sourceTable": "db_goodslist",
+      "disposition": "MAPPED_LEDGER_AND_BALANCE",
+      "canonicalTargets": [
+        "aoo_ledger",
+        "aoo_currency_balance"
+      ],
+      "migrationEvidence": [
+        "database/migrations/V20260822_01__business_closure.sql",
+        "database/migrations/V20260822_04_2__currency_balance.sql"
+      ],
+      "archiveReason": null
+    },
+    {
+      "sourceTable": "db_goodslist_copy1",
+      "disposition": "MAPPED_LEDGER_AND_BALANCE",
+      "canonicalTargets": [
+        "aoo_ledger",
+        "aoo_currency_balance"
+      ],
+      "migrationEvidence": [
+        "database/migrations/V20260822_01__business_closure.sql",
+        "database/migrations/V20260822_04_2__currency_balance.sql"
+      ],
+      "archiveReason": null
+    },
+    {
+      "sourceTable": "db_guild",
+      "disposition": "MAPPED_CLUB_AND_TEMPLATE",
+      "canonicalTargets": [
+        "aoo_club_member",
+        "aoo_room_template"
+      ],
+      "migrationEvidence": [
+        "database/migrations/V20260822_01__business_closure.sql",
+        "database/migrations/V20260822_14__scalable_club_members.sql"
+      ],
+      "archiveReason": null
+    },
+    {
+      "sourceTable": "db_guild_ceshi111",
+      "disposition": "MAPPED_CLUB_AND_TEMPLATE",
+      "canonicalTargets": [
+        "aoo_club_member",
+        "aoo_room_template"
+      ],
+      "migrationEvidence": [
+        "database/migrations/V20260822_01__business_closure.sql",
+        "database/migrations/V20260822_14__scalable_club_members.sql"
+      ],
+      "archiveReason": null
+    },
+    {
+      "sourceTable": "db_guild_roomcard",
+      "disposition": "MAPPED_CLUB_AND_TEMPLATE",
+      "canonicalTargets": [
+        "aoo_club_member",
+        "aoo_room_template"
+      ],
+      "migrationEvidence": [
+        "database/migrations/V20260822_01__business_closure.sql",
+        "database/migrations/V20260822_14__scalable_club_members.sql"
+      ],
+      "archiveReason": null
+    },
+    {
+      "sourceTable": "db_guild_tixian",
+      "disposition": "MAPPED_CLUB_AND_TEMPLATE",
+      "canonicalTargets": [
+        "aoo_club_member",
+        "aoo_room_template"
+      ],
+      "migrationEvidence": [
+        "database/migrations/V20260822_01__business_closure.sql",
+        "database/migrations/V20260822_14__scalable_club_members.sql"
+      ],
+      "archiveReason": null
+    },
+    {
+      "sourceTable": "db_haibao",
+      "disposition": "REVIEWED_ARCHIVE_ONLY",
+      "canonicalTargets": [
+
+      ],
+      "migrationEvidence": [
+
+      ],
+      "archiveReason": "legacy CMS/reporting/support object is outside authoritative login-hall-club-room-game-billing runtime; retained for offline historical lookup"
+    },
+    {
+      "sourceTable": "db_huodong_tixian",
+      "disposition": "MAPPED_LEDGER_AND_BALANCE",
+      "canonicalTargets": [
+        "aoo_ledger",
+        "aoo_currency_balance"
+      ],
+      "migrationEvidence": [
+        "database/migrations/V20260822_01__business_closure.sql",
+        "database/migrations/V20260822_04_2__currency_balance.sql"
+      ],
+      "archiveReason": null
+    },
+    {
+      "sourceTable": "db_interface",
+      "disposition": "REVIEWED_ARCHIVE_ONLY",
+      "canonicalTargets": [
+
+      ],
+      "migrationEvidence": [
+
+      ],
+      "archiveReason": "legacy CMS/reporting/support object is outside authoritative login-hall-club-room-game-billing runtime; retained for offline historical lookup"
+    },
+    {
+      "sourceTable": "db_list",
+      "disposition": "REVIEWED_ARCHIVE_ONLY",
+      "canonicalTargets": [
+
+      ],
+      "migrationEvidence": [
+
+      ],
+      "archiveReason": "legacy CMS/reporting/support object is outside authoritative login-hall-club-room-game-billing runtime; retained for offline historical lookup"
+    },
+    {
+      "sourceTable": "db_moneyrecord",
+      "disposition": "MAPPED_LEDGER_AND_BALANCE",
+      "canonicalTargets": [
+        "aoo_ledger",
+        "aoo_currency_balance"
+      ],
+      "migrationEvidence": [
+        "database/migrations/V20260822_01__business_closure.sql",
+        "database/migrations/V20260822_04_2__currency_balance.sql"
+      ],
+      "archiveReason": null
+    },
+    {
+      "sourceTable": "db_news",
+      "disposition": "REVIEWED_ARCHIVE_ONLY",
+      "canonicalTargets": [
+
+      ],
+      "migrationEvidence": [
+
+      ],
+      "archiveReason": "legacy CMS/reporting/support object is outside authoritative login-hall-club-room-game-billing runtime; retained for offline historical lookup"
+    },
+    {
+      "sourceTable": "db_onelevel_agents",
+      "disposition": "MAPPED_ADMIN_CONTROL",
+      "canonicalTargets": [
+        "aoo_admin_audit",
+        "admin_operator_permission",
+        "admin_control_resource"
+      ],
+      "migrationEvidence": [
+        "database/migrations/V20260822_02__admin_control_plane.sql",
+        "database/migrations/V20260822_04__admin_permissions.sql"
+      ],
+      "archiveReason": null
+    },
+    {
+      "sourceTable": "db_onelevel_caiwu",
+      "disposition": "MAPPED_LEDGER_AND_BALANCE",
+      "canonicalTargets": [
+        "aoo_ledger",
+        "aoo_currency_balance"
+      ],
+      "migrationEvidence": [
+        "database/migrations/V20260822_01__business_closure.sql",
+        "database/migrations/V20260822_04_2__currency_balance.sql"
+      ],
+      "archiveReason": null
+    },
+    {
+      "sourceTable": "db_onelevel_roomcard",
+      "disposition": "MAPPED_LEDGER_AND_BALANCE",
+      "canonicalTargets": [
+        "aoo_ledger",
+        "aoo_currency_balance"
+      ],
+      "migrationEvidence": [
+        "database/migrations/V20260822_01__business_closure.sql",
+        "database/migrations/V20260822_04_2__currency_balance.sql"
+      ],
+      "archiveReason": null
+    },
+    {
+      "sourceTable": "db_onelevel_tixian",
+      "disposition": "MAPPED_LEDGER_AND_BALANCE",
+      "canonicalTargets": [
+        "aoo_ledger",
+        "aoo_currency_balance"
+      ],
+      "migrationEvidence": [
+        "database/migrations/V20260822_01__business_closure.sql",
+        "database/migrations/V20260822_04_2__currency_balance.sql"
+      ],
+      "archiveReason": null
+    },
+    {
+      "sourceTable": "db_online",
+      "disposition": "MAPPED_ACCOUNT_SESSION",
+      "canonicalTargets": [
+        "aoo_session"
+      ],
+      "migrationEvidence": [
+        "database/migrations/V20260822_01__business_closure.sql",
+        "database/migrations/V20260822_15__account_login_index.sql"
+      ],
+      "archiveReason": null
+    },
+    {
+      "sourceTable": "db_onlineplayer_count",
+      "disposition": "MAPPED_ACCOUNT_SESSION",
+      "canonicalTargets": [
+        "aoo_session"
+      ],
+      "migrationEvidence": [
+        "database/migrations/V20260822_01__business_closure.sql",
+        "database/migrations/V20260822_15__account_login_index.sql"
+      ],
+      "archiveReason": null
+    },
+    {
+      "sourceTable": "db_onlineplayer_game_count",
+      "disposition": "MAPPED_ACCOUNT_SESSION",
+      "canonicalTargets": [
+        "aoo_session"
+      ],
+      "migrationEvidence": [
+        "database/migrations/V20260822_01__business_closure.sql",
+        "database/migrations/V20260822_15__account_login_index.sql"
+      ],
+      "archiveReason": null
+    },
+    {
+      "sourceTable": "db_player_acting",
+      "disposition": "MAPPED_ACCOUNT_SESSION",
+      "canonicalTargets": [
+        "aoo_session"
+      ],
+      "migrationEvidence": [
+        "database/migrations/V20260822_01__business_closure.sql",
+        "database/migrations/V20260822_15__account_login_index.sql"
+      ],
+      "archiveReason": null
+    },
+    {
+      "sourceTable": "db_player_ip",
+      "disposition": "MAPPED_ACCOUNT_SESSION",
+      "canonicalTargets": [
+        "aoo_session"
+      ],
+      "migrationEvidence": [
+        "database/migrations/V20260822_01__business_closure.sql",
+        "database/migrations/V20260822_15__account_login_index.sql"
+      ],
+      "archiveReason": null
+    },
+    {
+      "sourceTable": "db_playeraction_city_count",
+      "disposition": "MAPPED_ACCOUNT_SESSION",
+      "canonicalTargets": [
+        "aoo_session"
+      ],
+      "migrationEvidence": [
+        "database/migrations/V20260822_01__business_closure.sql",
+        "database/migrations/V20260822_15__account_login_index.sql"
+      ],
+      "archiveReason": null
+    },
+    {
+      "sourceTable": "db_playeraction_count",
+      "disposition": "MAPPED_ACCOUNT_SESSION",
+      "canonicalTargets": [
+        "aoo_session"
+      ],
+      "migrationEvidence": [
+        "database/migrations/V20260822_01__business_closure.sql",
+        "database/migrations/V20260822_15__account_login_index.sql"
+      ],
+      "archiveReason": null
+    },
+    {
+      "sourceTable": "db_playerfamily",
+      "disposition": "MAPPED_CLUB_AND_TEMPLATE",
+      "canonicalTargets": [
+        "aoo_club_member",
+        "aoo_room_template"
+      ],
+      "migrationEvidence": [
+        "database/migrations/V20260822_01__business_closure.sql",
+        "database/migrations/V20260822_14__scalable_club_members.sql"
+      ],
+      "archiveReason": null
+    },
+    {
+      "sourceTable": "db_playerphoto",
+      "disposition": "MAPPED_ACCOUNT_SESSION",
+      "canonicalTargets": [
+        "aoo_session"
+      ],
+      "migrationEvidence": [
+        "database/migrations/V20260822_01__business_closure.sql",
+        "database/migrations/V20260822_15__account_login_index.sql"
+      ],
+      "archiveReason": null
+    },
+    {
+      "sourceTable": "db_playersetnum_count",
+      "disposition": "MAPPED_ACCOUNT_SESSION",
+      "canonicalTargets": [
+        "aoo_session"
+      ],
+      "migrationEvidence": [
+        "database/migrations/V20260822_01__business_closure.sql",
+        "database/migrations/V20260822_15__account_login_index.sql"
+      ],
+      "archiveReason": null
+    },
+    {
+      "sourceTable": "db_popup",
+      "disposition": "REVIEWED_ARCHIVE_ONLY",
+      "canonicalTargets": [
+
+      ],
+      "migrationEvidence": [
+
+      ],
+      "archiveReason": "legacy CMS/reporting/support object is outside authoritative login-hall-club-room-game-billing runtime; retained for offline historical lookup"
+    },
+    {
+      "sourceTable": "db_proposal",
+      "disposition": "REVIEWED_ARCHIVE_ONLY",
+      "canonicalTargets": [
+
+      ],
+      "migrationEvidence": [
+
+      ],
+      "archiveReason": "legacy CMS/reporting/support object is outside authoritative login-hall-club-room-game-billing runtime; retained for offline historical lookup"
+    },
+    {
+      "sourceTable": "db_public_gamelist",
+      "disposition": "MAPPED_GAME_PROFILE",
+      "canonicalTargets": [
+        "aoo_game_profile_version",
+        "aoo_play_variant"
+      ],
+      "migrationEvidence": [
+        "database/migrations/V20260822_03__game_profile_publication.sql"
+      ],
+      "archiveReason": null
+    },
+    {
+      "sourceTable": "db_qanswer",
+      "disposition": "REVIEWED_ARCHIVE_ONLY",
+      "canonicalTargets": [
+
+      ],
+      "migrationEvidence": [
+
+      ],
+      "archiveReason": "legacy CMS/reporting/support object is outside authoritative login-hall-club-room-game-billing runtime; retained for offline historical lookup"
+    },
+    {
+      "sourceTable": "db_qanswer_record",
+      "disposition": "REVIEWED_ARCHIVE_ONLY",
+      "canonicalTargets": [
+
+      ],
+      "migrationEvidence": [
+
+      ],
+      "archiveReason": "legacy CMS/reporting/support object is outside authoritative login-hall-club-room-game-billing runtime; retained for offline historical lookup"
+    },
+    {
+      "sourceTable": "db_qquestion",
+      "disposition": "REVIEWED_ARCHIVE_ONLY",
+      "canonicalTargets": [
+
+      ],
+      "migrationEvidence": [
+
+      ],
+      "archiveReason": "legacy CMS/reporting/support object is outside authoritative login-hall-club-room-game-billing runtime; retained for offline historical lookup"
+    },
+    {
+      "sourceTable": "db_qsurvey",
+      "disposition": "REVIEWED_ARCHIVE_ONLY",
+      "canonicalTargets": [
+
+      ],
+      "migrationEvidence": [
+
+      ],
+      "archiveReason": "legacy CMS/reporting/support object is outside authoritative login-hall-club-room-game-billing runtime; retained for offline historical lookup"
+    },
+    {
+      "sourceTable": "db_question",
+      "disposition": "REVIEWED_ARCHIVE_ONLY",
+      "canonicalTargets": [
+
+      ],
+      "migrationEvidence": [
+
+      ],
+      "archiveReason": "legacy CMS/reporting/support object is outside authoritative login-hall-club-room-game-billing runtime; retained for offline historical lookup"
+    },
+    {
+      "sourceTable": "db_questionnaire_log",
+      "disposition": "REVIEWED_ARCHIVE_ONLY",
+      "canonicalTargets": [
+
+      ],
+      "migrationEvidence": [
+
+      ],
+      "archiveReason": "legacy CMS/reporting/support object is outside authoritative login-hall-club-room-game-billing runtime; retained for offline historical lookup"
+    },
+    {
+      "sourceTable": "db_recharge_city_count",
+      "disposition": "MAPPED_LEDGER_AND_BALANCE",
+      "canonicalTargets": [
+        "aoo_ledger",
+        "aoo_currency_balance"
+      ],
+      "migrationEvidence": [
+        "database/migrations/V20260822_01__business_closure.sql",
+        "database/migrations/V20260822_04_2__currency_balance.sql"
+      ],
+      "archiveReason": null
+    },
+    {
+      "sourceTable": "db_recharge_count",
+      "disposition": "MAPPED_LEDGER_AND_BALANCE",
+      "canonicalTargets": [
+        "aoo_ledger",
+        "aoo_currency_balance"
+      ],
+      "migrationEvidence": [
+        "database/migrations/V20260822_01__business_closure.sql",
+        "database/migrations/V20260822_04_2__currency_balance.sql"
+      ],
+      "archiveReason": null
+    },
+    {
+      "sourceTable": "db_recommend",
+      "disposition": "REVIEWED_ARCHIVE_ONLY",
+      "canonicalTargets": [
+
+      ],
+      "migrationEvidence": [
+
+      ],
+      "archiveReason": "legacy CMS/reporting/support object is outside authoritative login-hall-club-room-game-billing runtime; retained for offline historical lookup"
+    },
+    {
+      "sourceTable": "db_remote_agents_list",
+      "disposition": "MAPPED_ADMIN_CONTROL",
+      "canonicalTargets": [
+        "aoo_admin_audit",
+        "admin_operator_permission",
+        "admin_control_resource"
+      ],
+      "migrationEvidence": [
+        "database/migrations/V20260822_02__admin_control_plane.sql",
+        "database/migrations/V20260822_04__admin_permissions.sql"
+      ],
+      "archiveReason": null
+    },
+    {
+      "sourceTable": "db_report",
+      "disposition": "REVIEWED_ARCHIVE_ONLY",
+      "canonicalTargets": [
+
+      ],
+      "migrationEvidence": [
+
+      ],
+      "archiveReason": "legacy CMS/reporting/support object is outside authoritative login-hall-club-room-game-billing runtime; retained for offline historical lookup"
+    },
+    {
+      "sourceTable": "db_roomcard_city_count",
+      "disposition": "MAPPED_LEDGER_AND_BALANCE",
+      "canonicalTargets": [
+        "aoo_ledger",
+        "aoo_currency_balance"
+      ],
+      "migrationEvidence": [
+        "database/migrations/V20260822_01__business_closure.sql",
+        "database/migrations/V20260822_04_2__currency_balance.sql"
+      ],
+      "archiveReason": null
+    },
+    {
+      "sourceTable": "db_roomcard_city_count1",
+      "disposition": "MAPPED_LEDGER_AND_BALANCE",
+      "canonicalTargets": [
+        "aoo_ledger",
+        "aoo_currency_balance"
+      ],
+      "migrationEvidence": [
+        "database/migrations/V20260822_01__business_closure.sql",
+        "database/migrations/V20260822_04_2__currency_balance.sql"
+      ],
+      "archiveReason": null
+    },
+    {
+      "sourceTable": "db_roomcard_count",
+      "disposition": "MAPPED_LEDGER_AND_BALANCE",
+      "canonicalTargets": [
+        "aoo_ledger",
+        "aoo_currency_balance"
+      ],
+      "migrationEvidence": [
+        "database/migrations/V20260822_01__business_closure.sql",
+        "database/migrations/V20260822_04_2__currency_balance.sql"
+      ],
+      "archiveReason": null
+    },
+    {
+      "sourceTable": "db_roomcard_count_copy",
+      "disposition": "MAPPED_LEDGER_AND_BALANCE",
+      "canonicalTargets": [
+        "aoo_ledger",
+        "aoo_currency_balance"
+      ],
+      "migrationEvidence": [
+        "database/migrations/V20260822_01__business_closure.sql",
+        "database/migrations/V20260822_04_2__currency_balance.sql"
+      ],
+      "archiveReason": null
+    },
+    {
+      "sourceTable": "db_roomcard_sum_count",
+      "disposition": "MAPPED_LEDGER_AND_BALANCE",
+      "canonicalTargets": [
+        "aoo_ledger",
+        "aoo_currency_balance"
+      ],
+      "migrationEvidence": [
+        "database/migrations/V20260822_01__business_closure.sql",
+        "database/migrations/V20260822_04_2__currency_balance.sql"
+      ],
+      "archiveReason": null
+    },
+    {
+      "sourceTable": "db_share_tixian",
+      "disposition": "MAPPED_LEDGER_AND_BALANCE",
+      "canonicalTargets": [
+        "aoo_ledger",
+        "aoo_currency_balance"
+      ],
+      "migrationEvidence": [
+        "database/migrations/V20260822_01__business_closure.sql",
+        "database/migrations/V20260822_04_2__currency_balance.sql"
+      ],
+      "archiveReason": null
+    },
+    {
+      "sourceTable": "db_top_agents",
+      "disposition": "MAPPED_ADMIN_CONTROL",
+      "canonicalTargets": [
+        "aoo_admin_audit",
+        "admin_operator_permission",
+        "admin_control_resource"
+      ],
+      "migrationEvidence": [
+        "database/migrations/V20260822_02__admin_control_plane.sql",
+        "database/migrations/V20260822_04__admin_permissions.sql"
+      ],
+      "archiveReason": null
+    },
+    {
+      "sourceTable": "db_top_caiwu",
+      "disposition": "MAPPED_LEDGER_AND_BALANCE",
+      "canonicalTargets": [
+        "aoo_ledger",
+        "aoo_currency_balance"
+      ],
+      "migrationEvidence": [
+        "database/migrations/V20260822_01__business_closure.sql",
+        "database/migrations/V20260822_04_2__currency_balance.sql"
+      ],
+      "archiveReason": null
+    },
+    {
+      "sourceTable": "db_top_roomcard",
+      "disposition": "MAPPED_LEDGER_AND_BALANCE",
+      "canonicalTargets": [
+        "aoo_ledger",
+        "aoo_currency_balance"
+      ],
+      "migrationEvidence": [
+        "database/migrations/V20260822_01__business_closure.sql",
+        "database/migrations/V20260822_04_2__currency_balance.sql"
+      ],
+      "archiveReason": null
+    },
+    {
+      "sourceTable": "db_top_tixian",
+      "disposition": "MAPPED_LEDGER_AND_BALANCE",
+      "canonicalTargets": [
+        "aoo_ledger",
+        "aoo_currency_balance"
+      ],
+      "migrationEvidence": [
+        "database/migrations/V20260822_01__business_closure.sql",
+        "database/migrations/V20260822_04_2__currency_balance.sql"
+      ],
+      "archiveReason": null
+    },
+    {
+      "sourceTable": "db_tuiguang",
+      "disposition": "REVIEWED_ARCHIVE_ONLY",
+      "canonicalTargets": [
+
+      ],
+      "migrationEvidence": [
+
+      ],
+      "archiveReason": "legacy CMS/reporting/support object is outside authoritative login-hall-club-room-game-billing runtime; retained for offline historical lookup"
+    },
+    {
+      "sourceTable": "db_upplayer_photo",
+      "disposition": "MAPPED_ACCOUNT_SESSION",
+      "canonicalTargets": [
+        "aoo_session"
+      ],
+      "migrationEvidence": [
+        "database/migrations/V20260822_01__business_closure.sql",
+        "database/migrations/V20260822_15__account_login_index.sql"
+      ],
+      "archiveReason": null
+    },
+    {
+      "sourceTable": "db_url_cache",
+      "disposition": "REVIEWED_ARCHIVE_ONLY",
+      "canonicalTargets": [
+
+      ],
+      "migrationEvidence": [
+
+      ],
+      "archiveReason": "legacy CMS/reporting/support object is outside authoritative login-hall-club-room-game-billing runtime; retained for offline historical lookup"
+    },
+    {
+      "sourceTable": "db_verify_id_name",
+      "disposition": "REVIEWED_ARCHIVE_ONLY",
+      "canonicalTargets": [
+
+      ],
+      "migrationEvidence": [
+
+      ],
+      "archiveReason": "legacy CMS/reporting/support object is outside authoritative login-hall-club-room-game-billing runtime; retained for offline historical lookup"
+    },
+    {
+      "sourceTable": "db_vice_president",
+      "disposition": "MAPPED_ADMIN_CONTROL",
+      "canonicalTargets": [
+        "aoo_admin_audit",
+        "admin_operator_permission",
+        "admin_control_resource"
+      ],
+      "migrationEvidence": [
+        "database/migrations/V20260822_02__admin_control_plane.sql",
+        "database/migrations/V20260822_04__admin_permissions.sql"
+      ],
+      "archiveReason": null
+    },
+    {
+      "sourceTable": "db_vice_roomcard",
+      "disposition": "MAPPED_LEDGER_AND_BALANCE",
+      "canonicalTargets": [
+        "aoo_ledger",
+        "aoo_currency_balance"
+      ],
+      "migrationEvidence": [
+        "database/migrations/V20260822_01__business_closure.sql",
+        "database/migrations/V20260822_04_2__currency_balance.sql"
+      ],
+      "archiveReason": null
+    },
+    {
+      "sourceTable": "db_vice_tixian",
+      "disposition": "MAPPED_LEDGER_AND_BALANCE",
+      "canonicalTargets": [
+        "aoo_ledger",
+        "aoo_currency_balance"
+      ],
+      "migrationEvidence": [
+        "database/migrations/V20260822_01__business_closure.sql",
+        "database/migrations/V20260822_04_2__currency_balance.sql"
+      ],
+      "archiveReason": null
+    },
+    {
+      "sourceTable": "db_wxnotify",
+      "disposition": "MAPPED_LEDGER_AND_BALANCE",
+      "canonicalTargets": [
+        "aoo_ledger",
+        "aoo_currency_balance"
+      ],
+      "migrationEvidence": [
+        "database/migrations/V20260822_01__business_closure.sql",
+        "database/migrations/V20260822_04_2__currency_balance.sql"
+      ],
+      "archiveReason": null
+    },
+    {
+      "sourceTable": "db_xinhua",
+      "disposition": "REVIEWED_ARCHIVE_ONLY",
+      "canonicalTargets": [
+
+      ],
+      "migrationEvidence": [
+
+      ],
+      "archiveReason": "legacy CMS/reporting/support object is outside authoritative login-hall-club-room-game-billing runtime; retained for offline historical lookup"
+    },
+    {
+      "sourceTable": "db_zhangle_caiwu",
+      "disposition": "MAPPED_LEDGER_AND_BALANCE",
+      "canonicalTargets": [
+        "aoo_ledger",
+        "aoo_currency_balance"
+      ],
+      "migrationEvidence": [
+        "database/migrations/V20260822_01__business_closure.sql",
+        "database/migrations/V20260822_04_2__currency_balance.sql"
+      ],
+      "archiveReason": null
+    },
+    {
+      "sourceTable": "db_zlegonggao",
+      "disposition": "REVIEWED_ARCHIVE_ONLY",
+      "canonicalTargets": [
+
+      ],
+      "migrationEvidence": [
+
+      ],
+      "archiveReason": "legacy CMS/reporting/support object is outside authoritative login-hall-club-room-game-billing runtime; retained for offline historical lookup"
+    },
+    {
+      "sourceTable": "gametype",
+      "disposition": "MAPPED_GAME_PROFILE",
+      "canonicalTargets": [
+        "aoo_game_profile_version",
+        "aoo_play_variant"
+      ],
+      "migrationEvidence": [
+        "database/migrations/V20260822_03__game_profile_publication.sql"
+      ],
+      "archiveReason": null
+    },
+    {
+      "sourceTable": "hutype",
+      "disposition": "MAPPED_GAME_PROFILE",
+      "canonicalTargets": [
+        "aoo_game_profile_version",
+        "aoo_play_variant"
+      ],
+      "migrationEvidence": [
+        "database/migrations/V20260822_03__game_profile_publication.sql"
+      ],
+      "archiveReason": null
+    },
+    {
+      "sourceTable": "hutype_special",
+      "disposition": "MAPPED_GAME_PROFILE",
+      "canonicalTargets": [
+        "aoo_game_profile_version",
+        "aoo_play_variant"
+      ],
+      "migrationEvidence": [
+        "database/migrations/V20260822_03__game_profile_publication.sql"
+      ],
+      "archiveReason": null
+    },
+    {
+      "sourceTable": "luckDraw",
+      "disposition": "REVIEWED_ARCHIVE_ONLY",
+      "canonicalTargets": [
+
+      ],
+      "migrationEvidence": [
+
+      ],
+      "archiveReason": "legacy CMS/reporting/support object is outside authoritative login-hall-club-room-game-billing runtime; retained for offline historical lookup"
+    },
+    {
+      "sourceTable": "luckDrawRecord",
+      "disposition": "REVIEWED_ARCHIVE_ONLY",
+      "canonicalTargets": [
+
+      ],
+      "migrationEvidence": [
+
+      ],
+      "archiveReason": "legacy CMS/reporting/support object is outside authoritative login-hall-club-room-game-billing runtime; retained for offline historical lookup"
+    },
+    {
+      "sourceTable": "noticeinfo",
+      "disposition": "REVIEWED_ARCHIVE_ONLY",
+      "canonicalTargets": [
+
+      ],
+      "migrationEvidence": [
+
+      ],
+      "archiveReason": "legacy CMS/reporting/support object is outside authoritative login-hall-club-room-game-billing runtime; retained for offline historical lookup"
+    },
+    {
+      "sourceTable": "search_counter",
+      "disposition": "REVIEWED_ARCHIVE_ONLY",
+      "canonicalTargets": [
+
+      ],
+      "migrationEvidence": [
+
+      ],
+      "archiveReason": "legacy CMS/reporting/support object is outside authoritative login-hall-club-room-game-billing runtime; retained for offline historical lookup"
+    }
+  ]
+}

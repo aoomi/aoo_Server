@@ -1,0 +1,12 @@
+{
+  "task": "LOGREAL11",
+  "status": "passed",
+  "checks": {
+    "production_root_info": true,
+    "heartbeat_and_polling_suppressed": true,
+    "duplicate_rate_limit": true,
+    "client_heartbeat_sampling": true,
+    "client_signature_rate_limit": true,
+    "installed_at_bootstrap": true
+  }
+}

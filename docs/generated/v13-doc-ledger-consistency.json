@@ -1,0 +1,190 @@
+{
+  "schemaVersion": 1,
+  "canonicalLedger": "docs/Aoo-当前剩余问题与处理任务清单.md",
+  "obsoleteLedgers": [
+    "docs/Aoo-当前未完成任务清单.md",
+    "docs/未完成任务清单.md"
+  ],
+  "activeStatuses": {
+    "68": "处理中",
+    "77": "处理中",
+    "87": "处理中",
+    "88": "处理中"
+  },
+  "evidence": {
+    "interfaces": {
+      "contracts": 36,
+      "checks": {
+        "generatedRegistryMatches": true,
+        "documentationMatches": true,
+        "ownershipMatches": false,
+        "completeContractMetadata": true
+      }
+    },
+    "gameplay": {
+      "verdict": "blocked-profile-publication",
+      "catalogCoverage": {
+        "missingFromCatalog": [
+          "dlqhmj",
+          "scjymj",
+          "cqhszmj",
+          "zjh",
+          "zypk",
+          "njpdk",
+          "xcpdk"
+        ],
+        "unknownInCatalog": [
+          "caooszmj",
+          "dlaoomj"
+        ],
+        "duplicateCatalogCodes": [
+
+        ]
+      }
+    },
+    "regions": {
+      "gameCount": 528,
+      "conflictFree": 0,
+      "conflictedGames": 528,
+      "conflictCount": 2635,
+      "conflictTypeCounts": {
+        "CATEGORY_HEURISTIC_CONFLICT": 1,
+        "CLIENT_COMPONENT_REGISTRATION_MISSING": 513,
+        "DATABASE_REGISTRATION_MISSING": 7,
+        "FAMILY_SEMANTICS_INCOMPLETE": 527,
+        "NATIVE_PROVIDER_MISSING": 527,
+        "NO_DIRECT_GAME_SOURCE": 525,
+        "REGION_MISSING": 7,
+        "ROUTE_REGISTRATION_MISSING": 528
+      },
+      "duplicateCodes": 0
+    },
+    "database": {
+      "sqlFiles": [
+        "database/migrations/V20260822_01__business_closure.sql",
+        "database/migrations/V20260822_02__admin_control_plane.sql",
+        "database/migrations/V20260822_03__game_profile_publication.sql",
+        "database/migrations/V20260822_04_1__room_recovery.sql",
+        "database/migrations/V20260822_04_2__currency_balance.sql",
+        "database/migrations/V20260822_04_3__outbox_retry.sql",
+        "database/migrations/V20260822_04__admin_permissions.sql",
+        "database/migrations/V20260822_05__ledger_reconciliation_indexes.sql",
+        "database/migrations/V20260822_06__million_member_club_indexes.sql",
+        "database/migrations/V20260822_07__ten_million_player_indexes.sql",
+        "database/migrations/V20260822_08__perspective_replay.sql",
+        "database/migrations/V20260822_09__replay_retention.sql",
+        "database/migrations/V20260822_10__perspective_room_events.sql",
+        "database/migrations/V20260822_11__consumed_events.sql",
+        "database/migrations/V20260822_12__consumed_event_claim.sql",
+        "database/migrations/V20260822_13__room_event_visibility_identity.sql",
+        "database/migrations/V20260822_14__scalable_club_members.sql",
+        "database/migrations/V20260822_15__account_login_index.sql",
+        "database/migrations/V20260823_01__room_event_business_identity.sql",
+        "database/migrations/V20260823_02__outbox_claim_dlq_lifecycle.sql",
+        "database/migrations/V20260823_03__consumed_event_repeatable_result.sql",
+        "database/migrations/V20260823_04__consumer_dead_letter_replay.sql",
+        "database/migrations/V20260823_05__idempotency_result_model.sql",
+        "database/migrations/V20260823_06__idempotency_business_scope.sql",
+        "database/migrations/V20260823_07__snapshot_state_version.sql",
+        "database/migrations/V20260823_08__outbox_schema_version.sql",
+        "database/migrations/V20260823_09__immutable_room_event_history.sql",
+        "database/migrations/V20260823_10__connection_generation.sql",
+        "database/migrations/V20260823_11__required_business_semantics.sql",
+        "database/migrations/V20260823_12__play_member_template_business_keys.sql",
+        "database/migrations/V20260823_13__enforced_domain_checks.sql",
+        "database/migrations/V20260823_14__query_shape_indexes.sql",
+        "database/migrations/V20260823_15__canonical_column_types.sql",
+        "database/migrations/V20260823_16__utc_millisecond_time.sql",
+        "database/migrations/V20260823_17__distributed_id_ownership.sql",
+        "database/migrations/V20260823_18__club_aggregate_concurrency.sql",
+        "database/migrations/V20260823_19__canonical_storage_layout.sql",
+        "database/migrations/V20260823_20__account_login_unique_index.sql",
+        "database/migrations/V20260823_21__consumed_event_fenced_lease.sql",
+        "database/migrations/V20260823_22__versioned_replay_archive.sql",
+        "database/migrations/V20260823_23__ledger_reconciliation_dimensions.sql",
+        "database/migrations/V20260823_24__admin_rbac_audit.sql",
+        "database/migrations/V20260823_25__outbox_fencing_and_retention.sql",
+        "database/migrations/V20260823_26__currency_catalog_and_authority.sql",
+        "database/migrations/V20260824_01__game_catalog_component_model.sql",
+        "database/migrations/V20260824_02__immutable_game_release_index.sql",
+        "database/migrations/V20260824_03__data_governance_controls.sql",
+        "database/migrations/V20260824_04__database_operational_safety.sql",
+        "database/migrations/V20260824_05__database_integrity_gates.sql",
+        "database/migrations/V20260824_06__governance_workflow_procedures.sql",
+        "database/migrations/V20260824_07__ledger_scope_and_score_precision.sql",
+        "database/migrations/V20260824_08__concurrency_soft_delete_and_route_contracts.sql",
+        "database/migrations/V20260824_21__admin_security_nonce.sql",
+        "database/migrations/V20260824_24__edge_runtime_state_guards.sql",
+        "database/migrations/V20260824_30__club_backend_consistency.sql",
+        "database/migrations/V20260824_31__admin_sensitive_export.sql",
+        "database/migrations/V20260824_32__external_platform_identity_and_risk.sql",
+        "database/migrations/V20260824_34__billing_payment_api.sql",
+        "database/migrations/V20260824_35__record_replay_api.sql",
+        "database/migrations/V20260824_36__hall_catalog_room_api.sql",
+        "database/migrations/V20260824_38__account_session_api.sql",
+        "database/migrations/V20260824_39__social_notification_api.sql",
+        "database/migrations/V20260824_40__player_support_api.sql",
+        "database/migrations/V20260824_41__media_upload_api.sql",
+        "database/migrations/V20260824_42__version_notice_update_api.sql",
+        "database/migrations/V20260824_43__matchmaking_tournament.sql",
+        "database/migrations/V20260824_44__inventory_store_api.sql",
+        "database/migrations/V20260824_45__ranking_achievement.sql",
+        "database/migrations/V20260824_46__privacy_data_rights_api.sql",
+        "database/migrations/V20260824_47__telemetry_risk_api.sql",
+        "database/migrations/V20260824_48__share_invite_link_api.sql",
+        "database/migrations/V20260824_49__identity_verification_api.sql",
+        "database/migrations/V20260824_50__player_profile_api.sql",
+        "database/migrations/V20260824_51__activity_mission_api.sql",
+        "database/migrations/V20260824_52__spectator_game_share_api.sql",
+        "database/migrations/V20260824_53__referral_agent_api.sql",
+        "database/migrations/V20260824_54__player_gifting_api.sql",
+        "database/migrations/V20260824_55__canonical_game_configuration_repository.sql",
+        "database/migrations/V20260824_56__gateway_ws_ticket.sql",
+        "database/migrations/V20260824_57__luck_draw_api.sql",
+        "database/migrations/V20260824_60__support_live_session.sql",
+        "database/migrations/V20260824_73__risk_admission_authority.sql",
+        "database/original/clark_game_qh.sql",
+        "database/original/clark_log_qh.sql",
+        "database/original/db_zle.sql",
+        "database/original/db_zle_qh.sql"
+      ],
+      "summary": {
+        "statements": 1182,
+        "tables": 665,
+        "alters": 101,
+        "indexes": 4,
+        "constraints": 412
+      },
+      "checks": {
+        "allSqlSourcesCovered": true,
+        "hasOriginalBaseline": true,
+        "hasIncrementalMigrations": true,
+        "hasTables": true,
+        "hasIndexesOrConstraints": true
+      }
+    },
+    "dependencies": {
+      "compileRuntimeCompatible": true,
+      "canonicalRuntimeScript": true,
+      "canonicalWrapper": true,
+      "noMvnwFork": true
+    },
+    "testClaims": {
+      "completedClaims": 292,
+      "issueClaims": 273,
+      "verdict": "blocked-ledger-remediation"
+    }
+  },
+  "checks": {
+    "canonicalLedgerPresent": true,
+    "obsoleteCurrentLedgersRemoved": true,
+    "activeStatusesNotSelfAccepted": true,
+    "interfaceEvidenceCurrent": false,
+    "databaseEvidenceCurrent": true,
+    "dependencyEvidenceCurrent": true,
+    "gameplayGapHonestlyRecorded": true,
+    "regionAndGameplayConflictsNotAccepted": true,
+    "completedClaimsRequireEvidence": false
+  },
+  "verdict": "blocked"
+}

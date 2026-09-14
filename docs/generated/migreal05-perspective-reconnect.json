@@ -1,0 +1,18 @@
+{
+  "task": "MIGREAL05",
+  "sourceModules": 47,
+  "gameplayCallSitesUsingSharedPlayback": 21,
+  "productionReconnectAuthority": "server/gameServer/src/core/server/ProductionRoomReconnectService.java",
+  "checks": {
+    "legacyEntryFailClosed": true,
+    "clientCursorUsed": true,
+    "aheadSequenceRejected": true,
+    "spectatorPrivateDenied": true,
+    "requiredEventColumns": true,
+    "atomicReplayAndReconnectWrite": true,
+    "noQueueDropOnPressure": true,
+    "genericGameplayRecorders": true
+  },
+  "dynamicPerspectiveEvidence": "docs/generated/migreal03-viewer-identity-chain.json",
+  "status": "passed"
+}

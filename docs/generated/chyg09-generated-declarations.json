@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "sourceImports": [
+
+  ],
+  "tsconfigExtendsCreatorGenerated": true,
+  "policy": "Creator-generated declarations may support editor type checking but application source may not import temp paths.",
+  "passed": true
+}

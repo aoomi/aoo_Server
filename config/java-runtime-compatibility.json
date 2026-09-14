@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "architectureBaseline": {
+    "runtimeFeature": 26,
+    "bytecodeRelease": 25,
+    "maven": "3.9.16",
+    "runtimeVendor": "Oracle Corporation",
+    "selection": "AOO_JAVA_HOME or repository-external ../.toolchains/jdk-26.0.2.1.jdk/Contents/Home"
+  },
+  "compatibilityProof": {
+    "method": "full Maven reactor compilation and tests on Java 26 with --release 25",
+    "gate": "tools/check_java_runtime_compatibility.rb"
+  },
+  "managedRuntimeLibraries": [
+    "netty", "mina", "gson", "guava", "fastjson2", "protobuf", "druid",
+    "mysql-connector-j", "flyway", "jedis", "rocketmq", "mongodb-driver-sync",
+    "quartz", "slf4j", "logback", "jackson"
+  ]
+}

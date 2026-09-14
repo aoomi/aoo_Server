@@ -1,0 +1,104 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-24T10:39:38Z",
+  "task": "LARGE02",
+  "passed": false,
+  "files": [
+    {
+      "path": "/Users/aoo/Code/Game/BCG/Aoo/Client/assets/Common/Config/Legacy/assets/jsonData/roomcost.json",
+      "bytes": 5062218,
+      "sha256": "7d96f4cecdd11af0509af75a4188fe4c7b906cf748f7a35986660e3b4a48d38f",
+      "generated": false,
+      "client": true,
+      "activeSource": true
+    },
+    {
+      "path": "/Users/aoo/Code/Game/BCG/Aoo/Client/assets/Common/Config/Legacy/assets/njpdk/jsonData/roomcost.json",
+      "bytes": 2330,
+      "sha256": "3f0f57b7e319b69c691afde9fbb340732edad50f090b5cd1489eed0f376d1eef",
+      "generated": false,
+      "client": true,
+      "activeSource": false
+    },
+    {
+      "path": "/Users/aoo/Code/Game/BCG/Aoo/Client/assets/Games/Mahjong/Packs/Pack01/Config/Legacy/hzmj-source/jsonData/roomcost.json",
+      "bytes": 2822,
+      "sha256": "364aa309d05730507bf46d5d376c09ddaa624fcf93192c2b5c752399c1a9e1f6",
+      "generated": false,
+      "client": true,
+      "activeSource": false
+    },
+    {
+      "path": "/Users/aoo/Code/Game/BCG/Aoo/Client/assets/Games/Poker/Packs/Pack01/Config/Legacy/assets/njpdk/jsonData/roomcost.json",
+      "bytes": 2330,
+      "sha256": "3f0f57b7e319b69c691afde9fbb340732edad50f090b5cd1489eed0f376d1eef",
+      "generated": false,
+      "client": true,
+      "activeSource": false
+    },
+    {
+      "path": "server/LegacyCommon/conf/jsonData/roomcost.json",
+      "bytes": 5062218,
+      "sha256": "7d96f4cecdd11af0509af75a4188fe4c7b906cf748f7a35986660e3b4a48d38f",
+      "generated": false,
+      "client": false,
+      "activeSource": true
+    },
+    {
+      "path": "work/local-runtime/conf-hall/jsonData/roomcost.json",
+      "bytes": 5062200,
+      "sha256": "a43a182730a5500d1c08049ef6923968e6cb82f06949844a2fe30035129bf33e",
+      "generated": true,
+      "client": false,
+      "activeSource": false
+    },
+    {
+      "path": "work/local-runtime/conf-njpdk/jsonData/roomcost.json",
+      "bytes": 5062200,
+      "sha256": "a43a182730a5500d1c08049ef6923968e6cb82f06949844a2fe30035129bf33e",
+      "generated": true,
+      "client": false,
+      "activeSource": false
+    },
+    {
+      "path": "work/local-runtime/conf-smoke-cdxzmj/jsonData/roomcost.json",
+      "bytes": 5062200,
+      "sha256": "a43a182730a5500d1c08049ef6923968e6cb82f06949844a2fe30035129bf33e",
+      "generated": true,
+      "client": false,
+      "activeSource": false
+    },
+    {
+      "path": "work/local-runtime/conf-smoke-hall/jsonData/roomcost.json",
+      "bytes": 5062200,
+      "sha256": "a43a182730a5500d1c08049ef6923968e6cb82f06949844a2fe30035129bf33e",
+      "generated": true,
+      "client": false,
+      "activeSource": false
+    },
+    {
+      "path": "work/local-runtime/conf-smoke-njpdk/jsonData/roomcost.json",
+      "bytes": 5062200,
+      "sha256": "a43a182730a5500d1c08049ef6923968e6cb82f06949844a2fe30035129bf33e",
+      "generated": true,
+      "client": false,
+      "activeSource": false
+    }
+  ],
+  "uniqueHashes": 4,
+  "totalBytes": 35442918,
+  "checks": {
+    "inventoryComplete": true,
+    "activeCopiesDeduplicated": false,
+    "databaseBackedAuthority": false,
+    "legacyServerValidationPresent": true,
+    "modernBillingAuthorityPresent": true,
+    "clientAndServerHashEqual": true,
+    "runtimeCopiesGeneratedOnly": false
+  },
+  "blockers": [
+    "Legacy RefDataMgr still loads the 5 MB server JSON",
+    "Client source retains a full display copy instead of a compact server-issued pricing view",
+    "No database/config-center room-cost publication table is the sole authority"
+  ]
+}

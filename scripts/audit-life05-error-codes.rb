@@ -1,0 +1,4 @@
+require 'json';require 'fileutils';root=File.expand_path('..',__dir__)
+source=File.read(File.join(root,'server/GameCommon/src/main/java/com/aoo/bcg/common/error/ErrorCodeCatalog.java'));test=File.read(File.join(root,'server/GameCommon/src/test/java/com/aoo/bcg/common/error/ErrorCodeCatalogTest.java'))
+checks={append_only:source.include?('published error code cannot change meaning or be reused'),retired_reserved:source.include?('retiredVersion'),symbolic_name_unique:source.include?('error symbolic name cannot be reused'),version_metadata:source.include?('introducedVersion'),executable_test:test.include?('publishedMeaningIsImmutableAndRetiredNumberRemainsReserved')}
+abort "LIFE05 audit failed: #{checks}" unless checks.values.all?;out=File.join(root,'work/audit/error-code-lifecycle.json');FileUtils.mkdir_p(File.dirname(out));File.write(out,JSON.pretty_generate({task:'LIFE05',status:'passed',checks:checks})+"\n")

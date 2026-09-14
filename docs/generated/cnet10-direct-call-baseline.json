@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "counts": {
+    "localStorage": 46,
+    "bundle": 71,
+    "fetch": 16,
+    "websocket": 1,
+    "native": 3
+  },
+  "policy": "No direct-call category may grow beyond this baseline.",
+  "passed": true
+}
