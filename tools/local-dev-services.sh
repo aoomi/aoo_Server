@@ -140,19 +140,32 @@ health(){
   local failed=0
   for spec in 'gateway:8080' 'version:8095' 'account:8096' 'hall:8093' 'social:8097' 'gifting:8101' 'media:8102'; do IFS=: read -r name port <<<"$spec"; if pid_alive "$name" && port_open "$port"; then printf 'OK   %-8s pid=%s port=%s\n' "$name" "$(cat "$RUNTIME/$name.pid")" "$port"; else printf 'FAIL %-8s port=%s\n' "$name" "$port"; failed=1; fi; done
   if pid_alive room-rules; then printf 'OK   %-8s pid=%s\n' room-rules "$(cat "$RUNTIME/room-rules.pid")"; else printf 'FAIL %-8s\n' room-rules; failed=1; fi
+  if pid_alive avatars && port_open 8765; then printf 'OK   %-8s pid=%s port=%s\n' avatars "$(cat "$RUNTIME/avatars.pid")" 8765; else printf 'FAIL %-8s port=%s\n' avatars 8765; failed=1; fi
   if pid_alive gateway && port_open 18080; then printf 'OK   %-8s pid=%s port=%s\n' authority "$(cat "$RUNTIME/gateway.pid")" 18080; else printf 'FAIL %-8s port=%s\n' authority 18080; failed=1; fi
   curl -fsS http://127.0.0.1:8095/health/version >/dev/null || failed=1
   curl -fsS http://127.0.0.1:8096/health/account >/dev/null || failed=1
   curl -fsS http://127.0.0.1:8093/health/hall >/dev/null || failed=1
   curl -fsS http://127.0.0.1:8097/health/social >/dev/null || failed=1
   curl -fsS http://127.0.0.1:8101/health/gifting >/dev/null || failed=1
+  curl -fsS http://127.0.0.1:8765/tx1.png >/dev/null || failed=1
   return "$failed"
+}
+
+start_avatars(){
+  local name="avatars" root="/Users/aoo/Pictures/头像" server="$ROOT/../Client/tools/local-avatar-server.py"
+  if pid_alive "$name" && port_open 8765; then return; fi
+  [[ -d "$root" ]] || { echo "缺少本地头像目录：$root" >&2; exit 3; }
+  [[ -f "$server" ]] || { echo "缺少本地头像服务：$server" >&2; exit 3; }
+  if port_open 8765; then echo '端口 8765 已被非 Aoo avatars 进程占用' >&2; exit 4; fi
+  nohup python3 "$server" --root "$root" --port 8765 >"$ROOT/logs/local-dev/avatars.log" 2>&1 < /dev/null &
+  echo $! > "$RUNTIME/$name.pid"
+  wait_port "$name" 8765
 }
 
 stop_all(){
   if command -v launchctl >/dev/null 2>&1; then for name in gateway account version hall social gifting media room-rules; do launchctl bootout "gui/$(id -u)/com.aoo.bcg.local.$name" >/dev/null 2>&1 || true; done; fi
-  for name in gateway account version hall social gifting media room-rules; do if pid_alive "$name"; then kill "$(cat "$RUNTIME/$name.pid")" 2>/dev/null || true; fi; done
-  for name in gateway account version hall social gifting media room-rules; do if [[ -f "$RUNTIME/$name.pid" ]]; then pid="$(cat "$RUNTIME/$name.pid")"; for _ in {1..40}; do kill -0 "$pid" 2>/dev/null || break; sleep .1; done; kill -9 "$pid" 2>/dev/null || true; rm -f "$RUNTIME/$name.pid"; fi; done
+  for name in gateway account version hall social gifting media room-rules avatars; do if pid_alive "$name"; then kill "$(cat "$RUNTIME/$name.pid")" 2>/dev/null || true; fi; done
+  for name in gateway account version hall social gifting media room-rules avatars; do if [[ -f "$RUNTIME/$name.pid" ]]; then pid="$(cat "$RUNTIME/$name.pid")"; for _ in {1..40}; do kill -0 "$pid" 2>/dev/null || break; sleep .1; done; kill -9 "$pid" 2>/dev/null || true; rm -f "$RUNTIME/$name.pid"; fi; done
 }
 
 stop_one(){
@@ -234,6 +247,7 @@ start_all(){
   start_media "$bootstrap_cp"
   start_gateway "$gateway_cp"
   start_rule_watcher
+  start_avatars
   health
   echo 'Aoo 正式本地核心服务已启动。停止命令：./tools/local-dev-services.sh stop'
 }
@@ -251,9 +265,12 @@ case "${1:-start}:${2:-all}" in
   restart:hall) build_runtime; hall_cp="$(stage_runtime_classpath server/Bootstrap bootstrap)"; stop_one hall; start_hall "$hall_cp"; health ;;
   start:media) build_runtime; start_media "$(stage_runtime_classpath server/Bootstrap bootstrap)"; health ;;
   restart:media) build_runtime; media_cp="$(stage_runtime_classpath server/Bootstrap bootstrap)"; stop_one media; start_media "$media_cp"; health ;;
+  start:avatars) start_avatars; health ;;
+  restart:avatars) stop_one avatars; start_avatars; health ;;
   start:gifting) build_runtime; gifting_cp="$(stage_runtime_classpath server/Bootstrap bootstrap)"; start_java gifting 8101 "$gifting_cp" com.aoo.bcg.bootstrap.BootstrapAPP GIFTING_DATABASE_URL="$DB_URL" GIFTING_DATABASE_USER="$MYSQL_USER" GIFTING_DATABASE_PASSWORD="$MYSQL_PASSWORD" BILLING_INTERNAL_TOKEN="${AOO_LOCAL_BILLING_INTERNAL_TOKEN:-local-billing-internal-token-at-least-32-bytes}" INVENTORY_AUTH_TOKEN="${AOO_LOCAL_INVENTORY_AUTH_TOKEN:-local-inventory-auth-token-at-least-32-bytes}" GIFTING_HTTP_PORT=8101 ;;
   restart:gifting) build_runtime; gifting_cp="$(stage_runtime_classpath server/Bootstrap bootstrap)"; stop_one gifting; start_java gifting 8101 "$gifting_cp" com.aoo.bcg.bootstrap.BootstrapAPP GIFTING_DATABASE_URL="$DB_URL" GIFTING_DATABASE_USER="$MYSQL_USER" GIFTING_DATABASE_PASSWORD="$MYSQL_PASSWORD" BILLING_INTERNAL_TOKEN="${AOO_LOCAL_BILLING_INTERNAL_TOKEN:-local-billing-internal-token-at-least-32-bytes}" INVENTORY_AUTH_TOKEN="${AOO_LOCAL_INVENTORY_AUTH_TOKEN:-local-inventory-auth-token-at-least-32-bytes}" GIFTING_HTTP_PORT=8101 ;;
   stop:gateway) stop_one gateway ;;
   stop:media) stop_one media ;;
-  *) echo '用法：local-dev-services.sh {start|restart|stop|status} [gateway|media]' >&2; exit 2 ;;
+  stop:avatars) stop_one avatars ;;
+  *) echo '用法：local-dev-services.sh {start|restart|stop|status} [gateway|media|avatars]' >&2; exit 2 ;;
 esac
