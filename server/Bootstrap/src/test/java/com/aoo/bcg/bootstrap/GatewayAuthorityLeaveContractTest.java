@@ -13,5 +13,8 @@ final class GatewayAuthorityLeaveContractTest {
         assertTrue(source.contains("\"status\", \"ALREADY_LEFT\""));
         assertTrue(source.contains("seatNo < 0"));
         assertTrue(source.contains("session.stateVersion()"));
+        assertTrue(source.contains("reason=authority-runtime-missing"));
+        assertTrue(source.contains("catch (IllegalArgumentException missingRoom)"));
+        assertTrue(source.contains("reason=authority-route-"));
     }
 }

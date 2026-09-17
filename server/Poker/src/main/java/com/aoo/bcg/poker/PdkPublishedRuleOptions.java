@@ -98,7 +98,7 @@ public final class PdkPublishedRuleOptions {
                     ? PaoDeKuaiConfig.PlayTiming.ANYTIME
                     : PaoDeKuaiConfig.PlayTiming.FINAL_ONLY).name());
             rules.putIfAbsent("fourAttachmentMode", (selected.contains("four_with_two")
-                    ? PaoDeKuaiConfig.AttachmentMode.SINGLES
+                    ? PaoDeKuaiConfig.AttachmentMode.EITHER
                     : PaoDeKuaiConfig.AttachmentMode.DISABLED).name());
             rules.putIfAbsent("specialTripleBombRanks",
                     selected.contains("triple_ace_bomb") ? List.of(14) : List.of());
@@ -118,8 +118,12 @@ public final class PdkPublishedRuleOptions {
             Set<String> selected = strings(source.get("roomRestriction"));
             rules.putIfAbsent("uniqueIpRequired", selected.contains("ip_limit"));
             rules.putIfAbsent("gpsAdmissionRequired", selected.contains("gps_limit"));
-            rules.putIfAbsent("hostingMissThreshold",
-                    selected.contains("timeout_auto_play") ? 5 : -1);
+            if (selected.contains("timeout_auto_play")) {
+                int configuredThreshold = integer(rules, "hostingMissThreshold", 5);
+                rules.put("hostingMissThreshold", configuredThreshold > 0 ? configuredThreshold : 5);
+            } else {
+                rules.put("hostingMissThreshold", -1);
+            }
             rules.putIfAbsent("distanceWarningEnabled", selected.contains("distance_warning"));
             rules.putIfAbsent("interactionEnabled", !selected.contains("interaction_forbidden"));
             rules.putIfAbsent("textChatEnabled", !selected.contains("chat_muted"));

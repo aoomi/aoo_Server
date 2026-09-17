@@ -125,13 +125,14 @@ public Map<String, Object> join(Map<String, Object> command) {
         }
         GameRoomHandle room = rooms.require(roomId);
         var session = room.requireAuthoritativeSession();
+        boolean spectatorEntry = usesExplicitSeatSelection(room);
         if(route.firstRoundStartedAt()==null
                 && !clock.instant().isBefore(route.createdAt().plus(WaitingRoomExpirationPolicy.TIMEOUT))) {
             if(WaitingRoomExpirationPolicy.expired(route.createdAt(),clock.instant(),session.authoritativeState()))
                 throw expireAndClose(room,route);
         }
         try {
-            admit(session,accountId,seatNo,command.get("admission"));
+            if(!spectatorEntry)admit(session,accountId,seatNo,command.get("admission"));
         } catch (IllegalArgumentException | IllegalStateException rejected) {
             if ("invalid admission identity".equals(rejected.getMessage())) {
                 throw new RoomAuthorityBusinessError(409,"ROOM_FULL","房间人数已满");
@@ -140,7 +141,7 @@ public Map<String, Object> join(Map<String, Object> command) {
         }
         int roundNo = session.authoritativeState().get("roundNo") instanceof Number number
                 ? Math.max(0, number.intValue()) : 0;
-        session.execute(new com.aoo.bcg.gamespi.GameCommandRequest("common.room.join_req",
+        if(!spectatorEntry)session.execute(new com.aoo.bcg.gamespi.GameCommandRequest("common.room.join_req",
                 requestId, Math.max(1L, session.stateVersion() + 1L), roomId, roundNo,
                 playVersion, Long.toString(accountId), seatNo, Map.of()));
         stateStore.saveSnapshot(room, route.fencingToken());
@@ -152,8 +153,15 @@ public Map<String, Object> join(Map<String, Object> command) {
         publishWaitingRoomReadyIfFull(route, session.authoritativeState(), requestId,
                 String.valueOf(command.getOrDefault("traceId", requestId)));
         return Map.of("roomId", roomId, "accountId", accountId, "seatNo", seatNo,
-                "playVersion", playVersion, "stateVersion", session.stateVersion());
+                "playVersion", playVersion, "stateVersion", session.stateVersion(),
+                "participantRole",spectatorEntry?"SPECTATOR":"SEATED");
     }
+
+    }
+
+    private boolean usesExplicitSeatSelection(GameRoomHandle room) {
+        String code=games.require(room.gameId(),room.playVersion()).descriptor().code();
+        return java.util.Set.of("CD299","CN298","CN297").contains(code);
     }
 
     private void publishWaitingRoomReadyIfFull(Route route,Map<String,Object> state,
@@ -169,11 +177,18 @@ public Map<String, Object> join(Map<String, Object> command) {
                         ||row.getInt("player_count")<=0||players.size()<row.getInt("player_count"))return;
             }
             List<Long> members=players.values().stream().map(value->Long.parseLong(String.valueOf(value))).toList();
-            // Hall confirms JOINING -> JOINED immediately after this authority call.
-            // Delay only the wake-up, never the membership decision, so recipients
-            // re-read a committed current-room projection before handing off.
-            lifecycleWorker.schedule(()->GatewaySessionRegistry.global().publishWaitingRoomReady(
-                    members,route.roomId(),requestId,traceId,json,clock),100,TimeUnit.MILLISECONDS);
+            // Hall confirms JOINING -> JOINED immediately after this authority call. The last
+            // joiner's HTTP commit and both lobby sockets can cross this callback, so a single
+            // edge is insufficient. Repeat the idempotent wake-up over a short bounded window;
+            // clients always re-read authoritative membership before issuing their own ticket.
+            for(long delay:new long[]{100L,500L,1500L}){
+                lifecycleWorker.schedule(()->{
+                    int published=GatewaySessionRegistry.global().publishWaitingRoomReady(
+                            members,route.roomId(),requestId,traceId,json,clock);
+                    System.out.println("[WaitingRoomReady] roomId="+route.roomId()
+                            +" recipients="+members.size()+" published="+published+" delayMs="+delay);
+                },delay,TimeUnit.MILLISECONDS);
+            }
         }catch(SQLException failure){throw new IllegalStateException("waiting room ready lookup failed",failure);}
     }
 
@@ -187,12 +202,34 @@ public Map<String, Object> join(Map<String, Object> command) {
             Route route = route(roomId);
             if (!"ACTIVE".equals(route.state()) || !nodeId.equals(route.nodeId())
                     || !clock.instant().isBefore(route.leaseExpiresAt())) {
-                throw new SecurityException("room authority is not active on this node");
+                // A dissolved room retires its authority route before every client has
+                // received the terminal broadcast. A late/retried Hall leave must still
+                // be acknowledged so navigation cannot be trapped by a redundant 500.
+                System.err.println("room-authority leave already completed roomId=" + roomId
+                        + " playerId=" + accountId + " operationId=" + requestId
+                        + " stateVersion=0 reason=authority-route-" + route.state());
+                return Map.of("roomId", roomId, "accountId", accountId, "seatNo", -1,
+                        "playVersion", playVersion, "stateVersion", 0L,
+                        "status", "ALREADY_LEFT");
             }
             if (!route.playVersion().equals(playVersion)) {
                 throw new SecurityException("room membership playVersion mismatch");
             }
-            GameRoomHandle room = rooms.require(roomId);
+            GameRoomHandle room;
+            try {
+                room = rooms.require(roomId);
+            } catch (IllegalArgumentException missingRoom) {
+                // Hall membership can outlive an authority runtime after a room has
+                // already dissolved or been quarantined. Leaving that stale membership
+                // is an idempotent success; rejecting it traps the client in a retired
+                // room and surfaces the meaningless "hall request failed" message.
+                System.err.println("room-authority leave already completed roomId=" + roomId
+                        + " playerId=" + accountId + " operationId=" + requestId
+                        + " reason=authority-runtime-missing");
+                return Map.of("roomId", roomId, "accountId", accountId, "seatNo", -1,
+                        "playVersion", playVersion, "stateVersion", 0L,
+                        "status", "ALREADY_LEFT");
+            }
             var session = room.requireAuthoritativeSession();
             Object rawPlayers = session.authoritativeState().get("players");
             if (!(rawPlayers instanceof Map<?, ?> players)) {
@@ -398,10 +435,11 @@ public Map<String, Object> join(Map<String, Object> command) {
         List<StartupRoom> candidates = new ArrayList<>();
         try (Connection connection = dataSource.getConnection();
              PreparedStatement statement = connection.prepareStatement("""
-                     SELECT a.room_id,a.game_id,a.play_version,a.last_request_id,a.trace_id,
+                     SELECT a.room_id,a.game_id,g.game_code,a.play_version,a.last_request_id,a.trace_id,
                             h.owner_account_id,h.rules_json
                      FROM aoo_room_authority_route a
                      JOIN aoo_hall_room h ON h.room_id=a.room_id
+                     JOIN aoo_game_catalog g ON g.game_id=a.game_id
                      WHERE h.state IN ('OPEN','PLAYING')
                        AND a.lifecycle_state IN ('CREATING','ACTIVE','RECOVERING','FAILED')
                        AND (a.node_id=? OR a.lease_expires_at<=CURRENT_TIMESTAMP(3))
@@ -412,7 +450,7 @@ public Map<String, Object> join(Map<String, Object> command) {
                 while (result.next()) {
                     candidates.add(new StartupRoom(result.getLong(1), result.getInt(2),
                             result.getString(3), result.getString(4), result.getString(5),
-                            result.getLong(6), json.readValue(result.getString(7),
+                            result.getString(6), result.getLong(7), json.readValue(result.getString(8),
                             new TypeReference<Map<String, Object>>() { })));
                 }
             }
@@ -440,8 +478,23 @@ public Map<String, Object> join(Map<String, Object> command) {
                     transition(candidate.roomId(), claimed.fencingToken(), "ACTIVE");
                 } catch (RuntimeException failure) {
                     failRoute(candidate.roomId(), claimed.fencingToken(), failure);
-                    failures.add(candidate.roomId() + ":" + failure.getClass().getSimpleName()
-                            + ":" + String.valueOf(failure.getMessage()).replace(',', ';'));
+                    long stateVersion=stateStore.latest(candidate.roomId()).map(snapshot ->
+                            ((Number)snapshot.authoritativeState().getOrDefault("stateVersion",0)).longValue()).orElse(0L);
+                    String reason=failure.getClass().getSimpleName()+":"+String.valueOf(failure.getMessage());
+                    String quarantineRequest="room-recovery-quarantine-"+candidate.roomId()+"-"+stateVersion;
+                    try {
+                        hallLifecycle.close(candidate.roomId(),quarantineRequest,candidate.traceId(),
+                                "UNRECOVERABLE_AUTHORITY_SNAPSHOT");
+                        rooms.remove(candidate.roomId());
+                        transition(candidate.roomId(),claimed.fencingToken(),"REMOVED");
+                        roomLocks.remove(candidate.roomId());
+                        System.err.println("gateway room recovery quarantined roomId="+candidate.roomId()
+                                +" gameCode="+candidate.gameCode()+" stateVersion="+stateVersion
+                                +" reason="+reason.replace('\n',' ').replace('\r',' '));
+                    } catch (RuntimeException quarantineFailure) {
+                        failure.addSuppressed(quarantineFailure);
+                        failures.add(candidate.roomId()+":"+reason.replace(',',';'));
+                    }
                 }
             }
         }
@@ -679,7 +732,7 @@ private static long nonNegative(Map<String, Object> command, String key) {
     private record Route(long roomId, int gameId, String playVersion, long fencingToken,
                          String state, String requestId, String nodeId, Instant leaseExpiresAt,
                          Instant createdAt,Instant firstRoundStartedAt) { }
-    private record StartupRoom(long roomId, int gameId, String playVersion, String requestId,
+    private record StartupRoom(long roomId, int gameId, String gameCode, String playVersion, String requestId,
                                String traceId, long ownerId, Map<String, Object> rules) {
         private StartupRoom { rules = Map.copyOf(rules); }
     }

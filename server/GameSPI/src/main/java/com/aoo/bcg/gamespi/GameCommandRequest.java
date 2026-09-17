@@ -15,7 +15,7 @@ public record GameCommandRequest(String msgId, String requestId, long sequence, 
         if (msgId == null || msgId.isBlank() || requestId == null || requestId.isBlank()
                 || sequence <= 0 || roomId <= 0 || roundNo < 0 || playVersion == null
                 || playVersion.isBlank() || authenticatedUserId == null
-                || authenticatedUserId.isBlank() || seatId < 0) {
+                || authenticatedUserId.isBlank() || seatId < -1) {
             throw new IllegalArgumentException("invalid game command request");
         }
         body = body == null ? CommandPayload.empty() : body;

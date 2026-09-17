@@ -27,7 +27,7 @@ public final class ZJHProductionCommitter implements GameCommandCommitter {
     public void commit(GameRoomHandle room, GameCommandRequest request, GameCommandResult result) {
         if (ZJHCommandHandler.STATE_REQUEST.equals(request.msgId())) return;
         if (room.gameId() != ZJHPersistenceService.GAME_ID || room.roomId() != request.roomId())
-            throw new SecurityException("ZJH persistence identity mismatch");
+            throw new SecurityException("CN297 persistence identity mismatch");
         Runtime active = runtime();
         RoomLease lease = active.leases.acquire(room.roomId(), active.nodeId, LEASE_TTL);
         Long sequence = RedisUtil.incrLong("aoo:room:event-sequence:" + room.roomId());

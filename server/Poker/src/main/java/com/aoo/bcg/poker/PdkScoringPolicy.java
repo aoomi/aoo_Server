@@ -85,13 +85,11 @@ public interface PdkScoringPolicy {
         }
         long total = Math.multiplyExact(unit, context.players().size() - 1L);
         if (rules.dealerRule().mustSpringToWin() && !dealerMadeSpring(context, dealer)) {
-            // XQP ScLs type-119: a robber who does not make spring loses to every opponent,
-            // even when that robber was the first player to empty their hand.
-            for (int seat : context.players().keySet()) {
-                if (seat == dealer) continue;
-                seats.merge(seat, unit, Long::sum);
-                seats.merge(dealer, -unit, Long::sum);
-            }
+            // XQP ends this round as soon as a non-dealer successfully plays. The robber
+            // pays the complete table loss to that actual winner; uninvolved opponents do
+            // not share it merely because they occupied a seat.
+            seats.merge(dealer, -total, Long::sum);
+            seats.merge(winner, total, Long::sum);
         } else if (winner == dealer) {
             for (int seat : context.players().keySet()) {
                 if (seat == dealer) continue;

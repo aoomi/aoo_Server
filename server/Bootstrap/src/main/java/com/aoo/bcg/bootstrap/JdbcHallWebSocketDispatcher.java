@@ -69,7 +69,7 @@ final class JdbcHallWebSocketDispatcher implements GatewayWebSocketFrameHandler.
         body.put("clientVersion","3.8.8");body.put("stateVersion",1L);
         body.put("rules",roomRules(((Number)body.get("gameId")).longValue(),String.valueOf(body.get("playVersion")),template.get("rules")));
         body.put("scope",Map.of("type","CLUB","clubId",clubId,"templateCode",template.get("templateCode")));
-        body.put("_traceId",requestId);roomCreate.create(owner,operation,body);
+        body.put("_traceId",requestId);roomCreate.createClubTemplate(owner,operation,body);
         hall.join(actor,"club-template-join:"+actor+':'+roomId,roomId,requestId);
         return Map.of("roomId",roomId,"roomKey",roomId);
     }

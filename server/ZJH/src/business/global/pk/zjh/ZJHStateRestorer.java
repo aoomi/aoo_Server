@@ -9,9 +9,9 @@ import java.util.Map;
 /** Validates and rebuilds the authoritative ZJH aggregate from snapshots and journal envelopes. */
 public final class ZJHStateRestorer implements RoomStateRestorer<ZJHTable, Map<String, Object>> {
     @Override public ZJHTable fromSnapshot(RoomSnapshot snapshot) {
-        if (snapshot.gameId() != ZJHPersistenceService.GAME_ID) throw new IllegalArgumentException("snapshot gameId is not ZJH");
-        if (!ZJHPersistenceService.PLAY_VERSION.equals(snapshot.playVersion())) throw new IllegalArgumentException("unsupported ZJH play version");
-        if (!ZJHPersistenceService.COMPONENT_VERSION.equals(snapshot.componentVersion())) throw new IllegalArgumentException("unsupported ZJH component version");
+        if (snapshot.gameId() != ZJHPersistenceService.GAME_ID) throw new IllegalArgumentException("snapshot gameId is not CN297");
+        if (!ZJHPersistenceService.PLAY_VERSION.equals(snapshot.playVersion())) throw new IllegalArgumentException("unsupported CN297 play version");
+        if (!ZJHPersistenceService.COMPONENT_VERSION.equals(snapshot.componentVersion())) throw new IllegalArgumentException("unsupported CN297 component version");
         return ZJHTable.restore(snapshot.roomId(), snapshot.authoritativeState());
     }
     @Override public ZJHTable replay(ZJHTable state, List<Map<String, Object>> events) {

@@ -12,8 +12,8 @@ import java.util.Map;
 /** Persists authoritative ZJH events and recovery snapshots as one ordered boundary. */
 public final class ZJHPersistenceService {
     public static final int GAME_ID = 9;
-    public static final String PLAY_VERSION = "zjh-v1.0.0";
-    public static final String COMPONENT_VERSION = "zjh-table-v1";
+    public static final String PLAY_VERSION = ZJHGameProvider.PLAY_VERSION;
+    public static final String COMPONENT_VERSION = "CN297-table-v1";
 
     private final RoomEventJournal events;
     private final RoomSnapshotStore snapshots;

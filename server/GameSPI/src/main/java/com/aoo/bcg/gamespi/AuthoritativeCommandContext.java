@@ -7,7 +7,7 @@ public record AuthoritativeCommandContext(long roomId, int roundNo, String playV
                                           long fencingToken) {
     public AuthoritativeCommandContext {
         if (roomId <= 0 || roundNo < 0 || playVersion == null || playVersion.isBlank()
-                || authenticatedUserId == null || authenticatedUserId.isBlank() || seatId < 0
+                || authenticatedUserId == null || authenticatedUserId.isBlank() || seatId < -1
                 || connectionId == null || connectionId.isBlank() || connectionVersion <= 0
                 || fencingToken <= 0) {
             throw new IllegalArgumentException("invalid authoritative command context");

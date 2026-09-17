@@ -5,7 +5,7 @@ public record AuthenticatedViewerScope(String authenticatedUserId, long playerId
         int seatId, String connectionId, long connectionGeneration) {
     public AuthenticatedViewerScope {
         if (authenticatedUserId == null || authenticatedUserId.isBlank() || playerId <= 0 || roomId <= 0
-                || seatId < 0 || connectionId == null || connectionId.isBlank() || connectionGeneration <= 0) {
+                || seatId < -1 || connectionId == null || connectionId.isBlank() || connectionGeneration <= 0) {
             throw new IllegalArgumentException("invalid authenticated viewer scope");
         }
         if (!authenticatedUserId.equals(Long.toString(playerId))) {

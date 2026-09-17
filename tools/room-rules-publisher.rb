@@ -260,6 +260,13 @@ def publish_sql(technical, fields, source_hash)
   display_name = technical.fetch('displayName', File.basename(WORKBOOK, '.xlsx'))
   ui_fields = JSON.generate(fields)
   validator_fields = fields.select { |field| field['visible'] }.map { |field| field.reject { |key, _| %w[label visible defaultCandidateIndexes].include?(key) } }
+  trustee_counts = fields.map { |field| field['trusteeCount'].to_i }.select(&:positive?).uniq
+  fail!("#{File.basename(WORKBOOK)} 托管次数必须唯一") unless trustee_counts.length == 1
+  # 托管次数来自权威规则表，但不是玩家可编辑的界面选项。作为禁用的服务端字段
+  # 写入校验器，使 Hall 规范化房间规则时能够保留该值，客户端无法伪造。
+  validator_fields << { 'key'=>'hostingMissThreshold', 'control'=>'number', 'order'=>9_999,
+    'disabled'=>true, 'required'=>true, 'defaultValue'=>trustee_counts.first,
+    'min'=>1, 'max'=>100, 'step'=>1, 'options'=>[] }
   # payerMode 是平台计费治理字段，不属于用户维护的玩法 Excel，也不应显示在规则界面。
   # 服务端发布器提供唯一默认值，保证客户端无法伪造付费策略且计费 Saga 始终获得确定输入。
   validator_fields << { 'key'=>'payerMode', 'control'=>'radio', 'order'=>10_000,

@@ -10,68 +10,159 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.LinkedHashSet;
+import java.time.Instant;
 
 /** Authoritative ZJH aggregate hosted by the shared game service. */
 public final class ZJHTable {
-    public enum State { WAITING, PLAYING, FINISHED }
+    public enum State { WAITING, PLAYING, ROUND_FINISHED, FINISHED }
 
     private final long roomId;
     private final long ownerId;
     private final int seatLimit;
+    private final ZJHRules rules;
     private final GameRandomSource random;
     private final Map<Integer, Long> players = new LinkedHashMap<>();
     private final Map<Integer, List<Integer>> hands = new LinkedHashMap<>();
     private final Set<Integer> readySeats = new LinkedHashSet<>();
+    private final Set<Integer> lookedSeats = new LinkedHashSet<>();
+    private final Set<Integer> comparedOutSeats = new LinkedHashSet<>();
+    private final Map<Integer, Long> committedBets = new LinkedHashMap<>();
+    private final Map<Integer, Integer> preBets = new LinkedHashMap<>();
     private final List<Integer> activeSeats = new ArrayList<>();
     private State state = State.WAITING;
     private int operatorSeat = -1;
+    private int bettingRound;
+    private int actionsInRound;
+    private long pot;
+    private long stateVersion;
+    private long operationDeadlineEpochMillis;
+    private int roundNo;
+
+    public ZJHTable(long roomId, long ownerId, ZJHRules rules, long randomSeed) {
+        this(roomId, ownerId, rules, randomSeed, true);
+    }
 
     public ZJHTable(long roomId, long ownerId, int seatLimit, long randomSeed) {
+        this(roomId, ownerId, ZJHRules.from(Map.of("seatLimit", seatLimit)), randomSeed, true);
+    }
+
+    private ZJHTable(long roomId, long ownerId, ZJHRules rules, long randomSeed, boolean ignored) {
         if (roomId <= 0 || ownerId <= 0) throw new IllegalArgumentException("invalid room identity");
-        if (seatLimit < 2 || seatLimit > 8) throw new IllegalArgumentException("seatLimit must be 2..8");
+        int seatLimit = rules.seatLimit();
         this.roomId = roomId;
         this.ownerId = ownerId;
         this.seatLimit = seatLimit;
+        this.rules = rules;
         this.random = new SeededGameRandomSource(randomSeed);
     }
 
-    public synchronized void join(int seatId, long playerId) {
+    /** New authoritative write: sitting atomically occupies the seat and marks it ready. */
+    public synchronized void sit(int seatId, long playerId) {
         requireState(State.WAITING);
         if (seatId < 0 || seatId >= seatLimit || playerId <= 0) throw new IllegalArgumentException("invalid seat");
         if (players.containsKey(seatId) || players.containsValue(playerId)) throw new IllegalStateException("seat or player already joined");
         players.put(seatId, playerId);
+        readySeats.add(seatId);
+        stateVersion++;
     }
+
+    /** Central legacy compatibility for old snapshots and tests; production commands use sit. */
+    @Deprecated
+    public synchronized void join(int seatId, long playerId) { sit(seatId, playerId); }
 
     public synchronized void start() {
         requireState(State.WAITING);
-        if (players.size() < 2) throw new IllegalStateException("at least two players are required");
-        if (!readySeats.containsAll(players.keySet())) throw new IllegalStateException("all joined players must be ready");
+        if (players.size() < rules.minimumPlayers()) throw new IllegalStateException("minimum player count is not met");
+        roundNo = 1;
+        beginRound();
+    }
+
+    public synchronized void continueRound() {
+        requireState(State.ROUND_FINISHED);
+        roundNo++;
+        beginRound();
+    }
+
+    private void beginRound() {
+        hands.clear(); activeSeats.clear(); lookedSeats.clear(); comparedOutSeats.clear();
+        committedBets.clear(); preBets.clear();
         ZJHSetCard deck = new ZJHSetCard(this, random);
         deck.onXiPai();
         players.keySet().forEach(seat -> hands.put(seat, List.copyOf(deck.popList(3))));
         activeSeats.addAll(players.keySet());
+        for (Integer seat : activeSeats) committedBets.put(seat, (long) rules.baseBet());
+        pot = Math.multiplyExact((long) activeSeats.size(), rules.baseBet());
+        bettingRound = 1;
+        actionsInRound = 0;
         operatorSeat = activeSeats.get(0);
         state = State.PLAYING;
+        stateVersion++;
+        touchDeadline();
     }
 
     public synchronized void ready(int seatId, boolean ready) {
         requireState(State.WAITING);
         if (!players.containsKey(seatId)) throw new IllegalArgumentException("seat not found");
-        if (ready) readySeats.add(seatId); else readySeats.remove(seatId);
+        // Legacy requests are acknowledged without reintroducing a readiness state:
+        // every seated player is ready by definition in CN297.
     }
 
     public synchronized void fold(int seatId) {
         requireTurn(seatId);
         activeSeats.remove(Integer.valueOf(seatId));
+        preBets.remove(seatId);
+        stateVersion++;
         advanceAfterAction(seatId);
+    }
+
+    public synchronized void look(int seatId) {
+        requireTurn(seatId);
+        if (bettingRound <= rules.mustBlindRounds()) throw new IllegalStateException("must remain blind in this betting round");
+        if (!lookedSeats.add(seatId)) throw new IllegalStateException("cards already viewed");
+        stateVersion++;
+        touchDeadline();
+    }
+
+    public synchronized long bet(int seatId, int amount) {
+        requireTurn(seatId);
+        int minimum = rules.baseBet() * (lookedSeats.contains(seatId) ? 2 : 1);
+        if (amount < minimum || amount > rules.maximumBet()) throw new IllegalArgumentException("bet outside allowed range");
+        committedBets.merge(seatId, (long) amount, Math::addExact);
+        pot = Math.addExact(pot, amount);
+        preBets.remove(seatId);
+        stateVersion++;
+        advanceAfterAction(seatId);
+        return pot;
+    }
+
+    public synchronized void preBet(int seatId, int amount) {
+        requireActiveSeat(seatId);
+        if (amount <= 0 || amount > rules.maximumBet()) throw new IllegalArgumentException("preBet outside allowed range");
+        preBets.put(seatId, amount);
+        stateVersion++;
+    }
+
+    /** Human operation timeout. The authoritative fallback is fold; no robot decision is involved. */
+    public synchronized void timeout(int seatId, long nowEpochMillis) {
+        requireTurn(seatId);
+        if (nowEpochMillis < operationDeadlineEpochMillis) throw new IllegalStateException("operation deadline has not elapsed");
+        fold(seatId);
     }
 
     public synchronized int compare(int seatId, int targetSeatId) {
         requireTurn(seatId);
+        if (bettingRound < rules.compareStartRound()) throw new IllegalStateException("compare is not available in this betting round");
         if (seatId == targetSeatId || !activeSeats.contains(targetSeatId)) throw new IllegalArgumentException("invalid compare target");
+        int compareCost = rules.baseBet() * (lookedSeats.contains(seatId) ? 4 : 2);
+        if (compareCost > rules.maximumBet()) throw new IllegalStateException("compare cost exceeds maximum bet");
+        committedBets.merge(seatId, (long) compareCost, Math::addExact);
+        pot = Math.addExact(pot, compareCost);
         boolean operatorWins = ZJHGameLogic.CompareCard(new ArrayList<>(hands.get(seatId)), new ArrayList<>(hands.get(targetSeatId)));
         int loser = operatorWins ? targetSeatId : seatId;
         activeSeats.remove(Integer.valueOf(loser));
+        comparedOutSeats.add(loser);
+        preBets.remove(loser);
+        stateVersion++;
         advanceAfterAction(seatId);
         return loser;
     }
@@ -79,15 +170,22 @@ public final class ZJHTable {
     public synchronized List<Integer> handView(long authenticatedPlayerId, int seatId) {
         Long owner = players.get(seatId);
         if (owner == null) throw new IllegalArgumentException("seat not found");
-        return CardPerspective.hand(hands.getOrDefault(seatId, List.of()), owner == authenticatedPlayerId || state == State.FINISHED);
+        boolean visible = state == State.ROUND_FINISHED || state == State.FINISHED
+                || (owner == authenticatedPlayerId && lookedSeats.contains(seatId));
+        return CardPerspective.hand(hands.getOrDefault(seatId, List.of()), visible);
     }
 
     public synchronized boolean ownsSeat(long playerId, int seatId) {
         return Long.valueOf(playerId).equals(players.get(seatId));
     }
 
+    public synchronized int seatOf(long playerId) {
+        return players.entrySet().stream().filter(entry -> entry.getValue() == playerId)
+                .map(Map.Entry::getKey).findFirst().orElse(-1);
+    }
+
     public synchronized Integer winnerSeat() {
-        return state == State.FINISHED && activeSeats.size() == 1 ? activeSeats.get(0) : null;
+        return (state == State.ROUND_FINISHED || state == State.FINISHED) && activeSeats.size() == 1 ? activeSeats.get(0) : null;
     }
 
     public synchronized Map<String, Object> viewFor(long viewerPlayerId) {
@@ -97,12 +195,30 @@ public final class ZJHTable {
             seats.put(seatId, Map.of("playerId", entry.getValue(),
                     "cards", handView(viewerPlayerId, seatId),
                     "cardCount", hands.getOrDefault(seatId, List.of()).size(),
-                    "active", activeSeats.contains(seatId), "ready", readySeats.contains(seatId)));
+                    "active", activeSeats.contains(seatId), "ready", readySeats.contains(seatId),
+                    "looked", lookedSeats.contains(seatId), "comparedOut", comparedOutSeats.contains(seatId),
+                    "committedBet", committedBets.getOrDefault(seatId, 0L),
+                    "preBet", preBets.getOrDefault(seatId, 0)));
         }
         Map<String, Object> view = new LinkedHashMap<>();
+        view.put("gameCode", ZJHGameProvider.GAME_CODE);
+        view.put("playVersion", ZJHGameProvider.PLAY_VERSION);
         view.put("roomId", roomId);
+        // Client permissions must be derived from the room aggregate, never inferred from a handoff player.
+        view.put("ownerPlayerId", ownerId);
+        view.put("seatLimit", seatLimit);
+        view.put("viewerRole", players.containsValue(viewerPlayerId) ? "SEATED" : "SPECTATOR");
         view.put("state", state.name());
+        view.put("roundNo", roundNo);
+        view.put("roundLimit", rules.totalRounds());
         view.put("operatorSeat", operatorSeat);
+        view.put("bettingRound", bettingRound);
+        view.put("compareStartRound", rules.compareStartRound());
+        view.put("baseBet", rules.baseBet());
+        view.put("maximumBet", rules.maximumBet());
+        view.put("pot", pot);
+        view.put("operationDeadlineEpochMillis", operationDeadlineEpochMillis);
+        view.put("stateVersion", stateVersion);
         view.put("winnerSeat", winnerSeat() == null ? -1 : winnerSeat());
         view.put("seats", Map.copyOf(seats));
         return Map.copyOf(view);
@@ -115,30 +231,56 @@ public final class ZJHTable {
             int seatId = entry.getKey();
             seats.put(seatId, Map.of("playerId", entry.getValue(),
                     "cards", List.copyOf(hands.getOrDefault(seatId, List.of())),
-                    "active", activeSeats.contains(seatId)));
+                    "active", activeSeats.contains(seatId), "looked", lookedSeats.contains(seatId),
+                    "comparedOut", comparedOutSeats.contains(seatId),
+                    "committedBet", committedBets.getOrDefault(seatId, 0L),
+                    "preBet", preBets.getOrDefault(seatId, 0)));
         }
-        return Map.of("ownerId", ownerId, "seatLimit", seatLimit, "state", state.name(),
-                "operatorSeat", operatorSeat, "randomSeed", randomSeed(),
-                "readySeats", Set.copyOf(readySeats), "seats", Map.copyOf(seats));
+        Map<String, Object> snapshot = new LinkedHashMap<>();
+        snapshot.put("ownerId", ownerId); snapshot.put("seatLimit", seatLimit); snapshot.put("state", state.name());
+        snapshot.put("operatorSeat", operatorSeat); snapshot.put("randomSeed", randomSeed());
+        snapshot.put("readySeats", Set.copyOf(readySeats)); snapshot.put("seats", Map.copyOf(seats));
+        snapshot.put("bettingRound", bettingRound); snapshot.put("actionsInRound", actionsInRound);
+        snapshot.put("pot", pot); snapshot.put("stateVersion", stateVersion);
+        snapshot.put("operationDeadlineEpochMillis", operationDeadlineEpochMillis);
+        snapshot.put("roundNo", roundNo);
+        snapshot.put("rules", rules.toMap());
+        return Map.copyOf(snapshot);
     }
 
     public synchronized Map<String, Object> authoritativeState() { return authoritativeSnapshot(); }
 
     static ZJHTable restore(long roomId, Map<String, Object> source) {
+        ZJHRules restoredRules = source.get("rules") instanceof Map<?, ?> ruleMap
+                ? ZJHRules.from(stringObjectMap(ruleMap))
+                : ZJHRules.from(Map.of("seatLimit", number(source, "seatLimit").intValue()));
         ZJHTable table = new ZJHTable(roomId, number(source, "ownerId").longValue(),
-                number(source, "seatLimit").intValue(), number(source, "randomSeed").longValue());
+                restoredRules, number(source, "randomSeed").longValue());
         Map<?, ?> seats = map(source, "seats");
         seats.entrySet().stream().sorted(java.util.Comparator.comparingInt(e -> Integer.parseInt(String.valueOf(e.getKey()))))
                 .forEach(entry -> {
                     int seat = Integer.parseInt(String.valueOf(entry.getKey()));
                     Map<?, ?> value = requireMap(entry.getValue(), "seat");
-                    table.join(seat, ((Number) value.get("playerId")).longValue());
+                    table.players.put(seat, ((Number) value.get("playerId")).longValue());
                     table.hands.put(seat, integerList(value.get("cards")));
                     if (Boolean.TRUE.equals(value.get("active"))) table.activeSeats.add(seat);
+                    if (Boolean.TRUE.equals(value.get("looked"))) table.lookedSeats.add(seat);
+                    if (Boolean.TRUE.equals(value.get("comparedOut"))) table.comparedOutSeats.add(seat);
+                    Object committedBet = value.get("committedBet");
+                    if (committedBet instanceof Number number) table.committedBets.put(seat, number.longValue());
+                    Object preBet = value.get("preBet");
+                    if (preBet instanceof Number number && number.intValue() > 0) table.preBets.put(seat, number.intValue());
                 });
-        for (Integer seat : integerList(source.get("readySeats"))) table.readySeats.add(seat);
+        // Normalize legacy snapshots to the current invariant: seated means ready.
+        table.readySeats.addAll(table.players.keySet());
         table.state = com.aoo.bcg.gamespi.StrictEnumDecoder.byName(State.class, String.valueOf(source.get("state")));
         table.operatorSeat = number(source, "operatorSeat").intValue();
+        table.bettingRound = optionalNumber(source, "bettingRound", 0).intValue();
+        table.actionsInRound = optionalNumber(source, "actionsInRound", 0).intValue();
+        table.pot = optionalNumber(source, "pot", 0).longValue();
+        table.stateVersion = optionalNumber(source, "stateVersion", 0).longValue();
+        table.operationDeadlineEpochMillis = optionalNumber(source, "operationDeadlineEpochMillis", 0).longValue();
+        table.roundNo = optionalNumber(source, "roundNo", 0).intValue();
         return table;
     }
 
@@ -147,9 +289,18 @@ public final class ZJHTable {
         if (!(value instanceof Number number)) throw new IllegalArgumentException("missing numeric snapshot field: " + key);
         return number;
     }
+    private static Number optionalNumber(Map<String, Object> source, String key, Number fallback) {
+        Object value = source.get(key);
+        return value instanceof Number number ? number : fallback;
+    }
     private static Map<?, ?> map(Map<String, Object> source, String key) { return requireMap(source.get(key), key); }
     private static Map<?, ?> requireMap(Object value, String key) {
         if (!(value instanceof Map<?, ?> result)) throw new IllegalArgumentException("missing map snapshot field: " + key);
+        return result;
+    }
+    private static Map<String, Object> stringObjectMap(Map<?, ?> source) {
+        Map<String, Object> result = new LinkedHashMap<>();
+        source.forEach((key, value) -> result.put(String.valueOf(key), value));
         return result;
     }
     private static List<Integer> integerList(Object value) {
@@ -162,16 +313,55 @@ public final class ZJHTable {
     private void advanceAfterAction(int previousSeat) {
         if (activeSeats.size() <= 1) {
             operatorSeat = activeSeats.isEmpty() ? -1 : activeSeats.get(0);
-            state = State.FINISHED;
+            state = roundNo >= rules.totalRounds() ? State.FINISHED : State.ROUND_FINISHED;
+            operationDeadlineEpochMillis = 0;
             return;
+        }
+        actionsInRound++;
+        if (actionsInRound >= activeSeats.size()) {
+            actionsInRound = 0;
+            bettingRound++;
         }
         int index = activeSeats.indexOf(previousSeat);
         operatorSeat = activeSeats.get(index < 0 || index + 1 >= activeSeats.size() ? 0 : index + 1);
+        touchDeadline();
+        applyQueuedPreBets();
+    }
+
+    /**
+     * 预下注是服务端权威动作：轮到座位时自动入池。若玩家看牌后最低下注翻倍导致预设值失效，
+     * 只清除该预设并保留其正常操作机会，不替玩家猜测新的下注额。
+     */
+    private void applyQueuedPreBets() {
+        while (state == State.PLAYING) {
+            Integer amount = preBets.remove(operatorSeat);
+            if (amount == null) return;
+            int minimum = rules.baseBet() * (lookedSeats.contains(operatorSeat) ? 2 : 1);
+            if (amount < minimum || amount > rules.maximumBet()) {
+                stateVersion++;
+                touchDeadline();
+                return;
+            }
+            int automaticSeat = operatorSeat;
+            committedBets.merge(automaticSeat, (long) amount, Math::addExact);
+            pot = Math.addExact(pot, amount);
+            stateVersion++;
+            advanceAfterAction(automaticSeat);
+        }
     }
 
     private void requireTurn(int seatId) {
         requireState(State.PLAYING);
         if (operatorSeat != seatId) throw new IllegalStateException("not operator seat");
+    }
+
+    private void requireActiveSeat(int seatId) {
+        requireState(State.PLAYING);
+        if (!activeSeats.contains(seatId)) throw new IllegalStateException("seat is not active");
+    }
+
+    private void touchDeadline() {
+        operationDeadlineEpochMillis = Math.addExact(Instant.now().toEpochMilli(), rules.operationSeconds() * 1000L);
     }
 
     private void requireState(State expected) {
@@ -183,4 +373,22 @@ public final class ZJHTable {
     public long randomSeed() { return random.seed(); }
     public synchronized State state() { return state; }
     public synchronized int operatorSeat() { return operatorSeat; }
+    public ZJHRules rules() { return rules; }
+    public synchronized int bettingRound() { return bettingRound; }
+    public synchronized long pot() { return pot; }
+    public synchronized long committedBet(int seatId) { return committedBets.getOrDefault(seatId, 0L); }
+    public synchronized Map<Integer, Long> committedBets() { return Map.copyOf(committedBets); }
+    public synchronized int winnerBonusPerOpponent() {
+        Integer winner = winnerSeat();
+        if (winner == null) throw new IllegalStateException("round is not finished");
+        List<Integer> cards = hands.get(winner);
+        int type = ZJHGameLogic.GetCardType(new ArrayList<>(cards));
+        if (type == ZJHGameLogic.ZJH_PAOZI) {
+            boolean aaa = cards.stream().allMatch(card -> ZJHGameLogic.GetCardValue(card) == 14);
+            return aaa ? rules.aaaBonus() : rules.leopardBonus();
+        }
+        return type == ZJHGameLogic.ZJH_SHUNJIN ? rules.straightFlushBonus() : 0;
+    }
+    public synchronized long stateVersion() { return stateVersion; }
+    public synchronized int roundNo() { return roundNo; }
 }

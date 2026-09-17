@@ -11,26 +11,29 @@ import java.util.Map;
 
 public final class ZJHSettlementService {
     public Map<String, Object> settle(ZJHTable table, int roundNo) {
+        if (roundNo != table.roundNo()) throw new IllegalArgumentException("roundNo does not match authoritative table state");
         Integer winner = table.winnerSeat();
         if (winner == null) throw new IllegalStateException("room is not finished");
         @SuppressWarnings("unchecked") Map<Integer, Object> seats =
                 (Map<Integer, Object>) table.authoritativeSnapshot().get("seats");
         List<SettlementEntry> entries = new ArrayList<>();
-        long winnerDelta = 0;
+        int winnerBonus = table.winnerBonusPerOpponent();
+        long winnerDelta = table.pot() - table.committedBet(winner);
         for (Map.Entry<Integer, Object> seat : seats.entrySet()) {
             @SuppressWarnings("unchecked") Map<String, Object> state = (Map<String, Object>) seat.getValue();
             long playerId = ((Number) state.get("playerId")).longValue();
             if (seat.getKey().equals(winner)) continue;
-            entries.add(new SettlementEntry(playerId, -1, Map.of("compare", -1L)));
-            winnerDelta = com.aoo.bcg.common.math.ExactDomainMath.increment(winnerDelta, "ZJH winner score");
+            long loss = Math.negateExact(Math.addExact(table.committedBet(seat.getKey()), winnerBonus));
+            entries.add(new SettlementEntry(playerId, loss, Map.of("CN297", loss, "xi", (long) -winnerBonus)));
+            winnerDelta = Math.addExact(winnerDelta, winnerBonus);
         }
         @SuppressWarnings("unchecked") Map<String, Object> winnerState = (Map<String, Object>) seats.get(winner);
         entries.add(new SettlementEntry(((Number) winnerState.get("playerId")).longValue(), winnerDelta,
-                Map.of("compare", winnerDelta)));
+                Map.of("CN297", winnerDelta, "xi", (long) winnerBonus * (seats.size() - 1))));
         SettlementResult result = new SettlementResult(table.roomId(), roundNo, ZJHGameProvider.PLAY_VERSION, entries);
         SettlementValidator.validate(result, table.roomId(), roundNo, ZJHGameProvider.PLAY_VERSION,
                 SettlementBalancePolicy.ZERO_SUM);
-        return Map.of("winnerSeat", winner, "entries", result.entries());
+        return Map.of("winnerSeat", winner, "winnerBonusPerOpponent", winnerBonus, "entries", result.entries());
     }
 
     public SettlementPayload payload(ZJHTable table, int roundNo, String playVersion) {

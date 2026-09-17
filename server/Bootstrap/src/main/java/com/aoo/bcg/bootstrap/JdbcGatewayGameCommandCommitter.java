@@ -371,9 +371,18 @@ final class JdbcGatewayGameCommandCommitter implements GameCommandCommitter {
         publicPayload.put("action",replayAction(request));
         Object cards = replayCards(request);if(cards!=null)publicPayload.put("cards",cards);
         insertReplay(connection,room,setId,stateVersion,"PUBLIC",0,request.msgId(),publicPayload,metadata.releaseId());
-        long actor = Long.parseLong(request.authenticatedUserId());
-        insertReplay(connection,room,setId,stateVersion,"PLAYER_PRIVATE",actor,result.msgId(),
-                room.requireAuthoritativeSession().viewFor(actor),metadata.releaseId());
+        // A replay is read from one participant's perspective.  Persist that perspective for
+        // every participant on every authoritative transition; storing only the command actor
+        // leaves the other players with a sparse replay containing just their own turns.
+        var authority = room.requireAuthoritativeSession();
+        for (long playerId : players.values()) {
+            insertReplay(connection,room,setId,stateVersion,"PLAYER_PRIVATE",playerId,result.msgId(),
+                    authority.viewFor(playerId),metadata.releaseId());
+        }
+        System.getLogger(JdbcGatewayGameCommandCommitter.class.getName()).log(
+                System.Logger.Level.INFO,
+                "[ReplayPersist] roomId={0} roundNo={1} setId={2} operationId={3} stateVersion={4} perspectiveCount={5}",
+                room.roomId(), request.roundNo(), setId, request.requestId(), stateVersion, players.size());
         if (Boolean.TRUE.equals(state.get("roundScored"))) upsertReplayManifest(connection,room,setId);
     }
 

@@ -56,6 +56,20 @@ final class PdkInitialHandEvaluator {
         return Set.copyOf(found);
     }
 
+    /** Stable wire identities retain the configured four-of-kind rank for XQP icons. */
+    static List<String> presentationPatterns(List<Integer> hand, PaoDeKuaiConfig config) {
+        Map<Integer,Integer> counts = new HashMap<>();
+        hand.forEach(card -> counts.merge(StandardPokerRuleSet.rank(card), 1, Integer::sum));
+        return patterns(hand, config).stream().map(pattern -> {
+            if (pattern != PdkAdvancedRules.InitialPattern.FOUR_CONFIGURED_RANK)
+                return pattern.name();
+            int rank = config.advancedRules().fourOfKindPatternRanks().stream()
+                    .filter(value -> counts.getOrDefault(value, 0) == 4)
+                    .findFirst().orElseThrow();
+            return "FOUR_CONFIGURED_RANK_" + rank;
+        }).sorted().toList();
+    }
+
     static boolean directWin(List<Integer> hand, PdkAdvancedRules rules) {
         Set<Integer> cards = new HashSet<>(hand);
         return rules.directWinPatterns().stream().anyMatch(cards::containsAll);

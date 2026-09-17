@@ -14,6 +14,7 @@ import com.aoo.bcg.gamespi.RuleChainExecutor;
 import com.aoo.bcg.gamespi.api.DeprecatedEntryPointBlocklist;
 
 import java.util.Objects;
+import java.util.Map;
 import java.time.Duration;
 import com.aoo.bcg.gamespi.time.AuthoritativeTimeSource;
 import com.aoo.bcg.gamespi.time.OperationDeadline;
@@ -113,7 +114,7 @@ public final class GameWebSocketRouter {
         committed = true;
         idempotency.save(idempotencyKey, result, retention);
         timeline.complete(scopedRoomId, frame.seq(), frame.requestId(), frame.msgId(), operationDeadline);
-        return new RoutedResult(accepted, result, false);
+        return new RoutedResult(rebindAfterSit(accepted,frame,result), result, false);
         } catch (RuntimeException | Error failure) {
             // A failed validation/handler/commit may retry. Once durable commit returned,
             // retain PROCESSING if completion persistence fails to prevent double mutation.
@@ -121,6 +122,20 @@ public final class GameWebSocketRouter {
             timeline.fail(scopedRoomId, frame.seq(), frame.requestId(), frame.msgId(), failure);
             throw failure;
         }
+    }
+
+    private static ConnectionSession rebindAfterSit(ConnectionSession session,WebSocketFrame frame,
+            GameCommandResult result) {
+        if(!frame.msgId().toLowerCase(java.util.Locale.ROOT).endsWith(".sit_req"))return session;
+        Object raw=frame.body().containsKey("seatId")?frame.body().get("seatId"):frame.body().get("seat");
+        int requested=raw instanceof Number number?number.intValue():-1;
+        Map<String,Object> view=result.body().asMap();
+        Object rawViewerSeat=view.get("viewerSeat");
+        int confirmed=rawViewerSeat instanceof Number number?number.intValue():-1;
+        String role=String.valueOf(view.getOrDefault("viewerRole",view.getOrDefault("viewerStatus","")));
+        if(requested<0||confirmed!=requested||!("SEATED".equals(role)))
+            throw new SecurityException("sit result did not confirm the requested authoritative seat");
+        return session.withSeatId(confirmed);
     }
 
     public java.util.List<GameOperationTimeline.Entry> operationTimeline(long roomId) {

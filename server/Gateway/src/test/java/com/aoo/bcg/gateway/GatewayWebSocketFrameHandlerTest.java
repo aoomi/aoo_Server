@@ -107,6 +107,18 @@ final class GatewayWebSocketFrameHandlerTest {
         assertEquals(0,nextEnvelope.get("code"));assertEquals(Map.of("accepted",true),nextEnvelope.get("body"));assertEquals(2,attempts.get());channel.finishAndReleaseAll();
     }
 
+    @Test void missingAuthoritativeRoomUsesTerminalRouteNotFoundCode() throws Exception {
+        Instant now=Instant.parse("2026-08-24T12:00:00Z");Clock clock=Clock.fixed(now,ZoneOffset.UTC);ObjectMapper json=new ObjectMapper();
+        var router=new GameWebSocketRouter(new GameRegistry(),id->{throw new AssertionError("room lookup not expected");},new WebSocketRequestGuard(clock,Duration.ofSeconds(30)),new InMemoryIdempotencyStore<>(clock),Duration.ofHours(24));
+        var handler=new GatewayWebSocketFrameHandler(new ConnectionIdentity(7,"d","https://game.example","test-page"),router,
+                (id,frame)->{throw new IllegalArgumentException("room does not exist: "+frame.roomId());},
+                GatewayWebSocketFrameHandler.BroadcastSink.none(),json,clock);
+        EmbeddedChannel channel=new EmbeddedChannel(handler);
+        String request=json.writeValueAsString(Map.ofEntries(Map.entry("protocolVersion","2.0"),Map.entry("msgId","common.room.state_req"),Map.entry("kind","req"),Map.entry("requestId","state-missing"),Map.entry("seq",1),Map.entry("traceId","trace-missing"),Map.entry("roomId","586745"),Map.entry("roundNo",1),Map.entry("playVersion","CD201@1.0.0"),Map.entry("timestamp",now.toEpochMilli()),Map.entry("body",Map.of())));
+        channel.writeInbound(new TextWebSocketFrame(request));TextWebSocketFrame response=channel.readOutbound();Map<?,?> envelope=json.readValue(response.text(),Map.class);response.release();
+        assertEquals(3001,envelope.get("code"));assertEquals("state-missing",envelope.get("requestId"));assertEquals("trace-missing",envelope.get("traceId"));assertTrue(channel.isActive());channel.finishAndReleaseAll();
+    }
+
     private static GameProvider provider(GameRoomHandle room,AtomicInteger executions){return new GameProvider(){
         public GameDescriptor descriptor(){return new GameDescriptor(62,"zypk","ZYPK",GameCategory.POKER,"configurable",RegionScope.NATIONAL,"","",room.playVersion());}
         public GameRoomFactory roomFactory(){return ignored->room;}

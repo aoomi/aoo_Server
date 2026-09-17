@@ -74,6 +74,9 @@ final class LiangshanPdkRules implements PdkRegionRules {
                 Set.of(),
                 ROOM_RESTRICTIONS);
         rules.put("cardsPerPlayer", cards);
+        // XQP area 950 publishes only rule 500010 (one-times base score). Generic
+        // room fields must not scale every Liangshan settlement component.
+        rules.put("baseScore", 1);
         rules.put("deckMode", cards == 8 ? "LS_7_TO_ACE" : "LS_5_TO_ACE");
         rules.put("deckCards", cards == 8 ? DECK_7_TO_ACE : DECK_5_TO_ACE);
         rules.put("bankerSelectionCard", cards == 8 ? 107 : 105);
@@ -96,6 +99,10 @@ final class LiangshanPdkRules implements PdkRegionRules {
         rules.put("bombScoreMode", "DISABLED");
         rules.put("bombScoreCap", 0);
         rules.put("bombFixedPoints", 0);
+        // The current product contract is fixed multi-board. Single-board and
+        // double-board are not room options and therefore never enter ruleOptions.
+        rules.put("initialHandPatternLimit", 9999);
+        rules.put("initialHandPatternScoreUnit", 3);
         rules.put("handScoreTable", scoreTableFlat(cards));
         rules.putIfAbsent("firstLead", PokerRuleProfile.FirstLead.MINIMUM_CARD_HOLDER.name());
         normalizeJinHua(published, rules);
@@ -147,9 +154,10 @@ final class LiangshanPdkRules implements PdkRegionRules {
             int cards) {
         Set<String> selected = PdkRegionalRuleValidation.stringChoices(published, "playRule",
                 Set.of(), PLAY_RULES);
-        // 凉山规则表的“三带一”是三带一对。用 PAIRS 原子能力表达，不能借用
-        // EITHER 放行三带单张或两张散牌；比较带牌仍由独立原子能力控制。
-        rules.put("tripleAttachmentMode", selected.contains("triple_with_one") ? "PAIRS" : "DISABLED");
+        // XQP area 950 rule 500042 defines “三带一” as accepting either one
+        // single card or one pair. Keep both shapes under the same atomic
+        // capability; attachment comparison remains an independent option.
+        rules.put("tripleAttachmentMode", selected.contains("triple_with_one") ? "EITHER" : "DISABLED");
         rules.put("tripleWithoutAttachmentTiming", selected.contains("triple_with_one")
                 ? "DEALER_RESPONSE_OR_FINAL" : "ANYTIME");
         rules.put("airplaneAttachmentMode", "EITHER");
@@ -163,10 +171,12 @@ final class LiangshanPdkRules implements PdkRegionRules {
             patterns.add("FOUR_CONFIGURED_RANK");
             ranks.add(cards == 8 ? 7 : 5);
         }
-        if (selected.contains("all_single")) patterns.add("ALL_SINGLES");
         boolean allSpecialPatterns = selected.contains("all_special_patterns");
+        if (selected.contains("all_single") || allSpecialPatterns)
+            patterns.add("ALL_SINGLES");
         if (selected.contains("full_straight") || allSpecialPatterns) patterns.add("FULL_STRAIGHT");
-        if (selected.contains("full_consecutive_pairs")) patterns.add("FULL_CONSECUTIVE_PAIRS");
+        if (selected.contains("full_consecutive_pairs") || allSpecialPatterns)
+            patterns.add("FULL_CONSECUTIVE_PAIRS");
         if (selected.contains("all_pair") || allSpecialPatterns) patterns.add("ALL_PAIRS");
         if (selected.contains("all_black") || allSpecialPatterns) patterns.add("ALL_BLACK");
         if (selected.contains("all_red") || allSpecialPatterns) patterns.add("ALL_RED");

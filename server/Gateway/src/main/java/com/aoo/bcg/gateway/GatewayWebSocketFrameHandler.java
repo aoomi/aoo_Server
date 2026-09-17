@@ -114,6 +114,8 @@ public final class GatewayWebSocketFrameHandler extends SimpleChannelInboundHand
             String trace=request==null?"unknown":request.traceId(),message=request==null?"unknown":request.msgId();
             System.err.printf("gateway websocket request rejected trace=%s msgId=%s cause=%s%n",trace,message,String.valueOf(failure.getMessage()));
             if(request==null)failure(ctx, GatewayErrorCode.INVALID_ENVELOPE, request, true);
+            else if(String.valueOf(failure.getMessage()).startsWith("room does not exist:"))
+                failure(ctx, GatewayErrorCode.ROUTE_NOT_FOUND, request, false);
             else failure(ctx, GatewayErrorCode.ROOM_STATE_CONFLICT, request, false, userMessage(failure));
         } catch (Exception failure) {
             String trace=request==null?"unknown":request.traceId(),message=request==null?"unknown":request.msgId();

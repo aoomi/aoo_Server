@@ -16,7 +16,7 @@ import org.junit.jupiter.api.Test;
 
 final class PdkPublishedRoomRuleCompatibilityTest {
   @Test
-  void activeLiangshanSnapshotAcceptsOnlyItsAuditedPreCanonicalIdentity() {
+  void activeLiangshanSnapshotRejectsLegacyIdentityWithDifferentScoringSemantics() {
     GameProvider provider = PokerCatalogRuntimeRegistry.providerFor(new GameDescriptor(
         90005, "LS201", "凉山跑得快", GameCategory.POKER, PaoDeKuaiFamily.CODE,
         RegionScope.CITY, "sichuan", "liangshan", "xqp-equivalent-1")).orElseThrow();
@@ -41,18 +41,14 @@ final class PdkPublishedRoomRuleCompatibilityTest {
         "xqp-equivalent-1", "385", 0, Map.of()));
     session.execute(new GameCommandRequest("ready_req", "legacy-player-ready", 3, 967030, 1,
         "xqp-equivalent-1", "386", 1, Map.of()));
-    Object activePhase = session.viewFor(385).get("phase");
-
     Map<String, Object> legacy = new LinkedHashMap<>(session.authoritativeState());
-    assertEquals("bb691256808638cedc9ce173f50fafa4305716d659e8ad7ae4cd26f5e37468b3",
+    assertEquals(1, ((Map<?,?>) legacy.get("pdkRuleOptions")).get("baseScore"));
+    assertEquals("930f148ad1616a9413030e4a75220278b6f0ca3eb5d86b9d31db1c28ae3ce3e7",
         legacy.get("ruleSnapshotKey"));
     legacy.put("ruleSnapshotKey",
         "ea6881545a3448d5ecb4cad7710a80e6238d2d8264b63947f89c4dd68690c843");
-    var restored = provider.restoreAuthoritativeSession(legacy).orElseThrow();
-
-    assertEquals(activePhase, restored.viewFor(385).get("phase"));
-    assertEquals("bb691256808638cedc9ce173f50fafa4305716d659e8ad7ae4cd26f5e37468b3",
-        restored.authoritativeState().get("ruleSnapshotKey"));
+    org.junit.jupiter.api.Assertions.assertThrows(IllegalStateException.class,
+        () -> provider.restoreAuthoritativeSession(legacy).orElseThrow());
 
     legacy.put("ruleSnapshotKey", "unknown");
     org.junit.jupiter.api.Assertions.assertThrows(IllegalStateException.class,
@@ -119,7 +115,7 @@ final class PdkPublishedRoomRuleCompatibilityTest {
     Map<String, Object> rules =
         (Map<String, Object>) session.authoritativeState().get("pdkRuleOptions");
 
-    assertEquals("PAIRS", rules.get("tripleAttachmentMode"));
+    assertEquals("EITHER", rules.get("tripleAttachmentMode"));
     assertEquals(true, rules.get("compareTripleAttachments"));
     assertEquals("POPUP", rules.get("settlementPresentation"));
     assertEquals(session.authoritativeState(), provider.restoreAuthoritativeSession(

@@ -44,7 +44,7 @@ final class ChengduPdkRules {
                 null, false, false, 1, 2, 1, false, 2,
                 PaoDeKuaiConfig.AttachmentMode.EITHER,
                 PaoDeKuaiConfig.AttachmentMode.EITHER,
-                PaoDeKuaiConfig.AttachmentMode.SINGLES,
+                PaoDeKuaiConfig.AttachmentMode.EITHER,
                 PaoDeKuaiConfig.PlayTiming.ANYTIME,
                 PaoDeKuaiConfig.PlayTiming.ANYTIME,
                 true, false, false, true, true, 16, false, Set.of(),

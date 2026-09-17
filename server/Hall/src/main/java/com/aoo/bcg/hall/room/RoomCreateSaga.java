@@ -11,8 +11,10 @@ public final class RoomCreateSaga {
     private final Store store; private final BillingPort billing; private final RoomPort rooms; private final AuthorityPort authority;
     public RoomCreateSaga(Store store,BillingPort billing,RoomPort rooms,AuthorityPort authority){this.store=Objects.requireNonNull(store);this.billing=Objects.requireNonNull(billing);this.rooms=Objects.requireNonNull(rooms);this.authority=Objects.requireNonNull(authority);}
 
-    public Map<String,Object> create(long account,String requestId,Map<String,Object> request){
-        Command command=Command.parse(account,requestId,request);State initial=store.begin(command);
+    public Map<String,Object> create(long account,String requestId,Map<String,Object> request){return create(Command.parse(account,requestId,request,CreationOrigin.PUBLIC));}
+    /** Trusted Bootstrap entry after ClubDispatchService resolved an existing template for this member. */
+    public Map<String,Object> createClubTemplate(long account,String requestId,Map<String,Object> request){return create(Command.parse(account,requestId,request,CreationOrigin.CLUB_TEMPLATE_ENTRY));}
+    private Map<String,Object> create(Command command){State initial=store.begin(command);
         if(!initial.requestHash().equals(command.requestHash()))throw HallError.conflict("HALL_REQUEST_ID_CONFLICT","requestId was reused with different input");
         String token=UUID.randomUUID().toString();if(!store.acquire(command.requestId(),token,PROCESSING_LEASE))throw HallError.conflict("HALL_CREATE_IN_PROGRESS","room creation is already in progress");
         try{
@@ -41,7 +43,7 @@ public final class RoomCreateSaga {
         }finally{store.release(command.requestId(),token);}
     }
 
-    public RecoveryReport recoverPending(int limit){int completed=0,pending=0;List<String> failures=new ArrayList<>();for(Pending item:store.pending(Math.max(1,Math.min(limit,256))))try{create(item.accountId(),item.requestId(),item.request());completed++;}catch(HallError error){if(!"HALL_CREATE_IN_PROGRESS".equals(error.code())){pending++;failures.add(item.requestId()+':'+error.code());}}catch(RuntimeException error){pending++;failures.add(item.requestId()+':'+error.getClass().getSimpleName());}return new RecoveryReport(completed,pending,List.copyOf(failures));}
+    public RecoveryReport recoverPending(int limit){int completed=0,pending=0;List<String> failures=new ArrayList<>();for(Pending item:store.pending(Math.max(1,Math.min(limit,256))))try{CreationOrigin origin=CreationOrigin.persisted(item.request().get("_creationOrigin"));create(Command.parse(item.accountId(),item.requestId(),item.request(),origin));completed++;}catch(HallError error){if(!"HALL_CREATE_IN_PROGRESS".equals(error.code())){pending++;failures.add(item.requestId()+':'+error.code());}}catch(RuntimeException error){pending++;failures.add(item.requestId()+':'+error.getClass().getSimpleName());}return new RecoveryReport(completed,pending,List.copyOf(failures));}
     private boolean compensate(Command command,State state,RuntimeException failure){if(state.step()==Step.CONFIRMED||state.step()==Step.COMPENSATED)return false;Step origin=state.step()==Step.COMPENSATION_PENDING?state.compensationOrigin():state.step();if(origin==null)throw new IllegalStateException("room saga compensation origin missing",failure);boolean pending=false;if(origin.ordinal()>=Step.AUTHORITY_CREATED.ordinal())try{authority.remove(command,fencing(state.response()));}catch(RuntimeException ignored){pending=true;}if(origin.ordinal()>=Step.REGISTERED.ordinal())try{rooms.remove(command);}catch(RuntimeException ignored){pending=true;}if(origin.ordinal()>=Step.RESERVED.ordinal())try{billing.release(command);}catch(RuntimeException ignored){pending=true;}store.fail(command.requestId(),state.version(),pending?Step.COMPENSATION_PENDING:Step.COMPENSATED,origin,failure.getClass().getSimpleName());return pending;}
     private static boolean before(Step current,Step target){return current.ordinal()<target.ordinal();}
     private static long fencing(Map<String,Object> lease){Object value=lease.get("fencingToken");if(!(value instanceof Number number)||number.longValue()<=0)throw new IllegalStateException("authority fencing token missing");return number.longValue();}
@@ -49,8 +51,11 @@ public final class RoomCreateSaga {
     private static long number(Map<String,Object> value,String key){Object raw=value.get(key);return raw instanceof Number number?number.longValue():0;}
 
     public enum Step{STARTED,RESERVED,REGISTERED,AUTHORITY_CREATED,CONFIRMED,COMPENSATION_PENDING,COMPENSATED}
-    public record Command(long accountId,String requestId,long roomId,int gameId,String playVersion,String clientVersion,long stateVersion,Map<String,Object>rules,Scope scope,Map<String,Object>admission,String traceId,String requestHash){
-        static Command parse(long account,String requestId,Map<String,Object> body){
+    public enum CreationOrigin{PUBLIC,CLUB_TEMPLATE_ENTRY;static CreationOrigin persisted(Object value){return CLUB_TEMPLATE_ENTRY.name().equals(String.valueOf(value))?CLUB_TEMPLATE_ENTRY:PUBLIC;}}
+    public record Command(long accountId,String requestId,long roomId,int gameId,String playVersion,String clientVersion,long stateVersion,Map<String,Object>rules,Scope scope,Map<String,Object>admission,String traceId,CreationOrigin creationOrigin,String requestHash){
+        public Command(long accountId,String requestId,long roomId,int gameId,String playVersion,String clientVersion,long stateVersion,Map<String,Object>rules,Scope scope,Map<String,Object>admission,String traceId,String requestHash){this(accountId,requestId,roomId,gameId,playVersion,clientVersion,stateVersion,rules,scope,admission,traceId,CreationOrigin.PUBLIC,requestHash);}
+        static Command parse(long account,String requestId,Map<String,Object> body){return parse(account,requestId,body,CreationOrigin.PUBLIC);}
+        static Command parse(long account,String requestId,Map<String,Object> body,CreationOrigin origin){
             if(requestId==null||!requestId.matches("[A-Za-z0-9_.:-]{16,128}"))throw HallError.bad("HALL_INVALID_REQUEST","requestId must be 16-128 safe characters");
             long room=positive(body,"roomId"),state=positive(body,"stateVersion"),game=positive(body,"gameId");String play=text(body,"playVersion"),client=text(body,"clientVersion");
             if(!play.matches("[A-Za-z0-9][A-Za-z0-9._-]{0,63}"))throw HallError.bad("HALL_INVALID_REQUEST","invalid playVersion");
@@ -58,10 +63,10 @@ public final class RoomCreateSaga {
             @SuppressWarnings("unchecked")Map<String,Object> raw=body.get("rules")instanceof Map<?,?> map?(Map<String,Object>)map:Map.of();
             if(raw.containsKey("regionCode"))throw HallError.bad("HALL_AUTHORITATIVE_FIELD_FORBIDDEN","regionCode is a catalog filter and cannot route a room");
             Map<String,Object> rules=Map.copyOf(raw);Scope scope=Scope.parse(body.get("scope"));Map<String,Object>admission=admission(body);String trace=String.valueOf(body.getOrDefault("_traceId",requestId));
-            String canonical=account+"|"+room+"|"+game+"|"+play+"|"+client+"|"+state+"|"+canonical(rules)+"|"+canonical(scope.asMap())+"|"+canonical(admission);
-            return new Command(account,requestId,room,Math.toIntExact(game),play,client,state,rules,scope,admission,trace,sha256(canonical));
+            String canonical=account+"|"+room+"|"+game+"|"+play+"|"+client+"|"+state+"|"+canonical(rules)+"|"+canonical(scope.asMap())+"|"+canonical(admission)+"|"+origin;
+            return new Command(account,requestId,room,Math.toIntExact(game),play,client,state,rules,scope,admission,trace,origin,sha256(canonical));
         }
-        public Map<String,Object> requestBody(){Map<String,Object> body=new LinkedHashMap<>();body.put("roomId",roomId);body.put("gameId",gameId);body.put("playVersion",playVersion);body.put("clientVersion",clientVersion);body.put("stateVersion",stateVersion);body.put("rules",rules);body.put("scope",scope.asMap());body.put("admission",admission);body.put("_traceId",traceId);return body;}
+        public Map<String,Object> requestBody(){Map<String,Object> body=new LinkedHashMap<>();body.put("roomId",roomId);body.put("gameId",gameId);body.put("playVersion",playVersion);body.put("clientVersion",clientVersion);body.put("stateVersion",stateVersion);body.put("rules",rules);body.put("scope",scope.asMap());body.put("admission",admission);body.put("_traceId",traceId);body.put("_creationOrigin",creationOrigin.name());return body;}
         private static Map<String,Object> admission(Map<String,Object> body){Map<String,Object>value=new LinkedHashMap<>();Object ip=body.get("_admissionIp");if(ip instanceof String text&&!text.isBlank())value.put("ipAddress",text.strip());Object latitude=body.get("_admissionLatitude"),longitude=body.get("_admissionLongitude");if(latitude instanceof Number number)value.put("latitude",number.doubleValue());if(longitude instanceof Number number)value.put("longitude",number.doubleValue());return Map.copyOf(value);}
         private static long positive(Map<String,Object>body,String key){Object value=body.get(key);if(!(value instanceof Number number)||number.longValue()<=0)throw HallError.bad("HALL_INVALID_REQUEST",key+" must be positive");return number.longValue();}
         private static String text(Map<String,Object>body,String key){Object value=body.get(key);if(!(value instanceof String string)||string.isBlank())throw HallError.bad("HALL_INVALID_REQUEST",key+" is required");return string;}

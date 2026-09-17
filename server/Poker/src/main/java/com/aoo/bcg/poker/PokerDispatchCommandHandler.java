@@ -80,6 +80,7 @@ public final class PokerDispatchCommandHandler implements GameCommandHandler {
         if (key.endsWith("unreadyroom") || key.equals("unready")) return "unready";
         if (key.endsWith("startgame") || key.equals("start")) return "start";
         if (key.endsWith("trusteeship")) return "trusteeship";
+        if (key.endsWith("selectcards") || key.endsWith("cardselection")) return "select_cards";
         if (key.endsWith("hint")) return "hint";
         if (key.endsWith("rematch")) return "rematch";
         if (key.endsWith("continuegame") || key.endsWith("continue")) return "continue";

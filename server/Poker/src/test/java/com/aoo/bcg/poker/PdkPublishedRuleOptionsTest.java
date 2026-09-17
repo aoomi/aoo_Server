@@ -8,6 +8,23 @@ import com.aoo.bcg.gamespi.GameCommandRequest;
 import org.junit.jupiter.api.Test;
 
 final class PdkPublishedRuleOptionsTest {
+    @Test void workbookTrusteeCountControlsTimeoutHostingOnlyWhenSelected() {
+        Map<String,Object> selected = PdkPublishedRuleOptions.normalizePublishedRoomFields(Map.of(
+                "roomRestriction", List.of("timeout_auto_play"),
+                "hostingMissThreshold", 3));
+        assertEquals(3, selected.get("hostingMissThreshold"));
+        Map<String,Object> disabled = PdkPublishedRuleOptions.normalizePublishedRoomFields(Map.of(
+                "roomRestriction", List.of(),
+                "hostingMissThreshold", 3));
+        assertEquals(-1, disabled.get("hostingMissThreshold"));
+    }
+
+    @Test void leadHintsPreferLowestSingleBeforeLargerCombinations() {
+        PaoDeKuaiRuleSet rules = new PaoDeKuaiRuleSet(PaoDeKuaiConfig.defaults());
+        List<CardCombination> hints = rules.hints(List.of(103, 203, 104), null, null);
+        assertEquals(List.of(103), hints.getFirst().cards());
+    }
+
     @Test void mustBeatWhenPossibleFlowsFromCreationRulesIntoPublishedSnapshot() {
         PaoDeKuaiConfig config=PdkPublishedRuleOptions.apply(Map.of("mustBeatWhenPossible",false),
                 PaoDeKuaiConfig.defaults());

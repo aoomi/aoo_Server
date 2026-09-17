@@ -6,10 +6,8 @@ public final class PokerCatalogRuntimeRegistry{
  private PokerCatalogRuntimeRegistry(){}
  public static Optional<GameProvider>providerFor(GameDescriptor d){
   if(d.category()!=GameCategory.POKER)return Optional.empty();
-  // 跑得快的地区名称和 gameId 只是发布配置，不得选择不同运行实现。
-  // 由权威 family 绑定唯一 Provider，新增玩法只增加 catalog/rule config。
-  GameProvider p=PaoDeKuaiFamily.CODE.equals(d.family())?new PdkGameProvider(d):switch(d.code()){case"cp"->new CpGameProvider();case"hndzp"->new HndzpGameProvider();case"lhzp"->new LhzpGameProvider();default->null;};
-  return p==null?Optional.empty():Optional.of(new PokerFamilyCatalogProvider(d,p));
+  return PokerFamilyProviderFactories.providerFor(d)
+    .map(provider->new PokerFamilyCatalogProvider(d,provider));
  }
 }
 

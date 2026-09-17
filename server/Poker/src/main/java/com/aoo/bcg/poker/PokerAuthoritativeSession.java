@@ -14,10 +14,13 @@ public final class PokerAuthoritativeSession
         RoomLifecycleAuthority,
         ParticipantPresenceAuthority,
         RoomAdmissionAuthority {
+  private static final System.Logger LOGGER = System.getLogger(PokerAuthoritativeSession.class.getName());
   private static final Map<String, Boolean> DEFAULT_UI_CAPABILITIES =
       Map.of("addDouble", false, "robDoor", false, "openCard", false, "manualStart", false);
   private static final Duration DISSOLVE_VOTE_TIMEOUT = Duration.ofSeconds(120);
   private static final Duration FLOATING_SETTLEMENT_NEXT_ROUND_DELAY = Duration.ofSeconds(2);
+  /** Keep the robber's lead visible before the authority commits the forced response. */
+  private static final Duration ROBBER_AUTO_RESPONSE_DELAY = Duration.ofMillis(500);
   private final long roomId, seed;
   private long ownerId;
   private final int seatLimit, roundLimit;
@@ -35,13 +38,19 @@ public final class PokerAuthoritativeSession
       playedCardCounts = new LinkedHashMap<>(),
       initialPatternCounts = new LinkedHashMap<>(),
       missedOperations = new LinkedHashMap<>();
+  /** Exact server-evaluated opening patterns used by settlement presentation. */
+  private final Map<Integer, List<String>> initialPatternsBySeat = new LinkedHashMap<>();
   private final Map<Integer, Long> totalScores = new LinkedHashMap<>();
   private final Map<Integer, List<Integer>> playedCardsBySeat = new LinkedHashMap<>();
+  /** Room-owner pre-deal selection. Consumed atomically when the next round starts. */
+  private final Map<Integer, List<Integer>> selectedInitialHands = new LinkedHashMap<>();
   private final Map<Long, Long> offlineSinceEpochMillis = new LinkedHashMap<>();
   private final Map<Long, RoomAdmissionAuthority.Admission> admissions = new LinkedHashMap<>();
   private final List<Object> events = new ArrayList<>();
   private final List<CardCombination> playedCards = new ArrayList<>();
   private final List<Map<String, Object>> playHistory = new ArrayList<>();
+  /** Ordered, reconnect-safe operation ledger; the table snapshot is projected only from this ledger and PokerTurnState. */
+  private final List<Map<String, Object>> tableOperations = new ArrayList<>();
   private final List<Integer> undealtCards = new ArrayList<>();
   private Integer activeRequiredFirstCard;
   private int initialLeadSeat = -1,
@@ -122,6 +131,7 @@ public final class PokerAuthoritativeSession
     bombs.put(0, 0);
     playedCardCounts.put(0, 0);
     initialPatternCounts.put(0, 0);
+    initialPatternsBySeat.put(0, List.of());
     missedOperations.put(0, 0);
     totalScores.put(0, 0L);
     ensureStatistics(0);
@@ -173,6 +183,7 @@ public final class PokerAuthoritativeSession
     x.bombs.clear();
     x.playedCardCounts.clear();
     x.initialPatternCounts.clear();
+    x.initialPatternsBySeat.clear();
     x.missedOperations.clear();
     x.totalScores.clear();
     x.winCounts.clear();
@@ -190,6 +201,13 @@ public final class PokerAuthoritativeSession
     x.bombs.putAll(intMap(s.get("bombs")));
     x.playedCardCounts.putAll(intMap(s.get("playedCardCounts")));
     x.initialPatternCounts.putAll(intMap(s.get("initialPatternCounts")));
+    if (s.get("initialPatternsBySeat") instanceof Map<?, ?> patterns) {
+      patterns.forEach((seat, values) -> {
+        if (values instanceof Collection<?> collection)
+          x.initialPatternsBySeat.put(num(seat), collection.stream()
+              .map(String::valueOf).toList());
+      });
+    }
     x.missedOperations.putAll(intMap(s.get("missedOperations")));
     x.totalScores.putAll(longMap(s.get("totalScores")));
     x.winCounts.putAll(intMap(s.get("winCounts")));
@@ -203,12 +221,29 @@ public final class PokerAuthoritativeSession
               x.totalScores.putIfAbsent(seat, 0L);
               x.playedCardCounts.putIfAbsent(seat, 0);
               x.initialPatternCounts.putIfAbsent(seat, 0);
+              x.initialPatternsBySeat.putIfAbsent(seat, List.of());
               x.missedOperations.putIfAbsent(seat, 0);
               x.ensureStatistics(seat);
             });
     x.playedCards.addAll(cardCombinations(s.get("playedCards")));
+    if (s.get("selectedInitialHands") instanceof Map<?, ?> selected) {
+      selected.forEach((seat, cards) -> {
+        if (cards instanceof Collection<?> values)
+          x.selectedInitialHands.put(num(seat), cardList(values));
+      });
+    }
     x.playHistory.addAll(playHistory(s.get("playHistory")));
     x.lastActions.putAll(lastActions(s.get("lastActions")));
+    x.tableOperations.addAll(tableOperations(s.get("tableOperations")));
+    if (x.tableOperations.isEmpty()) {
+      int playIndex = 1;
+      for (Map<String, Object> legacyAction : x.lastActions.values()) {
+        Map<String, Object> operation = new LinkedHashMap<>(legacyAction);
+        operation.putIfAbsent("trickId", x.trickId);
+        operation.putIfAbsent("playIndex", playIndex++);
+        x.tableOperations.add(Map.copyOf(operation));
+      }
+    }
     if (s.get("playedCardsBySeat") instanceof Map<?, ?> m)
       m.forEach(
           (seat, cards) ->
@@ -309,6 +344,7 @@ public final class PokerAuthoritativeSession
           bombs.put(r.seatId(), 0);
           playedCardCounts.put(r.seatId(), 0);
           initialPatternCounts.put(r.seatId(), 0);
+          initialPatternsBySeat.put(r.seatId(), List.of());
           missedOperations.put(r.seatId(), 0);
           totalScores.put(r.seatId(), 0L);
           ensureStatistics(r.seatId());
@@ -326,6 +362,8 @@ public final class PokerAuthoritativeSession
         plays.put(r.seatId(), 0);
         bombs.put(r.seatId(), 0);
         playedCardCounts.put(r.seatId(), 0);
+        initialPatternCounts.put(r.seatId(), 0);
+        initialPatternsBySeat.put(r.seatId(), List.of());
         initialPatternCounts.put(r.seatId(), 0);
         missedOperations.put(r.seatId(), 0);
         totalScores.put(r.seatId(), 0L);
@@ -364,6 +402,28 @@ public final class PokerAuthoritativeSession
         body = viewFor(player);
       }
       case "state" -> body = viewFor(player);
+      case "select_cards" -> {
+        if (player != ownerId) throw new SecurityException("only room owner can select cards");
+        Map<String, Object> command = commandBody(r);
+        int targetSeat = num(command.get("targetSeat"));
+        long targetPlayerId = lng(command.get("targetPlayerId"));
+        if (!Long.valueOf(targetPlayerId).equals(players.get(targetSeat)))
+          throw new IllegalArgumentException("card-selection target player changed");
+        List<Integer> selected = numbers(command.get("cards"));
+        if ("APPEND".equals(String.valueOf(command.getOrDefault("selectionMode", "REPLACE")))) {
+          List<Integer> combined = new ArrayList<>(selectedInitialHands.getOrDefault(targetSeat, List.of()));
+          combined.addAll(selected);
+          selected = combined;
+        }
+        validateInitialSelection(targetSeat, selected);
+        if (selected.isEmpty()) selectedInitialHands.remove(targetSeat);
+        else selectedInitialHands.put(targetSeat, List.copyOf(selected));
+        LOGGER.log(System.Logger.Level.INFO,
+            "[PokerCardSelection] configured roomId={0} ownerId={1} targetPlayerId={2} targetSeat={3} cardCount={4} applyRound={5} stateVersion={6}",
+            roomId, ownerId, targetPlayerId, targetSeat, selected.size(),
+            roundNo + 1, stateVersion + 1);
+        body = viewFor(player);
+      }
       case "hint" -> {
         own(player, r.seatId());
         requirePlaying();
@@ -384,12 +444,14 @@ public final class PokerAuthoritativeSession
         if (family.profile().mustBeatWhenPossible()
             && !family.rules().hints(state.hands().get(r.seatId()), state.previous(), c).isEmpty())
           throw new IllegalStateException("must beat when possible");
+        Map<String, Object> committed = lastAction(r.seatId(), "pass", List.of(), "PASS", r.requestId());
+        tableOperations.add(committed);
         state = new PokerCoreEngine<Void>().pass(state, r.seatId());
         if (state.previous() == null) {
           lastActions.clear();
           trickId = Math.addExact(trickId, 1);
         }
-        else lastActions.put(r.seatId(), lastAction(r.seatId(), "pass", List.of(), "PASS", r.requestId()));
+        else lastActions.put(r.seatId(), committed);
         resetHosting(r.seatId());
         skipUnbeatableSeats();
         body = viewFor(player);
@@ -415,9 +477,10 @@ public final class PokerAuthoritativeSession
             new PokerCoreEngine<PaoDeKuaiContext>()
                 .play(state, r.seatId(), cards, family.rules(), c);
         recordPlay(r.seatId(), combination);
-        lastActions.put(
-            r.seatId(),
-            lastAction(r.seatId(), "play", cards, combination.type(), r.requestId()));
+        Map<String, Object> committed =
+            lastAction(r.seatId(), "play", cards, combination.type(), r.requestId());
+        tableOperations.add(committed);
+        lastActions.put(r.seatId(), committed);
         playedCardCounts.merge(r.seatId(), cards.size(), Integer::sum);
         if (family.rules().isBomb(combination)) {
           bombs.merge(r.seatId(), 1, Integer::sum);
@@ -430,8 +493,10 @@ public final class PokerAuthoritativeSession
         resetHosting(r.seatId());
         if (endsRobberSpringRound(r.seatId())) completeRobberSpringRound(r.seatId());
         else {
-          skipUnbeatableSeats();
-          if (state.finished()) completeRound();
+          // A claimed dealer lead must first be broadcast on its own.  The forced opponent
+          // response is committed by the reconnect-safe 500ms authority deadline below.
+          if (!claimedDealerResponsePending() && !state.finished()) skipUnbeatableSeats();
+          if (state.finished() && !roundScored) completeRound();
         }
         body = viewFor(player);
       }
@@ -470,6 +535,7 @@ public final class PokerAuthoritativeSession
           bombs.clear();
           playedCardCounts.clear();
           initialPatternCounts.clear();
+          initialPatternsBySeat.clear();
           readySeats.clear();
           readySeats.addAll(players.keySet());
           start();
@@ -576,8 +642,10 @@ public final class PokerAuthoritativeSession
     }
     if (changed) {
       stateVersion = Math.addExact(stateVersion, 1);
-      if (!dissolved && state != null && !roundFinished())
-        openDeadline(startedRoundByContinue ? "play" : op);
+      if (!dissolved && state != null && !roundFinished()) {
+        if (claimedDealerResponsePending()) openRobberAutoResponseDeadline();
+        else openDeadline(startedRoundByContinue ? "play" : op);
+      }
       if (!dissolved && roundFinished()) {
         deadline = OperationDeadline.none();
         armAutomaticNextRound();
@@ -600,6 +668,25 @@ public final class PokerAuthoritativeSession
     return true;
   }
 
+  private void validateInitialSelection(int targetSeat, List<Integer> selected) {
+    int handLimit = family.rules().cardsPerPlayer(players.size());
+    if (selected.size() > handLimit)
+      throw new IllegalArgumentException("selected cards exceed player hand limit");
+    Set<Integer> unique = new LinkedHashSet<>(selected);
+    if (unique.size() != selected.size())
+      throw new IllegalArgumentException("selected cards contain duplicates");
+    Set<Integer> deck = new LinkedHashSet<>(family.profile().deck());
+    if (!deck.containsAll(unique))
+      throw new IllegalArgumentException("selected cards are not in the current game deck");
+    for (Map.Entry<Integer, List<Integer>> entry : selectedInitialHands.entrySet()) {
+      if (entry.getKey() == targetSeat) continue;
+      for (int card : entry.getValue()) {
+        if (unique.contains(card))
+          throw new IllegalArgumentException("selected card is already assigned to another player");
+      }
+    }
+  }
+
   private void start() {
     if (state != null) throw new IllegalStateException("already started");
     PokerRuleProfile p = family.profile();
@@ -607,9 +694,21 @@ public final class PokerAuthoritativeSession
     List<Integer> deck = new ArrayList<>(p.deck());
     new SeededGameRandomSource(seed + roundNo).shuffle(deck);
     Map<Integer, List<Integer>> hands = new LinkedHashMap<>();
+    // Card selection applies to the whole deal, not to one seat at a time. Reserve
+    // every selected card before filling any hand, otherwise an earlier seat's
+    // random fill can consume a card explicitly assigned to a later seat.
+    for (int seat : players.keySet().stream().sorted().toList()) {
+      for (int card : selectedInitialHands.getOrDefault(seat, List.of())) {
+        if (!deck.remove(Integer.valueOf(card))) {
+          throw new IllegalStateException("selected card unavailable at deal: roomId="
+              + roomId + ", seat=" + seat + ", card=" + card);
+        }
+      }
+    }
     playedCards.clear();
     playedCardsBySeat.clear();
     playHistory.clear();
+    tableOperations.clear();
     lastActions.clear();
     trickId = Math.addExact(trickId, 1);
     continueSeats.clear();
@@ -621,16 +720,22 @@ public final class PokerAuthoritativeSession
     competeCursor = -1;
     competeDealerPhase = false;
     for (int seat : players.keySet().stream().sorted().toList()) {
-      hands.put(seat, new ArrayList<>(deck.subList(0, count)));
-      deck.subList(0, count).clear();
+      List<Integer> hand = new ArrayList<>(selectedInitialHands.getOrDefault(seat, List.of()));
+      int remaining = count - hand.size();
+      hand.addAll(deck.subList(0, remaining));
+      deck.subList(0, remaining).clear();
+      hands.put(seat, hand);
       plays.put(seat, 0);
       bombs.put(seat, 0);
       playedCardCounts.put(seat, 0);
-      initialPatternCounts.put(
-          seat, PdkInitialHandEvaluator.patterns(hands.get(seat), family.rules().config()).size());
+      List<String> initialPatterns = PdkInitialHandEvaluator
+          .presentationPatterns(hands.get(seat), family.rules().config());
+      initialPatternCounts.put(seat, initialPatterns.size());
+      initialPatternsBySeat.put(seat, initialPatterns);
     }
     undealtCards.clear();
     undealtCards.addAll(deck);
+    selectedInitialHands.clear();
     int nextRound = roundNo + 1;
     bankerSeat = resolveBanker(p, hands, nextRound);
     initialLeadSeat = bankerSeat;
@@ -721,31 +826,46 @@ public final class PokerAuthoritativeSession
       throw new IllegalStateException("not compete-dealer turn");
     PdkAdvancedRules.DealerRule rule = family.rules().config().advancedRules().dealerRule();
     competeRespondedSeats.add(seat);
+    LOGGER.log(System.Logger.Level.INFO,
+        "[PdkCompeteDealer] action roomId={0} roundNo={1} stateVersion={2} playerId={3} seat={4} compete={5} bankerSeat={6} previousCandidate={7}",
+        roomId, roundNo, stateVersion, players.get(seat), seat, compete, bankerSeat,
+        competeDealerSeat);
     if (compete) {
       competeDealerSeat = seat;
       activeRequiredFirstCard = null;
       if (!rule.startAfterBanker() || seat == bankerSeat) {
-        finishCompeteDealer(seat);
+        finishCompeteDealer(seat, true);
         return;
       }
     }
     if (seat == bankerSeat && competeDealerSeat >= 0) {
-      finishCompeteDealer(competeDealerSeat);
+      finishCompeteDealer(competeDealerSeat, true);
+      return;
+    }
+    if (rule.startAfterBanker()
+        && rule.bankerCannotCompeteAfterAllPass()
+        && competeDealerSeat < 0
+        && nextSeat(competeCursor) == bankerSeat) {
+      finishCompeteDealer(bankerSeat, false);
       return;
     }
     if (competeRespondedSeats.containsAll(players.keySet())) {
-      finishCompeteDealer(competeDealerSeat >= 0 ? competeDealerSeat : bankerSeat);
+      finishCompeteDealer(competeDealerSeat >= 0 ? competeDealerSeat : bankerSeat,
+          competeDealerSeat >= 0);
       return;
     }
     competeCursor = nextSeat(competeCursor);
   }
 
-  private void finishCompeteDealer(int seat) {
-    competeDealerSeat = seat;
+  private void finishCompeteDealer(int seat, boolean claimed) {
+    competeDealerSeat = claimed ? seat : -1;
     initialLeadSeat = seat;
     competeDealerPhase = false;
     competeCursor = -1;
     state = new PokerTurnState(state.hands(), seat, null, -1, Set.of(), false, -1);
+    LOGGER.log(System.Logger.Level.INFO,
+        "[PdkCompeteDealer] resolved roomId={0} roundNo={1} stateVersion={2} bankerSeat={3} competeDealerSeat={4}",
+        roomId, roundNo, stateVersion, bankerSeat, competeDealerSeat);
   }
 
   private int nextSeat(int seat) {
@@ -756,6 +876,12 @@ public final class PokerAuthoritativeSession
   private void completeRound() {
     if (roundScored) return;
     SettlementPayload settlement = settlementFor(roundNo);
+    PdkAdvancedRules advanced = family.rules().config().advancedRules();
+    LOGGER.log(System.Logger.Level.INFO,
+        "[PdkSettlement] resolved roomId={0} roundNo={1} stateVersion={2} winnerSeat={3} bankerSeat={4} competeDealerSeat={5} baseScore={6} handScoreTable={7} initialPatternCounts={8} jinHuaWinnerSeat={9} bombs={10} scoreDelta={11}",
+        roomId, roundNo, stateVersion, winnerSeat(), bankerSeat, competeDealerSeat,
+        advanced.baseScore(), advanced.handScoreTable(), initialPatternCounts,
+        jinHuaWinnerSeat, bombs, settlement.scoreDelta());
     settlement
         .scoreDelta()
         .forEach((player, score) -> totalScores.merge(seatOf(player), score, Long::sum));
@@ -814,21 +940,91 @@ public final class PokerAuthoritativeSession
       int seat = state.currentSeat();
       if (!family.rules().hints(state.hands().get(seat), state.previous(), automaticContext(seat)).isEmpty())
         return;
+      Map<String, Object> committed =
+          lastAction(
+              seat,
+              "pass",
+              List.of(),
+              "PASS",
+              "auto-pass-" + (stateVersion + 1) + "-" + seat);
+      tableOperations.add(committed);
       state = core.pass(state, seat);
       resetHosting(seat);
       if (state.previous() == null) {
         lastActions.clear();
         trickId = Math.addExact(trickId, 1);
       } else {
-        lastActions.put(
-            seat,
-            lastAction(
-                seat,
-                "pass",
-                List.of(),
-                "PASS",
-                "auto-pass-" + (stateVersion + 1) + "-" + seat));
+        lastActions.put(seat, committed);
       }
+    }
+  }
+
+  /**
+   * In an actually claimed dealer round, XQP does not wait for a manual response to the
+   * robber's lead. Every opponent that cannot beat it is passed immediately; the first
+   * opponent with a legal response automatically plays the server-ranked candidate and wins
+   * the spring challenge. Merely enabling the room option is insufficient: all-pass rounds
+   * retain competeDealerSeat=-1 and use the ordinary full-round flow.
+   */
+  private void resolveClaimedDealerResponses() {
+    if (competeDealerSeat < 0 || state.finished() || state.previous() == null
+        || state.previousSeat() != competeDealerSeat) return;
+    PokerCoreEngine<Void> passCore = new PokerCoreEngine<>();
+    while (!state.finished() && state.previous() != null
+        && state.currentSeat() != competeDealerSeat) {
+      int seat = state.currentSeat();
+      PaoDeKuaiContext context = automaticContext(seat);
+      CardCombination response = null;
+      for (CardCombination candidate :
+          family.rules().hints(state.hands().get(seat), state.previous(), context)) {
+        try {
+          policy.validatePattern(new GameCommandRequest(
+              "poker.robber_auto_response", "robber-auto-" + stateVersion + "-" + seat,
+              stateVersion + 1, roomId, roundNo, family.profile().version(),
+              String.valueOf(players.get(seat)), seat, Map.of("cards", candidate.cards())),
+              candidate, context);
+          response = candidate;
+          break;
+        } catch (IllegalArgumentException ignored) {
+          /* Continue until the first authority-valid response. */
+        }
+      }
+      if (response == null) {
+        Map<String,Object> committed = lastAction(seat, "pass", List.of(), "PASS",
+            "robber-auto-pass-" + (stateVersion + 1) + "-" + seat);
+        tableOperations.add(committed);
+        lastActions.put(seat, committed);
+        state = passCore.pass(state, seat);
+        resetHosting(seat);
+        LOGGER.log(System.Logger.Level.INFO,
+            "[PdkRobberAutoResponse] pass roomId={0} roundNo={1} stateVersion={2} playerId={3} seat={4} dealerSeat={5}",
+            roomId, roundNo, stateVersion, players.get(seat), seat, competeDealerSeat);
+        continue;
+      }
+      CardCombination previous = state.previous();
+      int previousSeat = state.previousSeat();
+      state = new PokerCoreEngine<PaoDeKuaiContext>()
+          .play(state, seat, response.cards(), family.rules(), context);
+      recordPlay(seat, response);
+      Map<String,Object> committed = lastAction(seat, "play", response.cards(), response.type(),
+          "robber-auto-play-" + (stateVersion + 1) + "-" + seat);
+      tableOperations.add(committed);
+      lastActions.put(seat, committed);
+      playedCardCounts.merge(seat, response.cards().size(), Integer::sum);
+      if (family.rules().isBomb(response)) {
+        bombs.merge(seat, 1, Integer::sum);
+        if (family.rules().config().advancedRules().bombScore().mode()
+                == PdkAdvancedRules.BombMode.FIXED_POINTS
+            && previous != null && family.rules().isBomb(previous))
+          bombs.computeIfPresent(previousSeat, (ignored, count) -> Math.max(0, count - 1));
+      }
+      resetHosting(seat);
+      LOGGER.log(System.Logger.Level.INFO,
+          "[PdkRobberAutoResponse] play roomId={0} roundNo={1} stateVersion={2} playerId={3} seat={4} dealerSeat={5} type={6} cards={7}",
+          roomId, roundNo, stateVersion, players.get(seat), seat, competeDealerSeat,
+          response.type(), response.cards());
+      completeRobberSpringRound(seat);
+      return;
     }
   }
 
@@ -853,6 +1049,7 @@ public final class PokerAuthoritativeSession
     o.put("roundLimit", roundLimit);
     o.put("playVersion", family.profile().version());
     o.put("stateVersion", stateVersion);
+    o.put("serverEpochMillis", time.epochMillis());
     o.put("capabilities", DEFAULT_UI_CAPABILITIES);
     o.put(
         "ruleOptions", PdkPublishedRuleOptions.snapshot(family.rules().config(), family.profile(),
@@ -898,6 +1095,8 @@ public final class PokerAuthoritativeSession
     o.put("playedCards", visiblePlays);
     o.put("playHistory", roundFinished() ? List.copyOf(playHistory) : List.of());
     o.put("stockCount", undealtCards.size());
+    // Legacy fields remain wire-compatible projections; tableSnapshot is the only
+    // state contract consumed by the rewritten PDK client.
     o.put("lastActions", List.copyOf(lastActions.values()));
     o.put("trickId", trickId);
     o.put("trickReset", state != null && state.previous() == null);
@@ -914,6 +1113,7 @@ public final class PokerAuthoritativeSession
               "cards",
               state.previous().cards()));
     else o.put("currentTrick", Map.of());
+    o.put("tableSnapshot", tableSnapshot());
     o.put("operationDeadline", deadline.toMap());
     o.put("nextRoundDeadline", nextRoundDeadline.toMap());
     o.put("serverEpochMillis", time.epochMillis());
@@ -921,6 +1121,59 @@ public final class PokerAuthoritativeSession
     o.put("dissolveReason", dissolveReason);
     if (dissolveVote != null) o.put("dissolveVote", dissolveVote.toMap());
     return Map.copyOf(o);
+  }
+
+  /** Complete, reconnect-safe table projection. Clients must not infer it from ledger order. */
+  private Map<String, Object> tableSnapshot() {
+    Map<String, Object> comparison = new LinkedHashMap<>();
+    if (state != null && state.previous() != null) {
+      comparison.put("trickId", trickId);
+      comparison.put("seat", state.previousSeat());
+      comparison.put("cards", List.copyOf(state.previous().cards()));
+      comparison.put("cardType", state.previous().type());
+      comparison.put("primaryRank", state.previous().primaryRank());
+      String operationId = "";
+      int playIndex = 0;
+      for (int index = tableOperations.size() - 1; index >= 0; index--) {
+        Map<String, Object> action = tableOperations.get(index);
+        if (lng(action.getOrDefault("trickId", -1)) == trickId
+            && num(action.getOrDefault("seat", -1)) == state.previousSeat()
+            && "play".equals(String.valueOf(action.get("action")))) {
+          operationId = String.valueOf(action.getOrDefault("operationId", ""));
+          playIndex = num(action.getOrDefault("playIndex", 0));
+          break;
+        }
+      }
+      comparison.put("operationId", operationId);
+      comparison.put("playIndex", playIndex);
+    }
+    List<Map<String, Object>> currentTrickOperations =
+        tableOperations.stream().filter(action -> lng(action.getOrDefault("trickId", -1)) == trickId).toList();
+    Map<String, Object> lastOperation = tableOperations.isEmpty()
+        ? Map.of() : tableOperations.get(tableOperations.size() - 1);
+    Map<String, Object> snapshot = new LinkedHashMap<>();
+    snapshot.put("stateVersion", stateVersion);
+    snapshot.put("trickId", trickId);
+    snapshot.put("turnSeat", currentSeat());
+    snapshot.put("phase", tablePhase());
+    snapshot.put("passSeats", state == null ? List.of() : state.passed().stream().sorted().toList());
+    snapshot.put(
+        "displayMode",
+        family.rules().config().playedCardVisibility() == PaoDeKuaiConfig.PlayedCardVisibility.ALL_IN_ORDER
+            ? "ALL_IN_ORDER" : "LAST_ONLY");
+    snapshot.put("comparison", Map.copyOf(comparison));
+    snapshot.put("lastOperation", lastOperation);
+    snapshot.put("operations", List.copyOf(tableOperations));
+    snapshot.put("trickOperations", currentTrickOperations);
+    return Map.copyOf(snapshot);
+  }
+
+  private String tablePhase() {
+    if (dissolved) return "DISSOLVED";
+    if (state == null) return "WAITING";
+    if (directWinnerSeat >= 0) return "DIRECT_WIN";
+    if (competeDealerPhase) return "COMPETE_DEALER";
+    return state.finished() ? "FINISHED" : state.previous() == null ? "TRICK_OPEN" : "TRICK_ACTIVE";
   }
 
   private Map<String, Object> seatView(
@@ -950,6 +1203,8 @@ public final class PokerAuthoritativeSession
                     == PaoDeKuaiConfig.PlayedCardVisibility.ALL_IN_ORDER
             ? List.copyOf(playedCardsBySeat.getOrDefault(seat, List.of()))
             : List.of());
+    view.put("initialPatterns", roundFinished()
+        ? initialPatternsBySeat.getOrDefault(seat, List.of()) : List.of());
     view.put("cardCount", cards.size());
     view.put("roundScore", roundScores.getOrDefault(playerId, 0L));
     view.put("totalScore", totalScores.getOrDefault(seat, 0L));
@@ -983,6 +1238,7 @@ public final class PokerAuthoritativeSession
                 java.util.stream.Collectors.toMap(
                     Map.Entry::getKey, e -> List.copyOf(e.getValue()))));
     o.put("initialPatternCounts", Map.copyOf(initialPatternCounts));
+    o.put("initialPatternsBySeat", Map.copyOf(initialPatternsBySeat));
     o.put("missedOperations", Map.copyOf(missedOperations));
     o.put("totalScores", Map.copyOf(totalScores));
     o.put("winCounts", Map.copyOf(winCounts));
@@ -999,8 +1255,11 @@ public final class PokerAuthoritativeSession
         PdkPublishedRuleOptions.snapshot(family.rules().config(), family.profile(),
             family.allowPassByRoomRule()));
     o.put("playedCards", List.copyOf(playedCards));
+    o.put("selectedInitialHands", selectedInitialHands.entrySet().stream()
+        .collect(java.util.stream.Collectors.toMap(Map.Entry::getKey, e -> List.copyOf(e.getValue()))));
     o.put("undealtCards", List.copyOf(undealtCards));
     o.put("lastActions", new LinkedHashMap<>(lastActions));
+    o.put("tableOperations", List.copyOf(tableOperations));
     o.put("trickId", trickId);
     o.put("uiCapabilities", DEFAULT_UI_CAPABILITIES);
     o.put("previousWinnerSeat", previousWinnerSeat == null ? -1 : previousWinnerSeat);
@@ -1119,6 +1378,8 @@ public final class PokerAuthoritativeSession
   private void requirePlaying() {
     if (state == null || competeDealerPhase || roundFinished())
       throw new IllegalStateException("round is not accepting card operations");
+    if (robberAutoResponseDeadline(deadline))
+      throw new IllegalStateException("claimed-dealer automatic response is pending");
   }
 
   private void resetHosting(int seat) {
@@ -1127,13 +1388,38 @@ public final class PokerAuthoritativeSession
   }
 
   private void openDeadline(String operation) {
-        int timeoutSeconds = family.rules().config().advancedRules().operationTimeoutSeconds();
+    int timeoutSeconds = hostingSeats.contains(currentSeat())
+        ? 1
+        : family.rules().config().advancedRules().operationTimeoutSeconds();
     deadline =
         OperationDeadline.open(
             roundNo + "-" + stateVersion + "-" + operation,
             currentSeat(),
             Duration.ofSeconds(timeoutSeconds),
             time);
+  }
+
+  private void openRobberAutoResponseDeadline() {
+    deadline = OperationDeadline.open(
+        roundNo + "-" + stateVersion + "-robber-auto-response",
+        currentSeat(), ROBBER_AUTO_RESPONSE_DELAY, time);
+    LOGGER.log(System.Logger.Level.INFO,
+        "[PdkRobberAutoResponse] scheduled roomId={0} roundNo={1} stateVersion={2} operationId={3} dealerSeat={4} responseSeat={5} delayMs={6}",
+        roomId, roundNo, stateVersion, deadline.operationId(), competeDealerSeat,
+        currentSeat(), ROBBER_AUTO_RESPONSE_DELAY.toMillis());
+  }
+
+  private boolean claimedDealerResponsePending() {
+    return state != null && !state.finished() && !competeDealerPhase
+        && competeDealerSeat >= 0 && state.previous() != null
+        && state.previousSeat() == competeDealerSeat
+        && state.currentSeat() != competeDealerSeat;
+  }
+
+  private boolean robberAutoResponseDeadline(OperationDeadline candidate) {
+    return candidate.open()
+        && candidate.operationId().endsWith("-robber-auto-response")
+        && claimedDealerResponsePending();
   }
 
   private boolean usesAutomaticNextRound() {
@@ -1234,6 +1520,7 @@ public final class PokerAuthoritativeSession
           || !bombs.keySet().equals(players.keySet())
           || !playedCardCounts.keySet().equals(players.keySet())
           || !initialPatternCounts.keySet().equals(players.keySet())
+          || !initialPatternsBySeat.keySet().equals(players.keySet())
           || !missedOperations.keySet().equals(players.keySet())
           || plays.values().stream().anyMatch(v -> v < 0)
           || bombs.values().stream().anyMatch(v -> v < 0)
@@ -1302,6 +1589,19 @@ public final class PokerAuthoritativeSession
       }
       return false;
     }
+    if (robberAutoResponseDeadline(deadline)) {
+      if (now.isBefore(deadline.deadline())) return false;
+      OperationDeadline expired = deadline;
+      AuthoritativeTimeSource fixed =
+          new AuthoritativeTimeSource(java.time.Clock.fixed(now, java.time.ZoneOffset.UTC));
+      arbiter.resolveTimeout(expired, fixed, this::resolveClaimedDealerResponses);
+      stateVersion = Math.addExact(stateVersion, 1);
+      if (roundFinished()) deadline = OperationDeadline.none();
+      else if (claimedDealerResponsePending()) openRobberAutoResponseDeadline();
+      else openDeadline("robber-auto-response-complete");
+      events.add(Map.of("version", stateVersion, "after", authoritativeState()));
+      return true;
+    }
     if (!deadline.open() || now.isBefore(deadline.deadline()) || roundFinished()) return false;
     OperationDeadline expired = deadline;
     AuthoritativeTimeSource fixed =
@@ -1309,6 +1609,7 @@ public final class PokerAuthoritativeSession
     arbiter.resolveTimeout(expired, fixed, this::autoOperate);
     stateVersion = Math.addExact(stateVersion, 1);
     if (roundFinished()) deadline = OperationDeadline.none();
+    else if (claimedDealerResponsePending()) openRobberAutoResponseDeadline();
     else openDeadline("timeout");
     events.add(Map.of("version", stateVersion, "after", authoritativeState()));
     return true;
@@ -1318,7 +1619,11 @@ public final class PokerAuthoritativeSession
     int seat = currentSeat();
     int misses = missedOperations.merge(seat, 1, Integer::sum);
     int threshold = family.rules().config().advancedRules().hostingMissThreshold();
-    if (threshold > 0 && misses >= threshold) hostingSeats.add(seat);
+    if (threshold > 0 && misses >= threshold && hostingSeats.add(seat)) {
+      LOGGER.log(System.Logger.Level.INFO,
+          "[PdkTrusteeship] entered roomId={0} playerId={1} seat={2} misses={3} threshold={4}",
+          roomId, players.get(seat), seat, misses, threshold);
+    }
     if (competeDealerPhase) {
       competeDealer(seat, false);
       return;
@@ -1348,12 +1653,15 @@ public final class PokerAuthoritativeSession
       }
     if (legal.isEmpty()) {
       if (state.previous() == null) throw new IllegalStateException("no legal automatic lead");
+      Map<String, Object> committed =
+          lastAction(seat, "pass", List.of(), "PASS", "timeout-" + stateVersion);
+      tableOperations.add(committed);
       state = new PokerCoreEngine<Void>().pass(state, seat);
       if (state.previous() == null) {
         lastActions.clear();
         trickId = Math.addExact(trickId, 1);
       } else {
-        lastActions.put(seat, lastAction(seat, "pass", List.of(), "PASS", "timeout-" + stateVersion));
+        lastActions.put(seat, committed);
       }
       return;
     }
@@ -1363,10 +1671,10 @@ public final class PokerAuthoritativeSession
         new PokerCoreEngine<PaoDeKuaiContext>()
             .play(state, seat, combination.cards(), family.rules(), context);
     recordPlay(seat, combination);
-    lastActions.put(
-        seat,
-        lastAction(
-            seat, "play", combination.cards(), combination.type(), "timeout-" + stateVersion));
+    Map<String, Object> committed =
+        lastAction(seat, "play", combination.cards(), combination.type(), "timeout-" + stateVersion);
+    tableOperations.add(committed);
+    lastActions.put(seat, committed);
     playedCardCounts.merge(seat, combination.cards().size(), Integer::sum);
     if (family.rules().isBomb(combination)) {
       bombs.merge(seat, 1, Integer::sum);
@@ -1377,7 +1685,7 @@ public final class PokerAuthoritativeSession
         bombs.computeIfPresent(previousSeat, (ignored, count) -> Math.max(0, count - 1));
     }
     if (endsRobberSpringRound(seat)) completeRobberSpringRound(seat);
-    else if (state.finished()) completeRound();
+    else if (state.finished() && !roundScored) completeRound();
   }
 
   /**
@@ -1420,6 +1728,8 @@ public final class PokerAuthoritativeSession
         Map.of(
             "playIndex",
             playHistory.size() + 1,
+            "playedAtEpochMillis",
+            time.epochMillis(),
             "seat",
             seat,
             "type",
@@ -1481,6 +1791,7 @@ public final class PokerAuthoritativeSession
       bombs.remove(seat);
       playedCardCounts.remove(seat);
       initialPatternCounts.remove(seat);
+      initialPatternsBySeat.remove(seat);
       missedOperations.remove(seat);
       totalScores.remove(seat);
       winCounts.remove(seat);
@@ -1743,8 +2054,35 @@ public final class PokerAuthoritativeSession
     value.put("cardType", cardType);
     value.put("operationId", operationId);
     value.put("stateVersion", stateVersion + 1);
-    value.put("playIndex", playHistory.size());
+    value.put("trickId", trickId);
+    // The ordinal shown beside Out_Card must be identical to SmallSettlement:
+    // only committed plays count. Pass operations remain in tableOperations,
+    // but must never create gaps in the visible play-hand sequence.
+    value.put("playIndex", "play".equals(action) ? playHistory.size() : 0);
     return Map.copyOf(value);
+  }
+
+  private static List<Map<String, Object>> tableOperations(Object value) {
+    if (value == null) return List.of();
+    if (!(value instanceof Collection<?> items))
+      throw new IllegalArgumentException("invalid table operations");
+    List<Map<String, Object>> out = new ArrayList<>();
+    for (Object raw : items) {
+      if (!(raw instanceof Map<?, ?> map))
+        throw new IllegalArgumentException("invalid table operation");
+      Map<String, Object> item = stringMap(map);
+      Map<String, Object> operation = new LinkedHashMap<>();
+      operation.put("seat", num(item.get("seat")));
+      operation.put("action", String.valueOf(item.getOrDefault("action", "none")));
+      operation.put("cards", List.copyOf(numbers(item.get("cards"))));
+      operation.put("cardType", String.valueOf(item.getOrDefault("cardType", "")));
+      operation.put("operationId", String.valueOf(item.getOrDefault("operationId", "restored")));
+      operation.put("stateVersion", lng(item.getOrDefault("stateVersion", 0)));
+      operation.put("trickId", lng(item.getOrDefault("trickId", 0)));
+      operation.put("playIndex", num(item.getOrDefault("playIndex", out.size() + 1)));
+      out.add(Map.copyOf(operation));
+    }
+    return List.copyOf(out);
   }
 
   private static Map<Integer, Map<String, Object>> lastActions(Object value) {

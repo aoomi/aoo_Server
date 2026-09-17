@@ -29,7 +29,7 @@ final class ChengduPdkRulesTest {
                 config.tripleAttachmentMode());
         assertEquals(PaoDeKuaiConfig.AttachmentMode.EITHER,
                 config.airplaneAttachmentMode());
-        assertEquals(PaoDeKuaiConfig.AttachmentMode.SINGLES, config.fourAttachmentMode());
+        assertEquals(PaoDeKuaiConfig.AttachmentMode.EITHER, config.fourAttachmentMode());
         assertTrue(config.advancedRules().directWinPatterns()
                 .contains(java.util.Set.of(103, 203, 303, 403)));
         assertEquals(5, config.advancedRules().bombScore().points());
@@ -158,6 +158,26 @@ final class ChengduPdkRulesTest {
         assertEquals("TRIPLE_WITH_PAIR", acesWithPair.type());
         assertFalse(config.compareTripleAttachments());
         assertTrue(rules.canBeat(acesWithPair, kingsWithSingles, turn));
+        CardCombination tensWithAces = rules.recognize(
+                List.of(110, 210, 310, 114, 214), turn);
+        CardCombination kingsWithAceAndTwo = rules.recognize(
+                List.of(113, 213, 313, 114, 115), turn);
+        assertEquals("TRIPLE_WITH_PAIR", tensWithAces.type());
+        assertEquals("TRIPLE_WITH_TWO", kingsWithAceAndTwo.type());
+        assertTrue(rules.canBeat(kingsWithAceAndTwo, tensWithAces, turn));
+
+        PaoDeKuaiConfig pairOnly = PdkPublishedRuleOptions.apply(
+                Map.of("tripleAttachmentMode", "PAIRS"), config);
+        PaoDeKuaiRuleSet pairOnlyRules = new PaoDeKuaiRuleSet(pairOnly,
+                ChengduPdkRules.profile("pair-only", false));
+        PaoDeKuaiContext pairOnlyTurn = new PaoDeKuaiContext(false, 6,
+                List.of(113, 213, 313, 114, 115, 106));
+        CardCombination pairOnlyPrevious = pairOnlyRules.recognize(
+                List.of(110, 210, 310, 114, 214), pairOnlyTurn);
+        assertThrows(IllegalArgumentException.class, () -> pairOnlyRules.recognize(
+                List.of(113, 213, 313, 114, 115), pairOnlyTurn));
+        assertTrue(pairOnlyRules.hints(pairOnlyTurn.handBeforePlay(), pairOnlyPrevious,
+                pairOnlyTurn).isEmpty());
         assertEquals("STRAIGHT", rules.recognize(List.of(105, 106, 107, 108, 109), turn).type());
         assertEquals("CONSECUTIVE_PAIRS",
                 rules.recognize(List.of(105, 205, 106, 206), turn).type());
@@ -169,6 +189,8 @@ final class ChengduPdkRulesTest {
                 List.of(105, 205, 305, 106, 206, 306, 107, 207, 108, 208), turn).type());
         assertEquals("FOUR_WITH_TWO",
                 rules.recognize(List.of(105, 205, 305, 405, 106, 207), turn).type());
+        assertEquals("FOUR_WITH_TWO_PAIRS", rules.recognize(
+                List.of(110, 210, 310, 410, 114, 214, 113, 213), turn).type());
         CardCombination bomb = rules.recognize(List.of(105, 205, 305, 405), turn);
         assertEquals("BOMB", bomb.type());
         assertTrue(rules.canBeat(bomb, higher, turn));

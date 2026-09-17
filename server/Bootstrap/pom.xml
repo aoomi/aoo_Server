@@ -42,6 +42,8 @@
         <dependency><groupId>com.aoo.bcg</groupId><artifactId>scjymj</artifactId><version>${project.version}</version></dependency>
         <dependency><groupId>com.aoo.bcg</groupId><artifactId>xcpdk</artifactId><version>${project.version}</version></dependency>
         <dependency><groupId>com.aoo.bcg</groupId><artifactId>zjh</artifactId><version>${project.version}</version></dependency>
+        <dependency><groupId>com.aoo.bcg</groupId><artifactId>game-cd299</artifactId><version>${project.version}</version></dependency>
+        <dependency><groupId>com.aoo.bcg</groupId><artifactId>game-poker-cn298</artifactId><version>${project.version}</version></dependency>
         <dependency><groupId>com.aoo.bcg</groupId><artifactId>zypk</artifactId><version>${project.version}</version></dependency>
         <dependency><groupId>org.junit.jupiter</groupId><artifactId>junit-jupiter</artifactId><scope>test</scope></dependency>
     </dependencies>

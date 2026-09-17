@@ -102,10 +102,10 @@ final class PdkXqpEquivalentRulesTest {
                 Map.of(0, 4, 1, 1, 2, 0), Map.of(0, 0, 1, 0, 2, 0), 1, 0,
                 profile, config);
         Map<Long,Long> failed = PdkScoringPolicy.standard().settle(failedSpring).scoreDelta();
-        // 3 × 底分 × 1 个炸弹 = 12；抢庄者未春天时每位闲家各得 12。
+        // 3 × 底分 × 1 个炸弹 = 12；抢庄者未春天时赔全桌份额给实际获胜者。
         assertEquals(-26L, failed.get(10L));
-        assertEquals(16L, failed.get(11L));
-        assertEquals(10L, failed.get(12L));
+        assertEquals(28L, failed.get(11L));
+        assertEquals(-2L, failed.get(12L));
 
         PdkSettlementContext madeSpring = new PdkSettlementContext(91, 1, "ls-xqp",
                 0, 0, players, hands, Map.of(0, 2, 1, 0, 2, 0), bombs,
@@ -127,8 +127,8 @@ final class PdkXqpEquivalentRulesTest {
         assertEquals(-2L, ordinary.get(12L));
     }
 
-    @Test void liangshanOpponentPlayImmediatelyEndsRobberRoundAndWins() {
-        PaoDeKuaiFamily family = family("ls-robber-immediate", Map.of(
+    @Test void liangshanOpponentAutomaticallyBeatsRobberAfterHalfSecondAndWins() {
+        PaoDeKuaiFamily family = family("ls-robber-delayed", Map.of(
                 "cardsPerPlayer", 4, "competeDealerEnabled", true,
                 "competeDealerMustSpringToWin", true));
         for (long room = 940; room < 1040; room++) {
@@ -148,20 +148,21 @@ final class PdkXqpEquivalentRulesTest {
             if (dealerPlay == null) continue;
             session.execute(command(room, session, "play_req", sequence++, dealer,
                     10 + dealer, Map.of("cards", dealerPlay.cards())));
-            Map<String,Object> afterDealer = session.viewFor(10);
-            if (Boolean.TRUE.equals(afterDealer.get("finished"))) continue;
+            assertEquals(false, session.viewFor(10).get("finished"),
+                    "the dealer lead must be visible before the forced response");
+            OperationDeadline autoResponse = session.operationDeadline();
+            assertTrue(autoResponse.operationId().endsWith("-robber-auto-response"));
+            assertFalse(session.tickLifecycle(autoResponse.deadline().minusMillis(1)));
 
-            int opponent = ((Number) afterDealer.get("currentSeat")).intValue();
+            // The pending automatic response is authority state, so reconnect cannot skip or
+            // duplicate its delay.
+            session = PokerAuthoritativeSession.restore(session.authoritativeState(), family);
+            assertEquals(autoResponse, session.operationDeadline());
+            assertTrue(session.tickLifecycle(autoResponse.deadline()));
+            Map<String,Object> result = session.viewFor(10);
+            if (!Boolean.TRUE.equals(result.get("finished"))) continue;
+            int opponent = ((Number) result.get("winnerSeat")).intValue();
             if (opponent == dealer) continue;
-            int opponentCards = cardCount(session, opponent);
-            CardCombination opponentPlay = hints(session, sequence++, opponent).stream()
-                    .filter(candidate -> candidate.cards().size() < opponentCards)
-                    .findFirst().orElse(null);
-            if (opponentPlay == null) continue;
-
-            Map<String,Object> result = session.execute(command(room, session, "play_req",
-                    sequence, opponent, 10 + opponent,
-                    Map.of("cards", opponentPlay.cards()))).body();
             assertEquals(true, result.get("finished"));
             assertEquals(opponent, ((Number) result.get("winnerSeat")).intValue());
             assertEquals(dealer, ((Number) result.get("competeDealerSeat")).intValue());
@@ -176,7 +177,24 @@ final class PdkXqpEquivalentRulesTest {
                             .authoritativeState());
             return;
         }
-        fail("no deterministic deal produced a non-terminal opponent response");
+        fail("no deterministic deal produced an automatic opponent response");
+    }
+
+    @Test void noOneClaimsDealerUsesOrdinaryFullRoundFlow() {
+        PaoDeKuaiFamily family = family("ls-no-claim", Map.of(
+                "cardsPerPlayer", 4, "competeDealerEnabled", true,
+                "competeDealerMustSpringToWin", true));
+        PokerAuthoritativeSession session = twoPlayerSession(1041, family);
+        for (int i = 0; i < 2; i++) {
+            Map<String,Object> view = session.viewFor(10);
+            int seat = ((Number) view.get("currentSeat")).intValue();
+            session.execute(command(1041, session, "compete_dealer_req", 4 + i, seat,
+                    10 + seat, Map.of("compete", false)));
+        }
+        Map<String,Object> playing = session.viewFor(10);
+        assertEquals("PLAYING", playing.get("phase"));
+        assertEquals(-1, ((Number) playing.get("competeDealerSeat")).intValue());
+        assertEquals(false, playing.get("finished"));
     }
 
     @Test void liangshanRobberSpringRequirementIsInTheImmutableRuleSnapshot() {
@@ -192,6 +210,28 @@ final class PdkXqpEquivalentRulesTest {
         Map<String,Object> snapshot = PdkPublishedRuleOptions.snapshot(compete);
         assertEquals(true, snapshot.get("competeDealerMustSpringToWin"));
         assertEquals(compete, PdkPublishedRuleOptions.apply(snapshot, regional.defaults()));
+    }
+
+    @Test void liangshanUsesFixedMultiBoardPatternScoring() {
+        LiangshanPdkRules regional = new LiangshanPdkRules();
+        PaoDeKuaiConfig config = PdkPublishedRuleOptions.apply(
+                regional.authoritativeRules(Map.of("baseScore", 5, "playRule", List.of(
+                        "four_ace_rank", "all_red")), 2), regional.defaults());
+        assertEquals(1, config.advancedRules().baseScore());
+        assertTrue(config.advancedRules().initialPatterns().contains(
+                PdkAdvancedRules.InitialPattern.FOUR_ACES));
+        assertEquals(9999, config.advancedRules().initialPatternLimit());
+        assertEquals(3, config.advancedRules().initialPatternScoreUnit());
+
+        PdkSettlementContext context = new PdkSettlementContext(92, 1, "ls-single-board",
+                0, 0, Map.of(0, 10L, 1, 11L),
+                Map.of(0, List.of(), 1, List.of(107, 108)),
+                Map.of(0, 1, 1, 1), Map.of(0, 0, 1, 0),
+                Map.of(0, 8, 1, 6), Map.of(0, 2, 1, 0), -1, -1,
+                PdkRuleProfiles.flexibleTwoToFourPlayers("ls-single-board", null), config);
+        Map<Long,Long> score = PdkScoringPolicy.standard().settle(context).scoreDelta();
+        assertEquals(7L, score.get(10L));
+        assertEquals(-7L, score.get(11L));
     }
 
     @Test void persistedPreSpringRuleSnapshotRestoresToTheCurrentLiangshanRule() {
@@ -236,6 +276,26 @@ final class PdkXqpEquivalentRulesTest {
         assertEquals("PLAYING", dealer.viewFor(10).get("phase"));
         assertEquals(challenger, dealer.viewFor(10).get("competeDealerSeat"));
         assertEquals(challenger, dealer.viewFor(10).get("currentSeat"));
+    }
+
+    @Test void dealerLastCanDynamicallyForbidBankerAfterEveryOpponentPasses() {
+        PaoDeKuaiFamily family = family("dealer-last-no-banker", Map.of(
+                "cardsPerPlayer", 4, "competeDealerEnabled", true,
+                "competeDealerStartAfterBanker", true,
+                "bankerCannotCompeteAfterAllPass", true));
+        PokerAuthoritativeSession session = twoPlayerSession(821, family);
+        Map<String,Object> initial = session.viewFor(10);
+        int banker = ((Number) initial.get("bankerSeat")).intValue();
+        int challenger = ((Number) initial.get("currentSeat")).intValue();
+        assertNotEquals(banker, challenger);
+
+        session.execute(command(821, session, "compete_dealer_req", 5, challenger,
+                10 + challenger, Map.of("compete", false)));
+
+        Map<String,Object> playing = session.viewFor(10);
+        assertEquals("PLAYING", playing.get("phase"));
+        assertEquals(-1, ((Number) playing.get("competeDealerSeat")).intValue());
+        assertEquals(banker, ((Number) playing.get("currentSeat")).intValue());
     }
 
     @Test void readyPlayerReallyLeavesBeforeCardsArePresented() {

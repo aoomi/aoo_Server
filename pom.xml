@@ -15,6 +15,8 @@
         <module>server/GameCommon</module>
         <module>server/Mahjong</module>
         <module>server/Poker</module>
+        <module>server/CD299</module>
+        <module>server/NN</module>
         <module>server/LongCard</module>
         <module>server/WordCard</module>
         <module>server/Families</module>

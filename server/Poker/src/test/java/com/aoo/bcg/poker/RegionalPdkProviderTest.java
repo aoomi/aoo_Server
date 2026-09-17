@@ -33,7 +33,7 @@ final class RegionalPdkProviderTest {
                 () -> assertEquals(3, ls.get("minimumStraightLength")),
                 () -> assertEquals("EITHER", cd.get("tripleAttachmentMode")),
                 () -> assertEquals("EITHER", nj.get("tripleAttachmentMode")),
-                () -> assertEquals("PAIRS", ls.get("tripleAttachmentMode")),
+                () -> assertEquals("EITHER", ls.get("tripleAttachmentMode")),
                 () -> assertEquals(false, cd.get("compareTripleAttachments")),
                 () -> assertEquals(true, nj.get("compareTripleAttachments")),
                 () -> assertEquals(true, ls.get("compareTripleAttachments")));
@@ -52,14 +52,14 @@ final class RegionalPdkProviderTest {
 
         PaoDeKuaiRuleSet lsRules = rules(ls);
         CardCombination lsPrevious = lsRules.recognize(List.of(103, 203, 303, 106, 206), null);
+        CardCombination lsSingle = lsRules.recognize(List.of(104, 204, 304, 105), null);
+        CardCombination lsScattered = lsRules.recognize(List.of(104, 204, 304, 105, 106), null);
         CardCombination lsLowPair = lsRules.recognize(List.of(104, 204, 304, 105, 205), null);
         CardCombination lsHighPair = lsRules.recognize(List.of(104, 204, 304, 107, 207), null);
         assertAll(
                 () -> assertEquals("TRIPLE_WITH_PAIR", lsPrevious.type()),
-                () -> assertThrows(IllegalArgumentException.class,
-                        () -> lsRules.recognize(List.of(104, 204, 304, 105), null)),
-                () -> assertThrows(IllegalArgumentException.class,
-                        () -> lsRules.recognize(List.of(104, 204, 304, 105, 106), null)),
+                () -> assertEquals("TRIPLE_WITH_ONE", lsSingle.type()),
+                () -> assertEquals("TRIPLE_WITH_TWO", lsScattered.type()),
                 () -> assertFalse(lsRules.canBeat(lsLowPair, lsPrevious, null)),
                 () -> assertTrue(lsRules.canBeat(lsHighPair, lsPrevious, null)));
     }
@@ -129,11 +129,13 @@ final class RegionalPdkProviderTest {
         assertEquals(10, rules.get("cardsPerPlayer"));
         assertEquals(40, ((List<?>) rules.get("deckCards")).size());
         assertEquals(105, rules.get("bankerSelectionCard"));
+        assertEquals(1, rules.get("baseScore"));
         assertEquals(4, rules.get("jinHuaScoreUnit"));
         assertEquals(true, rules.get("competeDealerStartAfterBanker"));
         assertEquals(List.of(5), rules.get("fourOfKindPatternRanks"));
         assertTrue(((List<?>) rules.get("initialHandPatterns")).containsAll(List.of(
-                "ALL_BIG", "ALL_SMALL", "ALL_RED", "ALL_BLACK", "FULL_STRAIGHT", "ALL_PAIRS")));
+                "ALL_SINGLES", "FULL_STRAIGHT", "FULL_CONSECUTIVE_PAIRS", "ALL_PAIRS",
+                "ALL_BIG", "ALL_SMALL", "ALL_RED", "ALL_BLACK")));
         assertEquals(saved, provider.restoreAuthoritativeSession(saved).orElseThrow()
                 .authoritativeState());
     }

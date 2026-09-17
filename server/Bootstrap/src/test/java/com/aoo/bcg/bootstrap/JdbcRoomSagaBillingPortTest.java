@@ -44,6 +44,20 @@ final class JdbcRoomSagaBillingPortTest {
         assertThrows(IllegalStateException.class,()->port.reserve(command("SPLIT")));
     }
 
+    @Test void canonicalPokerRuleNamesResolveTheSharedBillingDimensions() throws Exception {
+        JdbcDataSource source=database("canonical_poker_rules");schema(source);
+        try(Connection c=source.getConnection();var s=c.createStatement()){
+            s.execute("INSERT INTO aoo_currency_catalog VALUES('ROOM_CARD','GLOBAL','ACTIVE')");
+            s.execute("INSERT INTO aoo_room_cost_policy VALUES(5,'cn298-v1.0.0',10,8,'OWNER','ROOM_CARD',0,'ACTIVE')");
+        }
+        JdbcRoomSagaBillingPort port=new JdbcRoomSagaBillingPort(source,()->102,Clock.systemUTC());
+        var command=new RoomCreateSaga.Command(7,"cn298-create",800002,5,"cn298-v1.0.0",
+                "3.8.8",1,Map.of("rounds",10,"maxPlayers",8),
+                new RoomCreateSaga.Scope("PERSONAL",0,""),Map.of(),"cn298-trace","hash");
+        assertDoesNotThrow(()->port.reserve(command));
+        assertDoesNotThrow(()->port.confirm(command));
+    }
+
     private static RoomCreateSaga.Command command(String payer){
         return new RoomCreateSaga.Command(7,"owner-payment-request",800001,8,"1.0.0",
                 "3.8.8",1,Map.of("roundCount",8,"playerCount",3,"payerMode",payer),

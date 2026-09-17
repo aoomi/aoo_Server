@@ -22,7 +22,12 @@ MYSQL_PORT="${AOO_LOCAL_MYSQL_PORT:-3306}"
 MYSQL_DATABASE="${AOO_LOCAL_MYSQL_DATABASE:-aoo_login_local}"
 MYSQL_USER="${AOO_LOCAL_MYSQL_USER:-root}"
 MYSQL_PASSWORD="${AOO_LOCAL_MYSQL_PASSWORD:?local MySQL password required}"
-DB_URL="jdbc:mysql://${MYSQL_HOST}:${MYSQL_PORT}/${MYSQL_DATABASE}?useUnicode=true&characterEncoding=UTF-8&connectionTimeZone=UTC&forceConnectionTimeZoneToSession=true"
+# The local database is bound to loopback/Docker Desktop. Connector/J otherwise
+# negotiates a fresh P-256 TLS session for every DriverManager connection; room
+# commands intentionally use short JDBC scopes, so that handshake dominated the
+# Gateway CPU and delayed entry, leave and gameplay acknowledgements. Production
+# URLs are supplied by deployment and are not affected by this local-only policy.
+DB_URL="jdbc:mysql://${MYSQL_HOST}:${MYSQL_PORT}/${MYSQL_DATABASE}?useUnicode=true&characterEncoding=UTF-8&connectionTimeZone=UTC&forceConnectionTimeZoneToSession=true&sslMode=DISABLED"
 
 port_open(){ nc -z 127.0.0.1 "$1" >/dev/null 2>&1; }
 wait_port(){ local name="$1" port="$2" deadline=$((SECONDS+30)); while ! port_open "$port"; do (( SECONDS < deadline )) || { echo "$name 启动超时，日志：$ROOT/logs/local-dev/$name.log" >&2; return 1; }; sleep .25; done; }
@@ -52,6 +57,7 @@ PLIST
     chmod 600 "$plist"
     launchctl bootout "$domain/$label" >/dev/null 2>&1 || true
     if launchctl bootstrap "$domain" "$plist"; then
+      launchctl kickstart "$domain/$label"
       launchctl print "$domain/$label" | awk '/pid =/{print $3; exit}' > "$RUNTIME/$name.pid" || true
       if pid_alive "$name"; then return; fi
     fi
@@ -129,6 +135,11 @@ PLIST
     chmod 600 "$plist"
     launchctl bootout "$domain/$label" >/dev/null 2>&1 || true
     launchctl bootstrap "$domain" "$plist"
+    # On recent macOS versions a freshly bootstrapped background LaunchAgent can
+    # remain in "pended nondemand spawn" without ever executing RunAtLoad.  An
+    # explicit kickstart makes the service lifecycle deterministic after Docker
+    # Desktop or the GUI session has been restarted.
+    launchctl kickstart "$domain/$label"
   else
     nohup "$runner" >"$ROOT/logs/local-dev/$name.log" 2>&1 < /dev/null &
   fi
@@ -138,6 +149,7 @@ PLIST
 
 health(){
   local failed=0
+  if port_open "$MYSQL_PORT"; then printf 'OK   %-8s port=%s\n' mysql "$MYSQL_PORT"; else printf 'FAIL %-8s port=%s\n' mysql "$MYSQL_PORT"; failed=1; fi
   for spec in 'gateway:8080' 'version:8095' 'account:8096' 'hall:8093' 'social:8097' 'gifting:8101' 'media:8102'; do IFS=: read -r name port <<<"$spec"; if pid_alive "$name" && port_open "$port"; then printf 'OK   %-8s pid=%s port=%s\n' "$name" "$(cat "$RUNTIME/$name.pid")" "$port"; else printf 'FAIL %-8s port=%s\n' "$name" "$port"; failed=1; fi; done
   if pid_alive room-rules; then printf 'OK   %-8s pid=%s\n' room-rules "$(cat "$RUNTIME/room-rules.pid")"; else printf 'FAIL %-8s\n' room-rules; failed=1; fi
   if pid_alive avatars && port_open 8765; then printf 'OK   %-8s pid=%s port=%s\n' avatars "$(cat "$RUNTIME/avatars.pid")" 8765; else printf 'FAIL %-8s port=%s\n' avatars 8765; failed=1; fi
@@ -157,13 +169,36 @@ start_avatars(){
   [[ -d "$root" ]] || { echo "缺少本地头像目录：$root" >&2; exit 3; }
   [[ -f "$server" ]] || { echo "缺少本地头像服务：$server" >&2; exit 3; }
   if port_open 8765; then echo '端口 8765 已被非 Aoo avatars 进程占用' >&2; exit 4; fi
-  nohup python3 "$server" --root "$root" --port 8765 >"$ROOT/logs/local-dev/avatars.log" 2>&1 < /dev/null &
-  echo $! > "$RUNTIME/$name.pid"
+  local runner="$RUNTIME/$name-run.sh" label="com.aoo.bcg.local.$name" domain="gui/$(id -u)"
+  printf '#!/usr/bin/env bash\nexec %q %q --root %q --port 8765\n' "$(command -v python3)" "$server" "$root" > "$runner"
+  chmod 700 "$runner"
+  if command -v launchctl >/dev/null 2>&1; then
+    local plist="$RUNTIME/$name.plist"
+    cat > "$plist" <<PLIST
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0"><dict>
+<key>Label</key><string>$label</string>
+<key>ProgramArguments</key><array><string>$runner</string></array>
+<key>WorkingDirectory</key><string>$ROOT</string>
+<key>RunAtLoad</key><true/><key>ProcessType</key><string>Background</string>
+<key>StandardOutPath</key><string>$ROOT/logs/local-dev/avatars.log</string>
+<key>StandardErrorPath</key><string>$ROOT/logs/local-dev/avatars.log</string>
+</dict></plist>
+PLIST
+    chmod 600 "$plist"
+    launchctl bootout "$domain/$label" >/dev/null 2>&1 || true
+    launchctl bootstrap "$domain" "$plist"
+    launchctl kickstart "$domain/$label"
+  else
+    nohup "$runner" >"$ROOT/logs/local-dev/avatars.log" 2>&1 < /dev/null &
+  fi
   wait_port "$name" 8765
+  if command -v launchctl >/dev/null 2>&1; then launchctl print "$domain/$label" | awk '/pid =/{print $3; exit}' > "$RUNTIME/$name.pid"; else pgrep -f "$server.*--port 8765" | head -1 > "$RUNTIME/$name.pid"; fi
 }
 
 stop_all(){
-  if command -v launchctl >/dev/null 2>&1; then for name in gateway account version hall social gifting media room-rules; do launchctl bootout "gui/$(id -u)/com.aoo.bcg.local.$name" >/dev/null 2>&1 || true; done; fi
+  if command -v launchctl >/dev/null 2>&1; then for name in gateway account version hall social gifting media room-rules avatars; do launchctl bootout "gui/$(id -u)/com.aoo.bcg.local.$name" >/dev/null 2>&1 || true; done; fi
   for name in gateway account version hall social gifting media room-rules avatars; do if pid_alive "$name"; then kill "$(cat "$RUNTIME/$name.pid")" 2>/dev/null || true; fi; done
   for name in gateway account version hall social gifting media room-rules avatars; do if [[ -f "$RUNTIME/$name.pid" ]]; then pid="$(cat "$RUNTIME/$name.pid")"; for _ in {1..40}; do kill -0 "$pid" 2>/dev/null || break; sleep .1; done; kill -9 "$pid" 2>/dev/null || true; rm -f "$RUNTIME/$name.pid"; fi; done
 }

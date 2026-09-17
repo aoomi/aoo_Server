@@ -5,7 +5,7 @@ public record ConnectionSession(String userId, String roomId, int seatId, String
         this(userId, roomId, seatId, playVersion, lastSequence, java.util.UUID.randomUUID().toString(), 1);
     }
     public ConnectionSession {
-        if (userId == null || userId.isBlank() || roomId == null || roomId.isBlank() || seatId < 0
+        if (userId == null || userId.isBlank() || roomId == null || roomId.isBlank() || seatId < -1
                 || playVersion == null || playVersion.isBlank() || lastSequence < 0
                 || connectionId == null || connectionId.isBlank() || generation <= 0) {
             throw new IllegalArgumentException("invalid connection session");
@@ -14,6 +14,12 @@ public record ConnectionSession(String userId, String roomId, int seatId, String
     public ConnectionSession accept(long sequence) {
         if (sequence != lastSequence + 1) throw new IllegalArgumentException("sequence must be continuous");
         return new ConnectionSession(userId, roomId, seatId, playVersion, sequence, connectionId, generation);
+    }
+
+    /** Seat -1 is the authenticated spectator binding until a successful sit command. */
+    public ConnectionSession withSeatId(int value) {
+        if (value < 0) throw new IllegalArgumentException("seated id must be non-negative");
+        return new ConnectionSession(userId, roomId, value, playVersion, lastSequence, connectionId, generation);
     }
 
     /** Explicit boundary mapping; the transport connection itself is not a player identity. */

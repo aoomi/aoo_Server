@@ -17,9 +17,10 @@ import java.security.SecureRandom;
 import java.util.Optional;
 
 public final class ZJHGameProvider implements PokerGameProvider {
-    public static final String PLAY_VERSION = "zjh-v1.0.0";
+    public static final String GAME_CODE = "CN297";
+    public static final String PLAY_VERSION = "cn297-v1.0.0";
     private static final GameDescriptor DESCRIPTOR = new GameDescriptor(
-            9, "zjh", "欢乐比牌", GameCategory.POKER,
+            9, GAME_CODE, "金花", GameCategory.POKER,
             ComparePokerFamily.CODE, RegionScope.NATIONAL, "", "", PLAY_VERSION);
     private static final SecureRandom SEEDS = new SecureRandom();
 
@@ -32,19 +33,9 @@ public final class ZJHGameProvider implements PokerGameProvider {
     @Override public Optional<SettlementProvider> settlementProvider(){return Optional.of((room,round)->new ZJHSettlementService().payload(room.requireLegacyRoom(ZJHTable.class),round,room.playVersion()));}
 
     private static GameRoomHandle createRoom(RoomCreationContext context) {
-        int seatLimit = intRule(context, "seatLimit", 5);
+        ZJHRules rules = ZJHRules.from(context.immutableRules());
         long seed = SEEDS.nextLong();
-        ZJHTable table = new ZJHTable(context.roomId(), context.ownerId(), seatLimit, seed);
+        ZJHTable table = new ZJHTable(context.roomId(), context.ownerId(), rules, seed);
         return new GameRoomHandle(context.roomId(), DESCRIPTOR.gameId(), DESCRIPTOR.version(), table);
-    }
-
-    private static int intRule(RoomCreationContext context, String key, int fallback) {
-        Object value = context.immutableRules().get(key);
-        return value instanceof Number number ? number.intValue() : fallback;
-    }
-
-    private static long longRule(RoomCreationContext context, String key, long fallback) {
-        Object value = context.immutableRules().get(key);
-        return value instanceof Number number ? number.longValue() : fallback;
     }
 }

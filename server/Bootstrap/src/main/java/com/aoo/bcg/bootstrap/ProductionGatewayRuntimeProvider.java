@@ -68,6 +68,7 @@ public final class ProductionGatewayRuntimeProvider implements GatewayRuntimePro
                     .map(entry -> Integer.parseInt(String.valueOf(entry.getKey())))
                     .findFirst().orElse(null) : null;
             int seatId=seated!=null?seated:observing!=null?observing:
+                    joinedHallMember(source,Long.parseLong(frame.roomId()),identity.userId())?-1:
                     throwSecurity("account is not a room member");
             return new GatewayWebSocketFrameHandler.SessionBinding(identity.userId(),
                     connectionSessions.open(Long.toString(identity.userId()), frame.roomId(), seatId,
@@ -141,6 +142,16 @@ public final class ProductionGatewayRuntimeProvider implements GatewayRuntimePro
             throw new IllegalStateException("no production GameProvider is available to Gateway");
         }
         return games;
+    }
+    private static boolean joinedHallMember(DataSource source,long roomId,long accountId) {
+        String sql="SELECT 1 FROM aoo_hall_room_member m JOIN aoo_hall_room r ON r.room_id=m.room_id "
+                +"JOIN aoo_room_authority_route a ON a.room_id=m.room_id "
+                +"WHERE m.room_id=? AND m.account_id=? AND m.status='JOINED' "
+                +"AND r.state IN('OPEN','PLAYING') AND a.lifecycle_state='ACTIVE' LIMIT 1";
+        try(var connection=source.getConnection();var query=connection.prepareStatement(sql)){
+            query.setLong(1,roomId);query.setLong(2,accountId);
+            try(var result=query.executeQuery()){return result.next();}
+        }catch(java.sql.SQLException failure){throw new IllegalStateException("spectator membership lookup failed",failure);}
     }
     private static int throwSecurity(String message){throw new SecurityException(message);}
     private static long number(Map<String,Object> v,String k){Object x=v.get(k);if(!(x instanceof Number n)||n.longValue()<=0)throw new IllegalArgumentException(k+" must be positive");return n.longValue();}

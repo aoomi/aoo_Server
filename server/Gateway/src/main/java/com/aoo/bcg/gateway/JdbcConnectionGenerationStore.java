@@ -7,7 +7,7 @@ public final class JdbcConnectionGenerationStore implements ConnectionGeneration
     private final DataSource dataSource;
     public JdbcConnectionGenerationStore(DataSource dataSource) { this.dataSource = java.util.Objects.requireNonNull(dataSource); }
     @Override public long next(String userId, String roomId, int seatId) {
-        if (userId == null || userId.isBlank() || roomId == null || roomId.isBlank() || seatId < 0) throw new IllegalArgumentException("invalid connection scope");
+        if (userId == null || userId.isBlank() || roomId == null || roomId.isBlank() || seatId < -1) throw new IllegalArgumentException("invalid connection scope");
         long numericRoomId;
         try { numericRoomId=Long.parseLong(roomId); } catch(NumberFormatException error) { throw new IllegalArgumentException("roomId must be numeric",error); }
         if(numericRoomId<=0)throw new IllegalArgumentException("roomId must be positive");
