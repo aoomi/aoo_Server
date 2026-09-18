@@ -20,7 +20,15 @@ public record PaoDeKuaiConfig(int minimumStraightLength, boolean allowTripleWith
         Set<Integer> specialTripleBombRanks, PlayedCardVisibility playedCardVisibility,
         PdkAdvancedRules advancedRules) {
 
-    public enum AttachmentMode { DISABLED, SINGLES, PAIRS, EITHER }
+    public enum AttachmentMode {
+        DISABLED,
+        SINGLES,
+        PAIRS,
+        /** Allows one single card or one pair, but never two unrelated single cards. */
+        SINGLE_OR_PAIR,
+        /** Allows the full singles/pairs family, including two unrelated single cards. */
+        EITHER
+    }
     /** DEALER_RESPONSE_OR_FINAL matches XQP: the抢庄者、接同型牌或最后一手可不带牌。 */
     public enum PlayTiming { DISABLED, FINAL_ONLY, DEALER_RESPONSE_OR_FINAL, ANYTIME }
     public enum PlayedCardVisibility { LAST_ONLY, ALL_IN_ORDER }
@@ -78,6 +86,7 @@ public record PaoDeKuaiConfig(int minimumStraightLength, boolean allowTripleWith
         if (cardsPerPlayer < 0 || cardsPerPlayer > 54)
             throw new IllegalArgumentException("invalid cards per player");
         if (allowTripleWithPair != (tripleAttachmentMode == AttachmentMode.PAIRS
+                || tripleAttachmentMode == AttachmentMode.SINGLE_OR_PAIR
                 || tripleAttachmentMode == AttachmentMode.EITHER))
             throw new IllegalArgumentException("triple attachment compatibility flag conflicts with mode");
         if (allowFourWithTwo != (fourAttachmentMode != AttachmentMode.DISABLED))

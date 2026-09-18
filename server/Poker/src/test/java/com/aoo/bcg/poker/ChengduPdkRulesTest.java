@@ -14,6 +14,22 @@ import java.util.Map;
 import org.junit.jupiter.api.Test;
 
 final class ChengduPdkRulesTest {
+    @Test void productionShuffleSeedIsServerOwnedAndRoomRulesCannotFixIt() {
+        PdkGameProvider provider = new PdkGameProvider();
+        RoomCreationContext context = new RoomCreationContext(
+                445566L, 10L, Map.of("playerCount", 2, "shuffleSeed", 77L));
+        PokerAuthoritativeSession first = (PokerAuthoritativeSession) provider.roomFactory()
+                .create(context).requireAuthoritativeSession();
+        PokerAuthoritativeSession second = (PokerAuthoritativeSession) provider.roomFactory()
+                .create(context).requireAuthoritativeSession();
+
+        long firstSeed = ((Number) first.authoritativeState().get("seed")).longValue();
+        long secondSeed = ((Number) second.authoritativeState().get("seed")).longValue();
+        assertNotEquals(77L, firstSeed);
+        assertNotEquals(445566L, firstSeed);
+        assertNotEquals(firstSeed, secondSeed);
+    }
+
     @Test void xqpDecksContainExactlyThreeAcesAndOneTwo() {
         assertDeck(ChengduPdkRules.standardDeck(), 48, true);
         assertDeck(ChengduPdkRules.cutDeck(), 40, false);
@@ -155,6 +171,13 @@ final class ChengduPdkRulesTest {
         CardCombination acesWithPair = rules.recognize(
                 List.of(114, 214, 314, 112, 212), turn);
         assertEquals("TRIPLE_WITH_TWO", kingsWithSingles.type());
+        CardCombination queensUsingFourthQueenAsAttachment = rules.recognize(
+                List.of(112, 212, 312, 412, 113), turn);
+        assertEquals("TRIPLE_WITH_TWO", queensUsingFourthQueenAsAttachment.type());
+        assertEquals(12, queensUsingFourthQueenAsAttachment.primaryRank());
+        assertTrue(rules.hints(List.of(112, 212, 312, 412, 113), lower, turn).stream()
+                .noneMatch(hint -> hint.cards().size() == 5
+                        && hint.cards().containsAll(List.of(112, 212, 312, 412, 113))));
         assertEquals("TRIPLE_WITH_PAIR", acesWithPair.type());
         assertFalse(config.compareTripleAttachments());
         assertTrue(rules.canBeat(acesWithPair, kingsWithSingles, turn));
@@ -187,6 +210,10 @@ final class ChengduPdkRulesTest {
                 List.of(105, 205, 305, 106, 206, 306, 107, 108), turn).type());
         assertEquals("AIRPLANE_WITH_PAIRS", rules.recognize(
                 List.of(105, 205, 305, 106, 206, 306, 107, 207, 108, 208), turn).type());
+        assertThrows(IllegalArgumentException.class, () -> rules.recognize(
+                List.of(112, 212, 312, 109, 209, 309, 108, 208, 308, 106), turn));
+        assertEquals("AIRPLANE_WITH_PAIRS", rules.recognize(
+                List.of(112, 212, 109, 209, 309, 108, 208, 308, 106, 206), turn).type());
         assertEquals("FOUR_WITH_TWO",
                 rules.recognize(List.of(105, 205, 305, 405, 106, 207), turn).type());
         assertEquals("FOUR_WITH_TWO_PAIRS", rules.recognize(

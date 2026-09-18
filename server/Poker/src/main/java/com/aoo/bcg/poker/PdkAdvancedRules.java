@@ -114,8 +114,8 @@ public record PdkAdvancedRules(int baseScore, int requiredFirstCardRounds,
         Objects.requireNonNull(dealerRule);
         if (initialPatternLimit < 0 || initialPatternScoreUnit < 0 || jinHuaScoreUnit < 0)
             throw new IllegalArgumentException("invalid initial hand scoring rule");
-        if (operationTimeoutSeconds < 1 || operationTimeoutSeconds > 3600)
-            throw new IllegalArgumentException("operation timeout must be 1..3600 seconds");
+        if (operationTimeoutSeconds < 1 || operationTimeoutSeconds > 86400)
+            throw new IllegalArgumentException("operation timeout must be 1..86400 seconds");
         if (hostingMissThreshold < -1 || hostingMissThreshold == 0)
             throw new IllegalArgumentException("hosting threshold must be -1 or positive");
         Objects.requireNonNull(governance);

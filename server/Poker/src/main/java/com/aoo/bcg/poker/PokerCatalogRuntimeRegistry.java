@@ -1,4 +1,5 @@
 package com.aoo.bcg.poker;
+import com.aoo.bcg.common.random.SeededGameRandomSource;
 import com.aoo.bcg.gamespi.*;import java.util.*;
 
 /** Catalog bindings for the source-backed Poker engines; no code-specific SPI entries. */
@@ -55,7 +56,10 @@ final class PdkGameProvider extends RegionalPokerProvider implements PokerGamePr
   Map<String,Object>publishedRules=PdkPublishedRuleOptions.normalizePublishedRoomFields(c.immutableRules());
   int seats=number(publishedRules,"playerCount",chengdu?2:regionalRules==null?3:regionalRules.defaultPlayers());
   int rounds=number(publishedRules,"roundCount",8);
-  long seed=publishedRules.get("shuffleSeed")instanceof Number n?n.longValue():c.roomId();
+  // Randomness is server-owned. Room ids and immutable room rules are public and
+  // predictable, so neither may seed a production shuffle. The generated master
+  // seed is persisted by PokerAuthoritativeSession for recovery and audit.
+  long seed=SeededGameRandomSource.create().seed();
   Map<String,Object>effectiveRules=chengdu?chengduRulesForSeats(publishedRules,seats):
     regionalRules==null?publishedRules:regionalRules.authoritativeRules(publishedRules,seats);
   PaoDeKuaiConfig config=PdkPublishedRuleOptions.apply(effectiveRules,baseConfig);

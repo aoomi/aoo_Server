@@ -172,6 +172,15 @@ final class PdkXqpEquivalentRulesTest {
                     (Map<Integer,Object>) result.get("seats");
             assertTrue(((Number) ((Map<?,?>) seats.get(dealer)).get("roundScore")).longValue() < 0);
             assertTrue(((Number) ((Map<?,?>) seats.get(opponent)).get("roundScore")).longValue() > 0);
+            Map<String,Object> scheduledNextRound = nextRoundDeadline(session);
+            long nextRoundDueAt = ((Number) scheduledNextRound.get("deadlineEpochMillis"))
+                    .longValue();
+            assertEquals(session.stateVersion(),
+                    ((Number) session.authoritativeState()
+                            .get("nextRoundDeadlineStateVersion")).longValue());
+            assertTrue(session.tickLifecycle(Instant.ofEpochMilli(nextRoundDueAt)));
+            assertEquals(2, session.viewFor(10).get("roundNo"));
+            assertEquals("PLAYING", session.viewFor(10).get("phase"));
             assertEquals(session.authoritativeState(),
                     PokerAuthoritativeSession.restore(session.authoritativeState(), family)
                             .authoritativeState());
@@ -331,6 +340,17 @@ final class PdkXqpEquivalentRulesTest {
         assertEquals(session.authoritativeState(),
                 PokerAuthoritativeSession.restore(session.authoritativeState(), family)
                         .authoritativeState());
+    }
+
+    @Test void workbookOperationTimeoutSupportsTenThousandSeconds() {
+        PaoDeKuaiFamily family = family("workbook-timeout", Map.of(
+                "cardsPerPlayer", 4, "operationTimeoutSeconds", 10_000));
+        PokerAuthoritativeSession session = twoPlayerSession(8301, family);
+        assertEquals(10_000,
+                family.rules().config().advancedRules().operationTimeoutSeconds());
+        long remainingSeconds = java.time.Duration.between(java.time.Instant.now(),
+                session.operationDeadline().deadline()).toSeconds();
+        assertTrue(remainingSeconds >= 9_998L && remainingSeconds <= 10_000L);
     }
 
     @Test void genericRoomPresentationAndInteractionRulesRemainServerAuthoritative() {

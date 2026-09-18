@@ -44,12 +44,15 @@ public final class ProductionGatewayRuntimeProvider implements GatewayRuntimePro
         var commandCommitter = new JdbcGatewayGameCommandCommitter(source, json, clock,
                 idempotencyRetention, durableSettlements);
         commandCommitter.recoverPendingSettlements(256);
+        commandCommitter.recoverCompletedClubMatches(256);
         ScheduledExecutorService recovery = Executors.newSingleThreadScheduledExecutor(r -> {
             Thread thread = new Thread(r, "settlement-outbox-recovery");thread.setDaemon(true);return thread;
         });
         recovery.scheduleWithFixedDelay(() -> {
             try { commandCommitter.recoverPendingSettlements(64); }
             catch (RuntimeException failure) { System.err.println("settlement outbox recovery failed: "+failure.getMessage()); }
+            try { commandCommitter.recoverCompletedClubMatches(64); }
+            catch (RuntimeException failure) { System.err.println("club match settlement recovery failed: "+failure.getMessage()); }
         },5,5,TimeUnit.SECONDS);
         var connectionSessions = new ConnectionSessionFactory(new JdbcConnectionGenerationStore(source));
         GatewayWebSocketFrameHandler.SessionResolver sessions = (identity, frame) -> {

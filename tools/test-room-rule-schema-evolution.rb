@@ -28,6 +28,20 @@ def rewrite_workbook(workbook)
     abort('unzip failed') unless system('unzip', '-qq', workbook, '-d', directory)
     sheet_path = File.join(directory, 'xl/worksheets/sheet1.xml')
     document = REXML::Document.new(File.read(sheet_path, encoding: 'UTF-8'))
+    shared_path = File.join(directory, 'xl/sharedStrings.xml')
+    if File.file?(shared_path)
+      shared_document = REXML::Document.new(File.read(shared_path, encoding: 'UTF-8'))
+      shared = REXML::XPath.match(shared_document, '//*[local-name()="si"]').map do |item|
+        REXML::XPath.match(item, './/*[local-name()="t"]').map(&:text).join
+      end
+      REXML::XPath.match(document, '//*[local-name()="c"][@t="s"]').each do |cell|
+        value = REXML::XPath.first(cell, './*[local-name()="v"]')
+        next unless value
+        text = shared.fetch(Integer(value.text, 10))
+        cell.delete(value); cell.attributes['t'] = 'inlineStr'
+        inline = cell.add_element('is'); inline.add_element('t').text = text
+      end
+    end
     sheet_data = REXML::XPath.first(document, '//*[local-name()="sheetData"]')
     yield sheet_data
     File.write(sheet_path, document.to_s)
@@ -57,6 +71,13 @@ Dir.mktmpdir('aoo-room-rule-schema-test') do |directory|
   abort('official small settlement row did not use generic schema path') unless small &&
     small['control'] == 'checkbox' && small['defaultCandidateIndexes'] == [1] &&
     small['trusteeCount'] == 3 && small['visible'] == true
+  operation = baseline.fetch('fields').find { |field| field['label'] == '操作时间' }
+  abort('numeric rule label did not map to its wire value') unless
+    operation && operation['key'] == 'operationTimeoutSeconds' &&
+    operation['defaultValue'] == 10_000 &&
+    operation.fetch('options').first == {
+      'value'=>10_000, 'label'=>'10000秒', 'order'=>10, 'disabled'=>false
+    }
 
   last_good = File.binread(output)
   rewrite_workbook(workbook) do |sheet_data|

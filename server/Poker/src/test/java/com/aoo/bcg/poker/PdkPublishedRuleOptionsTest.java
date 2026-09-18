@@ -8,6 +8,18 @@ import com.aoo.bcg.gamespi.GameCommandRequest;
 import org.junit.jupiter.api.Test;
 
 final class PdkPublishedRuleOptionsTest {
+    @Test void roomPlayRuleAuthoritativelyControlsTripleAceBomb() {
+        Map<String,Object> selected = PdkPublishedRuleOptions.normalizePublishedRoomFields(Map.of(
+                "playRule", List.of("triple_ace_bomb"),
+                "specialTripleBombRanks", List.of()));
+        assertEquals(List.of(14), selected.get("specialTripleBombRanks"));
+
+        Map<String,Object> disabled = PdkPublishedRuleOptions.normalizePublishedRoomFields(Map.of(
+                "playRule", List.of(),
+                "specialTripleBombRanks", List.of(14)));
+        assertEquals(List.of(), disabled.get("specialTripleBombRanks"));
+    }
+
     @Test void workbookTrusteeCountControlsTimeoutHostingOnlyWhenSelected() {
         Map<String,Object> selected = PdkPublishedRuleOptions.normalizePublishedRoomFields(Map.of(
                 "roomRestriction", List.of("timeout_auto_play"),

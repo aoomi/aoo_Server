@@ -11,7 +11,9 @@ import java.util.Set;
 /** 凉山跑得快：XQP ScLs 的地区配置，复用公共 PDK 状态机。 */
 final class LiangshanPdkRules implements PdkRegionRules {
     private static final Set<String> PLAY_RULES = Set.of("compare_attachments",
-            "triple_with_one", "four_with_two", "four_ace_rank", "four_aces",
+            "triple_with_one", "triple_with_one_or_pair", "triple_with_pair",
+            "four_with_two", "four_with_two_pairs", "four_with_two_or_pairs",
+            "four_ace_rank", "four_aces",
             "four_configured_rank", "all_single",
             "full_consecutive_pairs", "all_big", "all_small", "all_red", "all_black",
             "full_straight", "all_pair", "all_special_patterns");
@@ -36,7 +38,7 @@ final class LiangshanPdkRules implements PdkRegionRules {
 
     public PaoDeKuaiConfig defaults() {
         PdkAdvancedRules advanced = new PdkAdvancedRules(
-                1, 1, 107, true, PdkAdvancedRules.ScoreRule.disabled(),
+                1, 1, 107, false, PdkAdvancedRules.ScoreRule.disabled(),
                 PdkAdvancedRules.ScoreRule.disabled(), scoreTable(8),
                 new PdkAdvancedRules.BombScore(PdkAdvancedRules.BombMode.DISABLED, 0, 0),
                 new PdkAdvancedRules.DealerRule(false, false, false, false, false),
@@ -81,7 +83,9 @@ final class LiangshanPdkRules implements PdkRegionRules {
         rules.put("deckCards", cards == 8 ? DECK_7_TO_ACE : DECK_5_TO_ACE);
         rules.put("bankerSelectionCard", cards == 8 ? 107 : 105);
         rules.put("operationTimeoutSeconds", timeout);
-        rules.put("selectBankerEveryRound", true);
+        // 首局由庄家牌确定先手；后续小局必须由上一局赢家坐庄。
+        // 若每局都重新按庄家牌选庄，会覆盖权威状态保存的 previousWinnerSeat。
+        rules.put("selectBankerEveryRound", false);
         rules.put("requiredFirstCard", 103);
         rules.put("requiredFirstCardRounds", 1);
         rules.put("minimumStraightLength", 3);
@@ -154,14 +158,15 @@ final class LiangshanPdkRules implements PdkRegionRules {
             int cards) {
         Set<String> selected = PdkRegionalRuleValidation.stringChoices(published, "playRule",
                 Set.of(), PLAY_RULES);
-        // XQP area 950 rule 500042 defines “三带一” as accepting either one
-        // single card or one pair. Keep both shapes under the same atomic
-        // capability; attachment comparison remains an independent option.
-        rules.put("tripleAttachmentMode", selected.contains("triple_with_one") ? "EITHER" : "DISABLED");
-        rules.put("tripleWithoutAttachmentTiming", selected.contains("triple_with_one")
+        rules.put("tripleAttachmentMode",
+                PdkPublishedRuleOptions.tripleAttachmentMode(selected).name());
+        rules.put("tripleWithoutAttachmentTiming",
+                PdkPublishedRuleOptions.tripleAttachmentMode(selected)
+                        != PaoDeKuaiConfig.AttachmentMode.DISABLED
                 ? "DEALER_RESPONSE_OR_FINAL" : "ANYTIME");
         rules.put("airplaneAttachmentMode", "EITHER");
-        rules.put("fourAttachmentMode", selected.contains("four_with_two") ? "EITHER" : "DISABLED");
+        rules.put("fourAttachmentMode",
+                PdkPublishedRuleOptions.fourAttachmentMode(selected).name());
         rules.put("compareTripleAttachments", selected.contains("compare_attachments"));
         LinkedHashSet<String> patterns = new LinkedHashSet<>();
         LinkedHashSet<Integer> ranks = new LinkedHashSet<>();

@@ -22,7 +22,7 @@ final class RegionalPdkProviderTest {
         var njSession = session(neijiang, 81002, Map.of("playerCount", 2,
                 "attachmentComparison", "compare"));
         var lsSession = session(liangshan, 81003, Map.of("playerCount", 2,
-                "playRule", List.of("triple_with_one", "compare_attachments")));
+                "playRule", List.of("triple_with_one_or_pair", "compare_attachments")));
 
         Map<String,Object> cd = ruleOptions(cdSession);
         Map<String,Object> nj = ruleOptions(njSession);
@@ -33,7 +33,7 @@ final class RegionalPdkProviderTest {
                 () -> assertEquals(3, ls.get("minimumStraightLength")),
                 () -> assertEquals("EITHER", cd.get("tripleAttachmentMode")),
                 () -> assertEquals("EITHER", nj.get("tripleAttachmentMode")),
-                () -> assertEquals("EITHER", ls.get("tripleAttachmentMode")),
+                () -> assertEquals("SINGLE_OR_PAIR", ls.get("tripleAttachmentMode")),
                 () -> assertEquals(false, cd.get("compareTripleAttachments")),
                 () -> assertEquals(true, nj.get("compareTripleAttachments")),
                 () -> assertEquals(true, ls.get("compareTripleAttachments")));
@@ -53,15 +53,23 @@ final class RegionalPdkProviderTest {
         PaoDeKuaiRuleSet lsRules = rules(ls);
         CardCombination lsPrevious = lsRules.recognize(List.of(103, 203, 303, 106, 206), null);
         CardCombination lsSingle = lsRules.recognize(List.of(104, 204, 304, 105), null);
-        CardCombination lsScattered = lsRules.recognize(List.of(104, 204, 304, 105, 106), null);
         CardCombination lsLowPair = lsRules.recognize(List.of(104, 204, 304, 105, 205), null);
         CardCombination lsHighPair = lsRules.recognize(List.of(104, 204, 304, 107, 207), null);
+        CardCombination lsFourWithSingles = lsRules.recognize(
+                List.of(104, 204, 304, 404, 105, 106), null);
+        CardCombination lsFourWithPairs = lsRules.recognize(
+                List.of(104, 204, 304, 404, 105, 205, 106, 206), null);
         assertAll(
                 () -> assertEquals("TRIPLE_WITH_PAIR", lsPrevious.type()),
                 () -> assertEquals("TRIPLE_WITH_ONE", lsSingle.type()),
-                () -> assertEquals("TRIPLE_WITH_TWO", lsScattered.type()),
+                () -> assertThrows(IllegalArgumentException.class,
+                        () -> lsRules.recognize(List.of(104, 204, 304, 105, 106), null)),
                 () -> assertFalse(lsRules.canBeat(lsLowPair, lsPrevious, null)),
-                () -> assertTrue(lsRules.canBeat(lsHighPair, lsPrevious, null)));
+                () -> assertTrue(lsRules.canBeat(lsHighPair, lsPrevious, null)),
+                () -> assertEquals("FOUR_WITH_TWO", lsFourWithSingles.type()),
+                () -> assertEquals("FOUR_WITH_TWO_PAIRS", lsFourWithPairs.type()),
+                () -> assertEquals("FOUR_WITH_TWO", lsRules.recognize(
+                        List.of(104, 204, 304, 404, 105, 205), null).type()));
     }
 
     @Test void neijiangKeepsIndependentIdentityAndUsesPublishedTwoPlayerCut() {
@@ -119,8 +127,8 @@ final class RegionalPdkProviderTest {
                 Map.of("playerCount", 4, "roundCount", 8, "dealCardCount", 10,
                         "operationTime", 15, "jinHuaScore", 4,
                         "robDealerRule", "dealer_last",
-                        "playRule", List.of("compare_attachments", "triple_with_one",
-                                "four_with_two", "four_ace_rank", "all_special_patterns"),
+                        "playRule", List.of("compare_attachments", "triple_with_one_or_pair",
+                                "four_with_two_or_pairs", "four_ace_rank", "all_special_patterns"),
                         "roomRestriction", List.of("ip_limit", "timeout_auto_play",
                                 "distance_warning", "chat_muted"))))
                 .requireAuthoritativeSession();
@@ -129,6 +137,7 @@ final class RegionalPdkProviderTest {
         assertEquals(10, rules.get("cardsPerPlayer"));
         assertEquals(40, ((List<?>) rules.get("deckCards")).size());
         assertEquals(105, rules.get("bankerSelectionCard"));
+        assertEquals(false, rules.get("selectBankerEveryRound"));
         assertEquals(1, rules.get("baseScore"));
         assertEquals(4, rules.get("jinHuaScoreUnit"));
         assertEquals(true, rules.get("competeDealerStartAfterBanker"));
@@ -138,6 +147,39 @@ final class RegionalPdkProviderTest {
                 "ALL_BIG", "ALL_SMALL", "ALL_RED", "ALL_BLACK")));
         assertEquals(saved, provider.restoreAuthoritativeSession(saved).orElseThrow()
                 .authoritativeState());
+    }
+
+    @Test void liangshanNextRoundBankerIsPreviousRoundWinner() {
+        GameProvider provider = provider(90005, "LS201", "凉山跑得快", "liangshan",
+                "xqp-equivalent-1");
+        long roomId = 9000599L;
+        var session = provider.roomFactory().create(new RoomCreationContext(roomId, 10,
+                Map.of("playerCount", 2, "roundCount", 8, "dealCardCount", 8,
+                        "shuffleSeed", 9000599L))).requireAuthoritativeSession();
+        long sequence = 1;
+        session.execute(command(roomId, 1, 11, "join", sequence++));
+        session.execute(command(roomId, 0, 10, "ready", sequence++));
+        session.execute(command(roomId, 1, 11, "ready", sequence++));
+        int guard = 0;
+        while (!Boolean.TRUE.equals(session.viewFor(10).get("finished"))) {
+            assertTrue(guard++ < 200, "Liangshan authority round did not converge");
+            int seat = ((Number) session.viewFor(10).get("currentSeat")).intValue();
+            long player = 10L + seat;
+            var hint = session.execute(command(roomId, seat, player, "hint", sequence++));
+            @SuppressWarnings("unchecked")
+            List<CardCombination> hints = (List<CardCombination>) hint.body().get("hints");
+            if (hints.isEmpty())
+                session.execute(command(roomId, seat, player, "pass", sequence++));
+            else
+                session.execute(command(roomId, seat, player, "play", sequence++,
+                        Map.of("cards", hints.getFirst().cards())));
+        }
+        int winner = ((Number) session.viewFor(10).get("winnerSeat")).intValue();
+        session.execute(command(roomId, 0, 10, "continue", sequence++));
+        session.execute(command(roomId, 1, 11, "continue", sequence));
+        assertEquals(2, session.viewFor(10).get("roundNo"));
+        assertEquals(winner, session.viewFor(10).get("bankerSeat"));
+        assertEquals(winner, session.viewFor(10).get("currentSeat"));
     }
 
     @Test void liangshanTwoAndThreePlayerRoomsDealExactHandsAndKeepOnlyTheXqpStock() {
@@ -259,8 +301,13 @@ final class RegionalPdkProviderTest {
 
     private static GameCommandRequest command(long roomId, int seat, long player,
             String action, long sequence) {
+        return command(roomId, seat, player, action, sequence, Map.of());
+    }
+
+    private static GameCommandRequest command(long roomId, int seat, long player,
+            String action, long sequence, Map<String,Object> body) {
         return new GameCommandRequest(action + "_req", "ls201-" + action + '-' + sequence,
                 sequence, roomId, 1, "xqp-equivalent-1", String.valueOf(player), seat,
-                Map.of());
+                body);
     }
 }

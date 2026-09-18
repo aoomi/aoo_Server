@@ -89,7 +89,12 @@ final class JdbcHallWebSocketDispatcher implements GatewayWebSocketFrameHandler.
         Map<String,Object> rules=new LinkedHashMap<>();
         sourceRules.forEach((key,value)->{
             String name=String.valueOf(key);
-            if(allowed.contains(name)||"baseScore".equals(name))rules.put(name,value);
+            // Fee fields are server-owned parts of the saved club template. They are not
+            // gameplay choices published by the rule sheet, but must survive materializing
+            // a template into a room so terminal settlement can calculate the entry fee.
+            if(allowed.contains(name)||Set.of("baseScore","roomSportsType","roomSportsEveryoneConsume",
+                    "percentage","prizePool","bigWinnerConsumeList","rule","roomSportsThreshold",
+                    "JoinGamePoint","autoDismiss").contains(name))rules.put(name,value);
         });
         return Map.copyOf(rules);
     }

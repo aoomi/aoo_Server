@@ -112,7 +112,8 @@ public final class GatewayWebSocketFrameHandler extends SimpleChannelInboundHand
             failure(ctx, GatewayErrorCode.IDEMPOTENCY_CONFLICT, request, false);
         } catch (IllegalArgumentException failure) {
             String trace=request==null?"unknown":request.traceId(),message=request==null?"unknown":request.msgId();
-            System.err.printf("gateway websocket request rejected trace=%s msgId=%s cause=%s%n",trace,message,String.valueOf(failure.getMessage()));
+            System.err.printf("gateway websocket request rejected trace=%s msgId=%s context=%s cause=%s%n",
+                    trace,message,rejectedCommandContext(request),String.valueOf(failure.getMessage()));
             if(request==null)failure(ctx, GatewayErrorCode.INVALID_ENVELOPE, request, true);
             else if(String.valueOf(failure.getMessage()).startsWith("room does not exist:"))
                 failure(ctx, GatewayErrorCode.ROUTE_NOT_FOUND, request, false);
@@ -123,6 +124,25 @@ public final class GatewayWebSocketFrameHandler extends SimpleChannelInboundHand
                     failure.getClass().getSimpleName(),String.valueOf(failure.getMessage()));
             failure.printStackTrace(System.err);
             failure(ctx, GatewayErrorCode.ROOM_STATE_CONFLICT, request, false, userMessage(failure));
+        }
+    }
+
+    /** Stable, non-sensitive evidence for rejected room commands. */
+    private static Map<String,Object> rejectedCommandContext(WebSocketFrame request) {
+        if(request==null)return Map.of();
+        Map<String,Object> result=new LinkedHashMap<>();
+        result.put("roomId",request.roomId());
+        result.put("roundNo",request.roundNo());
+        copyDiagnosticFields(request.body(),result);
+        Object payload=request.body().get("payload");
+        if(payload instanceof Map<?,?> nested)copyDiagnosticFields(nested,result);
+        return result;
+    }
+
+    private static void copyDiagnosticFields(Map<?,?> source,Map<String,Object> target) {
+        for(String key:new String[]{"action","operationId","stateVersion","trickId","pos","seat","opCardType","cards"}) {
+            Object value=source.get(key);
+            if(value!=null)target.put(key,value);
         }
     }
 

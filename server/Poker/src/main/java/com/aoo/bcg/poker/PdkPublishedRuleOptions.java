@@ -23,6 +23,40 @@ public final class PdkPublishedRuleOptions {
             SMALL_SETTLEMENT_POPUP_OPTION);
     private PdkPublishedRuleOptions() { }
 
+    /** Resolves mutually exclusive, stable public rule keys into the shared attachment model. */
+    static PaoDeKuaiConfig.AttachmentMode tripleAttachmentMode(
+            Collection<String> selectedPlayRules) {
+        int selected = (selectedPlayRules.contains("triple_with_one") ? 1 : 0)
+                + (selectedPlayRules.contains("triple_with_one_or_pair") ? 1 : 0)
+                + (selectedPlayRules.contains("triple_with_pair") ? 1 : 0);
+        if (selected > 1)
+            throw new IllegalArgumentException("conflicting triple attachment rules");
+        if (selectedPlayRules.contains("triple_with_one_or_pair"))
+            return PaoDeKuaiConfig.AttachmentMode.SINGLE_OR_PAIR;
+        if (selectedPlayRules.contains("triple_with_one"))
+            return PaoDeKuaiConfig.AttachmentMode.SINGLES;
+        if (selectedPlayRules.contains("triple_with_pair"))
+            return PaoDeKuaiConfig.AttachmentMode.PAIRS;
+        return PaoDeKuaiConfig.AttachmentMode.DISABLED;
+    }
+
+    /** Resolves the independently published four-with-two-cards and four-with-two-pairs rules. */
+    static PaoDeKuaiConfig.AttachmentMode fourAttachmentMode(
+            Collection<String> selectedPlayRules) {
+        if (selectedPlayRules.contains("four_with_two_or_pairs")) {
+            if (selectedPlayRules.contains("four_with_two")
+                    || selectedPlayRules.contains("four_with_two_pairs"))
+                throw new IllegalArgumentException("conflicting four attachment rules");
+            return PaoDeKuaiConfig.AttachmentMode.EITHER;
+        }
+        boolean singles = selectedPlayRules.contains("four_with_two");
+        boolean pairs = selectedPlayRules.contains("four_with_two_pairs");
+        if (singles && pairs) return PaoDeKuaiConfig.AttachmentMode.EITHER;
+        if (singles) return PaoDeKuaiConfig.AttachmentMode.SINGLES;
+        if (pairs) return PaoDeKuaiConfig.AttachmentMode.PAIRS;
+        return PaoDeKuaiConfig.AttachmentMode.DISABLED;
+    }
+
     public static PaoDeKuaiConfig apply(Map<String,Object> rules, PaoDeKuaiConfig base) {
         Objects.requireNonNull(rules);
         Objects.requireNonNull(base);
@@ -97,10 +131,11 @@ public final class PdkPublishedRuleOptions {
             rules.putIfAbsent("airplaneWithoutAttachmentTiming", (anytime
                     ? PaoDeKuaiConfig.PlayTiming.ANYTIME
                     : PaoDeKuaiConfig.PlayTiming.FINAL_ONLY).name());
-            rules.putIfAbsent("fourAttachmentMode", (selected.contains("four_with_two")
-                    ? PaoDeKuaiConfig.AttachmentMode.EITHER
-                    : PaoDeKuaiConfig.AttachmentMode.DISABLED).name());
-            rules.putIfAbsent("specialTripleBombRanks",
+            rules.putIfAbsent("fourAttachmentMode", fourAttachmentMode(selected).name());
+            // playRule is the authoritative room-opening selection. This field is derived
+            // from that selection, so a stale value from a base/published snapshot must not
+            // override the rule chosen for the current room.
+            rules.put("specialTripleBombRanks",
                     selected.contains("triple_ace_bomb") ? List.of(14) : List.of());
             if (selected.contains("require_spade_three")) {
                 rules.putIfAbsent("requiredFirstCard", 103);
@@ -286,6 +321,7 @@ public final class PdkPublishedRuleOptions {
 
     private static boolean allowsPairs(PaoDeKuaiConfig.AttachmentMode mode) {
         return mode == PaoDeKuaiConfig.AttachmentMode.PAIRS
+                || mode == PaoDeKuaiConfig.AttachmentMode.SINGLE_OR_PAIR
                 || mode == PaoDeKuaiConfig.AttachmentMode.EITHER;
     }
 

@@ -159,12 +159,21 @@ end
 
 def reconcile_options!(field, labels)
   field['options'] ||= []
-  reconcile_entries!(field['options'], labels, lambda do |index|
+  options = reconcile_entries!(field['options'], labels, lambda do |index|
     entry = { 'label'=>labels[index], 'position'=>index + 1, 'active'=>true }
     entry['value'] = option_default_value(labels[index], field)
     field['options'] << entry
     entry
   end)
+  # The stable registry owns option identity, not a stale numeric meaning. When
+  # the authoritative workbook changes `1000秒` to `10000秒`, the label and the
+  # wire value must change together; otherwise the client displays 10000 while
+  # Hall and the game runtime still receive 1000.
+  options.each_with_index do |option, index|
+    numeric = labels[index].match(/-?\d+/)
+    option['value'] = Integer(numeric[0], 10) if numeric
+  end
+  options
 end
 
 def save_registry!(registry)

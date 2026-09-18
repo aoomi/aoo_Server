@@ -34,6 +34,7 @@ final class JdbcGatewayGameCommandCommitter implements GameCommandCommitter {
     private final JdbcIdempotencyStore<GameCommandResult> results;
     private final JdbcRoomSnapshotStore snapshots;
     private final DurableGameSettlementService settlements;
+    private final ClubMatchSettlementService clubMatches;
     private final core.replay.ReplayCodeRepository replayCodeRepository;
 
     JdbcGatewayGameCommandCommitter(DataSource dataSource, ObjectMapper json, Clock clock,
@@ -43,6 +44,7 @@ final class JdbcGatewayGameCommandCommitter implements GameCommandCommitter {
         this.clock = Objects.requireNonNull(clock);
         this.retention = Objects.requireNonNull(retention);
         this.settlements = Objects.requireNonNull(settlements);
+        this.clubMatches = new ClubMatchSettlementService(dataSource, json, clock);
         this.replayCodeRepository = new core.replay.JdbcReplayCodeRepository(dataSource);
         if (retention.isZero() || retention.isNegative()) {
             throw new IllegalArgumentException("command retention must be positive");
@@ -95,7 +97,8 @@ final class JdbcGatewayGameCommandCommitter implements GameCommandCommitter {
                 completeResult(connection, key, durableResult);
                 connection.commit();
                 if (pendingSettlement != null) {
-                    recoverPendingSettlements(1);
+                    recoverPendingSettlements(256);
+                    if (terminalMatch(state)) clubMatches.settle(room.roomId());
                 }
             } catch (Exception failure) {
                 connection.rollback();
@@ -191,6 +194,16 @@ final class JdbcGatewayGameCommandCommitter implements GameCommandCommitter {
             } catch (Exception failure) { throw new IllegalStateException("cannot recover settlement outbox", failure); }
         }
         return completed;
+    }
+
+    int recoverCompletedClubMatches(int limit) { return clubMatches.recoverCompletedMatches(limit); }
+
+    private static boolean terminalMatch(Map<String,Object> state) {
+        Object nested = state.get("state");
+        boolean finished = nested instanceof Map<?,?> values && Boolean.TRUE.equals(values.get("finished"));
+        Object round = state.get("roundNo"), limit = state.get("roundLimit");
+        return finished && round instanceof Number current && limit instanceof Number maximum
+                && maximum.intValue() > 0 && current.intValue() >= maximum.intValue();
     }
 
     @Override

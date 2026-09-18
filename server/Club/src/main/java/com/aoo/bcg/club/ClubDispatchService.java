@@ -14,6 +14,7 @@ import java.util.*;
 
 /** Bridges historical club actions onto the authoritative JDBC club aggregate. */
 public final class ClubDispatchService {
+    private static final System.Logger LOG = System.getLogger(ClubDispatchService.class.getName());
     private static final int PAGE_SIZE = 20;
     private static final long CLUB_CREATE_COST_CRYSTAL = 100;
     private final DataSource source;
@@ -128,6 +129,7 @@ public final class ClubDispatchService {
     private Object promotionOrUnsupported(long actor, String requestId, String action, Map<String, Object> payload) {
         if (action.startsWith("union.")) return unionReadShape(action);
         if (!action.startsWith("club.")) throw new IllegalArgumentException("unsupported club action");
+        if (action.contains("PromotionLevelIncludeAll")) return promotionList(actor, payload);
         if (action.contains("PidInfo") || action.endsWith("Info")) return promotionInfo(actor, payload);
         if (action.contains("LevelList") || action.contains("TeamList")) return promotionList(actor, payload);
         if (action.contains("Ranked")) return Map.of("clubRankInfoList", List.of(), "clubCompetitionRankedItems", List.of(), "pageNumTotal", 1);
@@ -164,6 +166,10 @@ public final class ClubDispatchService {
             Map<Long, String> members = new LinkedHashMap<>(current.members());
             Map<Long, JdbcClubService.MemberExtraState> extras = new LinkedHashMap<>(current.memberExtras());
             long pid = number(payload, "pid", number(payload, "opPid", 0));
+            if (action.endsWith("CClubPromotionShareChange") && pid > 0) {
+                settings.put("promotionShareType." + pid, number(payload, "type", 0));
+                settings.put("promotionShareValue." + pid, decimal(payload.get("value")));
+            }
             if (directPromotionInvite && pid > 0 && !members.containsKey(pid)) members.put(pid, "MEMBER");
             if (pid > 0 && members.containsKey(pid)) {
                 JdbcClubService.MemberExtraState old = extras.getOrDefault(pid,
@@ -176,9 +182,11 @@ public final class ClubDispatchService {
                 if (action.contains("SubordinateLevelDelete") || action.contains("CancleCaption")) promotion = false;
                 long newParent = number(payload, "upLevelId", number(payload, "partnerPid", up));
                 if (newParent > 0) up = newParent;
+                int eliminatePoint = old.eliminatePoint();
+                if (action.contains("EliminatePoint")) eliminatePoint = (int) number(payload, "value", eliminatePoint);
                 extras.put(pid, new JdbcClubService.MemberExtraState(old.remarkName(), promotion, up,
                         decimal(old.clubCent()), decimal(old.caseClubCent()), decimal(old.warningPoint()),
-                        (int) number(payload, "value", old.eliminatePoint())));
+                        eliminatePoint));
             }
             return JdbcClubService.copy(current, current.name(), current.status(), Map.copyOf(members),
                     current.templates(), current.tables(), current.invites(), current.records(),
@@ -200,6 +208,7 @@ public final class ClubDispatchService {
 
     private Object promotionInfo(long actor, Map<String, Object> payload) {
         long pid = number(payload, "pid", number(payload, "opPid", actor));
+        JdbcClubService.State state = requireMember(clubId(payload), actor);
         Map<String, Object> player = profile(pid);
         Map<String, Object> out = new LinkedHashMap<>();
         out.put("player", player);
@@ -207,18 +216,36 @@ public final class ClubDispatchService {
         out.put("reservedValue", 0);
         out.put("minShareValue", 0);
         out.put("minShareFixedValue", 0);
+        out.put("doShareValue", 100);
+        out.put("doShareFixedValue", 100);
         out.put("minAllowShareToValue", 0);
+        out.put("shareType", setting(state, "promotionShareType." + pid, 0));
+        out.put("shareValue", decimal(state.settings().get("promotionShareValue." + pid)));
+        out.put("shareFixedValue", decimal(state.settings().get("promotionShareValue." + pid)));
         out.put("promotionShareSectionItems", List.of(section(1, 0, 100, 0)));
         return out;
     }
 
     private Map<String, Object> promotionList(long actor, Map<String, Object> payload) {
         JdbcClubService.State state = requireMember(clubId(payload), actor);
-        List<Map<String, Object>> rows = selfFirst(directMembers(state, actor), actor).stream()
+        String query = text(payload, "query", "").trim();
+        Collection<Long> candidates = "OWNER".equals(state.members().get(actor))
+                ? state.members().keySet() : directMembers(state, actor);
+        LOG.log(System.Logger.Level.INFO, "[ClubPromotion] list clubId={0} actor={1} query={2} members={3} candidates={4}",
+                state.id(), actor, query, state.members().keySet(), candidates);
+        List<Map<String, Object>> rows = selfFirst(candidates, actor).stream()
+                .filter(pid -> query.isEmpty() || promotionMatches(pid, query))
                 .map(pid -> promotionRow(state, pid))
                 .toList();
         return Map.of("clubPromotionLevelItemList", rows, "clubTeamListInfoList", rows,
                 "showList", List.of(1, 2, 3), "showListSecond", List.of(), "dateType", List.of(0, 1, 2, 3));
+    }
+
+    private boolean promotionMatches(long pid, String query) {
+        if (Long.toString(pid).equals(query)) return true;
+        Map<String, Object> player = profile(pid);
+        return query.equals(String.valueOf(player.getOrDefault("pid", "")))
+                || String.valueOf(player.getOrDefault("name", "")).contains(query);
     }
 
     private Map<String, Object> promotionRow(JdbcClubService.State state, long pid) {
@@ -230,9 +257,11 @@ public final class ClubDispatchService {
         row.put("setCount", state.records().size());
         row.put("entryFee", 0);
         row.put("actualEntryFee", 0);
-        row.put("shareType", 0);
-        row.put("shareValue", 0);
-        row.put("shareFixedValue", 0);
+        long shareType = setting(state, "promotionShareType." + pid, 0);
+        BigDecimal shareValue = decimal(state.settings().get("promotionShareValue." + pid));
+        row.put("shareType", shareType);
+        row.put("shareValue", shareValue);
+        row.put("shareFixedValue", shareValue);
         BigDecimal balance = memberClubCent(state, pid);
         row.put("scorePoint", balance);
         row.put("clubCent", balance);
@@ -1279,6 +1308,7 @@ public final class ClubDispatchService {
 
     private long effectiveParent(JdbcClubService.State state, long pid, long owner) {
         JdbcClubService.MemberExtraState member = extra(state, pid);
+        if (pid != owner && member.upPlayerId() <= 0) return owner;
         // Earlier captain appointment packets could persist partnerPid=self. In 2.22 this node is
         // still a direct child of the creator, so normalize it at the read boundary.
         if (member.promotionManager() && member.upPlayerId() == pid) return owner;
@@ -1473,7 +1503,13 @@ public final class ClubDispatchService {
     }
 
     private List<Map<String, Object>> queryHallClubRooms(long clubId) {
-        String sql = "SELECT room_id,game_id,play_version,state,club_template_code,rules_json,updated_at FROM aoo_hall_room WHERE club_id=? AND state IN ('OPEN','PLAYING') ORDER BY updated_at DESC,room_id DESC LIMIT 200";
+        String sql = "SELECT h.room_id,h.game_id,h.play_version,h.state,h.club_template_code,h.rules_json,h.updated_at "
+                + "FROM aoo_hall_room h LEFT JOIN aoo_room_snapshot s ON s.room_id=h.room_id "
+                + "WHERE h.club_id=? AND h.state IN ('OPEN','PLAYING') AND NOT ("
+                + "JSON_EXTRACT(s.state_payload,'$.state.finished')=true AND JSON_EXTRACT(s.state_payload,'$.roundScored')=true "
+                + "AND CAST(JSON_UNQUOTE(JSON_EXTRACT(s.state_payload,'$.roundNo')) AS UNSIGNED)>="
+                + "CAST(JSON_UNQUOTE(JSON_EXTRACT(s.state_payload,'$.roundLimit')) AS UNSIGNED)) "
+                + "ORDER BY h.updated_at DESC,h.room_id DESC LIMIT 200";
         try (Connection connection = source.getConnection(); PreparedStatement query = connection.prepareStatement(sql)) {
             query.setLong(1, clubId);
             List<Map<String, Object>> out = new ArrayList<>();
@@ -1756,9 +1792,10 @@ public final class ClubDispatchService {
                 String name = rows.getString("nickname");
                 Map<String, Object> out = new LinkedHashMap<>();
                 String displayId = rows.getString("display_id");
-                out.put("pid", displayId == null || displayId.isBlank() ? pid : displayId);
-                out.put("id", out.get("pid"));
+                out.put("pid", pid);
+                out.put("id", pid);
                 out.put("accountId", pid);
+                out.put("displayId", displayId == null || displayId.isBlank() ? Long.toString(pid) : displayId);
                 out.put("name", name == null || name.isBlank() ? "玩家" + pid : name);
                 out.put("nickName", out.get("name"));
                 out.put("iconUrl", Objects.toString(rows.getString("avatar_url"), ""));

@@ -19,6 +19,7 @@ import java.sql.SQLException;
 import java.time.Clock;
 import java.time.Instant;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -308,6 +309,7 @@ public Map<String, Object> join(Map<String, Object> command) {
 
     private void processRoomLifecycles() {
         try{finishInterruptedRemovals();}catch(RuntimeException failure){System.err.println("room removal recovery deferred cause="+failure.getMessage());}
+        try{closeDurableTerminalRooms();}catch(RuntimeException failure){System.err.println("terminal room closure recovery deferred cause="+failure.getMessage());}
         for(GameRoomHandle room:rooms.snapshot())try {
             if(expireWaitingRoom(room))continue;
             if(!(room.requireAuthoritativeSession() instanceof RoomLifecycleAuthority lifecycle))continue;
@@ -317,6 +319,31 @@ public Map<String, Object> join(Map<String, Object> command) {
             boolean durable=stateStore.latest(room.roomId()).map(snapshot->{Object value=snapshot.authoritativeState().get("stateVersion");return value instanceof Number number&&number.longValue()>=room.requireAuthoritativeSession().stateVersion();}).orElse(false);
             if(lifecycle.isTerminal()&&durable)completeTerminal(room.roomId(),"room-lifecycle-"+room.roomId()+"-"+room.requireAuthoritativeSession().stateVersion(),"room-lifecycle-"+room.roomId(),lifecycle.terminalReason());
         } catch(RuntimeException failure){System.err.println("room lifecycle processing deferred roomId="+room.roomId()+" cause="+failure.getMessage());}
+    }
+
+    /** Closes a match from its durable terminal snapshot even if its in-memory lifecycle was already evicted. */
+    private void closeDurableTerminalRooms(){
+        List<long[]> terminal=new ArrayList<>();
+        String sql="SELECT a.room_id,a.fencing_token,CAST(JSON_UNQUOTE(JSON_EXTRACT(s.state_payload,'$.stateVersion')) AS UNSIGNED) "
+                +"FROM aoo_room_authority_route a JOIN aoo_room_snapshot s ON s.room_id=a.room_id "
+                +"WHERE a.node_id=? AND a.lifecycle_state='ACTIVE' "
+                +"AND JSON_EXTRACT(s.state_payload,'$.state.finished')=true "
+                +"AND CAST(JSON_UNQUOTE(JSON_EXTRACT(s.state_payload,'$.roundNo')) AS UNSIGNED)>="
+                +"CAST(JSON_UNQUOTE(JSON_EXTRACT(s.state_payload,'$.roundLimit')) AS UNSIGNED) ORDER BY a.room_id LIMIT 256";
+        try(Connection connection=dataSource.getConnection();PreparedStatement query=connection.prepareStatement(sql)){
+            query.setString(1,nodeId);
+            try(ResultSet rows=query.executeQuery()){while(rows.next())terminal.add(new long[]{rows.getLong(1),rows.getLong(2),rows.getLong(3)});}
+        }catch(SQLException failure){throw new IllegalStateException("cannot enumerate terminal durable rooms",failure);}
+        for(long[] item:terminal){long roomId=item[0],fence=item[1],version=item[2];synchronized(lock(roomId)){
+            Route route=route(roomId);
+            if(!"ACTIVE".equals(route.state())||route.fencingToken()!=fence||!nodeId.equals(route.nodeId()))continue;
+            String requestId="terminal-room-closure-"+roomId+'-'+version;
+            transition(roomId,fence,"REMOVING");
+            hallLifecycle.close(roomId,requestId,requestId,"MATCH_FINISHED");
+            rooms.remove(roomId);
+            transition(roomId,fence,"REMOVED");
+            roomLocks.remove(roomId);
+        }}
     }
 
     private boolean expireWaitingRoom(GameRoomHandle room){
@@ -478,8 +505,21 @@ public Map<String, Object> join(Map<String, Object> command) {
                     transition(candidate.roomId(), claimed.fencingToken(), "ACTIVE");
                 } catch (RuntimeException failure) {
                     failRoute(candidate.roomId(), claimed.fencingToken(), failure);
-                    long stateVersion=stateStore.latest(candidate.roomId()).map(snapshot ->
+                    var failedSnapshot=stateStore.latest(candidate.roomId());
+                    long stateVersion=failedSnapshot.map(snapshot ->
                             ((Number)snapshot.authoritativeState().getOrDefault("stateVersion",0)).longValue()).orElse(0L);
+                    Object roundNo=failedSnapshot.map(snapshot ->
+                            snapshot.authoritativeState().getOrDefault("roundNo",0)).orElse(0);
+                    Object phase=failedSnapshot.map(snapshot -> {
+                        Object state=snapshot.authoritativeState().get("state");
+                        return state instanceof Map<?,?> map
+                                ? (Boolean.TRUE.equals(map.get("finished"))?"FINISHED":"PLAYING")
+                                : String.valueOf(state);
+                    }).orElse("MISSING");
+                    int operationCount=failedSnapshot.map(snapshot -> {
+                        Object operations=snapshot.authoritativeState().get("tableOperations");
+                        return operations instanceof Collection<?> values?values.size():0;
+                    }).orElse(0);
                     String reason=failure.getClass().getSimpleName()+":"+String.valueOf(failure.getMessage());
                     String quarantineRequest="room-recovery-quarantine-"+candidate.roomId()+"-"+stateVersion;
                     try {
@@ -490,6 +530,8 @@ public Map<String, Object> join(Map<String, Object> command) {
                         roomLocks.remove(candidate.roomId());
                         System.err.println("gateway room recovery quarantined roomId="+candidate.roomId()
                                 +" gameCode="+candidate.gameCode()+" stateVersion="+stateVersion
+                                +" roundNo="+roundNo+" phase="+phase+" operationCount="+operationCount
+                                +" traceId="+candidate.traceId()
                                 +" reason="+reason.replace('\n',' ').replace('\r',' '));
                     } catch (RuntimeException quarantineFailure) {
                         failure.addSuppressed(quarantineFailure);

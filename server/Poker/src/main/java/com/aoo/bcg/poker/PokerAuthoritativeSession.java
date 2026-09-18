@@ -22,6 +22,10 @@ public final class PokerAuthoritativeSession
   /** Keep the robber's lead visible before the authority commits the forced response. */
   private static final Duration ROBBER_AUTO_RESPONSE_DELAY = Duration.ofMillis(500);
   private final long roomId, seed;
+  /** Seed used by the current dealt round; persisted for recovery and audit. */
+  private long currentRoundSeed;
+  /** Monotonic deal identity, including an aborted pre-deal dealer competition. */
+  private long shuffleSequence;
   private long ownerId;
   private final int seatLimit, roundLimit;
   private Integer previousWinnerSeat;
@@ -167,6 +171,7 @@ public final class PokerAuthoritativeSession
             previous,
             roundLimit);
     x.stateVersion = s.get("stateVersion") instanceof Number n ? n.longValue() : 0;
+    x.currentRoundSeed = s.get("currentRoundSeed") instanceof Number n ? n.longValue() : 0L;
     x.trickId = s.get("trickId") instanceof Number n ? n.longValue() : 0;
     x.initialLeadSeat = s.get("initialLeadSeat") instanceof Number n ? n.intValue() : -1;
     x.bankerSeat = s.get("bankerSeat") instanceof Number n ? n.intValue() : x.initialLeadSeat;
@@ -261,6 +266,8 @@ public final class PokerAuthoritativeSession
       x.playedCardsBySeat.values().forEach(cards -> cards.forEach(card -> x.undealtCards.remove(card)));
     }
     x.roundNo = s.get("roundNo") instanceof Number n ? n.intValue() : (x.state == null ? 0 : 1);
+    x.shuffleSequence = s.get("shuffleSequence") instanceof Number n
+        ? n.longValue() : Math.max(0, x.roundNo);
     x.roundScored = bool(s.getOrDefault("roundScored", x.state != null && x.state.finished()));
     x.automaticNextRoundCancelled = bool(s.getOrDefault("automaticNextRoundCancelled", false));
     x.deadline = OperationDeadline.from(s.get("operationDeadline"));
@@ -692,7 +699,18 @@ public final class PokerAuthoritativeSession
     PokerRuleProfile p = family.profile();
     int count = family.rules().cardsPerPlayer(players.size());
     List<Integer> deck = new ArrayList<>(p.deck());
-    new SeededGameRandomSource(seed + roundNo).shuffle(deck);
+    int nextRound = Math.addExact(roundNo, 1);
+    shuffleSequence = Math.addExact(shuffleSequence, 1L);
+    currentRoundSeed = deriveRoundSeed(seed, roomId, nextRound, shuffleSequence);
+    new SeededGameRandomSource(currentRoundSeed).shuffle(deck);
+    LOGGER.log(
+        System.Logger.Level.INFO,
+        "[PdkShuffle] dealt roomId={0} roundNo={1} stateVersion={2} shuffleSequence={3} deckSize={4} randomSource=SERVER_SECURE_DERIVED",
+        roomId,
+        nextRound,
+        stateVersion,
+        shuffleSequence,
+        deck.size());
     Map<Integer, List<Integer>> hands = new LinkedHashMap<>();
     // Card selection applies to the whole deal, not to one seat at a time. Reserve
     // every selected card before filling any hand, otherwise an earlier seat's
@@ -736,7 +754,6 @@ public final class PokerAuthoritativeSession
     undealtCards.clear();
     undealtCards.addAll(deck);
     selectedInitialHands.clear();
-    int nextRound = roundNo + 1;
     bankerSeat = resolveBanker(p, hands, nextRound);
     initialLeadSeat = bankerSeat;
     activeRequiredFirstCard = resolveRequiredFirstCard(hands, nextRound);
@@ -793,7 +810,7 @@ public final class PokerAuthoritativeSession
     if (profile.firstLead() == PokerRuleProfile.FirstLead.REQUIRED_CARD_HOLDER)
       return minimumCardHolder(hands);
     return PokerFirstLeadResolver.resolve(
-        profile, hands, seatOf(ownerId), previousWinnerSeat, seed + roundNo);
+        profile, hands, seatOf(ownerId), previousWinnerSeat, currentRoundSeed);
   }
 
   private Integer resolveRequiredFirstCard(Map<Integer, List<Integer>> hands, int nextRound) {
@@ -1047,6 +1064,10 @@ public final class PokerAuthoritativeSession
     o.put("seatLimit", seatLimit);
     o.put("roundNo", roundNo);
     o.put("roundLimit", roundLimit);
+    // Monotonic deal identity across in-place rematches. roundNo intentionally
+    // resets to 1 after a completed match and therefore cannot identify stale
+    // versus newly dealt projections on its own.
+    o.put("shuffleSequence", shuffleSequence);
     o.put("playVersion", family.profile().version());
     o.put("stateVersion", stateVersion);
     o.put("serverEpochMillis", time.epochMillis());
@@ -1221,6 +1242,8 @@ public final class PokerAuthoritativeSession
     o.put("seatLimit", seatLimit);
     o.put("roundLimit", roundLimit);
     o.put("seed", seed);
+    o.put("currentRoundSeed", currentRoundSeed);
+    o.put("shuffleSequence", shuffleSequence);
     o.put("roundNo", roundNo);
     o.put("players", Map.copyOf(players));
     o.put("observers", Map.copyOf(observers));
@@ -1596,7 +1619,13 @@ public final class PokerAuthoritativeSession
           new AuthoritativeTimeSource(java.time.Clock.fixed(now, java.time.ZoneOffset.UTC));
       arbiter.resolveTimeout(expired, fixed, this::resolveClaimedDealerResponses);
       stateVersion = Math.addExact(stateVersion, 1);
-      if (roundFinished()) deadline = OperationDeadline.none();
+      if (roundFinished()) {
+        deadline = OperationDeadline.none();
+        // completeRound() runs inside the timeout callback, before this lifecycle
+        // mutation receives its committed version. Re-arm against that committed
+        // version or startAutomaticNextRound will reject the deadline forever.
+        armAutomaticNextRound();
+      }
       else if (claimedDealerResponsePending()) openRobberAutoResponseDeadline();
       else openDeadline("robber-auto-response-complete");
       events.add(Map.of("version", stateVersion, "after", authoritativeState()));
@@ -1608,7 +1637,12 @@ public final class PokerAuthoritativeSession
         new AuthoritativeTimeSource(java.time.Clock.fixed(now, java.time.ZoneOffset.UTC));
     arbiter.resolveTimeout(expired, fixed, this::autoOperate);
     stateVersion = Math.addExact(stateVersion, 1);
-    if (roundFinished()) deadline = OperationDeadline.none();
+    if (roundFinished()) {
+      deadline = OperationDeadline.none();
+      // Timeout/hosting play can also finish the round inside autoOperate().
+      // Bind the automatic next-round deadline to the resulting committed version.
+      armAutomaticNextRound();
+    }
     else if (claimedDealerResponsePending()) openRobberAutoResponseDeadline();
     else openDeadline("timeout");
     events.add(Map.of("version", stateVersion, "after", authoritativeState()));
@@ -2067,20 +2101,29 @@ public final class PokerAuthoritativeSession
     if (!(value instanceof Collection<?> items))
       throw new IllegalArgumentException("invalid table operations");
     List<Map<String, Object>> out = new ArrayList<>();
+    int operationIndex = 0;
     for (Object raw : items) {
       if (!(raw instanceof Map<?, ?> map))
-        throw new IllegalArgumentException("invalid table operation");
+        throw new IllegalArgumentException("invalid table operation at index=" + operationIndex);
       Map<String, Object> item = stringMap(map);
+      String action = String.valueOf(item.getOrDefault("action", "none"));
+      List<Integer> cards = item.get("cards") instanceof Collection<?>
+          ? cardList(item.get("cards")) : List.of();
+      if ("play".equals(action) && cards.isEmpty())
+        throw new IllegalArgumentException("play cards required at table operation index=" + operationIndex);
+      if ("pass".equals(action) && !cards.isEmpty())
+        throw new IllegalArgumentException("pass cards must be empty at table operation index=" + operationIndex);
       Map<String, Object> operation = new LinkedHashMap<>();
       operation.put("seat", num(item.get("seat")));
-      operation.put("action", String.valueOf(item.getOrDefault("action", "none")));
-      operation.put("cards", List.copyOf(numbers(item.get("cards"))));
+      operation.put("action", action);
+      operation.put("cards", List.copyOf(cards));
       operation.put("cardType", String.valueOf(item.getOrDefault("cardType", "")));
       operation.put("operationId", String.valueOf(item.getOrDefault("operationId", "restored")));
       operation.put("stateVersion", lng(item.getOrDefault("stateVersion", 0)));
       operation.put("trickId", lng(item.getOrDefault("trickId", 0)));
       operation.put("playIndex", num(item.getOrDefault("playIndex", out.size() + 1)));
       out.add(Map.copyOf(operation));
+      operationIndex++;
     }
     return List.copyOf(out);
   }
@@ -2202,6 +2245,22 @@ public final class PokerAuthoritativeSession
 
   private static long lng(Object v) {
     return v instanceof Number n ? n.longValue() : Long.parseLong(String.valueOf(v));
+  }
+
+  /**
+   * Derive a non-overlapping deterministic stream from the server-secret master
+   * seed. Recovery reads the persisted round seed; public room identity alone can
+   * no longer predict or reproduce a deal.
+   */
+  private static long deriveRoundSeed(
+      long masterSeed, long roomId, int round, long dealSequence) {
+    long value = masterSeed
+        ^ Long.rotateLeft(roomId, 17)
+        ^ Long.rotateLeft((long) round, 37)
+        ^ (dealSequence * 0x9E3779B97F4A7C15L);
+    value = (value ^ (value >>> 30)) * 0xBF58476D1CE4E5B9L;
+    value = (value ^ (value >>> 27)) * 0x94D049BB133111EBL;
+    return value ^ (value >>> 31);
   }
 
   private static boolean bool(Object v) {

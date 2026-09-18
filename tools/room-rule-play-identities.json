@@ -11,7 +11,8 @@
       "regionCode": "CN-51-01",
       "requiredRoomRuleFields": [
         {"key": "playerCount", "sourceLabel": "人数"},
-        {"key": "roundCount", "sourceLabel": "局数"}
+        {"key": "roundCount", "sourceLabel": "局数"},
+        {"key": "operationTimeoutSeconds", "sourceLabel": "操作时间"}
       ]
     },
     {
@@ -24,7 +25,8 @@
       "regionCode": "CN-51-10",
       "requiredRoomRuleFields": [
         {"key": "playerCount", "sourceLabel": "人数"},
-        {"key": "roundCount", "sourceLabel": "局数"}
+        {"key": "roundCount", "sourceLabel": "局数"},
+        {"key": "operationTime", "sourceLabel": "操作时间"}
       ]
     },
     {
@@ -37,7 +39,8 @@
       "regionCode": "CN-51-34",
       "requiredRoomRuleFields": [
         {"key": "playerCount", "sourceLabel": "人数"},
-        {"key": "roundCount", "sourceLabel": "局数"}
+        {"key": "roundCount", "sourceLabel": "局数"},
+        {"key": "operationTime", "sourceLabel": "操作时间"}
       ]
     }
   ]

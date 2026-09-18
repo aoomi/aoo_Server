@@ -21,8 +21,8 @@ final class PdkPublishedRoomRuleCompatibilityTest {
         90005, "LS201", "凉山跑得快", GameCategory.POKER, PaoDeKuaiFamily.CODE,
         RegionScope.CITY, "sichuan", "liangshan", "xqp-equivalent-1")).orElseThrow();
     var session = provider.roomFactory().create(new RoomCreationContext(967030, 385, Map.ofEntries(
-        Map.entry("playRule", List.of("option_0001", "compare_attachments", "triple_with_one",
-            "four_with_two", "four_ace_rank", "all_special_patterns")),
+        Map.entry("playRule", List.of("option_0001", "compare_attachments", "triple_with_one_or_pair",
+            "four_with_two_or_pairs", "four_ace_rank", "all_special_patterns")),
         Map.entry("baseScore", 5),
         Map.entry("payerMode", "OWNER"),
         Map.entry("roundCount", 8),
@@ -60,7 +60,7 @@ final class PdkPublishedRoomRuleCompatibilityTest {
     PdkRegionRules regional = new LiangshanPdkRules();
     Map<String, Object> published = Map.of(
         "playerCount", 2,
-        "playRule", List.of("compare_attachments", "triple_with_one", "four_with_two",
+        "playRule", List.of("compare_attachments", "triple_with_one_or_pair", "four_with_two_or_pairs",
             "four_ace_rank", "all_special_patterns"),
         "dealCardCount", 8,
         "operationTime", 1000,
@@ -102,11 +102,11 @@ final class PdkPublishedRoomRuleCompatibilityTest {
     Map<String, Object> published = Map.of(
         "playerCount", 2,
         "rule_ls201_0001", List.of("option_0001"),
-        "playRule", List.of("option_0001", "triple_with_one", "compare_attachments"));
+        "playRule", List.of("option_0001", "triple_with_one_or_pair", "compare_attachments"));
     Map<String, Object> normalized = PdkPublishedRuleOptions.normalizePublishedRoomFields(
         published);
 
-    assertEquals(List.of("triple_with_one", "compare_attachments"), normalized.get("playRule"));
+    assertEquals(List.of("triple_with_one_or_pair", "compare_attachments"), normalized.get("playRule"));
     assertFalse(((List<?>) normalized.get("playRule")).contains("option_0001"));
 
     var session = provider.roomFactory().create(new RoomCreationContext(9000599, 10, published))
@@ -115,7 +115,7 @@ final class PdkPublishedRoomRuleCompatibilityTest {
     Map<String, Object> rules =
         (Map<String, Object>) session.authoritativeState().get("pdkRuleOptions");
 
-    assertEquals("EITHER", rules.get("tripleAttachmentMode"));
+    assertEquals("SINGLE_OR_PAIR", rules.get("tripleAttachmentMode"));
     assertEquals(true, rules.get("compareTripleAttachments"));
     assertEquals("POPUP", rules.get("settlementPresentation"));
     assertEquals(session.authoritativeState(), provider.restoreAuthoritativeSession(

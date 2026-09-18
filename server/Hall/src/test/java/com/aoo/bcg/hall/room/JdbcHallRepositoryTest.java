@@ -5,6 +5,14 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 class JdbcHallRepositoryTest{
+ @Test void clubTemplatePolicyIsStoredBesideValidatedGameplayWithoutAdmittingUnknownFields(){
+  Map<String,Object> merged=JdbcHallRepository.mergeClubTemplatePolicy(
+    Map.of("roundCount",8,"baseScore",1),
+    Map.of("roundCount",8,"percentage",10,"roomSportsType",2,"attackerControlled",true));
+  assertEquals(10,merged.get("percentage"));
+  assertEquals(2,merged.get("roomSportsType"));
+  assertFalse(merged.containsKey("attackerControlled"));
+ }
  @Test void comparesVersionsNumericallyAndDeterministically(){assertTrue(JdbcHallRepository.compareVersions("2.10.0","2.9.9")>0);assertEquals(0,JdbcHallRepository.compareVersions("1.2","1.2.0"));assertTrue(JdbcHallRepository.compareVersions("1.2-rc1","1.2-beta")>0);}
  @Test void catalogClassificationDoesNotRequireTheAuthorityIndexToUseTheSameRegionTag(){
   assertEquals("JOIN aoo_compiled_index_active ai ON ai.game_id=gr.game_id",JdbcHallRepository.FILTER_ACTIVE_INDEX_JOIN);
