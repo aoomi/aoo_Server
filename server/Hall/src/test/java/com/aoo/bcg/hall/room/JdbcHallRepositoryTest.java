@@ -2,6 +2,7 @@ package com.aoo.bcg.hall.room;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
+import java.util.Map;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 class JdbcHallRepositoryTest{
@@ -46,5 +47,11 @@ class JdbcHallRepositoryTest{
   assertTrue(source.contains("dissolveEmptyClubRoom(c,value,room)"));
   assertTrue(source.contains("SELECT COUNT(*) FROM aoo_hall_room_member WHERE room_id=? AND status IN('JOINING','JOINED')"));
   assertTrue(source.contains("projectClubRoom(c,value,room,\"DISSOLVED\")"));
+ }
+ @Test void roomAndJoinResponsesCarryTheCanonicalCatalogGameCode() throws Exception{
+  String source=Files.readString(Path.of("src/main/java/com/aoo/bcg/hall/room/JdbcHallRepository.java"));
+  assertTrue(source.contains("g.game_code"));
+  assertTrue(source.contains("\"gameCode\",value.gameCode()"));
+  assertTrue(source.contains("\"gameCode\",reservation.gameCode()"));
  }
 }

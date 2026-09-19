@@ -5,6 +5,9 @@ import com.aoo.bcg.gamespi.GameDescriptor;
 import com.aoo.bcg.gamespi.GameProvider;
 import com.aoo.bcg.gamespi.RegionScope;
 import com.aoo.bcg.gamespi.RoomCreationContext;
+import com.aoo.bcg.gamespi.AuthoritativeGameSession;
+import com.aoo.bcg.gamespi.GameCommandRequest;
+import com.aoo.bcg.gamespi.GameRoomHandle;
 import com.aoo.bcg.poker.ComparePokerFamily;
 import com.aoo.bcg.poker.PokerFamilyProviderFactory;
 import org.junit.jupiter.api.Test;
@@ -13,6 +16,19 @@ import java.util.ServiceLoader;
 import static org.junit.jupiter.api.Assertions.*;
 
 class ZJHGameProviderTest {
+    @Test void publishesCanonicalLifecycleMarkersBeforeAndAfterRestore() {
+        ZJHGameProvider provider = new ZJHGameProvider();
+        AuthoritativeGameSession created = provider.createAuthoritativeSession(
+                new RoomCreationContext(858345, 619, Map.of())).orElseThrow();
+        assertEquals("WAITING", created.authoritativeState().get("phase"));
+        assertEquals(false, created.authoritativeState().get("started"));
+
+        AuthoritativeGameSession restored = provider.restoreAuthoritativeSession(created.authoritativeState())
+                .orElseThrow();
+        assertEquals("WAITING", restored.authoritativeState().get("phase"));
+        assertEquals(false, restored.authoritativeState().get("started"));
+        assertEquals(created.authoritativeState(), restored.authoritativeState());
+    }
     @Test void stableCodeAndPlayVersionUseTheirRequiredCases() {
         assertEquals("CN297", ZJHGameProvider.GAME_CODE);
         assertEquals("cn297-v1.0.0", ZJHGameProvider.PLAY_VERSION);
@@ -45,6 +61,32 @@ class ZJHGameProviderTest {
         assertNotEquals(88L, table.randomSeed(), "client/room rules must not choose the shuffle seed");
     }
 
+    @Test void providerPublishesOneRestorableAuthorityWithoutShadowState() {
+        ZJHGameProvider provider = new ZJHGameProvider();
+        GameRoomHandle room = provider.roomFactory().create(new RoomCreationContext(14, 2004,
+                Map.of("seatLimit", 8, "minimumPlayers", 2, "mustBlindRounds", 0)));
+        AuthoritativeGameSession authority = room.requireAuthoritativeSession();
+        ZJHTable table = room.requireLegacyRoom(ZJHTable.class);
+
+        authority.execute(command(14, "sit-owner", 1, "2004", 0,
+                ZJHCommandHandler.SIT, Map.of("seatId", 0)));
+        authority.execute(command(14, "sit-member", 2, "2005", 1,
+                ZJHCommandHandler.SIT, Map.of("seatId", 1)));
+        authority.execute(command(14, "start", 3, "2004", 0,
+                ZJHCommandHandler.START, Map.of()));
+
+        assertSame(table, room.requireLegacyRoom(ZJHTable.class));
+        assertEquals(table.stateVersion(), authority.stateVersion());
+        assertEquals(14L, authority.authoritativeState().get("roomId"));
+        assertTrue(authority.invariantViolations().isEmpty());
+
+        AuthoritativeGameSession restored = provider.restoreAuthoritativeSession(authority.authoritativeState())
+                .orElseThrow();
+        assertEquals(authority.authoritativeState(), restored.authoritativeState());
+        assertEquals(authority.viewFor(2004), restored.viewFor(2004));
+        assertInstanceOf(ZJHTable.class, ((com.aoo.bcg.gamespi.LegacyCompatibleRoom) restored).legacyRoom());
+    }
+
     @Test void publishedCreateRulesPreserveDefaultsOwnerAndEveryClientField() {
         ZJHGameProvider provider = new ZJHGameProvider();
         ZJHTable defaults = provider.roomFactory().create(new RoomCreationContext(11, 2001, Map.of()))
@@ -71,7 +113,7 @@ class ZJHGameProviderTest {
 
     @Test void providerRejectsEveryOutOfWorkbookCreateOptionBeforeRoomCreation() {
         ZJHGameProvider provider = new ZJHGameProvider();
-        for (Map<String, Object> invalid : java.util.List.of(
+        for (Map<String, Object> invalid : java.util.List.<Map<String, Object>>of(
                 Map.of("totalRounds", 15), Map.of("minimumPlayers", 3), Map.of("operationSeconds", 12),
                 Map.of("compareStartRound", 2), Map.of("maximumBet", 30), Map.of("mustBlindRounds", 3),
                 Map.of("baseBet", 3), Map.of("totalRounds", 10.5), Map.of("seatLimit", "8"))) {
@@ -108,5 +150,11 @@ class ZJHGameProviderTest {
     private static GameDescriptor descriptor(String code, String family, GameCategory category) {
         return new GameDescriptor(9, code, "test", category, family,
                 RegionScope.NATIONAL, "", "", ZJHGameProvider.PLAY_VERSION);
+    }
+
+    private static GameCommandRequest command(long roomId, String requestId, long sequence,
+            String playerId, int seatId, String action, Map<String, Object> payload) {
+        return new GameCommandRequest(action, requestId, sequence, roomId, 1,
+                ZJHGameProvider.PLAY_VERSION, playerId, seatId, payload);
     }
 }

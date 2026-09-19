@@ -15,6 +15,8 @@ import com.aoo.bcg.gamespi.RegionScope;
 import com.aoo.bcg.gamespi.RoomCreationContext;
 import java.security.SecureRandom;
 import java.util.Optional;
+import java.util.Map;
+import com.aoo.bcg.gamespi.AuthoritativeGameSession;
 
 public final class ZJHGameProvider implements PokerGameProvider {
     public static final String GAME_CODE = "CN297";
@@ -28,14 +30,28 @@ public final class ZJHGameProvider implements PokerGameProvider {
     @Override public GameRoomFactory roomFactory() { return ZJHGameProvider::createRoom; }
     @Override public PokerRuleFamily pokerFamily() { return new ComparePokerFamily(); }
     @Override public Optional<GameCommandHandler> commandHandler() { return Optional.of(new ZJHCommandHandler()); }
-    @Override public GameCommandCommitter commandCommitter() { return new ZJHProductionCommitter(); }
+    // Production Gateway persists every authoritative command atomically through
+    // JdbcGatewayGameCommandCommitter. Registering the legacy clark_game committer
+    // here would perform a second write and requires an unavailable legacy DB runtime.
+    @Override public GameCommandCommitter commandCommitter() { return GameCommandCommitter.noOp(); }
     @Override public Optional<ReconnectViewProvider<?>> reconnectViewProvider(){return Optional.of((viewer,room)->new ZJHReconnectViewService().build(room.requireLegacyRoom(ZJHTable.class),viewer));}
     @Override public Optional<SettlementProvider> settlementProvider(){return Optional.of((room,round)->new ZJHSettlementService().payload(room.requireLegacyRoom(ZJHTable.class),round,room.playVersion()));}
+    @Override public Optional<AuthoritativeGameSession> createAuthoritativeSession(RoomCreationContext context) {
+        return Optional.of(authority(context));
+    }
+    @Override public Optional<AuthoritativeGameSession> restoreAuthoritativeSession(Map<String, Object> state) {
+        return Optional.of(ZJHAuthoritativeSession.restore(state));
+    }
 
     private static GameRoomHandle createRoom(RoomCreationContext context) {
+        ZJHAuthoritativeSession authority = authority(context);
+        return new GameRoomHandle(context.roomId(), DESCRIPTOR.gameId(), DESCRIPTOR.version(), authority);
+    }
+
+    private static ZJHAuthoritativeSession authority(RoomCreationContext context) {
         ZJHRules rules = ZJHRules.from(context.immutableRules());
         long seed = SEEDS.nextLong();
         ZJHTable table = new ZJHTable(context.roomId(), context.ownerId(), rules, seed);
-        return new GameRoomHandle(context.roomId(), DESCRIPTOR.gameId(), DESCRIPTOR.version(), table);
+        return new ZJHAuthoritativeSession(table);
     }
 }

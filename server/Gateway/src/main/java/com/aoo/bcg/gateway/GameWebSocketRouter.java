@@ -126,8 +126,14 @@ public final class GameWebSocketRouter {
 
     private static ConnectionSession rebindAfterSit(ConnectionSession session,WebSocketFrame frame,
             GameCommandResult result) {
-        if(!frame.msgId().toLowerCase(java.util.Locale.ROOT).endsWith(".sit_req"))return session;
-        Object raw=frame.body().containsKey("seatId")?frame.body().get("seatId"):frame.body().get("seat");
+        Map<String,Object> command=frame.body();
+        String action=frame.msgId();
+        Object nestedAction=command.get("action");
+        if(nestedAction instanceof String value&&!value.isBlank())action=value;
+        if(!action.toLowerCase(java.util.Locale.ROOT).endsWith(".sit_req"))return session;
+        Object nestedPayload=command.get("payload");
+        Map<?,?> payload=nestedPayload instanceof Map<?,?> map?map:command;
+        Object raw=payload.containsKey("seatId")?payload.get("seatId"):payload.get("seat");
         int requested=raw instanceof Number number?number.intValue():-1;
         Map<String,Object> view=result.body().asMap();
         Object rawViewerSeat=view.get("viewerSeat");

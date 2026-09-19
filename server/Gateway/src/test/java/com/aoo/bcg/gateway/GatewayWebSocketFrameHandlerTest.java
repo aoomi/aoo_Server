@@ -15,6 +15,24 @@ import java.util.concurrent.atomic.AtomicInteger;
 import static org.junit.jupiter.api.Assertions.*;
 
 final class GatewayWebSocketFrameHandlerTest {
+    @Test void roomTicketSocketBindsBeforeFirstCommandAndOnlyOnce() {
+        Instant now=Instant.parse("2026-09-19T10:00:00Z");Clock clock=Clock.fixed(now,ZoneOffset.UTC);
+        AtomicInteger resolutions=new AtomicInteger(),connections=new AtomicInteger();
+        var router=new GameWebSocketRouter(new GameRegistry(),id->{throw new AssertionError("routing not expected");},
+                new WebSocketRequestGuard(clock,Duration.ofSeconds(30)),new InMemoryIdempotencyStore<>(clock),Duration.ofHours(24));
+        var sink=new GatewayWebSocketFrameHandler.BroadcastSink(){
+            public Iterable<GatewayWebSocketFrameHandler.Broadcast> publish(ConnectionSession session,WebSocketFrame request,GameCommandResult result){return List.of();}
+            public void connected(io.netty.channel.ChannelHandlerContext context,ConnectionIdentity identity,ConnectionSession session){connections.incrementAndGet();assertEquals(377669L,Long.parseLong(session.roomId()));assertEquals("cn298-v1.0.0",session.playVersion());}
+        };
+        var identity=new ConnectionIdentity(506905,"device","https://game.example","session",4,"page",377669L,7,"cn298-v1.0.0");
+        var handler=new GatewayWebSocketFrameHandler(identity,router,(principal,frame)->{resolutions.incrementAndGet();return new GatewayWebSocketFrameHandler.SessionBinding(principal.userId(),new ConnectionSession(Long.toString(principal.userId()),frame.roomId(),principal.seatId(),frame.playVersion(),0,"owned-game",9));},sink,new ObjectMapper(),clock);
+        EmbeddedChannel channel=new EmbeddedChannel(handler);
+        handler.activateRoomScope(channel.pipeline().context(handler));
+        handler.activateRoomScope(channel.pipeline().context(handler));
+        assertEquals(1,resolutions.get());assertEquals(1,connections.get());
+        channel.finishAndReleaseAll();
+    }
+
     @Test void heartbeatDoesNotRequireRoomSession() throws Exception {
         Instant now=Instant.parse("2026-08-24T12:00:00Z");Clock clock=Clock.fixed(now,ZoneOffset.UTC);
         AtomicInteger resolutions=new AtomicInteger();ObjectMapper json=new ObjectMapper();
@@ -105,6 +123,40 @@ final class GatewayWebSocketFrameHandlerTest {
         String next=json.writeValueAsString(Map.ofEntries(Map.entry("protocolVersion","2.0"),Map.entry("msgId","common.room.play_req"),Map.entry("kind","req"),Map.entry("requestId","play-2"),Map.entry("seq",3),Map.entry("traceId","trace-play-2"),Map.entry("roomId","100"),Map.entry("roundNo",1),Map.entry("playVersion","v1"),Map.entry("timestamp",now.toEpochMilli()),Map.entry("body",Map.of("cards",List.of(105)))));
         channel.writeInbound(new TextWebSocketFrame(next));TextWebSocketFrame nextResponse=channel.readOutbound();Map<?,?> nextEnvelope=json.readValue(nextResponse.text(),Map.class);nextResponse.release();
         assertEquals(0,nextEnvelope.get("code"));assertEquals(Map.of("accepted",true),nextEnvelope.get("body"));assertEquals(2,attempts.get());channel.finishAndReleaseAll();
+    }
+
+    @Test void staleWriteStateVersionReturnsRoomConflictWithoutClosingAuthenticatedSocket() throws Exception {
+        Instant now=Instant.parse("2026-08-24T12:00:00Z");Clock clock=Clock.fixed(now,ZoneOffset.UTC);
+        ObjectMapper json=new ObjectMapper();
+        AuthoritativeGameSession authority=new AuthoritativeGameSession() {
+            public GameCommandResult execute(GameCommandRequest request){throw new AssertionError("stale write must not execute");}
+            public Map<String,Object> viewFor(long viewerPlayerId){return Map.of();}
+            public Map<String,Object> authoritativeState(){return Map.of();}
+            public long stateVersion(){return 1;}
+            public com.aoo.bcg.gamespi.time.OperationDeadline operationDeadline(){return com.aoo.bcg.gamespi.time.OperationDeadline.none();}
+            public com.aoo.bcg.gamespi.time.OperationDeadlineArbiter deadlineArbiter(){return null;}
+            public List<String> invariantViolations(){return List.of();}
+            public SettlementPayload settlement(int roundNo,String playVersion){return null;}
+        };
+        GameRoomHandle room=new GameRoomHandle(100,62,"v1",authority);
+        GameRegistry games=new GameRegistry();games.register(provider(room,new AtomicInteger()));
+        var router=new GameWebSocketRouter(games,id->room,new WebSocketRequestGuard(clock,Duration.ofSeconds(30)),
+                new InMemoryIdempotencyStore<>(clock),Duration.ofHours(24));
+        var handler=new GatewayWebSocketFrameHandler(new ConnectionIdentity(7,"d","https://game.example","test-page"),router,
+                (id,frame)->new GatewayWebSocketFrameHandler.SessionBinding(id.userId(),
+                        new ConnectionSession("7","100",0,"v1",0)),
+                GatewayWebSocketFrameHandler.BroadcastSink.none(),json,clock);
+        EmbeddedChannel channel=new EmbeddedChannel(handler);
+        String request=json.writeValueAsString(Map.ofEntries(Map.entry("protocolVersion","2.0"),
+                Map.entry("msgId","game.action"),Map.entry("kind","req"),Map.entry("requestId","stale-write"),
+                Map.entry("seq",1),Map.entry("traceId","trace-stale"),Map.entry("roomId","100"),
+                Map.entry("roundNo",1),Map.entry("playVersion","v1"),Map.entry("timestamp",now.toEpochMilli()),
+                Map.entry("body",Map.of("expectedStateVersion",0,"intent",Map.of("type","pass")))));
+        channel.writeInbound(new TextWebSocketFrame(request));
+        TextWebSocketFrame response=channel.readOutbound();Map<?,?> envelope=json.readValue(response.text(),Map.class);response.release();
+        assertEquals(3008,envelope.get("code"));assertEquals("stale stateVersion",envelope.get("message"));
+        assertEquals("stale-write",envelope.get("requestId"));assertTrue(channel.isActive());
+        channel.finishAndReleaseAll();
     }
 
     @Test void missingAuthoritativeRoomUsesTerminalRouteNotFoundCode() throws Exception {

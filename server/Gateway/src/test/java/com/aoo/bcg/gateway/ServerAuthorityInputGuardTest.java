@@ -24,4 +24,17 @@ class ServerAuthorityInputGuardTest {
         assertThrows(SecurityException.class, () -> ServerAuthorityInputGuard.validate("game.action",
                 Map.of("expectedStateVersion", 0, "stateVersion", 9), 0));
     }
+
+    @Test void authenticatedStateReadMayRecoverFromAnOlderClientVersion() {
+        assertDoesNotThrow(() -> ServerAuthorityInputGuard.validate("poker.CN298.dispatch",
+                Map.of("expectedStateVersion", 0, "action", "poker.cn298.state_req", "payload", Map.of()), 1));
+        assertDoesNotThrow(() -> ServerAuthorityInputGuard.validate("poker.cn298.state_req",
+                Map.of("expectedStateVersion", 0), 9));
+    }
+
+    @Test void dispatchMutationStillRejectsAnOlderClientVersion() {
+        assertThrows(SecurityException.class, () -> ServerAuthorityInputGuard.validate("poker.CN298.dispatch",
+                Map.of("expectedStateVersion", 0, "action", "poker.cn298.sit_req",
+                        "payload", Map.of("seatId", 1)), 1));
+    }
 }

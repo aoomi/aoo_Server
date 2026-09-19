@@ -460,7 +460,6 @@ public final class PokerAuthoritativeSession
         }
         else lastActions.put(r.seatId(), committed);
         resetHosting(r.seatId());
-        skipUnbeatableSeats();
         body = viewFor(player);
       }
       case "compete_dealer", "rob_dealer" -> {
@@ -502,7 +501,6 @@ public final class PokerAuthoritativeSession
         else {
           // A claimed dealer lead must first be broadcast on its own.  The forced opponent
           // response is committed by the reconnect-safe 500ms authority deadline below.
-          if (!claimedDealerResponsePending() && !state.finished()) skipUnbeatableSeats();
           if (state.finished() && !roundScored) completeRound();
         }
         body = viewFor(player);
@@ -651,14 +649,19 @@ public final class PokerAuthoritativeSession
       stateVersion = Math.addExact(stateVersion, 1);
       if (!dissolved && state != null && !roundFinished()) {
         if (claimedDealerResponsePending()) openRobberAutoResponseDeadline();
+        else if (unbeatableAutoPassPending()) deadline = OperationDeadline.none();
         else openDeadline(startedRoundByContinue ? "play" : op);
       }
       if (!dissolved && roundFinished()) {
         deadline = OperationDeadline.none();
         armAutomaticNextRound();
       }
-      body = viewFor(player);
       events.add(Map.of("version", stateVersion, "after", authoritativeState()));
+      // Automatic passes are part of this same authority command. Drain them
+      // before replying so an unbeatable lead returns the turn and operation
+      // buttons without exposing a transient deadline or scheduler gap.
+      if (unbeatableAutoPassPending()) drainUnbeatableAutoPasses();
+      body = viewFor(player);
     } else if (roundFinished()) deadline = OperationDeadline.none();
     return new GameCommandResult(r.msgId().replace("_req", "_resp"), r.requestId(), body);
   }
@@ -951,29 +954,48 @@ public final class PokerAuthoritativeSession
         state.previous() != null || seat == competeDealerSeat);
   }
 
-  private void skipUnbeatableSeats() {
-    PokerCoreEngine<Void> core = new PokerCoreEngine<>();
-    while (!state.finished() && state.previous() != null) {
-      int seat = state.currentSeat();
-      if (!family.rules().hints(state.hands().get(seat), state.previous(), automaticContext(seat)).isEmpty())
-        return;
-      Map<String, Object> committed =
-          lastAction(
-              seat,
-              "pass",
-              List.of(),
-              "PASS",
-              "auto-pass-" + (stateVersion + 1) + "-" + seat);
-      tableOperations.add(committed);
-      state = core.pass(state, seat);
-      resetHosting(seat);
-      if (state.previous() == null) {
-        lastActions.clear();
-        trickId = Math.addExact(trickId, 1);
-      } else {
-        lastActions.put(seat, committed);
-      }
+  private boolean unbeatableAutoPassPending() {
+    if (state == null || state.finished() || state.previous() == null || competeDealerPhase)
+      return false;
+    int seat = state.currentSeat();
+    return family.rules()
+        .hints(state.hands().get(seat), state.previous(), automaticContext(seat))
+        .isEmpty();
+  }
+
+  private void commitUnbeatableAutoPass() {
+    int seat = state.currentSeat();
+    String operationId = "auto-pass-" + (stateVersion + 1) + "-" + seat;
+    Map<String, Object> committed = lastAction(
+        seat, "pass", List.of(), "PASS", operationId);
+    tableOperations.add(committed);
+    state = new PokerCoreEngine<Void>().pass(state, seat);
+    resetHosting(seat);
+    if (state.previous() == null) {
+      lastActions.clear();
+      trickId = Math.addExact(trickId, 1);
+    } else {
+      lastActions.put(seat, committed);
     }
+    LOGGER.log(System.Logger.Level.INFO,
+        "[PdkUnbeatableAutoPass] committed roomId={0} roundNo={1} stateVersion={2} operationId={3} playerId={4} seat={5} nextSeat={6}",
+        roomId, roundNo, stateVersion, operationId, players.get(seat), seat,
+        state.currentSeat());
+  }
+
+  private void drainUnbeatableAutoPasses() {
+    while (unbeatableAutoPassPending()) {
+      deadline = OperationDeadline.none();
+      commitUnbeatableAutoPass();
+      stateVersion = Math.addExact(stateVersion, 1);
+      if (roundFinished()) {
+        armAutomaticNextRound();
+        events.add(Map.of("version", stateVersion, "after", authoritativeState()));
+        return;
+      }
+      events.add(Map.of("version", stateVersion, "after", authoritativeState()));
+    }
+    openDeadline("unbeatable-auto-pass-complete");
   }
 
   /**
@@ -1644,8 +1666,10 @@ public final class PokerAuthoritativeSession
       armAutomaticNextRound();
     }
     else if (claimedDealerResponsePending()) openRobberAutoResponseDeadline();
+    else if (unbeatableAutoPassPending()) deadline = OperationDeadline.none();
     else openDeadline("timeout");
     events.add(Map.of("version", stateVersion, "after", authoritativeState()));
+    if (unbeatableAutoPassPending()) drainUnbeatableAutoPasses();
     return true;
   }
 

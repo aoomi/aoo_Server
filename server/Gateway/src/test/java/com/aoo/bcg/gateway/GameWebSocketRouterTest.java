@@ -68,4 +68,52 @@ class GameWebSocketRouterTest {
         assertThrows(SecurityException.class, () -> guard.validate(session, wrongRoom));
         assertThrows(SecurityException.class, () -> guard.validate(session, wrongVersion));
     }
+
+    @Test void reconnectMustUseFreshRequestIdToObservePostMutationAuthorityState() {
+        Instant now = Instant.parse("2026-09-19T08:05:00Z");
+        Clock clock = Clock.fixed(now, ZoneOffset.UTC);
+        AtomicInteger authorityVersion = new AtomicInteger();
+        GameRoomHandle room = new GameRoomHandle(647383L, 298, "cn298-v1.0.0", new Object());
+        GameProvider provider = new GameProvider() {
+            public GameDescriptor descriptor() { return new GameDescriptor(298, "CN298", "CN298",
+                    GameCategory.POKER, "poker:betting", RegionScope.NATIONAL, "", "", "cn298-v1.0.0"); }
+            public com.aoo.bcg.gamespi.GameRoomFactory roomFactory() { return ignored -> room; }
+            public Optional<com.aoo.bcg.gamespi.GameCommandHandler> commandHandler() {
+                return Optional.of((ignored, request) -> new GameCommandResult("poker.CN298.dispatch",
+                        request.requestId(), Map.of("stateVersion", authorityVersion.get())));
+            }
+        };
+        GameRegistry registry = new GameRegistry(); registry.register(provider);
+        GameWebSocketRouter router = new GameWebSocketRouter(registry, ignored -> room,
+                new WebSocketRequestGuard(clock, Duration.ofSeconds(30)),
+                new InMemoryIdempotencyStore<>(clock), Duration.ofMinutes(10));
+        ConnectionSession firstConnection = new ConnectionSession("617", "647383", 1, "cn298-v1.0.0", 0);
+        WebSocketFrame initialState = new WebSocketFrame("poker.CN298.dispatch", "cn298-page-a-1", 1,
+                "647383", 0, "cn298-v1.0.0", now.toEpochMilli(), Map.of());
+        assertEquals(0, router.route(firstConnection, initialState).result().body().asMap().get("stateVersion"));
+
+        authorityVersion.set(1);
+        ConnectionSession reconnect = new ConnectionSession("617", "647383", 1, "cn298-v1.0.0", 0);
+        assertEquals(0, router.route(reconnect, initialState).result().body().asMap().get("stateVersion"),
+                "reusing the prior page request ID correctly replays its old response");
+        WebSocketFrame freshReconnectState = new WebSocketFrame("poker.CN298.dispatch", "cn298-page-b-1", 1,
+                "647383", 0, "cn298-v1.0.0", now.toEpochMilli(), Map.of());
+        assertEquals(1, router.route(reconnect, freshReconnectState).result().body().asMap().get("stateVersion"),
+                "a reconnect-scoped request ID reaches the current authority state");
+    }
+
+    @Test void outerDispatchSitRebindsConnectionFromNestedActionAndPayload() {
+        Instant now=Instant.parse("2026-09-19T10:40:00Z"); Clock clock=Clock.fixed(now,ZoneOffset.UTC);
+        GameRoomHandle room=new GameRoomHandle(322118L,630,"cd299-v1.0.0",new Object());
+        GameProvider provider=new GameProvider(){
+            public GameDescriptor descriptor(){return new GameDescriptor(630,"CD299","CD299",GameCategory.POKER,"poker:cd299",RegionScope.CITY,"","","cd299-v1.0.0");}
+            public com.aoo.bcg.gamespi.GameRoomFactory roomFactory(){return ignored->room;}
+            public Optional<com.aoo.bcg.gamespi.GameCommandHandler> commandHandler(){return Optional.of((ignored,request)->new GameCommandResult("poker.CD299.dispatch",request.requestId(),Map.of("viewerSeat",0,"viewerStatus","SEATED","stateVersion",1)));}
+        };
+        GameRegistry registry=new GameRegistry();registry.register(provider);
+        GameWebSocketRouter router=new GameWebSocketRouter(registry,ignored->room,new WebSocketRequestGuard(clock,Duration.ofSeconds(30)),new InMemoryIdempotencyStore<>(clock),Duration.ofMinutes(10));
+        ConnectionSession spectator=new ConnectionSession("599","322118",7,"cd299-v1.0.0",0);
+        WebSocketFrame frame=new WebSocketFrame("poker.CD299.dispatch","page-scope-1",1,"322118",0,"cd299-v1.0.0",now.toEpochMilli(),Map.of("action","poker.cd299.sit_req","payload",Map.of("seatId",0)));
+        assertEquals(0,router.route(spectator,frame).session().seatId());
+    }
 }

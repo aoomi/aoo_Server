@@ -65,8 +65,8 @@ public final class NiuNiuHandEvaluator {
     else if (counts.containsValue(4)) {
       type = Type.BOMB_BULL;
       primary = counts.entrySet().stream().filter(e -> e.getValue() == 4).findFirst().orElseThrow().getKey();
-    } else if (sorted.stream().mapToInt(NiuNiuHandEvaluator::rank).sum() <= 10
-        && sorted.stream().allMatch(c -> rank(c) <= 4)) type = Type.FIVE_SMALL_BULL;
+    } else if (sorted.stream().mapToInt(NiuNiuHandEvaluator::rank).sum() <= 10)
+      type = Type.FIVE_SMALL_BULL;
     else if (counts.size() == 2 && counts.containsValue(3) && counts.containsValue(2)) type = Type.FULL_HOUSE_BULL;
     else if (flush) type = Type.FLUSH_BULL;
     else if (sorted.stream().allMatch(c -> rank(c) >= 11)) type = Type.GOLD_FIVE;
@@ -99,6 +99,8 @@ public final class NiuNiuHandEvaluator {
   }
 
   private static List<Integer> arrangeBullCards(List<Integer> cards, boolean ksd) {
+    List<Integer> best = null;
+    int bestBull = -1;
     for (int i = 0; i < 3; i++) for (int j = i + 1; j < 4; j++) for (int k = j + 1; k < 5; k++) {
       boolean valid = (point(cards.get(i)) + point(cards.get(j)) + point(cards.get(k))) % 10 == 0;
       if (!valid && ksd) {
@@ -109,10 +111,15 @@ public final class NiuNiuHandEvaluator {
         List<Integer> result = new ArrayList<>(5);
         result.add(cards.get(i)); result.add(cards.get(j)); result.add(cards.get(k));
         for (int n = 0; n < 5; n++) if (n != i && n != j && n != k) result.add(cards.get(n));
-        return result;
+        int remainder = point(result.get(3)) + point(result.get(4));
+        int bull = remainder % 10 == 0 ? 10 : remainder % 10;
+        if (bull > bestBull) {
+          bestBull = bull;
+          best = result;
+        }
       }
     }
-    return cards;
+    return best == null ? cards : best;
   }
 
   private static boolean isStraight(List<Integer> cards) {

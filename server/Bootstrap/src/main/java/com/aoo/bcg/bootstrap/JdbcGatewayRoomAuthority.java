@@ -128,8 +128,12 @@ public Map<String, Object> join(Map<String, Object> command) {
         var session = room.requireAuthoritativeSession();
         boolean spectatorEntry = usesExplicitSeatSelection(room);
         if(route.firstRoundStartedAt()==null
-                && !clock.instant().isBefore(route.createdAt().plus(WaitingRoomExpirationPolicy.TIMEOUT))) {
-            if(WaitingRoomExpirationPolicy.expired(route.createdAt(),clock.instant(),session.authoritativeState()))
+                && !clock.instant().isBefore(route.lastBusinessActivityAt().plus(WaitingRoomExpirationPolicy.TIMEOUT))) {
+            if(!WaitingRoomExpirationPolicy.hasExplicitLifecycleMarker(session.authoritativeState()))
+                System.err.println("[RoomLifecycleCompatibility] roomId="+roomId+" playerId="+accountId
+                        +" operationId="+requestId+" stateVersion="+session.stateVersion()
+                        +" action=RETAIN_UNKNOWN_WAITING_SNAPSHOT");
+            if(WaitingRoomExpirationPolicy.expired(route.lastBusinessActivityAt(),clock.instant(),session.authoritativeState()))
                 throw expireAndClose(room,route);
         }
         try {
@@ -145,6 +149,7 @@ public Map<String, Object> join(Map<String, Object> command) {
         if(!spectatorEntry)session.execute(new com.aoo.bcg.gamespi.GameCommandRequest("common.room.join_req",
                 requestId, Math.max(1L, session.stateVersion() + 1L), roomId, roundNo,
                 playVersion, Long.toString(accountId), seatNo, Map.of()));
+        touchWaitingRoomActivity(roomId,route.fencingToken());
         stateStore.saveSnapshot(room, route.fencingToken());
         // 加入由 Hall 经内部端口完成，不经过玩家 WSS 的 publish 链。如果这里不主动
         // 广播，已在房内的客户端会永久停留在旧成员快照，进而无法满足“满员后准备”。
@@ -309,9 +314,10 @@ public Map<String, Object> join(Map<String, Object> command) {
 
     private void processRoomLifecycles() {
         try{finishInterruptedRemovals();}catch(RuntimeException failure){System.err.println("room removal recovery deferred cause="+failure.getMessage());}
-        try{closeDurableTerminalRooms();}catch(RuntimeException failure){System.err.println("terminal room closure recovery deferred cause="+failure.getMessage());}
+        try{closeDurableInactiveRooms();}catch(RuntimeException failure){System.err.println("inactive room closure recovery deferred cause="+failure.getMessage());}
         for(GameRoomHandle room:rooms.snapshot())try {
             if(expireWaitingRoom(room))continue;
+            if(expireInactiveStartedRoom(room))continue;
             if(!(room.requireAuthoritativeSession() instanceof RoomLifecycleAuthority lifecycle))continue;
             boolean changed=lifecycle.tickLifecycle(clock.instant());
             Route route=route(room.roomId());
@@ -321,28 +327,25 @@ public Map<String, Object> join(Map<String, Object> command) {
         } catch(RuntimeException failure){System.err.println("room lifecycle processing deferred roomId="+room.roomId()+" cause="+failure.getMessage());}
     }
 
-    /** Closes a match from its durable terminal snapshot even if its in-memory lifecycle was already evicted. */
-    private void closeDurableTerminalRooms(){
-        List<long[]> terminal=new ArrayList<>();
-        String sql="SELECT a.room_id,a.fencing_token,CAST(JSON_UNQUOTE(JSON_EXTRACT(s.state_payload,'$.stateVersion')) AS UNSIGNED) "
-                +"FROM aoo_room_authority_route a JOIN aoo_room_snapshot s ON s.room_id=a.room_id "
-                +"WHERE a.node_id=? AND a.lifecycle_state='ACTIVE' "
-                +"AND JSON_EXTRACT(s.state_payload,'$.state.finished')=true "
-                +"AND CAST(JSON_UNQUOTE(JSON_EXTRACT(s.state_payload,'$.roundNo')) AS UNSIGNED)>="
-                +"CAST(JSON_UNQUOTE(JSON_EXTRACT(s.state_payload,'$.roundLimit')) AS UNSIGNED) ORDER BY a.room_id LIMIT 256";
+    /** Closes inactive started rooms even when a prior process lost their in-memory runtime. */
+    private void closeDurableInactiveRooms(){
+        List<long[]> expired=new ArrayList<>();
+        String sql="SELECT room_id,fencing_token FROM aoo_room_authority_route WHERE node_id=? AND lifecycle_state='ACTIVE' AND first_round_started_at IS NOT NULL AND last_business_activity_at<=DATE_SUB(CURRENT_TIMESTAMP(3),INTERVAL 12 HOUR) ORDER BY room_id LIMIT 256";
         try(Connection connection=dataSource.getConnection();PreparedStatement query=connection.prepareStatement(sql)){
             query.setString(1,nodeId);
-            try(ResultSet rows=query.executeQuery()){while(rows.next())terminal.add(new long[]{rows.getLong(1),rows.getLong(2),rows.getLong(3)});}
-        }catch(SQLException failure){throw new IllegalStateException("cannot enumerate terminal durable rooms",failure);}
-        for(long[] item:terminal){long roomId=item[0],fence=item[1],version=item[2];synchronized(lock(roomId)){
+            try(ResultSet rows=query.executeQuery()){while(rows.next())expired.add(new long[]{rows.getLong(1),rows.getLong(2)});}
+        }catch(SQLException failure){throw new IllegalStateException("cannot enumerate inactive durable rooms",failure);}
+        for(long[] item:expired){long roomId=item[0],fence=item[1];synchronized(lock(roomId)){
             Route route=route(roomId);
             if(!"ACTIVE".equals(route.state())||route.fencingToken()!=fence||!nodeId.equals(route.nodeId()))continue;
-            String requestId="terminal-room-closure-"+roomId+'-'+version;
-            transition(roomId,fence,"REMOVING");
-            hallLifecycle.close(roomId,requestId,requestId,"MATCH_FINISHED");
+            String requestId="room-inactivity-expiration-"+roomId;
+            beginInactiveRoomRemoval(roomId,fence,requestId);
+            broadcasts.publishInactiveRoomExpired(roomId,requestId,requestId);
+            hallLifecycle.close(roomId,requestId,requestId,"ROOM_INACTIVITY_EXPIRED");
             rooms.remove(roomId);
-            transition(roomId,fence,"REMOVED");
+            finishAutomaticRemoval(roomId,fence);
             roomLocks.remove(roomId);
+            System.out.println("[RoomInactivityExpiration] roomId="+roomId+" operationId="+requestId+" stateVersion=0 inactivityHours=12 recoverySource=DURABLE_ROUTE");
         }}
     }
 
@@ -353,8 +356,37 @@ public Map<String, Object> join(Map<String, Object> command) {
                 Route route=route(room.roomId());
                 if(!"ACTIVE".equals(route.state())||!nodeId.equals(route.nodeId())
                         ||route.firstRoundStartedAt()!=null)return false;
-                if(!WaitingRoomExpirationPolicy.expired(route.createdAt(),clock.instant(),session.authoritativeState()))return false;
+                if(!WaitingRoomExpirationPolicy.expired(route.lastBusinessActivityAt(),clock.instant(),session.authoritativeState()))return false;
                 expireAndClose(room,route);
+                return true;
+            }
+        }
+    }
+
+    /** A successful admission is effective waiting-room activity and resets the idle window. */
+    private void touchWaitingRoomActivity(long roomId,long fence){
+        try(Connection connection=dataSource.getConnection();PreparedStatement update=connection.prepareStatement(
+                "UPDATE aoo_room_authority_route SET last_business_activity_at=CURRENT_TIMESTAMP(3),updated_at=CURRENT_TIMESTAMP(3) WHERE room_id=? AND fencing_token=? AND lifecycle_state='ACTIVE' AND first_round_started_at IS NULL")){
+            update.setLong(1,roomId);update.setLong(2,fence);
+            if(update.executeUpdate()!=1)throw new SecurityException("waiting room activity lost authority race");
+        }catch(SQLException failure){throw new IllegalStateException("waiting room activity persistence failed",failure);}
+    }
+
+    private boolean expireInactiveStartedRoom(GameRoomHandle room){
+        synchronized(lock(room.roomId())){
+            var session=room.requireAuthoritativeSession();
+            synchronized(session){
+                Route route=route(room.roomId());
+                if(!"ACTIVE".equals(route.state())||!nodeId.equals(route.nodeId()))return false;
+                if(!WaitingRoomExpirationPolicy.startedRoomInactive(route.firstRoundStartedAt(),route.lastBusinessActivityAt(),clock.instant()))return false;
+                String requestId="room-inactivity-expiration-"+room.roomId();
+                beginInactiveRoomRemoval(room.roomId(),route.fencingToken(),requestId);
+                broadcasts.publishInactiveRoomExpired(room.roomId(),requestId,requestId);
+                hallLifecycle.close(room.roomId(),requestId,requestId,"ROOM_INACTIVITY_EXPIRED");
+                rooms.remove(room.roomId());
+                finishAutomaticRemoval(room.roomId(),route.fencingToken());
+                roomLocks.remove(room.roomId());
+                System.out.println("[RoomInactivityExpiration] roomId="+room.roomId()+" operationId="+requestId+" stateVersion="+session.stateVersion()+" inactivityHours=12");
                 return true;
             }
         }
@@ -374,6 +406,8 @@ public Map<String, Object> join(Map<String, Object> command) {
 
     private void beginAutomaticRemoval(long roomId,long fence,String requestId){try(Connection c=dataSource.getConnection();PreparedStatement p=c.prepareStatement("UPDATE aoo_room_authority_route SET lifecycle_state='REMOVING',last_request_id=?,trace_id=?,updated_at=CURRENT_TIMESTAMP(3) WHERE room_id=? AND fencing_token=? AND lifecycle_state='ACTIVE' AND first_round_started_at IS NULL AND created_at<=DATE_SUB(CURRENT_TIMESTAMP(3),INTERVAL 300 SECOND)")){p.setString(1,requestId);p.setString(2,requestId);p.setLong(3,roomId);p.setLong(4,fence);if(p.executeUpdate()!=1)throw new SecurityException("waiting room expiration lost authority race");}catch(SQLException e){throw new IllegalStateException("waiting room expiration persistence failed",e);}}
 
+    private void beginInactiveRoomRemoval(long roomId,long fence,String requestId){try(Connection c=dataSource.getConnection();PreparedStatement p=c.prepareStatement("UPDATE aoo_room_authority_route SET lifecycle_state='REMOVING',last_request_id=?,trace_id=?,updated_at=CURRENT_TIMESTAMP(3) WHERE room_id=? AND fencing_token=? AND lifecycle_state='ACTIVE' AND first_round_started_at IS NOT NULL AND last_business_activity_at<=DATE_SUB(CURRENT_TIMESTAMP(3),INTERVAL 12 HOUR)")){p.setString(1,requestId);p.setString(2,requestId);p.setLong(3,roomId);p.setLong(4,fence);if(p.executeUpdate()!=1)throw new SecurityException("inactive room expiration lost authority race");}catch(SQLException e){throw new IllegalStateException("inactive room expiration persistence failed",e);}}
+
     private void finishAutomaticRemoval(long roomId,long fence){try(Connection c=dataSource.getConnection()){c.setAutoCommit(false);try(PreparedStatement route=c.prepareStatement("UPDATE aoo_room_authority_route SET lifecycle_state='REMOVED',updated_at=CURRENT_TIMESTAMP(3) WHERE room_id=? AND fencing_token=? AND lifecycle_state='REMOVING'");PreparedStatement snapshot=c.prepareStatement("DELETE FROM aoo_room_snapshot WHERE room_id=?")){route.setLong(1,roomId);route.setLong(2,fence);if(route.executeUpdate()!=1)throw new SecurityException("等待房间解散失去权威状态");snapshot.setLong(1,roomId);snapshot.executeUpdate();c.commit();}catch(Exception failure){c.rollback();throw failure;}}catch(Exception failure){if(failure instanceof RuntimeException runtime)throw runtime;throw new IllegalStateException("等待房间可恢复状态清理失败",failure);}}
 
     private void finishInterruptedRemovals() {
@@ -382,7 +416,7 @@ public Map<String, Object> join(Map<String, Object> command) {
             statement.setString(1,nodeId);
             try(ResultSet result=statement.executeQuery()){while(result.next())pending.add(new Object[]{result.getLong(1),result.getLong(2),result.getString(3)});}
         } catch(SQLException failure){throw new IllegalStateException("cannot enumerate interrupted room removals",failure);}
-        for(Object[] item:pending){long roomId=(long)item[0],fence=(long)item[1];String priorRequest=String.valueOf(item[2]);boolean waitingExpiration=priorRequest.startsWith("waiting-room-expiration-");var snapshot=stateStore.latest(roomId).orElseThrow(()->new IllegalStateException("interrupted room removal has no durable snapshot: "+roomId));if(!waitingExpiration&&!Boolean.TRUE.equals(snapshot.authoritativeState().get("dissolved")))throw new IllegalStateException("interrupted room removal has no terminal authority state: "+roomId);Object version=snapshot.authoritativeState().get("stateVersion");String suffix=version instanceof Number number?String.valueOf(number.longValue()):"unknown";String requestId=waitingExpiration?priorRequest:"room-lifecycle-recover-"+roomId+"-"+suffix;String reason=waitingExpiration?"WAITING_ROOM_EXPIRED":"RECOVERED_ROOM_DISSOLUTION";hallLifecycle.close(roomId,requestId,requestId,reason);rooms.remove(roomId);if(waitingExpiration)finishAutomaticRemoval(roomId,fence);else transition(roomId,fence,"REMOVED");roomLocks.remove(roomId);}
+        for(Object[] item:pending){long roomId=(long)item[0],fence=(long)item[1];String priorRequest=String.valueOf(item[2]);boolean waitingExpiration=priorRequest.startsWith("waiting-room-expiration-");boolean inactivityExpiration=priorRequest.startsWith("room-inactivity-expiration-");boolean automaticExpiration=waitingExpiration||inactivityExpiration;var snapshot=stateStore.latest(roomId).orElseThrow(()->new IllegalStateException("interrupted room removal has no durable snapshot: "+roomId));if(!automaticExpiration&&!Boolean.TRUE.equals(snapshot.authoritativeState().get("dissolved")))throw new IllegalStateException("interrupted room removal has no terminal authority state: "+roomId);Object version=snapshot.authoritativeState().get("stateVersion");String suffix=version instanceof Number number?String.valueOf(number.longValue()):"unknown";String requestId=automaticExpiration?priorRequest:"room-lifecycle-recover-"+roomId+"-"+suffix;String reason=waitingExpiration?"WAITING_ROOM_EXPIRED":inactivityExpiration?"ROOM_INACTIVITY_EXPIRED":"RECOVERED_ROOM_DISSOLUTION";hallLifecycle.close(roomId,requestId,requestId,reason);rooms.remove(roomId);if(automaticExpiration)finishAutomaticRemoval(roomId,fence);else transition(roomId,fence,"REMOVED");roomLocks.remove(roomId);}
     }
 
     private Map<String, Object> createLocked(Map<String, Object> command, long roomId) {
@@ -578,7 +612,7 @@ public Map<String, Object> join(Map<String, Object> command) {
             connection.commit();
             return new Route(current.roomId(), current.gameId(), current.playVersion(), fence,
                     "RECOVERING", current.requestId(), nodeId, clock.instant().plusSeconds(90),
-                    current.createdAt(),current.firstRoundStartedAt());
+                    current.createdAt(),current.firstRoundStartedAt(),current.lastBusinessActivityAt());
         } catch (Exception failure) {
             if (failure instanceof RuntimeException runtime) throw runtime;
             throw new IllegalStateException("cannot claim durable room", failure);
@@ -632,7 +666,8 @@ public Map<String, Object> join(Map<String, Object> command) {
             connection.commit();
             return new Route(roomId, gameId, playVersion, fence, "CREATING", requestId,
                     nodeId, clock.instant().plusSeconds(90), createdAt,
-                    existing==null?null:existing.firstRoundStartedAt());
+                    existing==null?null:existing.firstRoundStartedAt(),
+                    existing==null?clock.instant():existing.lastBusinessActivityAt());
         } catch (Exception failure) {
             if (failure instanceof RuntimeException runtime) throw runtime;
             throw new IllegalStateException("authority route persistence failed", failure);
@@ -643,7 +678,7 @@ public Map<String, Object> join(Map<String, Object> command) {
         try (Connection connection = dataSource.getConnection();
              PreparedStatement statement = connection.prepareStatement("""
                      SELECT game_id,play_version,fencing_token,lifecycle_state,last_request_id,
-                            node_id,lease_expires_at,created_at,first_round_started_at
+                            node_id,lease_expires_at,created_at,first_round_started_at,last_business_activity_at
                      FROM aoo_room_authority_route WHERE room_id=?
                      """)) {
             statement.setLong(1, roomId);
@@ -659,7 +694,7 @@ public Map<String, Object> join(Map<String, Object> command) {
     private Route selectForUpdate(Connection connection, long roomId) throws SQLException {
         try (PreparedStatement statement = connection.prepareStatement("""
                 SELECT game_id,play_version,fencing_token,lifecycle_state,last_request_id,
-                       node_id,lease_expires_at,created_at,first_round_started_at
+                       node_id,lease_expires_at,created_at,first_round_started_at,last_business_activity_at
                 FROM aoo_room_authority_route WHERE room_id=? FOR UPDATE
                 """)) {
             statement.setLong(1, roomId);
@@ -674,7 +709,7 @@ public Map<String, Object> join(Map<String, Object> command) {
         return new Route(roomId, result.getInt(1), result.getString(2), result.getLong(3),
                 result.getString(4), result.getString(5), result.getString(6),
                 result.getTimestamp(7).toInstant(),result.getTimestamp(8).toInstant(),
-                firstRoundStartedAt==null?null:firstRoundStartedAt.toInstant());
+                firstRoundStartedAt==null?null:firstRoundStartedAt.toInstant(),result.getTimestamp(10).toInstant());
     }
 
     private void transition(long roomId, long fence, String state) {
@@ -773,7 +808,7 @@ private static long nonNegative(Map<String, Object> command, String key) {
 
     private record Route(long roomId, int gameId, String playVersion, long fencingToken,
                          String state, String requestId, String nodeId, Instant leaseExpiresAt,
-                         Instant createdAt,Instant firstRoundStartedAt) { }
+                         Instant createdAt,Instant firstRoundStartedAt,Instant lastBusinessActivityAt) { }
     private record StartupRoom(long roomId, int gameId, String gameCode, String playVersion, String requestId,
                                String traceId, long ownerId, Map<String, Object> rules) {
         private StartupRoom { rules = Map.copyOf(rules); }

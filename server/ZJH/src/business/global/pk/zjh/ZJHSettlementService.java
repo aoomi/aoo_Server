@@ -30,10 +30,16 @@ public final class ZJHSettlementService {
         @SuppressWarnings("unchecked") Map<String, Object> winnerState = (Map<String, Object>) seats.get(winner);
         entries.add(new SettlementEntry(((Number) winnerState.get("playerId")).longValue(), winnerDelta,
                 Map.of("CN297", winnerDelta, "xi", (long) winnerBonus * (seats.size() - 1))));
+        List<SettlementEntry> cumulativeEntries = table.cumulativeScoreDeltas().entrySet().stream()
+                .map(entry -> new SettlementEntry(entry.getKey(), entry.getValue(),
+                        Map.of("CN297", entry.getValue(), "xi", 0L)))
+                .toList();
         SettlementResult result = new SettlementResult(table.roomId(), roundNo, ZJHGameProvider.PLAY_VERSION, entries);
         SettlementValidator.validate(result, table.roomId(), roundNo, ZJHGameProvider.PLAY_VERSION,
                 SettlementBalancePolicy.ZERO_SUM);
-        return Map.of("winnerSeat", winner, "winnerBonusPerOpponent", winnerBonus, "entries", result.entries());
+        return Map.of("winnerSeat", winner, "winnerBonusPerOpponent", winnerBonus,
+                "roundNo", roundNo, "final", table.state() == ZJHTable.State.FINISHED,
+                "entries", result.entries(), "cumulativeEntries", cumulativeEntries);
     }
 
     public SettlementPayload payload(ZJHTable table, int roundNo, String playVersion) {

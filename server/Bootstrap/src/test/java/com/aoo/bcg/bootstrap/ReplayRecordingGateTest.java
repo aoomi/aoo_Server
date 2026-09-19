@@ -20,6 +20,14 @@ final class ReplayRecordingGateTest {
                 Map.of("phase","PLAYING","started",true),request("state")));
     }
 
+    @Test void trusteePlaceholdersNeverBecomeReplayOwnersOrParticipants(){
+        assertEquals(Map.of(0,380L,2,381L),
+                JdbcGatewayGameCommandCommitter.replayParticipants(
+                        Map.of(0,380L,1,-9853151L,2,381L)));
+        assertTrue(JdbcGatewayGameCommandCommitter.replayParticipants(
+                Map.of(0,-9853151L)).isEmpty());
+    }
+
     private static GameCommandRequest request(String action){
         return new GameCommandRequest("poker.action","request-1",1,100001,0,"1.0.0","11",0,
                 Map.of("action",action));

@@ -55,6 +55,20 @@ public final class GatewayWebSocketFrameHandler extends SimpleChannelInboundHand
     /** Client sequence is connection-scoped across heartbeat, account and room traffic. */
     private long lastSequence;
 
+    /** Registers a room-ticket socket before its first command so peer mutations can already reach it. */
+    public void activateRoomScope(ChannelHandlerContext ctx) {
+        if(session!=null||!identity.roomScoped())return;
+        String requestId="room-socket-bind:"+ctx.channel().id().asShortText();
+        WebSocketFrame bindingFrame=new WebSocketFrame("common.room.state_req",requestId,1,
+                Long.toString(identity.roomId()),0,identity.playVersion(),clock.millis(),Map.of());
+        SessionBinding binding=sessions.resolve(identity,bindingFrame);
+        if(binding.accountId()!=identity.userId())throw new SecurityException("ticket/session identity mismatch");
+        session=binding.session();
+        broadcasts.connected(ctx,identity,session);
+        System.out.printf("gateway room socket bound roomId=%d playerId=%d seatId=%d playVersion=%s connectionId=%s generation=%d%n",
+                identity.roomId(),identity.userId(),identity.seatId(),identity.playVersion(),session.connectionId(),session.generation());
+    }
+
     public GatewayWebSocketFrameHandler(ConnectionIdentity identity, GameWebSocketRouter router,
             SessionResolver sessions, BroadcastSink broadcasts, ObjectMapper json, Clock clock) {
         this(identity,router,sessions,broadcasts,NonRoomDispatcher.rejecting(),json,clock);
@@ -102,6 +116,11 @@ public final class GatewayWebSocketFrameHandler extends SimpleChannelInboundHand
             if(!routed.replayed())for(Broadcast push:broadcasts.publish(session,request,result)){
                 Map<String,Object> event=new LinkedHashMap<>();event.put("protocolVersion","2.0");event.put("msgId",push.msgId());event.put("kind","push");event.put("requestId",push.requestId());event.put("seq",request.seq());event.put("timestamp",clock.millis());event.put("traceId",request.traceId());event.put("body",push.body());ctx.writeAndFlush(new TextWebSocketFrame(json.writeValueAsString(event)));
             }
+        } catch (ServerAuthorityInputGuard.StateVersionConflictException failure) {
+            String trace=request==null?"unknown":request.traceId(),message=request==null?"unknown":request.msgId();
+            System.err.printf("gateway websocket state conflict trace=%s msgId=%s context=%s cause=%s%n",
+                    trace,message,rejectedCommandContext(request),String.valueOf(failure.getMessage()));
+            failure(ctx, GatewayErrorCode.ROOM_STATE_CONFLICT, request, false, userMessage(failure));
         } catch (SecurityException failure) {
             String trace=request==null?"unknown":request.traceId(),message=request==null?"unknown":request.msgId();
             System.err.printf("gateway websocket authorization rejected trace=%s msgId=%s cause=%s%n",trace,message,String.valueOf(failure.getMessage()));

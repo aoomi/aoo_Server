@@ -7,6 +7,9 @@ import java.util.Set;
 
 /** Rejects client attempts to submit server-owned state through the canonical game transport. */
 final class ServerAuthorityInputGuard {
+    static final class StateVersionConflictException extends SecurityException {
+        StateVersionConflictException(String message) { super(message); }
+    }
     private static final Set<String> SERVER_OWNED = Set.of(
             "hands", "handcards", "privatecards", "holecards", "wall", "deck", "seed",
             "balance", "balances", "scoredelta", "settlement", "settlementresult",
@@ -18,10 +21,20 @@ final class ServerAuthorityInputGuard {
         if (currentStateVersion < 0) throw new IllegalStateException("negative server stateVersion");
         Object expected = body.get("expectedStateVersion");
         if ("game.action".equals(msgId) && !(expected instanceof Number))
-            throw new SecurityException("expectedStateVersion is required");
-        if (expected instanceof Number number && number.longValue() != currentStateVersion)
-            throw new SecurityException("stale stateVersion");
+            throw new StateVersionConflictException("expectedStateVersion is required");
+        // A newly loaded client has no authoritative version yet. State requests are authenticated,
+        // read-only synchronization operations and must return the current snapshot instead of being
+        // rejected by the optimistic write guard. Every mutating action remains version-gated.
+        if (!isStateRequest(msgId, body)
+                && expected instanceof Number number && number.longValue() != currentStateVersion)
+            throw new StateVersionConflictException("stale stateVersion");
         rejectServerOwned(body);
+    }
+
+    private static boolean isStateRequest(String msgId, Map<String,Object> body) {
+        if (msgId.toLowerCase(Locale.ROOT).endsWith(".state_req")) return true;
+        Object action = body.get("action");
+        return action instanceof String text && text.toLowerCase(Locale.ROOT).endsWith(".state_req");
     }
 
     private static void rejectServerOwned(Object value) {

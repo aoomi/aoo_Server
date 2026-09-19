@@ -17,7 +17,13 @@ watcher = File.read(File.join(server_root, 'tools/watch-room-rules.rb'), encodin
 official_workbook = 'Client/docs/开房规则表/跑得快/成都跑得快.xlsx'
 stale_workbook = ['玩法文档', '跑得快', '成都跑得快开房规则表.xlsx'].join('/')
 abort('规则发布器没有读取当前正式成都跑得快七列权威规则表') unless publisher.include?(official_workbook)
-abort('规则监听器没有读取当前正式成都跑得快七列权威规则表') unless watcher.include?(official_workbook)
+watcher_discovers_registered_workbooks = (
+  watcher.include?("Client/docs/开房规则表/跑得快") &&
+  watcher.include?('room-rule-play-identities.json') &&
+  watcher.include?("play.fetch('workbook')")
+)
+abort('规则监听器没有从正式目录和稳定身份注册表发现地区权威规则表') unless
+  watcher_discovers_registered_workbooks
 abort('房间规则工具仍引用已废弃的成都规则表旧路径') if [publisher, watcher].any? { |content| content.include?(stale_workbook) }
 client_gitignore = File.read(File.join(project_root, 'Client/.gitignore'), encoding: 'UTF-8')
 abort('Creator 预览缓存 Client/temp 未从源码交付范围排除') unless client_gitignore.lines.map(&:strip).include?('/temp/')

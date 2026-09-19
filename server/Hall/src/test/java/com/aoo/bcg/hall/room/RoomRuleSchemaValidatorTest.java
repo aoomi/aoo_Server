@@ -17,6 +17,14 @@ final class RoomRuleSchemaValidatorTest {
             Map.of("key","fourWithThree","label","四带三","control","CHECKBOX","disabled",true,
                     "defaultValue",List.of(),"options",List.of(Map.of("value",true,"label","开启")))));
 
+    @Test void oneOptionBooleanCheckboxNormalizesToBoolean() {
+        Map<String,Object> schema=Map.of("fields",List.of(Map.of(
+                "key","fastModeEnabled","control","checkbox","defaultValue",true,
+                "options",List.of(Map.of("value",true,"label","启用快速模式")))));
+        assertEquals(true,RoomRuleSchemaValidator.validate(schema,Map.of("fastModeEnabled",true)).get("fastModeEnabled"));
+        assertEquals(false,RoomRuleSchemaValidator.validate(schema,Map.of("fastModeEnabled",false)).get("fastModeEnabled"));
+    }
+
     @Test void normalizesDefaultsAndValidValues() {
         assertEquals(Map.of("roundCount",8,"playerCount",2,"commonOptions",List.of("voice"),"baseScore",1),
                 RoomRuleSchemaValidator.validate(SCHEMA,Map.of("playerCount",2,"commonOptions",List.of("voice"))));

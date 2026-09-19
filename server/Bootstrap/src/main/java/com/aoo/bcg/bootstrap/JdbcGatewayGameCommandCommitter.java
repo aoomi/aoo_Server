@@ -83,6 +83,7 @@ final class JdbcGatewayGameCommandCommitter implements GameCommandCommitter {
                 Metadata metadata = metadata(connection, room.roomId(), true);
                 lockProcessingResult(connection, key);
                 markFirstRoundStarted(connection,room.roomId(),state);
+                markBusinessActivity(connection,room.roomId(),request);
                 upsertSnapshot(connection, room, metadata, stateVersion, state);
                 recordReplay(connection, room, request, result, metadata, stateVersion, state);
                 if (pendingSettlement != null) enqueueSettlement(connection, pendingSettlement);
@@ -154,7 +155,11 @@ final class JdbcGatewayGameCommandCommitter implements GameCommandCommitter {
 
     private void markFirstRoundStarted(Connection connection,long roomId,Map<String,Object> state)throws Exception{
         if(!firstRoundStarted(state))return;
-        try(PreparedStatement statement=connection.prepareStatement("UPDATE aoo_room_authority_route SET first_round_started_at=COALESCE(first_round_started_at,CURRENT_TIMESTAMP(3)),updated_at=CURRENT_TIMESTAMP(3) WHERE room_id=? AND lifecycle_state='ACTIVE' AND (first_round_started_at IS NOT NULL OR created_at>DATE_SUB(CURRENT_TIMESTAMP(3),INTERVAL 300 SECOND))")){
+        // Admission/seat changes are valid waiting-room activity and refresh
+        // last_business_activity_at.  Using created_at here made every room older
+        // than five minutes impossible to start even when players had just joined,
+        // producing an endless ready/reconnect loop after the first deal.
+        try(PreparedStatement statement=connection.prepareStatement("UPDATE aoo_room_authority_route SET first_round_started_at=COALESCE(first_round_started_at,CURRENT_TIMESTAMP(3)),updated_at=CURRENT_TIMESTAMP(3) WHERE room_id=? AND lifecycle_state='ACTIVE' AND (first_round_started_at IS NOT NULL OR last_business_activity_at>DATE_SUB(CURRENT_TIMESTAMP(3),INTERVAL 300 SECOND))")){
             statement.setLong(1,roomId);
             if(statement.executeUpdate()!=1)throw new SecurityException("房间已到期，首局开始未获得权威状态");
         }
@@ -165,6 +170,14 @@ final class JdbcGatewayGameCommandCommitter implements GameCommandCommitter {
         if(Boolean.TRUE.equals(state.get("started")))return true;
         String phase=String.valueOf(state.getOrDefault("phase","")).strip().toUpperCase(java.util.Locale.ROOT);
         return List.of("PLAYING","IN_GAME","ROUND_PLAYING","DEALING").contains(phase);
+    }
+
+    private void markBusinessActivity(Connection connection,long roomId,GameCommandRequest request)throws Exception{
+        if(!replayMutation(request))return;
+        try(PreparedStatement statement=connection.prepareStatement("UPDATE aoo_room_authority_route SET last_business_activity_at=CURRENT_TIMESTAMP(3),updated_at=CURRENT_TIMESTAMP(3) WHERE room_id=? AND lifecycle_state='ACTIVE'")){
+            statement.setLong(1,roomId);
+            if(statement.executeUpdate()!=1)throw new SecurityException("房间业务活动时间更新失去权威状态");
+        }
     }
 
     int recoverPendingSettlements(int limit) {
@@ -374,7 +387,7 @@ final class JdbcGatewayGameCommandCommitter implements GameCommandCommitter {
                               Map<String,Object> state) throws Exception {
         if (stateVersion <= 0 || !shouldRecordReplay(state, request)) return;
         int setId = Math.max(0, request.roundNo());
-        Map<Integer,Long> players = players(state.get("players"));
+        Map<Integer,Long> players = replayParticipants(state.get("players"));
         try (PreparedStatement participant = connection.prepareStatement("INSERT IGNORE INTO replay_participant(room_id,set_id,player_id,seat_id,granted_at) VALUES(?,?,?,?,CURRENT_TIMESTAMP(3))")) {
             for (var entry : players.entrySet()) { participant.setLong(1,room.roomId());participant.setInt(2,setId);participant.setLong(3,entry.getValue());participant.setInt(4,entry.getKey());participant.addBatch(); }
             participant.executeBatch();
@@ -417,7 +430,20 @@ final class JdbcGatewayGameCommandCommitter implements GameCommandCommitter {
         }
     }
 
-    private static Map<Integer,Long> players(Object raw){Map<Integer,Long> result=new LinkedHashMap<>();if(raw instanceof Map<?,?> map)for(var entry:map.entrySet())result.put(Integer.parseInt(String.valueOf(entry.getKey())),Long.parseLong(String.valueOf(entry.getValue())));return result;}
+    /**
+     * Replay ownership is granted only to durable player identities. A running room may replace
+     * a departed seat with a negative trustee placeholder so the hand can finish, but that value
+     * is neither an account nor a replay viewer and must never enter identity-indexed storage.
+     */
+    static Map<Integer,Long> replayParticipants(Object raw){
+        Map<Integer,Long> result=new LinkedHashMap<>();
+        if(raw instanceof Map<?,?> map)for(var entry:map.entrySet()){
+            int seat=Integer.parseInt(String.valueOf(entry.getKey()));
+            long playerId=Long.parseLong(String.valueOf(entry.getValue()));
+            if(playerId>0)result.put(seat,playerId);
+        }
+        return Map.copyOf(result);
+    }
     private static boolean replayMutation(GameCommandRequest request){
         String action=replayAction(request).strip().toLowerCase(java.util.Locale.ROOT);
         String msgId=request.msgId().strip().toLowerCase(java.util.Locale.ROOT);

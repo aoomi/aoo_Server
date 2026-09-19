@@ -33,7 +33,7 @@ final class RegionalPdkProviderTest {
                 () -> assertEquals(3, ls.get("minimumStraightLength")),
                 () -> assertEquals("EITHER", cd.get("tripleAttachmentMode")),
                 () -> assertEquals("EITHER", nj.get("tripleAttachmentMode")),
-                () -> assertEquals("SINGLE_OR_PAIR", ls.get("tripleAttachmentMode")),
+                () -> assertEquals("EITHER", ls.get("tripleAttachmentMode")),
                 () -> assertEquals(false, cd.get("compareTripleAttachments")),
                 () -> assertEquals(true, nj.get("compareTripleAttachments")),
                 () -> assertEquals(true, ls.get("compareTripleAttachments")));
@@ -62,8 +62,8 @@ final class RegionalPdkProviderTest {
         assertAll(
                 () -> assertEquals("TRIPLE_WITH_PAIR", lsPrevious.type()),
                 () -> assertEquals("TRIPLE_WITH_ONE", lsSingle.type()),
-                () -> assertThrows(IllegalArgumentException.class,
-                        () -> lsRules.recognize(List.of(104, 204, 304, 105, 106), null)),
+                () -> assertEquals("TRIPLE_WITH_TWO", lsRules.recognize(
+                        List.of(104, 204, 304, 105, 106), null).type()),
                 () -> assertFalse(lsRules.canBeat(lsLowPair, lsPrevious, null)),
                 () -> assertTrue(lsRules.canBeat(lsHighPair, lsPrevious, null)),
                 () -> assertEquals("FOUR_WITH_TWO", lsFourWithSingles.type()),

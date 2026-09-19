@@ -6,7 +6,8 @@ import java.util.Set;
 /** CN298 权威开房规则快照，只包含牛牛玩法自身规则。 */
 public record NiuNiuRules(
     int rounds, int maxPlayers, int startPlayers, Mode mode, int maxRobMultiplier,
-    int maxPushMultiplier, StandPolicy standPolicy, boolean kanShunDouEnabled) {
+    int maxPushMultiplier, StandPolicy standPolicy, boolean fastModeEnabled,
+    boolean kanShunDouEnabled) {
   public static final String GAME_CODE = "CN298";
   public static final String FAMILY = "poker:betting";
   public static final String PLAY_VERSION = "cn298-v1.0.0";
@@ -27,7 +28,18 @@ public record NiuNiuRules(
   }
 
   public static NiuNiuRules defaults() {
-    return new NiuNiuRules(10, 8, 2, Mode.CLASSIC, 4, 10, StandPolicy.EVERYONE_MAY_STAND, true);
+    return new NiuNiuRules(10, 8, 2, Mode.CLASSIC, 4, 10,
+        StandPolicy.EVERYONE_MAY_STAND, true, true);
+  }
+
+  /** XQP 明牌抢庄只公布这三档倍率；0 始终表示不抢。 */
+  public Set<Integer> robOptions() {
+    return switch (maxRobMultiplier) {
+      case 3 -> Set.of(0, 1, 2, 3);
+      case 4 -> Set.of(0, 2, 3, 4);
+      case 5 -> Set.of(0, 3, 4, 5);
+      default -> throw new IllegalStateException("unsupported CN298 rob rule");
+    };
   }
 
   public int settlementMultiplier(NiuNiuHandEvaluator.Type type) {

@@ -55,6 +55,24 @@ final class ChengduPdkRulesTest {
         assertEquals(5, config.advancedRules().hostingMissThreshold());
     }
 
+    @Test void threeAircraftMayUseADisconnectedCompleteTripleAsRequiredWings() {
+        PaoDeKuaiRuleSet rules = new PaoDeKuaiRuleSet(ChengduPdkRules.defaults(),
+                ChengduPdkRules.profile("foreign-triple-wings", false));
+        List<Integer> play = List.of(
+                109, 209, 309,
+                110, 210, 310,
+                111, 211, 311,
+                106, 206, 306,
+                108, 112, 113);
+
+        CardCombination combination = rules.recognize(play,
+                new PaoDeKuaiContext(false, 8, play));
+        assertEquals("AIRPLANE_WITH_TWO", combination.type());
+        assertEquals(11, combination.primaryRank());
+        assertDoesNotThrow(() -> rules.validatePlay(play,
+                new PaoDeKuaiContext(false, 8, play)));
+    }
+
     @Test void compactRoomSelectionsExpandToImmutableServerRules() {
         PaoDeKuaiConfig config = PdkPublishedRuleOptions.apply(Map.of(
                 "firstPlayRule", "spade_three_first",
@@ -74,6 +92,56 @@ final class ChengduPdkRulesTest {
         assertTrue(config.advancedRules().governance().gpsAdmissionRequired());
         assertFalse(config.advancedRules().governance().interactionEnabled());
         assertFalse(config.advancedRules().governance().uniqueIpRequired());
+    }
+
+    @Test void everyPublishedChengduWorkbookSelectionReachesTheRuntimePolicy() {
+        Map<String,Object> selected = Map.of(
+                "playerCount", 2,
+                "roundCount", 16,
+                "operationTimeoutSeconds", 20,
+                "firstPlayRule", "spade_three_first",
+                "bombScore", 30,
+                "rule_cd201_0001", List.of("option_0001"),
+                "playRule", List.of("three_no_attachment", "four_with_two",
+                        "triple_ace_bomb", "remove_three_four", "require_spade_three"),
+                "roomRestriction", List.of("ip_limit", "gps_limit", "timeout_auto_play",
+                        "distance_warning", "interaction_forbidden", "chat_muted"));
+
+        PaoDeKuaiConfig config = PdkPublishedRuleOptions.apply(
+                selected, ChengduPdkRules.defaults());
+        PdkAdvancedRules advanced = config.advancedRules();
+        PdkAdvancedRules.RoomGovernance governance = advanced.governance();
+
+        assertTrue(ChengduPdkRules.cutDeckSelected(selected));
+        assertEquals(103, config.requiredFirstCard());
+        assertEquals(99999, advanced.requiredFirstCardRounds());
+        assertEquals(103, advanced.bankerSelectionCard());
+        assertEquals(30, advanced.bombScore().points());
+        assertEquals(20, advanced.operationTimeoutSeconds());
+        assertEquals(5, advanced.hostingMissThreshold());
+        assertEquals(java.util.Set.of(14), config.specialTripleBombRanks());
+        assertEquals(PaoDeKuaiConfig.AttachmentMode.SINGLES, config.fourAttachmentMode());
+        assertEquals(PaoDeKuaiConfig.PlayTiming.ANYTIME,
+                config.tripleWithoutAttachmentTiming());
+        assertEquals(PaoDeKuaiConfig.PlayTiming.ANYTIME,
+                config.airplaneWithoutAttachmentTiming());
+        assertTrue(governance.uniqueIpRequired());
+        assertTrue(governance.gpsAdmissionRequired());
+        assertTrue(governance.distanceWarningEnabled());
+        assertFalse(governance.interactionEnabled());
+        assertFalse(governance.textChatEnabled());
+        assertEquals(PdkAdvancedRules.SettlementPresentation.POPUP,
+                governance.settlementPresentation());
+
+        PaoDeKuaiRuleSet rules = new PaoDeKuaiRuleSet(config,
+                ChengduPdkRules.profile("published-all-options", true));
+        assertEquals("SPECIAL_TRIPLE_BOMB", rules.recognize(
+                List.of(114, 214, 314), null).type());
+        PaoDeKuaiContext first = new PaoDeKuaiContext(
+                true, 8, List.of(103, 105), 103, true);
+        assertThrows(IllegalStateException.class,
+                () -> rules.validatePlay(List.of(105), first));
+        assertDoesNotThrow(() -> rules.validatePlay(List.of(103), first));
     }
 
     @Test void defaultCutDealAndStandardThreePlayerDealConserveEveryCard() {

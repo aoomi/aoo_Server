@@ -8,6 +8,7 @@ require 'tmpdir'
 root = File.expand_path('..', __dir__)
 publisher = File.join(root, 'tools/room-rules-publisher.rb')
 source = File.expand_path('../Client/docs/开房规则表/跑得快/成都跑得快.xlsx', root)
+identity_source = File.join(root, 'tools/room-rule-play-identities.json')
 
 def run_publisher(publisher, workbook, output, registry)
   env = { 'AOO_ROOM_RULE_WORKBOOK'=>workbook, 'AOO_ROOM_RULE_GENERATED'=>output,
@@ -57,11 +58,23 @@ def set_cell(row, column, value)
   row.add_element(inline_cell(reference, value))
 end
 
+def register_option_values(identity_path, field_label, values)
+  payload = JSON.parse(File.read(identity_path, encoding: 'UTF-8'))
+  play = payload.fetch('plays').find { |entry| entry['gameCode'] == 'CD201' }
+  abort('CD201 identity missing from fixture') unless play
+  play['roomRuleOptionValues'] ||= {}
+  play['roomRuleOptionValues'][field_label] = values
+  File.write(identity_path, JSON.pretty_generate(payload) + "\n")
+end
+
 Dir.mktmpdir('aoo-room-rule-schema-test') do |directory|
   workbook = File.join(directory, 'rules.xlsx')
   output = File.join(directory, 'rules.generated.json')
   registry = File.join(directory, 'rules.keys.json')
+  identity = File.join(directory, 'room-rule-play-identities.json')
   FileUtils.cp(source, workbook)
+  FileUtils.cp(identity_source, identity)
+  ENV['AOO_ROOM_RULE_IDENTITY_REGISTRY'] = identity
 
   baseline = run_publisher(publisher, workbook, output, registry)
   abort('platform required fields did not receive stable keys') unless
@@ -96,6 +109,11 @@ Dir.mktmpdir('aoo-room-rule-schema-test') do |directory|
     missing_stderr.include?('缺少平台必填规则字段') && missing_stderr.include?('playerCount')
   abort('missing required field overwrote last good output') unless File.binread(output) == last_good
   FileUtils.cp(source, workbook)
+  register_option_values(identity, '临时规则', { '选项甲'=>'temporary_a', '选项乙'=>'temporary_b' })
+  register_option_values(identity, '临时单选', {
+    '一'=>'temporary_1', '二'=>'temporary_2', '三'=>'temporary_3',
+    '四'=>'temporary_4', '五'=>'temporary_5', '不比'=>'temporary_no_compare'
+  })
 
   rewrite_workbook(workbook) do |sheet_data|
     last = sheet_data.elements.to_a.select { |element| element.name == 'row' }.map { |row| row.attributes['r'].to_i }.max
@@ -125,6 +143,10 @@ Dir.mktmpdir('aoo-room-rule-schema-test') do |directory|
     set_cell(row, 'C', '一｜二｜三｜四｜五')
     set_cell(row, 'D', '123456')
   end
+  register_option_values(identity, '临时规则', {
+    '一'=>'temporary_1', '二'=>'temporary_2', '三'=>'temporary_3',
+    '四'=>'temporary_4', '五'=>'temporary_5'
+  })
   tolerant = run_publisher(publisher, workbook, output, registry)
   tolerant_field = tolerant.fetch('fields').find { |field| field['label'] == '临时规则' }
   abort('checkbox defaults did not preserve existing indexes and ignore overflow') unless
@@ -182,6 +204,9 @@ Dir.mktmpdir('aoo-room-rule-schema-test') do |directory|
     set_cell(row, 'E', '5')
     set_cell(row, 'F', '否')
   end
+  register_option_values(identity, '临时规则', {
+    '新选项甲'=>'temporary_1', '新选项乙'=>'temporary_2', '新选项丙'=>'temporary_3'
+  })
   changed = run_publisher(publisher, workbook, output, registry)
   changed_field = changed.fetch('fields').find { |field| field['label'] == '临时规则' }
   abort('field key changed after property edits') unless changed_field.fetch('key') == stable_key

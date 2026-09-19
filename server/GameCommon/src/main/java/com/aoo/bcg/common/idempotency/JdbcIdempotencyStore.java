@@ -32,7 +32,7 @@ public final class JdbcIdempotencyStore<R> implements IdempotencyStore<R> {
             statement.setString(1, key.storageKey());
             try (var result = statement.executeQuery()) {
                 if (!result.next() || !result.getTimestamp(5).toInstant().isAfter(clock.instant())) return Optional.empty();
-                R decoded = decoder.decode(result.getString(4), resultType, Objects::requireNonNull);
+                R decoded = decodeResult(result.getString(4));
                 return Optional.of(new IdempotencyResult<>(result.getInt(1),result.getString(2),result.getInt(3),decoded,result.getTimestamp(5).toInstant()));
             }
         } catch (Exception exception) {
@@ -61,7 +61,7 @@ public final class JdbcIdempotencyStore<R> implements IdempotencyStore<R> {
         String sql = "INSERT INTO aoo_business_idempotency(request_id,request_hash,user_id,operation,room_id,round_no,client_request_id,status,response_code,response_version,response_schema_version,response_payload,created_at,expires_at) VALUES(?,SHA2(?,256),?,?,?,?,?,'COMPLETED',?,?,?,?,?,?) ON DUPLICATE KEY UPDATE status='COMPLETED',response_code=VALUES(response_code),response_version=VALUES(response_version),response_schema_version=VALUES(response_schema_version),response_payload=VALUES(response_payload),expires_at=VALUES(expires_at)";
         Instant now = clock.instant();
         try (var connection = dataSource.getConnection(); var statement = connection.prepareStatement(sql)) {
-            String payload = mapper.writeValueAsString(result.data());
+            String payload = encodeResult(result.data());
             statement.setString(1,requestId);statement.setString(2,requestId);statement.setString(3,key.userId());statement.setString(4,key.operation());statement.setLong(5,key.roomId());statement.setInt(6,key.roundNo());statement.setString(7,key.requestId());statement.setInt(8,result.code());statement.setString(9,result.resultVersion());statement.setInt(10,result.schemaVersion());statement.setString(11,payload);
             statement.setTimestamp(12,Timestamp.from(now));statement.setTimestamp(13,Timestamp.from(result.expiresAt()));
             statement.executeUpdate();
@@ -71,6 +71,17 @@ public final class JdbcIdempotencyStore<R> implements IdempotencyStore<R> {
         }
     }
     @Override public void save(IdempotencyKey key,R result,Duration retention){validate(key,retention);saveResult(key,IdempotencyResult.success(result,clock.instant().plus(retention)));}
+
+    @SuppressWarnings("unchecked") private R decodeResult(String payload) {
+        if (resultType == com.aoo.bcg.gamespi.GameCommandResult.class)
+            return (R) GameCommandResultJsonCodec.decode(mapper, payload);
+        return decoder.decode(payload, resultType, Objects::requireNonNull);
+    }
+    private String encodeResult(R result) throws com.fasterxml.jackson.core.JsonProcessingException {
+        if (result instanceof com.aoo.bcg.gamespi.GameCommandResult command)
+            return GameCommandResultJsonCodec.encode(mapper, command);
+        return mapper.writeValueAsString(result);
+    }
 
     @Override public void release(IdempotencyKey key) {
         String sql = "DELETE FROM aoo_business_idempotency WHERE request_id=? AND status='PROCESSING'";

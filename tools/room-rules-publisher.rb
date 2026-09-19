@@ -120,12 +120,6 @@ def allocate_field_key!(registry)
   "rule_#{registry.fetch('gameCode').downcase}_#{sequence.to_s.rjust(4, '0')}"
 end
 
-def allocate_option_value!(field)
-  sequence = field.fetch('nextOptionSequence', 1).to_i
-  field['nextOptionSequence'] = sequence + 1
-  "option_#{sequence.to_s.rjust(4, '0')}"
-end
-
 def reconcile_entries!(registered, current_labels, create_entry)
   available = registered.each_index.select { |index| registered[index].fetch('active', true) }
   matches = Array.new(current_labels.length)
@@ -151,27 +145,49 @@ def reconcile_entries!(registered, current_labels, create_entry)
   matches
 end
 
-def option_default_value(label, field)
-  numeric = label.match(/-?\d+/)
-  return Integer(numeric[0], 10) if numeric
-  allocate_option_value!(field)
+def numeric_option_value!(technical, field_label, option_label)
+  specification = technical.fetch('numericRoomRuleFields', []).find do |entry|
+    entry.fetch('sourceLabel') == field_label
+  end
+  return nil unless specification
+  suffix = specification.fetch('suffix', '')
+  match = option_label.match(/\A(-?\d+)#{Regexp.escape(suffix)}\z/)
+  fail!("#{field_label} 的数值选项 #{option_label.inspect} 必须完整匹配整数#{suffix}") unless match
+  Integer(match[1], 10)
 end
 
-def reconcile_options!(field, labels)
+def stable_option_value!(technical, field, field_label, option_label)
+  explicit = technical.fetch('roomRuleOptionValues', {}).fetch(field_label, {})
+  if explicit.key?(option_label)
+    value = explicit.fetch(option_label)
+    fail!("#{field_label}/#{option_label} 的显式协议值不能为空") if value.nil? || value == ''
+    return value
+  end
+  numeric = numeric_option_value!(technical, field_label, option_label)
+  return numeric unless numeric.nil?
+  registered = field.fetch('options', []).find do |entry|
+    entry.fetch('active', true) && entry['label'] == option_label
+  end
+  return registered.fetch('value') if registered&.key?('value')
+  fail!("#{field_label} 存在未登记显示项 #{option_label.inspect}；请先配置稳定协议值，禁止从显示文字猜值")
+end
+
+def reconcile_options!(technical, field, field_label, labels)
   field['options'] ||= []
+  values = labels.map { |label| stable_option_value!(technical, field, field_label, label) }
+  identities = values.map { |value| [value.class.name, value] }
+  fail!("#{field_label} 的稳定协议值重复") unless identities.uniq.length == identities.length
   options = reconcile_entries!(field['options'], labels, lambda do |index|
     entry = { 'label'=>labels[index], 'position'=>index + 1, 'active'=>true }
-    entry['value'] = option_default_value(labels[index], field)
+    entry['value'] = values[index]
     field['options'] << entry
     entry
   end)
-  # The stable registry owns option identity, not a stale numeric meaning. When
-  # the authoritative workbook changes `1000秒` to `10000秒`, the label and the
-  # wire value must change together; otherwise the client displays 10000 while
-  # Hall and the game runtime still receive 1000.
   options.each_with_index do |option, index|
-    numeric = labels[index].match(/-?\d+/)
-    option['value'] = Integer(numeric[0], 10) if numeric
+    # The external identity registry is authoritative when present and repairs a
+    # polluted persisted registry. Numeric fallback is allowed only for fields
+    # explicitly declared numeric and only when the complete label matches.
+    option['value'] = values[index]
   end
   options
 end
@@ -234,7 +250,7 @@ def parse!
   end)
   fields = source_rows.each_with_index.map do |source, index|
     registered = registered_fields[index]
-    options = reconcile_options!(registered, source.fetch('labels'))
+    options = reconcile_options!(technical, registered, source.fetch('label'), source.fetch('labels'))
     values = options.map { |option| option.fetch('value') }
     control = source.fetch('control'); candidates = source.fetch('candidates')
     default_value = if control == 'radio'

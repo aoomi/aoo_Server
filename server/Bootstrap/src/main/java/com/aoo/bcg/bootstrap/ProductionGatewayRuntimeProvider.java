@@ -57,21 +57,15 @@ public final class ProductionGatewayRuntimeProvider implements GatewayRuntimePro
         var connectionSessions = new ConnectionSessionFactory(new JdbcConnectionGenerationStore(source));
         GatewayWebSocketFrameHandler.SessionResolver sessions = (identity, frame) -> {
             var room = rooms.require(Long.parseLong(frame.roomId()));
-            Object rawPlayers = room.requireAuthoritativeSession().authoritativeState().get("players");
-            if (!(rawPlayers instanceof Map<?, ?> players)) {
-                throw new SecurityException("room has no authoritative seats");
-            }
-            Integer seated = players.entrySet().stream()
-                    .filter(entry -> Long.parseLong(String.valueOf(entry.getValue())) == identity.userId())
-                    .map(entry -> Integer.parseInt(String.valueOf(entry.getKey())))
-                    .findFirst().orElse(null);
-            Object rawObservers = room.requireAuthoritativeSession().authoritativeState().get("observers");
+            Map<String,Object> authority = room.requireAuthoritativeSession().authoritativeState();
+            Integer seated = authoritativeSeat(authority,identity.userId());
+            Object rawObservers = authority.get("observers");
             Integer observing = rawObservers instanceof Map<?,?> observers ? observers.entrySet().stream()
                     .filter(entry -> Long.parseLong(String.valueOf(entry.getValue())) == identity.userId())
                     .map(entry -> Integer.parseInt(String.valueOf(entry.getKey())))
                     .findFirst().orElse(null) : null;
-            int seatId=seated!=null?seated:observing!=null?observing:
-                    joinedHallMember(source,Long.parseLong(frame.roomId()),identity.userId())?-1:
+            Integer hallSeat=joinedHallSeat(source,Long.parseLong(frame.roomId()),identity.userId());
+            int seatId=seated!=null?seated:observing!=null?observing:hallSeat!=null?hallSeat:
                     throwSecurity("account is not a room member");
             return new GatewayWebSocketFrameHandler.SessionBinding(identity.userId(),
                     connectionSessions.open(Long.toString(identity.userId()), frame.roomId(), seatId,
@@ -146,14 +140,40 @@ public final class ProductionGatewayRuntimeProvider implements GatewayRuntimePro
         }
         return games;
     }
-    private static boolean joinedHallMember(DataSource source,long roomId,long accountId) {
-        String sql="SELECT 1 FROM aoo_hall_room_member m JOIN aoo_hall_room r ON r.room_id=m.room_id "
+    /**
+     * Framework snapshots historically expose {@code players: seat -> playerId}; newer
+     * poker aggregates expose {@code seats: seat -> {playerId,...}}. Both are stable SPI
+     * shapes, so connection authentication must resolve either without game-specific code.
+     */
+    static Integer authoritativeSeat(Map<String,Object> authority,long playerId) {
+        Object rawPlayers=authority.get("players");
+        if(rawPlayers instanceof Map<?,?> players){
+            Integer seat=players.entrySet().stream()
+                    .filter(entry -> playerIdValue(entry.getValue()) == playerId)
+                    .map(entry -> Integer.parseInt(String.valueOf(entry.getKey())))
+                    .findFirst().orElse(null);
+            if(seat!=null)return seat;
+        }
+        Object rawSeats=authority.get("seats");
+        if(rawSeats instanceof Map<?,?> seats)return seats.entrySet().stream()
+                .filter(entry -> playerIdValue(entry.getValue()) == playerId)
+                .map(entry -> Integer.parseInt(String.valueOf(entry.getKey())))
+                .findFirst().orElse(null);
+        return null;
+    }
+    private static long playerIdValue(Object value) {
+        Object raw=value instanceof Map<?,?> seat?seat.get("playerId"):value;
+        if(raw instanceof Number number)return number.longValue();
+        try{return Long.parseLong(String.valueOf(raw));}catch(RuntimeException ignored){return Long.MIN_VALUE;}
+    }
+    private static Integer joinedHallSeat(DataSource source,long roomId,long accountId) {
+        String sql="SELECT m.seat_no FROM aoo_hall_room_member m JOIN aoo_hall_room r ON r.room_id=m.room_id "
                 +"JOIN aoo_room_authority_route a ON a.room_id=m.room_id "
                 +"WHERE m.room_id=? AND m.account_id=? AND m.status='JOINED' "
                 +"AND r.state IN('OPEN','PLAYING') AND a.lifecycle_state='ACTIVE' LIMIT 1";
         try(var connection=source.getConnection();var query=connection.prepareStatement(sql)){
             query.setLong(1,roomId);query.setLong(2,accountId);
-            try(var result=query.executeQuery()){return result.next();}
+            try(var result=query.executeQuery()){return result.next()?result.getInt(1):null;}
         }catch(java.sql.SQLException failure){throw new IllegalStateException("spectator membership lookup failed",failure);}
     }
     private static int throwSecurity(String message){throw new SecurityException(message);}

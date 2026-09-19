@@ -219,6 +219,45 @@ class JdbcClubServiceIntegrationTest {
         assertEquals(0,((Number)service.get(50).settings().getOrDefault("unionId",0)).longValue());
     }
 
+    @Test void clubAndUnionRoomTemplatesRemainIsolatedAcrossModeChanges() throws Exception {
+        JdbcDataSource source=new JdbcDataSource();source.setURL("jdbc:h2:mem:room_scope_isolation;MODE=MySQL;DB_CLOSE_DELAY=-1");
+        schema(source);var mapper=new ObjectMapper().findAndRegisterModules();var clock=Clock.systemUTC();
+        var service=new JdbcClubService(source,mapper,clock);service.create("create-scope-club",68,680,"ScopeClub");
+        var dispatch=new ClubDispatchService(source,mapper,clock,()->9015L);
+        dispatch.dispatch(680,"create-club-room","club.CClubCreateGameSet",Map.of(
+                "clubId",68,"gameId",201,"gameCode","CD201","roomName","亲友圈房间","playerCount",2,"roundCount",8));
+
+        var union=(Map<?,?>)dispatch.dispatch(680,"create-scope-union","union.CUnionCreate",Map.of(
+                "clubId",68,"unionName","隔离联盟","unionTotalScore",2000,"outSports",0));
+        long unionId=((Number)union.get("unionId")).longValue();
+        assertTrue(((java.util.List<?>)dispatch.dispatch(680,"empty-scope-union","union.CUnionRoomCfgList",
+                Map.of("clubId",68,"unionId",unionId,"pageNum",1,"classType",0))).isEmpty());
+
+        dispatch.dispatch(680,"create-union-room","union.CUnionCreateRoom",Map.of(
+                "clubId",68,"unionId",unionId,"gameId",201,"gameCode","CD201","roomName","联盟房间","playerCount",2,"roundCount",8));
+        var unionRooms=(java.util.List<?>)dispatch.dispatch(680,"list-scope-union","union.CUnionRoomConfigItemList",
+                Map.of("clubId",68,"unionId",unionId));
+        assertEquals(1,unionRooms.size());
+        assertEquals("联盟房间",((Map<?,?>)unionRooms.get(0)).get("roomName"));
+
+        assertEquals(0,((Number)dispatch.dispatch(680,"dissolve-scope-union","union.CUnionDissolve",
+                Map.of("clubId",68,"unionId",unionId))).intValue());
+        var managedResponse=(Map<?,?>)dispatch.dispatch(680,"managed-after-dissolve","club.CClubGetCreateGameSet",Map.of("clubId",68));
+        var managed=(java.util.List<?>)managedResponse.get("clubCreateGameSets");
+        var quick=(java.util.List<?>)dispatch.dispatch(680,"quick-after-dissolve","club.CClubRoomConfigItemList",Map.of("clubId",68));
+        assertEquals(1,managed.size());
+        assertEquals("亲友圈房间",((Map<?,?>)managed.get(0)).get("roomName"));
+        assertEquals(1,quick.size());
+        assertEquals("亲友圈房间",((Map<?,?>)quick.get(0)).get("roomName"));
+
+        var recreated=(Map<?,?>)dispatch.dispatch(680,"recreate-scope-union","union.CUnionCreate",Map.of(
+                "clubId",68,"unionName","新联盟","unionTotalScore",2000,"outSports",0));
+        long recreatedUnionId=((Number)recreated.get("unionId")).longValue();
+        assertTrue(((java.util.List<?>)dispatch.dispatch(680,"empty-recreated-union","union.CUnionRoomCfgList",
+                Map.of("clubId",68,"unionId",recreatedUnionId,"pageNum",1,"classType",0))).isEmpty(),
+                "重新创建联盟后不得显示亲友圈或旧联盟房间");
+    }
+
     @Test void listAcceptsRetiredFieldsInPersistedMemberExtraState() throws Exception {
         JdbcDataSource source=new JdbcDataSource();source.setURL("jdbc:h2:mem:club_legacy_member_extra;MODE=MySQL;DB_CLOSE_DELAY=-1");
         schema(source);var service=new JdbcClubService(source,new ObjectMapper().findAndRegisterModules(),Clock.systemUTC());
@@ -374,5 +413,5 @@ class JdbcClubServiceIntegrationTest {
         assertEquals(100000L,((Number)service.get(61).settings().get("diamondsAttentionMinister")).longValue());
         assertEquals(80000L,((Number)service.get(61).settings().get("diamondsAttentionAll")).longValue());
     }
-    static void schema(JdbcDataSource source)throws Exception{try(Connection c=source.getConnection();var s=c.createStatement()){s.execute("CREATE TABLE aoo_club_state(club_id BIGINT PRIMARY KEY,state_json CLOB NOT NULL,row_version BIGINT NOT NULL,updated_at TIMESTAMP NOT NULL)");s.execute("CREATE TABLE aoo_club_write_idempotency(scope_key VARCHAR(160) PRIMARY KEY,response_json CLOB NOT NULL,created_at TIMESTAMP NOT NULL)");s.execute("CREATE TABLE aoo_club_member(club_id BIGINT NOT NULL,player_id BIGINT NOT NULL,member_status VARCHAR(16) NOT NULL,member_role VARCHAR(16) NOT NULL,online TINYINT NOT NULL DEFAULT 0,profile_payload CLOB NOT NULL,joined_at TIMESTAMP NOT NULL,updated_at TIMESTAMP NOT NULL,PRIMARY KEY(club_id,player_id))");s.execute("CREATE TABLE aoo_account_identity(account_id BIGINT NOT NULL,identity_type VARCHAR(24) NOT NULL,normalized_value VARCHAR(255) NOT NULL,status VARCHAR(16) NOT NULL)");s.execute("CREATE TABLE player_profile(player_id BIGINT PRIMARY KEY,nickname VARCHAR(64),avatar_url VARCHAR(255),gender_code VARCHAR(16))");}}
+    static void schema(JdbcDataSource source)throws Exception{try(Connection c=source.getConnection();var s=c.createStatement()){s.execute("CREATE TABLE aoo_club_state(club_id BIGINT PRIMARY KEY,state_json CLOB NOT NULL,row_version BIGINT NOT NULL,updated_at TIMESTAMP NOT NULL)");s.execute("CREATE TABLE aoo_club_write_idempotency(scope_key VARCHAR(160) PRIMARY KEY,response_json CLOB NOT NULL,created_at TIMESTAMP NOT NULL)");s.execute("CREATE TABLE aoo_club_member(club_id BIGINT NOT NULL,player_id BIGINT NOT NULL,member_status VARCHAR(16) NOT NULL,member_role VARCHAR(16) NOT NULL,online TINYINT NOT NULL DEFAULT 0,profile_payload CLOB NOT NULL,joined_at TIMESTAMP NOT NULL,updated_at TIMESTAMP NOT NULL,PRIMARY KEY(club_id,player_id))");s.execute("CREATE TABLE aoo_club_ledger(club_id BIGINT NOT NULL,business_key VARCHAR(160) NOT NULL,player_id BIGINT NOT NULL,amount DECIMAL(20,4) NOT NULL,reason VARCHAR(160) NOT NULL,created_at TIMESTAMP NOT NULL,PRIMARY KEY(club_id,business_key))");s.execute("CREATE TABLE aoo_account_identity(account_id BIGINT NOT NULL,identity_type VARCHAR(24) NOT NULL,normalized_value VARCHAR(255) NOT NULL,status VARCHAR(16) NOT NULL)");s.execute("CREATE TABLE player_profile(player_id BIGINT PRIMARY KEY,nickname VARCHAR(64),avatar_asset_id VARCHAR(255),gender_code VARCHAR(16))");}}
 }

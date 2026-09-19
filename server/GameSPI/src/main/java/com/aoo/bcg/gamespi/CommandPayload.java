@@ -22,6 +22,7 @@ public final class CommandPayload extends TypedDocument {
         return new CommandPayload(typed);
     }
 
+
     public int requireInt(String name) {
         Object value = require(name);
         if (!(value instanceof Number number)) throw mismatch(name, "integer", value);

@@ -26,15 +26,17 @@ import java.util.Optional;
 import java.util.Set;
 
 final class CN298GameProvider implements GameProvider {
+  private static final String DISPATCH = "poker.CN298.dispatch";
   private static final Set<String> COMMANDS = Set.of(
-      "poker.cn298.sit_req", "poker.cn298.rob_req",
+      "poker.cn298.sit_req", "poker.cn298.start_req", "poker.cn298.rob_req",
       "poker.cn298.bet_req", "poker.cn298.split_req", "poker.cn298.timeout_req",
       "poker.cn298.continue_req", "poker.cn298.state_req");
   private final GameDescriptor descriptor;
   CN298GameProvider(GameDescriptor descriptor) { this.descriptor = descriptor; }
   @Override public GameDescriptor descriptor() { return descriptor; }
   @Override public Optional<GameCommandHandler> commandHandler() {
-    return Optional.of(new AuthoritativeSessionCommandHandler());
+    var authoritative = new AuthoritativeSessionCommandHandler();
+    return Optional.of((room, request) -> authoritative.handle(room, unwrap(request)));
   }
   @Override public Optional<ReconnectViewProvider<?>> reconnectViewProvider() {
     return Optional.of((playerId, room) -> room.requireAuthoritativeSession().viewFor(playerId));
@@ -60,7 +62,9 @@ final class CN298GameProvider implements GameProvider {
           return RuleResult.reject("CN298_PLAY_VERSION_MISMATCH",
               "[CN298] playVersion=" + request.playVersion());
         }
-        if (!COMMANDS.contains(request.msgId())) {
+        String command = DISPATCH.equals(request.msgId())
+            ? String.valueOf(request.body().asMap().get("action")) : request.msgId();
+        if (!COMMANDS.contains(command)) {
           return RuleResult.reject("CN298_COMMAND_NOT_ALLOWED",
               "[CN298] msgId=" + request.msgId());
         }
@@ -73,6 +77,9 @@ final class CN298GameProvider implements GameProvider {
   }
   @Override public Optional<AuthoritativeGameSession> createAuthoritativeSession(RoomCreationContext context) {
     return Optional.of(create(context));
+  }
+  @Override public Optional<AuthoritativeGameSession> restoreAuthoritativeSession(Map<String, Object> state) {
+    return Optional.of(new CN298Authority(NiuNiuSession.restore(state), descriptor.version()));
   }
   @Override public Map<String, Object> defaultConfiguration() {
     NiuNiuRules rules = NiuNiuRules.defaults();
@@ -88,6 +95,7 @@ final class CN298GameProvider implements GameProvider {
         number(raw,"startPlayers",d.startPlayers()), enumValue(NiuNiuRules.Mode.class,raw.get("mode"),d.mode()),
         number(raw,"maxRobMultiplier",d.maxRobMultiplier()), number(raw,"maxPushMultiplier",d.maxPushMultiplier()),
         enumValue(NiuNiuRules.StandPolicy.class,raw.get("standPolicy"),d.standPolicy()),
+        raw.get("fastModeEnabled") instanceof Boolean b ? b : d.fastModeEnabled(),
         raw.get("kanShunDouEnabled") instanceof Boolean b ? b : d.kanShunDouEnabled());
     long seed = raw.get("shuffleSeed") instanceof Number n ? n.longValue() : context.roomId();
     return new CN298Authority(new NiuNiuSession(context.roomId(), context.ownerId(), seed, rules), descriptor.version());
@@ -95,6 +103,22 @@ final class CN298GameProvider implements GameProvider {
   private static int number(Map<String,Object> values,String key,int fallback){Object v=values.get(key);return v instanceof Number n?n.intValue():fallback;}
   private static <E extends Enum<E>> E enumValue(Class<E> type,Object raw,E fallback){
     if(raw==null)return fallback;return Enum.valueOf(type,String.valueOf(raw).trim().toUpperCase());
+  }
+  private static GameCommandRequest unwrap(GameCommandRequest request) {
+    if (!DISPATCH.equals(request.msgId())) return request;
+    Map<String, Object> body = request.body().asMap();
+    String action = String.valueOf(body.get("action"));
+    if (!COMMANDS.contains(action)) {
+      throw new IllegalArgumentException("CN298_COMMAND_NOT_ALLOWED: [CN298] action=" + action);
+    }
+    Object rawPayload = body.get("payload");
+    if (!(rawPayload instanceof Map<?, ?> raw)) {
+      throw new IllegalArgumentException("[CN298] dispatch payload must be an object");
+    }
+    Map<String, Object> payload = new LinkedHashMap<>();
+    raw.forEach((key, value) -> payload.put(String.valueOf(key), value));
+    return new GameCommandRequest(action, request.requestId(), request.sequence(), request.roomId(),
+        request.roundNo(), request.playVersion(), request.authenticatedUserId(), request.seatId(), payload);
   }
 }
 
@@ -120,6 +144,7 @@ final class CN298Authority implements AuthoritativeGameSession {
     try {
       switch(request.msgId()){
         case "poker.cn298.sit_req"->session.sit(body.requireInt("seatId"),playerId,request.requestId());
+        case "poker.cn298.start_req"->session.start(playerId,request.requestId());
         case "poker.cn298.rob_req"->session.rob(seat,body.requireInt("multiplier"),request.requestId());
         case "poker.cn298.bet_req"->session.bet(seat,body.requireInt("multiplier"),request.requestId());
         case "poker.cn298.split_req"->session.split(seat,body.requireIntList("cards"),request.requestId());
@@ -138,7 +163,7 @@ final class CN298Authority implements AuthoritativeGameSession {
     return new GameCommandResult(request.msgId().replace("_req","_resp"),request.requestId(),viewFor(playerId));
   }
   @Override public Map<String,Object> viewFor(long viewerPlayerId){return session.snapshotFor(viewerPlayerId);}
-  @Override public Map<String,Object> authoritativeState(){return session.snapshotFor(-1);}
+  @Override public Map<String,Object> authoritativeState(){return session.authoritativeState();}
   @Override public long stateVersion(){return session.stateVersion();}
   @Override public OperationDeadline operationDeadline(){return OperationDeadline.none();}
   @Override public OperationDeadlineArbiter deadlineArbiter(){return arbiter;}

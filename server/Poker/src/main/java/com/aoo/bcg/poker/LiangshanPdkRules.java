@@ -154,15 +154,28 @@ final class LiangshanPdkRules implements PdkRegionRules {
         rules.put("competeDealerMustSpringToWin", enabled);
     }
 
+    /**
+     * 凉山规则表中的“三带一”采用地区语义：先带两张散牌，无法组成时再带一对或一张。
+     * 公共发布键仍保持稳定，但进入公共牌型引擎前必须展开为完整的 EITHER 能力；否则合法的
+     * “三张 + 两张散牌”会在提示排序之前被过滤掉。
+     */
+    private static PaoDeKuaiConfig.AttachmentMode liangshanTripleAttachmentMode(
+            Set<String> selected) {
+        PaoDeKuaiConfig.AttachmentMode mode =
+                PdkPublishedRuleOptions.tripleAttachmentMode(selected);
+        return mode == PaoDeKuaiConfig.AttachmentMode.SINGLE_OR_PAIR
+                ? PaoDeKuaiConfig.AttachmentMode.EITHER : mode;
+    }
+
     private static void normalizePlayRules(Map<String,Object> published, Map<String,Object> rules,
             int cards) {
         Set<String> selected = PdkRegionalRuleValidation.stringChoices(published, "playRule",
                 Set.of(), PLAY_RULES);
-        rules.put("tripleAttachmentMode",
-                PdkPublishedRuleOptions.tripleAttachmentMode(selected).name());
+        PaoDeKuaiConfig.AttachmentMode tripleAttachmentMode =
+                liangshanTripleAttachmentMode(selected);
+        rules.put("tripleAttachmentMode", tripleAttachmentMode.name());
         rules.put("tripleWithoutAttachmentTiming",
-                PdkPublishedRuleOptions.tripleAttachmentMode(selected)
-                        != PaoDeKuaiConfig.AttachmentMode.DISABLED
+                tripleAttachmentMode != PaoDeKuaiConfig.AttachmentMode.DISABLED
                 ? "DEALER_RESPONSE_OR_FINAL" : "ANYTIME");
         rules.put("airplaneAttachmentMode", "EITHER");
         rules.put("fourAttachmentMode",

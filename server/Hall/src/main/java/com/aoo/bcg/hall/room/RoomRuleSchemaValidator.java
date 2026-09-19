@@ -38,8 +38,11 @@ final class RoomRuleSchemaValidator {
             if(value==null){if(required)throw HallError.bad("HALL_RULE_REQUIRED",key+" is required");continue;}
             List<?> options=field.get("options") instanceof List<?> list?list:List.of();
             if(multi){
-                if(!(value instanceof Collection<?> values))throw HallError.bad("HALL_RULE_VALUE_INVALID","invalid value for "+key);
-                for(Object item:values)allowed(key,item,options);
+                if(booleanFlag(options)&&value instanceof Boolean){/* checked=true, unchecked=false */}
+                else{
+                    if(!(value instanceof Collection<?> values))throw HallError.bad("HALL_RULE_VALUE_INVALID","invalid value for "+key);
+                    for(Object item:values)allowed(key,item,options);
+                }
             }else{
                 if(value instanceof Collection<?>)throw HallError.bad("HALL_RULE_VALUE_INVALID","invalid value for "+key);
                 if(!options.isEmpty())allowed(key,value,options);
@@ -91,6 +94,12 @@ final class RoomRuleSchemaValidator {
     private static void allowed(String key,Object value,List<?> options){
         for(Object raw:options){if(raw instanceof Map<?,?> map&&Boolean.TRUE.equals(map.get("disabled")))continue;Object option=raw instanceof Map<?,?> map?(map.containsKey("value")?map.get("value"):map.get("id")):raw;if(equal(option,value))return;}
         throw HallError.bad("HALL_RULE_VALUE_INVALID","invalid value for "+key);
+    }
+    private static boolean booleanFlag(List<?> options){
+        if(options.size()!=1)return false;
+        Object raw=options.get(0);
+        Object option=raw instanceof Map<?,?> map?(map.containsKey("value")?map.get("value"):map.get("id")):raw;
+        return option instanceof Boolean;
     }
     private static void numeric(String key,Object value,Map<String,Object> field){
         try{

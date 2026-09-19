@@ -14,7 +14,24 @@ public final class PaoDeKuaiRuleSet implements PokerRuleSet<PaoDeKuaiContext>{
   else if(size==5&&frequency(counts,3)==1&&allowsPairs(config.tripleAttachmentMode())&&frequency(counts,2)==1){type="TRIPLE_WITH_PAIR";primary=rankWithCount(counts,3);}
   else if(size==5&&counts.values().stream().anyMatch(value->value>=3)&&allowsTwoSingles(config.tripleAttachmentMode())){type="TRIPLE_WITH_TWO";primary=rankWithAtLeastCount(counts,3);}
   else if(size>=4&&size%2==0&&counts.values().stream().allMatch(v->v==2)&&validProfileRun(counts.keySet(),true))type="CONSECUTIVE_PAIRS";
-  else {List<Integer> triples=counts.entrySet().stream().filter(e->e.getValue()==3).map(Map.Entry::getKey).sorted().toList();if(!triples.isEmpty()&&triples.size()>=profile.minimumPlaneLength()&&validProfileRun(triples,true)){int n=triples.size();primary=triples.get(triples.size()-1);if(size==n*3&&timingAllows(config.airplaneWithoutAttachmentTiming(),cards,context))type="AIRPLANE";else if(size==n*4&&allowsSingles(config.airplaneAttachmentMode()))type="AIRPLANE_WITH_SINGLES";else if(size==n*5&&allowsPairs(config.airplaneAttachmentMode())&&counts.values().stream().filter(v->v!=3).allMatch(v->v==2))type="AIRPLANE_WITH_PAIRS";else if(size==n*5&&config.allowAirplaneWithTwo())type="AIRPLANE_WITH_TWO";}}
+  else {
+   int bodyLength=size%3==0?size/3:0;
+   List<Integer> body=consecutiveTripleBody(counts,bodyLength);
+   if(!body.isEmpty()&&timingAllows(config.airplaneWithoutAttachmentTiming(),cards,context)){type="AIRPLANE";primary=body.get(body.size()-1);}
+   if(type==null&&size%4==0&&allowsSingles(config.airplaneAttachmentMode())){
+    bodyLength=size/4;body=consecutiveTripleBody(counts,bodyLength);
+    if(!body.isEmpty()){type="AIRPLANE_WITH_SINGLES";primary=body.get(body.size()-1);}
+   }
+   if(type==null&&size%5==0){
+    bodyLength=size/5;body=consecutiveTripleBody(counts,bodyLength);
+    if(!body.isEmpty()){
+     Map<Integer,Long> attachments=airplaneAttachments(counts,body);
+     if(allowsPairs(config.airplaneAttachmentMode())&&attachments.values().stream().allMatch(v->v==2))type="AIRPLANE_WITH_PAIRS";
+     else if(config.allowAirplaneWithTwo())type="AIRPLANE_WITH_TWO";
+     if(type!=null)primary=body.get(body.size()-1);
+    }
+   }
+  }
   if(type==null&&frequency(counts,4)==1){if(size==6&&allowsSingles(config.fourAttachmentMode()))type="FOUR_WITH_TWO";else if(size==8&&allowsPairs(config.fourAttachmentMode())&&counts.values().stream().filter(v->v!=4).allMatch(v->v==2))type="FOUR_WITH_TWO_PAIRS";else if(size==7&&config.allowFourWithThree())type="FOUR_WITH_THREE";if(type!=null)primary=rankWithCount(counts,4);}
   if(type==null)throw new IllegalArgumentException("unsupported paodekuai combination");return new CardCombination(type,primary,cards);
  }
@@ -30,7 +47,7 @@ public final class PaoDeKuaiRuleSet implements PokerRuleSet<PaoDeKuaiContext>{
   if(config.compareTripleAttachments()&&candidate.type().startsWith("TRIPLE_WITH"))return maximumAttachmentRank(candidate)>maximumAttachmentRank(previous);
   return true;
  }
- public boolean isBomb(CardCombination c){return "BOMB".equals(c.type())||c.type().contains("_BOMB");}private int bombTier(CardCombination c){return switch(c.type()){case"SPECIAL_TRIPLE_BOMB","SPECIAL_TRIPLE_BOMB_WITH_ONE"->config.specialBombTier();case"FOUR_BOMB_WITH_ONE"->config.fourBombWithOneTier();case"CONSECUTIVE_BOMB"->(int)(tripleGroups(c)*2-1);default->config.standardBombTier();};}private static long tripleGroups(CardCombination c){Map<Integer,Long>m=new HashMap<>();c.cards().forEach(card->m.merge(StandardPokerRuleSet.rank(card),1L,Long::sum));return m.values().stream().filter(n->n>=3).count();}
+ public boolean isBomb(CardCombination c){return "BOMB".equals(c.type())||c.type().contains("_BOMB");}private int bombTier(CardCombination c){return switch(c.type()){case"SPECIAL_TRIPLE_BOMB","SPECIAL_TRIPLE_BOMB_WITH_ONE"->config.specialBombTier();case"FOUR_BOMB_WITH_ONE"->config.fourBombWithOneTier();case"CONSECUTIVE_BOMB"->(int)(tripleGroups(c)*2-1);default->config.standardBombTier();};}private static long tripleGroups(CardCombination c){if("AIRPLANE".equals(c.type()))return c.cards().size()/3;if("AIRPLANE_WITH_SINGLES".equals(c.type()))return c.cards().size()/4;if("AIRPLANE_WITH_PAIRS".equals(c.type())||"AIRPLANE_WITH_TWO".equals(c.type()))return c.cards().size()/5;Map<Integer,Long>m=new HashMap<>();c.cards().forEach(card->m.merge(StandardPokerRuleSet.rank(card),1L,Long::sum));return m.values().stream().filter(n->n>=3).count();}
  public int cardsPerPlayer(int players){profile.validatePlayerCount(players,config.cardsPerPlayer());return config.cardsPerPlayer()==0?profile.deckSize()/players:config.cardsPerPlayer();}
  public List<CardCombination> hints(List<Integer> hand,CardCombination previous,PaoDeKuaiContext context){if(hand==null||hand.isEmpty())return List.of();if(hand.size()>profile.maximumHandSize())throw new IllegalStateException("hand exceeds complete-hint budget");List<Integer>sorted=hand.stream().sorted(Comparator.comparingInt((Integer card)->StandardPokerRuleSet.rank(card)).thenComparingInt(Integer::intValue)).toList();LinkedHashMap<String,CardCombination>result=new LinkedHashMap<>();long limit=1L<<sorted.size();for(long mask=1;mask<limit;mask++){List<Integer>candidate=new ArrayList<>();for(int i=0;i<sorted.size();i++)if((mask&(1L<<i))!=0)candidate.add(sorted.get(i));try{CardCombination c=recognize(candidate,context);validatePlay(candidate,context);if(canBeat(c,previous,context)&&!isPromptOnlyBombAsTriple(c))result.putIfAbsent(c.type()+":"+c.primaryRank()+":"+c.cards(),c);}catch(IllegalArgumentException|IllegalStateException ignored){/* exhaustive candidate is illegal */}}return result.values().stream().sorted(Comparator.comparingInt((CardCombination c)->isBomb(c)?1:0).thenComparingInt(this::bombTier).thenComparingInt(c->c.cards().size()).thenComparingInt(CardCombination::primaryRank).thenComparing(c->c.cards().toString())).toList();}
  public void validatePlay(List<Integer> cards,PaoDeKuaiContext context){
@@ -45,6 +62,26 @@ public final class PaoDeKuaiRuleSet implements PokerRuleSet<PaoDeKuaiContext>{
   if(config.compareTripleAttachments())return false;
   if(candidate.type().startsWith("TRIPLE_WITH")&&previous.type().startsWith("TRIPLE_WITH"))return true;
   return candidate.type().startsWith("AIRPLANE_WITH")&&previous.type().startsWith("AIRPLANE_WITH")&&tripleGroups(candidate)==tripleGroups(previous);
+ }
+ private List<Integer> consecutiveTripleBody(Map<Integer,Long> counts,int length){
+  if(length<profile.minimumPlaneLength())return List.of();
+  for(int start=3;start+length-1<15;start++){
+   List<Integer> ranks=new ArrayList<>(length);boolean complete=true;
+   for(int rank=start;rank<start+length;rank++){
+    if(counts.getOrDefault(rank,0L)<3){complete=false;break;}
+    ranks.add(rank);
+   }
+   if(complete&&validProfileRun(ranks,true))return List.copyOf(ranks);
+  }
+  return List.of();
+ }
+ private static Map<Integer,Long> airplaneAttachments(Map<Integer,Long> counts,List<Integer> body){
+  Map<Integer,Long> attachments=new TreeMap<>(counts);
+  for(int rank:body){
+   long remaining=attachments.getOrDefault(rank,0L)-3;
+   if(remaining==0)attachments.remove(rank);else attachments.put(rank,remaining);
+  }
+  return attachments;
  }
  private boolean validProfileRun(Collection<Integer> ranks,boolean pairs){try{profile.validateRun(ranks.stream().sorted().toList(),pairs);return true;}catch(IllegalArgumentException e){return false;}}private static long frequency(Map<Integer,Long> counts,long value){return counts.values().stream().filter(v->v==value).count();}private static int rankWithCount(Map<Integer,Long>counts,long value){return counts.entrySet().stream().filter(e->e.getValue()==value).mapToInt(Map.Entry::getKey).findFirst().orElseThrow();}private static boolean timingAllows(PaoDeKuaiConfig.PlayTiming timing,List<Integer>cards,PaoDeKuaiContext context){if(timing==PaoDeKuaiConfig.PlayTiming.ANYTIME)return true;if(context==null)return false;if(context.handBeforePlay().size()==cards.size())return timing==PaoDeKuaiConfig.PlayTiming.FINAL_ONLY||timing==PaoDeKuaiConfig.PlayTiming.DEALER_RESPONSE_OR_FINAL;return timing==PaoDeKuaiConfig.PlayTiming.DEALER_RESPONSE_OR_FINAL&&context.attachmentlessPlayPrivilege();}private static boolean allowsSingles(PaoDeKuaiConfig.AttachmentMode mode){return mode==PaoDeKuaiConfig.AttachmentMode.SINGLES||mode==PaoDeKuaiConfig.AttachmentMode.SINGLE_OR_PAIR||mode==PaoDeKuaiConfig.AttachmentMode.EITHER;}private static boolean allowsPairs(PaoDeKuaiConfig.AttachmentMode mode){return mode==PaoDeKuaiConfig.AttachmentMode.PAIRS||mode==PaoDeKuaiConfig.AttachmentMode.SINGLE_OR_PAIR||mode==PaoDeKuaiConfig.AttachmentMode.EITHER;}private static boolean allowsTwoSingles(PaoDeKuaiConfig.AttachmentMode mode){return mode==PaoDeKuaiConfig.AttachmentMode.EITHER;}private static int highestPairRank(List<Integer>cards){Map<Integer,Long>counts=new HashMap<>();cards.forEach(card->counts.merge(StandardPokerRuleSet.rank(card),1L,Long::sum));return counts.entrySet().stream().filter(e->e.getValue()>=2).mapToInt(Map.Entry::getKey).max().orElse(-1);}private static int maximumAttachmentRank(CardCombination c){Map<Integer,Long>counts=new HashMap<>();c.cards().forEach(card->counts.merge(StandardPokerRuleSet.rank(card),1L,Long::sum));return counts.entrySet().stream().filter(e->e.getKey()!=c.primaryRank()).mapToInt(Map.Entry::getKey).max().orElse(-1);} private static boolean legalRun(Collection<Integer> ranks,int minimum){if(ranks.size()<minimum)return false;int previous=-1;for(int rank:ranks){if(rank>=15||(previous>=0&&rank!=previous+1))return false;previous=rank;}return true;}
 }

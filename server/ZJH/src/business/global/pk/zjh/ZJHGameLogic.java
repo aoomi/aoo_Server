@@ -15,9 +15,7 @@ public class ZJHGameLogic {
 	public final static int ZJH_JINHUA		=103;									//金华
 	public final static int ZJH_SHUNJIN		=104;									//顺金
 	public final static int ZJH_PAOZI      	=105;                                	//豹子
-	public final static int ZJH_TESHU      	=106;                                	//特殊
-	
-	public final static byte especialCardList[] = {0x02,0x03,0x05};
+	public final static int ZJH_TESHU      	=106;                                	//历史可选的235特殊牌型（CN297未发布）
 	
 	public final static byte especialShunZiList[] = {0x0E,0x02,0x03};
 	
@@ -40,10 +38,6 @@ public class ZJHGameLogic {
 		byte bSameCount = 0;
 		ArrayList<Integer> tempCardData = (ArrayList<Integer>) list.clone();
 				
-		if(isEspecialCard(tempCardData, especialCardList) && !isTongSe(tempCardData, MAX_COUNT)) return ZJH_TESHU;
-		
-		
-
 		tempCardData.sort(BasePockerLogic.sorterBigToSmallNotTrump);
 		int bSecondValue = GetCardValue(tempCardData.get(MAX_COUNT/2));
 		for(byte i=0;i<MAX_COUNT;i++)
@@ -97,18 +91,6 @@ public class ZJHGameLogic {
 		int leftType = ZJHGameLogic.GetCardType(cbLeftData);
 		int RightType = ZJHGameLogic.GetCardType(cbRightData);
 
-		if((leftType == ZJH_TESHU && RightType == ZJH_PAOZI) || (leftType == ZJH_PAOZI && RightType == ZJH_TESHU)){
-			return leftType > RightType;
-		}
-		if(leftType == ZJH_TESHU ) {
-			leftType = ZJH_VALUE;
-		}
-		
-		if(RightType == ZJH_TESHU  ) {
-			RightType = ZJH_VALUE;
-		}
-		
-		
 		if(leftType!=RightType)
 			return leftType > RightType;
 
@@ -135,7 +117,6 @@ public class ZJHGameLogic {
 			if( cbLeftValue != cbRightValue ) {
 				return cbLeftValue > cbRightValue;
 			}
-			return false;
 	    }
 		
 		int i = 0;
@@ -147,6 +128,13 @@ public class ZJHGameLogic {
 			if( cbLeftMaxValue != cbRightMaxValue ) {
 				return cbLeftMaxValue > cbRightMaxValue;
 			}
+		}
+		// XQP 同型同点按花色逐张决胜。Aoo 牌编码为方块0、梅花1、红桃2、黑桃3，
+		// 与 XQP 的黑桃、红桃、梅花、方块强弱顺序等价，因此这里取较大的颜色值。
+		for (i = 0; i < MAX_COUNT; i++) {
+			int leftColor = GetCardColor(tempLeftData.get(i));
+			int rightColor = GetCardColor(tempRightData.get(i));
+			if (leftColor != rightColor) return leftColor > rightColor;
 		}
 		return false;
 		

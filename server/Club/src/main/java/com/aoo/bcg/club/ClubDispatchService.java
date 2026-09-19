@@ -357,8 +357,11 @@ public final class ClubDispatchService {
             settings.put("unionState", 0);
             // 升级联盟只切换展示域，原亲友圈模板必须留在服务端。
             // 记录升级瞬间的最大序号，联盟只读取之后创建的独立模板。
-            settings.put("unionTemplateStartIndex", current.templates().stream()
-                    .mapToInt(JdbcClubService.TemplateState::index).max().orElse(0));
+            int boundary = current.templates().stream()
+                    .mapToInt(JdbcClubService.TemplateState::index).max().orElse(0);
+            settings.put("unionTemplateStartIndex", boundary);
+            current.templates().forEach(template -> settings.putIfAbsent(
+                    templateScopeKey(template.index()), "CLUB"));
             settings.put("unionMembers", List.of(unionMemberRow(current, actor, 3)));
             return JdbcClubService.copy(current, current.name(), current.status(), current.members(),
                     current.templates(), current.tables(), current.invites(), current.records(),
@@ -472,6 +475,11 @@ public final class ClubDispatchService {
         for (JdbcClubService.State member : members) {
             clubs.update(key(requestId, "union.CUnionDissolve." + member.id()), member.id(), current -> {
                 Map<String, Object> settings = new LinkedHashMap<>(current.settings());
+                int boundary = (int) setting(current, "unionTemplateStartIndex",
+                        current.templates().stream().mapToInt(JdbcClubService.TemplateState::index).max().orElse(0));
+                current.templates().forEach(template -> settings.putIfAbsent(
+                        templateScopeKey(template.index()), template.index() <= boundary
+                                ? "CLUB" : unionTemplateScope(unionId)));
                 settings.keySet().removeIf(name -> name.startsWith("union"));
                 return JdbcClubService.copy(current, current.name(), current.status(), current.members(),
                         current.templates(), current.tables(), current.invites(), current.records(), current.ledger(),
@@ -578,33 +586,59 @@ public final class ClubDispatchService {
         int page = Math.max(1, (int) number(payload, "pageNum", 1));
         String query = text(payload, "query", "").trim();
         boolean losePoint = number(payload, "losePoint", 0) != 0;
+        boolean onlineOnly = number(payload, "type", 0) == 1;
+        Set<Long> onlineMembers = onlineMemberIds(state.id());
         Collection<Long> visibleMembers = visibleMembers(state, actor);
-        List<Map<String, Object>> rows = selfFirst(visibleMembers, actor).stream()
+        List<Map<String, Object>> rows = visibleMembers.stream()
                 .map(pid -> memberRow(state, pid))
+                .filter(row -> !onlineOnly || onlineMembers.contains(((Number) row.get("pid")).longValue()))
                 .filter(row -> !losePoint || decimal(extra(state, ((Number) row.get("pid")).longValue()).clubCent()).signum() < 0)
+                .sorted(Comparator.comparingInt(row -> memberRoleRank(row)))
                 .toList();
         if (!query.isBlank()) {
             rows = rows.stream().filter(row -> {
                 long pid = ((Number) row.get("pid")).longValue();
-                String name = String.valueOf(((Map<?, ?>) row.get("shortPlayer")).get("name"));
-                return Long.toString(pid).contains(query) || name.contains(query);
+                Map<?, ?> player = (Map<?, ?>) row.get("shortPlayer");
+                String name = String.valueOf(player.get("name"));
+                String displayId = String.valueOf(player.containsKey("displayId") ? player.get("displayId") : "");
+                return Long.toString(pid).contains(query) || displayId.contains(query)
+                        || name.toLowerCase(Locale.ROOT).contains(query.toLowerCase(Locale.ROOT));
             }).toList();
         }
         int from = Math.min(rows.size(), (page - 1) * PAGE_SIZE);
         int to = Math.min(rows.size(), from + PAGE_SIZE);
+        LOG.log(System.Logger.Level.INFO, "[ClubMembers] list clubId={0} actor={1} page={2} onlineOnly={3} queryPresent={4} total={5} returned={6}",
+                state.id(), actor, page, onlineOnly, !query.isBlank(), rows.size(), to - from);
         return rows.subList(from, to);
     }
 
-    private Object onlineCount(Map<String, Object> payload) {
-        long clubId = clubId(payload);
-        try (Connection connection = source.getConnection();
-             PreparedStatement query = connection.prepareStatement("SELECT COUNT(*) FROM aoo_club_member WHERE club_id=? AND member_status='ACTIVE' AND online=1")) {
+    private int memberRoleRank(Map<String, Object> row) {
+        int minister = ((Number) row.getOrDefault("minister", 0)).intValue();
+        if (minister == 2) return 0;
+        if (minister > 0) return 1;
+        return Boolean.TRUE.equals(row.get("isPromotionManage")) ? 2 : 3;
+    }
+
+    private Set<Long> onlineMemberIds(long clubId) {
+        Set<Long> result = new LinkedHashSet<>();
+        String sql = "SELECT DISTINCT m.player_id FROM aoo_club_member m "
+                + "JOIN aoo_account_session s ON s.account_id=m.player_id "
+                + "JOIN aoo_account a ON a.account_id=s.account_id "
+                + "WHERE m.club_id=? AND m.member_status='ACTIVE' AND s.revoked_at IS NULL "
+                + "AND s.access_expires_at>CURRENT_TIMESTAMP AND s.auth_generation=a.auth_generation";
+        try (Connection connection = source.getConnection(); PreparedStatement query = connection.prepareStatement(sql)) {
             query.setLong(1, clubId);
-            try (ResultSet rows = query.executeQuery()) { return rows.next() ? rows.getLong(1) : 0; }
+            try (ResultSet rows = query.executeQuery()) { while (rows.next()) result.add(rows.getLong(1)); }
+            LOG.log(System.Logger.Level.INFO, "[ClubMembers] online-count clubId={0} count={1}", clubId, result.size());
+            return result;
         } catch (SQLException failure) {
-            if (missingTable(failure)) return 0;
-            throw new IllegalStateException("club online count failed", failure);
+            if (missingTable(failure) || missingColumn(failure)) return Set.of();
+            throw new IllegalStateException("club online member query failed", failure);
         }
+    }
+
+    private Object onlineCount(Map<String, Object> payload) {
+        return onlineMemberIds(clubId(payload)).size();
     }
 
     private Map<String, Object> changeSetting(long actor, String requestId, Map<String, Object> payload, String name, long value) {
@@ -734,8 +768,21 @@ public final class ClubDispatchService {
         } else state = memberClub;
         List<Map<String, Object>> projected = queryHallClubRooms(state.id());
         if (unionId <= 0) {
-            return projected.isEmpty()
-                    ? state.tables().stream().map(table -> tableRow(state, table)).toList() : projected;
+            List<JdbcClubService.TemplateState> templates = clubTemplates(state);
+            Set<String> templateIds = new HashSet<>(templates.stream()
+                    .map(JdbcClubService.TemplateState::id).toList());
+            Set<Integer> templateIndexes = new HashSet<>(templates.stream()
+                    .map(JdbcClubService.TemplateState::index).toList());
+            if (projected.isEmpty()) {
+                return state.tables().stream().filter(table -> templateIds.contains(table.templateId()))
+                        .map(table -> tableRow(state, table)).toList();
+            }
+            return projected.stream().filter(room -> {
+                String templateCode = text(room, "templateCode", text(room, "clubTemplateCode", ""));
+                int templateIndex = (int) number(room, "tagId",
+                        number(room, "configId", number(room, "gameIndex", 0)));
+                return templateIds.contains(templateCode) || templateIndexes.contains(templateIndex);
+            }).toList();
         }
         List<JdbcClubService.TemplateState> templates = unionTemplates(state);
         Set<String> templateIds = new HashSet<>(templates.stream().map(JdbcClubService.TemplateState::id).toList());
@@ -839,7 +886,9 @@ public final class ClubDispatchService {
     /** Authoritative template snapshot used by Hall when a member taps an idle club desk. */
     public Map<String, Object> roomTemplateForEntry(long actor, long clubId, long gameIndex) {
         JdbcClubService.State state = requireMember(clubId, actor);
-        JdbcClubService.TemplateState template = state.templates().stream()
+        List<JdbcClubService.TemplateState> visibleTemplates = setting(state, "unionId", 0) > 0
+                ? unionTemplates(state) : clubTemplates(state);
+        JdbcClubService.TemplateState template = visibleTemplates.stream()
                 .filter(item -> item.index() == gameIndex).findFirst()
                 .orElseThrow(() -> new IllegalArgumentException("club room template not found"));
         Object decoded;
@@ -859,7 +908,8 @@ public final class ClubDispatchService {
 
     private Map<String, Object> managedRoomConfigs(long actor, Map<String, Object> payload) {
         JdbcClubService.State state = requireMember(clubId(payload), actor);
-        List<Map<String, Object>> rows = state.templates().stream().map(template -> managedRoom(state, template)).toList();
+        List<Map<String, Object>> rows = clubTemplates(state).stream()
+                .map(template -> managedRoom(state, template)).toList();
         long playing = roomList(actor, payload).stream().filter(row -> "PLAYING".equals(row.get("state"))).count();
         Map<String, Object> out = new LinkedHashMap<>();
         out.put("clubId", state.id());
@@ -881,6 +931,9 @@ public final class ClubDispatchService {
             catch (Exception failure) { rules = "{}"; }
         }
         JdbcClubService.State state = clubs.saveTemplate(key(requestId, "club.CClubCreateGameSet"), clubId, actor, templateId, name, game, rules);
+        JdbcClubService.TemplateState saved = state.templates().stream()
+                .filter(template -> template.id().equals(templateId)).findFirst().orElseThrow();
+        state = markTemplateScope(state, actor, requestId, saved.index(), "CLUB");
         return managedRoom(state, state.templates().stream().filter(template -> template.id().equals(templateId)).findFirst().orElseThrow());
     }
 
@@ -926,6 +979,9 @@ public final class ClubDispatchService {
                 current.id(), actor, templateId, name, game, rules);
         JdbcClubService.TemplateState saved = state.templates().stream()
                 .filter(template -> template.id().equals(templateId)).findFirst().orElseThrow();
+        state = markTemplateScope(state, actor, requestId, saved.index(),
+                unionTemplateScope(number(payload, "unionId", setting(state, "unionId", 0))));
+        saved = state.templates().stream().filter(template -> template.id().equals(templateId)).findFirst().orElseThrow();
         return unionRoomConfig(state, saved);
     }
 
@@ -988,6 +1044,8 @@ public final class ClubDispatchService {
         int status = (int) number(payload, "status", 0);
         JdbcClubService.State state = clubs.update(key(requestId, "club.CClubCreateGameSetChangge"), clubId(payload), current -> {
             requireManager(current, actor);
+            boolean exists = clubTemplates(current).stream().anyMatch(template -> template.index() == gameIndex);
+            if (!exists) throw new IllegalStateException("club room configuration not found");
             List<JdbcClubService.TemplateState> templates = status == 2
                     ? current.templates().stream().filter(template -> template.index() != gameIndex).toList()
                     : current.templates();
@@ -1720,10 +1778,45 @@ public final class ClubDispatchService {
      * 这样升级不会删改亲友圈历史数据，联盟大厅与房间管理也不会泄漏旧桌子。
      */
     private List<JdbcClubService.TemplateState> unionTemplates(JdbcClubService.State state) {
+        long unionId = setting(state, "unionId", 0);
+        String scope = unionTemplateScope(unionId);
         int currentMaximum = state.templates().stream().mapToInt(JdbcClubService.TemplateState::index)
                 .max().orElse(0);
         int boundary = (int) setting(state, "unionTemplateStartIndex", currentMaximum);
-        return state.templates().stream().filter(template -> template.index() > boundary).toList();
+        return state.templates().stream().filter(template -> {
+            String stored = text(state.settings(), templateScopeKey(template.index()), "");
+            return stored.isBlank() ? template.index() > boundary : stored.equals(scope);
+        }).toList();
+    }
+
+    /** Club and every alliance generation retain independent template projections. */
+    private List<JdbcClubService.TemplateState> clubTemplates(JdbcClubService.State state) {
+        int boundary = (int) setting(state, "unionTemplateStartIndex", Integer.MAX_VALUE);
+        return state.templates().stream().filter(template -> {
+            String stored = text(state.settings(), templateScopeKey(template.index()), "");
+            return stored.isBlank() ? template.index() <= boundary : stored.equals("CLUB");
+        }).toList();
+    }
+
+    private JdbcClubService.State markTemplateScope(JdbcClubService.State state, long actor,
+            String requestId, int templateIndex, String scope) {
+        return clubs.update(key(requestId, "template-scope." + templateIndex), state.id(), current -> {
+            requireManager(current, actor);
+            Map<String, Object> settings = new LinkedHashMap<>(current.settings());
+            settings.put(templateScopeKey(templateIndex), scope);
+            return JdbcClubService.copy(current, current.name(), current.status(), current.members(),
+                    current.templates(), current.tables(), current.invites(), current.records(), current.ledger(),
+                    settings, current.applications(), current.memberExtras(), current.groupings(),
+                    current.roomBans(), current.viewedRooms());
+        });
+    }
+
+    private static String templateScopeKey(int templateIndex) {
+        return "templateScope." + templateIndex;
+    }
+
+    private static String unionTemplateScope(long unionId) {
+        return "UNION:" + unionId;
     }
 
     private List<JdbcClubService.TemplateState> enabledUnionTemplates(JdbcClubService.State state) {
@@ -1733,7 +1826,8 @@ public final class ClubDispatchService {
     }
 
     private List<JdbcClubService.TemplateState> enabledTemplates(JdbcClubService.State state) {
-        return state.templates().stream().filter(template -> setting(state, "templateStatus." + template.index(), 0) == 0).toList();
+        return clubTemplates(state).stream()
+                .filter(template -> setting(state, "templateStatus." + template.index(), 0) == 0).toList();
     }
 
     private JdbcClubService.State requireMember(long clubId, long actor) {
@@ -1782,7 +1876,7 @@ public final class ClubDispatchService {
     }
 
     private Map<String, Object> queryProfile(long pid) {
-        String sql = "SELECT i.account_id player_id,p.nickname,p.avatar_url,p.gender_code,i.normalized_value display_id "
+        String sql = "SELECT i.account_id player_id,p.nickname,p.avatar_asset_id avatar_url,p.gender_code,i.normalized_value display_id "
                 + "FROM aoo_account_identity i LEFT JOIN player_profile p ON p.player_id=i.account_id "
                 + "WHERE i.account_id=? AND i.identity_type='DISPLAY_ID' AND i.status='ACTIVE'";
         try (Connection connection = source.getConnection(); PreparedStatement query = connection.prepareStatement(sql)) {

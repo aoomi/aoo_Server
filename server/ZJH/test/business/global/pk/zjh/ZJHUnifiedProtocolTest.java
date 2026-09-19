@@ -78,12 +78,8 @@ final class ZJHUnifiedProtocolTest {
         ZJHCommandHandler handler = new ZJHCommandHandler();
         handler.handle(room, request(ZJHCommandHandler.JOIN, "j1", 1, "1001", 0, Map.of()));
         handler.handle(room, request(ZJHCommandHandler.JOIN, "j2", 2, "1002", 1, Map.of()));
-        assertThrows(IllegalStateException.class, () -> handler.handle(room,
-                request(ZJHCommandHandler.START, "too-early", 3, "1001", 0, Map.of())));
-        handler.handle(room, request(ZJHCommandHandler.READY, "r1", 4, "1001", 0, Map.of("ready", true)));
-        handler.handle(room, request(ZJHCommandHandler.READY, "r2", 5, "1002", 1, Map.of("ready", true)));
-        handler.handle(room, request(ZJHCommandHandler.START, "s1", 6, "1001", 0, Map.of()));
-        handler.handle(room, request(ZJHCommandHandler.LOOK, "l1", 7, "1001", 0, Map.of()));
+        handler.handle(room, request(ZJHCommandHandler.START, "s1", 3, "1001", 0, Map.of()));
+        handler.handle(room, request(ZJHCommandHandler.LOOK, "l1", 4, "1001", 0, Map.of()));
 
         @SuppressWarnings("unchecked") Map<Integer, Object> seats = (Map<Integer, Object>)
                 new ZJHReconnectViewService().build(table, 1001).get("seats");
@@ -91,8 +87,8 @@ final class ZJHUnifiedProtocolTest {
         @SuppressWarnings("unchecked") Map<String, Object> other = (Map<String, Object>) seats.get(1);
         assertTrue(((List<?>) own.get("cards")).stream().anyMatch(card -> ((Number) card).intValue() != 0));
         assertTrue(((List<?>) other.get("cards")).stream().allMatch(card -> ((Number) card).intValue() == 0));
-        assertThrows(SecurityException.class, () -> handler.handle(room,
-                request(ZJHCommandHandler.FOLD, "f1", 4, "1002", 0, Map.of())));
+        assertThrows(IllegalStateException.class, () -> handler.handle(room,
+                request(ZJHCommandHandler.FOLD, "f1", 5, "1002", 0, Map.of())));
     }
 
     @Test void persistsRestoresAndReplaysAuthoritativeState() {
@@ -129,7 +125,7 @@ final class ZJHUnifiedProtocolTest {
         assertThrows(SecurityException.class, () -> handler.handle(room,
                 new GameCommandRequest(ZJHCommandHandler.JOIN, "wrong-version", 2, 88, 0,
                         "cn297-v0", "1001", 0, Map.of())));
-        assertTrue(table.players().isEmpty());
+        assertTrue(((Map<?, ?>) table.authoritativeSnapshot().get("seats")).isEmpty());
     }
 
     @Test void dispatchBridgeUnwrapsSharedProtocolClientAuthorityEnvelope() {

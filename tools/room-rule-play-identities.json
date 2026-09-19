@@ -12,8 +12,42 @@
       "requiredRoomRuleFields": [
         {"key": "playerCount", "sourceLabel": "人数"},
         {"key": "roundCount", "sourceLabel": "局数"},
-        {"key": "operationTimeoutSeconds", "sourceLabel": "操作时间"}
-      ]
+        {"key": "operationTimeoutSeconds", "sourceLabel": "操作时间"},
+        {"key": "firstPlayRule", "sourceLabel": "先出牌"},
+        {"key": "bombScore", "sourceLabel": "炸弹记分"},
+        {"key": "rule_cd201_0001", "sourceLabel": "小结算"},
+        {"key": "playRule", "sourceLabel": "玩法"},
+        {"key": "roomRestriction", "sourceLabel": "其他"}
+      ],
+      "numericRoomRuleFields": [
+        {"sourceLabel": "人数", "suffix": "人"},
+        {"sourceLabel": "局数", "suffix": "局"},
+        {"sourceLabel": "操作时间", "suffix": "秒"},
+        {"sourceLabel": "炸弹记分", "suffix": "分"}
+      ],
+      "roomRuleOptionValues": {
+        "人数": {"2人": 2, "3人": 3},
+        "局数": {"8局": 8, "12局": 12, "16局": 16},
+        "操作时间": {"10000秒": 10000, "15秒": 15, "20秒": 20},
+        "先出牌": {"赢家先出": "winner_first", "黑桃3优先": "spade_three_first"},
+        "炸弹记分": {"5分": 5, "10分": 10, "20分": 20, "30分": 30},
+        "小结算": {"小局结算弹窗": "option_0001"},
+        "玩法": {
+          "三不带": "three_no_attachment",
+          "四带二": "four_with_two",
+          "3A算炸弹": "triple_ace_bomb",
+          "去掉3、4": "remove_three_four",
+          "必须出黑桃3": "require_spade_three"
+        },
+        "其他": {
+          "IP限制": "ip_limit",
+          "GPS限制": "gps_limit",
+          "超时托管": "timeout_auto_play",
+          "距离过近警告": "distance_warning",
+          "禁止互动": "interaction_forbidden",
+          "禁言": "chat_muted"
+        }
+      }
     },
     {
       "workbook": "内江跑得快.xlsx",
