@@ -113,7 +113,7 @@ public final class GatewayWebSocketFrameHandler extends SimpleChannelInboundHand
             response.put("traceId",request.traceId());response.put("code",0);response.put("message",routed.replayed()?"replayed":"OK");
             response.put("body",result.body().asMap());
             ctx.writeAndFlush(new TextWebSocketFrame(json.writeValueAsString(response)));
-            if(!routed.replayed())for(Broadcast push:broadcasts.publish(session,request,result)){
+            if(routed.broadcast())for(Broadcast push:broadcasts.publish(session,request,result)){
                 Map<String,Object> event=new LinkedHashMap<>();event.put("protocolVersion","2.0");event.put("msgId",push.msgId());event.put("kind","push");event.put("requestId",push.requestId());event.put("seq",request.seq());event.put("timestamp",clock.millis());event.put("traceId",request.traceId());event.put("body",push.body());ctx.writeAndFlush(new TextWebSocketFrame(json.writeValueAsString(event)));
             }
         } catch (ServerAuthorityInputGuard.StateVersionConflictException failure) {

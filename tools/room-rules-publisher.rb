@@ -207,7 +207,7 @@ end
 def parse!
   fail!("缺少权威 Excel: #{WORKBOOK}") unless File.file?(WORKBOOK)
   table = rows
-  identity = %w[省份 地区名称 游戏名称 显示名称].map do |label|
+  identity = %w[省份 地区名称 显示名称].map do |label|
     matches = table.values.select { |row| row['A'].to_s.strip == label }
     fail!("玩法身份字段#{label}必须且只能存在一次") unless matches.length == 1
     matches.first['B'].to_s.strip

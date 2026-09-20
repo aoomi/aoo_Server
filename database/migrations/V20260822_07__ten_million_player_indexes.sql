@@ -19,7 +19,7 @@ BEGIN
         SET @aoo_player_index_sql = CONCAT(
             'ALTER TABLE `', REPLACE(table_name_value, '`', '``'),
             '` ADD INDEX `', REPLACE(index_name_value, '`', '``'),
-            '` (', index_columns_value, ') ALGORITHM=INPLACE, LOCK=NONE'
+            '` (', index_columns_value, '), ALGORITHM=INPLACE, LOCK=NONE'
         );
         PREPARE aoo_player_index_statement FROM @aoo_player_index_sql;
         EXECUTE aoo_player_index_statement;

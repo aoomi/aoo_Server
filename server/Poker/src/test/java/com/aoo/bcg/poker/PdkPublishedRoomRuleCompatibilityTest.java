@@ -115,7 +115,7 @@ final class PdkPublishedRoomRuleCompatibilityTest {
     Map<String, Object> rules =
         (Map<String, Object>) session.authoritativeState().get("pdkRuleOptions");
 
-    assertEquals("EITHER", rules.get("tripleAttachmentMode"));
+    assertEquals("SINGLE_OR_PAIR", rules.get("tripleAttachmentMode"));
     assertEquals(true, rules.get("compareTripleAttachments"));
     assertEquals("POPUP", rules.get("settlementPresentation"));
     assertEquals(session.authoritativeState(), provider.restoreAuthoritativeSession(

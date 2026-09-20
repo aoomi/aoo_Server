@@ -19,8 +19,8 @@ final class ServerAuthorityInputGuard {
 
     static void validate(String msgId, Map<String,Object> body, long currentStateVersion) {
         if (currentStateVersion < 0) throw new IllegalStateException("negative server stateVersion");
-        Object expected = body.get("expectedStateVersion");
-        if ("game.action".equals(msgId) && !(expected instanceof Number))
+        Object expected = expectedStateVersion(body);
+        if (("game.action".equals(msgId) || requiresTurnVersion(msgId)) && !(expected instanceof Number))
             throw new StateVersionConflictException("expectedStateVersion is required");
         // A newly loaded client has no authoritative version yet. State requests are authenticated,
         // read-only synchronization operations and must return the current snapshot instead of being
@@ -29,6 +29,18 @@ final class ServerAuthorityInputGuard {
                 && expected instanceof Number number && number.longValue() != currentStateVersion)
             throw new StateVersionConflictException("stale stateVersion");
         rejectServerOwned(body);
+    }
+
+    private static Object expectedStateVersion(Map<String,Object> body) {
+        Object direct = body.get("expectedStateVersion");
+        if (direct != null) return direct;
+        Object payload = body.get("payload");
+        return payload instanceof Map<?,?> nested ? nested.get("expectedStateVersion") : null;
+    }
+
+    private static boolean requiresTurnVersion(String msgId) {
+        String normalized = msgId.toLowerCase(Locale.ROOT);
+        return normalized.equals("common.room.play_req") || normalized.equals("common.room.pass_req");
     }
 
     private static boolean isStateRequest(String msgId, Map<String,Object> body) {

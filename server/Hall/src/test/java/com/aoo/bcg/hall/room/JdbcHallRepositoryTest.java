@@ -21,6 +21,11 @@ class JdbcHallRepositoryTest{
   assertFalse(JdbcHallRepository.FILTER_ACTIVE_INDEX_JOIN.contains("region_code"));
   assertFalse(JdbcHallRepository.CATALOG_ACTIVE_INDEX_JOIN.contains("region_code"));
  }
+ @Test void catalogDistinctOrderingProjectsItsSortColumns(){
+  String source=assertDoesNotThrow(()->Files.readString(Path.of("src/main/java/com/aoo/bcg/hall/room/JdbcHallRepository.java")));
+  assertTrue(source.contains("catalog_scope_sort,r.depth catalog_depth_sort,gr.priority catalog_priority_sort"));
+  assertTrue(source.contains("ORDER BY catalog_scope_sort,catalog_depth_sort DESC,catalog_priority_sort,g.game_id"));
+ }
  @Test void authoritativeCloseContractIsIdempotentAndCleansEveryActiveMembershipState(){
   assertDoesNotThrow(()->JdbcHallRepository.class.getDeclaredMethod("closeRoom",long.class,String.class,String.class,String.class));
  }

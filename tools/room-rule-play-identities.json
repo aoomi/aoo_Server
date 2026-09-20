@@ -3,35 +3,96 @@
   "plays": [
     {
       "workbook": "成都跑得快.xlsx",
-      "sourceIdentity": ["四川", "成都", "跑得快", "成都跑得快"],
+      "sourceIdentity": [
+        "四川",
+        "成都",
+        "成都跑得快"
+      ],
       "gameId": 8,
       "gameCode": "CD201",
       "playVersion": "1.0.0",
       "family": "poker:pao-de-kuai",
       "regionCode": "CN-51-01",
       "requiredRoomRuleFields": [
-        {"key": "playerCount", "sourceLabel": "人数"},
-        {"key": "roundCount", "sourceLabel": "局数"},
-        {"key": "operationTimeoutSeconds", "sourceLabel": "操作时间"},
-        {"key": "firstPlayRule", "sourceLabel": "先出牌"},
-        {"key": "bombScore", "sourceLabel": "炸弹记分"},
-        {"key": "rule_cd201_0001", "sourceLabel": "小结算"},
-        {"key": "playRule", "sourceLabel": "玩法"},
-        {"key": "roomRestriction", "sourceLabel": "其他"}
+        {
+          "key": "playerCount",
+          "sourceLabel": "人数"
+        },
+        {
+          "key": "roundCount",
+          "sourceLabel": "局数"
+        },
+        {
+          "key": "operationTimeoutSeconds",
+          "sourceLabel": "操作时间"
+        },
+        {
+          "key": "firstPlayRule",
+          "sourceLabel": "先出牌"
+        },
+        {
+          "key": "bombScore",
+          "sourceLabel": "炸弹记分"
+        },
+        {
+          "key": "rule_cd201_0001",
+          "sourceLabel": "小结算"
+        },
+        {
+          "key": "playRule",
+          "sourceLabel": "玩法"
+        },
+        {
+          "key": "roomRestriction",
+          "sourceLabel": "其他"
+        }
       ],
       "numericRoomRuleFields": [
-        {"sourceLabel": "人数", "suffix": "人"},
-        {"sourceLabel": "局数", "suffix": "局"},
-        {"sourceLabel": "操作时间", "suffix": "秒"},
-        {"sourceLabel": "炸弹记分", "suffix": "分"}
+        {
+          "sourceLabel": "人数",
+          "suffix": "人"
+        },
+        {
+          "sourceLabel": "局数",
+          "suffix": "局"
+        },
+        {
+          "sourceLabel": "操作时间",
+          "suffix": "秒"
+        },
+        {
+          "sourceLabel": "炸弹记分",
+          "suffix": "分"
+        }
       ],
       "roomRuleOptionValues": {
-        "人数": {"2人": 2, "3人": 3},
-        "局数": {"8局": 8, "12局": 12, "16局": 16},
-        "操作时间": {"10000秒": 10000, "15秒": 15, "20秒": 20},
-        "先出牌": {"赢家先出": "winner_first", "黑桃3优先": "spade_three_first"},
-        "炸弹记分": {"5分": 5, "10分": 10, "20分": 20, "30分": 30},
-        "小结算": {"小局结算弹窗": "option_0001"},
+        "人数": {
+          "2人": 2,
+          "3人": 3
+        },
+        "局数": {
+          "8局": 8,
+          "12局": 12,
+          "16局": 16
+        },
+        "操作时间": {
+          "10000秒": 10000,
+          "15秒": 15,
+          "20秒": 20
+        },
+        "先出牌": {
+          "赢家先出": "winner_first",
+          "黑桃3优先": "spade_three_first"
+        },
+        "炸弹记分": {
+          "5分": 5,
+          "10分": 10,
+          "20分": 20,
+          "30分": 30
+        },
+        "小结算": {
+          "小局结算弹窗": "option_0001"
+        },
         "玩法": {
           "三不带": "three_no_attachment",
           "四带二": "four_with_two",
@@ -51,30 +112,70 @@
     },
     {
       "workbook": "内江跑得快.xlsx",
-      "sourceIdentity": ["四川", "内江", "跑得快", "内江跑得快"],
+      "sourceIdentity": [
+        "四川",
+        "内江",
+        "内江跑得快"
+      ],
       "gameId": 629,
       "gameCode": "NJ201",
       "playVersion": "legacy-equivalent-1",
       "family": "poker:pao-de-kuai",
       "regionCode": "CN-51-10",
       "requiredRoomRuleFields": [
-        {"key": "playerCount", "sourceLabel": "人数"},
-        {"key": "roundCount", "sourceLabel": "局数"},
-        {"key": "operationTime", "sourceLabel": "操作时间"}
+        {
+          "key": "playerCount",
+          "sourceLabel": "人数"
+        },
+        {
+          "key": "roundCount",
+          "sourceLabel": "局数"
+        },
+        {
+          "key": "operationTime",
+          "sourceLabel": "操作时间"
+        }
       ]
     },
     {
       "workbook": "凉山跑得快.xlsx",
-      "sourceIdentity": ["四川", "凉山", "跑得快", "凉山跑得快"],
+      "sourceIdentity": [
+        "四川",
+        "凉山",
+        "凉山跑得快"
+      ],
       "gameId": 90005,
       "gameCode": "LS201",
       "playVersion": "xqp-equivalent-1",
       "family": "poker:pao-de-kuai",
       "regionCode": "CN-51-34",
       "requiredRoomRuleFields": [
-        {"key": "playerCount", "sourceLabel": "人数"},
-        {"key": "roundCount", "sourceLabel": "局数"},
-        {"key": "operationTime", "sourceLabel": "操作时间"}
+        {
+          "key": "playerCount",
+          "sourceLabel": "人数"
+        },
+        {
+          "key": "roundCount",
+          "sourceLabel": "局数"
+        },
+        {
+          "key": "operationTime",
+          "sourceLabel": "操作时间"
+        }
+      ],
+      "numericRoomRuleFields": [
+        {
+          "sourceLabel": "人数",
+          "suffix": "人"
+        },
+        {
+          "sourceLabel": "局数",
+          "suffix": "局"
+        },
+        {
+          "sourceLabel": "操作时间",
+          "suffix": "秒"
+        }
       ]
     }
   ]

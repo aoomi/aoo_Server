@@ -21,6 +21,43 @@ import java.util.concurrent.atomic.AtomicInteger;
 import static org.junit.jupiter.api.Assertions.*;
 
 class GameWebSocketRouterTest {
+    @Test void readOnlyStateRequestDoesNotCommitOrBroadcast() {
+        Instant now = Instant.parse("2026-09-20T12:00:00Z");
+        Clock clock = Clock.fixed(now, ZoneOffset.UTC);
+        AtomicInteger executions = new AtomicInteger();
+        AtomicInteger commits = new AtomicInteger();
+        GameRoomHandle room = new GameRoomHandle(101L, 62, "zypk-v1.0.0", new Object());
+        GameProvider provider = new GameProvider() {
+            public GameDescriptor descriptor() { return new GameDescriptor(62, "zypk", "ZYPK",
+                    GameCategory.POKER, "configurable", RegionScope.NATIONAL, "", "", "zypk-v1.0.0"); }
+            public com.aoo.bcg.gamespi.GameRoomFactory roomFactory() { return ignored -> room; }
+            public Optional<com.aoo.bcg.gamespi.GameCommandHandler> commandHandler() {
+                return Optional.of((ignored, request) -> new GameCommandResult("common.room.state_resp",
+                        request.requestId(), Map.of("execution", executions.incrementAndGet())));
+            }
+            public com.aoo.bcg.gamespi.GameCommandCommitter commandCommitter() {
+                return (ignoredRoom, ignoredRequest, ignoredResult) -> commits.incrementAndGet();
+            }
+        };
+        GameRegistry registry = new GameRegistry(); registry.register(provider);
+        GameWebSocketRouter router = new GameWebSocketRouter(registry, ignored -> room,
+                new WebSocketRequestGuard(clock, Duration.ofSeconds(30)),
+                new InMemoryIdempotencyStore<>(clock), Duration.ofMinutes(10));
+        ConnectionSession session = new ConnectionSession("7", "101", 0, "zypk-v1.0.0", 0);
+        WebSocketFrame first = new WebSocketFrame("common.room.state_req", "state-1", 1,
+                "101", 1, "zypk-v1.0.0", now.toEpochMilli(), Map.of());
+        WebSocketFrame second = new WebSocketFrame("common.room.state_req", "state-2", 2,
+                "101", 1, "zypk-v1.0.0", now.toEpochMilli(), Map.of());
+
+        var one = router.route(session, first);
+        var two = router.route(one.session(), second);
+        assertFalse(one.broadcast());
+        assertFalse(two.broadcast());
+        assertFalse(one.replayed());
+        assertEquals(2, executions.get(), "reads are observed afresh rather than idempotency-cached");
+        assertEquals(0, commits.get(), "reads never persist snapshots or replay entries");
+    }
+
     @Test void executesOnceAndReturnsCachedResultForRetry() {
         Instant now = Instant.parse("2026-08-22T10:00:00Z");
         Clock clock = Clock.fixed(now, ZoneOffset.UTC);

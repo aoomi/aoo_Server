@@ -48,11 +48,15 @@ public final class ProductionGatewayRuntimeProvider implements GatewayRuntimePro
         ScheduledExecutorService recovery = Executors.newSingleThreadScheduledExecutor(r -> {
             Thread thread = new Thread(r, "settlement-outbox-recovery");thread.setDaemon(true);return thread;
         });
-        recovery.scheduleWithFixedDelay(() -> {
+        Runnable recoverSettlements = () -> {
             try { commandCommitter.recoverPendingSettlements(64); }
             catch (RuntimeException failure) { System.err.println("settlement outbox recovery failed: "+failure.getMessage()); }
             try { commandCommitter.recoverCompletedClubMatches(64); }
             catch (RuntimeException failure) { System.err.println("club match settlement recovery failed: "+failure.getMessage()); }
+        };
+        commandCommitter.onSettlementQueued(() -> recovery.execute(recoverSettlements));
+        recovery.scheduleWithFixedDelay(() -> {
+            recoverSettlements.run();
         },5,5,TimeUnit.SECONDS);
         var connectionSessions = new ConnectionSessionFactory(new JdbcConnectionGenerationStore(source));
         GatewayWebSocketFrameHandler.SessionResolver sessions = (identity, frame) -> {
@@ -81,9 +85,12 @@ public final class ProductionGatewayRuntimeProvider implements GatewayRuntimePro
         broadcasts.configureLifecycleCompletion(authority::completeTerminal);
         broadcasts.configureMembershipCompletion(authority::completeMemberExit);
         broadcasts.configurePresenceSink((roomId,accountId,online) -> {
-            var session=rooms.require(roomId).requireAuthoritativeSession();
-            if(session instanceof com.aoo.bcg.gamespi.ParticipantPresenceAuthority presence)
-                presence.participantPresence(accountId,online,clock.instant());
+            com.aoo.bcg.gateway.RoomOrderedExecutor.global().execute(roomId,()->{
+                var session=rooms.require(roomId).requireAuthoritativeSession();
+                if(session instanceof com.aoo.bcg.gamespi.ParticipantPresenceAuthority presence)
+                    presence.participantPresence(accountId,online,clock.instant());
+                return null;
+            });
         });
         var runtime = new UnifiedGameRuntime(games, rooms, idempotency, settlements, clock,
                 Duration.ofSeconds(30), idempotencyRetention, commandCommitter);

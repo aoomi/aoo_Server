@@ -38,6 +38,11 @@ class RecordReplayQueryServiceTest {
         assertArrayEquals(new String[]{"roomId","gameCode","playFamily","smallSettleTemplate",
                 "rounds","ruleSnapshot","ruleFields"},java.util.Arrays.stream(fields).map(java.lang.reflect.RecordComponent::getName).toArray(String[]::new));
     }
+    @Test void settlementCardHydrationRecognizesEverySupportedTerminalSnapshotShape(){
+        assertTrue(RecordReplayQueryService.TERMINAL_REPLAY_PREDICATE.contains("$.finished"));
+        assertTrue(RecordReplayQueryService.TERMINAL_REPLAY_PREDICATE.contains("$.phase"));
+        assertTrue(RecordReplayQueryService.TERMINAL_REPLAY_PREDICATE.contains("$.tableSnapshot.phase"));
+    }
     private static final class NeverConnect implements DataSource{
         public Connection getConnection()throws SQLException{throw new AssertionError("database must not be reached");}public Connection getConnection(String u,String p)throws SQLException{return getConnection();}
         public PrintWriter getLogWriter(){return null;}public void setLogWriter(PrintWriter out){}public void setLoginTimeout(int seconds){}public int getLoginTimeout(){return 0;}public Logger getParentLogger(){return Logger.getGlobal();}public <T>T unwrap(Class<T> iface)throws SQLException{throw new SQLException();}public boolean isWrapperFor(Class<?> iface){return false;}

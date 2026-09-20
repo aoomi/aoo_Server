@@ -76,11 +76,50 @@ final class PdkGameProvider extends RegionalPokerProvider implements PokerGamePr
    throw new IllegalStateException("missing immutable PDK rule options");
   Map<String,Object>options=new LinkedHashMap<>();
   map.forEach((k,v)->options.put(String.valueOf(k),v));
+  String persistedTripleMode=String.valueOf(options.get("tripleAttachmentMode"));
+  boolean repairLiangshanLooseTripleWings=PdkBusinessCodes.LIANGSHAN.equals(code)
+    && ("EITHER".equals(persistedTripleMode)||"SINGLES".equals(persistedTripleMode));
+  if(repairLiangshanLooseTripleWings)
+   options.put("tripleAttachmentMode",PaoDeKuaiConfig.AttachmentMode.SINGLE_OR_PAIR.name());
+  boolean repairLiangshanMaximumLead=PdkBusinessCodes.LIANGSHAN.equals(code)
+    && !Boolean.TRUE.equals(options.get("prioritizeMaximumWithOneOrdinaryPlay"));
+  if(repairLiangshanMaximumLead)
+   options.put("prioritizeMaximumWithOneOrdinaryPlay",true);
+  boolean repairLiangshanLargestLead=PdkBusinessCodes.LIANGSHAN.equals(code)
+    && !Boolean.TRUE.equals(options.get("prioritizeLargestLeadWithoutMaximum"));
+  if(repairLiangshanLargestLead)
+   options.put("prioritizeLargestLeadWithoutMaximum",true);
+  boolean repairLiangshanConnectedLead=PdkBusinessCodes.LIANGSHAN.equals(code)
+    && !Boolean.TRUE.equals(options.get("prioritizeMaximumLeadUnlessConnectedRun"));
+  if(repairLiangshanConnectedLead)
+   options.put("prioritizeMaximumLeadUnlessConnectedRun",true);
+  boolean repairLiangshanResponseControl=PdkBusinessCodes.LIANGSHAN.equals(code)
+    && !Boolean.TRUE.equals(options.get("prioritizeMaximumResponseWithinThreePlays"));
+  if(repairLiangshanResponseControl)
+   options.put("prioritizeMaximumResponseWithinThreePlays",true);
+  boolean repairLiangshanLargestShape=PdkBusinessCodes.LIANGSHAN.equals(code)
+    && !Boolean.TRUE.equals(options.get("prioritizeLargestLeadUnlessMaximumStraight"));
+  if(repairLiangshanLargestShape)
+   options.put("prioritizeLargestLeadUnlessMaximumStraight",true);
   PaoDeKuaiConfig restoredConfig=PdkPublishedRuleOptions.apply(options,baseConfig);
   if(regionalRules==null)restoredConfig=restoredConfig.withCardsPerPlayer(16);
   PaoDeKuaiFamily restoredFamily=familyForRestore(restoredConfig,options,
     Boolean.TRUE.equals(options.get("allowPassByRoomRule")));
-  Map<String,Object> restoredState=PdkPublishedRuleOptions.migrateVerifiedLegacySnapshotIdentity(
+  Map<String,Object> restoredState;
+  if(repairLiangshanLooseTripleWings||repairLiangshanMaximumLead||repairLiangshanLargestLead
+    ||repairLiangshanConnectedLead||repairLiangshanResponseControl
+    ||repairLiangshanLargestShape){
+   // Early LS201 publications accidentally persisted EITHER, which admits two
+   // unrelated loose wings. Liangshan only permits one single or one pair.
+   // Repair that known snapshot defect during recovery so reconnecting an old
+   // room cannot retain a play that new rooms already reject. The same recovery
+   // boundary supplies LS201's A-first endgame switch to rooms created before
+   // that immutable regional option existed.
+   Map<String,Object>corrected=new LinkedHashMap<>(s);
+   corrected.put("pdkRuleOptions",Map.copyOf(options));
+   corrected.put("ruleSnapshotKey",restoredFamily.ruleSnapshotKey());
+   restoredState=Map.copyOf(corrected);
+  }else restoredState=PdkPublishedRuleOptions.migrateVerifiedLegacySnapshotIdentity(
     s,restoredFamily);
   return PokerAuthoritativeSession.restore(restoredState,restoredFamily);
  }

@@ -22,12 +22,17 @@ public final class PokerDispatchCommandHandler implements GameCommandHandler {
         // Canonical common.room commands are intentionally accepted alongside the regional
         // envelope.  They must still carry the lifecycle completion marker; otherwise the
         // Gateway persists the vote but never invokes its terminal room-close chain.
-        if (!request.msgId().startsWith("poker."))
-            return decorateTerminal(room, authority.handle(room, request));
+        if (!request.msgId().startsWith("poker.")) {
+            logDissolve("received", room, request, request.msgId());
+            GameCommandResult result = decorateTerminal(room, authority.handle(room, request));
+            logDissolve("completed", room, request, result.msgId());
+            return result;
+        }
         requireBusinessCode(room, request.msgId());
         String action = request.body().requireString("action");
         Map<String,Object> payload = payload(request.body().get("payload"));
         String operation = operation(action, payload);
+        logDissolve("received", room, request, operation);
         GameCommandRequest normalized = new GameCommandRequest("poker." + operation + "_req",
                 request.requestId(), request.sequence(), request.roomId(), request.roundNo(),
                 request.playVersion(), request.authenticatedUserId(), request.seatId(), payload);
@@ -41,8 +46,26 @@ public final class PokerDispatchCommandHandler implements GameCommandHandler {
             response.put(RoomMembershipLifecycle.MEMBER_LEFT_ACCOUNT_ID_FIELD,
                     Long.parseLong(request.authenticatedUserId()));
         }
-        return decorateTerminal(room, new GameCommandResult(
+        GameCommandResult decorated = decorateTerminal(room, new GameCommandResult(
                 request.msgId().replace("dispatch", "dispatch_resp"), request.requestId(), response));
+        logDissolve("completed", room, request, operation);
+        return decorated;
+    }
+
+    private static void logDissolve(String stage, GameRoomHandle room,
+            GameCommandRequest request, String operation) {
+        if (!operation.toLowerCase().contains("dissolve")) return;
+        boolean terminal = room.requireAuthoritativeSession() instanceof RoomLifecycleAuthority lifecycle
+                && lifecycle.isTerminal();
+        System.out.println("[RoomDissolveAuthority] stage=" + stage
+                + " roomId=" + request.roomId()
+                + " playerId=" + request.authenticatedUserId()
+                + " seatId=" + request.seatId()
+                + " requestId=" + request.requestId()
+                + " sequence=" + request.sequence()
+                + " operation=" + operation
+                + " stateVersion=" + room.requireAuthoritativeSession().stateVersion()
+                + " terminal=" + terminal);
     }
 
     private static GameCommandResult decorateTerminal(GameRoomHandle room, GameCommandResult result) {

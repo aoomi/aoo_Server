@@ -30,7 +30,12 @@ end
 
 created = []
 existing = []
-(21..100).each do |number|
+range_start = Integer(ENV.fetch('AOO_LOCAL_TEST_ACCOUNT_START', '21'), 10)
+range_end = Integer(ENV.fetch('AOO_LOCAL_TEST_ACCOUNT_END', '100'), 10)
+abort 'invalid local test account range' unless range_start.positive? && range_end >= range_start && range_end <= 10_000
+account_range = range_start..range_end
+
+account_range.each do |number|
   login = number.to_s
   device = "local-test-account-init-#{login}"
   status, issued = post(endpoint, '/api/v2/account/register/code', { identity: login }, headers, device)
@@ -51,7 +56,7 @@ existing = []
 end
 
 verified = []
-[21, 30].each do |number|
+account_range.each do |number|
   login = number.to_s
   device = "login-lobby-ai-validation-#{login}"
   status, tokens = post(endpoint, '/api/v2/account/login', { identity: login, password: '1', mode: 'multi' }, headers, device)
@@ -70,5 +75,5 @@ end
 puts JSON.pretty_generate({
   environment: 'local', database: 'aoo_login_local', endpoint: endpoint.to_s,
   created: created, alreadyExisting: existing, verifiedByLoginLobby: verified,
-  reservedRange: '51-100', generatedAt: Time.now.utc.iso8601
+  requestedRange: "#{range_start}-#{range_end}", generatedAt: Time.now.utc.iso8601
 })

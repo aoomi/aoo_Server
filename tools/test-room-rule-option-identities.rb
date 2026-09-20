@@ -119,3 +119,23 @@ Dir.mktmpdir('aoo-room-rule-option-identities') do |directory|
 end
 
 puts 'room-rule option identity checks passed'
+
+liangshan_workbook = File.expand_path(
+  '../Client/docs/开房规则表/跑得快/凉山跑得快.xlsx', root)
+Dir.mktmpdir('aoo-liangshan-room-rule-numeric-identities') do |directory|
+  output = File.join(directory, 'rules.generated.json')
+  registry = File.join(directory, 'rules.keys.json')
+  FileUtils.cp(File.join(root, 'work/generated/room-rules/凉山跑得快.keys.json'), registry)
+  stdout, stderr, status = publish(
+    publisher, liangshan_workbook, output, registry, identity_source)
+  abort("LS201 numeric room-rule publication failed: #{stderr.empty? ? stdout : stderr}") unless status.success?
+
+  operation_time = JSON.parse(File.read(output, encoding: 'UTF-8')).fetch('fields')
+    .find { |field| field['key'] == 'operationTime' }
+  abort('LS201 operationTime did not map 10000秒 to integer 10000') unless
+    operation_time.fetch('options').any? do |option|
+      option['label'] == '10000秒' && option['value'] == 10_000
+    end
+end
+
+puts 'LS201 numeric room-rule identity checks passed'

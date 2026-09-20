@@ -65,7 +65,7 @@ final class LiangshanPdkRules implements PdkRegionRules {
         PdkRegionalRuleValidation.integerChoice(published, "roundCount", 8,
                 Set.of(8, 12, 16));
         int timeout = PdkRegionalRuleValidation.integerRange(published, "operationTime", 15,
-                1, 3600);
+                1, 86400);
         int cards = PdkRegionalRuleValidation.integerChoice(published, "dealCardCount",
                 integer(published, "cardsPerPlayer", defaultCardsPerPlayer()), Set.of(8, 10));
         PdkRegionalRuleValidation.stringChoice(published, "robDealerRule", "no_compete",
@@ -154,26 +154,41 @@ final class LiangshanPdkRules implements PdkRegionRules {
         rules.put("competeDealerMustSpringToWin", enabled);
     }
 
-    /**
-     * 凉山规则表中的“三带一”采用地区语义：先带两张散牌，无法组成时再带一对或一张。
-     * 公共发布键仍保持稳定，但进入公共牌型引擎前必须展开为完整的 EITHER 能力；否则合法的
-     * “三张 + 两张散牌”会在提示排序之前被过滤掉。
-     */
-    private static PaoDeKuaiConfig.AttachmentMode liangshanTripleAttachmentMode(
-            Set<String> selected) {
-        PaoDeKuaiConfig.AttachmentMode mode =
-                PdkPublishedRuleOptions.tripleAttachmentMode(selected);
-        return mode == PaoDeKuaiConfig.AttachmentMode.SINGLE_OR_PAIR
-                ? PaoDeKuaiConfig.AttachmentMode.EITHER : mode;
-    }
-
     private static void normalizePlayRules(Map<String,Object> published, Map<String,Object> rules,
             int cards) {
         Set<String> selected = PdkRegionalRuleValidation.stringChoices(published, "playRule",
                 Set.of(), PLAY_RULES);
+        // 凉山的“三带一”发布项允许带一张或带一对，但绝不允许
+        // 三张加两张不同点数的散牌。使用公共的稳定键映射，避免地区层将
+        // SINGLE_OR_PAIR 扩大为 EITHER，或收窄为 SINGLES。
+        PaoDeKuaiConfig.AttachmentMode publishedTripleMode =
+                PdkPublishedRuleOptions.tripleAttachmentMode(selected);
+        // 凉山开房项“三带一”沿用 XQP 的地区语义：既允许带一张，
+        // 也允许带一对，但不允许带两张不同点数的散牌。公共映射中的
+        // SINGLES 只代表字面“三带一张”，因此必须在地区边界扩展为
+        // SINGLE_OR_PAIR；不能把这个差异泄漏到其他跑得快玩法。
         PaoDeKuaiConfig.AttachmentMode tripleAttachmentMode =
-                liangshanTripleAttachmentMode(selected);
+                publishedTripleMode == PaoDeKuaiConfig.AttachmentMode.SINGLES
+                ? PaoDeKuaiConfig.AttachmentMode.SINGLE_OR_PAIR
+                : publishedTripleMode;
         rules.put("tripleAttachmentMode", tripleAttachmentMode.name());
+        // LS201 treats its rule-maximum A as the control lead when the other
+        // final hand has at most four cards (for example A + 8-9-10-J).
+        rules.put("twoHandMaximumLeadSizeTolerance", 3);
+        // 凉山没有 2，A 是不可超越的最大控制牌型。只要打出含 A 的
+        // 完整合法牌型后仅剩一手普通牌，就先取得牌权；不受两手张数差限制。
+        rules.put("prioritizeMaximumWithOneOrdinaryPlay", true);
+        // 主动出牌且手中没有 A 时，凉山优先一次打出张数最多的合法牌型。
+        rules.put("prioritizeLargestLeadWithoutMaximum", true);
+        // 有 A 时先取得最大单牌控制；若存在至少四张的完整顺子或连对，
+        // 则优先整体牌型（例如 A、KK、QQ、10、88 先出 KKQQ）。
+        rules.put("prioritizeMaximumLeadUnlessConnectedRun", true);
+        // 接牌后可在三手内结束时，凉山优先用 A 取得控制；没有 A 时
+        // 再按拆后散单最少、可压住的最小点数选择。
+        rules.put("prioritizeMaximumResponseWithinThreePlays", true);
+        // 顺子连到 A 时保留最大顺子优先；否则主动提示一次打出张数最多的
+        // 完整合法牌型，并由剩余手数决定同张数方案。
+        rules.put("prioritizeLargestLeadUnlessMaximumStraight", true);
         rules.put("tripleWithoutAttachmentTiming",
                 tripleAttachmentMode != PaoDeKuaiConfig.AttachmentMode.DISABLED
                 ? "DEALER_RESPONSE_OR_FINAL" : "ANYTIME");

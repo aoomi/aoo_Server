@@ -64,17 +64,22 @@ public final class GameWebSocketRouter {
         DeprecatedEntryPointBlocklist.requireMessageAllowed(frame.msgId());
         long scopedRoomId;
         try{scopedRoomId=Long.parseLong(frame.roomId());}catch(NumberFormatException error){throw new IllegalArgumentException("numeric roomId required",error);}
+        return RoomOrderedExecutor.global().execute(scopedRoomId,()->routeOrdered(session,frame,scopedRoomId));
+    }
+
+    private RoutedResult routeOrdered(ConnectionSession session,WebSocketFrame frame,long scopedRoomId) {
+        if(isReadOnly(frame))return routeReadOnly(session,frame,scopedRoomId);
         IdempotencyKey idempotencyKey=new IdempotencyKey(session.userId(),frame.msgId(),scopedRoomId,frame.roundNo(),frame.requestId());
         GameCommandResult previous = idempotency.find(idempotencyKey).orElse(null);
-        if (previous != null) return new RoutedResult(session, previous, true);
+        if (previous != null) return new RoutedResult(session, previous, true, false);
         if (!idempotency.acquire(idempotencyKey, retention)) {
             previous = idempotency.find(idempotencyKey).orElse(null);
-            if (previous != null) return new RoutedResult(session, previous, true);
+            if (previous != null) return new RoutedResult(session, previous, true, false);
             GameRoomHandle pendingRoom=rooms.require(scopedRoomId);
             GameCommandRequest pending=new GameCommandRequest(frame.msgId(),frame.requestId(),frame.seq(),scopedRoomId,
                     frame.roundNo(),frame.playVersion(),session.userId(),session.seatId(),frame.body());
             previous=runtimeCommitter.findCommitted(pendingRoom,pending).orElse(null);
-            if(previous!=null){idempotency.save(idempotencyKey,previous,retention);return new RoutedResult(session,previous,true);}
+            if(previous!=null){idempotency.save(idempotencyKey,previous,retention);return new RoutedResult(session,previous,true,false);}
             throw new RequestOutcomeUnknownException(frame.requestId());
         }
         boolean committed = false;
@@ -112,9 +117,11 @@ public final class GameWebSocketRouter {
         provider.commandCommitter().commit(room, command, result);
         result = runtimeCommitter.commitResult(room, command, result);
         committed = true;
-        idempotency.save(idempotencyKey, result, retention);
+        // Production persistence completes the response in the same transaction as the room
+        // snapshot. In-memory/test committers still use the router-owned idempotency store.
+        if (!runtimeCommitter.persistsCommandResult()) idempotency.save(idempotencyKey, result, retention);
         timeline.complete(scopedRoomId, frame.seq(), frame.requestId(), frame.msgId(), operationDeadline);
-        return new RoutedResult(rebindAfterSit(accepted,frame,result), result, false);
+        return new RoutedResult(rebindAfterSit(accepted,frame,result), result, false, true);
         } catch (RuntimeException | Error failure) {
             // A failed validation/handler/commit may retry. Once durable commit returned,
             // retain PROCESSING if completion persistence fails to prevent double mutation.
@@ -122,6 +129,49 @@ public final class GameWebSocketRouter {
             timeline.fail(scopedRoomId, frame.seq(), frame.requestId(), frame.msgId(), failure);
             throw failure;
         }
+    }
+
+    /**
+     * State and hint queries observe the room mailbox but never create durable command work.
+     * They cannot change authority state, so snapshot, replay, idempotency and room broadcast
+     * writes would only amplify a successful push into another room-wide synchronization cycle.
+     */
+    private RoutedResult routeReadOnly(ConnectionSession session,WebSocketFrame frame,long roomId) {
+        try(OperationLogContext ignored=OperationLogContext.open(frame.traceId(),frame.requestId(),roomId,
+                session.userId(),session.seatId(),session.connectionId())){
+            timeline.begin(roomId,frame.seq(),frame.requestId(),frame.msgId());
+            ConnectionSession accepted=guard.validate(session,frame);
+            GameRoomHandle room=rooms.require(roomId);
+            if(!room.playVersion().equals(frame.playVersion()))throw new SecurityException("room play version mismatch");
+            room.authoritativeSession().ifPresent(authority->
+                    ServerAuthorityInputGuard.validate(frame.msgId(),frame.body(),authority.stateVersion()));
+            GameProvider provider=games.require(room.gameId(),room.playVersion());
+            GameCommandRequest command=new GameCommandRequest(frame.msgId(),frame.requestId(),frame.seq(),roomId,
+                    frame.roundNo(),frame.playVersion(),session.userId(),session.seatId(),frame.body());
+            var ruleResult=new RuleChainExecutor<>(provider.ruleComponents()).execute(command);
+            if(!ruleResult.accepted())throw new IllegalArgumentException(ruleResult.code()+": "+ruleResult.message());
+            GameCommandResult result=provider.commandHandler()
+                    .orElseThrow(()->new IllegalStateException("game command handler is unavailable"))
+                    .handle(room,command);
+            OperationDeadline deadline=room.authoritativeSession()
+                    .map(com.aoo.bcg.gamespi.AuthoritativeGameSession::operationDeadline)
+                    .orElse(OperationDeadline.none());
+            result=result.withTiming(time.epochMillis(),deadline);
+            if(room.authoritativeSession().isPresent())result=result.withAuthorityMetadata(
+                    room.requireAuthoritativeSession().stateVersion(),frame.seq());
+            timeline.complete(roomId,frame.seq(),frame.requestId(),frame.msgId(),deadline);
+            return new RoutedResult(accepted,result,false,false);
+        }catch(RuntimeException|Error failure){
+            timeline.fail(roomId,frame.seq(),frame.requestId(),frame.msgId(),failure);
+            throw failure;
+        }
+    }
+
+    private static boolean isReadOnly(WebSocketFrame frame) {
+        String action=String.valueOf(frame.body().getOrDefault("action",frame.msgId()))
+                .strip().toLowerCase(java.util.Locale.ROOT);
+        return action.endsWith(".state_req")||action.equals("state")
+                ||action.endsWith(".hint_req")||action.equals("hint");
     }
 
     private static ConnectionSession rebindAfterSit(ConnectionSession session,WebSocketFrame frame,
@@ -163,7 +213,7 @@ public final class GameWebSocketRouter {
         } catch(IllegalArgumentException missing) { return new RequestOutcome("NOT_FOUND",null,"REQUEST_NOT_FOUND"); }
     }
 
-    public record RoutedResult(ConnectionSession session, GameCommandResult result, boolean replayed) { }
+    public record RoutedResult(ConnectionSession session,GameCommandResult result,boolean replayed,boolean broadcast) { }
     public record RequestOutcome(String status,GameCommandResult result,String errorCode) { }
     public static final class RequestOutcomeUnknownException extends IllegalStateException {
         public RequestOutcomeUnknownException(String requestId){super("REQUEST_OUTCOME_UNKNOWN:"+requestId);}

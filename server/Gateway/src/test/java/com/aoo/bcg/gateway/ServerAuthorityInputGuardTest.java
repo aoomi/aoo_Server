@@ -37,4 +37,14 @@ class ServerAuthorityInputGuardTest {
                 Map.of("expectedStateVersion", 0, "action", "poker.cn298.sit_req",
                         "payload", Map.of("seatId", 1)), 1));
     }
+
+    @Test void pdkTurnMutationsRequireAndMatchTheAuthorityVersion() {
+        assertThrows(SecurityException.class, () -> ServerAuthorityInputGuard.validate(
+                "common.room.play_req", Map.of("cards", java.util.List.of(7)), 12));
+        assertThrows(SecurityException.class, () -> ServerAuthorityInputGuard.validate(
+                "common.room.pass_req", Map.of("expectedStateVersion", 11), 12));
+        assertDoesNotThrow(() -> ServerAuthorityInputGuard.validate(
+                "common.room.play_req", Map.of("expectedStateVersion", 12,
+                        "trickId", 3, "operationId", "3-12-play", "cards", java.util.List.of(7)), 12));
+    }
 }

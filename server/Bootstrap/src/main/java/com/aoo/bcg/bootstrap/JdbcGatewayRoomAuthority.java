@@ -10,6 +10,7 @@ import com.aoo.bcg.gamespi.RoomLifecycleAuthority;
 import com.aoo.bcg.gateway.WaitingRoomExpirationPolicy;
 import com.aoo.bcg.gateway.RoomAuthorityBusinessError;
 import com.aoo.bcg.gateway.GatewaySessionRegistry;
+import com.aoo.bcg.gateway.RoomOrderedExecutor;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
@@ -316,15 +317,23 @@ public Map<String, Object> join(Map<String, Object> command) {
         try{finishInterruptedRemovals();}catch(RuntimeException failure){System.err.println("room removal recovery deferred cause="+failure.getMessage());}
         try{closeDurableInactiveRooms();}catch(RuntimeException failure){System.err.println("inactive room closure recovery deferred cause="+failure.getMessage());}
         for(GameRoomHandle room:rooms.snapshot())try {
-            if(expireWaitingRoom(room))continue;
-            if(expireInactiveStartedRoom(room))continue;
-            if(!(room.requireAuthoritativeSession() instanceof RoomLifecycleAuthority lifecycle))continue;
+            RoomOrderedExecutor.global().execute(room.roomId(),()->{ processRoomLifecycle(room); return null; });
+        } catch(RuntimeException failure){System.err.println("room lifecycle processing deferred roomId="+room.roomId()+" cause="+failure.getMessage());}
+    }
+
+    private void processRoomLifecycle(GameRoomHandle room) {
+        try {
+            if(expireWaitingRoom(room))return;
+            if(expireInactiveStartedRoom(room))return;
+            if(!(room.requireAuthoritativeSession() instanceof RoomLifecycleAuthority lifecycle))return;
             boolean changed=lifecycle.tickLifecycle(clock.instant());
             Route route=route(room.roomId());
             if(changed){long version=room.requireAuthoritativeSession().stateVersion();stateStore.saveSnapshot(room,route.fencingToken());broadcasts.publishAuthoritativeState(room.roomId(),"room-lifecycle-"+room.roomId()+"-"+version,"room-lifecycle-"+room.roomId(),version);}
             boolean durable=stateStore.latest(room.roomId()).map(snapshot->{Object value=snapshot.authoritativeState().get("stateVersion");return value instanceof Number number&&number.longValue()>=room.requireAuthoritativeSession().stateVersion();}).orElse(false);
             if(lifecycle.isTerminal()&&durable)completeTerminal(room.roomId(),"room-lifecycle-"+room.roomId()+"-"+room.requireAuthoritativeSession().stateVersion(),"room-lifecycle-"+room.roomId(),lifecycle.terminalReason());
-        } catch(RuntimeException failure){System.err.println("room lifecycle processing deferred roomId="+room.roomId()+" cause="+failure.getMessage());}
+        } catch(RuntimeException failure) {
+            throw failure;
+        }
     }
 
     /** Closes inactive started rooms even when a prior process lost their in-memory runtime. */

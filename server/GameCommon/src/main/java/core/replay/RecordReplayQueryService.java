@@ -19,6 +19,10 @@ import javax.sql.DataSource;
 
 /** Production JDBC read boundary for participant-scoped history and replay chunks. */
 public final class RecordReplayQueryService {
+    static final String TERMINAL_REPLAY_PREDICATE = "("
+            + "JSON_EXTRACT(CAST(payload AS CHAR CHARACTER SET utf8mb4),'$.finished')=true "
+            + "OR JSON_UNQUOTE(JSON_EXTRACT(CAST(payload AS CHAR CHARACTER SET utf8mb4),'$.phase')) IN ('FINISHED','ROUND_SETTLEMENT','SETTLED','DIRECT_WIN') "
+            + "OR JSON_UNQUOTE(JSON_EXTRACT(CAST(payload AS CHAR CHARACTER SET utf8mb4),'$.tableSnapshot.phase')) IN ('FINISHED','ROUND_SETTLEMENT','SETTLED','DIRECT_WIN'))";
     public static final String API_VERSION = "1";
     static final String HISTORY_SQL = "SELECT p.room_id,p.last_set_id,p.played_at,s.settlement_version,s.result_payload FROM ("
             + "SELECT grants.room_id,MAX(grants.set_id) last_set_id,MAX(grants.granted_at) played_at FROM ("
@@ -129,6 +133,9 @@ public final class RecordReplayQueryService {
                 while(r.next()){
                     int roundNo=r.getInt(1);
                     JsonNode settlement=enrichSettlement(c,roomId,roundNo,readJson(r.getString(3)));
+                    // A replay-backed settlement without a terminal snapshot was produced
+                    // before the round ended.  Never expose it as a pageable completed round.
+                    if(settlement==null)continue;
                     rounds.add(new RoundResult(roundNo,r.getString(2),settlement,r.getTimestamp(4).toInstant(),r.getString(5)));
                 }
                 RuleContext ruleContext=ruleContext(c,roomId);
@@ -202,10 +209,14 @@ public final class RecordReplayQueryService {
     }
     private JsonNode enrichSettlement(Connection c,long roomId,int roundNo,JsonNode raw)throws Exception{
         if(!(raw instanceof ObjectNode settlement))return raw;
-        String sql="SELECT payload FROM (SELECT event_sequence,payload FROM perspective_replay_event WHERE room_id=? AND set_id=? AND visibility='PLAYER_PRIVATE' UNION ALL SELECT event_sequence,payload FROM perspective_replay_event_archive WHERE room_id=? AND set_id=? AND visibility='PLAYER_PRIVATE') e WHERE JSON_UNQUOTE(JSON_EXTRACT(CAST(payload AS CHAR CHARACTER SET utf8mb4),'$.phase')) IN ('FINISHED','ROUND_SETTLEMENT','SETTLED','DIRECT_WIN') ORDER BY event_sequence DESC LIMIT 1";
+        // Different authoritative families expose terminal state either as a root flag,
+        // a root phase, or the table snapshot phase.  History must recognize all three;
+        // otherwise a valid round is returned without its cards even though replay data exists.
+        String sql="SELECT payload FROM (SELECT event_sequence,payload FROM perspective_replay_event WHERE room_id=? AND set_id=? AND visibility='PLAYER_PRIVATE' UNION ALL SELECT event_sequence,payload FROM perspective_replay_event_archive WHERE room_id=? AND set_id=? AND visibility='PLAYER_PRIVATE') e WHERE "
+                +TERMINAL_REPLAY_PREDICATE+" ORDER BY event_sequence DESC LIMIT 1";
         JsonNode snapshot=null;
         try(var q=c.prepareStatement(sql)){int setId=Math.max(0,roundNo-1);q.setLong(1,roomId);q.setInt(2,setId);q.setLong(3,roomId);q.setInt(4,setId);try(var r=q.executeQuery()){if(r.next())snapshot=json.readTree(r.getBytes(1));}}
-        if(snapshot==null||!snapshot.isObject())return settlement;
+        if(snapshot==null||!snapshot.isObject())return hasPrivateReplay(c,roomId,roundNo)?null:settlement;
         JsonNode seats=snapshot.path("seats");
         JsonNode sourceEntries=settlement.path("entries");
         if(!sourceEntries.isArray()||!seats.isObject())return settlement;
@@ -219,6 +230,11 @@ public final class RecordReplayQueryService {
             enriched.add(entry);
         }
         ObjectNode result=settlement.deepCopy();result.set("entries",enriched);JsonNode history=snapshot.get("playHistory");if(history!=null)result.set("playHistory",history);return result;
+    }
+    private boolean hasPrivateReplay(Connection c,long roomId,int roundNo)throws Exception{
+        String sql="SELECT 1 FROM (SELECT room_id,set_id FROM perspective_replay_event WHERE room_id=? AND set_id=? AND visibility='PLAYER_PRIVATE' UNION ALL SELECT room_id,set_id FROM perspective_replay_event_archive WHERE room_id=? AND set_id=? AND visibility='PLAYER_PRIVATE') e LIMIT 1";
+        int setId=Math.max(0,roundNo-1);
+        try(var q=c.prepareStatement(sql)){q.setLong(1,roomId);q.setInt(2,setId);q.setLong(3,roomId);q.setInt(4,setId);try(var r=q.executeQuery()){return r.next();}}
     }
     private JsonNode readJson(String value)throws Exception{return value==null?null:json.readTree(value);}
     private static String chunkHash(List<ReplayEvent> events)throws Exception{MessageDigest d=MessageDigest.getInstance("SHA-256");for(var e:events){d.update(Long.toString(e.sequence()).getBytes(StandardCharsets.UTF_8));d.update(e.contentHash().getBytes(StandardCharsets.US_ASCII));}return HexFormat.of().formatHex(d.digest());}

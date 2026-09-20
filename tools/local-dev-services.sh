@@ -82,7 +82,19 @@ ensure_database(){
     AOO_MIGRATION_MYSQL_USER="$MYSQL_USER" AOO_MIGRATION_MYSQL_PASSWORD="$MYSQL_PASSWORD" \
     AOO_MIGRATION_DATABASE="$MYSQL_DATABASE" "$ROOT/tools/apply_migrations.sh"
   mysql_exec "$MYSQL_DATABASE" < "$ROOT/database/local/seed_local_runtime.sql"
-  "$ROOT/tools/publish-room-rules.sh" local
+  publish_registered_room_rules
+}
+
+# Database migrations may install an older bootstrap schema after a workbook was
+# previously confirmed by the watcher. Republish every registered regional
+# workbook on local startup so the active server validator and client UI schema
+# always come from the same current source, not only the Chengdu default.
+publish_registered_room_rules(){
+  local workbook directory="$ROOT/../Client/docs/开房规则表/跑得快"
+  while IFS= read -r workbook; do
+    AOO_ROOM_RULE_WORKBOOK="$directory/$workbook" "$ROOT/tools/publish-room-rules.sh" local
+  done < <(ruby -rjson -e 'JSON.parse(File.read(ARGV.fetch(0))).fetch("plays").each { |play| puts play.fetch("workbook") }' \
+    "$ROOT/tools/room-rule-play-identities.json")
 }
 
 build_runtime(){

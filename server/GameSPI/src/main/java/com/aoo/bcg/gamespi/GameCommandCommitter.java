@@ -20,6 +20,9 @@ public interface GameCommandCommitter {
         return java.util.Optional.empty();
     }
 
+    /** True when commitResult atomically stores the command response with the room snapshot. */
+    default boolean persistsCommandResult() { return false; }
+
     static GameCommandCommitter noOp() { return new GameCommandCommitter() {
         @Override public void commit(GameRoomHandle room, GameCommandRequest request, GameCommandResult result) { }
     }; }

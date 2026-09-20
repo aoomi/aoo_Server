@@ -8,6 +8,7 @@ import com.aoo.bcg.gamespi.GameCommandRequest;
 import com.aoo.bcg.gamespi.GameProvider;
 import com.aoo.bcg.gamespi.RegionScope;
 import com.aoo.bcg.gamespi.RoomCreationContext;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import org.junit.jupiter.api.Test;
@@ -22,7 +23,7 @@ final class RegionalPdkProviderTest {
         var njSession = session(neijiang, 81002, Map.of("playerCount", 2,
                 "attachmentComparison", "compare"));
         var lsSession = session(liangshan, 81003, Map.of("playerCount", 2,
-                "playRule", List.of("triple_with_one_or_pair", "compare_attachments")));
+                "playRule", List.of("triple_with_one", "compare_attachments")));
 
         Map<String,Object> cd = ruleOptions(cdSession);
         Map<String,Object> nj = ruleOptions(njSession);
@@ -33,7 +34,7 @@ final class RegionalPdkProviderTest {
                 () -> assertEquals(3, ls.get("minimumStraightLength")),
                 () -> assertEquals("EITHER", cd.get("tripleAttachmentMode")),
                 () -> assertEquals("EITHER", nj.get("tripleAttachmentMode")),
-                () -> assertEquals("EITHER", ls.get("tripleAttachmentMode")),
+                () -> assertEquals("SINGLE_OR_PAIR", ls.get("tripleAttachmentMode")),
                 () -> assertEquals(false, cd.get("compareTripleAttachments")),
                 () -> assertEquals(true, nj.get("compareTripleAttachments")),
                 () -> assertEquals(true, ls.get("compareTripleAttachments")));
@@ -51,25 +52,28 @@ final class RegionalPdkProviderTest {
         assertTrue(njRules.canBeat(njHighWing, njPrevious, null));
 
         PaoDeKuaiRuleSet lsRules = rules(ls);
-        CardCombination lsPrevious = lsRules.recognize(List.of(103, 203, 303, 106, 206), null);
         CardCombination lsSingle = lsRules.recognize(List.of(104, 204, 304, 105), null);
-        CardCombination lsLowPair = lsRules.recognize(List.of(104, 204, 304, 105, 205), null);
-        CardCombination lsHighPair = lsRules.recognize(List.of(104, 204, 304, 107, 207), null);
+        CardCombination lsPair = lsRules.recognize(List.of(104, 204, 304, 105, 205), null);
         CardCombination lsFourWithSingles = lsRules.recognize(
                 List.of(104, 204, 304, 404, 105, 106), null);
         CardCombination lsFourWithPairs = lsRules.recognize(
                 List.of(104, 204, 304, 404, 105, 205, 106, 206), null);
         assertAll(
-                () -> assertEquals("TRIPLE_WITH_PAIR", lsPrevious.type()),
                 () -> assertEquals("TRIPLE_WITH_ONE", lsSingle.type()),
-                () -> assertEquals("TRIPLE_WITH_TWO", lsRules.recognize(
-                        List.of(104, 204, 304, 105, 106), null).type()),
-                () -> assertFalse(lsRules.canBeat(lsLowPair, lsPrevious, null)),
-                () -> assertTrue(lsRules.canBeat(lsHighPair, lsPrevious, null)),
+                () -> assertEquals("TRIPLE_WITH_PAIR", lsPair.type()),
+                () -> assertThrows(IllegalArgumentException.class, () -> lsRules.recognize(
+                        List.of(104, 204, 304, 105, 106), null)),
                 () -> assertEquals("FOUR_WITH_TWO", lsFourWithSingles.type()),
                 () -> assertEquals("FOUR_WITH_TWO_PAIRS", lsFourWithPairs.type()),
                 () -> assertEquals("FOUR_WITH_TWO", lsRules.recognize(
                         List.of(104, 204, 304, 404, 105, 205), null).type()));
+
+        CardCombination previousSingle = lsRules.recognize(List.of(107), null);
+        List<CardCombination> maximumControlHints = lsRules.hints(
+                List.of(114, 214, 110), previousSingle,
+                new PaoDeKuaiContext(false, 3, List.of(114, 214, 110)));
+        assertEquals(14, maximumControlHints.getFirst().primaryRank(),
+                "Liangshan AA+10 must answer a single with its rule-maximum A");
     }
 
     @Test void neijiangKeepsIndependentIdentityAndUsesPublishedTwoPlayerCut() {
@@ -180,6 +184,30 @@ final class RegionalPdkProviderTest {
         assertEquals(2, session.viewFor(10).get("roundNo"));
         assertEquals(winner, session.viewFor(10).get("bankerSeat"));
         assertEquals(winner, session.viewFor(10).get("currentSeat"));
+    }
+
+    @Test void liangshanRecoveryRepairsLegacyLooseTripleWings() {
+        GameProvider provider = provider(90005, "LS201", "凉山跑得快", "liangshan",
+                "xqp-equivalent-1");
+        var session = provider.roomFactory().create(new RoomCreationContext(9000598, 10,
+                Map.of("playerCount", 2,
+                        "playRule", List.of("triple_with_one_or_pair"))))
+                .requireAuthoritativeSession();
+        Map<String,Object> legacy = new LinkedHashMap<>(session.authoritativeState());
+        @SuppressWarnings("unchecked")
+        Map<String,Object> oldRules = new LinkedHashMap<>(
+                (Map<String,Object>) legacy.get("pdkRuleOptions"));
+        oldRules.put("tripleAttachmentMode", "SINGLES");
+        legacy.put("pdkRuleOptions", Map.copyOf(oldRules));
+
+        Map<?,?> restoredRules = (Map<?,?>) provider.restoreAuthoritativeSession(legacy)
+                .orElseThrow().authoritativeState().get("pdkRuleOptions");
+        assertEquals("SINGLE_OR_PAIR", restoredRules.get("tripleAttachmentMode"));
+        assertEquals(true, restoredRules.get("prioritizeMaximumWithOneOrdinaryPlay"));
+        assertEquals(true, restoredRules.get("prioritizeLargestLeadWithoutMaximum"));
+        assertEquals(true, restoredRules.get("prioritizeMaximumLeadUnlessConnectedRun"));
+        assertEquals(true, restoredRules.get("prioritizeMaximumResponseWithinThreePlays"));
+        assertEquals(true, restoredRules.get("prioritizeLargestLeadUnlessMaximumStraight"));
     }
 
     @Test void liangshanTwoAndThreePlayerRoomsDealExactHandsAndKeepOnlyTheXqpStock() {

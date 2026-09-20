@@ -36,6 +36,7 @@ final class JdbcGatewayGameCommandCommitter implements GameCommandCommitter {
     private final DurableGameSettlementService settlements;
     private final ClubMatchSettlementService clubMatches;
     private final core.replay.ReplayCodeRepository replayCodeRepository;
+    private volatile Runnable settlementWakeup = () -> { };
 
     JdbcGatewayGameCommandCommitter(DataSource dataSource, ObjectMapper json, Clock clock,
                                     Duration retention, DurableGameSettlementService settlements) {
@@ -97,10 +98,6 @@ final class JdbcGatewayGameCommandCommitter implements GameCommandCommitter {
                 }
                 completeResult(connection, key, durableResult);
                 connection.commit();
-                if (pendingSettlement != null) {
-                    recoverPendingSettlements(256);
-                    if (terminalMatch(state)) clubMatches.settle(room.roomId());
-                }
             } catch (Exception failure) {
                 connection.rollback();
                 throw failure;
@@ -109,7 +106,15 @@ final class JdbcGatewayGameCommandCommitter implements GameCommandCommitter {
             if (failure instanceof RuntimeException runtime) throw runtime;
             throw new IllegalStateException("cannot atomically commit room command", failure);
         }
+        // The durable outbox row is part of the room transaction. Settlement projection and
+        // club aggregation are deliberately awakened after commit and outside the play response
+        // path; recovery remains authoritative if this process stops before the worker runs.
+        if (pendingSettlement != null) settlementWakeup.run();
         return durableResult;
+    }
+
+    void onSettlementQueued(Runnable wakeup) {
+        settlementWakeup = Objects.requireNonNull(wakeup);
     }
 
     Map<String,Object> decorateReplayCode(Map<String,Object> perspective) {
@@ -211,18 +216,13 @@ final class JdbcGatewayGameCommandCommitter implements GameCommandCommitter {
 
     int recoverCompletedClubMatches(int limit) { return clubMatches.recoverCompletedMatches(limit); }
 
-    private static boolean terminalMatch(Map<String,Object> state) {
-        Object nested = state.get("state");
-        boolean finished = nested instanceof Map<?,?> values && Boolean.TRUE.equals(values.get("finished"));
-        Object round = state.get("roundNo"), limit = state.get("roundLimit");
-        return finished && round instanceof Number current && limit instanceof Number maximum
-                && maximum.intValue() > 0 && current.intValue() >= maximum.intValue();
-    }
-
     @Override
     public Optional<GameCommandResult> findCommitted(GameRoomHandle room, GameCommandRequest request) {
         return results.find(key(request));
     }
+
+    @Override
+    public boolean persistsCommandResult() { return true; }
 
     Optional<RoomSnapshot> latest(long roomId) {
         return snapshots.latest(roomId);
@@ -370,7 +370,10 @@ final class JdbcGatewayGameCommandCommitter implements GameCommandCommitter {
 
     private SettlementResult pendingSettlement(GameRoomHandle room, Map<String,Object> state) {
         Object round = state.get("roundNo");
-        if (!Boolean.TRUE.equals(state.get("roundScored")) || !(round instanceof Number number)
+        Object authorityState = state.get("state");
+        boolean finished = authorityState instanceof Map<?,?> values
+                && Boolean.TRUE.equals(values.get("finished"));
+        if (!finished || !Boolean.TRUE.equals(state.get("roundScored")) || !(round instanceof Number number)
                 || number.intValue() <= 0) return null;
         return settlements.prepare(room, number.intValue());
     }
