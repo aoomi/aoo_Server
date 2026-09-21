@@ -18,7 +18,8 @@ public final class PokerAuthoritativeSession
   private static final Map<String, Boolean> DEFAULT_UI_CAPABILITIES =
       Map.of("addDouble", false, "robDoor", false, "openCard", false, "manualStart", false);
   private static final Duration DISSOLVE_VOTE_TIMEOUT = Duration.ofSeconds(120);
-  private static final Duration FLOATING_SETTLEMENT_NEXT_ROUND_DELAY = Duration.ofSeconds(2);
+  /** FLOATING keeps the landed terminal hand visible for 1.5 seconds before the next deal. */
+  private static final Duration FLOATING_SETTLEMENT_NEXT_ROUND_DELAY = Duration.ofMillis(1500);
   /** Keep the robber's lead visible before the authority commits the forced response. */
   private static final Duration ROBBER_AUTO_RESPONSE_DELAY = Duration.ofMillis(500);
   private final long roomId, seed;
@@ -1122,6 +1123,10 @@ public final class PokerAuthoritativeSession
     o.put("competeDealerSeat", competeDealerSeat);
     o.put("seats", Map.copyOf(seats));
     o.put("observers", Map.copyOf(observers));
+    if (viewer == ownerId)
+      o.put("selectedInitialHands", selectedInitialHands.entrySet().stream()
+          .collect(java.util.stream.Collectors.toMap(Map.Entry::getKey,
+              entry -> List.copyOf(entry.getValue()))));
     PdkAdvancedRules.RoomGovernance governance =
         family.rules().config().advancedRules().governance();
     o.put("settlementPresentation", governance.settlementPresentation().name());

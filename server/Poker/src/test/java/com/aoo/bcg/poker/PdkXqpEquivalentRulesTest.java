@@ -420,6 +420,8 @@ final class PdkXqpEquivalentRulesTest {
         finishRound(session, 10);
         long settledVersion = session.stateVersion();
         long dueAt = ((Number) nextRoundDeadline(session).get("deadlineEpochMillis")).longValue();
+        assertEquals(1_000L,
+                dueAt - ((Number) session.viewFor(10).get("serverEpochMillis")).longValue());
         assertFalse(session.tickLifecycle(Instant.ofEpochMilli(dueAt - 1)));
         session.participantPresence(11, false, Instant.ofEpochMilli(dueAt - 1));
         PokerAuthoritativeSession restored = PokerAuthoritativeSession.restore(

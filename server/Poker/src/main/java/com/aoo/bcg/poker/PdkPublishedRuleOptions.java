@@ -137,9 +137,16 @@ public final class PdkPublishedRuleOptions {
             // override the rule chosen for the current room.
             rules.put("specialTripleBombRanks",
                     selected.contains("triple_ace_bomb") ? List.of(14) : List.of());
+            // playRule is authoritative for this checkbox just as it is for the
+            // triple-A bomb. Clear stale published/base fields when the option is
+            // unchecked so an older room template cannot silently keep forcing
+            // spade three after the user removes the selection.
             if (selected.contains("require_spade_three")) {
-                rules.putIfAbsent("requiredFirstCard", 103);
-                rules.putIfAbsent("requiredFirstCardRounds", 99999);
+                rules.put("requiredFirstCard", 103);
+                rules.put("requiredFirstCardRounds", 99999);
+            } else {
+                rules.remove("requiredFirstCard");
+                rules.remove("requiredFirstCardRounds");
             }
             rules.putIfAbsent("directWinPatterns", selected.contains("four_threes_direct_win")
                     ? List.of(List.of(103, 203, 303, 403)) : List.of());

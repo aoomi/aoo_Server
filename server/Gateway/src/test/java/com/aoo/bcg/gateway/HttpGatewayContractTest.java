@@ -1,9 +1,18 @@
 package com.aoo.bcg.gateway;
 
 import com.aoo.bcg.gamespi.time.AuthoritativeTimeSource;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import io.netty.channel.embedded.EmbeddedChannel;
+import io.netty.handler.codec.http.DefaultFullHttpRequest;
+import io.netty.handler.codec.http.FullHttpResponse;
+import io.netty.handler.codec.http.HttpHeaderNames;
+import io.netty.handler.codec.http.HttpMethod;
+import io.netty.handler.codec.http.HttpResponseStatus;
+import io.netty.handler.codec.http.HttpVersion;
 import org.junit.jupiter.api.Test;
 
 import java.util.Map;
+import java.util.Set;
 import java.time.Clock;
 import java.time.Instant;
 import java.time.ZoneOffset;
@@ -11,6 +20,12 @@ import java.time.ZoneOffset;
 import static org.junit.jupiter.api.Assertions.*;
 
 class HttpGatewayContractTest {
+    private static final Set<String> FIXED_PREVIEW_ORIGINS = Set.of(
+            "http://127.0.0.1:7458",
+            "http://127.0.0.1:7459",
+            "http://127.0.0.1:5188",
+            "http://127.0.0.1:7461");
+
     @Test void enforcesApiPrefixTlsAndNormalizedPaths() {
         assertEquals("/api/v2/room/create", HttpRoutePolicy.requireApiV1("/api/v2/room/create"));
         assertThrows(IllegalArgumentException.class, () -> HttpRoutePolicy.requireApiV1("/room/create"));
@@ -70,6 +85,46 @@ class HttpGatewayContractTest {
         assertTrue(GatewayApplication.PROXY_IDENTITY_HEADERS.contains("Idempotency-Key"));
         assertTrue(java.nio.file.Files.readString(java.nio.file.Path.of("src/main/java/com/aoo/bcg/gateway/GatewayApplication.java"))
                 .contains("jdk.httpclient.keepalive.timeout"));
+    }
+
+    @Test void versionCheckPreflightAllowsOnlyTheConfiguredFixedPreviewOrigins() {
+        for (String origin : FIXED_PREVIEW_ORIGINS) {
+            FullHttpResponse response = preflight(origin);
+            assertEquals(HttpResponseStatus.NO_CONTENT, response.status());
+            assertEquals(origin, response.headers().get(HttpHeaderNames.ACCESS_CONTROL_ALLOW_ORIGIN));
+            assertEquals("Origin", response.headers().get(HttpHeaderNames.VARY));
+            assertTrue(response.headers().get(HttpHeaderNames.ACCESS_CONTROL_ALLOW_METHODS).contains("POST"));
+            response.release();
+        }
+
+        FullHttpResponse rejected = preflight("http://127.0.0.1:9999");
+        assertEquals(HttpResponseStatus.FORBIDDEN, rejected.status());
+        assertNull(rejected.headers().get(HttpHeaderNames.ACCESS_CONTROL_ALLOW_ORIGIN));
+        rejected.release();
+    }
+
+    private static FullHttpResponse preflight(String origin) {
+        GatewayApplication.Ingress ingress = new GatewayApplication.Ingress(
+                null,
+                new ObjectMapper(),
+                FIXED_PREVIEW_ORIGINS,
+                Runnable::run,
+                identity -> null);
+        EmbeddedChannel channel = new EmbeddedChannel(ingress);
+        DefaultFullHttpRequest request = new DefaultFullHttpRequest(
+                HttpVersion.HTTP_1_1,
+                HttpMethod.OPTIONS,
+                "/api/v2/version/check");
+        request.headers()
+                .set(HttpHeaderNames.ORIGIN, origin)
+                .set(HttpHeaderNames.ACCESS_CONTROL_REQUEST_METHOD, "POST")
+                .set(HttpHeaderNames.HOST, "127.0.0.1:8080");
+        channel.writeInbound(request);
+        channel.runPendingTasks();
+        FullHttpResponse response = channel.readOutbound();
+        assertNotNull(response);
+        channel.finishAndReleaseAll();
+        return response;
     }
 
 }

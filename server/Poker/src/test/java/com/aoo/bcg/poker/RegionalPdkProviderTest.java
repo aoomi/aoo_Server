@@ -153,6 +153,18 @@ final class RegionalPdkProviderTest {
                 .authoritativeState());
     }
 
+    @Test void liangshanWorkbookOperationTimeReachesTheAuthoritativeRuntimeUnchanged() {
+        GameProvider provider = provider(90005, "LS201", "凉山跑得快", "liangshan",
+                "xqp-equivalent-1");
+        var session = provider.roomFactory().create(new RoomCreationContext(9000510, 10,
+                Map.of("playerCount", 2, "roundCount", 8, "dealCardCount", 8,
+                        "operationTime", 10_000)))
+                .requireAuthoritativeSession();
+        Map<?,?> rules = (Map<?,?>) session.authoritativeState().get("pdkRuleOptions");
+        assertEquals(10_000, rules.get("operationTime"));
+        assertEquals(10_000, rules.get("operationTimeoutSeconds"));
+    }
+
     @Test void liangshanNextRoundBankerIsPreviousRoundWinner() {
         GameProvider provider = provider(90005, "LS201", "凉山跑得快", "liangshan",
                 "xqp-equivalent-1");

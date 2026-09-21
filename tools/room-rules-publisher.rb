@@ -11,6 +11,17 @@ REGISTRY = File.expand_path(ENV.fetch('AOO_ROOM_RULE_REGISTRY', OUTPUT.sub(/\.ge
 IDENTITY_REGISTRY = File.expand_path(ENV.fetch('AOO_ROOM_RULE_IDENTITY_REGISTRY', File.join(__dir__, 'room-rule-play-identities.json')))
 HEADERS = %w[界面显示文字 控件类型 可选项显示文字 默认勾选 托管次数 是否显示].freeze
 CONTROLS = { '单选' => 'radio', '多选' => 'checkbox' }.freeze
+# Platform fields have stable wire types.  Their display labels and values still
+# come exclusively from the user workbook, but a newly introduced region must
+# not need a second, hand-maintained numeric mapping before a value such as
+# `10000秒` can reach Hall and the client.  The field key is the protocol
+# identity; the suffix only validates the workbook's human-readable unit.
+PLATFORM_NUMERIC_FIELDS = {
+  'playerCount' => '人',
+  'roundCount' => '局',
+  'operationTime' => '秒',
+  'operationTimeoutSeconds' => '秒'
+}.freeze
 
 def fail!(message)
   raise(message)
@@ -145,10 +156,12 @@ def reconcile_entries!(registered, current_labels, create_entry)
   matches
 end
 
-def numeric_option_value!(technical, field_label, option_label)
+def numeric_option_value!(technical, field, field_label, option_label)
   specification = technical.fetch('numericRoomRuleFields', []).find do |entry|
     entry.fetch('sourceLabel') == field_label
   end
+  platform_suffix = PLATFORM_NUMERIC_FIELDS[field['key']]
+  specification ||= { 'suffix'=>platform_suffix } unless platform_suffix.nil?
   return nil unless specification
   suffix = specification.fetch('suffix', '')
   match = option_label.match(/\A(-?\d+)#{Regexp.escape(suffix)}\z/)
@@ -163,7 +176,7 @@ def stable_option_value!(technical, field, field_label, option_label)
     fail!("#{field_label}/#{option_label} 的显式协议值不能为空") if value.nil? || value == ''
     return value
   end
-  numeric = numeric_option_value!(technical, field_label, option_label)
+  numeric = numeric_option_value!(technical, field, field_label, option_label)
   return numeric unless numeric.nil?
   registered = field.fetch('options', []).find do |entry|
     entry.fetch('active', true) && entry['label'] == option_label

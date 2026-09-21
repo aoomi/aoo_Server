@@ -125,17 +125,35 @@ liangshan_workbook = File.expand_path(
 Dir.mktmpdir('aoo-liangshan-room-rule-numeric-identities') do |directory|
   output = File.join(directory, 'rules.generated.json')
   registry = File.join(directory, 'rules.keys.json')
-  FileUtils.cp(File.join(root, 'work/generated/room-rules/凉山跑得快.keys.json'), registry)
+  identity = File.join(directory, 'identities.json')
+  identity_payload = JSON.parse(File.read(identity_source, encoding: 'UTF-8'))
+  liangshan_identity = identity_payload.fetch('plays').find { |entry| entry['gameCode'] == 'LS201' }
+  # The regression is specifically that a workbook value change used to need a
+  # second manual numericRoomRuleFields edit.  Remove that optional declaration
+  # and prove the durable technical identity can rebuild the complete
+  # publication from an empty generated-key registry.
+  liangshan_identity.delete('numericRoomRuleFields')
+  write_identity(identity, identity_payload)
   stdout, stderr, status = publish(
-    publisher, liangshan_workbook, output, registry, identity_source)
-  abort("LS201 numeric room-rule publication failed: #{stderr.empty? ? stdout : stderr}") unless status.success?
+    publisher, liangshan_workbook, output, registry, identity)
+  abort("LS201 cold-start room-rule publication failed: #{stderr.empty? ? stdout : stderr}") unless status.success?
 
-  operation_time = JSON.parse(File.read(output, encoding: 'UTF-8')).fetch('fields')
-    .find { |field| field['key'] == 'operationTime' }
+  fields = JSON.parse(File.read(output, encoding: 'UTF-8')).fetch('fields')
+  by_key = fields.to_h { |field| [field.fetch('key'), field] }
+  expected_keys = %w[playerCount roundCount operationTime dealCardCount jinHuaScore
+    robDealerRule rule_ls201_0001 playRule roomRestriction]
+  abort('LS201 cold-start field identities drifted') unless by_key.keys == expected_keys
+
+  operation_time = by_key.fetch('operationTime')
   abort('LS201 operationTime did not map 10000秒 to integer 10000') unless
     operation_time.fetch('options').any? do |option|
       option['label'] == '10000秒' && option['value'] == 10_000
     end
+  deal_counts = by_key.fetch('dealCardCount').fetch('options')
+    .to_h { |option| [option.fetch('label'), option.fetch('value')] }
+  abort('LS201 deal-card identities were not rebuilt without cache') unless
+    deal_counts == {'8张(7-A)'=>8, '10张(5-A)'=>10}
+  abort('LS201 cold-start registry was not persisted') unless File.file?(registry)
 end
 
-puts 'LS201 numeric room-rule identity checks passed'
+puts 'LS201 cold-start numeric room-rule identity checks passed'

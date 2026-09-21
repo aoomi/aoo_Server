@@ -34,6 +34,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 /** Persistent, fenced owner of game-room runtime instances. */
 final class JdbcGatewayRoomAuthority implements GatewayRuntimeProvider.RoomAuthority, AutoCloseable {
+    /** Gameplay deadlines need frame-scale resolution; durable maintenance remains one-second work. */
+    private static final long LIFECYCLE_TICK_MILLIS = 50;
+    private static final long MAINTENANCE_INTERVAL_NANOS = TimeUnit.SECONDS.toNanos(1);
     private final DataSource dataSource;
     private final GameRegistry games;
     private final RuntimeGameRoomRegistry rooms;
@@ -47,6 +50,7 @@ final class JdbcGatewayRoomAuthority implements GatewayRuntimeProvider.RoomAutho
     private final ConcurrentHashMap<Long, Object> roomLocks = new ConcurrentHashMap<>();
     private final ScheduledExecutorService leaseKeeper;
     private final ScheduledExecutorService lifecycleWorker;
+    private long nextMaintenanceAtNanos;
 
     JdbcGatewayRoomAuthority(DataSource dataSource, GameRegistry games, RuntimeGameRoomRegistry rooms,
                              Clock clock, String nodeId, String endpoint, ObjectMapper json,
@@ -75,8 +79,13 @@ final class JdbcGatewayRoomAuthority implements GatewayRuntimeProvider.RoomAutho
         });
         recoverDurableRooms();
         finishInterruptedRemovals();
+        this.nextMaintenanceAtNanos = System.nanoTime() + MAINTENANCE_INTERVAL_NANOS;
         this.leaseKeeper.scheduleWithFixedDelay(this::renewActiveLeases, 30, 30, TimeUnit.SECONDS);
-        this.lifecycleWorker.scheduleWithFixedDelay(this::processRoomLifecycles, 1, 1, TimeUnit.SECONDS);
+        this.lifecycleWorker.scheduleWithFixedDelay(
+                this::processRoomLifecycles,
+                LIFECYCLE_TICK_MILLIS,
+                LIFECYCLE_TICK_MILLIS,
+                TimeUnit.MILLISECONDS);
     }
 
     @Override
@@ -314,11 +323,20 @@ public Map<String, Object> join(Map<String, Object> command) {
     }
 
     private void processRoomLifecycles() {
-        try{finishInterruptedRemovals();}catch(RuntimeException failure){System.err.println("room removal recovery deferred cause="+failure.getMessage());}
-        try{closeDurableInactiveRooms();}catch(RuntimeException failure){System.err.println("inactive room closure recovery deferred cause="+failure.getMessage());}
+        if (maintenanceDue()) {
+            try{finishInterruptedRemovals();}catch(RuntimeException failure){System.err.println("room removal recovery deferred cause="+failure.getMessage());}
+            try{closeDurableInactiveRooms();}catch(RuntimeException failure){System.err.println("inactive room closure recovery deferred cause="+failure.getMessage());}
+        }
         for(GameRoomHandle room:rooms.snapshot())try {
             RoomOrderedExecutor.global().execute(room.roomId(),()->{ processRoomLifecycle(room); return null; });
         } catch(RuntimeException failure){System.err.println("room lifecycle processing deferred roomId="+room.roomId()+" cause="+failure.getMessage());}
+    }
+
+    private boolean maintenanceDue() {
+        long now = System.nanoTime();
+        if (now < nextMaintenanceAtNanos) return false;
+        nextMaintenanceAtNanos = now + MAINTENANCE_INTERVAL_NANOS;
+        return true;
     }
 
     private void processRoomLifecycle(GameRoomHandle room) {
