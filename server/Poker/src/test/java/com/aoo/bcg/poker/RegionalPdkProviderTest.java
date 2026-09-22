@@ -222,6 +222,67 @@ final class RegionalPdkProviderTest {
         assertEquals(true, restoredRules.get("prioritizeLargestLeadUnlessMaximumStraight"));
     }
 
+    @Test void chengduRecoveryRepairsLegacyRequiredCardLeakAndOpeningTurn() {
+        GameProvider provider = provider(8, "CD201", "成都跑得快", "chengdu",
+                "xqp-equivalent-1");
+        long roomId = 81015L;
+        var session = provider.roomFactory().create(new RoomCreationContext(roomId, 10,
+                Map.of("playerCount", 2, "roundCount", 8,
+                        "playRule", List.of("remove_three_four", "require_spade_three"))))
+                .requireAuthoritativeSession();
+        long sequence = 1;
+        session.execute(command(roomId, 1, 11, "join", sequence++));
+        session.execute(command(roomId, 0, 10, "ready", sequence++));
+        session.execute(command(roomId, 1, 11, "ready", sequence++));
+        int guard = 0;
+        while (!Boolean.TRUE.equals(session.viewFor(10).get("finished"))) {
+            assertTrue(guard++ < 200, "Chengdu authority round did not converge");
+            int seat = ((Number) session.viewFor(10).get("currentSeat")).intValue();
+            long player = 10L + seat;
+            @SuppressWarnings("unchecked")
+            List<CardCombination> hints = (List<CardCombination>) session.execute(
+                    command(roomId, seat, player, "hint", sequence++)).body().get("hints");
+            if (hints.isEmpty())
+                session.execute(command(roomId, seat, player, "pass", sequence++));
+            else
+                session.execute(command(roomId, seat, player, "play", sequence++,
+                        Map.of("cards", hints.getFirst().cards())));
+        }
+        int winner = ((Number) session.viewFor(10).get("winnerSeat")).intValue();
+        session.execute(command(roomId, 0, 10, "continue", sequence++));
+        session.execute(command(roomId, 1, 11, "continue", sequence));
+
+        Map<String,Object> legacy = new LinkedHashMap<>(session.authoritativeState());
+        @SuppressWarnings("unchecked")
+        Map<String,Object> oldRules = new LinkedHashMap<>(
+                (Map<String,Object>) legacy.get("pdkRuleOptions"));
+        oldRules.put("requiredFirstCardRounds", 99_999);
+        legacy.put("pdkRuleOptions", Map.copyOf(oldRules));
+        int wrongSeat = winner == 0 ? 1 : 0;
+        PokerTurnState turn = (PokerTurnState) legacy.get("state");
+        int staleCard = turn.hands().get(wrongSeat).getFirst();
+        legacy.put("activeRequiredFirstCard", staleCard);
+        legacy.put("bankerSeat", wrongSeat);
+        legacy.put("initialLeadSeat", wrongSeat);
+        legacy.put("state", new PokerTurnState(turn.hands(), wrongSeat, null, -1,
+                java.util.Set.of(), false, -1));
+        @SuppressWarnings("unchecked")
+        Map<String,Object> oldDeadline = new LinkedHashMap<>(
+                (Map<String,Object>) legacy.get("operationDeadline"));
+        oldDeadline.put("seatId", wrongSeat);
+        legacy.put("operationDeadline", Map.copyOf(oldDeadline));
+
+        var restored = provider.restoreAuthoritativeSession(legacy).orElseThrow();
+        Map<String,Object> restoredState = restored.authoritativeState();
+        Map<?,?> restoredRules = (Map<?,?>) restoredState.get("pdkRuleOptions");
+        assertEquals(1, restoredRules.get("requiredFirstCardRounds"));
+        assertFalse(restoredState.containsKey("activeRequiredFirstCard"));
+        assertEquals(winner, restoredState.get("bankerSeat"));
+        assertEquals(winner, restoredState.get("initialLeadSeat"));
+        assertEquals(winner, restored.viewFor(10).get("currentSeat"));
+        assertEquals(List.of(), restored.invariantViolations());
+    }
+
     @Test void liangshanTwoAndThreePlayerRoomsDealExactHandsAndKeepOnlyTheXqpStock() {
         assertAll(
                 () -> assertLiangshanDeal(2, 8, 8, 16, 7),

@@ -118,9 +118,11 @@ public final class PdkPublishedRuleOptions {
             rules.put("bombScoreMode", PdkAdvancedRules.BombMode.FIXED_POINTS.name());
             rules.put("bombFixedPoints", source.get("bombScore"));
         }
-        if (source.containsKey("firstPlayRule") && !source.containsKey("bankerSelectionCard")) {
+        if (source.containsKey("firstPlayRule")) {
             if ("spade_three_first".equals(String.valueOf(source.get("firstPlayRule"))))
                 rules.put("bankerSelectionCard", 103);
+            else if ("winner_first".equals(String.valueOf(source.get("firstPlayRule"))))
+                rules.remove("bankerSelectionCard");
         }
         if (source.containsKey("playRule")) {
             Set<String> selected = strings(source.get("playRule"));
@@ -143,7 +145,7 @@ public final class PdkPublishedRuleOptions {
             // spade three after the user removes the selection.
             if (selected.contains("require_spade_three")) {
                 rules.put("requiredFirstCard", 103);
-                rules.put("requiredFirstCardRounds", 99999);
+                rules.put("requiredFirstCardRounds", 1);
             } else {
                 rules.remove("requiredFirstCard");
                 rules.remove("requiredFirstCardRounds");

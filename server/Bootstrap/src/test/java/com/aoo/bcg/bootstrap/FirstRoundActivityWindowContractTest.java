@@ -15,7 +15,7 @@ final class FirstRoundActivityWindowContractTest {
                 "src/main/java/com/aoo/bcg/bootstrap/JdbcGatewayGameCommandCommitter.java"));
         String method = source.substring(source.indexOf("private void markFirstRoundStarted"),
                 source.indexOf("private static boolean firstRoundStarted"));
-        assertTrue(method.contains("last_business_activity_at>DATE_SUB(CURRENT_TIMESTAMP(3),INTERVAL 300 SECOND)"));
-        assertFalse(method.contains("created_at>DATE_SUB(CURRENT_TIMESTAMP(3),INTERVAL 300 SECOND)"));
+        assertTrue(method.contains("last_business_activity_at>DATE_SUB(CURRENT_TIMESTAMP(3),INTERVAL 2 HOUR)"));
+        assertFalse(method.contains("created_at>DATE_SUB(CURRENT_TIMESTAMP(3),INTERVAL 2 HOUR)"));
     }
 }

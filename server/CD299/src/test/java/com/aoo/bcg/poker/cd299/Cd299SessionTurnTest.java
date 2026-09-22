@@ -278,6 +278,33 @@ class Cd299SessionTurnTest {
     }
 
     @Test
+    void seatedPlayerCanAdvanceSettlementWhenRoomOwnerIsOnlySpectating() {
+        Cd299Rules rules = Cd299Rules.from(Map.of("startPlayers", 2));
+        Cd299Session session = new Cd299Session(92990L, 999L, 299L, rules);
+        session.sit(0, 100L, 100L, "sit-0");
+        session.sit(1, 101L, 100L, "sit-1");
+        session.bet(0, Cd299Session.BetAction.REST, 0, "rest-0");
+        session.bet(1, Cd299Session.BetAction.REST, 0, "rest-1");
+        assertEquals("ROUND_SETTLEMENT", state(session).get("phase"));
+
+        execute(session, "poker.cd299.continue_req", "continue-by-player", 1, 101L, Map.of());
+
+        assertEquals("BETTING", state(session).get("phase"));
+        assertEquals(2, state(session).get("round"));
+    }
+
+    @Test
+    void spectatorCannotAdvanceSettlement() {
+        Cd299Session session = bettingSession(2, 151L);
+        session.bet(0, Cd299Session.BetAction.REST, 0, "rest-0");
+        session.bet(1, Cd299Session.BetAction.REST, 0, "rest-1");
+
+        assertThrows(IllegalArgumentException.class,
+                () -> execute(session, "poker.cd299.continue_req", "continue-by-spectator", 0, 999L, Map.of()));
+        assertEquals("ROUND_SETTLEMENT", state(session).get("phase"));
+    }
+
+    @Test
     void fivePlayerDropRaiseAndAllInAutoDealsFourthCardThenSplits() {
         Cd299Session session = bettingSessionWithCarry(6, 49L, 100L);
         for (int seat = 0; seat < 6; seat++) session.bet(seat, Cd299Session.BetAction.FOLLOW, 0, "first-follow-" + seat);

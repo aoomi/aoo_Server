@@ -164,7 +164,7 @@ final class JdbcGatewayGameCommandCommitter implements GameCommandCommitter {
         // last_business_activity_at.  Using created_at here made every room older
         // than five minutes impossible to start even when players had just joined,
         // producing an endless ready/reconnect loop after the first deal.
-        try(PreparedStatement statement=connection.prepareStatement("UPDATE aoo_room_authority_route SET first_round_started_at=COALESCE(first_round_started_at,CURRENT_TIMESTAMP(3)),updated_at=CURRENT_TIMESTAMP(3) WHERE room_id=? AND lifecycle_state='ACTIVE' AND (first_round_started_at IS NOT NULL OR last_business_activity_at>DATE_SUB(CURRENT_TIMESTAMP(3),INTERVAL 300 SECOND))")){
+        try(PreparedStatement statement=connection.prepareStatement("UPDATE aoo_room_authority_route SET first_round_started_at=COALESCE(first_round_started_at,CURRENT_TIMESTAMP(3)),updated_at=CURRENT_TIMESTAMP(3) WHERE room_id=? AND lifecycle_state='ACTIVE' AND (first_round_started_at IS NOT NULL OR last_business_activity_at>DATE_SUB(CURRENT_TIMESTAMP(3),INTERVAL 2 HOUR))")){
             statement.setLong(1,roomId);
             if(statement.executeUpdate()!=1)throw new SecurityException("房间已到期，首局开始未获得权威状态");
         }

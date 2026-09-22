@@ -342,7 +342,7 @@ public Map<String, Object> join(Map<String, Object> command) {
     private void processRoomLifecycle(GameRoomHandle room) {
         try {
             if(expireWaitingRoom(room))return;
-            if(expireInactiveStartedRoom(room))return;
+            if(expireInactiveRoom(room))return;
             if(!(room.requireAuthoritativeSession() instanceof RoomLifecycleAuthority lifecycle))return;
             boolean changed=lifecycle.tickLifecycle(clock.instant());
             Route route=route(room.roomId());
@@ -354,10 +354,10 @@ public Map<String, Object> join(Map<String, Object> command) {
         }
     }
 
-    /** Closes inactive started rooms even when a prior process lost their in-memory runtime. */
+    /** Closes every inactive room even when a prior process lost its in-memory runtime. */
     private void closeDurableInactiveRooms(){
         List<long[]> expired=new ArrayList<>();
-        String sql="SELECT room_id,fencing_token FROM aoo_room_authority_route WHERE node_id=? AND lifecycle_state='ACTIVE' AND first_round_started_at IS NOT NULL AND last_business_activity_at<=DATE_SUB(CURRENT_TIMESTAMP(3),INTERVAL 12 HOUR) ORDER BY room_id LIMIT 256";
+        String sql="SELECT room_id,fencing_token FROM aoo_room_authority_route WHERE node_id=? AND lifecycle_state='ACTIVE' AND last_business_activity_at<=DATE_SUB(CURRENT_TIMESTAMP(3),INTERVAL 12 HOUR) ORDER BY room_id LIMIT 256";
         try(Connection connection=dataSource.getConnection();PreparedStatement query=connection.prepareStatement(sql)){
             query.setString(1,nodeId);
             try(ResultSet rows=query.executeQuery()){while(rows.next())expired.add(new long[]{rows.getLong(1),rows.getLong(2)});}
@@ -399,13 +399,13 @@ public Map<String, Object> join(Map<String, Object> command) {
         }catch(SQLException failure){throw new IllegalStateException("waiting room activity persistence failed",failure);}
     }
 
-    private boolean expireInactiveStartedRoom(GameRoomHandle room){
+    private boolean expireInactiveRoom(GameRoomHandle room){
         synchronized(lock(room.roomId())){
             var session=room.requireAuthoritativeSession();
             synchronized(session){
                 Route route=route(room.roomId());
                 if(!"ACTIVE".equals(route.state())||!nodeId.equals(route.nodeId()))return false;
-                if(!WaitingRoomExpirationPolicy.startedRoomInactive(route.firstRoundStartedAt(),route.lastBusinessActivityAt(),clock.instant()))return false;
+                if(!WaitingRoomExpirationPolicy.roomInactive(route.lastBusinessActivityAt(),clock.instant()))return false;
                 String requestId="room-inactivity-expiration-"+room.roomId();
                 beginInactiveRoomRemoval(room.roomId(),route.fencingToken(),requestId);
                 broadcasts.publishInactiveRoomExpired(room.roomId(),requestId,requestId);
@@ -428,12 +428,12 @@ public Map<String, Object> join(Map<String, Object> command) {
         rooms.remove(room.roomId());
         finishAutomaticRemoval(room.roomId(),route.fencingToken());
         roomLocks.remove(room.roomId());
-        return new RoomAuthorityBusinessError(409,"ROOM_ENDED","房间超过300秒未开始，已自动解散");
+        return new RoomAuthorityBusinessError(409,"ROOM_ENDED","房间超过2小时未开始，已自动解散");
     }
 
-    private void beginAutomaticRemoval(long roomId,long fence,String requestId){try(Connection c=dataSource.getConnection();PreparedStatement p=c.prepareStatement("UPDATE aoo_room_authority_route SET lifecycle_state='REMOVING',last_request_id=?,trace_id=?,updated_at=CURRENT_TIMESTAMP(3) WHERE room_id=? AND fencing_token=? AND lifecycle_state='ACTIVE' AND first_round_started_at IS NULL AND created_at<=DATE_SUB(CURRENT_TIMESTAMP(3),INTERVAL 300 SECOND)")){p.setString(1,requestId);p.setString(2,requestId);p.setLong(3,roomId);p.setLong(4,fence);if(p.executeUpdate()!=1)throw new SecurityException("waiting room expiration lost authority race");}catch(SQLException e){throw new IllegalStateException("waiting room expiration persistence failed",e);}}
+    private void beginAutomaticRemoval(long roomId,long fence,String requestId){try(Connection c=dataSource.getConnection();PreparedStatement p=c.prepareStatement("UPDATE aoo_room_authority_route SET lifecycle_state='REMOVING',last_request_id=?,trace_id=?,updated_at=CURRENT_TIMESTAMP(3) WHERE room_id=? AND fencing_token=? AND lifecycle_state='ACTIVE' AND first_round_started_at IS NULL AND last_business_activity_at<=DATE_SUB(CURRENT_TIMESTAMP(3),INTERVAL 2 HOUR)")){p.setString(1,requestId);p.setString(2,requestId);p.setLong(3,roomId);p.setLong(4,fence);if(p.executeUpdate()!=1)throw new SecurityException("waiting room expiration lost authority race");}catch(SQLException e){throw new IllegalStateException("waiting room expiration persistence failed",e);}}
 
-    private void beginInactiveRoomRemoval(long roomId,long fence,String requestId){try(Connection c=dataSource.getConnection();PreparedStatement p=c.prepareStatement("UPDATE aoo_room_authority_route SET lifecycle_state='REMOVING',last_request_id=?,trace_id=?,updated_at=CURRENT_TIMESTAMP(3) WHERE room_id=? AND fencing_token=? AND lifecycle_state='ACTIVE' AND first_round_started_at IS NOT NULL AND last_business_activity_at<=DATE_SUB(CURRENT_TIMESTAMP(3),INTERVAL 12 HOUR)")){p.setString(1,requestId);p.setString(2,requestId);p.setLong(3,roomId);p.setLong(4,fence);if(p.executeUpdate()!=1)throw new SecurityException("inactive room expiration lost authority race");}catch(SQLException e){throw new IllegalStateException("inactive room expiration persistence failed",e);}}
+    private void beginInactiveRoomRemoval(long roomId,long fence,String requestId){try(Connection c=dataSource.getConnection();PreparedStatement p=c.prepareStatement("UPDATE aoo_room_authority_route SET lifecycle_state='REMOVING',last_request_id=?,trace_id=?,updated_at=CURRENT_TIMESTAMP(3) WHERE room_id=? AND fencing_token=? AND lifecycle_state='ACTIVE' AND last_business_activity_at<=DATE_SUB(CURRENT_TIMESTAMP(3),INTERVAL 12 HOUR)")){p.setString(1,requestId);p.setString(2,requestId);p.setLong(3,roomId);p.setLong(4,fence);if(p.executeUpdate()!=1)throw new SecurityException("inactive room expiration lost authority race");}catch(SQLException e){throw new IllegalStateException("inactive room expiration persistence failed",e);}}
 
     private void finishAutomaticRemoval(long roomId,long fence){try(Connection c=dataSource.getConnection()){c.setAutoCommit(false);try(PreparedStatement route=c.prepareStatement("UPDATE aoo_room_authority_route SET lifecycle_state='REMOVED',updated_at=CURRENT_TIMESTAMP(3) WHERE room_id=? AND fencing_token=? AND lifecycle_state='REMOVING'");PreparedStatement snapshot=c.prepareStatement("DELETE FROM aoo_room_snapshot WHERE room_id=?")){route.setLong(1,roomId);route.setLong(2,fence);if(route.executeUpdate()!=1)throw new SecurityException("等待房间解散失去权威状态");snapshot.setLong(1,roomId);snapshot.executeUpdate();c.commit();}catch(Exception failure){c.rollback();throw failure;}}catch(Exception failure){if(failure instanceof RuntimeException runtime)throw runtime;throw new IllegalStateException("等待房间可恢复状态清理失败",failure);}}
 

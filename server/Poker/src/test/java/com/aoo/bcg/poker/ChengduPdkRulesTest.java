@@ -83,7 +83,7 @@ final class ChengduPdkRulesTest {
                 "roomRestriction", List.of("gps_limit", "interaction_forbidden")),
                 ChengduPdkRules.defaults());
         assertEquals(103, config.requiredFirstCard());
-        assertEquals(99999, config.advancedRules().requiredFirstCardRounds());
+        assertEquals(1, config.advancedRules().requiredFirstCardRounds());
         assertEquals(103, config.advancedRules().bankerSelectionCard());
         assertEquals(java.util.Set.of(14), config.specialTripleBombRanks());
         assertEquals(PaoDeKuaiConfig.AttachmentMode.DISABLED, config.fourAttachmentMode());
@@ -114,7 +114,7 @@ final class ChengduPdkRulesTest {
 
         assertTrue(ChengduPdkRules.cutDeckSelected(selected));
         assertEquals(103, config.requiredFirstCard());
-        assertEquals(99999, advanced.requiredFirstCardRounds());
+        assertEquals(1, advanced.requiredFirstCardRounds());
         assertEquals(103, advanced.bankerSelectionCard());
         assertEquals(30, advanced.bombScore().points());
         assertEquals(20, advanced.operationTimeoutSeconds());
@@ -217,6 +217,67 @@ final class ChengduPdkRulesTest {
         assertEquals(minimum, session.viewFor(10).get("activeRequiredFirstCard"));
         assertEquals(103, ((Map<?,?>) session.authoritativeState().get("pdkRuleOptions"))
                 .get("requiredFirstCard"));
+    }
+
+    @Test void requiredOpeningCardIsConsumedOnceAndNeverLeaksIntoRoundTwo() {
+        long roomId = 906L;
+        PokerAuthoritativeSession session = started(new PdkGameProvider(), roomId, 2,
+                Map.of("roundCount", 8,
+                        "playRule", List.of("remove_three_four", "require_spade_three")));
+        long sequence = 100;
+        int openingSeat = ((Number) session.viewFor(10).get("currentSeat")).intValue();
+        int required = ((Number) session.viewFor(10)
+                .get("activeRequiredFirstCard")).intValue();
+        PokerTurnState openingTurn = (PokerTurnState) session.authoritativeState().get("state");
+        int invalidSingle = openingTurn.hands().get(openingSeat).stream()
+                .filter(card -> card != required)
+                .findFirst()
+                .orElseThrow();
+        for (int attempt = 0; attempt < 2; attempt++) {
+            long requestSequence = sequence++;
+            IllegalStateException rejected = assertThrows(IllegalStateException.class,
+                    () -> session.execute(command(roomId, requestSequence, openingSeat,
+                            10L + openingSeat, "play_req",
+                            Map.of("cards", List.of(invalidSingle)))));
+            assertEquals("first play must contain required card", rejected.getMessage());
+            assertEquals(required, session.viewFor(10).get("activeRequiredFirstCard"),
+                    "an invalid click must not consume the opening constraint");
+        }
+        @SuppressWarnings("unchecked")
+        List<CardCombination> openingHints = (List<CardCombination>) session.execute(command(
+                roomId, sequence++, openingSeat, 10L + openingSeat, "hint_req", Map.of()))
+                .body().get("hints");
+        assertFalse(openingHints.isEmpty());
+        assertTrue(openingHints.stream().allMatch(hint -> hint.cards().contains(required)));
+        session.execute(command(roomId, sequence++, openingSeat, 10L + openingSeat,
+                "play_req", Map.of("cards", openingHints.getFirst().cards())));
+        assertFalse(session.viewFor(10).containsKey("activeRequiredFirstCard"),
+                "a satisfied opening constraint must be consumed immediately");
+
+        int guard = 0;
+        while (!Boolean.TRUE.equals(session.viewFor(10).get("finished"))) {
+            assertTrue(guard++ < 200, "Chengdu authority round did not converge");
+            int seat = ((Number) session.viewFor(10).get("currentSeat")).intValue();
+            long player = 10L + seat;
+            @SuppressWarnings("unchecked")
+            List<CardCombination> hints = (List<CardCombination>) session.execute(command(
+                    roomId, sequence++, seat, player, "hint_req", Map.of())).body().get("hints");
+            if (hints.isEmpty())
+                session.execute(command(roomId, sequence++, seat, player, "pass_req", Map.of()));
+            else
+                session.execute(command(roomId, sequence++, seat, player, "play_req",
+                        Map.of("cards", hints.getFirst().cards())));
+        }
+        int winner = ((Number) session.viewFor(10).get("winnerSeat")).intValue();
+        session.execute(command(roomId, sequence++, 0, 10, "continue_req", Map.of()));
+        session.execute(command(roomId, sequence, 1, 11, "continue_req", Map.of()));
+
+        Map<String,Object> roundTwo = session.viewFor(10);
+        assertEquals(2, roundTwo.get("roundNo"));
+        assertEquals(winner, roundTwo.get("bankerSeat"));
+        assertEquals(winner, roundTwo.get("currentSeat"));
+        assertFalse(roundTwo.containsKey("activeRequiredFirstCard"));
+        assertEquals(List.of(), session.invariantViolations());
     }
 
     @Test void cardTypeComparisonHintReportSingleAndSettlementMatrixMatchXqp() {
@@ -346,8 +407,13 @@ final class ChengduPdkRulesTest {
 
     private static GameCommandRequest command(long room, long sequence, int seat, long player,
             String id) {
+        return command(room, sequence, seat, player, id, Map.of());
+    }
+
+    private static GameCommandRequest command(long room, long sequence, int seat, long player,
+            String id, Map<String,Object> body) {
         return new GameCommandRequest(id, "chengdu-" + sequence, sequence, room, 1,
-                PdkGameProvider.VERSION, String.valueOf(player), seat, Map.of());
+                PdkGameProvider.VERSION, String.valueOf(player), seat, body);
     }
 
     private static void assertConserved(PokerAuthoritativeSession session,

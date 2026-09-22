@@ -140,7 +140,14 @@ public final class Cd299Session implements AuthoritativeGameSession {
             case"poker.cd299.state_req"->{return new GameCommandResult("poker.cd299.state_rsp",r.requestId(),viewFor(playerId)).withAuthorityMetadata(stateVersion,Math.max(1,stateVersion));}
             case"poker.cd299.sit_req"->sit(number(b,"seatId",-1),playerId,requiredLong(b,"carryScore"),r.requestId());
             case"poker.cd299.ready_req"->legacyReady(number(b,"seatId",r.seatId()),playerId,r.requestId());
-            case"poker.cd299.continue_req"->{mutating(r.requestId());requireSeat(r.seatId());if(playerId!=ownerId||phase!=Phase.ROUND_SETTLEMENT)throw new IllegalStateException("[CD299] continue rejected");changed(r.requestId(),"continue",r.seatId());startRound();}
+            case"poker.cd299.continue_req"->{
+                mutating(r.requestId());
+                requireAuthenticatedSeat(r,playerId);
+                if(phase!=Phase.ROUND_SETTLEMENT)throw new IllegalStateException("[CD299] continue rejected");
+                LOG.info("[CD299] next round accepted roomId={} playerId={} seatId={} operationId={} roundNo={} stateVersion={}",roomId,playerId,r.seatId(),r.requestId(),round,stateVersion);
+                changed(r.requestId(),"continue",r.seatId());
+                startRound();
+            }
             case"poker.cd299.preset_req"->{requireAuthenticatedSeat(r,playerId);presetBet(r.seatId(),number(b,"betType",0),r.requestId());}
             case"poker.cd299.bet_req"->{requireLivePlayerOperation(r,playerId);bet(r.seatId(),BetAction.valueOf(String.valueOf(b.get("action"))),number(b,"amount",0),r.requestId());}
             case"poker.cd299.add_card_req"->{requireLivePlayerOperation(r,playerId);addCard(r.seatId(),r.requestId());}

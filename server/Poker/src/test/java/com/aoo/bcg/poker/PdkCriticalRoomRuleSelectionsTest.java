@@ -22,8 +22,11 @@ final class PdkCriticalRoomRuleSelectionsTest {
     }
 
     @Test void requireSpadeThreeSelectionEnablesAndDisablesTheActualFirstPlayConstraint() {
-        PaoDeKuaiRuleSet enabled = rules(Map.of(
+        PaoDeKuaiConfig enabledConfig = config(Map.of(
                 "playRule", List.of("require_spade_three")));
+        assertEquals(1, enabledConfig.advancedRules().requiredFirstCardRounds());
+        PaoDeKuaiRuleSet enabled = new PaoDeKuaiRuleSet(
+                enabledConfig, ChengduPdkRules.profile("critical-rules", false));
         PaoDeKuaiContext firstTurn = new PaoDeKuaiContext(
                 true, 2, List.of(103, 104), 103, true);
         assertThrows(IllegalStateException.class,
@@ -65,6 +68,14 @@ final class PdkCriticalRoomRuleSelectionsTest {
                 "playRule", List.of("remove_three_four")), 3);
         assertEquals("STANDARD_48", threePlayers.get("deckMode"));
         assertEquals(48, ((List<?>) threePlayers.get("deckCards")).size());
+    }
+
+    @Test void winnerFirstSelectionClearsAStaleBankerSelectionCard() {
+        PaoDeKuaiConfig config = config(Map.of(
+                "firstPlayRule", "winner_first",
+                "bankerSelectionCard", 103,
+                "playRule", List.of()));
+        assertNull(config.advancedRules().bankerSelectionCard());
     }
 
     @Test void liangshanDoesNotInheritChengduOrNeijiangCriticalSelections() {

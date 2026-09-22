@@ -475,14 +475,32 @@ public final class PokerAuthoritativeSession
         requirePlaying();
         List<Integer> cards = numbers(commandBody(r).get("cards"));
         PaoDeKuaiContext c = context(r);
-        family.rules().validatePlay(cards, c);
-        CardCombination combination = family.rules().recognize(cards, c);
-        policy.validatePattern(r, combination, c);
+        CardCombination combination;
+        try {
+          family.rules().validatePlay(cards, c);
+          combination = family.rules().recognize(cards, c);
+          policy.validatePattern(r, combination, c);
+        } catch (RuntimeException rejected) {
+          LOGGER.log(
+              System.Logger.Level.WARNING,
+              "[PdkPlayRejected] roomId={0} playerId={1} seatId={2} operationId={3} stateVersion={4} roundNo={5} requiredCard={6} cards={7} reason={8}",
+              roomId,
+              player,
+              r.seatId(),
+              deadline.operationId(),
+              stateVersion,
+              roundNo,
+              activeRequiredFirstCard,
+              cards,
+              rejected.getMessage());
+          throw rejected;
+        }
         CardCombination previous = state.previous();
         int previousSeat = state.previousSeat();
         state =
             new PokerCoreEngine<PaoDeKuaiContext>()
                 .play(state, r.seatId(), cards, family.rules(), c);
+        consumeRequiredFirstCard(c, r.seatId(), cards);
         recordPlay(r.seatId(), combination);
         Map<String, Object> committed =
             lastAction(r.seatId(), "play", cards, combination.type(), r.requestId());
@@ -761,6 +779,12 @@ public final class PokerAuthoritativeSession
     bankerSeat = resolveBanker(p, hands, nextRound);
     initialLeadSeat = bankerSeat;
     activeRequiredFirstCard = resolveRequiredFirstCard(hands, nextRound);
+    LOGGER.log(System.Logger.Level.INFO,
+        "[PdkRequiredFirstCard] resolved roomId={0} roundNo={1} stateVersion={2} bankerSeat={3} previousWinnerSeat={4} configuredCard={5} configuredRounds={6} activeCard={7}",
+        roomId, nextRound, stateVersion, bankerSeat, previousWinnerSeat,
+        family.rules().config().requiredFirstCard(),
+        family.rules().config().advancedRules().requiredFirstCardRounds(),
+        activeRequiredFirstCard);
     roundNo = Math.addExact(roundNo, 1);
     roundScored = false;
     automaticNextRoundCancelled = false;
@@ -1045,6 +1069,7 @@ public final class PokerAuthoritativeSession
       int previousSeat = state.previousSeat();
       state = new PokerCoreEngine<PaoDeKuaiContext>()
           .play(state, seat, response.cards(), family.rules(), context);
+      consumeRequiredFirstCard(context, seat, response.cards());
       recordPlay(seat, response);
       Map<String,Object> committed = lastAction(seat, "play", response.cards(), response.type(),
           "robber-auto-play-" + (stateVersion + 1) + "-" + seat);
@@ -1578,6 +1603,15 @@ public final class PokerAuthoritativeSession
           || initialPatternCounts.values().stream().anyMatch(v -> v < 0)
           || missedOperations.values().stream().anyMatch(v -> v < 0)) e.add("INVALID_STATS");
       if (!players.keySet().equals(state.hands().keySet())) e.add("SEAT_HAND_MISMATCH");
+      if (activeRequiredFirstCard != null) {
+        int committedPlays = plays.values().stream().mapToInt(Integer::intValue).sum();
+        if (roundNo > family.rules().config().advancedRules().requiredFirstCardRounds())
+          e.add("STALE_REQUIRED_FIRST_CARD_ROUND");
+        if (committedPlays != 0 || state.previous() != null)
+          e.add("STALE_REQUIRED_FIRST_CARD_AFTER_PLAY");
+        if (!state.hands().getOrDefault(bankerSeat, List.of()).contains(activeRequiredFirstCard))
+          e.add("REQUIRED_FIRST_CARD_NOT_OWNED_BY_BANKER");
+      }
       if (state.hands().values().stream()
           .anyMatch(h -> h.size() > family.profile().maximumHandSize())) e.add("HAND_BUDGET");
       if (!players.keySet().containsAll(state.passed())
@@ -1733,6 +1767,7 @@ public final class PokerAuthoritativeSession
     state =
         new PokerCoreEngine<PaoDeKuaiContext>()
             .play(state, seat, combination.cards(), family.rules(), context);
+    consumeRequiredFirstCard(context, seat, combination.cards());
     recordPlay(seat, combination);
     Map<String, Object> committed =
         lastAction(seat, "play", combination.cards(), combination.type(), "timeout-" + stateVersion);
@@ -1799,6 +1834,22 @@ public final class PokerAuthoritativeSession
             combination.type(),
             "cards",
             List.copyOf(combination.cards())));
+  }
+
+  /**
+   * The required-card marker is a one-operation authority constraint, not a round decoration.
+   * Consume it only after the opening play has passed validation and committed successfully so
+   * reconnect, hint and later error handling cannot mistake an already satisfied constraint for
+   * a requirement on a second play.
+   */
+  private void consumeRequiredFirstCard(
+      PaoDeKuaiContext context, int seat, List<Integer> cards) {
+    if (!context.firstPlay() || activeRequiredFirstCard == null) return;
+    int consumed = activeRequiredFirstCard;
+    activeRequiredFirstCard = null;
+    LOGGER.log(System.Logger.Level.INFO,
+        "[PdkRequiredFirstCard] consumed roomId={0} roundNo={1} stateVersion={2} playerId={3} seat={4} requiredCard={5} cards={6}",
+        roomId, roundNo, stateVersion, players.get(seat), seat, consumed, cards);
   }
 
   private PaoDeKuaiContext authoritativeContext(int seat) {

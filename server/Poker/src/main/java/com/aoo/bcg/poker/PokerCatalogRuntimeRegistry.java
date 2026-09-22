@@ -30,6 +30,7 @@ abstract class RegionalPokerProvider implements GameProvider{
 
 final class PdkGameProvider extends RegionalPokerProvider implements PokerGameProvider {
  static final int GAME_ID=8; static final String VERSION="1.0.0";
+ private static final System.Logger LOGGER=System.getLogger(PdkGameProvider.class.getName());
  private static final PaoDeKuaiConfig GENERIC_BASE=
    new PaoDeKuaiConfig(5,true,true,false,null,true).withCardsPerPlayer(16);
  private final String playVersion; private final boolean chengdu;
@@ -101,6 +102,12 @@ final class PdkGameProvider extends RegionalPokerProvider implements PokerGamePr
     && !Boolean.TRUE.equals(options.get("prioritizeLargestLeadUnlessMaximumStraight"));
   if(repairLiangshanLargestShape)
    options.put("prioritizeLargestLeadUnlessMaximumStraight",true);
+  boolean repairLegacyRequiredFirstCardRounds=
+    (PdkBusinessCodes.CHENGDU.equals(code)||PdkBusinessCodes.NEIJIANG.equals(code))
+      &&number(options,"requiredFirstCard",0)==103
+      &&number(options,"requiredFirstCardRounds",0)>1;
+  if(repairLegacyRequiredFirstCardRounds)
+   options.put("requiredFirstCardRounds",1);
   PaoDeKuaiConfig restoredConfig=PdkPublishedRuleOptions.apply(options,baseConfig);
   if(regionalRules==null)restoredConfig=restoredConfig.withCardsPerPlayer(16);
   PaoDeKuaiFamily restoredFamily=familyForRestore(restoredConfig,options,
@@ -108,7 +115,7 @@ final class PdkGameProvider extends RegionalPokerProvider implements PokerGamePr
   Map<String,Object> restoredState;
   if(repairLiangshanLooseTripleWings||repairLiangshanMaximumLead||repairLiangshanLargestLead
     ||repairLiangshanConnectedLead||repairLiangshanResponseControl
-    ||repairLiangshanLargestShape){
+    ||repairLiangshanLargestShape||repairLegacyRequiredFirstCardRounds){
    // Early LS201 publications accidentally persisted EITHER, which admits two
    // unrelated loose wings. Liangshan only permits one single or one pair.
    // Repair that known snapshot defect during recovery so reconnecting an old
@@ -118,6 +125,23 @@ final class PdkGameProvider extends RegionalPokerProvider implements PokerGamePr
    Map<String,Object>corrected=new LinkedHashMap<>(s);
    corrected.put("pdkRuleOptions",Map.copyOf(options));
    corrected.put("ruleSnapshotKey",restoredFamily.ruleSnapshotKey());
+   if(repairLegacyRequiredFirstCardRounds){
+    int roundNo=number(corrected,"roundNo",0);
+    if(roundNo>1)corrected.remove("activeRequiredFirstCard");
+    int previousWinner=number(corrected,"previousWinnerSeat",-1);
+    boolean repairedOpeningTurn=roundNo>1&&previousWinner>=0&&isCleanOpeningState(corrected);
+    if(repairedOpeningTurn){
+     corrected.put("bankerSeat",previousWinner);
+     corrected.put("initialLeadSeat",previousWinner);
+     corrected.put("state",withCurrentSeat(corrected.get("state"),previousWinner));
+     corrected.put("operationDeadline",withDeadlineSeat(
+       corrected.get("operationDeadline"),previousWinner));
+    }
+    LOGGER.log(System.Logger.Level.INFO,
+      "[PdkRequiredFirstCardMigration] repaired gameCode={0} roomId={1} roundNo={2} stateVersion={3} previousWinnerSeat={4} openingTurnRepaired={5}",
+      code,corrected.get("roomId"),roundNo,corrected.get("stateVersion"),previousWinner,
+      repairedOpeningTurn);
+   }
    restoredState=Map.copyOf(corrected);
   }else restoredState=PdkPublishedRuleOptions.migrateVerifiedLegacySnapshotIdentity(
     s,restoredFamily);
@@ -125,6 +149,43 @@ final class PdkGameProvider extends RegionalPokerProvider implements PokerGamePr
  }
  private static int number(Map<String,Object>rules,String key,int fallback){
   Object value=rules.get(key); return value instanceof Number n?n.intValue():fallback;
+ }
+ private static boolean isCleanOpeningState(Map<String,Object>snapshot){
+  Object rawPlays=snapshot.get("plays");
+  if(rawPlays instanceof Map<?,?>plays
+    &&plays.values().stream().anyMatch(value->value instanceof Number n&&n.intValue()!=0))
+   return false;
+  Object rawState=snapshot.get("state");
+  if(rawState instanceof PokerTurnState state)
+   return !state.finished()&&state.previous()==null&&state.passed().isEmpty();
+  if(rawState instanceof Map<?,?>state){
+   Object previous=state.get("previous"),passed=state.get("passed"),finished=state.get("finished");
+   return previous==null
+     &&(!(passed instanceof Collection<?>values)||values.isEmpty())
+     &&!Boolean.TRUE.equals(finished);
+  }
+  return false;
+ }
+ private static Object withCurrentSeat(Object rawState,int seat){
+  if(rawState instanceof PokerTurnState state)
+   return new PokerTurnState(state.hands(),seat,state.previous(),state.previousSeat(),
+     state.passed(),state.finished(),state.winnerSeat());
+  if(rawState instanceof Map<?,?>state){
+   Map<String,Object>corrected=new LinkedHashMap<>();
+   state.forEach((key,value)->corrected.put(String.valueOf(key),value));
+   corrected.put("currentSeat",seat);
+   return corrected;
+  }
+  return rawState;
+ }
+ private static Object withDeadlineSeat(Object rawDeadline,int seat){
+  if(!(rawDeadline instanceof Map<?,?>deadline))return rawDeadline;
+  Object operationId=deadline.get("operationId");
+  if(operationId==null||String.valueOf(operationId).isBlank())return rawDeadline;
+  Map<String,Object>corrected=new LinkedHashMap<>();
+  deadline.forEach((key,value)->corrected.put(String.valueOf(key),value));
+  corrected.put("seatId",seat);
+  return Map.copyOf(corrected);
  }
  private static boolean explicitlyAllowsPass(Map<String,Object>rules){
   return rules.containsKey("roomBeatWhenPossible")
