@@ -3,7 +3,7 @@ package com.aoo.bcg.poker.cd299;
 import java.util.Map;
 
 /** Immutable, gameplay-only room rules for 成都扯旋. */
-public record Cd299Rules(int roomDurationMinutes, int maxPlayers, int startPlayers,
+public record Cd299Rules(int roomDurationMinutes, int roundLimit, int maxPlayers, int startPlayers,
         int operationSeconds, StandPolicy standPolicy, FlipMode flipMode, int mangoRaise,
         int mangoScore, int openingBet, int splitSeconds, int splitExtensionSeconds,
         int splitExtensionLimit, int seatConfirmationSeconds, int seatRetentionSeconds,
@@ -19,7 +19,7 @@ public record Cd299Rules(int roomDurationMinutes, int maxPlayers, int startPlaye
     public enum FlipMode { LADDER, ROLLING }
 
     public Cd299Rules {
-        if ((roomDurationMinutes != 30 && roomDurationMinutes != 45 && roomDurationMinutes != 60)
+        if ((roomDurationMinutes != 30 && roomDurationMinutes != 45 && roomDurationMinutes != 60) || roundLimit != 10
                 || maxPlayers != 8 || (startPlayers != 2 && startPlayers != 4 && startPlayers != 6)
                 || startPlayers > maxPlayers || (operationSeconds != 10 && operationSeconds != 15 && operationSeconds != 30)
                 || mangoRaise < 0 || mangoRaise > 5 || mangoScore < 0 || openingBet < mangoScore
@@ -30,7 +30,7 @@ public record Cd299Rules(int roomDurationMinutes, int maxPlayers, int startPlaye
     }
     public static Cd299Rules from(Map<String, ?> raw) {
         Map<String, ?> r = raw == null ? Map.of() : raw;
-        return new Cd299Rules(number(r,"roomDurationMinutes",30),8,number(r,"startPlayers",2),
+        return new Cd299Rules(number(r,"roomDurationMinutes",30),number(r,"roundLimit",10),8,number(r,"startPlayers",2),
                 number(r,"operationSeconds",10),enumValue(r,"standPolicy",StandPolicy.class,StandPolicy.LOSER_ONLY),
                 enumValue(r,"mangoFlipMode",FlipMode.class,FlipMode.LADDER),number(r,"mangoRaise",3),
                 number(r,"mangoScore",3),number(r,"openingBet",3),number(r,"splitSeconds",30),
@@ -44,7 +44,7 @@ public record Cd299Rules(int roomDurationMinutes, int maxPlayers, int startPlaye
                 bool(r,"earthNineKing",true),bool(r,"fireproofCard",true),bool(r,"bigHeadKeepsBase",false));
     }
     public Map<String,Object> toMap(){return Map.ofEntries(
-            Map.entry("roomDurationMinutes",roomDurationMinutes),Map.entry("maxPlayers",maxPlayers),
+            Map.entry("roomDurationMinutes",roomDurationMinutes),Map.entry("roundLimit",roundLimit),Map.entry("maxPlayers",maxPlayers),
             Map.entry("startPlayers",startPlayers),Map.entry("operationSeconds",operationSeconds),
             Map.entry("standPolicy",standPolicy.name()),Map.entry("mangoFlipMode",flipMode.name()),
             Map.entry("mangoRaise",mangoRaise),Map.entry("mangoScore",mangoScore),

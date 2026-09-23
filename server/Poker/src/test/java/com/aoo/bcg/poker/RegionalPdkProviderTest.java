@@ -210,16 +210,20 @@ final class RegionalPdkProviderTest {
         Map<String,Object> oldRules = new LinkedHashMap<>(
                 (Map<String,Object>) legacy.get("pdkRuleOptions"));
         oldRules.put("tripleAttachmentMode", "SINGLES");
+        oldRules.put("prioritizeMaximumWithOneOrdinaryPlay", true);
+        oldRules.put("prioritizeLargestLeadUnlessMaximumStraight", true);
+        oldRules.put("twoHandMaximumLeadSizeTolerance", 3);
         legacy.put("pdkRuleOptions", Map.copyOf(oldRules));
 
         Map<?,?> restoredRules = (Map<?,?>) provider.restoreAuthoritativeSession(legacy)
                 .orElseThrow().authoritativeState().get("pdkRuleOptions");
         assertEquals("SINGLE_OR_PAIR", restoredRules.get("tripleAttachmentMode"));
-        assertEquals(true, restoredRules.get("prioritizeMaximumWithOneOrdinaryPlay"));
-        assertEquals(true, restoredRules.get("prioritizeLargestLeadWithoutMaximum"));
-        assertEquals(true, restoredRules.get("prioritizeMaximumLeadUnlessConnectedRun"));
-        assertEquals(true, restoredRules.get("prioritizeMaximumResponseWithinThreePlays"));
-        assertEquals(true, restoredRules.get("prioritizeLargestLeadUnlessMaximumStraight"));
+        assertEquals(false, restoredRules.containsKey("prioritizeMaximumWithOneOrdinaryPlay"));
+        assertEquals(false, restoredRules.containsKey("prioritizeLargestLeadWithoutMaximum"));
+        assertEquals(false, restoredRules.containsKey("prioritizeMaximumLeadUnlessConnectedRun"));
+        assertEquals(false, restoredRules.containsKey("prioritizeMaximumResponseWithinThreePlays"));
+        assertEquals(false, restoredRules.containsKey("prioritizeLargestLeadUnlessMaximumStraight"));
+        assertEquals(false, restoredRules.containsKey("twoHandMaximumLeadSizeTolerance"));
     }
 
     @Test void chengduRecoveryRepairsLegacyRequiredCardLeakAndOpeningTurn() {

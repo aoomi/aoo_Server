@@ -27,6 +27,10 @@ class Cd299SessionTurnTest {
         assertHandSizes(session, 3, 3);
 
         followAll(session, "second");
+        assertTurn(session, "BETTING", 0);
+        assertHandSizes(session, 4, 4);
+
+        followAll(session, "third");
         assertTurn(session, "SPLITTING", 0);
         assertHandSizes(session, 4, 4);
 
@@ -36,6 +40,11 @@ class Cd299SessionTurnTest {
         assertEquals("ROUND_SETTLEMENT", state(session).get("phase"));
         assertEquals(-1, state(session).get("currentSeat"));
         assertEquals(2, ((Map<?, ?>) state(session).get("lastDelta")).size());
+        Map<?, ?> wins = (Map<?, ?>) state(session).get("winCounts");
+        Map<?, ?> losses = (Map<?, ?>) state(session).get("loseCounts");
+        assertEquals(1L, wins.values().stream().mapToInt(value -> ((Number) value).intValue()).sum());
+        assertEquals(1L, losses.values().stream().mapToInt(value -> ((Number) value).intValue()).sum());
+        assertEquals(state(session), Cd299Session.restore(state(session)).authoritativeState());
     }
 
     @Test
@@ -146,6 +155,20 @@ class Cd299SessionTurnTest {
     }
 
     @Test
+    void firstBankerIsAuthoritativeAndFollowingRoundRotatesCounterclockwise() {
+        Cd299Session session = bettingSession(4, 47L);
+        int first = ((Number) state(session).get("bankerSeat")).intValue();
+        assertTrue(first >= 0 && first <= 3);
+        for (int seat = 0; seat < 4; seat++) {
+            session.bet(seat, Cd299Session.BetAction.REST, 0, "banker-rest-" + seat);
+        }
+        execute(session, "poker.cd299.continue_req", "banker-continue", 0, 100L, Map.of());
+        assertEquals(first == 0 ? 3 : first - 1, state(session).get("bankerSeat"));
+        assertEquals(8, state(session).get("schemaVersion"));
+        assertEquals(state(session), Cd299Session.restore(state(session)).authoritativeState());
+    }
+
+    @Test
     void restMangoRaisesNextRoundAndLateJoinerCatchesUpLikeXqp() {
         Cd299Session session = bettingSessionWithCarry(2, 147L, 100L);
         session.bet(0, Cd299Session.BetAction.REST, 0, "rest-0");
@@ -213,8 +236,8 @@ class Cd299SessionTurnTest {
         Cd299Session session = new Cd299Session(9299L, 100L, 299L, rules,
                 new AuthoritativeTimeSource(clock));
         session.sit(0, 100L, 100L, "sit-0"); session.sit(1, 101L, 100L, "sit-1");
-        
-        followAll(session, "round-1"); followAll(session, "round-2");
+
+        followAll(session, "round-1"); followAll(session, "round-2"); followAll(session, "round-3");
         assertEquals("SPLITTING", state(session).get("phase"));
         @SuppressWarnings("unchecked") Map<Integer, Long> deadlines =
                 (Map<Integer, Long>) state(session).get("splitDeadlineEpochMillis");
@@ -305,6 +328,139 @@ class Cd299SessionTurnTest {
     }
 
     @Test
+    void terminalPlayersChooseNewCarryBeforeSameRoomSeriesRestarts() {
+        Cd299Session session = terminalSession(Long.MAX_VALUE);
+        execute(session, "poker.cd299.restart_req", "restart-0", 0, 100L, Map.of("carryScore", 200L));
+        assertEquals("FINISHED", state(session).get("phase"));
+        assertEquals(Map.of(0, 200L), state(session).get("restartCarryScores"));
+
+        execute(session, "poker.cd299.restart_req", "restart-1", 1, 101L, Map.of("carryScore", 300L));
+        assertEquals("BETTING", state(session).get("phase"));
+        assertEquals(1, state(session).get("round"));
+        assertEquals(Map.of(0, 200L, 1, 300L), state(session).get("carryScores"));
+        assertEquals(Map.of(0, 200L, 1, 300L), state(session).get("scores"));
+        assertEquals(0L, state(session).get("terminalDeadlineEpochMillis"));
+    }
+
+    @Test
+    void finalRoundOpensRetentionWithoutDoubleAdvancingSettlementVersion() {
+        Instant now = Instant.parse("2026-09-23T12:00:00Z");
+        MutableClock clock = new MutableClock(now);
+        Cd299Rules rules = Cd299Rules.from(Map.of("startPlayers", 2));
+        Cd299Session session = new Cd299Session(92991L, 100L, 299L, rules,
+                new AuthoritativeTimeSource(clock));
+        session.sit(0, 100L, 600L, "sit-0");
+        session.sit(1, 101L, 600L, "sit-1");
+        for (int completed = 1; completed < 10; completed++) {
+            session.bet(0, Cd299Session.BetAction.DROP, 0, "pre-final-drop-" + completed);
+            execute(session, "poker.cd299.continue_req", "pre-final-continue-" + completed,
+                    0, 100L, Map.of());
+        }
+        long beforeFinalAction = session.stateVersion();
+
+        session.bet(0, Cd299Session.BetAction.DROP, 0, "final-drop");
+
+        Map<String, Object> terminal = state(session);
+        assertEquals("FINISHED", terminal.get("phase"));
+        assertEquals(now.plusSeconds(120).toEpochMilli(), terminal.get("terminalDeadlineEpochMillis"));
+        // One version for the player's bet and one for the settlement; entering
+        // terminal retention must not add a second settlement transition.
+        assertEquals(beforeFinalAction + 2, session.stateVersion());
+        execute(session, "poker.cd299.restart_req", "restart-before-expiry", 0, 100L,
+                Map.of("carryScore", 200L));
+        assertEquals(Map.of(0, 200L), state(session).get("restartCarryScores"));
+    }
+
+    @Test
+    void terminalStandRemovesOnlyAuthenticatedSeatAndExpiredRetentionRejectsRestart() {
+        Cd299Session session = terminalSession(Long.MAX_VALUE);
+        execute(session, "poker.cd299.stand_req", "stand-1", 1, 101L, Map.of());
+        assertEquals(Map.of(0, 100L), state(session).get("players"));
+        assertEquals(Map.of(0, 100L), state(session).get("carryScores"));
+        assertEquals(Map.of(0, 100L), state(session).get("scores"));
+        assertEquals(Map.of(0, ((Map<?, ?>) state(session).get("hands")).get(0)), state(session).get("hands"));
+        assertEquals("SPECTATOR", session.viewFor(101L).get("viewerRole"));
+
+        Cd299Session expired = terminalSession(1L);
+        assertThrows(IllegalStateException.class, () -> execute(expired,
+                "poker.cd299.restart_req", "expired", 0, 100L, Map.of("carryScore", 100L)));
+    }
+
+    @Test
+    void settlementDeadlineElectsOnePlayerAndAutomaticallyStartsNextRound() {
+        MutableClock clock = new MutableClock(Instant.parse("2026-09-23T13:00:00Z"));
+        Cd299Session session = new Cd299Session(92992L, 100L, 300L,
+                Cd299Rules.from(Map.of("startPlayers", 2, "roundLimit", 10)),
+                new AuthoritativeTimeSource(clock));
+        session.sit(0, 100L, 600L, "sit-0");
+        session.sit(1, 101L, 600L, "sit-1");
+        session.bet(0, Cd299Session.BetAction.REST, 0, "rest-0");
+        session.bet(1, Cd299Session.BetAction.REST, 0, "rest-1");
+
+        Map<String, Object> settlement = state(session);
+        assertEquals("ROUND_SETTLEMENT", settlement.get("phase"));
+        assertEquals(0, settlement.get("roundSettlementTriggerSeat"));
+        assertEquals(clock.instant().plusSeconds(2).toEpochMilli(),
+                settlement.get("roundSettlementDeadlineEpochMillis"));
+
+        clock.advance(Duration.ofSeconds(2));
+        execute(session, "poker.cd299.timeout_req", "auto-next", 0, 100L, Map.of());
+        assertEquals("BETTING", state(session).get("phase"));
+        assertEquals(2, state(session).get("round"));
+        assertEquals(0L, state(session).get("roundSettlementDeadlineEpochMillis"));
+        assertEquals(-1, state(session).get("roundSettlementTriggerSeat"));
+        assertThrows(IllegalStateException.class,
+                () -> execute(session, "poker.cd299.timeout_req", "duplicate-auto-next", 0, 100L, Map.of()));
+    }
+
+    @Test
+    void depletedSeatCanRebuyDuringItsOwnRetentionWindow() {
+        Cd299Session live = bettingSession(2, 301L);
+        live.bet(0, Cd299Session.BetAction.REST, 0, "rest-0");
+        live.bet(1, Cd299Session.BetAction.REST, 0, "rest-1");
+        Map<String, Object> saved = new java.util.LinkedHashMap<>(live.authoritativeState());
+        saved.put("scores", Map.of(0, 100L, 1, 0L));
+        saved.put("seatRetentionDeadlineEpochMillis", Map.of(1, Long.MAX_VALUE));
+        saved.put("roundSettlementDeadlineEpochMillis", 0L);
+        saved.put("roundSettlementTriggerSeat", -1);
+        Cd299Session restored = Cd299Session.restore(saved);
+
+        execute(restored, "poker.cd299.rebuy_req", "rebuy-1", 1, 101L, Map.of("carryScore", 250L));
+
+        assertEquals(250L, ((Map<?, ?>) state(restored).get("scores")).get(1));
+        assertEquals(250L, ((Map<?, ?>) state(restored).get("carryScores")).get(1));
+        assertEquals(Map.of(), state(restored).get("seatRetentionDeadlineEpochMillis"));
+        assertEquals(0, state(restored).get("roundSettlementTriggerSeat"));
+        assertTrue(((Number) state(restored).get("roundSettlementDeadlineEpochMillis")).longValue()
+                > System.currentTimeMillis());
+    }
+
+    @Test
+    void standIsAllowedBetweenHandsButRejectedDuringAnActiveHand() {
+        Cd299Session waiting = new Cd299Session(92993L, 100L, 302L,
+                Cd299Rules.from(Map.of("startPlayers", 4)));
+        waiting.sit(0, 100L, 100L, "sit-0");
+        waiting.sit(1, 101L, 100L, "sit-1");
+        execute(waiting, "poker.cd299.stand_req", "stand-waiting", 0, 100L, Map.of());
+        assertEquals("SPECTATOR", waiting.viewFor(100L).get("viewerRole"));
+        assertEquals(Map.of(1, 101L), state(waiting).get("players"));
+
+        Cd299Session active = bettingSession(2, 303L);
+        assertThrows(IllegalStateException.class,
+                () -> execute(active, "poker.cd299.stand_req", "stand-active", 0, 100L, Map.of()));
+        assertEquals("SEATED", active.viewFor(100L).get("viewerRole"));
+    }
+
+    private static Cd299Session terminalSession(long deadline) {
+        Cd299Session live = bettingSession(2, 909L);
+        Map<String,Object> saved = new java.util.LinkedHashMap<>(live.authoritativeState());
+        saved.put("phase", "FINISHED");
+        saved.put("terminalDeadlineEpochMillis", deadline);
+        saved.put("operationDeadline", Map.of());
+        return Cd299Session.restore(saved);
+    }
+
+    @Test
     void fivePlayerDropRaiseAndAllInAutoDealsFourthCardThenSplits() {
         Cd299Session session = bettingSessionWithCarry(6, 49L, 100L);
         for (int seat = 0; seat < 6; seat++) session.bet(seat, Cd299Session.BetAction.FOLLOW, 0, "first-follow-" + seat);
@@ -327,7 +483,7 @@ class Cd299SessionTurnTest {
     }
 
     @Test
-    void authenticatedPlayerCommandCannotWinAfterAuthoritativeDeadline() {
+    void authenticatedPlayerCommandAtDeadlineLinearizesAsAuthoritativeTimeout() {
         MutableClock clock = new MutableClock(Instant.parse("2026-09-19T00:00:00Z"));
         Cd299Rules rules = Cd299Rules.from(Map.of("startPlayers", 2, "operationSeconds", 15));
         Cd299Session session = new Cd299Session(9099L, 100L, 99L, rules,
@@ -339,9 +495,11 @@ class Cd299SessionTurnTest {
 
         GameCommandRequest late = new GameCommandRequest("poker.cd299.bet_req", "late-bet", 1,
                 9099L, 0, Cd299Rules.VERSION, "100", 0, Map.of("action", "FOLLOW", "amount", 0));
-        assertThrows(IllegalStateException.class, () -> session.execute(late));
+        session.execute(late);
         assertEquals("BETTING", state(session).get("phase"));
-        assertEquals(versionBeforeLateCommand, state(session).get("stateVersion"));
+        assertTrue(session.stateVersion() > versionBeforeLateCommand);
+        assertEquals(1, state(session).get("currentSeat"));
+        assertEquals("REST", ((Map<?, ?>) state(session).get("lastBetActions")).get(0));
     }
 
     private static Cd299Session bettingSession(int players, long seed) {

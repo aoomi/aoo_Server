@@ -172,23 +172,6 @@ final class LiangshanPdkRules implements PdkRegionRules {
                 ? PaoDeKuaiConfig.AttachmentMode.SINGLE_OR_PAIR
                 : publishedTripleMode;
         rules.put("tripleAttachmentMode", tripleAttachmentMode.name());
-        // LS201 treats its rule-maximum A as the control lead when the other
-        // final hand has at most four cards (for example A + 8-9-10-J).
-        rules.put("twoHandMaximumLeadSizeTolerance", 3);
-        // 凉山没有 2，A 是不可超越的最大控制牌型。只要打出含 A 的
-        // 完整合法牌型后仅剩一手普通牌，就先取得牌权；不受两手张数差限制。
-        rules.put("prioritizeMaximumWithOneOrdinaryPlay", true);
-        // 主动出牌且手中没有 A 时，凉山优先一次打出张数最多的合法牌型。
-        rules.put("prioritizeLargestLeadWithoutMaximum", true);
-        // 有 A 时先取得最大单牌控制；若存在至少四张的完整顺子或连对，
-        // 则优先整体牌型（例如 A、KK、QQ、10、88 先出 KKQQ）。
-        rules.put("prioritizeMaximumLeadUnlessConnectedRun", true);
-        // 接牌后可在三手内结束时，凉山优先用 A 取得控制；没有 A 时
-        // 再按拆后散单最少、可压住的最小点数选择。
-        rules.put("prioritizeMaximumResponseWithinThreePlays", true);
-        // 顺子连到 A 时保留最大顺子优先；否则主动提示一次打出张数最多的
-        // 完整合法牌型，并由剩余手数决定同张数方案。
-        rules.put("prioritizeLargestLeadUnlessMaximumStraight", true);
         rules.put("tripleWithoutAttachmentTiming",
                 tripleAttachmentMode != PaoDeKuaiConfig.AttachmentMode.DISABLED
                 ? "DEALER_RESPONSE_OR_FINAL" : "ANYTIME");

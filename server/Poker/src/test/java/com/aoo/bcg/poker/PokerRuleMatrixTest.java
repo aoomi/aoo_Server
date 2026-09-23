@@ -180,5 +180,24 @@ final class PokerRuleMatrixTest {
     @Test void catalogMatrixHas150BindingsAcrossEightFamilies()throws Exception{List<String>lines;try(var in=getClass().getResourceAsStream("/poker-family-region-config.tsv")){assertNotNull(in);lines=new BufferedReader(new InputStreamReader(in,StandardCharsets.UTF_8)).lines().toList();}assertEquals(151,lines.size());Set<String>families=new TreeSet<>();Map<String,String[]>nativeRows=new HashMap<>();for(String line:lines.subList(1,lines.size())){String[]v=line.split("\\t",-1);assertEquals(11,v.length);families.add(v[2]);if(Set.of("CD201","aypdk","hbpdk","cp","hndzp","lhzp").contains(v[1]))nativeRows.put(v[1],v);assertFalse(v[10].isBlank());}assertEquals(Set.of("poker:510k","poker:betting","poker:climbing","poker:compare-hand","poker:generic-card-round","poker:landlord","poker:pao-de-kuai","poker:trick-taking"),families);assertEquals(6,nativeRows.size());for(var row:nativeRows.values()){GameDescriptor d=new GameDescriptor(Integer.parseInt(row[0]),row[1],row[1].toUpperCase(),GameCategory.POKER,row[2],RegionScope.PROVINCE,"test","","1.0.0");GameProvider p=PokerCatalogRuntimeRegistry.providerFor(d).orElseThrow();assertSame(d,p.descriptor());assertEquals("poker-family-runtime",p.defaultConfiguration().get("provider"));assertTrue(p.eventReplayProvider().isPresent());assertTrue(p.reconnectViewProvider().isPresent());assertTrue(p.settlementProvider().isPresent());}}
     @Test void pokerCatalogRegistryIsCategoryAndCodeIsolated(){GameDescriptor other=new GameDescriptor(1,"x","X",GameCategory.LONG_CARD,"long-card:regional",RegionScope.NATIONAL,"","","1");assertTrue(PokerCatalogRuntimeRegistry.providerFor(other).isEmpty());GameDescriptor unknown=new GameDescriptor(999,"unknown","UNKNOWN",GameCategory.POKER,"poker:generic-card-round",RegionScope.NATIONAL,"","","1");assertTrue(PokerCatalogRuntimeRegistry.providerFor(unknown).isEmpty());}
     @Test void publishedPdkProviderUsesTheCatalogPlayVersion(){GameDescriptor descriptor=new GameDescriptor(8,"CD201","成都跑得快",GameCategory.POKER,"poker:pao-de-kuai",RegionScope.CITY,"四川","成都","1.0.0");GameProvider provider=PokerCatalogRuntimeRegistry.providerFor(descriptor).orElseThrow();assertEquals("1.0.0",provider.defaultConfiguration().get("playVersion"));assertEquals(40,provider.defaultConfiguration().get("deckSize"));assertEquals("CUT_40",provider.defaultConfiguration().get("deckMode"));assertEquals(descriptor,provider.descriptor());}
+    @Test void shortCircuitResponseExistenceMatchesCompleteHintLegality(){
+        var rules=new PaoDeKuaiRuleSet(PaoDeKuaiConfig.defaults());
+        var hands=List.of(
+            List.of(103,104,105,107,109,110,111,112,113,114,203,204,205,207,209,210),
+            List.of(106,206,107,207,108,208,109,209,110,210),
+            List.of(103,104,105),
+            List.of(113,213,313,114,214,107));
+        var targets=List.of(
+            new CardCombination("SINGLE",5,List.of(105)),
+            new CardCombination("SINGLE",14,List.of(114)),
+            new CardCombination("PAIR",8,List.of(108,208)),
+            new CardCombination("TRIPLE_WITH_PAIR",9,List.of(109,209,309,107,207)));
+        for(var hand:hands)for(var target:targets){
+            var context=new PaoDeKuaiContext(false,8,hand);
+            assertEquals(!rules.hints(hand,target,context).isEmpty(),
+                rules.hasLegalResponse(hand,target,context),
+                ()->"response existence disagrees: hand="+hand+" target="+target);
+        }
+    }
     private static PokerRuleProfile profile(PokerRuleProfile.FirstLead lead,Integer card){return new PokerRuleProfile("matrix",48,3,3,lead,card,5,2,false,false,true,true,1,16,2,20);}
 }

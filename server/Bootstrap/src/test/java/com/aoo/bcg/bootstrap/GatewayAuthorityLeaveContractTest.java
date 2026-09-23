@@ -16,5 +16,12 @@ final class GatewayAuthorityLeaveContractTest {
         assertTrue(source.contains("reason=authority-runtime-missing"));
         assertTrue(source.contains("catch (IllegalArgumentException missingRoom)"));
         assertTrue(source.contains("reason=authority-route-"));
+        assertTrue(source.contains("lifecycle.isTerminal()"));
+        assertTrue(source.contains("reason=authority-session-terminal"));
+        assertTrue(source.contains("isTerminalAuthoritySession(session, authorityState)"));
+        assertTrue(source.contains("authorityState.get(\"roomTerminal\")"));
+        assertTrue(source.contains("authorityState.get(\"dissolved\")"));
+        assertTrue(source.contains("authorityState.get(\"phase\")"));
+        assertTrue(source.contains("\"FINISHED\".equalsIgnoreCase"));
     }
 }

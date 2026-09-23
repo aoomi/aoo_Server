@@ -11,7 +11,7 @@ public final class Cd299GameProvider implements GameProvider {
     private static final Set<String> COMMANDS=Set.of(
             "poker.cd299.state_req","poker.cd299.sit_req","poker.cd299.ready_req","poker.cd299.preset_req",
             "poker.cd299.bet_req","poker.cd299.add_card_req","poker.cd299.split_req","poker.cd299.delay_split_req",
-            "poker.cd299.continue_req","poker.cd299.timeout_req");
+            "poker.cd299.continue_req","poker.cd299.restart_req","poker.cd299.rebuy_req","poker.cd299.stand_req","poker.cd299.timeout_req");
     private final GameDescriptor descriptor;
     public Cd299GameProvider(GameDescriptor descriptor){this.descriptor=descriptor;}
     public GameDescriptor descriptor(){return descriptor;}

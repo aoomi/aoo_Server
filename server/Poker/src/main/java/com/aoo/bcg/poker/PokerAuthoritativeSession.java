@@ -450,7 +450,7 @@ public final class PokerAuthoritativeSession
         requirePlaying();
         PaoDeKuaiContext c = context(r);
         if (family.profile().mustBeatWhenPossible()
-            && !family.rules().hints(state.hands().get(r.seatId()), state.previous(), c).isEmpty())
+            && family.rules().hasLegalResponse(state.hands().get(r.seatId()), state.previous(), c))
           throw new IllegalStateException("must beat when possible");
         Map<String, Object> committed = lastAction(r.seatId(), "pass", List.of(), "PASS", r.requestId());
         tableOperations.add(committed);
@@ -983,9 +983,8 @@ public final class PokerAuthoritativeSession
     if (state == null || state.finished() || state.previous() == null || competeDealerPhase)
       return false;
     int seat = state.currentSeat();
-    return family.rules()
-        .hints(state.hands().get(seat), state.previous(), automaticContext(seat))
-        .isEmpty();
+    return !family.rules()
+        .hasLegalResponse(state.hands().get(seat), state.previous(), automaticContext(seat));
   }
 
   private void commitUnbeatableAutoPass() {

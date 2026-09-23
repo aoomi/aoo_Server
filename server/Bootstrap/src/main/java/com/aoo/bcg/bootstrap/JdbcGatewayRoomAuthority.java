@@ -247,7 +247,21 @@ public Map<String, Object> join(Map<String, Object> command) {
                         "status", "ALREADY_LEFT");
             }
             var session = room.requireAuthoritativeSession();
-            Object rawPlayers = session.authoritativeState().get("players");
+            Map<String,Object> authorityState = session.authoritativeState();
+            if (isTerminalAuthoritySession(session, authorityState)) {
+                // The terminal snapshot is retained briefly so every client can render settlement.
+                // It cannot accept another gameplay leave command, but Hall membership and tickets
+                // still have to be released. Treat that already-ended authority membership as the
+                // same idempotent success as a retired route or an absent runtime.
+                System.err.println("room-authority leave already completed roomId=" + roomId
+                        + " playerId=" + accountId + " operationId=" + requestId
+                        + " stateVersion=" + session.stateVersion()
+                        + " reason=authority-session-terminal");
+                return Map.of("roomId", roomId, "accountId", accountId, "seatNo", -1,
+                        "playVersion", playVersion, "stateVersion", session.stateVersion(),
+                        "status", "ALREADY_LEFT");
+            }
+            Object rawPlayers = authorityState.get("players");
             if (!(rawPlayers instanceof Map<?, ?> players)) {
                 throw new RoomAuthorityBusinessError(409, "ROOM_LEAVE_REJECTED", "room has no seated players");
             }
@@ -279,6 +293,15 @@ public Map<String, Object> join(Map<String, Object> command) {
             return Map.of("roomId", roomId, "accountId", accountId, "seatNo", seatNo,
                     "playVersion", playVersion, "stateVersion", session.stateVersion());
         }
+    }
+
+    private static boolean isTerminalAuthoritySession(
+            com.aoo.bcg.gamespi.AuthoritativeGameSession session,
+            Map<String,Object> authorityState) {
+        if (session instanceof RoomLifecycleAuthority lifecycle && lifecycle.isTerminal()) return true;
+        if (Boolean.TRUE.equals(authorityState.get("roomTerminal"))
+                || Boolean.TRUE.equals(authorityState.get("dissolved"))) return true;
+        return "FINISHED".equalsIgnoreCase(String.valueOf(authorityState.get("phase")));
     }
 
     @Override
