@@ -1146,6 +1146,19 @@ public final class PokerAuthoritativeSession
       o.put("activeRequiredFirstCard", activeRequiredFirstCard);
     o.put("competeDealerSeat", competeDealerSeat);
     o.put("seats", Map.copyOf(seats));
+    // The table's LAST_ONLY rule controls visible hand history, not the
+    // publicly observed rank counts used to evaluate remaining control cards.
+    // Derive counts from the persisted round ledger so reconnect and rematch
+    // cannot disagree with the authoritative played-card lifecycle.
+    List<Integer> publicPlayedRankCounts = new ArrayList<>(Collections.nCopies(16, 0));
+    playedCardsBySeat.values().forEach(cards -> cards.forEach(card -> {
+      int rank = Math.floorMod(card, 100);
+      if (rank < 3 || rank > 15)
+        throw new IllegalStateException("invalid PDK played rank: roomId=" + roomId
+            + ", roundNo=" + roundNo + ", card=" + card);
+      publicPlayedRankCounts.set(rank, publicPlayedRankCounts.get(rank) + 1);
+    }));
+    o.put("publicPlayedRankCounts", List.copyOf(publicPlayedRankCounts));
     o.put("observers", Map.copyOf(observers));
     if (viewer == ownerId)
       o.put("selectedInitialHands", selectedInitialHands.entrySet().stream()

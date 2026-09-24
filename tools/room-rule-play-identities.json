@@ -2,7 +2,8 @@
   "version": 1,
   "plays": [
     {
-      "workbook": "成都跑得快.xlsx",
+      "workbookPath": "Client/docs/开房规则表/跑得快/成都跑得快.xlsx",
+      "publishingEnabled": true,
       "sourceIdentity": [
         "四川",
         "成都",
@@ -13,6 +14,7 @@
       "playVersion": "1.0.0",
       "family": "poker:pao-de-kuai",
       "regionCode": "CN-51-01",
+      "releaseScope": "REGIONAL",
       "requiredRoomRuleFields": [
         {
           "key": "playerCount",
@@ -41,6 +43,11 @@
         {
           "key": "playRule",
           "sourceLabel": "玩法"
+        },
+        {
+          "key": "hostingMissThreshold",
+          "sourceLabel": "托管次数",
+          "serverOwned": true
         },
         {
           "key": "roomRestriction",
@@ -100,6 +107,11 @@
           "去掉3、4": "remove_three_four",
           "必须出黑桃3": "require_spade_three"
         },
+        "托管次数": {
+          "3次": 3,
+          "4次": 4,
+          "5次": 5
+        },
         "其他": {
           "IP限制": "ip_limit",
           "GPS限制": "gps_limit",
@@ -111,7 +123,8 @@
       }
     },
     {
-      "workbook": "内江跑得快.xlsx",
+      "workbookPath": "Client/docs/开房规则表/跑得快/内江跑得快.xlsx",
+      "publishingEnabled": true,
       "sourceIdentity": [
         "四川",
         "内江",
@@ -122,6 +135,7 @@
       "playVersion": "legacy-equivalent-1",
       "family": "poker:pao-de-kuai",
       "regionCode": "CN-51-10",
+      "releaseScope": "REGIONAL",
       "requiredRoomRuleFields": [
         {
           "key": "playerCount",
@@ -134,11 +148,24 @@
         {
           "key": "operationTime",
           "sourceLabel": "操作时间"
+        },
+        {
+          "key": "hostingMissThreshold",
+          "sourceLabel": "托管次数",
+          "serverOwned": true
         }
-      ]
+      ],
+      "roomRuleOptionValues": {
+        "托管次数": {
+          "3次": 3,
+          "4次": 4,
+          "5次": 5
+        }
+      }
     },
     {
-      "workbook": "凉山跑得快.xlsx",
+      "workbookPath": "Client/docs/开房规则表/跑得快/凉山跑得快.xlsx",
+      "publishingEnabled": true,
       "sourceIdentity": [
         "四川",
         "凉山",
@@ -149,6 +176,7 @@
       "playVersion": "xqp-equivalent-1",
       "family": "poker:pao-de-kuai",
       "regionCode": "CN-51-34",
+      "releaseScope": "REGIONAL",
       "requiredRoomRuleFields": [
         {
           "key": "playerCount",
@@ -181,6 +209,11 @@
         {
           "key": "playRule",
           "sourceLabel": "玩法"
+        },
+        {
+          "key": "hostingMissThreshold",
+          "sourceLabel": "托管次数",
+          "serverOwned": true
         },
         {
           "key": "roomRestriction",
@@ -230,6 +263,11 @@
           "四张A,7": "four_ace_rank",
           "全单,全顺,全连对,全对,全黑,全红,全大,全小": "all_special_patterns"
         },
+        "托管次数": {
+          "3次": 3,
+          "4次": 4,
+          "5次": 5
+        },
         "其他": {
           "IP限制": "ip_limit",
           "GPS限制": "gps_limit",
@@ -238,6 +276,242 @@
           "禁止互动": "interaction_forbidden",
           "禁言": "chat_muted"
         }
+      }
+    },
+    {
+      "workbookPath": "Client/docs/开房规则表/牛牛/全国牛牛.xlsx",
+      "publishingEnabled": true,
+      "sourceIdentity": [
+        "全国",
+        "全国",
+        "全国牛牛"
+      ],
+      "gameId": 5,
+      "gameCode": "CN298",
+      "playVersion": "cn298-v1.0.0",
+      "family": "poker:betting",
+      "regionCode": "GLOBAL",
+      "releaseScope": "GLOBAL",
+      "provider": "com.aoo.bcg.poker.nn.CN298PokerFamilyProviderFactory",
+      "requiredRoomRuleFields": [
+        { "key": "rounds", "sourceLabel": "局数", "order": 10 },
+        { "key": "maxPlayers", "sourceLabel": "最大人数", "order": 20 },
+        { "key": "startPlayers", "sourceLabel": "开局人数", "order": 30 },
+        { "key": "mode", "sourceLabel": "玩法模式", "order": 40 },
+        { "key": "maxRobMultiplier", "sourceLabel": "抢庄倍数", "order": 50 },
+        { "key": "maxPushMultiplier", "sourceLabel": "推注上限", "order": 60 },
+        { "key": "standPolicy", "sourceLabel": "站起规则", "order": 70 },
+        { "key": "fastModeEnabled", "sourceLabel": "快速模式", "order": 80 },
+        { "key": "hostingMissThreshold", "sourceLabel": "托管次数", "order": 90, "serverOwned": true }
+      ],
+      "numericRoomRuleFields": [
+        { "sourceLabel": "局数", "suffix": "局" },
+        { "sourceLabel": "最大人数", "suffix": "人" },
+        { "sourceLabel": "开局人数", "suffix": "人" },
+        { "sourceLabel": "抢庄倍数", "suffix": "倍" }
+      ],
+      "roomRuleRowProjections": [
+        {
+          "sourceLabel": "快速模式",
+          "sourceControl": "多选",
+          "sourceOptions": ["启用快速模式"],
+          "kind": "boolean-option",
+          "output": { "key": "fastModeEnabled", "label": "快速模式", "trueValue": true }
+        }
+      ],
+      "roomRuleOptionValues": {
+        "局数": { "10局": 10, "20局": 20, "30局": 30 },
+        "最大人数": { "8人": 8, "10人": 10 },
+        "开局人数": { "2人": 2, "4人": 4, "6人": 6 },
+        "玩法模式": { "经典模式": "CLASSIC", "激情模式": "PASSION", "疯狂模式": "CRAZY" },
+        "抢庄倍数": { "最高3倍": 3, "最高4倍": 4, "最高5倍": 5 },
+        "推注上限": { "不推注": 0, "5倍": 5, "10倍": 10, "15倍": 15 },
+        "站起规则": {
+          "输家可站起": "LOSER_MAY_STAND",
+          "所有人可站起": "EVERYONE_MAY_STAND",
+          "所有人不可站起": "NO_ONE_MAY_STAND"
+        },
+        "托管次数": { "3次": 3, "4次": 4, "5次": 5 }
+      }
+    },
+    {
+      "workbookPath": "Client/docs/开房规则表/金花/全国金花CN297.xlsx",
+      "publishingEnabled": true,
+      "sourceIdentity": [
+        "全国",
+        "全国",
+        "全国金花"
+      ],
+      "gameId": 9,
+      "gameCode": "CN297",
+      "playVersion": "cn297-v1.0.0",
+      "family": "poker:compare-hand",
+      "regionCode": "GLOBAL",
+      "releaseScope": "GLOBAL",
+      "provider": "business.global.pk.zjh.ZJHPokerFamilyProviderFactory",
+      "requiredRoomRuleFields": [
+        { "key": "totalRounds", "sourceLabel": "局数", "order": 10 },
+        { "key": "seatLimit", "sourceLabel": "桌型", "order": 20 },
+        { "key": "minimumPlayers", "sourceLabel": "开局人数", "order": 30 },
+        { "key": "operationSeconds", "sourceLabel": "操作时间", "order": 40 },
+        { "key": "compareStartRound", "sourceLabel": "开始比牌", "order": 50 },
+        { "key": "maximumBet", "sourceLabel": "单注封顶", "order": 60 },
+        { "key": "mustBlindRounds", "sourceLabel": "闷牌轮数", "order": 70 },
+        { "key": "baseBet", "sourceLabel": "底分", "order": 80 },
+        { "key": "aaaBonus", "sourceLabel": "AAA奖励", "order": 90 },
+        { "key": "leopardBonus", "sourceLabel": "豹子奖励", "order": 100 },
+        { "key": "straightFlushBonus", "sourceLabel": "同花顺奖励", "order": 110 },
+        { "key": "hostingMissThreshold", "sourceLabel": "托管次数", "order": 120, "serverOwned": true }
+      ],
+      "numericRoomRuleFields": [
+        { "sourceLabel": "局数", "suffix": "局" },
+        { "sourceLabel": "操作时间", "suffix": "秒" },
+        { "sourceLabel": "开始比牌", "suffix": "轮" },
+        { "sourceLabel": "单注封顶", "suffix": "分" },
+        { "sourceLabel": "底分", "suffix": "分" }
+      ],
+      "roomRuleRowProjections": [
+        {
+          "sourceLabel": "人数",
+          "sourceControl": "单选",
+          "sourceOptions": ["8人桌（2人｜4人｜6人开局）", "10人桌（2人｜4人｜6人开局）"],
+          "kind": "nested-radio",
+          "outputs": [
+            {
+              "key": "seatLimit",
+              "label": "桌型",
+              "order": 20,
+              "sourceDefaultMap": { "1": 1, "2": 2 },
+              "options": [
+                { "label": "8人桌", "value": 8 },
+                { "label": "10人桌", "value": 10 }
+              ]
+            },
+            {
+              "key": "minimumPlayers",
+              "label": "开局人数",
+              "order": 30,
+              "defaultIndex": 1,
+              "options": [
+                { "label": "2人开局", "value": 2 },
+                { "label": "4人开局", "value": 4 },
+                { "label": "6人开局", "value": 6 }
+              ]
+            }
+          ]
+        },
+        {
+          "sourceLabel": "特殊牌奖励",
+          "sourceControl": "数字",
+          "sourceOptions": ["AAA奖励", "豹子奖励", "同花顺奖励"],
+          "kind": "number-tuple",
+          "outputs": [
+            { "sourceOption": "AAA奖励", "key": "aaaBonus", "label": "AAA奖励", "order": 90, "min": 0, "max": 2147483647, "step": 1 },
+            { "sourceOption": "豹子奖励", "key": "leopardBonus", "label": "豹子奖励", "order": 100, "min": 0, "max": 2147483647, "step": 1 },
+            { "sourceOption": "同花顺奖励", "key": "straightFlushBonus", "label": "同花顺奖励", "order": 110, "min": 0, "max": 2147483647, "step": 1 }
+          ]
+        }
+      ],
+      "roomRuleOptionValues": {
+        "局数": { "10局": 10, "20局": 20, "30局": 30 },
+        "操作时间": { "10秒": 10, "15秒": 15, "20秒": 20 },
+        "开始比牌": { "第1轮": 1, "第3轮": 3, "第5轮": 5 },
+        "单注封顶": { "10分": 10, "20分": 20, "50分": 50 },
+        "闷牌轮数": { "不强制": 0, "1轮": 1, "2轮": 2 },
+        "底分": { "1分": 1, "2分": 2, "5分": 5, "10分": 10 },
+        "托管次数": { "3次": 3, "4次": 4, "5次": 5 }
+      }
+    },
+    {
+      "workbookPath": "Client/docs/开房规则表/扯旋/成都扯旋CD299.xlsx",
+      "publishingEnabled": true,
+      "automaticPublishingEnabled": false,
+      "automaticPublishingBlockReason": "CD299候选尚未完成独立验证与ACTIVE发布合同",
+      "sourceIdentity": [
+        "四川",
+        "成都",
+        "扯旋"
+      ],
+      "gameId": 630,
+      "gameCode": "CD299",
+      "playVersion": "cd299-v1.0.0",
+      "family": "poker:cd299",
+      "regionCode": "CN-51-01",
+      "releaseScope": "REGIONAL",
+      "provider": "com.aoo.bcg.poker.cd299.Cd299ProviderFactory",
+      "displayName": "扯旋",
+      "requiredRoomRuleFields": [
+        { "key": "roomEndSelection", "sourceLabel": "房间时长", "order": 10 },
+        { "key": "startPlayers", "sourceLabel": "开局人数", "order": 20 },
+        { "key": "operationSeconds", "sourceLabel": "操作时间", "order": 30 },
+        { "key": "standPolicy", "sourceLabel": "站起规则", "order": 40 },
+        { "key": "mangoFlipMode", "sourceLabel": "芒果翻法", "order": 50 },
+        { "key": "mangoRaise", "sourceLabel": "升芒", "order": 60 },
+        { "key": "mangoScore", "sourceLabel": "芒果分数", "order": 70 },
+        { "key": "openingBet", "sourceLabel": "发招分数", "order": 80 },
+        { "key": "restMango", "sourceLabel": "休芒", "order": 90 },
+        { "key": "beatMango", "sourceLabel": "揍芒", "order": 100 },
+        { "key": "everyHandMango", "sourceLabel": "手手芒", "order": 110 },
+        { "key": "firstRoundCanRest", "sourceLabel": "首轮可休", "order": 120 },
+        { "key": "eachPlayerMustFollow", "sourceLabel": "挨家必挨", "order": 130 },
+        { "key": "earthNineKing", "sourceLabel": "地九王", "order": 140 },
+        { "key": "fireproofCard", "sourceLabel": "防火牌", "order": 150 },
+        { "key": "bigHeadKeepsBase", "sourceLabel": "头大不输底", "order": 160 },
+        { "key": "autoOperateAfterTimeouts", "sourceLabel": "托管次数", "order": 170, "serverOwned": true }
+      ],
+      "numericRoomRuleFields": [
+        { "sourceLabel": "开局人数", "suffix": "人" },
+        { "sourceLabel": "操作时间", "suffix": "秒" },
+        { "sourceLabel": "升芒", "suffix": "芒" },
+        { "sourceLabel": "托管次数", "suffix": "次" }
+      ],
+      "roomRuleRowProjections": [
+        {
+          "sourceLabel": "分数设置",
+          "sourceControl": "数字",
+          "sourceOptions": ["芒果分数", "发招分数（发招分数不低于芒果分数）"],
+          "kind": "number-tuple",
+          "outputs": [
+            { "sourceOption": "芒果分数", "key": "mangoScore", "label": "芒果分数", "order": 70, "min": 0, "max": 2147483647, "step": 1 },
+            { "sourceOption": "发招分数（发招分数不低于芒果分数）", "key": "openingBet", "label": "发招分数", "order": 80, "min": 0, "max": 2147483647, "step": 1 }
+          ]
+        },
+        {
+          "sourceLabel": "玩法",
+          "sourceControl": "多选",
+          "sourceOptions": ["休芒", "揍芒", "手手芒", "首轮可休", "挨家必挨", "地九王", "防火牌", "头大不输底"],
+          "kind": "boolean-options",
+          "outputs": [
+            { "sourceOption": "休芒", "key": "restMango", "label": "休芒", "order": 90 },
+            { "sourceOption": "揍芒", "key": "beatMango", "label": "揍芒", "order": 100 },
+            { "sourceOption": "手手芒", "key": "everyHandMango", "label": "手手芒", "order": 110 },
+            { "sourceOption": "首轮可休", "key": "firstRoundCanRest", "label": "首轮可休", "order": 120 },
+            { "sourceOption": "挨家必挨", "key": "eachPlayerMustFollow", "label": "挨家必挨", "order": 130 },
+            { "sourceOption": "地九王", "key": "earthNineKing", "label": "地九王", "order": 140 },
+            { "sourceOption": "防火牌", "key": "fireproofCard", "label": "防火牌", "order": 150 },
+            { "sourceOption": "头大不输底", "key": "bigHeadKeepsBase", "label": "头大不输底", "order": 160 }
+          ]
+        }
+      ],
+      "roomRuleOptionValues": {
+        "房间时长": {
+          "30分钟": "DURATION_MINUTES:30",
+          "45分钟": "DURATION_MINUTES:45",
+          "60分钟": "DURATION_MINUTES:60",
+          "10局": "ROUND_COUNT:10",
+          "20局": "ROUND_COUNT:20",
+          "30局": "ROUND_COUNT:30"
+        },
+        "开局人数": { "2人": 2, "4人": 4, "6人": 6 },
+        "操作时间": { "10秒": 10, "15秒": 15, "30秒": 30 },
+        "站起规则": {
+          "输家可站起": "LOSER_ONLY",
+          "所有人可站起": "EVERYONE",
+          "所有人不可站起": "NOBODY"
+        },
+        "芒果翻法": { "梯翻": "LADDER", "滚翻": "ROLLING" },
+        "升芒": { "不升": 0, "1芒": 1, "2芒": 2, "3芒": 3, "4芒": 4, "5芒": 5 },
+        "托管次数": { "3次": 3, "4次": 4, "5次": 5 }
       }
     }
   ]

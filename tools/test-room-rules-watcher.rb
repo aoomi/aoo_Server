@@ -16,8 +16,9 @@ official_workbook = 'Client/docs/开房规则表/跑得快/成都跑得快.xlsx'
 stale_workbook = ['玩法文档', '跑得快', '成都跑得快开房规则表.xlsx'].join('/')
 
 checks = {
-  'watcher discovers registered regional workbooks only' => watcher.include?("Client/docs/开房规则表/跑得快") &&
-    watcher.include?('room-rule-play-identities.json') && watcher.include?("play.fetch('workbook')"),
+  'watcher discovers enabled registered workbooks across project directories' =>
+    watcher.include?('room-rule-play-identities.json') && watcher.include?("play.fetch('workbookPath')") &&
+    watcher.include?("play.fetch('publishingEnabled', true)") && watcher.include?('workbookPath 不得重复登记'),
   'publisher uses current official Chengdu workbook path' => publisher.include?(official_workbook),
   'stale Chengdu workbook path is not accepted by tools' => ![watcher, publisher, service, publish].any? { |content| content.include?(stale_workbook) },
   'formal watcher rejects workbook path overrides outside tests' => watcher.include?('AOO_ROOM_RULE_TEST_MODE') &&
@@ -35,8 +36,9 @@ checks = {
   'watcher is idempotent by confirmed source hash' => watcher.include?("snapshot['sourceHash'] != last_confirmed_hash"),
   'watcher retries generated but unconfirmed publications' => watcher.include?("snapshot['sourceHash'] != last_confirmed_hash"),
   'publisher writes generated output atomically' => publisher.include?('File.rename(temporary, OUTPUT)'),
-  'publisher locates the unique current six-column header' => publisher.include?('一组六列表头') &&
-    publisher.include?('托管次数') && publisher.include?('是否显示'),
+  'publisher locates the unique current five-column header' => publisher.include?('一组五列表头') &&
+    publisher.include?('界面显示文字 控件类型 可选项显示文字 默认勾选 是否显示') &&
+    publisher.include?('hostingMissThreshold'),
   'publisher allocates persistent keys without rule-name code maps' => publisher.include?('AOO_ROOM_RULE_REGISTRY') &&
     publisher.include?('allocate_field_key!') && !publisher.include?('FIELD_KEYS_BY_CODE') &&
     !publisher.include?('FIELD_LABEL_ALIASES') && !publisher.include?('PLAY_IDENTITIES') &&

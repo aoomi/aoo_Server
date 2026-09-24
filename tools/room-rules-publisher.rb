@@ -9,7 +9,7 @@ WORKBOOK = File.expand_path(ENV.fetch('AOO_ROOM_RULE_WORKBOOK', File.join(PROJEC
 OUTPUT = File.expand_path(ENV.fetch('AOO_ROOM_RULE_GENERATED', File.join(SERVER_ROOT, "work/generated/room-rules/#{File.basename(WORKBOOK, '.xlsx')}.generated.json")))
 REGISTRY = File.expand_path(ENV.fetch('AOO_ROOM_RULE_REGISTRY', OUTPUT.sub(/\.generated\.json\z/, '.keys.json')))
 IDENTITY_REGISTRY = File.expand_path(ENV.fetch('AOO_ROOM_RULE_IDENTITY_REGISTRY', File.join(__dir__, 'room-rule-play-identities.json')))
-HEADERS = %w[界面显示文字 控件类型 可选项显示文字 默认勾选 托管次数 是否显示].freeze
+HEADERS = %w[界面显示文字 控件类型 可选项显示文字 默认勾选 是否显示].freeze
 CONTROLS = { '单选' => 'radio', '多选' => 'checkbox' }.freeze
 # Platform fields have stable wire types.  Their display labels and values still
 # come exclusively from the user workbook, but a newly introduced region must
@@ -83,21 +83,87 @@ rescue ArgumentError
   fail!("#{field} 默认序号必须是1基整数")
 end
 
-def positive_integer!(value, field)
-  number = Integer(value.to_s.strip, 10)
-  fail!("#{field} 必须是正整数") unless number.positive?
-  number
-rescue ArgumentError
-  fail!("#{field} 必须是正整数")
-end
-
 def resolve_play_identity!(source_identity)
   payload = JSON.parse(File.read(IDENTITY_REGISTRY, encoding: 'UTF-8'))
   matches = payload.fetch('plays').select { |play| play.fetch('sourceIdentity') == source_identity }
   fail!('玩法身份必须在外部技术身份注册表唯一登记') unless matches.length == 1
-  matches.first.reject { |key, _| %w[sourceIdentity workbook].include?(key) }
+  play = matches.first
+  unless play.fetch('publishingEnabled', true)
+    fail!("#{play.fetch('gameCode')} 自动发布已禁用: #{play.fetch('publishingBlockReason', '未满足发布前置契约')}")
+  end
+  play.reject { |key, _| %w[sourceIdentity workbookPath].include?(key) }
 rescue Errno::ENOENT, JSON::ParserError, KeyError => error
   fail!("玩法技术身份注册表无效: #{error.message}")
+end
+
+def projection_for(technical, label)
+  technical.fetch('roomRuleRowProjections', []).find { |entry| entry.fetch('sourceLabel') == label }
+end
+
+def assert_projection_source!(projection, control_text, labels, source_label)
+  expected_control = projection.fetch('sourceControl')
+  fail!("#{source_label} 控件类型变化，拒绝按旧投影发布") unless control_text == expected_control
+  expected_labels = projection.fetch('sourceOptions', labels)
+  fail!("#{source_label} 可选项变化，必须先更新显式投影") unless labels == expected_labels
+end
+
+def project_source_row!(technical, raw)
+  projection = projection_for(technical, raw.fetch('label'))
+  return [raw] unless projection
+  assert_projection_source!(projection, raw.fetch('controlText'), raw.fetch('labels'), raw.fetch('label'))
+  case projection.fetch('kind')
+  when 'boolean-option'
+    fail!("#{raw.fetch('label')} boolean-option 只能包含一个选项") unless raw.fetch('labels').length == 1
+    output = projection.fetch('output')
+    [raw.merge('label'=>output.fetch('label'), 'key'=>output.fetch('key'),
+      'control'=>'checkbox', 'booleanScalar'=>true,
+      'optionValues'=>[output.fetch('trueValue', true)])]
+  when 'boolean-options'
+    outputs = projection.fetch('outputs')
+    fail!("#{raw.fetch('label')} boolean-options 子项数量与源选项不一致") unless outputs.length == raw.fetch('labels').length
+    outputs.each_with_index.map do |output, index|
+      fail!("#{raw.fetch('label')} boolean-options 子项顺序变化，必须先更新显式投影") unless
+        output.fetch('sourceOption') == raw.fetch('labels')[index]
+      enabled = raw.fetch('candidates').include?(index + 1)
+      raw.merge('label'=>output.fetch('label'), 'key'=>output.fetch('key'),
+        'control'=>'checkbox', 'labels'=>[output.fetch('sourceOption')],
+        'optionValues'=>[output.fetch('trueValue', true)],
+        'candidates'=>enabled ? [1] : [], 'booleanScalar'=>true,
+        'order'=>output.fetch('order'))
+    end
+  when 'nested-radio'
+    source_default = defaults!(raw.fetch('rawDefault'), raw.fetch('labels').length,
+      "#{raw.fetch('label')}/默认勾选", 'radio').first
+    projection.fetch('outputs').map do |output|
+      options = output.fetch('options')
+      candidate = if output['sourceDefaultMap']
+        output.fetch('sourceDefaultMap').fetch(source_default.to_s)
+      else
+        output.fetch('defaultIndex')
+      end
+      raw.merge('label'=>output.fetch('label'), 'key'=>output.fetch('key'),
+        'control'=>'radio', 'labels'=>options.map { |option| option.fetch('label') },
+        'optionValues'=>options.map { |option| option.fetch('value') },
+        'candidates'=>[candidate], 'order'=>output.fetch('order'))
+    end
+  when 'number-tuple'
+    defaults = raw.fetch('rawDefault').to_s.split(/[|｜]/).map(&:strip)
+    outputs = projection.fetch('outputs')
+    fail!("#{raw.fetch('label')} 数字默认值数量与子项不一致") unless defaults.length == outputs.length
+    outputs.each_with_index.map do |output, index|
+      fail!("#{raw.fetch('label')} 数字子项顺序变化，必须先更新显式投影") unless
+        raw.fetch('labels')[index] == output.fetch('sourceOption')
+      value = Integer(defaults[index], 10)
+      raw.merge('label'=>output.fetch('label'), 'key'=>output.fetch('key'),
+        'control'=>'number', 'defaultValue'=>value, 'min'=>output.fetch('min'),
+        'max'=>output.fetch('max'), 'step'=>output.fetch('step'),
+        'labels'=>[], 'candidates'=>[], 'order'=>output.fetch('order'))
+    rescue ArgumentError
+      fail!("#{raw.fetch('label')}/#{output.fetch('sourceOption')} 默认值必须是整数")
+    end
+  else
+    fail!("#{raw.fetch('label')} 使用未知显式投影 #{projection.fetch('kind')}")
+  end
 end
 
 def load_registry(technical)
@@ -185,9 +251,9 @@ def stable_option_value!(technical, field, field_label, option_label)
   fail!("#{field_label} 存在未登记显示项 #{option_label.inspect}；请先配置稳定协议值，禁止从显示文字猜值")
 end
 
-def reconcile_options!(technical, field, field_label, labels)
+def reconcile_options!(technical, field, field_label, labels, declared_values = nil)
   field['options'] ||= []
-  values = labels.map { |label| stable_option_value!(technical, field, field_label, label) }
+  values = declared_values || labels.map { |label| stable_option_value!(technical, field, field_label, label) }
   identities = values.map { |value| [value.class.name, value] }
   fail!("#{field_label} 的稳定协议值重复") unless identities.uniq.length == identities.length
   options = reconcile_entries!(field['options'], labels, lambda do |index|
@@ -227,25 +293,33 @@ def parse!
   end
   technical = resolve_play_identity!(identity)
   header_lines = table.keys.select do |line|
-    ('A'..'F').map { |column| table.fetch(line, {})[column].to_s.strip } == HEADERS
+    ('A'..'E').map { |column| table.fetch(line, {})[column].to_s.strip } == HEADERS
   end
-  fail!("必须且只能存在一组六列表头: #{HEADERS.join('、')}") unless header_lines.length == 1
+  fail!("必须且只能存在一组五列表头: #{HEADERS.join('、')}") unless header_lines.length == 1
   header_line = header_lines.first
   source_rows = []
   ((header_line + 1)..10_000).each do |line|
     row = table[line]; next if row.empty? || row['A'].to_s.strip.empty?
     label, control_text, option_text = row.values_at('A', 'B', 'C').map { |value| value.to_s.strip }
-    control = CONTROLS[control_text]; fail!("#{label} 使用未知控件 #{control_text}") unless control
-    labels = option_text.split(/[|｜]/).map(&:strip)
+    projection = projection_for(technical, label)
+    if projection
+      labels = projection.fetch('sourceOptions')
+      fail!("#{label} 可选项变化，必须先更新显式投影") unless option_text == labels.join('｜')
+    else
+      labels = option_text.split(/[|｜]/).map(&:strip)
+    end
     fail!("#{label} 存在空选项") if labels.empty? || labels.any?(&:empty?)
-    visible = boolean!(row['F'], "#{label}/是否显示")
-    candidates = defaults!(row['D'], labels.length,
+    visible = boolean!(row['E'], "#{label}/是否显示")
+    control = CONTROLS[control_text]
+    fail!("#{label} 使用未知控件 #{control_text}") unless control || projection
+    candidates = control ? defaults!(row['D'], labels.length,
       "#{File.basename(WORKBOOK)}!sheet1 第#{line}行 #{label}/默认勾选(D#{line})" \
       "（控件类型=#{control}，可选项数=#{labels.length}，默认原值=#{row['D'].to_s.strip.inspect}）",
-      control)
-    trustee_count = positive_integer!(row['E'], "#{label}/托管次数")
-    source_rows << { 'line'=>line, 'label'=>label, 'control'=>control, 'labels'=>labels,
-      'visible'=>visible, 'candidates'=>candidates, 'trusteeCount'=>trustee_count }
+      control) : []
+    raw = { 'line'=>line, 'label'=>label, 'controlText'=>control_text, 'control'=>control,
+      'labels'=>labels, 'visible'=>visible, 'candidates'=>candidates,
+      'rawDefault'=>row['D'], 'order'=>(line - 1) * 10 }
+    source_rows.concat(project_source_row!(technical, raw))
   end
   fail!('权威 Excel 没有可发布规则') if source_rows.empty?
   registry = load_registry(technical)
@@ -253,7 +327,9 @@ def parse!
   required_fields = technical.fetch('requiredRoomRuleFields', [])
   registered_fields = reconcile_entries!(registry['fields'], source_rows.map { |row| row.fetch('label') }, lambda do |index|
     label = source_rows[index].fetch('label')
-    required = required_fields.find { |field| field.fetch('sourceLabel') == label }
+    required = required_fields.find do |field|
+      field.fetch('sourceLabel') == label || field.fetch('key') == source_rows[index]['key']
+    end
     existing = required && registry['fields'].find { |field| field['key'] == required.fetch('key') }
     next existing if existing
     entry = { 'key'=>required ? required.fetch('key') : allocate_field_key!(registry), 'label'=>label,
@@ -263,18 +339,33 @@ def parse!
   end)
   fields = source_rows.each_with_index.map do |source, index|
     registered = registered_fields[index]
-    options = reconcile_options!(technical, registered, source.fetch('label'), source.fetch('labels'))
-    values = options.map { |option| option.fetch('value') }
     control = source.fetch('control'); candidates = source.fetch('candidates')
+    if control == 'number'
+      registered['options'] ||= []
+      registered['options'].each { |option| option['active'] = false }
+      next({ 'key'=>registered.fetch('key'), 'label'=>source.fetch('label'), 'control'=>'number',
+        'order'=>source.fetch('order'), 'visible'=>source.fetch('visible'), 'disabled'=>false,
+        'required'=>true, 'defaultValue'=>source.fetch('defaultValue'), 'min'=>source.fetch('min'),
+        'max'=>source.fetch('max'), 'step'=>source.fetch('step'), 'options'=>[] })
+    end
+    options = reconcile_options!(technical, registered, source.fetch('label'), source.fetch('labels'),
+      source['optionValues'])
+    values = options.map { |option| option.fetch('value') }
     default_value = if control == 'radio'
       candidates.empty? ? nil : values[candidates.first - 1]
+    elsif source['booleanScalar']
+      candidates.include?(1)
     else
       candidates.map { |index| values[index - 1] }
     end
     fail!("#{source.fetch('label')} 单选必须且只能配置一个默认项") if control == 'radio' && candidates.length != 1
+    required = required_fields.find { |field| field.fetch('key') == registered.fetch('key') }
+    server_owned = required&.fetch('serverOwned', false) == true
+    fail!("#{source.fetch('label')} 服务端托管字段必须隐藏") if server_owned && source.fetch('visible')
     { 'key'=>registered.fetch('key'), 'label'=>source.fetch('label'), 'control'=>control,
-      'order'=>(source.fetch('line') - 1) * 10, 'visible'=>source.fetch('visible'),
-      'disabled'=>false, 'required'=>control == 'radio', 'trusteeCount'=>source.fetch('trusteeCount'),
+      'order'=>required&.fetch('order', source.fetch('order')) || source.fetch('order'),
+      'visible'=>source.fetch('visible'),
+      'disabled'=>server_owned, 'required'=>control == 'radio',
       'defaultCandidateIndexes'=>candidates, 'defaultValue'=>default_value,
       'options'=>source.fetch('labels').each_index.map { |option_index| { 'value'=>values[option_index],
         'label'=>source.fetch('labels')[option_index], 'order'=>(option_index + 1) * 10, 'disabled'=>false } } }
@@ -297,14 +388,11 @@ end
 def publish_sql(technical, fields, source_hash)
   display_name = technical.fetch('displayName', File.basename(WORKBOOK, '.xlsx'))
   ui_fields = JSON.generate(fields)
-  validator_fields = fields.select { |field| field['visible'] }.map { |field| field.reject { |key, _| %w[label visible defaultCandidateIndexes].include?(key) } }
-  trustee_counts = fields.map { |field| field['trusteeCount'].to_i }.select(&:positive?).uniq
-  fail!("#{File.basename(WORKBOOK)} 托管次数必须唯一") unless trustee_counts.length == 1
-  # 托管次数来自权威规则表，但不是玩家可编辑的界面选项。作为禁用的服务端字段
-  # 写入校验器，使 Hall 规范化房间规则时能够保留该值，客户端无法伪造。
-  validator_fields << { 'key'=>'hostingMissThreshold', 'control'=>'number', 'order'=>9_999,
-    'disabled'=>true, 'required'=>true, 'defaultValue'=>trustee_counts.first,
-    'min'=>1, 'max'=>100, 'step'=>1, 'options'=>[] }
+  # 隐藏且禁用的服务端字段仍进入 validator：Hall 使用表内默认项规范化房间快照，
+  # 客户端既不展示也不能提交覆盖。普通隐藏字段不会因此成为第二套服务端状态源。
+  validator_fields = fields.select { |field| field['visible'] || field['disabled'] }.map do |field|
+    field.reject { |key, _| %w[label visible defaultCandidateIndexes].include?(key) }
+  end
   # payerMode 是平台计费治理字段，不属于用户维护的玩法 Excel，也不应显示在规则界面。
   # 服务端发布器提供唯一默认值，保证客户端无法伪造付费策略且计费 Saga 始终获得确定输入。
   validator_fields << { 'key'=>'payerMode', 'control'=>'radio', 'order'=>10_000,
@@ -323,30 +411,33 @@ def publish_sql(technical, fields, source_hash)
            row_version=row_version+1
      WHERE game_id=#{technical['gameId']}
        AND (display_name<>#{quote(display_name)} OR family_code<>#{quote(technical['family'])});
-    DROP TEMPORARY TABLE IF EXISTS chengdu_pdk_publish;
-    CREATE TEMPORARY TABLE chengdu_pdk_publish AS
+    DROP TEMPORARY TABLE IF EXISTS room_rule_publish;
+    CREATE TEMPORARY TABLE room_rule_publish AS
       SELECT a.game_id,a.region_code,a.play_version,a.index_generation old_generation,a.release_id old_release_id,
              i.component_chain,i.ui_schema old_ui,i.bundle_hash,
+             r.catalog_snapshot,r.component_snapshot,r.catalog_hash,r.component_hash,
              JSON_OBJECT('source',#{quote(technical['gameCode'] + '-room-rule-workbook')},'sourceHash',@source_hash,
+                         'gameCode',#{quote(technical['gameCode'])},
                          'playVersion',a.play_version,'fields',JSON_EXTRACT(@validator_fields,'$')) validator,
              COALESCE((SELECT MAX(x.index_generation) FROM aoo_compiled_room_create_index x WHERE x.game_id=a.game_id AND x.region_code=a.region_code AND x.play_version=a.play_version),0)+1 new_generation,
              COALESCE((SELECT MAX(x.release_version) FROM aoo_game_release x WHERE x.game_id=a.game_id AND x.play_version=a.play_version),0)+1 release_version
       FROM aoo_compiled_index_active a JOIN aoo_compiled_room_create_index i
         ON i.game_id=a.game_id AND i.region_code=a.region_code AND i.play_version=a.play_version AND i.index_generation=a.index_generation
+      JOIN aoo_game_release r ON r.release_id=a.release_id
       WHERE a.game_id=#{technical['gameId']} AND a.play_version=#{quote(technical['playVersion'])}
         AND (JSON_UNQUOTE(JSON_EXTRACT(i.ui_schema,'$.roomRuleSourceHash'))<>@source_hash
           OR JSON_EXTRACT(i.ui_schema,'$.roomRuleSourceHash') IS NULL
           OR CAST(JSON_EXTRACT(i.ui_schema,'$.fields') AS CHAR)<>CAST(JSON_EXTRACT(@fields,'$') AS CHAR)
           OR CAST(JSON_EXTRACT(i.rule_validator,'$.fields') AS CHAR)<>CAST(JSON_EXTRACT(@validator_fields,'$') AS CHAR));
     INSERT INTO aoo_game_release(release_id,game_id,play_version,release_version,release_scope,catalog_snapshot,rule_snapshot,ui_snapshot,component_snapshot,catalog_hash,rule_hash,ui_hash,component_hash,bundle_hash,status,rollout_percent,created_by,reason,validated_at,activated_at)
-      SELECT game_id*1000000+release_version,game_id,play_version,release_version,'REGIONAL',JSON_OBJECT('gameId',game_id,'family','poker:pao-de-kuai'),JSON_OBJECT('roomRuleSchema',JSON_EXTRACT(validator,'$')),JSON_OBJECT('roomRuleSourceHash',@source_hash),JSON_OBJECT('providerVersion','1.0.0'),SHA2(CONCAT(game_id,'|catalog'),256),SHA2(validator,256),@source_hash,SHA2('pdk-provider-1.0.0',256),SHA2(CONCAT(bundle_hash,'|',@source_hash),256),'ACTIVE',100,1,#{quote("Publish #{technical['gameCode']} seven-column room rules")},CURRENT_TIMESTAMP(3),CURRENT_TIMESTAMP(3) FROM chengdu_pdk_publish;
-    INSERT INTO aoo_game_release_region(release_id,region_code,rollout_percent,status) SELECT game_id*1000000+release_version,region_code,100,'ACTIVE' FROM chengdu_pdk_publish;
+      SELECT game_id*1000000+release_version,game_id,play_version,release_version,#{quote(technical.fetch('releaseScope'))},catalog_snapshot,JSON_OBJECT('roomRuleSchema',JSON_EXTRACT(validator,'$')),JSON_OBJECT('roomRuleSourceHash',@source_hash),component_snapshot,catalog_hash,SHA2(validator,256),@source_hash,component_hash,SHA2(CONCAT(bundle_hash,'|',@source_hash),256),'ACTIVE',100,1,#{quote("Publish #{technical['gameCode']} five-column room rules")},CURRENT_TIMESTAMP(3),CURRENT_TIMESTAMP(3) FROM room_rule_publish;
+    INSERT INTO aoo_game_release_region(release_id,region_code,rollout_percent,status) SELECT game_id*1000000+release_version,region_code,100,'ACTIVE' FROM room_rule_publish;
     INSERT INTO aoo_compiled_room_create_index(game_id,region_code,play_version,index_generation,release_id,component_chain,rule_validator,ui_schema,lookup_hash,bundle_hash,lifecycle_state,validated_at,activated_at)
-      SELECT game_id,region_code,play_version,new_generation,game_id*1000000+release_version,component_chain,JSON_EXTRACT(validator,'$'),JSON_SET(old_ui,'$.fields',JSON_EXTRACT(@fields,'$'),'$.roomRuleSourceHash',@source_hash),SHA2(CONCAT(game_id,'|',region_code,'|',play_version,'|',@source_hash),256),SHA2(CONCAT(bundle_hash,'|',@source_hash),256),'ACTIVE',CURRENT_TIMESTAMP(3),CURRENT_TIMESTAMP(3) FROM chengdu_pdk_publish;
-    UPDATE aoo_compiled_index_active a JOIN chengdu_pdk_publish p ON p.game_id=a.game_id AND p.region_code=a.region_code SET a.index_generation=p.new_generation,a.release_id=p.game_id*1000000+p.release_version,a.cache_epoch=a.cache_epoch+1,a.activation_reason=#{quote(technical['gameCode'] + ' room rules publication')},a.activated_at=CURRENT_TIMESTAMP(3);
-    UPDATE aoo_compiled_room_create_index i JOIN chengdu_pdk_publish p ON p.game_id=i.game_id AND p.region_code=i.region_code AND p.old_generation=i.index_generation SET i.lifecycle_state='RETIRED',i.retired_at=CURRENT_TIMESTAMP(3);
-    UPDATE aoo_game_release r JOIN chengdu_pdk_publish p ON p.old_release_id=r.release_id SET r.status='RETIRED',r.retired_at=CURRENT_TIMESTAMP(3);
-    SELECT game_id,region_code,play_version,new_generation AS index_generation,game_id*1000000+release_version AS release_id FROM chengdu_pdk_publish;
+      SELECT game_id,region_code,play_version,new_generation,game_id*1000000+release_version,component_chain,JSON_EXTRACT(validator,'$'),JSON_SET(old_ui,'$.fields',JSON_EXTRACT(@fields,'$'),'$.roomRuleSourceHash',@source_hash),SHA2(CONCAT(game_id,'|',region_code,'|',play_version,'|',@source_hash),256),SHA2(CONCAT(bundle_hash,'|',@source_hash),256),'ACTIVE',CURRENT_TIMESTAMP(3),CURRENT_TIMESTAMP(3) FROM room_rule_publish;
+    UPDATE aoo_compiled_index_active a JOIN room_rule_publish p ON p.game_id=a.game_id AND p.region_code=a.region_code SET a.index_generation=p.new_generation,a.release_id=p.game_id*1000000+p.release_version,a.cache_epoch=a.cache_epoch+1,a.activation_reason=#{quote(technical['gameCode'] + ' room rules publication')},a.activated_at=CURRENT_TIMESTAMP(3);
+    UPDATE aoo_compiled_room_create_index i JOIN room_rule_publish p ON p.game_id=i.game_id AND p.region_code=i.region_code AND p.old_generation=i.index_generation SET i.lifecycle_state='RETIRED',i.retired_at=CURRENT_TIMESTAMP(3);
+    UPDATE aoo_game_release r JOIN room_rule_publish p ON p.old_release_id=r.release_id SET r.status='RETIRED',r.retired_at=CURRENT_TIMESTAMP(3);
+    SELECT game_id,region_code,play_version,new_generation AS index_generation,game_id*1000000+release_version AS release_id FROM room_rule_publish;
     COMMIT;
   SQL
 end

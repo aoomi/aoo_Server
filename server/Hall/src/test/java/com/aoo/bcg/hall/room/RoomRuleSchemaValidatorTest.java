@@ -14,6 +14,8 @@ final class RoomRuleSchemaValidatorTest {
                     "defaultValue",3,"options",List.of(Map.of("value",2,"label","2人"),Map.of("value",3,"label","3人"))),
             Map.of("key","commonOptions","label","通用选项","control","MULTI_SELECT","defaultValue",List.of(),
                     "options",List.of(Map.of("value","voice","label","语音"),Map.of("value","debug","label","调试","disabled",true))),
+            Map.of("key","hostingMissThreshold","label","托管次数","control","radio","disabled",true,
+                    "defaultValue",3,"options",List.of(Map.of("value",3),Map.of("value",4),Map.of("value",5))),
             Map.of("key","fourWithThree","label","四带三","control","CHECKBOX","disabled",true,
                     "defaultValue",List.of(),"options",List.of(Map.of("value",true,"label","开启")))));
 
@@ -26,7 +28,8 @@ final class RoomRuleSchemaValidatorTest {
     }
 
     @Test void normalizesDefaultsAndValidValues() {
-        assertEquals(Map.of("roundCount",8,"playerCount",2,"commonOptions",List.of("voice"),"baseScore",1),
+        assertEquals(Map.of("roundCount",8,"playerCount",2,"commonOptions",List.of("voice"),
+                        "hostingMissThreshold",3,"baseScore",1),
                 RoomRuleSchemaValidator.validate(SCHEMA,Map.of("playerCount",2,"commonOptions",List.of("voice"))));
     }
 
@@ -36,8 +39,26 @@ final class RoomRuleSchemaValidatorTest {
             assertThrows(HallError.class,()->RoomRuleSchemaValidator.validate(SCHEMA,Map.of("playerCount",2,"baseScore",invalid)));
     }
 
+    @Test void validatesSingleRoomEndSelectionAndReturnsCanonicalProtocolField() {
+        Map<String,Object> schema=Map.of("fields",List.of(Map.of(
+                "key","roomEndSelection","control","radio","defaultValue","ROUND_COUNT:10",
+                "options",List.of("DURATION_MINUTES:30","DURATION_MINUTES:45","DURATION_MINUTES:60",
+                        "ROUND_COUNT:10","ROUND_COUNT:20","ROUND_COUNT:30"))));
+        assertEquals(Map.of("roundCount",10,"baseScore",1),
+                RoomRuleSchemaValidator.validate(schema,Map.of("roundCount",10)));
+        assertEquals(Map.of("roomDurationMinutes",45,"baseScore",1),
+                RoomRuleSchemaValidator.validate(schema,Map.of("roomDurationMinutes",45)));
+        for(Map<String,Object> invalid:List.of(
+                Map.of(),
+                Map.of("roundCount",10,"roomDurationMinutes",30),
+                Map.of("roundCount",12),
+                Map.of("roomEndSelection","ROUND_COUNT:10")))
+            assertThrows(HallError.class,()->RoomRuleSchemaValidator.validate(schema,invalid));
+    }
+
     @Test void rejectsDisabledUnknownAndInvalidStepperValues() {
         assertThrows(HallError.class,() -> RoomRuleSchemaValidator.validate(SCHEMA,Map.of("fourWithThree",List.of(true))));
+        assertThrows(HallError.class,() -> RoomRuleSchemaValidator.validate(SCHEMA,Map.of("hostingMissThreshold",5)));
         assertThrows(HallError.class,() -> RoomRuleSchemaValidator.validate(SCHEMA,Map.of("unknown",1)));
         assertThrows(HallError.class,() -> RoomRuleSchemaValidator.validate(SCHEMA,Map.of("roundCount",9)));
         assertThrows(HallError.class,() -> RoomRuleSchemaValidator.validate(SCHEMA,Map.of("commonOptions",List.of("debug"))));

@@ -247,12 +247,17 @@ class Cd299SessionTurnTest {
         session.split(1, legalSplit(hand(session, 1)), "split-1-first");
         assertEquals("SPLITTING", state(session).get("phase"));
         assertEquals(List.of(1), state(session).get("splitSeats"));
+        @SuppressWarnings("unchecked") List<Integer> hiddenOpponentSplit =
+                (List<Integer>) ((Map<?, ?>) session.viewFor(100L).get("hands")).get(1);
+        assertEquals(List.of(0, 0, 0, 0), hiddenOpponentSplit);
+        assertEquals(hand(session, 1), ((Map<?, ?>) session.viewFor(101L).get("hands")).get(1));
         session.delaySplit(0, "delay-seat-0");
         @SuppressWarnings("unchecked") Map<Integer, Long> extended =
                 (Map<Integer, Long>) state(session).get("splitDeadlineEpochMillis");
         assertEquals(deadlines.get(0) + 30_000L, extended.get(0));
         session.split(0, legalSplit(hand(session, 0)), "split-0-last");
         assertEquals("ROUND_SETTLEMENT", state(session).get("phase"));
+        assertEquals(hand(session, 1), ((Map<?, ?>) session.viewFor(100L).get("hands")).get(1));
     }
 
     @Test
@@ -277,14 +282,13 @@ class Cd299SessionTurnTest {
     }
 
     @Test
-    void opponentsSeeDealtThirdCardButNotTheTwoFireproofCards() {
+    void opponentsSeeOnlyCardBacksUntilTheRoundReveal() {
         Cd299Session session = bettingSession(2, 303L);
         followAll(session, "first-round");
         @SuppressWarnings("unchecked") List<Integer> opponent =
                 (List<Integer>) ((Map<?, ?>) session.viewFor(100L).get("hands")).get(1);
         assertEquals(3, opponent.size());
-        assertEquals(List.of(0, 0), opponent.subList(0, 2));
-        assertTrue(opponent.get(2) != 0);
+        assertEquals(List.of(0, 0, 0), opponent);
     }
 
     @Test
@@ -436,6 +440,57 @@ class Cd299SessionTurnTest {
     }
 
     @Test
+    void fundedSpectatorSittingDuringSettlementRestoresNextRoundSchedule() {
+        MutableClock clock = new MutableClock(Instant.parse("2026-09-24T08:00:00Z"));
+        Cd299Session live = new Cd299Session(93312L, 100L, 312L,
+                Cd299Rules.from(Map.of("startPlayers", 2, "roomDurationMinutes", 30)),
+                new AuthoritativeTimeSource(clock));
+        live.sit(0, 100L, 600L, "sit-0");
+        live.sit(1, 101L, 600L, "sit-1");
+        live.bet(0, Cd299Session.BetAction.REST, 0, "rest-0");
+        live.bet(1, Cd299Session.BetAction.REST, 0, "rest-1");
+        execute(live, "poker.cd299.stand_req", "stand-1", 1, 101L, Map.of());
+
+        Map<String, Object> saved = new java.util.LinkedHashMap<>(live.authoritativeState());
+        saved.put("roundSettlementDeadlineEpochMillis", 0L);
+        saved.put("roundSettlementTriggerSeat", -1);
+        Cd299Session restored = Cd299Session.restore(saved);
+        long beforeSit = System.currentTimeMillis();
+        restored.sit(2, 102L, 600L, "sit-2");
+
+        assertEquals("ROUND_SETTLEMENT", state(restored).get("phase"));
+        assertEquals(0, state(restored).get("roundSettlementTriggerSeat"));
+        long deadline = ((Number) state(restored).get("roundSettlementDeadlineEpochMillis")).longValue();
+        assertTrue(deadline >= beforeSit + 2_000L);
+        assertTrue(deadline <= System.currentTimeMillis() + 2_000L);
+    }
+
+    @Test
+    void seatUnableToFundNextBaseAndMangoWaitsForRebuyInsteadOfFinishingDurationRoom() {
+        MutableClock clock = new MutableClock(Instant.parse("2026-09-24T07:00:00Z"));
+        Cd299Session live = new Cd299Session(93311L, 100L, 311L,
+                Cd299Rules.from(Map.of("startPlayers", 2, "roomDurationMinutes", 30)),
+                new AuthoritativeTimeSource(clock));
+        live.sit(0, 100L, 8L, "sit-0");
+        live.sit(1, 101L, 8L, "sit-1");
+        live.bet(0, Cd299Session.BetAction.REST, 0, "rest-0");
+        live.bet(1, Cd299Session.BetAction.REST, 0, "rest-1");
+
+        Map<String, Object> state = state(live);
+        assertEquals("ROUND_SETTLEMENT", state.get("phase"));
+        assertEquals(1, state.get("round"));
+        assertEquals(Set.of(0, 1), ((Map<?, ?>) state.get("seatRetentionDeadlineEpochMillis")).keySet());
+        assertEquals(0L, state.get("roundSettlementDeadlineEpochMillis"));
+        assertThrows(IllegalStateException.class,
+                () -> execute(live, "poker.cd299.rebuy_req", "rebuy-too-small", 0, 100L,
+                        Map.of("carryScore", 7L)));
+        execute(live, "poker.cd299.rebuy_req", "rebuy-0", 0, 100L, Map.of("carryScore", 100L));
+        execute(live, "poker.cd299.rebuy_req", "rebuy-1", 1, 101L, Map.of("carryScore", 100L));
+        assertEquals(Map.of(), state(live).get("seatRetentionDeadlineEpochMillis"));
+        assertEquals(0, state(live).get("roundSettlementTriggerSeat"));
+    }
+
+    @Test
     void standIsAllowedBetweenHandsButRejectedDuringAnActiveHand() {
         Cd299Session waiting = new Cd299Session(92993L, 100L, 302L,
                 Cd299Rules.from(Map.of("startPlayers", 4)));
@@ -449,6 +504,30 @@ class Cd299SessionTurnTest {
         assertThrows(IllegalStateException.class,
                 () -> execute(active, "poker.cd299.stand_req", "stand-active", 0, 100L, Map.of()));
         assertEquals("SEATED", active.viewFor(100L).get("viewerRole"));
+    }
+
+    @Test
+    void zeroCarryReservesSeatFor120SecondsUntilConfirmCancelOrExpiry() {
+        MutableClock clock = new MutableClock(Instant.parse("2026-09-24T10:00:00Z"));
+        Cd299Session session = new Cd299Session(92994L, 100L, 304L,
+                Cd299Rules.from(Map.of("startPlayers", 2)), new AuthoritativeTimeSource(clock));
+
+        session.sit(3, 100L, 0L, "reserve-3");
+        assertEquals(Map.of(3, 100L), state(session).get("players"));
+        assertEquals(clock.millis() + 120_000L,
+                ((Map<?, ?>) state(session).get("seatRetentionDeadlineEpochMillis")).get(3));
+        assertEquals("SEATED", session.viewFor(100L).get("viewerRole"));
+
+        session.sit(3, 100L, 100L, "confirm-3");
+        assertEquals(Map.of(), state(session).get("seatRetentionDeadlineEpochMillis"));
+        assertEquals(100L, ((Map<?, ?>) state(session).get("scores")).get(3));
+
+        execute(session, "poker.cd299.stand_req", "cancel-confirmed-3", 3, 100L, Map.of());
+        session.sit(5, 100L, 0L, "reserve-5");
+        clock.advance(Duration.ofSeconds(120));
+        session.timeout(5, "expire-5");
+        assertEquals(Map.of(), state(session).get("players"));
+        assertEquals("SPECTATOR", session.viewFor(100L).get("viewerRole"));
     }
 
     private static Cd299Session terminalSession(long deadline) {

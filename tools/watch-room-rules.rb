@@ -6,7 +6,6 @@ require 'open3'
 
 SERVER_ROOT = File.expand_path('..', __dir__)
 PROJECT_ROOT = File.expand_path('..', SERVER_ROOT)
-WORKBOOK_DIRECTORY = File.join(PROJECT_ROOT, 'Client/docs/开房规则表/跑得快')
 IDENTITY_REGISTRY = File.join(SERVER_ROOT, 'tools/room-rule-play-identities.json')
 PUBLISH = ENV.fetch('AOO_ROOM_RULE_PUBLISHER', File.join(SERVER_ROOT, 'tools/publish-room-rules.sh'))
 POLL_SECONDS = Float(ENV.fetch('AOO_ROOM_RULE_POLL_SECONDS', '1'))
@@ -16,7 +15,18 @@ def resolve_workbooks
   override = ENV['AOO_ROOM_RULE_WORKBOOK'].to_s
   if override.empty?
     payload = JSON.parse(File.read(IDENTITY_REGISTRY, encoding: 'UTF-8'))
-    return payload.fetch('plays').map { |play| File.join(WORKBOOK_DIRECTORY, play.fetch('workbook')) }.sort
+    paths = payload.fetch('plays').select do |play|
+      play.fetch('publishingEnabled', true) && play.fetch('automaticPublishingEnabled', true)
+    end.map do |play|
+      relative = play.fetch('workbookPath')
+      candidate = File.expand_path(relative, PROJECT_ROOT)
+      unless candidate.start_with?(PROJECT_ROOT + File::SEPARATOR)
+        raise "room-rules workbookPath 越出项目目录: #{relative}"
+      end
+      candidate
+    end
+    raise 'room-rules workbookPath 不得重复登记' unless paths.uniq.length == paths.length
+    return paths.sort
   end
   # 正式服务自动发现目录中的地区表；只有测试可改为临时副本。
   # 只有测试用例可以把 watcher 指向临时副本，以验证损坏文件 fail-closed，

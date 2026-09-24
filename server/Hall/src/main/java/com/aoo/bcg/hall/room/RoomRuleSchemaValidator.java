@@ -7,6 +7,9 @@ import java.util.*;
 /** Validates room rules against the immutable UI schema locked by the active release. */
 final class RoomRuleSchemaValidator {
     private static final String BASE_SCORE = "baseScore";
+    private static final String ROOM_END_SELECTION = "roomEndSelection";
+    private static final String ROOM_DURATION_MINUTES = "roomDurationMinutes";
+    private static final String ROUND_COUNT = "roundCount";
     private RoomRuleSchemaValidator() {}
 
     static Map<String,Object> validate(Object schema,Object submitted) {
@@ -15,8 +18,9 @@ final class RoomRuleSchemaValidator {
         }
         Map<String,Map<String,Object>> fields=fields(schema);
         if(fields.isEmpty())throw new HallError(503,"HALL_RULE_SCHEMA_UNAVAILABLE","published room rule schema is unavailable");
+        Map<String,Object> validationInput=projectRoomEndSelection(fields,input);
         Map<String,Object> normalized=new LinkedHashMap<>();
-        for(Object rawKey:input.keySet()){
+        for(Object rawKey:validationInput.keySet()){
             String key=String.valueOf(rawKey);
             if(BASE_SCORE.equals(key))continue;
             if(!fields.containsKey(key))throw HallError.bad("HALL_RULE_UNKNOWN_FIELD","unsupported room rule: "+key);
@@ -25,12 +29,12 @@ final class RoomRuleSchemaValidator {
             String key=entry.getKey();Map<String,Object> field=entry.getValue();
             // 禁用字段代表当前发布版本没有开放该能力；客户端即使伪造请求也必须拒绝。
             if(Boolean.TRUE.equals(field.get("disabled"))){
-                if(input.containsKey(key))throw HallError.bad("HALL_RULE_DISABLED","disabled room rule: "+key);
+                if(validationInput.containsKey(key))throw HallError.bad("HALL_RULE_DISABLED","disabled room rule: "+key);
                 Object defaultValue=field.get("defaultValue");
                 if(defaultValue!=null)normalized.put(key,defaultValue);
                 continue;
             }
-            Object value=input.containsKey(key)?input.get(key):field.get("defaultValue");
+            Object value=validationInput.containsKey(key)?validationInput.get(key):field.get("defaultValue");
             String control=String.valueOf(field.getOrDefault("control","SINGLE_SELECT")).toUpperCase(Locale.ROOT);
             boolean multi=control.contains("MULTI")||control.contains("CHECKBOX");
             // 选择基数由控件类型决定，不能由陈旧发布数据放宽：radio 恰好一个，checkbox 可为空。
@@ -52,11 +56,53 @@ final class RoomRuleSchemaValidator {
             normalized.put(key,value);
         }
         // 底分是所有玩法共用的房间协议字段，不属于地区规则表；缺省值固定为 1。
-        Object baseScore=input.containsKey(BASE_SCORE)?input.get(BASE_SCORE):1;
+        Object baseScore=validationInput.containsKey(BASE_SCORE)?validationInput.get(BASE_SCORE):1;
         positiveInteger(BASE_SCORE,baseScore);
         normalized.put(BASE_SCORE,baseScore);
         constraints(schema, normalized);
-        return Map.copyOf(normalized);
+        return Map.copyOf(unprojectRoomEndSelection(normalized));
+    }
+
+    private static Map<String,Object> projectRoomEndSelection(Map<String,Map<String,Object>> fields,Map<?,?> input){
+        Map<String,Object> projected=new LinkedHashMap<>();
+        input.forEach((key,value)->projected.put(String.valueOf(key),value));
+        if(!fields.containsKey(ROOM_END_SELECTION))return projected;
+        if(projected.containsKey(ROOM_END_SELECTION))
+            throw HallError.bad("HALL_RULE_UNKNOWN_FIELD","unsupported room rule: "+ROOM_END_SELECTION);
+        boolean duration=projected.containsKey(ROOM_DURATION_MINUTES),rounds=projected.containsKey(ROUND_COUNT);
+        if(duration==rounds)
+            throw HallError.bad("HALL_RULE_END_DIMENSION_INVALID","exactly one room end dimension is required");
+        String kind=duration?"DURATION_MINUTES":"ROUND_COUNT";
+        String key=duration?ROOM_DURATION_MINUTES:ROUND_COUNT;
+        Object value=projected.remove(key);
+        projected.put(ROOM_END_SELECTION,kind+":"+canonicalPositiveInteger(key,value));
+        return projected;
+    }
+
+    private static Map<String,Object> unprojectRoomEndSelection(Map<String,Object> normalized){
+        if(!normalized.containsKey(ROOM_END_SELECTION))return normalized;
+        Map<String,Object> out=new LinkedHashMap<>(normalized);
+        String selection=String.valueOf(out.remove(ROOM_END_SELECTION));
+        String[] parts=selection.split(":",-1);
+        if(parts.length!=2)throw new HallError(503,"HALL_RULE_SCHEMA_INVALID","invalid room end selection");
+        String key=switch(parts[0]){
+            case "DURATION_MINUTES" -> ROOM_DURATION_MINUTES;
+            case "ROUND_COUNT" -> ROUND_COUNT;
+            default -> throw new HallError(503,"HALL_RULE_SCHEMA_INVALID","unknown room end dimension");
+        };
+        out.put(key,canonicalPositiveInteger(key,parts[1]));
+        return out;
+    }
+
+    private static int canonicalPositiveInteger(String key,Object value){
+        try{
+            BigDecimal number=new BigDecimal(String.valueOf(value));
+            if(number.stripTrailingZeros().scale()>0||number.compareTo(BigDecimal.ONE)<0||number.compareTo(BigDecimal.valueOf(Integer.MAX_VALUE))>0)
+                throw HallError.bad("HALL_RULE_VALUE_INVALID","invalid value for "+key);
+            return number.intValueExact();
+        }catch(NumberFormatException|ArithmeticException error){
+            throw HallError.bad("HALL_RULE_VALUE_INVALID","invalid value for "+key);
+        }
     }
 
     private static void constraints(Object schema,Map<String,Object> values){

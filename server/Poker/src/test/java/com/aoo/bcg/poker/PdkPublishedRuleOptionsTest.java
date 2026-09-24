@@ -20,11 +20,13 @@ final class PdkPublishedRuleOptionsTest {
         assertEquals(List.of(), disabled.get("specialTripleBombRanks"));
     }
 
-    @Test void workbookTrusteeCountControlsTimeoutHostingOnlyWhenSelected() {
-        Map<String,Object> selected = PdkPublishedRuleOptions.normalizePublishedRoomFields(Map.of(
-                "roomRestriction", List.of("timeout_auto_play"),
-                "hostingMissThreshold", 3));
-        assertEquals(3, selected.get("hostingMissThreshold"));
+    @Test void independentTrusteeRuleControlsTimeoutHostingOnlyWhenSelected() {
+        for (int threshold : List.of(3, 4, 5)) {
+            Map<String,Object> selected = PdkPublishedRuleOptions.normalizePublishedRoomFields(Map.of(
+                    "roomRestriction", List.of("timeout_auto_play"),
+                    "hostingMissThreshold", threshold));
+            assertEquals(threshold, selected.get("hostingMissThreshold"));
+        }
         Map<String,Object> disabled = PdkPublishedRuleOptions.normalizePublishedRoomFields(Map.of(
                 "roomRestriction", List.of(),
                 "hostingMissThreshold", 3));

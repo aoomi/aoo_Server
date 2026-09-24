@@ -90,11 +90,11 @@ ensure_database(){
 # workbook on local startup so the active server validator and client UI schema
 # always come from the same current source, not only the Chengdu default.
 publish_registered_room_rules(){
-  local workbook directory="$ROOT/../Client/docs/开房规则表/跑得快"
+  local workbook
   while IFS= read -r workbook; do
-    AOO_ROOM_RULE_WORKBOOK="$directory/$workbook" "$ROOT/tools/publish-room-rules.sh" local
-  done < <(ruby -rjson -e 'JSON.parse(File.read(ARGV.fetch(0))).fetch("plays").each { |play| puts play.fetch("workbook") }' \
-    "$ROOT/tools/room-rule-play-identities.json")
+    AOO_ROOM_RULE_WORKBOOK="$workbook" "$ROOT/tools/publish-room-rules.sh" local
+  done < <(ruby -rjson -e 'root=File.expand_path(ARGV.fetch(1)); paths=JSON.parse(File.read(ARGV.fetch(0))).fetch("plays").select { |play| play.fetch("publishingEnabled", true) && play.fetch("automaticPublishingEnabled", true) }.map { |play| path=File.expand_path(play.fetch("workbookPath"),root); abort("room-rules workbookPath 越出项目目录") unless path.start_with?(root+File::SEPARATOR); path }; abort("room-rules workbookPath 重复") unless paths.uniq.length==paths.length; puts paths.sort' \
+    "$ROOT/tools/room-rule-play-identities.json" "$ROOT/..")
 }
 
 build_runtime(){

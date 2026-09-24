@@ -83,7 +83,12 @@ Dir.mktmpdir('aoo-room-rule-schema-test') do |directory|
   small = baseline.fetch('fields').find { |field| field['label'] == '小结算' }
   abort('official small settlement row did not use generic schema path') unless small &&
     small['control'] == 'checkbox' && small['defaultCandidateIndexes'] == [1] &&
-    small['trusteeCount'] == 3 && small['visible'] == true
+    small['visible'] == true
+  hosting = baseline.fetch('fields').find { |field| field['key'] == 'hostingMissThreshold' }
+  abort('independent trustee rule was not hidden and server-owned') unless hosting &&
+    hosting['label'] == '托管次数' && hosting['control'] == 'radio' &&
+    hosting['visible'] == false && hosting['disabled'] == true && hosting['defaultValue'] == 3 &&
+    hosting.fetch('options').map { |option| option['value'] } == [3, 4, 5]
   operation = baseline.fetch('fields').find { |field| field['label'] == '操作时间' }
   abort('numeric rule label did not map to its wire value') unless
     operation && operation['key'] == 'operationTimeoutSeconds' &&
@@ -118,11 +123,11 @@ Dir.mktmpdir('aoo-room-rule-schema-test') do |directory|
   rewrite_workbook(workbook) do |sheet_data|
     last = sheet_data.elements.to_a.select { |element| element.name == 'row' }.map { |row| row.attributes['r'].to_i }.max
     row = REXML::Element.new('row'); row.add_attribute('r', (last + 1).to_s)
-    { 'A'=>'临时规则', 'B'=>'多选', 'C'=>'选项甲｜选项乙', 'D'=>'1', 'E'=>'3', 'F'=>'是' }
+    { 'A'=>'临时规则', 'B'=>'多选', 'C'=>'选项甲｜选项乙', 'D'=>'1', 'E'=>'是' }
       .each { |column, value| row.add_element(inline_cell("#{column}#{last + 1}", value)) }
     sheet_data.add_element(row)
     radio_row = REXML::Element.new('row'); radio_row.add_attribute('r', (last + 2).to_s)
-    { 'A'=>'临时单选', 'B'=>'单选', 'C'=>'一｜二｜三｜四｜五｜不比', 'D'=>'6', 'E'=>'3', 'F'=>'是' }
+    { 'A'=>'临时单选', 'B'=>'单选', 'C'=>'一｜二｜三｜四｜五｜不比', 'D'=>'6', 'E'=>'是' }
       .each { |column, value| radio_row.add_element(inline_cell("#{column}#{last + 2}", value)) }
     sheet_data.add_element(radio_row)
   end
@@ -201,8 +206,7 @@ Dir.mktmpdir('aoo-room-rule-schema-test') do |directory|
     abort('fixture row missing') unless row
     set_cell(row, 'C', '新选项甲｜新选项乙｜新选项丙')
     set_cell(row, 'D', '2,3')
-    set_cell(row, 'E', '5')
-    set_cell(row, 'F', '否')
+    set_cell(row, 'E', '否')
   end
   register_option_values(identity, '临时规则', {
     '新选项甲'=>'temporary_1', '新选项乙'=>'temporary_2', '新选项丙'=>'temporary_3'
@@ -210,9 +214,9 @@ Dir.mktmpdir('aoo-room-rule-schema-test') do |directory|
   changed = run_publisher(publisher, workbook, output, registry)
   changed_field = changed.fetch('fields').find { |field| field['label'] == '临时规则' }
   abort('field key changed after property edits') unless changed_field.fetch('key') == stable_key
-  abort('options/default/trustee/visibility did not synchronize') unless
+  abort('options/default/visibility did not synchronize') unless
     changed_field.fetch('options').map { |option| option['label'] } == %w[新选项甲 新选项乙 新选项丙] &&
-    changed_field['defaultCandidateIndexes'] == [2, 3] && changed_field['trusteeCount'] == 5 && changed_field['visible'] == false
+    changed_field['defaultCandidateIndexes'] == [2, 3] && changed_field['visible'] == false
 
   rewrite_workbook(workbook) do |sheet_data|
     row = sheet_data.elements.to_a.find do |candidate|

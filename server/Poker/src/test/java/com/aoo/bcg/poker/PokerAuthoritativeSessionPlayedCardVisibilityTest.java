@@ -5,6 +5,8 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import com.aoo.bcg.gamespi.GameCommandRequest;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -18,9 +20,11 @@ final class PokerAuthoritativeSessionPlayedCardVisibilityTest {
     PlayedCards played = playNonTerminal(session, 10);
 
     assertAllInOrderActiveHistory(session, played);
+    assertPublicRankCounts(session, played.cards());
     PokerAuthoritativeSession restored = PokerAuthoritativeSession.restore(
         session.authoritativeState(), family);
     assertAllInOrderActiveHistory(restored, played);
+    assertPublicRankCounts(restored, played.cards());
 
     finishRound(restored, played.nextSequence());
     assertFinishedHistoryMatchesAuthority(restored);
@@ -33,12 +37,18 @@ final class PokerAuthoritativeSessionPlayedCardVisibilityTest {
     PlayedCards played = playNonTerminal(session, 10);
 
     assertActiveSeatHistoryHidden(session);
+    assertPublicRankCounts(session, played.cards());
     PokerAuthoritativeSession restored = PokerAuthoritativeSession.restore(
         session.authoritativeState(), family);
     assertActiveSeatHistoryHidden(restored);
+    assertPublicRankCounts(restored, played.cards());
 
     finishRound(restored, played.nextSequence());
     assertFinishedHistoryMatchesAuthority(restored);
+    restored.execute(command(restored, "continue_req", 10000, 0, 10, Map.of()));
+    restored.execute(command(restored, "continue_req", 10001, 1, 11, Map.of()));
+    assertEquals(2, restored.viewFor(10).get("roundNo"));
+    assertPublicRankCounts(restored, List.of());
   }
 
   private static PaoDeKuaiFamily family(
@@ -98,6 +108,13 @@ final class PokerAuthoritativeSessionPlayedCardVisibilityTest {
       assertTrue(((List<?>) seat(session.viewFor(recipient), 0).get("playedCards")).isEmpty());
       assertTrue(((List<?>) seat(session.viewFor(recipient), 1).get("playedCards")).isEmpty());
     }
+  }
+
+  private static void assertPublicRankCounts(PokerAuthoritativeSession session, List<Integer> cards) {
+    List<Integer> expected = new ArrayList<>(Collections.nCopies(16, 0));
+    cards.forEach(card -> expected.set(card % 100, expected.get(card % 100) + 1));
+    for (long recipient : List.of(10L, 11L))
+      assertEquals(expected, session.viewFor(recipient).get("publicPlayedRankCounts"));
   }
 
   @SuppressWarnings("unchecked")

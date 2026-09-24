@@ -51,6 +51,7 @@ Dir.mktmpdir('aoo-room-rule-option-identities') do |directory|
       '3A算炸弹'=>'triple_ace_bomb', '去掉3、4'=>'remove_three_four',
       '必须出黑桃3'=>'require_spade_three'
     },
+    '托管次数'=>{'3次'=>3, '4次'=>4, '5次'=>5},
     '其他'=>{
       'IP限制'=>'ip_limit', 'GPS限制'=>'gps_limit',
       '超时托管'=>'timeout_auto_play', '距离过近警告'=>'distance_warning',
@@ -141,7 +142,7 @@ Dir.mktmpdir('aoo-liangshan-room-rule-numeric-identities') do |directory|
   fields = JSON.parse(File.read(output, encoding: 'UTF-8')).fetch('fields')
   by_key = fields.to_h { |field| [field.fetch('key'), field] }
   expected_keys = %w[playerCount roundCount operationTime dealCardCount jinHuaScore
-    robDealerRule rule_ls201_0001 playRule roomRestriction]
+    robDealerRule rule_ls201_0001 playRule hostingMissThreshold roomRestriction]
   abort('LS201 cold-start field identities drifted') unless by_key.keys == expected_keys
 
   operation_time = by_key.fetch('operationTime')
