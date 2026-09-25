@@ -21,13 +21,33 @@ public record PaoDeKuaiConfig(int minimumStraightLength, boolean allowTripleWith
         PdkAdvancedRules advancedRules) {
 
     public enum AttachmentMode {
-        DISABLED,
-        SINGLES,
-        PAIRS,
+        DISABLED(false, false, false, false),
+        SINGLES(true, false, false, false),
+        PAIRS(false, true, false, false),
         /** Allows one single card or one pair, but never two unrelated single cards. */
-        SINGLE_OR_PAIR,
+        SINGLE_OR_PAIR(true, true, false, false),
         /** Allows the full singles/pairs family, including two unrelated single cards. */
-        EITHER
+        EITHER(true, true, true, false),
+        /** Allows the same attachments as EITHER, but responses must keep their shape. */
+        EITHER_MATCH_SHAPE(true, true, true, true);
+
+        private final boolean singles;
+        private final boolean pairs;
+        private final boolean twoSingles;
+        private final boolean matchingResponseShape;
+
+        AttachmentMode(boolean singles, boolean pairs, boolean twoSingles,
+                boolean matchingResponseShape) {
+            this.singles = singles;
+            this.pairs = pairs;
+            this.twoSingles = twoSingles;
+            this.matchingResponseShape = matchingResponseShape;
+        }
+
+        public boolean allowsSingles() { return singles; }
+        public boolean allowsPairs() { return pairs; }
+        public boolean allowsTwoSingles() { return twoSingles; }
+        public boolean requiresMatchingResponseShape() { return matchingResponseShape; }
     }
     /** DEALER_RESPONSE_OR_FINAL matches XQP: the抢庄者、接同型牌或最后一手可不带牌。 */
     public enum PlayTiming { DISABLED, FINAL_ONLY, DEALER_RESPONSE_OR_FINAL, ANYTIME }
@@ -85,10 +105,10 @@ public record PaoDeKuaiConfig(int minimumStraightLength, boolean allowTripleWith
         specialTripleBombRanks = Set.copyOf(bombRanks);
         if (cardsPerPlayer < 0 || cardsPerPlayer > 54)
             throw new IllegalArgumentException("invalid cards per player");
-        if (allowTripleWithPair != (tripleAttachmentMode == AttachmentMode.PAIRS
-                || tripleAttachmentMode == AttachmentMode.SINGLE_OR_PAIR
-                || tripleAttachmentMode == AttachmentMode.EITHER))
+        if (allowTripleWithPair != tripleAttachmentMode.allowsPairs())
             throw new IllegalArgumentException("triple attachment compatibility flag conflicts with mode");
+        if (compareTripleAttachments && tripleAttachmentMode.requiresMatchingResponseShape())
+            throw new IllegalArgumentException("matching attachment shape cannot compare wing ranks");
         if (allowFourWithTwo != (fourAttachmentMode != AttachmentMode.DISABLED))
             throw new IllegalArgumentException("four attachment compatibility flag conflicts with mode");
         if (allowSpecialTripleBombWithOne && specialTripleBombRanks.isEmpty())

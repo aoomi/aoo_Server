@@ -10,16 +10,19 @@ class CN298AuthorityTest {
   @Test void rejectsCrossRoomAndVersionMismatchBeforeMutation() {
     var authority = authority();
     assertThrows(IllegalArgumentException.class, () -> authority.execute(
-        request("poker.cn298.sit_req", "wrong-room", 999, NiuNiuRules.PLAY_VERSION, "1001", 0, Map.of("seatId", 0))));
+        request("poker.cn298.sit_req", "wrong-room", 999, NiuNiuRules.PLAY_VERSION, "1001", 0, Map.of())));
     assertThrows(IllegalArgumentException.class, () -> authority.execute(
-        request("poker.cn298.sit_req", "wrong-version", 298001, "v2", "1001", 0, Map.of("seatId", 0))));
+        request("poker.cn298.sit_req", "wrong-version", 298001, "v2", "1001", 0, Map.of())));
   }
 
   @Test void rejectsAuthenticatedPlayerUsingAnotherPlayersSeat() {
     var authority = authority();
-    authority.execute(request("poker.cn298.sit_req", "sit", 298001, NiuNiuRules.PLAY_VERSION, "1002", 1, Map.of("seatId", 1)));
+    authority.execute(request("poker.cn298.sit_req", "sit", 298001, NiuNiuRules.PLAY_VERSION, "1002", 1, Map.of()));
+    int assignedSeat = (int) authority.viewFor(1002L).get("viewerSeat");
+    int capacity = (int) authority.viewFor(1002L).get("maxPlayers");
     assertThrows(IllegalArgumentException.class, () -> authority.execute(
-        request("poker.cn298.rob_req", "spoof", 298001, NiuNiuRules.PLAY_VERSION, "1002", 0, Map.of("multiplier", 0))));
+        request("poker.cn298.rob_req", "spoof", 298001, NiuNiuRules.PLAY_VERSION, "1002",
+            (assignedSeat + 1) % capacity, Map.of("multiplier", 0))));
   }
 
   @Test void rejectsProtocolAliasesWithoutCanonicalPrefix() {

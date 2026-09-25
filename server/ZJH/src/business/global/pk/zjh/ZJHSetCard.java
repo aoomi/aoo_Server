@@ -7,8 +7,7 @@ import java.util.List;
 import com.aoo.bcg.common.random.GameRandomSource;
 import com.aoo.bcg.common.random.SeededGameRandomSource;
 
-import jsproto.c2s.cclass.pk.BasePockerLogic;
-import jsproto.c2s.cclass.pk.BasePocker.PockerListType;
+import jsproto.c2s.cclass.pk.BasePocker;
 
 
 
@@ -36,7 +35,7 @@ public class ZJHSetCard {
 	 * 洗牌
 	 */
 	public void randomCard(){
-		this.leftCards = BasePockerLogic.getRandomPockerList(1, 0, PockerListType.POCKERLISTTYPE_AEND);
+        this.leftCards = new ArrayList<>(java.util.Arrays.asList(BasePocker.PockerList_AEnd));
 	}
 	
 	/*
@@ -60,4 +59,3 @@ public class ZJHSetCard {
 		return ret;
 	}
 }
-

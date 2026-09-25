@@ -143,7 +143,7 @@ final class CN298Authority implements AuthoritativeGameSession {
         request.roomId(), playerId, request.requestId(), session.stateVersion(), request.msgId());
     try {
       switch(request.msgId()){
-        case "poker.cn298.sit_req"->session.sit(body.requireInt("seatId"),playerId,request.requestId());
+        case "poker.cn298.sit_req"->session.sit(playerId,request.requestId());
         case "poker.cn298.start_req"->session.start(playerId,request.requestId());
         case "poker.cn298.rob_req"->session.rob(seat,body.requireInt("multiplier"),request.requestId());
         case "poker.cn298.bet_req"->session.bet(seat,body.requireInt("multiplier"),request.requestId());

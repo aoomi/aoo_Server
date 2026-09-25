@@ -51,7 +51,8 @@ public final class ZJHGameProvider implements PokerGameProvider {
     private static ZJHAuthoritativeSession authority(RoomCreationContext context) {
         ZJHRules rules = ZJHRules.from(context.immutableRules());
         long seed = SEEDS.nextLong();
-        ZJHTable table = new ZJHTable(context.roomId(), context.ownerId(), rules, seed);
+        long seatSeed = SEEDS.nextLong();
+        ZJHTable table = new ZJHTable(context.roomId(), context.ownerId(), rules, seed, seatSeed);
         return new ZJHAuthoritativeSession(table);
     }
 }

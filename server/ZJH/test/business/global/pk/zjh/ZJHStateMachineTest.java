@@ -11,14 +11,15 @@ final class ZJHStateMachineTest {
         ZJHTable table = new ZJHTable(77, 1001, rules, 8);
         for (int seat = 0; seat < 4; seat++) table.sit(seat, 1001 + seat);
         table.start();
+        int ownerSeat = table.seatOf(1001);
         assertEquals(4, table.pot());
-        assertThrows(IllegalStateException.class, () -> table.look(0));
-        table.bet(0, 1); table.bet(1, 1); table.bet(2, 1); table.bet(3, 1);
+        assertThrows(IllegalStateException.class, () -> table.look(ownerSeat));
+        for (int turn = 0; turn < 4; turn++) table.bet(table.operatorSeat(), 1);
         assertEquals(2, table.bettingRound());
-        table.look(0);
-        assertEquals(3, table.handView(1001, 0).size());
-        assertEquals(java.util.List.of(0, 0, 0), table.handView(1002, 0));
-        table.compare(0, 1);
+        table.look(ownerSeat);
+        assertEquals(3, table.handView(1001, ownerSeat).size());
+        assertEquals(java.util.List.of(0, 0, 0), table.handView(1002, ownerSeat));
+        table.compare(ownerSeat, table.seatOf(1002));
         while (table.state() == ZJHTable.State.PLAYING) table.fold(table.operatorSeat());
         Map<String, Object> settlement = new ZJHSettlementService().settle(table, 1);
         assertEquals(table.winnerSeat(), settlement.get("winnerSeat"));
@@ -28,7 +29,8 @@ final class ZJHStateMachineTest {
         ZJHRules rules = ZJHRules.from(Map.of("seatLimit", 8, "mustBlindRounds", 0));
         ZJHTable table = new ZJHTable(88, 2001, rules, 9);
         table.sit(0, 2001); table.sit(1, 2002); table.start();
-        table.look(0); table.preBet(1, 2); table.bet(0, 2);
+        int ownerSeat = table.seatOf(2001);
+        table.look(ownerSeat); table.preBet(table.seatOf(2002), 2); table.bet(ownerSeat, 2);
         ZJHTable restored = ZJHTable.restore(88, table.authoritativeSnapshot());
         assertEquals(table.authoritativeSnapshot(), restored.authoritativeSnapshot());
         assertEquals(table.viewFor(2001), restored.viewFor(2001));
@@ -40,17 +42,17 @@ final class ZJHStateMachineTest {
         ZJHTable table = new ZJHTable(99, 3001, rules, 10);
         for (int seat = 0; seat < 4; seat++) table.sit(seat, 3001 + seat);
         table.start();
-        table.preBet(1, 3);
+        int ownerSeat = table.seatOf(3001);
+        int queuedSeat = nextSeat(table, ownerSeat);
+        table.preBet(queuedSeat, 3);
         long versionBeforeBet = table.stateVersion();
-        table.bet(0, 2);
+        table.bet(ownerSeat, 2);
         assertEquals(9, table.pot());
-        assertEquals(4, table.committedBet(1));
-        assertEquals(2, table.operatorSeat());
+        assertEquals(4, table.committedBet(queuedSeat));
+        assertEquals(nextSeat(table, queuedSeat), table.operatorSeat());
         assertEquals(versionBeforeBet + 2, table.stateVersion());
 
-        table.fold(2);
-        table.fold(3);
-        table.fold(0);
+        while (table.state() == ZJHTable.State.PLAYING) table.fold(table.operatorSeat());
         ZJHSettlementService settlement = new ZJHSettlementService();
         assertThrows(IllegalArgumentException.class, () -> settlement.settle(table, 2));
         Map<String, Object> first = settlement.settle(table, 1);
@@ -66,9 +68,11 @@ final class ZJHStateMachineTest {
         ZJHTable table = new ZJHTable(100, 4001, rules, 11);
         for (int seat = 0; seat < 4; seat++) table.sit(seat, 4001 + seat);
         table.start();
-        table.bet(0, 1);
-        table.fold(1);
-        assertEquals(2, table.operatorSeat());
+        table.bet(table.seatOf(4001), 1);
+        int foldedSeat = table.operatorSeat();
+        int expectedNext = nextSeat(table, foldedSeat);
+        table.fold(foldedSeat);
+        assertEquals(expectedNext, table.operatorSeat());
     }
 
     @Test void currentCallRaisesBlindAndLookedMinimumsAndSurvivesReconnect() {
@@ -77,12 +81,13 @@ final class ZJHStateMachineTest {
         ZJHTable table = new ZJHTable(101, 5001, rules, 12);
         for (int seat = 0; seat < 4; seat++) table.sit(seat, 5001 + seat);
         table.start();
-        table.bet(0, 5);
-        assertThrows(IllegalArgumentException.class, () -> table.bet(1, 4));
-        table.bet(1, 5); table.bet(2, 5); table.bet(3, 5);
-        table.look(0);
-        assertThrows(IllegalArgumentException.class, () -> table.bet(0, 9));
-        table.bet(0, 10);
+        int ownerSeat = table.seatOf(5001);
+        table.bet(ownerSeat, 5);
+        assertThrows(IllegalArgumentException.class, () -> table.bet(table.operatorSeat(), 4));
+        for (int turn = 0; turn < 3; turn++) table.bet(table.operatorSeat(), 5);
+        table.look(ownerSeat);
+        assertThrows(IllegalArgumentException.class, () -> table.bet(ownerSeat, 9));
+        table.bet(ownerSeat, 10);
         ZJHTable restored = ZJHTable.restore(101, table.authoritativeSnapshot());
         assertEquals(table.authoritativeSnapshot(), restored.authoritativeSnapshot());
         assertEquals(5, restored.viewFor(5002).get("minimumBet"));
@@ -95,12 +100,14 @@ final class ZJHStateMachineTest {
         ZJHTable table = new ZJHTable(102, 6001, rules, 13);
         for (int seat = 0; seat < 4; seat++) table.sit(seat, 6001 + seat);
         table.start();
-        assertThrows(IllegalStateException.class, () -> table.bet(1, 1));
-        assertThrows(IllegalArgumentException.class, () -> table.bet(0, 11));
-        assertThrows(IllegalStateException.class, () -> table.compare(0, 1));
-        table.fold(0);
-        assertThrows(IllegalStateException.class, () -> table.preBet(0, 1));
-        assertThrows(IllegalStateException.class, () -> table.compare(1, 1));
+        int ownerSeat = table.seatOf(6001);
+        int memberSeat = table.seatOf(6002);
+        assertThrows(IllegalStateException.class, () -> table.bet(memberSeat, 1));
+        assertThrows(IllegalArgumentException.class, () -> table.bet(ownerSeat, 11));
+        assertThrows(IllegalStateException.class, () -> table.compare(ownerSeat, memberSeat));
+        table.fold(ownerSeat);
+        assertThrows(IllegalStateException.class, () -> table.preBet(ownerSeat, 1));
+        assertThrows(IllegalStateException.class, () -> table.compare(memberSeat, memberSeat));
     }
 
     @Test void clockwiseTurnWrapsAcrossLastSeatAndReconnectKeepsOperator() {
@@ -109,12 +116,75 @@ final class ZJHStateMachineTest {
         ZJHTable table = new ZJHTable(103, 7001, rules, 14);
         table.sit(0, 7001); table.sit(2, 7002); table.sit(5, 7003); table.sit(7, 7004);
         table.start();
-        table.bet(0, 1); table.bet(2, 1); table.bet(5, 1); table.bet(7, 1);
-        assertEquals(0, table.operatorSeat());
+        int firstSeat = table.seatOf(7001);
+        for (int turn = 0; turn < 4; turn++) table.bet(table.operatorSeat(), 1);
+        assertEquals(firstSeat, table.operatorSeat());
         assertEquals(2, table.bettingRound());
         ZJHTable restored = ZJHTable.restore(103, table.authoritativeSnapshot());
-        assertEquals(0, restored.operatorSeat());
+        assertEquals(firstSeat, restored.operatorSeat());
         assertEquals(table.viewFor(7001), restored.viewFor(7001));
+    }
+
+    @Test void nonSequentialRandomJoinsStillAdvanceByClockwiseSeatNumber() {
+        boolean exercisedNonSequentialJoin = false;
+        for (long seatSeed = 0; seatSeed < 64 && !exercisedNonSequentialJoin; seatSeed++) {
+            ZJHTable table = new ZJHTable(106, 10001,
+                    ZJHRules.from(Map.of("seatLimit", 8, "minimumPlayers", 4)), 23, seatSeed);
+            int[] joinedSeats = new int[4];
+            for (int index = 0; index < joinedSeats.length; index++) {
+                joinedSeats[index] = table.sit(10001L + index);
+            }
+            boolean nonSequential = false;
+            for (int index = 1; index < joinedSeats.length; index++) {
+                if (joinedSeats[index] < joinedSeats[index - 1]) nonSequential = true;
+            }
+            if (!nonSequential) continue;
+            exercisedNonSequentialJoin = true;
+            table.start();
+            for (int turn = 0; turn < joinedSeats.length; turn++) {
+                int actingSeat = table.operatorSeat();
+                int expectedNext = nextSeat(table, actingSeat);
+                table.bet(actingSeat, 1);
+                assertEquals(expectedNext, table.operatorSeat());
+            }
+            assertEquals(2, table.bettingRound());
+        }
+        assertTrue(exercisedNonSequentialJoin, "test must exercise non-sequential random seating");
+    }
+
+    @Test void waitingSnapshotKeepsFirstTurnAndDealOrderWhenFirstJoinHasHigherSeat() {
+        boolean exercisedHigherFirstJoin = false;
+        for (long seatSeed = 0; seatSeed < 64 && !exercisedHigherFirstJoin; seatSeed++) {
+            ZJHTable table = new ZJHTable(107, 11001,
+                    ZJHRules.from(Map.of("seatLimit", 8, "minimumPlayers", 4)), 29, seatSeed);
+            int firstJoinSeat = table.sit(11001);
+            for (long playerId = 11002; playerId <= 11004; playerId++) table.sit(playerId);
+            int firstClockwiseSeat = ((Map<?, ?>) table.authoritativeState().get("seats"))
+                    .keySet().stream().mapToInt(key -> ((Number) key).intValue()).min().orElseThrow();
+            if (firstJoinSeat == firstClockwiseSeat) continue;
+            exercisedHigherFirstJoin = true;
+
+            ZJHTable restored = ZJHTable.restore(107, table.authoritativeSnapshot());
+            table.start();
+            restored.start();
+            assertEquals(firstJoinSeat, table.operatorSeat());
+            assertNotEquals(firstClockwiseSeat, table.operatorSeat());
+            assertEquals(table.operatorSeat(), restored.operatorSeat());
+            assertEquals(table.authoritativeState().get("seats"), restored.authoritativeState().get("seats"));
+
+            for (int turn = 0; turn < 4; turn++) {
+                int actingSeat = table.operatorSeat();
+                int expectedNext = nextSeat(table, actingSeat);
+                assertEquals(actingSeat, restored.operatorSeat());
+                table.bet(actingSeat, 1);
+                restored.bet(actingSeat, 1);
+                assertEquals(expectedNext, table.operatorSeat());
+                assertEquals(table.operatorSeat(), restored.operatorSeat());
+            }
+            assertEquals(2, table.bettingRound());
+            assertEquals(table.bettingRound(), restored.bettingRound());
+        }
+        assertTrue(exercisedHigherFirstJoin, "test must exercise a first join above the lowest seat");
     }
 
     @Test void timeoutRejectsEarlyRequestThenFoldsAtAuthoritativeDeadline() {
@@ -123,13 +193,15 @@ final class ZJHStateMachineTest {
         ZJHTable table = new ZJHTable(104, 8001, rules, 15);
         for (int seat = 0; seat < 4; seat++) table.sit(seat, 8001 + seat);
         table.start();
+        int ownerSeat = table.seatOf(8001);
+        int expectedNext = nextSeat(table, ownerSeat);
         long deadline = ((Number) table.viewFor(8001).get("operationDeadlineEpochMillis")).longValue();
-        assertThrows(IllegalStateException.class, () -> table.timeout(0, deadline - 1));
-        table.timeout(0, deadline);
-        assertEquals(1, table.operatorSeat());
+        assertThrows(IllegalStateException.class, () -> table.timeout(ownerSeat, deadline - 1));
+        table.timeout(ownerSeat, deadline);
+        assertEquals(expectedNext, table.operatorSeat());
         @SuppressWarnings("unchecked") Map<Integer, Object> seats =
                 (Map<Integer, Object>) table.viewFor(8001).get("seats");
-        @SuppressWarnings("unchecked") Map<String, Object> folded = (Map<String, Object>) seats.get(0);
+        @SuppressWarnings("unchecked") Map<String, Object> folded = (Map<String, Object>) seats.get(ownerSeat);
         assertEquals(false, folded.get("active"));
     }
 
@@ -139,8 +211,17 @@ final class ZJHStateMachineTest {
         ZJHTable table = new ZJHTable(105, 9001, rules, 16);
         for (int seat = 0; seat < 4; seat++) table.sit(seat, 9001 + seat);
         table.start();
+        Map<Long, Long> expectedTotals = new java.util.LinkedHashMap<>();
+        for (long playerId = 9001; playerId <= 9004; playerId++) expectedTotals.put(playerId, 0L);
         for (int round = 1; round <= 10; round++) {
-            table.fold(0); table.fold(1); table.fold(2);
+            while (table.state() == ZJHTable.State.PLAYING) table.fold(table.operatorSeat());
+            int winnerSeat = table.winnerSeat();
+            long lossPerOpponent = Math.addExact((long) rules.baseBet(), table.winnerBonusPerOpponent());
+            for (long playerId = 9001; playerId <= 9004; playerId++) {
+                long delta = table.seatOf(playerId) == winnerSeat
+                        ? Math.multiplyExact(3L, lossPerOpponent) : Math.negateExact(lossPerOpponent);
+                expectedTotals.put(playerId, Math.addExact(expectedTotals.get(playerId), delta));
+            }
             if (round < 10) table.continueRound();
         }
         assertEquals(ZJHTable.State.FINISHED, table.state());
@@ -157,7 +238,7 @@ final class ZJHStateMachineTest {
         assertEquals(0L, cumulativeEntries.stream().mapToLong(
                 com.aoo.bcg.common.settlement.SettlementEntry::scoreDelta).sum());
         assertNotEquals(entries, cumulativeEntries, "final settlement must contain all-round totals");
-        assertEquals(Map.of(9001L, -20L, 9002L, -20L, 9003L, -20L, 9004L, 60L),
+        assertEquals(expectedTotals,
                 cumulativeEntries.stream().collect(java.util.stream.Collectors.toMap(
                         com.aoo.bcg.common.settlement.SettlementEntry::playerId,
                         com.aoo.bcg.common.settlement.SettlementEntry::scoreDelta)));
@@ -166,5 +247,17 @@ final class ZJHStateMachineTest {
         ZJHTable restored = ZJHTable.restore(105, table.authoritativeSnapshot());
         assertEquals(table.cumulativeScoreDeltas(), restored.cumulativeScoreDeltas());
         assertEquals(settlement, new ZJHSettlementService().settle(restored, 10));
+    }
+
+    private static int nextSeat(ZJHTable table, int previousSeat) {
+        Map<?, ?> seats = (Map<?, ?>) table.authoritativeState().get("seats");
+        int first = Integer.MAX_VALUE;
+        int next = Integer.MAX_VALUE;
+        for (Object key : seats.keySet()) {
+            int seat = ((Number) key).intValue();
+            first = Math.min(first, seat);
+            if (seat > previousSeat) next = Math.min(next, seat);
+        }
+        return next == Integer.MAX_VALUE ? first : next;
     }
 }

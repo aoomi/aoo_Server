@@ -7,6 +7,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import com.aoo.bcg.gamespi.GameCommandRequest;
 import com.aoo.bcg.gamespi.time.AuthoritativeTimeSource;
+import com.aoo.bcg.common.random.SeededGameRandomSource;
+import com.aoo.bcg.common.room.AuthoritativeRandomSeatAllocator;
 import java.time.Clock;
 import java.time.Duration;
 import java.time.Instant;
@@ -17,6 +19,25 @@ import java.util.Set;
 import org.junit.jupiter.api.Test;
 
 class Cd299SessionTurnTest {
+    // Existing turn tests use physical seats to describe ordering. Choose a fixed
+    // authority RNG stream that allocates 0..5; the submitted seat values do not select them.
+    private static final long SEQUENTIAL_SEAT_SEED = sequentialSeatSeed();
+
+    private static long sequentialSeatSeed() {
+        var allocator = new AuthoritativeRandomSeatAllocator();
+        for (long seed = 0; seed < 1_000_000L; seed++) {
+            Set<Integer> occupied = new java.util.HashSet<>();
+            boolean sequential = true;
+            for (int seat = 0; seat < 6; seat++) {
+                int assigned = allocator.allocate(8, Set.copyOf(occupied),
+                        new SeededGameRandomSource(Cd299Session.seatDrawSeed(seed, seat)));
+                if (assigned != seat) { sequential = false; break; }
+                occupied.add(assigned);
+            }
+            if (sequential) return seed;
+        }
+        throw new AssertionError("no sequential CD299 seat fixture seed");
+    }
     @Test
     void completeRoundDealsTwoThenThirdThenFourthBeforeSplitAndSettlement() {
         Cd299Session session = bettingSession(2, 48L);
@@ -164,7 +185,7 @@ class Cd299SessionTurnTest {
         }
         execute(session, "poker.cd299.continue_req", "banker-continue", 0, 100L, Map.of());
         assertEquals(first == 0 ? 3 : first - 1, state(session).get("bankerSeat"));
-        assertEquals(8, state(session).get("schemaVersion"));
+        assertEquals(10, state(session).get("schemaVersion"));
         assertEquals(state(session), Cd299Session.restore(state(session)).authoritativeState());
     }
 
@@ -232,9 +253,9 @@ class Cd299SessionTurnTest {
     @Test
     void splitIsConcurrentAndEachPlayerOwnsAnIndependentDeadline() {
         MutableClock clock = new MutableClock(Instant.parse("2026-09-20T00:00:00Z"));
-        Cd299Rules rules = Cd299Rules.from(Map.of("startPlayers", 2));
+        Cd299Rules rules = Cd299Rules.from(Map.of("startPlayers", 2, "roundCount", 10));
         Cd299Session session = new Cd299Session(9299L, 100L, 299L, rules,
-                new AuthoritativeTimeSource(clock));
+                new AuthoritativeTimeSource(clock), SEQUENTIAL_SEAT_SEED);
         session.sit(0, 100L, 100L, "sit-0"); session.sit(1, 101L, 100L, "sit-1");
 
         followAll(session, "round-1"); followAll(session, "round-2"); followAll(session, "round-3");
@@ -306,8 +327,9 @@ class Cd299SessionTurnTest {
 
     @Test
     void seatedPlayerCanAdvanceSettlementWhenRoomOwnerIsOnlySpectating() {
-        Cd299Rules rules = Cd299Rules.from(Map.of("startPlayers", 2));
-        Cd299Session session = new Cd299Session(92990L, 999L, 299L, rules);
+        Cd299Rules rules = Cd299Rules.from(Map.of("startPlayers", 2, "roundCount", 10));
+        Cd299Session session = new Cd299Session(92990L, 999L, 299L, rules,
+                AuthoritativeTimeSource.systemUtc(), SEQUENTIAL_SEAT_SEED);
         session.sit(0, 100L, 100L, "sit-0");
         session.sit(1, 101L, 100L, "sit-1");
         session.bet(0, Cd299Session.BetAction.REST, 0, "rest-0");
@@ -350,9 +372,9 @@ class Cd299SessionTurnTest {
     void finalRoundOpensRetentionWithoutDoubleAdvancingSettlementVersion() {
         Instant now = Instant.parse("2026-09-23T12:00:00Z");
         MutableClock clock = new MutableClock(now);
-        Cd299Rules rules = Cd299Rules.from(Map.of("startPlayers", 2));
+        Cd299Rules rules = Cd299Rules.from(Map.of("startPlayers", 2, "roundCount", 10));
         Cd299Session session = new Cd299Session(92991L, 100L, 299L, rules,
-                new AuthoritativeTimeSource(clock));
+                new AuthoritativeTimeSource(clock), SEQUENTIAL_SEAT_SEED);
         session.sit(0, 100L, 600L, "sit-0");
         session.sit(1, 101L, 600L, "sit-1");
         for (int completed = 1; completed < 10; completed++) {
@@ -394,8 +416,8 @@ class Cd299SessionTurnTest {
     void settlementDeadlineElectsOnePlayerAndAutomaticallyStartsNextRound() {
         MutableClock clock = new MutableClock(Instant.parse("2026-09-23T13:00:00Z"));
         Cd299Session session = new Cd299Session(92992L, 100L, 300L,
-                Cd299Rules.from(Map.of("startPlayers", 2, "roundLimit", 10)),
-                new AuthoritativeTimeSource(clock));
+                Cd299Rules.from(Map.of("startPlayers", 2, "roundCount", 10)),
+                new AuthoritativeTimeSource(clock), SEQUENTIAL_SEAT_SEED);
         session.sit(0, 100L, 600L, "sit-0");
         session.sit(1, 101L, 600L, "sit-1");
         session.bet(0, Cd299Session.BetAction.REST, 0, "rest-0");
@@ -444,7 +466,7 @@ class Cd299SessionTurnTest {
         MutableClock clock = new MutableClock(Instant.parse("2026-09-24T08:00:00Z"));
         Cd299Session live = new Cd299Session(93312L, 100L, 312L,
                 Cd299Rules.from(Map.of("startPlayers", 2, "roomDurationMinutes", 30)),
-                new AuthoritativeTimeSource(clock));
+                new AuthoritativeTimeSource(clock), SEQUENTIAL_SEAT_SEED);
         live.sit(0, 100L, 600L, "sit-0");
         live.sit(1, 101L, 600L, "sit-1");
         live.bet(0, Cd299Session.BetAction.REST, 0, "rest-0");
@@ -470,7 +492,7 @@ class Cd299SessionTurnTest {
         MutableClock clock = new MutableClock(Instant.parse("2026-09-24T07:00:00Z"));
         Cd299Session live = new Cd299Session(93311L, 100L, 311L,
                 Cd299Rules.from(Map.of("startPlayers", 2, "roomDurationMinutes", 30)),
-                new AuthoritativeTimeSource(clock));
+                new AuthoritativeTimeSource(clock), SEQUENTIAL_SEAT_SEED);
         live.sit(0, 100L, 8L, "sit-0");
         live.sit(1, 101L, 8L, "sit-1");
         live.bet(0, Cd299Session.BetAction.REST, 0, "rest-0");
@@ -493,7 +515,8 @@ class Cd299SessionTurnTest {
     @Test
     void standIsAllowedBetweenHandsButRejectedDuringAnActiveHand() {
         Cd299Session waiting = new Cd299Session(92993L, 100L, 302L,
-                Cd299Rules.from(Map.of("startPlayers", 4)));
+                Cd299Rules.from(Map.of("startPlayers", 4, "roundCount", 10)),
+                AuthoritativeTimeSource.systemUtc(), SEQUENTIAL_SEAT_SEED);
         waiting.sit(0, 100L, 100L, "sit-0");
         waiting.sit(1, 101L, 100L, "sit-1");
         execute(waiting, "poker.cd299.stand_req", "stand-waiting", 0, 100L, Map.of());
@@ -510,22 +533,25 @@ class Cd299SessionTurnTest {
     void zeroCarryReservesSeatFor120SecondsUntilConfirmCancelOrExpiry() {
         MutableClock clock = new MutableClock(Instant.parse("2026-09-24T10:00:00Z"));
         Cd299Session session = new Cd299Session(92994L, 100L, 304L,
-                Cd299Rules.from(Map.of("startPlayers", 2)), new AuthoritativeTimeSource(clock));
+                Cd299Rules.from(Map.of("startPlayers", 2, "roundCount", 10)), new AuthoritativeTimeSource(clock));
 
         session.sit(3, 100L, 0L, "reserve-3");
-        assertEquals(Map.of(3, 100L), state(session).get("players"));
+        int reservedSeat = ((Number) session.viewFor(100L).get("viewerSeat")).intValue();
+        assertEquals(Map.of(reservedSeat, 100L), state(session).get("players"));
         assertEquals(clock.millis() + 120_000L,
-                ((Map<?, ?>) state(session).get("seatRetentionDeadlineEpochMillis")).get(3));
+                ((Map<?, ?>) state(session).get("seatRetentionDeadlineEpochMillis")).get(reservedSeat));
         assertEquals("SEATED", session.viewFor(100L).get("viewerRole"));
 
         session.sit(3, 100L, 100L, "confirm-3");
         assertEquals(Map.of(), state(session).get("seatRetentionDeadlineEpochMillis"));
-        assertEquals(100L, ((Map<?, ?>) state(session).get("scores")).get(3));
+        assertEquals(reservedSeat, session.viewFor(100L).get("viewerSeat"));
+        assertEquals(100L, ((Map<?, ?>) state(session).get("scores")).get(reservedSeat));
 
-        execute(session, "poker.cd299.stand_req", "cancel-confirmed-3", 3, 100L, Map.of());
+        execute(session, "poker.cd299.stand_req", "cancel-confirmed-3", reservedSeat, 100L, Map.of());
         session.sit(5, 100L, 0L, "reserve-5");
+        int expiringSeat = ((Number) session.viewFor(100L).get("viewerSeat")).intValue();
         clock.advance(Duration.ofSeconds(120));
-        session.timeout(5, "expire-5");
+        session.timeout(expiringSeat, "expire-5");
         assertEquals(Map.of(), state(session).get("players"));
         assertEquals("SPECTATOR", session.viewFor(100L).get("viewerRole"));
     }
@@ -564,9 +590,9 @@ class Cd299SessionTurnTest {
     @Test
     void authenticatedPlayerCommandAtDeadlineLinearizesAsAuthoritativeTimeout() {
         MutableClock clock = new MutableClock(Instant.parse("2026-09-19T00:00:00Z"));
-        Cd299Rules rules = Cd299Rules.from(Map.of("startPlayers", 2, "operationSeconds", 15));
+        Cd299Rules rules = Cd299Rules.from(Map.of("startPlayers", 2, "operationSeconds", 15, "roundCount", 10));
         Cd299Session session = new Cd299Session(9099L, 100L, 99L, rules,
-                new AuthoritativeTimeSource(clock));
+                new AuthoritativeTimeSource(clock), SEQUENTIAL_SEAT_SEED);
         session.sit(0, 100L, "sit-0");
         session.sit(1, 101L, "sit-1");
         long versionBeforeLateCommand = session.stateVersion();
@@ -586,8 +612,9 @@ class Cd299SessionTurnTest {
     }
 
     private static Cd299Session bettingSessionWithCarry(int players, long seed, long carryScore) {
-        Cd299Rules rules = Cd299Rules.from(Map.of("startPlayers", players));
-        Cd299Session session = new Cd299Session(9000L + seed, 100L, seed, rules);
+        Cd299Rules rules = Cd299Rules.from(Map.of("startPlayers", players, "roundCount", 10));
+        Cd299Session session = new Cd299Session(9000L + seed, 100L, seed, rules,
+                AuthoritativeTimeSource.systemUtc(), SEQUENTIAL_SEAT_SEED);
         for (int seat = 0; seat < players; seat++) session.sit(seat, 100L + seat, carryScore, "sit-" + seat);
         assertTurn(session, "BETTING", 0);
         return session;

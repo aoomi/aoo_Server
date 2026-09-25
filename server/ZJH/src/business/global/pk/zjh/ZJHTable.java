@@ -3,6 +3,7 @@ package business.global.pk.zjh;
 import com.aoo.bcg.common.random.GameRandomSource;
 import com.aoo.bcg.common.random.SeededGameRandomSource;
 import com.aoo.bcg.common.reconnect.CardPerspective;
+import com.aoo.bcg.common.room.AuthoritativeRandomSeatAllocator;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -15,12 +16,17 @@ import java.time.Instant;
 /** Authoritative ZJH aggregate hosted by the shared game service. */
 public final class ZJHTable {
     public enum State { WAITING, PLAYING, ROUND_FINISHED, FINISHED }
+    private static final int SCHEMA_VERSION = 3;
+    private static final String SEAT_RANDOM_DOMAIN = "CN297-SEAT";
+    private static final AuthoritativeRandomSeatAllocator SEAT_ALLOCATOR = new AuthoritativeRandomSeatAllocator();
 
     private final long roomId;
     private final long ownerId;
     private final int seatLimit;
     private final ZJHRules rules;
     private final GameRandomSource random;
+    private final long seatRandomSeed;
+    private long seatRandomSequence;
     private final Map<Integer, Long> players = new LinkedHashMap<>();
     private final Map<Integer, List<Integer>> hands = new LinkedHashMap<>();
     private final Set<Integer> readySeats = new LinkedHashSet<>();
@@ -43,14 +49,15 @@ public final class ZJHTable {
     private int roundNo;
 
     public ZJHTable(long roomId, long ownerId, ZJHRules rules, long randomSeed) {
-        this(roomId, ownerId, rules, randomSeed, true);
+        this(roomId, ownerId, rules, randomSeed, SeededGameRandomSource.create().seed());
     }
 
     public ZJHTable(long roomId, long ownerId, int seatLimit, long randomSeed) {
-        this(roomId, ownerId, ZJHRules.from(Map.of("seatLimit", seatLimit)), randomSeed, true);
+        this(roomId, ownerId, ZJHRules.from(Map.of("seatLimit", seatLimit)), randomSeed,
+                SeededGameRandomSource.create().seed());
     }
 
-    private ZJHTable(long roomId, long ownerId, ZJHRules rules, long randomSeed, boolean ignored) {
+    ZJHTable(long roomId, long ownerId, ZJHRules rules, long randomSeed, long seatRandomSeed) {
         if (roomId <= 0 || ownerId <= 0) throw new IllegalArgumentException("invalid room identity");
         int seatLimit = rules.seatLimit();
         this.roomId = roomId;
@@ -58,21 +65,32 @@ public final class ZJHTable {
         this.seatLimit = seatLimit;
         this.rules = rules;
         this.random = new SeededGameRandomSource(randomSeed);
+        this.seatRandomSeed = seatRandomSeed;
     }
 
-    /** New authoritative write: sitting atomically occupies the seat and marks it ready. */
-    public synchronized void sit(int seatId, long playerId) {
+    /** Sitting selects and occupies one actual vacant seat under the aggregate lock. */
+    public synchronized int sit(long playerId) {
         requireState(State.WAITING);
-        if (seatId < 0 || seatId >= seatLimit || playerId <= 0) throw new IllegalArgumentException("invalid seat");
-        if (players.containsKey(seatId) || players.containsValue(playerId)) throw new IllegalStateException("seat or player already joined");
+        if (playerId <= 0) throw new IllegalArgumentException("invalid playerId");
+        if (players.containsValue(playerId)) throw new IllegalStateException("player already joined");
+        long nextSequence = Math.addExact(seatRandomSequence, 1);
+        GameRandomSource seatRandom = new SeededGameRandomSource(
+                mixSeatSeed(seatRandomSeed ^ SEAT_RANDOM_DOMAIN.hashCode() ^ seatRandomSequence));
+        int seatId = SEAT_ALLOCATOR.allocate(seatLimit, Set.copyOf(players.keySet()), seatRandom);
         players.put(seatId, playerId);
         readySeats.add(seatId);
+        seatRandomSequence = nextSequence;
         stateVersion++;
+        return seatId;
     }
 
-    /** Central legacy compatibility for old snapshots and tests; production commands use sit. */
+    /** Source compatibility only: the historic requested seat has no authority. */
     @Deprecated
-    public synchronized void join(int seatId, long playerId) { sit(seatId, playerId); }
+    public synchronized void sit(int ignoredSeatId, long playerId) { sit(playerId); }
+
+    /** Source compatibility only: JOIN uses the same random seating path. */
+    @Deprecated
+    public synchronized void join(int ignoredSeatId, long playerId) { sit(playerId); }
 
     public synchronized void start() {
         requireState(State.WAITING);
@@ -92,6 +110,7 @@ public final class ZJHTable {
         committedBets.clear(); preBets.clear();
         ZJHSetCard deck = new ZJHSetCard(this, random);
         deck.onXiPai();
+        // The persisted join order is authoritative for the first operator and deal.
         players.keySet().forEach(seat -> hands.put(seat, List.copyOf(deck.popList(3))));
         activeSeats.addAll(players.keySet());
         for (Integer seat : activeSeats) committedBets.put(seat, (long) rules.baseBet());
@@ -246,8 +265,12 @@ public final class ZJHTable {
                     "preBet", preBets.getOrDefault(seatId, 0)));
         }
         Map<String, Object> snapshot = new LinkedHashMap<>();
+        snapshot.put("schemaVersion", SCHEMA_VERSION);
         snapshot.put("ownerId", ownerId); snapshot.put("seatLimit", seatLimit); snapshot.put("state", state.name());
         snapshot.put("operatorSeat", operatorSeat); snapshot.put("randomSeed", randomSeed());
+        snapshot.put("seatRandomSeed", seatRandomSeed);
+        snapshot.put("seatRandomSequence", seatRandomSequence);
+        snapshot.put("seatJoinOrder", List.copyOf(players.keySet()));
         snapshot.put("readySeats", Set.copyOf(readySeats)); snapshot.put("seats", Map.copyOf(seats));
         snapshot.put("bettingRound", bettingRound); snapshot.put("actionsInRound", actionsInRound);
         snapshot.put("pot", pot); snapshot.put("stateVersion", stateVersion);
@@ -262,26 +285,59 @@ public final class ZJHTable {
     public synchronized Map<String, Object> authoritativeState() { return authoritativeSnapshot(); }
 
     static ZJHTable restore(long roomId, Map<String, Object> source) {
+        Object rawSchema = source.get("schemaVersion");
+        int schemaVersion = rawSchema == null ? 1 : number(source, "schemaVersion").intValue();
+        if (schemaVersion != 1 && schemaVersion != 2 && schemaVersion != SCHEMA_VERSION) {
+            throw new IllegalArgumentException("unsupported CN297 snapshot schemaVersion: " + schemaVersion);
+        }
+        long randomSeed = number(source, "randomSeed").longValue();
+        Map<?, ?> seats = map(source, "seats");
+        long seatSeed = schemaVersion == 1
+                ? mixSeatSeed(randomSeed ^ SEAT_RANDOM_DOMAIN.hashCode())
+                : number(source, "seatRandomSeed").longValue();
         ZJHRules restoredRules = source.get("rules") instanceof Map<?, ?> ruleMap
                 ? ZJHRules.from(stringObjectMap(ruleMap))
                 : ZJHRules.from(Map.of("seatLimit", number(source, "seatLimit").intValue()));
         ZJHTable table = new ZJHTable(roomId, number(source, "ownerId").longValue(),
-                restoredRules, number(source, "randomSeed").longValue());
-        Map<?, ?> seats = map(source, "seats");
-        seats.entrySet().stream().sorted(java.util.Comparator.comparingInt(e -> Integer.parseInt(String.valueOf(e.getKey()))))
-                .forEach(entry -> {
-                    int seat = Integer.parseInt(String.valueOf(entry.getKey()));
-                    Map<?, ?> value = requireMap(entry.getValue(), "seat");
-                    table.players.put(seat, ((Number) value.get("playerId")).longValue());
-                    table.hands.put(seat, integerList(value.get("cards")));
-                    if (Boolean.TRUE.equals(value.get("active"))) table.activeSeats.add(seat);
-                    if (Boolean.TRUE.equals(value.get("looked"))) table.lookedSeats.add(seat);
-                    if (Boolean.TRUE.equals(value.get("comparedOut"))) table.comparedOutSeats.add(seat);
-                    Object committedBet = value.get("committedBet");
-                    if (committedBet instanceof Number number) table.committedBets.put(seat, number.longValue());
-                    Object preBet = value.get("preBet");
-                    if (preBet instanceof Number number && number.intValue() > 0) table.preBets.put(seat, number.intValue());
-                });
+                restoredRules, randomSeed, seatSeed);
+        Map<Integer, Map<?, ?>> restoredSeats = new LinkedHashMap<>();
+        for (Map.Entry<?, ?> entry : seats.entrySet()) {
+            int seat = Integer.parseInt(String.valueOf(entry.getKey()));
+            if (seat < 0 || seat >= restoredRules.seatLimit()
+                    || restoredSeats.putIfAbsent(seat, requireMap(entry.getValue(), "seat")) != null) {
+                throw new IllegalArgumentException("invalid CN297 snapshot seat");
+            }
+        }
+        List<Integer> joinOrder;
+        if (schemaVersion == SCHEMA_VERSION) {
+            joinOrder = integerList(source.get("seatJoinOrder"));
+            if (joinOrder.size() != restoredSeats.size()
+                    || !Set.copyOf(joinOrder).equals(restoredSeats.keySet())) {
+                throw new IllegalArgumentException("invalid CN297 snapshot seatJoinOrder");
+            }
+        } else {
+            if (restoredSeats.size() > 1) {
+                throw new IllegalArgumentException("CN297 v1/v2 multi-seat join order is unavailable");
+            }
+            joinOrder = List.copyOf(restoredSeats.keySet());
+        }
+        for (Integer seat : joinOrder) {
+            Map<?, ?> value = restoredSeats.get(seat);
+            table.players.put(seat, ((Number) value.get("playerId")).longValue());
+            table.hands.put(seat, integerList(value.get("cards")));
+            if (Boolean.TRUE.equals(value.get("active"))) table.activeSeats.add(seat);
+            if (Boolean.TRUE.equals(value.get("looked"))) table.lookedSeats.add(seat);
+            if (Boolean.TRUE.equals(value.get("comparedOut"))) table.comparedOutSeats.add(seat);
+            Object committedBet = value.get("committedBet");
+            if (committedBet instanceof Number number) table.committedBets.put(seat, number.longValue());
+            Object preBet = value.get("preBet");
+            if (preBet instanceof Number number && number.intValue() > 0) table.preBets.put(seat, number.intValue());
+        }
+        table.seatRandomSequence = schemaVersion == 1 ? table.players.size()
+                : number(source, "seatRandomSequence").longValue();
+        if (table.seatRandomSequence < table.players.size()) {
+            throw new IllegalArgumentException("invalid CN297 seatRandomSequence");
+        }
         // Normalize legacy snapshots to the current invariant: seated means ready.
         table.readySeats.addAll(table.players.keySet());
         table.state = com.aoo.bcg.gamespi.StrictEnumDecoder.byName(State.class, String.valueOf(source.get("state")));
@@ -327,6 +383,14 @@ public final class ZJHTable {
         return result;
     }
 
+    private static long mixSeatSeed(long value) {
+        value ^= value >>> 30;
+        value *= 0xbf58476d1ce4e5b9L;
+        value ^= value >>> 27;
+        value *= 0x94d049bb133111ebL;
+        return value ^ (value >>> 31);
+    }
+
     private void advanceAfterAction(int previousSeat) {
         if (activeSeats.size() <= 1) {
             operatorSeat = activeSeats.isEmpty() ? -1 : activeSeats.get(0);
@@ -345,10 +409,15 @@ public final class ZJHTable {
         applyQueuedPreBets();
     }
 
-    /** Finds the clockwise successor even when the acting seat removed itself during fold/compare. */
+    /** Finds the clockwise successor by seat number, regardless of random join order. */
     private int nextActiveSeatAfter(int previousSeat) {
-        for (Integer seat : activeSeats) if (seat > previousSeat) return seat;
-        return activeSeats.getFirst();
+        int next = Integer.MAX_VALUE;
+        int first = Integer.MAX_VALUE;
+        for (Integer seat : activeSeats) {
+            first = Math.min(first, seat);
+            if (seat > previousSeat) next = Math.min(next, seat);
+        }
+        return next == Integer.MAX_VALUE ? first : next;
     }
 
     /**

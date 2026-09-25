@@ -34,9 +34,9 @@ public final class ZJHCommandHandler implements GameCommandHandler {
         long playerId = playerId(command.authenticatedUserId());
         Map<String, Object> body;
         switch (command.msgId()) {
-            case SIT -> { table.sit(number(command.body(), "seatId"), playerId); body = table.viewFor(playerId); }
+            case SIT -> { table.sit(playerId); body = table.viewFor(playerId); }
             // Old protocol compatibility remains centralized here; no new client emits JOIN or READY.
-            case JOIN -> { table.sit(command.seatId(), playerId); body = table.viewFor(playerId); }
+            case JOIN -> { table.sit(playerId); body = table.viewFor(playerId); }
             case READY -> { requireSeat(table, playerId, command.seatId()); table.ready(command.seatId(), booleanValue(command.body(), "ready")); body = table.viewFor(playerId); }
             case START -> { requireOwner(table, playerId); requireSeated(table, playerId); table.start(); body = table.viewFor(playerId); }
             case CONTINUE -> { requireOwner(table, playerId); requireSeated(table, playerId); table.continueRound(); body = table.viewFor(playerId); }
@@ -55,7 +55,7 @@ public final class ZJHCommandHandler implements GameCommandHandler {
             default -> throw new IllegalArgumentException("unsupported CN297 command: " + command.msgId());
         }
         LOG.info("[CN297] command applied roomId={} playerId={} seatId={} requestId={} msgId={} stateVersion={}",
-                room.roomId(), playerId, command.seatId(), command.requestId(), command.msgId(), table.stateVersion());
+                room.roomId(), playerId, table.seatOf(playerId), command.requestId(), command.msgId(), table.stateVersion());
         return new GameCommandResult(request.msgId().replace("_req", "_resp"), request.requestId(), body);
     }
 

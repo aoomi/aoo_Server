@@ -48,7 +48,7 @@ final class ZJHAuthoritativeSession implements AuthoritativeGameSession, LegacyC
     @Override public Map<String, Object> authoritativeState() {
         Map<String, Object> snapshot = new java.util.LinkedHashMap<>(table.authoritativeState());
         snapshot.put("roomId", table.roomId());
-        snapshot.put("schemaVersion", 1);
+        snapshot.put("schemaVersion", 3);
         // Gateway lifecycle policies consume the same canonical markers emitted by
         // the shared Poker authority. Keep them in every durable CN297 snapshot so
         // create, restore and later joins cannot disagree about whether play began.

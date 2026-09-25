@@ -1,5 +1,7 @@
 package com.aoo.bcg.poker.nn;
 
+import com.aoo.bcg.common.random.SeededGameRandomSource;
+import com.aoo.bcg.common.room.AuthoritativeRandomSeatAllocator;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
@@ -16,6 +18,8 @@ import java.util.Set;
  * 所有改变状态的操作都携带 operationId，并在房间内幂等去重。
  */
 public final class NiuNiuSession {
+  private static final AuthoritativeRandomSeatAllocator SEAT_ALLOCATOR = new AuthoritativeRandomSeatAllocator();
+  private static final long SEAT_DOMAIN = domainHash("CN298-SEAT");
   public enum Phase { WAITING, ROBBING, BETTING, SPLITTING, SETTLEMENT, FINISHED }
   public record Result(int round, int bankerSeat, Map<Integer, Long> scoreDelta,
                        Map<Integer, NiuNiuHandEvaluator.Hand> hands) {}
@@ -23,6 +27,7 @@ public final class NiuNiuSession {
   private final long roomId;
   private final long ownerId;
   private final long seed;
+  private final long seatRandomSeed;
   private final NiuNiuRules rules;
   private final Map<Integer, Long> players = new LinkedHashMap<>();
   private final Set<Integer> continuationSeats = new LinkedHashSet<>();
@@ -42,29 +47,39 @@ public final class NiuNiuSession {
   private int round;
   private int bankerSeat = -1;
   private long stateVersion;
+  private long seatRandomSequence;
   private Result lastResult;
 
   public NiuNiuSession(long roomId, long ownerId, long seed, NiuNiuRules rules) {
+    this(roomId, ownerId, seed, SeededGameRandomSource.create().seed(), rules);
+  }
+
+  private NiuNiuSession(long roomId, long ownerId, long seed, long seatRandomSeed, NiuNiuRules rules) {
     if (roomId <= 0 || ownerId <= 0) throw new IllegalArgumentException("invalid room identity");
     this.roomId = roomId;
     this.ownerId = ownerId;
     this.seed = seed;
+    this.seatRandomSeed = seatRandomSeed;
     this.rules = Objects.requireNonNull(rules);
   }
 
-  public synchronized void sit(int seat, long playerId, String operationId) {
+  public synchronized void sit(long playerId, String operationId) {
     requireMutable(operationId);
-    if (phase != Phase.WAITING || round != 0) throw sitFailure("CN298_SIT_NOT_ALLOWED");
-    if (seat < 0 || seat >= rules.maxPlayers()) throw sitFailure("CN298_INVALID_SEAT");
-    if (players.size() >= rules.maxPlayers()) throw sitFailure("CN298_SEATS_FULL");
     if (players.containsValue(playerId)) throw sitFailure("CN298_ALREADY_SEATED");
-    if (players.containsKey(seat)) throw sitFailure("CN298_SEAT_OCCUPIED");
+    if (players.size() >= rules.maxPlayers()) throw sitFailure("CN298_SEATS_FULL");
+    if (phase != Phase.WAITING || round != 0) throw sitFailure("CN298_SIT_NOT_ALLOWED");
+    // Select from the authoritative occupied set while holding the room mutation lock.
+    int seat = SEAT_ALLOCATOR.allocate(rules.maxPlayers(), Set.copyOf(players.keySet()),
+        new SeededGameRandomSource(seatStreamSeed(seatRandomSeed, seatRandomSequence)));
     players.put(seat, playerId);
     totalScores.put(seat, 0L);
     winRounds.put(seat, 0); lossRounds.put(seat, 0); bankerRounds.put(seat, 0);
     bullBullRounds.put(seat, 0); maxRoundWins.put(seat, 0L);
+    seatRandomSequence++;
     changed(operationId);
     if (players.size() == rules.maxPlayers()) startRound();
+    System.out.printf("[CN298Seat] allocated roomId=%d playerId=%d operationId=%s stateVersion=%d seat=%d sequence=%d%n",
+        roomId, playerId, operationId, stateVersion, seat, seatRandomSequence);
   }
 
   public synchronized void start(long playerId, String operationId) {
@@ -171,9 +186,10 @@ public final class NiuNiuSession {
 
   public synchronized Map<String, Object> authoritativeState() {
     Map<String, Object> state = new LinkedHashMap<>();
-    state.put("schemaVersion", 1); state.put("gameCode", NiuNiuRules.GAME_CODE);
+    state.put("schemaVersion", 3); state.put("gameCode", NiuNiuRules.GAME_CODE);
     state.put("playVersion", NiuNiuRules.PLAY_VERSION); state.put("roomId", roomId);
     state.put("ownerId", ownerId); state.put("seed", seed);
+    state.put("seatRandomSeed", seatRandomSeed); state.put("seatRandomSequence", seatRandomSequence);
     state.put("rules", Map.of("rounds", rules.rounds(), "maxPlayers", rules.maxPlayers(),
         "startPlayers", rules.startPlayers(), "mode", rules.mode().name(),
         "maxRobMultiplier", rules.maxRobMultiplier(), "maxPushMultiplier", rules.maxPushMultiplier(),
@@ -181,6 +197,8 @@ public final class NiuNiuSession {
         "kanShunDouEnabled", rules.kanShunDouEnabled()));
     state.put("phase", phase.name()); state.put("round", round); state.put("stateVersion", stateVersion);
     state.put("bankerSeat", bankerSeat); state.put("players", Map.copyOf(players));
+    // players is the single join-order authority; this list preserves its order across map serialization.
+    state.put("joinOrderSeats", List.copyOf(players.keySet()));
     state.put("continuationSeats", List.copyOf(continuationSeats)); state.put("hands", Map.copyOf(hands));
     state.put("fifthCards", Map.copyOf(fifthCards)); state.put("robs", Map.copyOf(robMultipliers));
     state.put("bets", Map.copyOf(bets)); state.put("splitSeats", List.copyOf(splitSeats));
@@ -193,7 +211,8 @@ public final class NiuNiuSession {
   }
 
   public static NiuNiuSession restore(Map<String, Object> state) {
-    if (number(state.get("schemaVersion")) != 1
+    long schemaVersion = number(state.get("schemaVersion"));
+    if ((schemaVersion != 1 && schemaVersion != 2 && schemaVersion != 3)
         || !NiuNiuRules.GAME_CODE.equals(String.valueOf(state.get("gameCode")))
         || !NiuNiuRules.PLAY_VERSION.equals(String.valueOf(state.get("playVersion")))) {
       throw new IllegalArgumentException("CN298_UNSUPPORTED_AUTHORITY_SNAPSHOT");
@@ -204,11 +223,41 @@ public final class NiuNiuSession {
         integer(rawRules, "maxRobMultiplier"), integer(rawRules, "maxPushMultiplier"),
         NiuNiuRules.StandPolicy.valueOf(text(rawRules, "standPolicy")),
         bool(rawRules, "fastModeEnabled"), bool(rawRules, "kanShunDouEnabled"));
+    long seed = longNumber(state, "seed");
+    long seatRandomSeed = schemaVersion == 1 ? mix64(seed ^ SEAT_DOMAIN) : longNumber(state, "seatRandomSeed");
     NiuNiuSession restored = new NiuNiuSession(longNumber(state, "roomId"), longNumber(state, "ownerId"),
-        longNumber(state, "seed"), rules);
+        seed, seatRandomSeed, rules);
     restored.phase = Phase.valueOf(text(state, "phase")); restored.round = integer(state, "round");
     restored.stateVersion = longNumber(state, "stateVersion"); restored.bankerSeat = integer(state, "bankerSeat");
-    copyLongMap(state.get("players"), restored.players); copyIntListMap(state.get("hands"), restored.hands);
+    Map<Integer, Long> snapshotPlayers = new LinkedHashMap<>();
+    copyLongMap(state.get("players"), snapshotPlayers);
+    if (snapshotPlayers.size() > rules.maxPlayers()
+        || snapshotPlayers.keySet().stream().anyMatch(seat -> seat < 0 || seat >= rules.maxPlayers())
+        || new HashSet<>(snapshotPlayers.values()).size() != snapshotPlayers.size()) {
+      throw new IllegalArgumentException("CN298_INVALID_AUTHORITY_SEATS");
+    }
+    List<Integer> joinOrder;
+    if (schemaVersion == 3) {
+      joinOrder = intList(state.get("joinOrderSeats"));
+      if (joinOrder.size() != snapshotPlayers.size()
+          || new HashSet<>(joinOrder).size() != joinOrder.size()
+          || !snapshotPlayers.keySet().equals(new HashSet<>(joinOrder))) {
+        throw new IllegalArgumentException("CN298_INVALID_JOIN_ORDER");
+      }
+    } else {
+      // Pre-v3 maps lost insertion order; only zero or one occupied seat is unambiguous.
+      if (snapshotPlayers.size() > 1) {
+        throw new IllegalArgumentException("CN298_LEGACY_JOIN_ORDER_UNRESOLVED");
+      }
+      joinOrder = List.copyOf(snapshotPlayers.keySet());
+    }
+    for (int seat : joinOrder) restored.players.put(seat, snapshotPlayers.get(seat));
+    copyIntListMap(state.get("hands"), restored.hands);
+    restored.seatRandomSequence = schemaVersion == 1 ? restored.players.size()
+        : longNumber(state, "seatRandomSequence");
+    if (restored.seatRandomSequence != restored.players.size()) {
+      throw new IllegalArgumentException("CN298_INVALID_SEAT_RANDOM_SEQUENCE");
+    }
     copyIntMap(state.get("fifthCards"), restored.fifthCards); copyIntMap(state.get("robs"), restored.robMultipliers);
     copyIntMap(state.get("bets"), restored.bets); copyLongMap(state.get("totalScores"), restored.totalScores);
     copyIntMap(state.get("winRounds"), restored.winRounds); copyIntMap(state.get("lossRounds"), restored.lossRounds);
@@ -332,6 +381,19 @@ public final class NiuNiuSession {
   private void changed(String operationId) { consumedOperations.add(operationId); stateVersion++; }
   private void requirePlayer(int seat) { if (!players.containsKey(seat)) throw new IllegalArgumentException("unknown CN298 seat"); }
   private static IllegalStateException sitFailure(String code) { return new IllegalStateException(code); }
+  private static long domainHash(String domain) {
+    long hash = 0xcbf29ce484222325L;
+    for (int i = 0; i < domain.length(); i++) hash = (hash ^ domain.charAt(i)) * 0x100000001b3L;
+    return hash;
+  }
+  private static long seatStreamSeed(long sourceSeed, long sequence) {
+    return mix64(sourceSeed ^ SEAT_DOMAIN ^ (0x9e3779b97f4a7c15L * (sequence + 1)));
+  }
+  private static long mix64(long value) {
+    value = (value ^ (value >>> 30)) * 0xbf58476d1ce4e5b9L;
+    value = (value ^ (value >>> 27)) * 0x94d049bb133111ebL;
+    return value ^ (value >>> 31);
+  }
   private List<Integer> autoSplitSelection(int seat) {
     return NiuNiuHandEvaluator.evaluate(hands.get(seat), rules.kanShunDouEnabled())
         .arrangedCards().subList(0, 3);

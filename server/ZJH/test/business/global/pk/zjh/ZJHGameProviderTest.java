@@ -53,11 +53,13 @@ class ZJHGameProviderTest {
         ZJHTable table = provider.roomFactory().create(new RoomCreationContext(10, 20,
                 Map.of("seatLimit", 8, "mustBlindRounds", 0, "randomSeed", 88L))).requireLegacyRoom(ZJHTable.class);
         table.join(0, 20); table.join(1, 21); table.join(2, 22);
-        table.ready(0, true); table.ready(1, true); table.ready(2, true); table.start();
+        table.ready(table.seatOf(20), true); table.ready(table.seatOf(21), true);
+        table.ready(table.seatOf(22), true); table.start();
         assertEquals(ZJHTable.State.PLAYING, table.state());
-        table.look(0);
-        assertEquals(3, table.handView(20, 0).size());
-        assertEquals(java.util.List.of(0, 0, 0), table.handView(20, 1));
+        int ownerSeat = table.seatOf(20);
+        table.look(ownerSeat);
+        assertEquals(3, table.handView(20, ownerSeat).size());
+        assertEquals(java.util.List.of(0, 0, 0), table.handView(20, table.seatOf(21)));
         assertNotEquals(88L, table.randomSeed(), "client/room rules must not choose the shuffle seed");
     }
 
@@ -69,9 +71,9 @@ class ZJHGameProviderTest {
         ZJHTable table = room.requireLegacyRoom(ZJHTable.class);
 
         authority.execute(command(14, "sit-owner", 1, "2004", 0,
-                ZJHCommandHandler.SIT, Map.of("seatId", 0)));
+                ZJHCommandHandler.SIT, Map.of()));
         authority.execute(command(14, "sit-member", 2, "2005", 1,
-                ZJHCommandHandler.SIT, Map.of("seatId", 1)));
+                ZJHCommandHandler.SIT, Map.of()));
         authority.execute(command(14, "start", 3, "2004", 0,
                 ZJHCommandHandler.START, Map.of()));
 

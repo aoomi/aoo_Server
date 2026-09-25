@@ -16,10 +16,15 @@ public interface PdkScoringPolicy {
             context.players().keySet().forEach(seat -> seats.put(seat, 0L));
             applyInitialPatternScore(context, rules, seats);
             applyJinHuaScore(context, rules, seats);
-            if (rules.dealerRule().enabled() && context.competeDealerSeat() >= 0)
+            boolean competeDealer = rules.dealerRule().enabled()
+                    && context.competeDealerSeat() >= 0;
+            if (competeDealer)
                 applyCompeteDealerScore(context, rules, seats);
             else
                 applyNormalScore(context, rules, seats);
+            if (!competeDealer || rules.bombScore().mode()
+                    == PdkAdvancedRules.BombMode.FIXED_POINTS)
+                applyBombTransfers(context, rules, seats);
             long checksum = seats.values().stream().mapToLong(Long::longValue).sum();
             if (checksum != 0) throw new IllegalStateException("PDK settlement is not zero-sum");
             Map<Long,Long> delta = new LinkedHashMap<>();
@@ -57,7 +62,6 @@ public interface PdkScoringPolicy {
             winnerBase = Math.addExact(winnerBase, score);
         }
         seats.merge(winner, winnerBase, Long::sum);
-        applyBombTransfers(context, rules, seats);
     }
 
     private static long score(PdkAdvancedRules.ScoreRule score, PdkAdvancedRules rules,
@@ -111,34 +115,23 @@ public interface PdkScoringPolicy {
 
     private static void applyBombTransfers(PdkSettlementContext context,
             PdkAdvancedRules rules, Map<Integer,Long> seats) {
-        if (rules.bombScore().mode() == PdkAdvancedRules.BombMode.PAIRWISE) {
-            var ordered = context.players().keySet().stream().sorted().toList();
-            for (int first = 0; first < ordered.size(); first++)
-                for (int second = first + 1; second < ordered.size(); second++) {
-                    int a = ordered.get(first), b = ordered.get(second);
-                    long transfer = (long) (context.bombs().getOrDefault(a, 0)
-                            - context.bombs().getOrDefault(b, 0))
-                            * rules.bombScore().points();
-                    seats.merge(a, transfer, Long::sum);
-                    seats.merge(b, -transfer, Long::sum);
-                }
-            return;
-        }
-        if (rules.bombScore().mode() != PdkAdvancedRules.BombMode.FIXED_POINTS) return;
-        int totalBombs = context.bombs().values().stream().mapToInt(Integer::intValue).sum();
-        if (totalBombs == 0) return;
-        long winnerTransfer = 0;
-        int winner = context.winnerSeat();
-        for (int seat : context.players().keySet()) {
-            if (seat == winner) continue;
-            int net = context.bombs().getOrDefault(seat, 0)
-                    - (totalBombs - context.bombs().getOrDefault(seat, 0));
-            long transfer = (long) rules.bombScore().points() * rules.baseScore() * net
-                    * (context.players().size() - 1L);
-            seats.merge(seat, transfer, Long::sum);
-            winnerTransfer = Math.addExact(winnerTransfer, transfer);
-        }
-        seats.merge(winner, -winnerTransfer, Long::sum);
+        PdkAdvancedRules.BombMode mode = rules.bombScore().mode();
+        if (mode != PdkAdvancedRules.BombMode.PAIRWISE
+                && mode != PdkAdvancedRules.BombMode.FIXED_POINTS) return;
+        long unit = mode == PdkAdvancedRules.BombMode.FIXED_POINTS
+                ? Math.multiplyExact((long) rules.bombScore().points(), rules.baseScore())
+                : rules.bombScore().points();
+        var ordered = context.players().keySet().stream().sorted().toList();
+        // Each bomb is paid for by every other seat, regardless of who won the hand.
+        for (int first = 0; first < ordered.size(); first++)
+            for (int second = first + 1; second < ordered.size(); second++) {
+                int a = ordered.get(first), b = ordered.get(second);
+                long difference = (long) context.bombs().getOrDefault(a, 0)
+                        - context.bombs().getOrDefault(b, 0);
+                long transfer = Math.multiplyExact(difference, unit);
+                seats.merge(a, transfer, Long::sum);
+                seats.merge(b, -transfer, Long::sum);
+            }
     }
 
     private static void applyInitialPatternScore(PdkSettlementContext context,

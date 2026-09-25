@@ -329,9 +329,7 @@ public final class PdkPublishedRuleOptions {
     }
 
     private static boolean allowsPairs(PaoDeKuaiConfig.AttachmentMode mode) {
-        return mode == PaoDeKuaiConfig.AttachmentMode.PAIRS
-                || mode == PaoDeKuaiConfig.AttachmentMode.SINGLE_OR_PAIR
-                || mode == PaoDeKuaiConfig.AttachmentMode.EITHER;
+        return mode.allowsPairs();
     }
 
     private static PdkAdvancedRules advanced(Map<String,Object> rules,

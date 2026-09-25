@@ -71,15 +71,15 @@ public final class GameWebSocketRouter {
         if(isReadOnly(frame))return routeReadOnly(session,frame,scopedRoomId);
         IdempotencyKey idempotencyKey=new IdempotencyKey(session.userId(),frame.msgId(),scopedRoomId,frame.roundNo(),frame.requestId());
         GameCommandResult previous = idempotency.find(idempotencyKey).orElse(null);
-        if (previous != null) return new RoutedResult(session, previous, true, false);
+        if (previous != null) return replay(session,frame,scopedRoomId,previous);
         if (!idempotency.acquire(idempotencyKey, retention)) {
             previous = idempotency.find(idempotencyKey).orElse(null);
-            if (previous != null) return new RoutedResult(session, previous, true, false);
+            if (previous != null) return replay(session,frame,scopedRoomId,previous);
             GameRoomHandle pendingRoom=rooms.require(scopedRoomId);
             GameCommandRequest pending=new GameCommandRequest(frame.msgId(),frame.requestId(),frame.seq(),scopedRoomId,
                     frame.roundNo(),frame.playVersion(),session.userId(),session.seatId(),frame.body());
             previous=runtimeCommitter.findCommitted(pendingRoom,pending).orElse(null);
-            if(previous!=null){idempotency.save(idempotencyKey,previous,retention);return new RoutedResult(session,previous,true,false);}
+            if(previous!=null){idempotency.save(idempotencyKey,previous,retention);return replay(session,frame,scopedRoomId,previous);}
             throw new RequestOutcomeUnknownException(frame.requestId());
         }
         boolean committed = false;
@@ -181,17 +181,53 @@ public final class GameWebSocketRouter {
         Object nestedAction=command.get("action");
         if(nestedAction instanceof String value&&!value.isBlank())action=value;
         if(!action.toLowerCase(java.util.Locale.ROOT).endsWith(".sit_req"))return session;
-        Object nestedPayload=command.get("payload");
-        Map<?,?> payload=nestedPayload instanceof Map<?,?> map?map:command;
-        Object raw=payload.containsKey("seatId")?payload.get("seatId"):payload.get("seat");
-        int requested=raw instanceof Number number?number.intValue():-1;
         Map<String,Object> view=result.body().asMap();
         Object rawViewerSeat=view.get("viewerSeat");
-        int confirmed=rawViewerSeat instanceof Number number?number.intValue():-1;
+        int confirmed=rawViewerSeat instanceof Number number?number.intValue()
+                : authoritativeSeatForViewer(view,session.userId());
         String role=String.valueOf(view.getOrDefault("viewerRole",view.getOrDefault("viewerStatus","")));
-        if(requested<0||confirmed!=requested||!("SEATED".equals(role)))
-            throw new SecurityException("sit result did not confirm the requested authoritative seat");
+        if(confirmed<0||!("SEATED".equals(role))||!authoritativeSeatBelongsToViewer(view,confirmed,session.userId()))
+            throw new SecurityException("sit result did not confirm the authenticated viewer's authoritative seat");
         return session.withSeatId(confirmed);
+    }
+
+    private RoutedResult replay(ConnectionSession session,WebSocketFrame frame,long roomId,GameCommandResult result) {
+        if(!session.roomId().equals(frame.roomId()))throw new SecurityException("room mismatch");
+        if(!session.playVersion().equals(frame.playVersion()))throw new SecurityException("play version mismatch");
+        GameRoomHandle room=rooms.require(roomId);
+        if(!room.playVersion().equals(frame.playVersion()))throw new SecurityException("room play version mismatch");
+        return new RoutedResult(rebindAfterSit(session,frame,result),result,true,false);
+    }
+
+    private static int authoritativeSeatForViewer(Map<String,Object> view,String userId) {
+        Object seats=view.containsKey("players")?view.get("players"):view.get("seats");
+        if(!(seats instanceof Map<?,?> map))return -1;
+        for(Map.Entry<?,?> entry:map.entrySet()){
+            Object occupant=entry.getValue();
+            if(occupant instanceof Map<?,?> seatView)occupant=seatView.get("playerId");
+            if(sameIdentity(occupant,userId)){
+                try{return Integer.parseInt(String.valueOf(entry.getKey()));}
+                catch(NumberFormatException ignored){return -1;}
+            }
+        }
+        return -1;
+    }
+
+    private static boolean authoritativeSeatBelongsToViewer(Map<String,Object> view,int seat,String userId) {
+        Object seats=view.containsKey("players")?view.get("players"):view.get("seats");
+        if(!(seats instanceof Map<?,?> map))return false;
+        Object occupant=map.get(seat);
+        if(occupant==null)occupant=map.get(String.valueOf(seat));
+        if(occupant instanceof Map<?,?> seatView)occupant=seatView.get("playerId");
+        return sameIdentity(occupant,userId);
+    }
+
+    private static boolean sameIdentity(Object occupant,String userId) {
+        if(occupant instanceof Number number){
+            try{return number.longValue()==Long.parseLong(userId);}
+            catch(NumberFormatException ignored){return false;}
+        }
+        return occupant!=null&&String.valueOf(occupant).equals(userId);
     }
 
     public java.util.List<GameOperationTimeline.Entry> operationTimeline(long roomId) {
