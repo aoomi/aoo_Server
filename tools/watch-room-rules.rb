@@ -10,23 +10,104 @@ IDENTITY_REGISTRY = File.join(SERVER_ROOT, 'tools/room-rule-play-identities.json
 PUBLISH = ENV.fetch('AOO_ROOM_RULE_PUBLISHER', File.join(SERVER_ROOT, 'tools/publish-room-rules.sh'))
 POLL_SECONDS = Float(ENV.fetch('AOO_ROOM_RULE_POLL_SECONDS', '1'))
 STABLE_SECONDS = Float(ENV.fetch('AOO_ROOM_RULE_STABLE_SECONDS', '0.6'))
+LOGGED_ONCE = {}
+
+def log_once(key, message)
+  return if LOGGED_ONCE[key]
+  LOGGED_ONCE[key] = true
+  log(message)
+end
+
+# 用户维护的正式规则表目录：目录决定「有哪些地区表」，稳定身份注册表决定「这张表是谁」。
+OFFICIAL_RULE_DIRECTORY = File.join(PROJECT_ROOT, 'Client/docs/开房规则表/跑得快')
+
+def load_registered_plays
+  payload = JSON.parse(File.read(IDENTITY_REGISTRY, encoding: 'UTF-8'))
+  payload.fetch('plays')
+end
+
+def registered_workbook_path(play)
+  relative = play.fetch('workbookPath')
+  candidate = File.expand_path(relative, PROJECT_ROOT)
+  unless candidate.start_with?(PROJECT_ROOT + File::SEPARATOR)
+    raise "room-rules workbookPath 越出项目目录: #{relative}"
+  end
+  candidate
+end
+
+# 稳定身份：注册表条目的 workbook 是地区表的稳定文件名，workbookPath 只是它当前所在的位置。
+# 早期条目还没有稳定身份字段时按同一语义回退到 workbookPath 的文件名部分，并留下可见告警，
+# 避免「注册表少了字段」被静默当成「地区表不存在」。
+def stable_workbook_name(play, relative)
+  play.fetch('workbook') do
+    log_once("identity-fallback:#{relative}",
+             "room-rules 注册表条目缺少稳定身份 workbook，按 workbookPath 文件名回退: #{relative}")
+    File.basename(relative)
+  end
+end
+
+def registered_workbooks
+  plays = load_registered_plays.select do |play|
+    play.fetch('publishingEnabled', true) && play.fetch('automaticPublishingEnabled', true)
+  end
+  registered = plays.map do |play|
+    relative = play.fetch('workbookPath')
+    path = registered_workbook_path(play)
+    name = stable_workbook_name(play, relative)
+    # 稳定身份和登记路径必须指向同一张表，否则地区身份已经和文件漂移。
+    unless File.basename(path) == name
+      raise "room-rules 稳定身份与登记路径不一致: workbook=#{name} workbookPath=#{relative}"
+    end
+    [name, path]
+  end
+  raise 'room-rules workbookPath 不得重复登记' unless registered.map { |(_, path)| path }.uniq.length == registered.length
+  names = registered.map { |(name, _)| name }
+  duplicated = names.each_with_object(Hash.new(0)) { |name, counts| counts[name] += 1 }
+                    .select { |_, count| count > 1 }.keys
+  raise "room-rules 稳定身份不得重复登记: #{duplicated.join('、')}" unless duplicated.empty?
+  registered.to_h
+end
+
+# 正式目录枚举：目录里符合「<地区>家族名.xlsx」命名契约的地区表都必须已登记稳定身份。
+# 未登记就 fail-closed，避免新增地区表被静默漏听；目录中的非地区表（例如跨地区汇总表）
+# 不满足命名契约，因此不会被误判成地区表，也不会被特判文件名放过。
+def verify_official_rule_directory!(registered)
+  raise "正式 room-rules 目录不存在: #{OFFICIAL_RULE_DIRECTORY}" unless File.directory?(OFFICIAL_RULE_DIRECTORY)
+  family = File.basename(OFFICIAL_RULE_DIRECTORY)
+  region_table = /#{Regexp.escape(family)}\.xlsx\z/
+  unregistered = []
+  Dir.glob(File.join(OFFICIAL_RULE_DIRECTORY, '*.xlsx')).sort.each do |path|
+    name = File.basename(path)
+    unless name.match?(region_table)
+      unless registered.key?(name)
+        log_once("unregistered-document:#{name}",
+                 "正式目录存在未登记的非地区表，按命名契约跳过自动发布: #{name}")
+      end
+      next
+    end
+    if registered.key?(name)
+      unless registered.fetch(name) == path
+        raise "room-rules 正式目录与登记路径不一致: #{name}"
+      end
+      next
+    end
+    unregistered << name
+  end
+  return if unregistered.empty?
+  raise "正式目录中的地区表没有稳定身份登记: #{unregistered.join('、')}；请先在 tools/room-rule-play-identities.json 登记"
+end
 
 def resolve_workbooks
   override = ENV['AOO_ROOM_RULE_WORKBOOK'].to_s
   if override.empty?
-    payload = JSON.parse(File.read(IDENTITY_REGISTRY, encoding: 'UTF-8'))
-    paths = payload.fetch('plays').select do |play|
-      play.fetch('publishingEnabled', true) && play.fetch('automaticPublishingEnabled', true)
-    end.map do |play|
-      relative = play.fetch('workbookPath')
-      candidate = File.expand_path(relative, PROJECT_ROOT)
-      unless candidate.start_with?(PROJECT_ROOT + File::SEPARATOR)
-        raise "room-rules workbookPath 越出项目目录: #{relative}"
-      end
-      candidate
+    registered = registered_workbooks
+    verify_official_rule_directory!(registered)
+    absent = registered.select { |_, path| !File.file?(path) }.keys
+    absent.each do |name|
+      log_once("absent:#{name}",
+               "room-rules 注册表登记的地区表文件不存在，本轮不监听: #{name}")
     end
-    raise 'room-rules workbookPath 不得重复登记' unless paths.uniq.length == paths.length
-    return paths.sort
+    return registered.values.uniq.sort
   end
   # 正式服务自动发现目录中的地区表；只有测试可改为临时副本。
   # 只有测试用例可以把 watcher 指向临时副本，以验证损坏文件 fail-closed，

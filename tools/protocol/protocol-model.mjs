@@ -37,7 +37,7 @@ export function loadProtocol(file) {
     }
     if (message.kind === 'push' && message.msgId.endsWith('state_push')
         && message.msgId !== 'common.room.state_push') {
-      const businessPdk = /^poker\.(?:CD201|NJ201|LS201)\.state_push$/.test(message.msgId);
+      const businessPdk = /^poker\.[A-Z]{2}[1-5][0-9]{2}\.state_push$/.test(message.msgId);
       for (const field of businessPdk ? ['payload', 'stateVersion', 'serverSeq'] : ['action', 'payload']) {
         if (!message.response.required.includes(field)) {
           throw new Error(`${message.msgId}: ${businessPdk ? 'authoritative' : 'compatibility'} push requires ${field}`);

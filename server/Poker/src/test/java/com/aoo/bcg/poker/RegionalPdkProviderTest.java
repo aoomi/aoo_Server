@@ -181,9 +181,7 @@ final class RegionalPdkProviderTest {
             assertTrue(guard++ < 200, "Liangshan authority round did not converge");
             int seat = ((Number) session.viewFor(10).get("currentSeat")).intValue();
             long player = 10L + seat;
-            var hint = session.execute(command(roomId, seat, player, "hint", sequence++));
-            @SuppressWarnings("unchecked")
-            List<CardCombination> hints = (List<CardCombination>) hint.body().get("hints");
+            List<CardCombination> hints = PdkLegalMoves.hints((PokerAuthoritativeSession) session);
             if (hints.isEmpty())
                 session.execute(command(roomId, seat, player, "pass", sequence++));
             else
@@ -243,9 +241,7 @@ final class RegionalPdkProviderTest {
             assertTrue(guard++ < 200, "Chengdu authority round did not converge");
             int seat = ((Number) session.viewFor(10).get("currentSeat")).intValue();
             long player = 10L + seat;
-            @SuppressWarnings("unchecked")
-            List<CardCombination> hints = (List<CardCombination>) session.execute(
-                    command(roomId, seat, player, "hint", sequence++)).body().get("hints");
+            List<CardCombination> hints = PdkLegalMoves.hints((PokerAuthoritativeSession) session);
             if (hints.isEmpty())
                 session.execute(command(roomId, seat, player, "pass", sequence++));
             else

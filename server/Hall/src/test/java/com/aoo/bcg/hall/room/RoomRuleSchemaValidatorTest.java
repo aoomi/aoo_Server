@@ -48,11 +48,12 @@ final class RoomRuleSchemaValidatorTest {
                 RoomRuleSchemaValidator.validate(schema,Map.of("roundCount",10)));
         assertEquals(Map.of("roomDurationMinutes",45,"baseScore",1),
                 RoomRuleSchemaValidator.validate(schema,Map.of("roomDurationMinutes",45)));
-        for(Map<String,Object> invalid:List.of(
+        List<Map<String,Object>> invalidInputs=List.of(
                 Map.of(),
                 Map.of("roundCount",10,"roomDurationMinutes",30),
                 Map.of("roundCount",12),
-                Map.of("roomEndSelection","ROUND_COUNT:10")))
+                Map.of("roomEndSelection","ROUND_COUNT:10"));
+        for(Map<String,Object> invalid:invalidInputs)
             assertThrows(HallError.class,()->RoomRuleSchemaValidator.validate(schema,invalid));
     }
 

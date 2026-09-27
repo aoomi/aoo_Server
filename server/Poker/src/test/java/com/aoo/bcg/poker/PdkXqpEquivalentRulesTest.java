@@ -3,6 +3,7 @@ package com.aoo.bcg.poker;
 import static org.junit.jupiter.api.Assertions.*;
 
 import com.aoo.bcg.gamespi.GameCommandRequest;
+import com.aoo.bcg.gamespi.time.OperationDeadline;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.time.Instant;
@@ -140,7 +141,7 @@ final class PdkXqpEquivalentRulesTest {
             if (!"PLAYING".equals(session.viewFor(10).get("phase"))) continue;
 
             long sequence = 5;
-            List<CardCombination> dealerHints = hints(session, sequence++, dealer);
+            List<CardCombination> dealerHints = hints(session, dealer);
             int dealerCards = cardCount(session, dealer);
             CardCombination dealerPlay = dealerHints.stream()
                     .filter(candidate -> candidate.cards().size() < dealerCards)
@@ -564,10 +565,7 @@ final class PdkXqpEquivalentRulesTest {
             assertTrue(guard++ < 50, "authoritative round did not converge");
             int seat = ((Number) session.viewFor(10).get("currentSeat")).intValue();
             long player = 10L + seat;
-            var hint = session.execute(command(sessionRoom(session), session, "hint_req",
-                    sequence++, seat, player, Map.of()));
-            @SuppressWarnings("unchecked") List<CardCombination> hints =
-                    (List<CardCombination>) hint.body().get("hints");
+            List<CardCombination> hints = PdkLegalMoves.hints(session);
             session.execute(command(sessionRoom(session), session,
                     hints.isEmpty() ? "pass_req" : "play_req", sequence++, seat, player,
                     hints.isEmpty() ? Map.of() : Map.of("cards", hints.getFirst().cards())));
@@ -575,12 +573,9 @@ final class PdkXqpEquivalentRulesTest {
         return sequence;
     }
 
-    private static List<CardCombination> hints(
-            PokerAuthoritativeSession session, long sequence, int seat) {
-        @SuppressWarnings("unchecked") List<CardCombination> hints =
-                (List<CardCombination>) session.execute(command(sessionRoom(session), session,
-                        "hint_req", sequence, seat, 10L + seat, Map.of())).body().get("hints");
-        return hints;
+    private static List<CardCombination> hints(PokerAuthoritativeSession session, int seat) {
+        assertEquals(seat, ((PokerTurnState) session.authoritativeState().get("state")).currentSeat());
+        return PdkLegalMoves.hints(session);
     }
 
     private static int cardCount(PokerAuthoritativeSession session, int seat) {

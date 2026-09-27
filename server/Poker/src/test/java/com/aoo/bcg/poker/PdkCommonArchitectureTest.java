@@ -27,15 +27,6 @@ final class PdkCommonArchitectureTest {
         }
     }
 
-    @Test void twoIndependentVariantsAssembleThroughTheSamePolicyContract() {
-        PdkVariantPolicy first = AypdkRules.policy(AypdkOptions.from(Map.of()));
-        PdkVariantPolicy second = HbpdkRules.policy(HbpdkOptions.from(Map.of()));
-        assertNotEquals(first.policyId(), second.policyId());
-        assertEquals(PaoDeKuaiFamily.CODE, first.family().familyCode());
-        assertEquals(PaoDeKuaiFamily.CODE, second.family().familyCode());
-        assertNotSame(first.scoringPolicy(), second.scoringPolicy());
-    }
-
     @Test void commonAuthorityCompletesTwoThreeAndFourPlayerGames() {
         for (int playerCount : List.of(2, 3, 4)) {
             PokerRuleProfile base = PdkRuleProfiles.flexibleTwoToFourPlayers(
@@ -117,7 +108,7 @@ final class PdkCommonArchitectureTest {
                 new com.aoo.bcg.gamespi.RoomCreationContext(9199, 100,
                         Map.of("playerCount", 2, "roundCount", 8)))
                 .requireAuthoritativeSession().authoritativeState());
-        PaoDeKuaiFamily family = provider.pokerFamily();
+        PaoDeKuaiFamily family = (PaoDeKuaiFamily) provider.pokerFamily();
         waiting.put("ruleSnapshotKey", legacyRecordIdentity(family));
         assertDoesNotThrow(() -> provider.restoreAuthoritativeSession(waiting).orElseThrow());
         waiting.put("ruleSnapshotKey", "unknown");

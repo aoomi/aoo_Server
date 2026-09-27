@@ -3,6 +3,8 @@
 /server/logs/
 /work/local-runtime/
 /work/runtime/
+# 生成的审计台账与本地运行产物不进版本库；门禁前置台账由 tools/ 下的幂等生成脚本产出
+/work/
 
 # Build and generated outputs
 **/target/

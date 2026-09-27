@@ -218,8 +218,7 @@ final class PdkPublishedRuleOptionsTest {
                 Map.of("cards",List.of(state.hands().get(seat).getFirst()))));
         state=(PokerTurnState)session.authoritativeState().get("state");
         seat=state.currentSeat();
-        var hint=session.execute(command(session,"hint_req",sequence++,seat,10+seat,Map.of()));
-        List<CardCombination> hints=(List<CardCombination>)hint.body().get("hints");
+        List<CardCombination> hints=PdkLegalMoves.hints(session);
         if(hints.isEmpty()){
             session.execute(command(session,"pass_req",sequence++,seat,10+seat,Map.of()));
             state=(PokerTurnState)session.authoritativeState().get("state");

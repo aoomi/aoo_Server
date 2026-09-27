@@ -170,8 +170,7 @@ public final class GameWebSocketRouter {
     private static boolean isReadOnly(WebSocketFrame frame) {
         String action=String.valueOf(frame.body().getOrDefault("action",frame.msgId()))
                 .strip().toLowerCase(java.util.Locale.ROOT);
-        return action.endsWith(".state_req")||action.equals("state")
-                ||action.endsWith(".hint_req")||action.equals("hint");
+        return action.endsWith(".state_req")||action.equals("state");
     }
 
     private static ConnectionSession rebindAfterSit(ConnectionSession session,WebSocketFrame frame,

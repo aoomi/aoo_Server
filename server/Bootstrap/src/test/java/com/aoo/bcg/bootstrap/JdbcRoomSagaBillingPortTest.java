@@ -61,6 +61,21 @@ final class JdbcRoomSagaBillingPortTest {
         assertDoesNotThrow(()->port.confirm(command));
     }
 
+    @Test void authoritativeMahjongRuleNamesResolveSharedBillingDimensions() throws Exception {
+        JdbcDataSource source=database("mahjong_authoritative_rules");schema(source);
+        try(Connection c=source.getConnection();var s=c.createStatement()){
+            s.execute("INSERT INTO aoo_currency_catalog VALUES('ROOM_CARD','GLOBAL','ACTIVE')");
+            publishSchemaWithFields(s,516,"legacy-equivalent-1","CN-51-01","ROUND_COUNT","setCount",8,"playerNum",4);
+            s.execute("INSERT INTO aoo_room_cost_policy VALUES(516,'legacy-equivalent-1','CN-51-01','ROUND_COUNT',8,8,4,'OWNER','ROOM_CARD',0,'ACTIVE')");
+        }
+        JdbcRoomSagaBillingPort port=new JdbcRoomSagaBillingPort(source,()->104,Clock.systemUTC());
+        var command=new RoomCreateSaga.Command(7,"cd101-create",800005,516,"legacy-equivalent-1",
+                "3.8.8",1,Map.of("setCount",8,"playerNum",4),
+                new RoomCreateSaga.Scope("PERSONAL",0,""),Map.of(),"cd101-trace","hash");
+        assertDoesNotThrow(()->port.reserve(command));
+        assertDoesNotThrow(()->port.confirm(command));
+    }
+
     @Test void durationRoomUsesPublishedDurationAndRejectsForgedRounds() throws Exception {
         JdbcDataSource source=database("duration_rules");schema(source);
         try(Connection c=source.getConnection();var s=c.createStatement()){
@@ -95,6 +110,12 @@ final class JdbcRoomSagaBillingPortTest {
     private static void publishSchema(java.sql.Statement s,long game,String play,String region,String kind,int measure,int players)throws Exception{
         String measureKey="DURATION_MINUTES".equals(kind)?"roomDurationMinutes":"roundCount";
         String schema="{\"roomMeasureKind\":\""+kind+"\",\"fields\":[{\"key\":\""+measureKey+"\",\"defaultValue\":"+measure+"},{\"key\":\"maxPlayers\",\"defaultValue\":"+players+"},{\"key\":\"payerMode\",\"defaultValue\":\"OWNER\"}]}";
+        s.execute("INSERT INTO aoo_compiled_index_active VALUES("+game+",'"+region+"','"+play+"',1)");
+        s.execute("INSERT INTO aoo_compiled_room_create_index VALUES("+game+",'"+region+"','"+play+"',1,'"+schema+"','ACTIVE')");
+    }
+    private static void publishSchemaWithFields(java.sql.Statement s,long game,String play,String region,String kind,
+            String measureKey,int measure,String playerKey,int players)throws Exception{
+        String schema="{\"roomMeasureKind\":\""+kind+"\",\"fields\":[{\"key\":\""+measureKey+"\",\"defaultValue\":"+measure+"},{\"key\":\""+playerKey+"\",\"defaultValue\":"+players+"},{\"key\":\"payerMode\",\"defaultValue\":\"OWNER\"}]}";
         s.execute("INSERT INTO aoo_compiled_index_active VALUES("+game+",'"+region+"','"+play+"',1)");
         s.execute("INSERT INTO aoo_compiled_room_create_index VALUES("+game+",'"+region+"','"+play+"',1,'"+schema+"','ACTIVE')");
     }

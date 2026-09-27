@@ -28,32 +28,6 @@ final class PokerDispatchCommandHandlerTest {
         assertNotEquals(5L, session.stateVersion(), "stateVersion must not copy the client sequence");
     }
 
-    @Test void canonicalEnvelopeExposesHintAndContinueOperations() {
-        var family = new PaoDeKuaiFamily(PaoDeKuaiConfig.defaults());
-        var session = new PokerAuthoritativeSession(9, 20, 4, 7, family);
-        var room = new GameRoomHandle(9, 629, "pdk-v1", session);
-        var handler = new PokerDispatchCommandHandler();
-        handler.handle(room, request("join-1", 1, "21", 1, "njpdk.CNJPDKEnterRoom", Map.of()));
-        handler.handle(room, request("join-2", 2, "22", 2, "njpdk.CNJPDKEnterRoom", Map.of()));
-        handler.handle(room, request("join-3", 3, "23", 3, "njpdk.CNJPDKEnterRoom", Map.of()));
-        handler.handle(room, request("ready-0", 4, "20", 0, "njpdk.CNJPDKReadyRoom", Map.of()));
-        handler.handle(room, request("ready-1", 5, "21", 1, "njpdk.CNJPDKReadyRoom", Map.of()));
-        handler.handle(room, request("ready-2", 6, "22", 2, "njpdk.CNJPDKReadyRoom", Map.of()));
-        handler.handle(room, request("ready-3", 7, "23", 3, "njpdk.CNJPDKReadyRoom", Map.of()));
-        int seat = ((Number) session.viewFor(20).get("currentSeat")).intValue();
-        String player = String.valueOf(20 + seat);
-        @SuppressWarnings("unchecked") var seats = (Map<Integer,Object>) session.viewFor(Long.parseLong(player)).get("seats");
-        @SuppressWarnings("unchecked") var next = (Map<String,Object>) seats.get((seat + 1) % 4);
-        int nextPlayerCardCount = ((Number) next.get("cardCount")).intValue();
-        var hint = handler.handle(room, request("hint", 8, player, seat, "hint", Map.of("nextPlayerCardCount", nextPlayerCardCount)));
-        assertEquals("hint", hint.body().get("action"));
-        assertThrows(IllegalStateException.class,
-                () -> handler.handle(room, request("continue", 9, player, seat, "njpdk.CNJPDKContinueGame", Map.of())));
-        assertThrows(IllegalStateException.class,
-                () -> handler.handle(room, request("rematch", 10, player, seat, "common.room.rematch_req", Map.of())),
-                "canonical final-settlement rematch must route to authority instead of being rejected by dispatch");
-    }
-
     @Test void ownerDissolvesWaitingRoomAndMemberCannotEscalatePrivileges() {
         var family = new PaoDeKuaiFamily(PaoDeKuaiConfig.defaults());
         var session = new PokerAuthoritativeSession(9, 20, 4, 7, family);

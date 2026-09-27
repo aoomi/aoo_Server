@@ -9,7 +9,7 @@ final class ProfiledMahjongRuleFamily implements MahjongRuleFamily {
         this.rules=switch(profile.family()) {
             case "mahjong:lai-zi" -> new LaiZiMahjongRuleSet(new LaiZiMahjongConfig(45,StandardMahjongConfig.defaults()));
             case "mahjong:tui-dao-hu" -> new StandardMahjongRuleSet(new StandardMahjongConfig(false,true,true));
-            case "mahjong:xue-zhan", "mahjong:xue-liu" -> new StandardMahjongRuleSet(new StandardMahjongConfig(false,true,true));
+            case "mahjong:xue-zhan", "mahjong:xue-liu" -> new StandardMahjongRuleSet(new StandardMahjongConfig(false,true,true,true,true));
             case "mahjong:standard" -> new StandardMahjongRuleSet(StandardMahjongConfig.defaults());
             default -> throw new IllegalArgumentException("unsupported Mahjong family " + profile.family());
         };

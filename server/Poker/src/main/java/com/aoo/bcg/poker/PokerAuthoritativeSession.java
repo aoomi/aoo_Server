@@ -32,6 +32,8 @@ public final class PokerAuthoritativeSession
   private Integer previousWinnerSeat;
   private final PdkVariantPolicy policy;
   private final PaoDeKuaiFamily family;
+
+  PaoDeKuaiFamily family() { return family; }
   private final Map<Integer, Long> players = new LinkedHashMap<>(),
       observers = new LinkedHashMap<>();
   private final Set<Integer> readySeats = new LinkedHashSet<>(),
@@ -313,7 +315,7 @@ public final class PokerAuthoritativeSession
       throw new IllegalStateException("room is dissolved");
     }
     Map<String, Object> body;
-    boolean changed = !op.equals("state") && !op.equals("hint");
+    boolean changed = !op.equals("state");
     boolean startedRoundByContinue = false;
     switch (op) {
       case "join" -> {
@@ -431,19 +433,6 @@ public final class PokerAuthoritativeSession
             roomId, ownerId, targetPlayerId, targetSeat, selected.size(),
             roundNo + 1, stateVersion + 1);
         body = viewFor(player);
-      }
-      case "hint" -> {
-        own(player, r.seatId());
-        requirePlaying();
-        if (state.currentSeat() != r.seatId()) throw new IllegalStateException("not current turn");
-        var hints = family.rules().hints(state.hands().get(r.seatId()), state.previous(), context(r));
-        body = Map.of(
-            "hints", hints,
-            "roomId", roomId,
-            "stateVersion", stateVersion,
-            "operationId", deadline.operationId(),
-            "turnSeat", state.currentSeat(),
-            "canPass", state.previous() != null && hints.isEmpty());
       }
       case "pass" -> {
         own(player, r.seatId());
@@ -1475,15 +1464,18 @@ public final class PokerAuthoritativeSession
   }
 
   private void openDeadline(String operation) {
-    int timeoutSeconds = hostingSeats.contains(currentSeat())
-        ? 1
-        : family.rules().config().advancedRules().operationTimeoutSeconds();
-    deadline =
-        OperationDeadline.open(
-            roundNo + "-" + stateVersion + "-" + operation,
-            currentSeat(),
-            Duration.ofSeconds(timeoutSeconds),
-            time);
+    String operationId = roundNo + "-" + stateVersion + "-" + operation;
+    int seat = currentSeat();
+    PdkAdvancedRules rules = family.rules().config().advancedRules();
+    if (!hostingSeats.contains(seat) && rules.unlimitedOperationTime()) {
+      deadline = OperationDeadline.unlimited(operationId, seat);
+      LOGGER.log(System.Logger.Level.INFO,
+          "[PdkOperationWindow] opened unlimited roomId={0} roundNo={1} stateVersion={2} operationId={3} seat={4} playerId={5}",
+          roomId, roundNo, stateVersion, operationId, seat, players.get(seat));
+      return;
+    }
+    int timeoutSeconds = hostingSeats.contains(seat) ? 1 : rules.operationTimeoutSeconds();
+    deadline = OperationDeadline.open(operationId, seat, Duration.ofSeconds(timeoutSeconds), time);
   }
 
   private void openRobberAutoResponseDeadline() {
@@ -1704,7 +1696,7 @@ public final class PokerAuthoritativeSession
       events.add(Map.of("version", stateVersion, "after", authoritativeState()));
       return true;
     }
-    if (!deadline.open() || now.isBefore(deadline.deadline()) || roundFinished()) return false;
+    if (!deadline.open() || deadline.unlimited() || now.isBefore(deadline.deadline()) || roundFinished()) return false;
     OperationDeadline expired = deadline;
     AuthoritativeTimeSource fixed =
         new AuthoritativeTimeSource(java.time.Clock.fixed(now, java.time.ZoneOffset.UTC));

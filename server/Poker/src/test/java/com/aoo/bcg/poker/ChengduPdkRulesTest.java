@@ -243,10 +243,7 @@ final class ChengduPdkRulesTest {
             assertEquals(required, session.viewFor(10).get("activeRequiredFirstCard"),
                     "an invalid click must not consume the opening constraint");
         }
-        @SuppressWarnings("unchecked")
-        List<CardCombination> openingHints = (List<CardCombination>) session.execute(command(
-                roomId, sequence++, openingSeat, 10L + openingSeat, "hint_req", Map.of()))
-                .body().get("hints");
+        List<CardCombination> openingHints = PdkLegalMoves.hints(session);
         assertFalse(openingHints.isEmpty());
         assertTrue(openingHints.stream().allMatch(hint -> hint.cards().contains(required)));
         session.execute(command(roomId, sequence++, openingSeat, 10L + openingSeat,
@@ -259,9 +256,7 @@ final class ChengduPdkRulesTest {
             assertTrue(guard++ < 200, "Chengdu authority round did not converge");
             int seat = ((Number) session.viewFor(10).get("currentSeat")).intValue();
             long player = 10L + seat;
-            @SuppressWarnings("unchecked")
-            List<CardCombination> hints = (List<CardCombination>) session.execute(command(
-                    roomId, sequence++, seat, player, "hint_req", Map.of())).body().get("hints");
+            List<CardCombination> hints = PdkLegalMoves.hints(session);
             if (hints.isEmpty())
                 session.execute(command(roomId, sequence++, seat, player, "pass_req", Map.of()));
             else

@@ -21,7 +21,14 @@ public final class StandardMahjongRuleSet implements MahjongRuleSet<MahjongState
         if (!result.isEmpty()) result.add(MahjongOperation.PASS);
         return Set.copyOf(result);
     }
-    @Override public boolean canWin(int seatId, List<Integer> concealedTiles, int winningTile, MahjongState state) { return wins.isWinning(concealedTiles, winningTile); }
+    @Override public boolean canWin(int seatId, List<Integer> concealedTiles, int winningTile, MahjongState state) {
+        MahjongSuit forbidden = state.openingSelections().missingSuits().get(seatId);
+        if (forbidden != null && concealedTiles.stream().anyMatch(forbidden::contains)) return false;
+        if (forbidden != null && concealedTiles.size() % 3 == 1 && forbidden.contains(winningTile)) return false;
+        return wins.isWinning(concealedTiles, winningTile);
+    }
+    @Override public boolean continueAfterWin() { return config.continueAfterWin(); }
+    @Override public boolean requireOpeningSelections() { return config.requireOpeningSelections(); }
     private static boolean isNextSeat(MahjongState state, int seat) {
         List<Integer> seats = state.hands().keySet().stream().sorted().toList(); int from = seats.indexOf(state.lastDiscardSeat());
         return seats.get((from + 1) % seats.size()) == seat;

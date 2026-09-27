@@ -116,6 +116,18 @@ public interface PdkScoringPolicy {
     private static void applyBombTransfers(PdkSettlementContext context,
             PdkAdvancedRules rules, Map<Integer,Long> seats) {
         PdkAdvancedRules.BombMode mode = rules.bombScore().mode();
+        if (mode == PdkAdvancedRules.BombMode.WINNER_ONLY) {
+            int winner = context.winnerSeat();
+            int winnerBombs = context.bombs().getOrDefault(winner, 0);
+            if (winnerBombs == 0) return;
+            long unit = Math.multiplyExact((long) rules.bombScore().points(), rules.baseScore());
+            for (int seat : context.players().keySet()) if (seat != winner) {
+                long transfer = Math.multiplyExact((long) winnerBombs, unit);
+                seats.merge(seat, -transfer, Long::sum);
+                seats.merge(winner, transfer, Long::sum);
+            }
+            return;
+        }
         if (mode != PdkAdvancedRules.BombMode.PAIRWISE
                 && mode != PdkAdvancedRules.BombMode.FIXED_POINTS) return;
         long unit = mode == PdkAdvancedRules.BombMode.FIXED_POINTS

@@ -31,7 +31,18 @@ DB_URL="jdbc:mysql://${MYSQL_HOST}:${MYSQL_PORT}/${MYSQL_DATABASE}?useUnicode=tr
 
 port_open(){ nc -z 127.0.0.1 "$1" >/dev/null 2>&1; }
 wait_port(){ local name="$1" port="$2" deadline=$((SECONDS+30)); while ! port_open "$port"; do (( SECONDS < deadline )) || { echo "$name 启动超时，日志：$ROOT/logs/local-dev/$name.log" >&2; return 1; }; sleep .25; done; }
-pid_alive(){ [[ -f "$RUNTIME/$1.pid" ]] && kill -0 "$(cat "$RUNTIME/$1.pid")" 2>/dev/null; }
+# 本地服务的真实进程权威是 launchd；$RUNTIME/<name>.pid 只是派生缓存，可能陈旧
+# （实测 gateway.pid 停在 98650，而真实进程是 18621）。只信缓存会把活着的服务判成
+# 未运行，进而杀错对象、并在旧进程仍占用端口时启动新实例。
+SERVICE_PORTS=('gateway:8080' 'version:8095' 'account:8096' 'hall:8093' 'social:8097' 'gifting:8101' 'media:8102' 'avatars:8765')
+service_port(){ local spec; for spec in "${SERVICE_PORTS[@]}"; do if [[ "${spec%%:*}" == "$1" ]]; then printf '%s' "${spec##*:}"; return 0; fi; done; printf ''; }
+service_pid(){
+  local name="$1" domain="gui/$(id -u)" label="com.aoo.bcg.local.$1" pid=''
+  if command -v launchctl >/dev/null 2>&1; then pid="$(launchctl print "$domain/$label" 2>/dev/null | awk '/[[:space:]]pid = /{print $3; exit}')"; fi
+  if [[ -z "$pid" ]] && [[ -f "$RUNTIME/$name.pid" ]]; then pid="$(cat "$RUNTIME/$name.pid" 2>/dev/null)"; fi
+  printf '%s' "$pid"
+}
+pid_alive(){ local pid; pid="$(service_pid "$1")"; [[ -n "$pid" ]] && kill -0 "$pid" 2>/dev/null; }
 
 start_rule_watcher(){
   local name="room-rules" runner="$RUNTIME/room-rules-run.sh" label="com.aoo.bcg.local.room-rules" domain="gui/$(id -u)"
@@ -90,11 +101,30 @@ ensure_database(){
 # workbook on local startup so the active server validator and client UI schema
 # always come from the same current source, not only the Chengdu default.
 publish_registered_room_rules(){
-  local workbook
+  local workbook raw declared
+  local -a workbooks=()
+  # 枚举器自带 UTF-8：-e 源码首行声明 source encoding，因此不再依赖调用方的
+  # LANG/LC_ALL/LC_CTYPE（旧实现无 locale 时 Ruby 按 US-ASCII 解析源码即
+  # `-e:1: invalid multibyte char`，失败又被 `< <(...)` 进程替换吞掉 →
+  # 静默发布 0 个簿册）。枚举失败、条数与登记表不一致都返回非 0，
+  # 在 set -e 下让 ensure_database 真实失败，绝不静默跳过发布。
+  if ! raw="$(ruby -rjson -e '# encoding: UTF-8
+root=File.expand_path(ARGV.fetch(1)); paths=JSON.parse(File.read(ARGV.fetch(0))).fetch("plays").select { |play| play.fetch("publishingEnabled", true) && play.fetch("automaticPublishingEnabled", true) }.map { |play| path=File.expand_path(play.fetch("workbookPath"),root); abort("room-rules workbookPath 越出项目目录") unless path.start_with?(root+File::SEPARATOR); path }; abort("room-rules workbookPath 重复") unless paths.uniq.length==paths.length; puts "COUNT=#{paths.length}"; puts paths.sort' \
+    "$ROOT/tools/room-rule-play-identities.json" "$ROOT/.." 2>&1)"; then
+    echo "房间规则自动发布枚举失败（$ROOT/tools/room-rule-play-identities.json）：$raw" >&2
+    return 1
+  fi
+  declared="${raw%%$'\n'*}"; declared="${declared#COUNT=}"
   while IFS= read -r workbook; do
+    if [[ -n "$workbook" ]]; then workbooks+=("$workbook"); fi
+  done <<<"$(grep '^/' <<<"$raw" || true)"
+  if [[ ! "$declared" =~ ^[0-9]+$ ]] || [[ "${#workbooks[@]}" -ne "$declared" ]]; then
+    echo "房间规则自动发布枚举条数不一致：登记表期望 $declared 条，实际枚举 ${#workbooks[@]} 条" >&2
+    return 1
+  fi
+  for workbook in ${workbooks[@]+"${workbooks[@]}"}; do
     AOO_ROOM_RULE_WORKBOOK="$workbook" "$ROOT/tools/publish-room-rules.sh" local
-  done < <(ruby -rjson -e 'root=File.expand_path(ARGV.fetch(1)); paths=JSON.parse(File.read(ARGV.fetch(0))).fetch("plays").select { |play| play.fetch("publishingEnabled", true) && play.fetch("automaticPublishingEnabled", true) }.map { |play| path=File.expand_path(play.fetch("workbookPath"),root); abort("room-rules workbookPath 越出项目目录") unless path.start_with?(root+File::SEPARATOR); path }; abort("room-rules workbookPath 重复") unless paths.uniq.length==paths.length; puts paths.sort' \
-    "$ROOT/tools/room-rule-play-identities.json" "$ROOT/..")
+  done
 }
 
 build_runtime(){
@@ -162,10 +192,10 @@ PLIST
 health(){
   local failed=0
   if port_open "$MYSQL_PORT"; then printf 'OK   %-8s port=%s\n' mysql "$MYSQL_PORT"; else printf 'FAIL %-8s port=%s\n' mysql "$MYSQL_PORT"; failed=1; fi
-  for spec in 'gateway:8080' 'version:8095' 'account:8096' 'hall:8093' 'social:8097' 'gifting:8101' 'media:8102'; do IFS=: read -r name port <<<"$spec"; if pid_alive "$name" && port_open "$port"; then printf 'OK   %-8s pid=%s port=%s\n' "$name" "$(cat "$RUNTIME/$name.pid")" "$port"; else printf 'FAIL %-8s port=%s\n' "$name" "$port"; failed=1; fi; done
-  if pid_alive room-rules; then printf 'OK   %-8s pid=%s\n' room-rules "$(cat "$RUNTIME/room-rules.pid")"; else printf 'FAIL %-8s\n' room-rules; failed=1; fi
-  if pid_alive avatars && port_open 8765; then printf 'OK   %-8s pid=%s port=%s\n' avatars "$(cat "$RUNTIME/avatars.pid")" 8765; else printf 'FAIL %-8s port=%s\n' avatars 8765; failed=1; fi
-  if pid_alive gateway && port_open 18080; then printf 'OK   %-8s pid=%s port=%s\n' authority "$(cat "$RUNTIME/gateway.pid")" 18080; else printf 'FAIL %-8s port=%s\n' authority 18080; failed=1; fi
+  for spec in 'gateway:8080' 'version:8095' 'account:8096' 'hall:8093' 'social:8097' 'gifting:8101' 'media:8102'; do IFS=: read -r name port <<<"$spec"; if pid_alive "$name" && port_open "$port"; then printf 'OK   %-8s pid=%s port=%s\n' "$name" "$(service_pid "$name")" "$port"; else printf 'FAIL %-8s port=%s\n' "$name" "$port"; failed=1; fi; done
+  if pid_alive room-rules; then printf 'OK   %-8s pid=%s\n' room-rules "$(service_pid room-rules)"; else printf 'FAIL %-8s\n' room-rules; failed=1; fi
+  if pid_alive avatars && port_open 8765; then printf 'OK   %-8s pid=%s port=%s\n' avatars "$(service_pid avatars)" 8765; else printf 'FAIL %-8s port=%s\n' avatars 8765; failed=1; fi
+  if pid_alive gateway && port_open 18080; then printf 'OK   %-8s pid=%s port=%s\n' authority "$(service_pid gateway)" 18080; else printf 'FAIL %-8s port=%s\n' authority 18080; failed=1; fi
   curl -fsS http://127.0.0.1:8095/health/version >/dev/null || failed=1
   curl -fsS http://127.0.0.1:8096/health/account >/dev/null || failed=1
   curl -fsS http://127.0.0.1:8093/health/hall >/dev/null || failed=1
@@ -216,14 +246,22 @@ stop_all(){
 }
 
 stop_one(){
-  local name="$1" domain="gui/$(id -u)" label="com.aoo.bcg.local.$1"
+  local name="$1" port domain="gui/$(id -u)" label="com.aoo.bcg.local.$1" pid
   if command -v launchctl >/dev/null 2>&1; then launchctl bootout "$domain/$label" >/dev/null 2>&1 || true; fi
-  if pid_alive "$name"; then kill "$(cat "$RUNTIME/$name.pid")" 2>/dev/null || true; fi
-  if [[ -f "$RUNTIME/$name.pid" ]]; then
-    local pid; pid="$(cat "$RUNTIME/$name.pid")"
-    for _ in {1..40}; do kill -0 "$pid" 2>/dev/null || break; sleep .1; done
+  pid="$(service_pid "$name")"
+  if [[ -n "$pid" ]]; then
+    kill "$pid" 2>/dev/null || true
+    for _ in {1..100}; do kill -0 "$pid" 2>/dev/null || break; sleep .1; done
     kill -9 "$pid" 2>/dev/null || true
-    rm -f "$RUNTIME/$name.pid"
+  fi
+  rm -f "$RUNTIME/$name.pid"
+  # 停止的完成条件是「端口真实释放」。旧实现只等 pid 文件里的 PID（可能是陈旧值），
+  # bootout 之后旧 JVM 仍在释放端口时就开始启动新实例，start_java 随即以
+  # 「端口 <port> 已被非 Aoo <name> 进程占用」exit 4，把服务留在停止态。
+  port="$(service_port "$name")"
+  if [[ -n "$port" ]]; then
+    for _ in {1..100}; do if ! port_open "$port"; then break; fi; sleep .1; done
+    if port_open "$port"; then echo "端口 $port 停止后仍被占用" >&2; exit 4; fi
   fi
 }
 
@@ -299,7 +337,12 @@ start_all(){
   echo 'Aoo 正式本地核心服务已启动。停止命令：./tools/local-dev-services.sh stop'
 }
 
-case "${1:-start}:${2:-all}" in
+# 两种等价写法归一：`restart gateway`（本脚本用法行里的两参数形式）与
+# `restart:gateway`（任务卡/文档使用的单参数冒号形式）应当落到同一分派键。
+# 单参数冒号形式此前会拼成 `restart:gateway:all` 直接落到 *) 并 exit 2。
+ACTION="${1:-start}"; TARGET="${2:-}"
+if [[ -z "$TARGET" && "$ACTION" == *:* ]]; then TARGET="${ACTION#*:}"; ACTION="${ACTION%%:*}"; fi
+case "${ACTION}:${TARGET:-all}" in
   start:all) start_all ;;
   restart:all) stop_all; start_all ;;
   stop:all) stop_all ;;

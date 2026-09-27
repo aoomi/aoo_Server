@@ -13,6 +13,22 @@ import java.util.Set;
 public final class ProtocolV2Bridge {
     public static final String DISPATCH_EVENT = "protocol.v2.dispatch";
     private static final Gson GSON = new Gson();
+    /** 跑得快（poker:pao-de-kuai）全部地区业务编码的写协议 id；CD299 属另一玩法族，不在其中。 */
+    private static final Set<String> PDK_DISPATCH_IDS = Set.of(
+            GeneratedProtocolIds.POKER_CD201_DISPATCH, GeneratedProtocolIds.POKER_NJ201_DISPATCH,
+            GeneratedProtocolIds.POKER_LS201_DISPATCH, GeneratedProtocolIds.POKER_MN201_DISPATCH,
+            GeneratedProtocolIds.POKER_AY201_DISPATCH, GeneratedProtocolIds.POKER_PZ201_DISPATCH,
+            GeneratedProtocolIds.POKER_WN201_DISPATCH, GeneratedProtocolIds.POKER_LP201_DISPATCH,
+            GeneratedProtocolIds.POKER_BZ201_DISPATCH, GeneratedProtocolIds.POKER_YG201_DISPATCH,
+            GeneratedProtocolIds.POKER_JA201_DISPATCH, GeneratedProtocolIds.POKER_GS201_DISPATCH,
+            GeneratedProtocolIds.POKER_XG201_DISPATCH, GeneratedProtocolIds.POKER_ND201_DISPATCH,
+            GeneratedProtocolIds.POKER_HH201_DISPATCH, GeneratedProtocolIds.POKER_XX201_DISPATCH,
+            GeneratedProtocolIds.POKER_JD201_DISPATCH, GeneratedProtocolIds.POKER_JS201_DISPATCH,
+            GeneratedProtocolIds.POKER_HN201_DISPATCH, GeneratedProtocolIds.POKER_TZ201_DISPATCH,
+            GeneratedProtocolIds.POKER_HB201_DISPATCH, GeneratedProtocolIds.POKER_HC201_DISPATCH,
+            GeneratedProtocolIds.POKER_PY201_DISPATCH, GeneratedProtocolIds.POKER_JT201_DISPATCH,
+            GeneratedProtocolIds.POKER_GA201_DISPATCH, GeneratedProtocolIds.POKER_YX201_DISPATCH,
+            GeneratedProtocolIds.POKER_XC201_DISPATCH, GeneratedProtocolIds.POKER_FZ201_DISPATCH);
 
     private ProtocolV2Bridge() {}
 
@@ -78,8 +94,7 @@ public final class ProtocolV2Bridge {
                 "voice", "magic_expression", "invite", "dissolve_apply", "dissolve_vote", "trustee",
                 "heartbeat", "reconnect", "shuffle", "kick");
         if (common.contains(command)) return "common.room." + command + "_req";
-        if (Set.of(GeneratedProtocolIds.POKER_CD201_DISPATCH, GeneratedProtocolIds.POKER_NJ201_DISPATCH,
-                GeneratedProtocolIds.POKER_LS201_DISPATCH).contains(dispatchId)) {
+        if (PDK_DISPATCH_IDS.contains(dispatchId)) {
             if (!Set.of("start","pass","hint","play","play_cards").contains(command))
                 throw new IllegalArgumentException("unsupported PDK command");
             return dispatchId.substring(0,dispatchId.length()-"dispatch".length()) + command + "_req";

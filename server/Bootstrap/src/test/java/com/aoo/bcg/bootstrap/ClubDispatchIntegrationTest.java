@@ -24,7 +24,7 @@ class ClubDispatchIntegrationTest {
         JdbcHallWebSocketDispatcher dispatcher = new JdbcHallWebSocketDispatcher(
                 source, new ObjectMapper().findAndRegisterModules(), clock);
 
-        ConnectionIdentity owner = new ConnectionIdentity(700, "owner-device", "https://game.example");
+        ConnectionIdentity owner = new ConnectionIdentity(700, "owner-device", "https://game.example", "owner-page");
         try (Connection c = source.getConnection(); var s = c.createStatement()) {
             s.execute("INSERT INTO aoo_currency_balance(player_id,currency,currency_scope_id,balance,version,updated_at) VALUES(700,'CRYSTAL',0,10000,0,CURRENT_TIMESTAMP(3))");
         }
@@ -70,7 +70,7 @@ class ClubDispatchIntegrationTest {
             }
         }
 
-        ConnectionIdentity applicant = new ConnectionIdentity(701, "applicant-device", "https://game.example");
+        ConnectionIdentity applicant = new ConnectionIdentity(701, "applicant-device", "https://game.example", "applicant-page");
         Object join = dispatcher.dispatch(applicant, frame("join-1", 1, "club.CClubJoin",
                 Map.of("clubSign", clubId)));
         assertEquals(16, ((Number) ((Map<?, ?>) join).get("joinStatus")).intValue());
@@ -105,8 +105,8 @@ class ClubDispatchIntegrationTest {
         JdbcHallWebSocketDispatcher dispatcher = new JdbcHallWebSocketDispatcher(
                 source, new ObjectMapper().findAndRegisterModules(), clock);
 
-        ConnectionIdentity owner = new ConnectionIdentity(800, "owner-device", "https://game.example");
-        ConnectionIdentity applicant = new ConnectionIdentity(801, "applicant-device", "https://game.example");
+        ConnectionIdentity owner = new ConnectionIdentity(800, "owner-device", "https://game.example", "union-owner-page");
+        ConnectionIdentity applicant = new ConnectionIdentity(801, "applicant-device", "https://game.example", "union-applicant-page");
         try (Connection c = source.getConnection(); var s = c.createStatement()) {
             s.execute("INSERT INTO aoo_currency_balance(player_id,currency,currency_scope_id,balance,version,updated_at) VALUES"
                     + "(800,'CRYSTAL',0,10000,0,CURRENT_TIMESTAMP(3)),"
@@ -165,6 +165,7 @@ class ClubDispatchIntegrationTest {
             s.execute("CREATE TABLE aoo_club_state(club_id BIGINT PRIMARY KEY,state_json CLOB NOT NULL,row_version BIGINT NOT NULL,updated_at TIMESTAMP NOT NULL)");
             s.execute("CREATE TABLE aoo_club_write_idempotency(scope_key VARCHAR(160) PRIMARY KEY,response_json CLOB NOT NULL,created_at TIMESTAMP NOT NULL)");
             s.execute("CREATE TABLE aoo_club_member(club_id BIGINT NOT NULL,player_id BIGINT NOT NULL,member_status VARCHAR(16) NOT NULL,member_role VARCHAR(16) NOT NULL,online TINYINT NOT NULL DEFAULT 0,profile_payload CLOB NOT NULL,joined_at TIMESTAMP NOT NULL,updated_at TIMESTAMP NOT NULL,PRIMARY KEY(club_id,player_id))");
+            s.execute("CREATE TABLE aoo_club_ledger(club_id BIGINT NOT NULL,business_key VARCHAR(160) NOT NULL,player_id BIGINT NOT NULL,amount DECIMAL(20,4) NOT NULL,reason VARCHAR(160) NOT NULL,created_at TIMESTAMP NOT NULL,PRIMARY KEY(club_id,business_key))");
             s.execute("CREATE TABLE aoo_currency_catalog(currency_code VARCHAR(32) PRIMARY KEY,scope_type VARCHAR(16) NOT NULL,status VARCHAR(16) NOT NULL)");
             s.execute("INSERT INTO aoo_currency_catalog(currency_code,scope_type,status) VALUES('CRYSTAL','GLOBAL','ACTIVE')");
             s.execute("CREATE TABLE aoo_currency_balance(player_id BIGINT NOT NULL,currency VARCHAR(32) NOT NULL,currency_scope_id BIGINT NOT NULL DEFAULT 0,balance BIGINT NOT NULL DEFAULT 0,version BIGINT NOT NULL DEFAULT 0,updated_at TIMESTAMP NOT NULL,PRIMARY KEY(player_id,currency,currency_scope_id))");

@@ -528,7 +528,16 @@ public Map<String, Object> join(Map<String, Object> command) {
                 ? (Map<String, Object>) map : Map.of();
         GameRoomHandle created = rooms.create(provider,
                 new RoomCreationContext(route.roomId(), ownerId, rules));
-        admit(created.requireAuthoritativeSession(),ownerId,0,command.get("admission"));
+        var session = created.requireAuthoritativeSession();
+        admit(session,ownerId,0,command.get("admission"));
+        // Catalog Mahjong sessions do not implement RoomAdmissionAuthority. Seed
+        // the creator through the same authoritative join command used for guests
+        // before persisting the first snapshot, so Hall and game seats agree.
+        if (session.authoritativeState().containsKey("mahjongAuthority")) {
+            session.execute(new com.aoo.bcg.gamespi.GameCommandRequest("common.room.join_req",
+                    required(command, "requestId") + ":owner", Math.max(1L, session.stateVersion() + 1L),
+                    route.roomId(), 0, route.playVersion(), Long.toString(ownerId), 0, Map.of()));
+        }
         stateStore.saveSnapshot(created, route.fencingToken());
     }
 

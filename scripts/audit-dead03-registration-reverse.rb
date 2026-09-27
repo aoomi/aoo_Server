@@ -14,7 +14,7 @@ texts.each do |path,body|
   rows<<{path:path.sub(root+'/',''),className:fqcn,contracts:matched,references:references,registration:mechanisms,registered:!mechanisms.empty?}
  end
 end
-matrix_path=File.join(root,'work/audit/registration-conservation-audit.json');matrix=File.exist?(matrix_path) ? JSON.parse(File.read(matrix_path))['rows'].to_h{|row|[row['code'],row]} : {}
+require File.join(root,'tools/gates/dead03-database-registration');matrix=Dead03::DatabaseRegistration.load(root)
 rows.each do |row|
  next unless row[:contracts].include?('GameProvider')
  simple=row[:className].split('.').last
@@ -29,4 +29,4 @@ rows.each do |row|
  end
  row[:registered]&&=row[:databaseRegistered]
 end
-unregistered=rows.reject{|row|row[:registered]};out=File.join(root,'work/audit/dead03-registration-reverse.json');FileUtils.mkdir_p(File.dirname(out));File.write(out,JSON.pretty_generate({task:'DEAD03',status:unregistered.empty? ? 'passed':'failed',implementations:rows,unregistered:unregistered})+"\n");abort "DEAD03 unregistered implementations: #{unregistered.map{|row|row[:className]}.join(', ')}" unless unregistered.empty?
+unregistered=rows.reject{|row|row[:registered]};out=File.join(root,'work/audit/dead03-registration-reverse.json');FileUtils.mkdir_p(File.dirname(out));File.write(out,JSON.pretty_generate({task:'DEAD03',status:unregistered.empty? ? 'passed':'failed',databaseRegistrationSource:Dead03::DatabaseRegistration::CATALOG_PATH,implementations:rows,unregistered:unregistered})+"\n");abort "DEAD03 unregistered implementations: #{unregistered.map{|row|row[:className]}.join(', ')}" unless unregistered.empty?

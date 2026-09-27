@@ -513,6 +513,3946 @@
         "升芒": { "不升": 0, "1芒": 1, "2芒": 2, "3芒": 3, "4芒": 4, "5芒": 5 },
         "托管次数": { "3次": 3, "4次": 4, "5次": 5 }
       }
+    },
+    {
+      "workbookPath": "Client/docs/开房规则表/跑得快/冕宁跑得快.xlsx",
+      "publishingEnabled": true,
+      "sourceIdentity": [
+        "四川",
+        "冕宁",
+        "冕宁跑得快"
+      ],
+      "gameId": 631,
+      "gameCode": "MN201",
+      "playVersion": "mn201-v1.0.0",
+      "family": "poker:pao-de-kuai",
+      "regionCode": "CN-51-34-33",
+      "releaseScope": "REGIONAL",
+      "requiredRoomRuleFields": [
+        {
+          "key": "playerCount",
+          "sourceLabel": "人数"
+        },
+        {
+          "key": "cardsPerPlayer",
+          "sourceLabel": "发牌张数"
+        },
+        {
+          "key": "roundCount",
+          "sourceLabel": "局数"
+        },
+        {
+          "key": "robDealerRule",
+          "sourceLabel": "抢庄"
+        },
+        {
+          "key": "bombScore",
+          "sourceLabel": "炸弹记分"
+        },
+        {
+          "key": "roomRestriction",
+          "sourceLabel": "其他"
+        },
+        {
+          "key": "hostingMissThreshold",
+          "sourceLabel": "托管次数",
+          "serverOwned": true
+        }
+      ],
+      "numericRoomRuleFields": [
+        {
+          "sourceLabel": "局数",
+          "suffix": "局"
+        },
+        {
+          "sourceLabel": "炸弹记分",
+          "suffix": "分"
+        },
+        {
+          "sourceLabel": "托管次数",
+          "suffix": "次"
+        }
+      ],
+      "roomRuleOptionValues": {
+        "局数": {
+          "8局": 8,
+          "12局": 12,
+          "16局": 16
+        },
+        "抢庄": {
+          "抢庄": "rob_dealer",
+          "首局不抢": "first_round_no_compete",
+          "闲家都不抢时庄家不能抢": "dealer_cannot_rob_when_idle_pass"
+        },
+        "炸弹记分": {
+          "不加番": "no_multiplier",
+          "1番": 1,
+          "无限番": "unlimited_multiplier"
+        },
+        "小结算": {
+          "小局结算弹窗": "option_0001"
+        },
+        "其他": {
+          "IP限制": "ip_limit",
+          "GPS限制": "gps_limit",
+          "5次不操作进入托管": "timeout_auto_play",
+          "距离过近提示": "distance_warning",
+          "禁止互动": "interaction_forbidden",
+          "禁言": "chat_muted"
+        },
+        "托管次数": {
+          "3次": 3,
+          "4次": 4,
+          "5次": 5
+        }
+      },
+      "roomRuleRowProjections": [
+        {
+          "sourceLabel": "人数和发牌张数",
+          "sourceControl": "单选",
+          "sourceOptions": [
+            "2人13张",
+            "3人13张"
+          ],
+          "kind": "nested-radio",
+          "outputs": [
+            {
+              "key": "playerCount",
+              "label": "人数",
+              "order": 90,
+              "sourceDefaultMap": {
+                "1": 1,
+                "2": 2
+              },
+              "options": [
+                {
+                  "label": "2人",
+                  "value": 2
+                },
+                {
+                  "label": "3人",
+                  "value": 3
+                }
+              ]
+            },
+            {
+              "key": "cardsPerPlayer",
+              "label": "发牌张数",
+              "order": 91,
+              "defaultIndex": 1,
+              "options": [
+                {
+                  "label": "13张",
+                  "value": 13
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "workbookPath": "Client/docs/开房规则表/跑得快/安岳跑得快.xlsx",
+      "publishingEnabled": true,
+      "sourceIdentity": [
+        "四川",
+        "安岳",
+        "安岳跑得快"
+      ],
+      "gameId": 632,
+      "gameCode": "AY201",
+      "playVersion": "ay201-v1.0.0",
+      "family": "poker:pao-de-kuai",
+      "regionCode": "CN-51-20-21",
+      "releaseScope": "REGIONAL",
+      "requiredRoomRuleFields": [
+        {
+          "key": "playerCount",
+          "sourceLabel": "人数"
+        },
+        {
+          "key": "roundCount",
+          "sourceLabel": "局数"
+        },
+        {
+          "key": "operationTimeoutSeconds",
+          "sourceLabel": "操作时间"
+        },
+        {
+          "key": "deckRange",
+          "sourceLabel": "牌库范围"
+        },
+        {
+          "key": "firstPlayRule",
+          "sourceLabel": "先出牌"
+        },
+        {
+          "key": "requiredFirstCardRule",
+          "sourceLabel": "首张必出"
+        },
+        {
+          "key": "tripleWithTwoMode",
+          "sourceLabel": "三带二"
+        },
+        {
+          "key": "planeWithTwoMode",
+          "sourceLabel": "飞机带二"
+        },
+        {
+          "key": "bombScore",
+          "sourceLabel": "炸弹记分"
+        },
+        {
+          "key": "playRule",
+          "sourceLabel": "玩法"
+        },
+        {
+          "key": "hostingMissThreshold",
+          "sourceLabel": "托管次数",
+          "serverOwned": true
+        },
+        {
+          "key": "roomRestriction",
+          "sourceLabel": "其他"
+        }
+      ],
+      "numericRoomRuleFields": [
+        {
+          "sourceLabel": "人数",
+          "suffix": "人"
+        },
+        {
+          "sourceLabel": "局数",
+          "suffix": "局"
+        },
+        {
+          "sourceLabel": "炸弹记分",
+          "suffix": "分"
+        },
+        {
+          "sourceLabel": "托管次数",
+          "suffix": "次"
+        }
+      ],
+      "roomRuleOptionValues": {
+        "人数": {
+          "2人": 2,
+          "3人": 3
+        },
+        "局数": {
+          "8局": 8,
+          "12局": 12,
+          "16局": 16
+        },
+        "操作时间": {
+          "10秒": 10,
+          "15秒": 15,
+          "20秒": 20
+        },
+        "牌库范围": {
+          "5-K，2一张，A三张": "cut_40"
+        },
+        "先出牌": {
+          "黑桃5优先出": "spade_five_first"
+        },
+        "首张必出": {
+          "第一局必须出黑桃5": "first_round_spade_five_required"
+        },
+        "三带二": {
+          "只能带两张且不比较带牌": "two_cards_no_compare",
+          "只能带两张且比较带牌": "two_cards_compare"
+        },
+        "飞机带二": {
+          "只能带两张且不比较带牌": "two_cards_no_compare",
+          "只能带两张且比较带牌": "two_cards_compare"
+        },
+        "炸弹记分": {
+          "5分": 5,
+          "10分": 10,
+          "20分": 20
+        },
+        "小结算": {
+          "小局结算弹窗": "option_0001"
+        },
+        "玩法": {
+          "三不带（任何时候可出）": "three_no_attachment",
+          "飞机不带（任何时候可出）": "plane_no_attachment",
+          "四带二（只能带两张）": "four_with_two",
+          "3A算炸弹": "triple_ace_bomb",
+          "四个3直接赢": "four_threes_direct_win",
+          "三个A加一个2直接赢": "triple_ace_plus_two_direct_win"
+        },
+        "托管次数": {
+          "3次": 3,
+          "4次": 4,
+          "5次": 5
+        },
+        "其他": {
+          "IP限制": "ip_limit",
+          "GPS限制": "gps_limit",
+          "5次不操作进入托管": "timeout_auto_play",
+          "距离过近提示": "distance_warning",
+          "禁止互动": "interaction_forbidden",
+          "禁言": "chat_muted"
+        }
+      }
+    },
+    {
+      "workbookPath": "Client/docs/开房规则表/跑得快/攀枝花跑得快.xlsx",
+      "publishingEnabled": true,
+      "sourceIdentity": [
+        "四川",
+        "攀枝花",
+        "攀枝花跑得快"
+      ],
+      "gameId": 90006,
+      "gameCode": "PZ201",
+      "playVersion": "pz201-v1.0.0",
+      "family": "poker:pao-de-kuai",
+      "regionCode": "CN-51-04",
+      "releaseScope": "REGIONAL",
+      "requiredRoomRuleFields": [
+        {
+          "key": "playerCount",
+          "sourceLabel": "人数"
+        },
+        {
+          "key": "cardsPerPlayer",
+          "sourceLabel": "发牌张数"
+        },
+        {
+          "key": "roundCount",
+          "sourceLabel": "局数"
+        },
+        {
+          "key": "operationTimeoutSeconds",
+          "sourceLabel": "操作时间"
+        },
+        {
+          "key": "requiredFirstCardRule",
+          "sourceLabel": "首张必出"
+        },
+        {
+          "key": "bombScore",
+          "sourceLabel": "炸弹记分"
+        },
+        {
+          "key": "specialPatternScore",
+          "sourceLabel": "特殊牌型计分"
+        },
+        {
+          "key": "playRule",
+          "sourceLabel": "玩法"
+        },
+        {
+          "key": "hostingMissThreshold",
+          "sourceLabel": "托管次数",
+          "serverOwned": true
+        },
+        {
+          "key": "roomRestriction",
+          "sourceLabel": "其他"
+        }
+      ],
+      "numericRoomRuleFields": [
+        {
+          "sourceLabel": "局数",
+          "suffix": "局"
+        },
+        {
+          "sourceLabel": "炸弹记分",
+          "suffix": "分"
+        },
+        {
+          "sourceLabel": "特殊牌型计分",
+          "suffix": "分"
+        },
+        {
+          "sourceLabel": "托管次数",
+          "suffix": "次"
+        }
+      ],
+      "roomRuleOptionValues": {
+        "局数": {
+          "8局": 8,
+          "12局": 12,
+          "16局": 16
+        },
+        "操作时间": {
+          "10秒": 10,
+          "15秒": 15,
+          "30秒": 30,
+          "60秒": 60
+        },
+        "首张必出": {
+          "首局黑桃5先出，下局赢家先出": "first_round_spade_five_then_winner"
+        },
+        "炸弹记分": {
+          "10分": 10,
+          "20分": 20,
+          "30分": 30
+        },
+        "特殊牌型计分": {
+          "5分": 5,
+          "10分": 10
+        },
+        "小结算": {
+          "小局结算弹窗": "option_0001"
+        },
+        "玩法": {
+          "全单": "all_singles",
+          "全对": "all_pairs",
+          "全黑": "all_black",
+          "全红": "all_red",
+          "全大": "all_big",
+          "全小": "all_small",
+          "3个5-A算炸弹": "triple_five_to_ace_bomb"
+        },
+        "托管次数": {
+          "3次": 3,
+          "4次": 4,
+          "5次": 5
+        },
+        "其他": {
+          "IP限制": "ip_limit",
+          "GPS限制": "gps_limit",
+          "距离过近提示": "distance_warning",
+          "禁止互动": "interaction_forbidden",
+          "禁言": "chat_muted"
+        }
+      },
+      "roomRuleRowProjections": [
+        {
+          "sourceLabel": "人数和发牌张数",
+          "sourceControl": "单选",
+          "sourceOptions": [
+            "2人10张",
+            "3人10张",
+            "4人10张"
+          ],
+          "kind": "nested-radio",
+          "outputs": [
+            {
+              "key": "playerCount",
+              "label": "人数",
+              "order": 90,
+              "sourceDefaultMap": {
+                "1": 1,
+                "2": 2,
+                "3": 3
+              },
+              "options": [
+                {
+                  "label": "2人",
+                  "value": 2
+                },
+                {
+                  "label": "3人",
+                  "value": 3
+                },
+                {
+                  "label": "4人",
+                  "value": 4
+                }
+              ]
+            },
+            {
+              "key": "cardsPerPlayer",
+              "label": "发牌张数",
+              "order": 91,
+              "defaultIndex": 1,
+              "options": [
+                {
+                  "label": "10张",
+                  "value": 10
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "workbookPath": "Client/docs/开房规则表/跑得快/万年跑得快.xlsx",
+      "publishingEnabled": true,
+      "sourceIdentity": [
+        "江西",
+        "万年",
+        "万年跑得快"
+      ],
+      "gameId": 90007,
+      "gameCode": "WN201",
+      "playVersion": "legacy-equivalent-1",
+      "family": "poker:pao-de-kuai",
+      "regionCode": "CN-36-11-29",
+      "releaseScope": "REGIONAL",
+      "requiredRoomRuleFields": [
+        {
+          "key": "roundCount",
+          "sourceLabel": "局数"
+        },
+        {
+          "key": "playerCount",
+          "sourceLabel": "人数"
+        },
+        {
+          "key": "paymentMode",
+          "sourceLabel": "支付方式"
+        },
+        {
+          "key": "dealCardCount",
+          "sourceLabel": "发牌张数"
+        },
+        {
+          "key": "playRule",
+          "sourceLabel": "玩法与设置"
+        },
+        {
+          "key": "operationTimeoutSeconds",
+          "sourceLabel": "操作时间"
+        },
+        {
+          "key": "dissolveTimeoutSeconds",
+          "sourceLabel": "解散时间"
+        },
+        {
+          "key": "roomRestriction",
+          "sourceLabel": "其他"
+        }
+      ],
+      "numericRoomRuleFields": [
+        {
+          "sourceLabel": "局数",
+          "suffix": "局"
+        },
+        {
+          "sourceLabel": "人数",
+          "suffix": "人"
+        },
+        {
+          "sourceLabel": "发牌张数",
+          "suffix": "张"
+        }
+      ],
+      "roomRuleOptionValues": {
+        "局数": {
+          "4局": 4,
+          "8局": 8,
+          "16局": 16
+        },
+        "人数": {
+          "2人": 2,
+          "3人": 3
+        },
+        "支付方式": {
+          "房主付": "owner_pays",
+          "平分付": "split_pays",
+          "胜家付": "winner_pays"
+        },
+        "发牌张数": {
+          "15张": 15,
+          "16张(经典玩法)": 16
+        },
+        "玩法与设置": {
+          "首局黑桃3先出": "first_round_spade_three_first",
+          "每局黑桃3先出": "every_round_spade_three_first",
+          "非必出(可4带3跟3A炸弹)": "not_required_four_with_three"
+        },
+        "操作时间": {
+          "不限制": -1,
+          "3分出牌": 180,
+          "5分出牌": 300
+        },
+        "解散时间": {
+          "30秒解散": 30,
+          "1分解散": 60,
+          "3分解散": 180,
+          "5分解散": 300,
+          "不可解散": -1
+        },
+        "其他": {
+          "同IP不可进": "same_ip_blocked",
+          "同位置不可进": "same_location_blocked"
+        }
+      }
+    },
+    {
+      "workbookPath": "Client/docs/开房规则表/跑得快/乐平跑得快.xlsx",
+      "publishingEnabled": true,
+      "sourceIdentity": [
+        "江西",
+        "乐平",
+        "乐平跑得快"
+      ],
+      "gameId": 90008,
+      "gameCode": "LP201",
+      "playVersion": "legacy-equivalent-1",
+      "family": "poker:pao-de-kuai",
+      "regionCode": "CN-36-02-81",
+      "releaseScope": "REGIONAL",
+      "requiredRoomRuleFields": [
+        {
+          "key": "roundCount",
+          "sourceLabel": "局数"
+        },
+        {
+          "key": "playerCount",
+          "sourceLabel": "人数"
+        },
+        {
+          "key": "paymentMode",
+          "sourceLabel": "支付方式"
+        },
+        {
+          "key": "dealCardCount",
+          "sourceLabel": "发牌张数"
+        },
+        {
+          "key": "playRule",
+          "sourceLabel": "玩法与设置"
+        },
+        {
+          "key": "bombSettlementMode",
+          "sourceLabel": "炸弹结算方式"
+        },
+        {
+          "key": "bombScore",
+          "sourceLabel": "炸弹记分"
+        },
+        {
+          "key": "fourWithMode",
+          "sourceLabel": "四带"
+        },
+        {
+          "key": "roomSettings",
+          "sourceLabel": "房间设置"
+        },
+        {
+          "key": "operationTimeoutSeconds",
+          "sourceLabel": "操作时间"
+        },
+        {
+          "key": "dissolveTimeoutSeconds",
+          "sourceLabel": "解散时间"
+        },
+        {
+          "key": "roomRestriction",
+          "sourceLabel": "其他"
+        }
+      ],
+      "numericRoomRuleFields": [
+        {
+          "sourceLabel": "局数",
+          "suffix": "局"
+        },
+        {
+          "sourceLabel": "人数",
+          "suffix": "人"
+        },
+        {
+          "sourceLabel": "发牌张数",
+          "suffix": "张"
+        },
+        {
+          "sourceLabel": "炸弹记分",
+          "suffix": "分"
+        }
+      ],
+      "roomRuleOptionValues": {
+        "局数": {
+          "8局": 8,
+          "12局": 12,
+          "16局": 16
+        },
+        "人数": {
+          "2人": 2,
+          "3人": 3
+        },
+        "支付方式": {
+          "房主付": "owner_pays",
+          "平分付": "split_pays",
+          "胜家付": "winner_pays"
+        },
+        "发牌张数": {
+          "15张": 15,
+          "16张": 16
+        },
+        "玩法与设置": {
+          "首局黑桃3先出": "first_round_spade_three_first",
+          "每局黑桃3先出": "every_round_spade_three_first",
+          "可不压牌": "may_pass",
+          "显示手牌": "show_hand",
+          "炸弹可拆": "bomb_splittable",
+          "3A为最大炸": "triple_ace_max_bomb",
+          "红桃10扎鸟": "heart_ten_bonus",
+          "首出不必带黑桃3": "first_play_spade_three_optional",
+          "手动过牌": "manual_pass",
+          "手动准备": "manual_ready",
+          "尾张算分": "last_card_scoring",
+          "无炸弹": "no_bomb",
+          "3A为炸": "triple_ace_bomb",
+          "防作弊": "anti_cheat",
+          "抢庄": "compete_dealer"
+        },
+        "炸弹结算方式": {
+          "炸弹归每轮最大玩家": "max_bomb_to_owner",
+          "只算每轮最大炸": "max_bomb_per_round",
+          "炸弹不算分": 0,
+          "有炸就算": "count_any_bomb"
+        },
+        "炸弹记分": {
+          "炸弹翻倍": "double",
+          "炸弹加10分": 10
+        },
+        "四带": {
+          "四带一": "four_with_one",
+          "四带二": "four_with_two",
+          "四带三": "four_with_three"
+        },
+        "房间设置": {
+          "房间内切换人数": "switch_player_count",
+          "小局托管解散": "dissolve_on_round_trustee",
+          "托管2小局解散": "dissolve_after_two_rounds_trustee"
+        },
+        "操作时间": {
+          "不限制": -1,
+          "3分出牌": 180,
+          "5分出牌": 300,
+          "1分出牌": 60,
+          "30秒出牌": 30,
+          "15秒出牌": 15
+        },
+        "解散时间": {
+          "30秒解散": 30,
+          "1分解散": 60,
+          "3分解散": 180,
+          "5分解散": 300,
+          "不可解散": -1
+        },
+        "其他": {
+          "同IP不可进": "same_ip_blocked",
+          "100米内不可进": "within_100m_blocked",
+          "禁止使用道具": "items_forbidden",
+          "200米内不可进": "within_200m_blocked",
+          "30秒未准备自动踢出房间": "kick_unready_30s",
+          "禁止语音": "voice_forbidden",
+          "禁止文字": "chat_forbidden"
+        }
+      }
+    },
+    {
+      "workbookPath": "Client/docs/开房规则表/跑得快/亳州跑得快.xlsx",
+      "publishingEnabled": true,
+      "sourceIdentity": [
+        "安徽",
+        "亳州",
+        "亳州跑得快"
+      ],
+      "gameId": 90009,
+      "gameCode": "BZ201",
+      "playVersion": "legacy-equivalent-1",
+      "family": "poker:pao-de-kuai",
+      "regionCode": "CN-34-16",
+      "releaseScope": "REGIONAL",
+      "requiredRoomRuleFields": [
+        {
+          "key": "roundCount",
+          "sourceLabel": "局数"
+        },
+        {
+          "key": "playerCount",
+          "sourceLabel": "人数"
+        },
+        {
+          "key": "paymentMode",
+          "sourceLabel": "支付方式"
+        },
+        {
+          "key": "dealCardCount",
+          "sourceLabel": "发牌张数"
+        },
+        {
+          "key": "playRule",
+          "sourceLabel": "玩法与设置"
+        },
+        {
+          "key": "playMode",
+          "sourceLabel": "玩法"
+        },
+        {
+          "key": "bombSettlementMode",
+          "sourceLabel": "炸弹结算方式"
+        },
+        {
+          "key": "bombScore",
+          "sourceLabel": "炸弹记分"
+        },
+        {
+          "key": "roomSettings",
+          "sourceLabel": "房间设置"
+        },
+        {
+          "key": "operationTimeoutSeconds",
+          "sourceLabel": "操作时间"
+        },
+        {
+          "key": "dissolveTimeoutSeconds",
+          "sourceLabel": "解散时间"
+        },
+        {
+          "key": "roomRestriction",
+          "sourceLabel": "其他"
+        }
+      ],
+      "numericRoomRuleFields": [
+        {
+          "sourceLabel": "局数",
+          "suffix": "局"
+        },
+        {
+          "sourceLabel": "人数",
+          "suffix": "人"
+        },
+        {
+          "sourceLabel": "发牌张数",
+          "suffix": "张"
+        },
+        {
+          "sourceLabel": "炸弹记分",
+          "suffix": "分"
+        }
+      ],
+      "roomRuleOptionValues": {
+        "局数": {
+          "10局": 10,
+          "20局": 20,
+          "30局": 30
+        },
+        "人数": {
+          "2人": 2,
+          "3人": 3
+        },
+        "支付方式": {
+          "房主付": "owner_pays",
+          "平分付": "split_pays",
+          "胜家付": "winner_pays"
+        },
+        "发牌张数": {
+          "15张": 15,
+          "16张": 16
+        },
+        "玩法与设置": {
+          "首局红桃3先出": "first_round_heart_three_first",
+          "每局红桃3先出": "every_round_heart_three_first",
+          "可不压牌": "may_pass",
+          "显示手牌": "show_hand",
+          "炸弹可拆": "bomb_splittable",
+          "3A为最大炸": "triple_ace_max_bomb",
+          "红桃10扎鸟": "heart_ten_bonus",
+          "首出不必带红桃3": "first_play_heart_three_optional",
+          "手动过牌": "manual_pass",
+          "手动准备": "manual_ready",
+          "尾张算分": "last_card_scoring",
+          "无炸弹": "no_bomb",
+          "3A为炸": "triple_ace_bomb",
+          "防作弊": "anti_cheat"
+        },
+        "玩法": {
+          "大跑": "big_run",
+          "小跑": "small_run"
+        },
+        "炸弹结算方式": {
+          "炸弹归每轮最大玩家": "max_bomb_to_owner",
+          "只算每轮最大炸": "max_bomb_per_round",
+          "炸弹不算分": 0,
+          "有炸就算": "count_any_bomb"
+        },
+        "炸弹记分": {
+          "炸弹翻倍": "double",
+          "炸弹加10分": 10
+        },
+        "房间设置": {
+          "房间内切换人数": "switch_player_count",
+          "小局托管解散": "dissolve_on_round_trustee"
+        },
+        "操作时间": {
+          "不限制": -1,
+          "3分出牌": 180,
+          "5分出牌": 300,
+          "1分出牌": 60,
+          "30秒出牌": 30
+        },
+        "解散时间": {
+          "30秒解散": 30,
+          "1分解散": 60,
+          "3分解散": 180,
+          "5分解散": 300,
+          "不可解散": -1
+        },
+        "其他": {
+          "同IP不可进": "same_ip_blocked",
+          "100米内不可进": "within_100m_blocked",
+          "禁止使用道具": "items_forbidden",
+          "200米内不可进": "within_200m_blocked",
+          "30秒未准备自动踢出房间": "kick_unready_30s",
+          "禁止语音": "voice_forbidden",
+          "禁止文字": "chat_forbidden"
+        }
+      }
+    },
+    {
+      "workbookPath": "Client/docs/开房规则表/跑得快/余干跑得快.xlsx",
+      "publishingEnabled": true,
+      "sourceIdentity": [
+        "江西",
+        "余干",
+        "余干跑得快"
+      ],
+      "gameId": 90010,
+      "gameCode": "YG201",
+      "playVersion": "legacy-equivalent-1",
+      "family": "poker:pao-de-kuai",
+      "regionCode": "CN-36-11-27",
+      "releaseScope": "REGIONAL",
+      "requiredRoomRuleFields": [
+        {
+          "key": "roundCount",
+          "sourceLabel": "局数"
+        },
+        {
+          "key": "playerCount",
+          "sourceLabel": "人数"
+        },
+        {
+          "key": "paymentMode",
+          "sourceLabel": "支付方式"
+        },
+        {
+          "key": "dealCardCount",
+          "sourceLabel": "发牌张数"
+        },
+        {
+          "key": "playRule",
+          "sourceLabel": "玩法与设置"
+        },
+        {
+          "key": "bombSettlementMode",
+          "sourceLabel": "炸弹结算方式"
+        },
+        {
+          "key": "bombScore",
+          "sourceLabel": "炸弹记分"
+        },
+        {
+          "key": "roomSettings",
+          "sourceLabel": "房间设置"
+        },
+        {
+          "key": "trusteePenalty",
+          "sourceLabel": "托管罚分"
+        },
+        {
+          "key": "operationTimeoutSeconds",
+          "sourceLabel": "操作时间"
+        },
+        {
+          "key": "dissolveTimeoutSeconds",
+          "sourceLabel": "解散时间"
+        },
+        {
+          "key": "roomRestriction",
+          "sourceLabel": "其他"
+        }
+      ],
+      "numericRoomRuleFields": [
+        {
+          "sourceLabel": "局数",
+          "suffix": "局"
+        },
+        {
+          "sourceLabel": "人数",
+          "suffix": "人"
+        },
+        {
+          "sourceLabel": "发牌张数",
+          "suffix": "张"
+        },
+        {
+          "sourceLabel": "炸弹记分",
+          "suffix": "分"
+        }
+      ],
+      "roomRuleOptionValues": {
+        "局数": {
+          "6局": 6,
+          "9局": 9,
+          "12局": 12
+        },
+        "人数": {
+          "2人": 2,
+          "3人": 3
+        },
+        "支付方式": {
+          "房主付": "owner_pays",
+          "平分付": "split_pays",
+          "胜家付": "winner_pays"
+        },
+        "发牌张数": {
+          "15张": 15,
+          "16张": 16
+        },
+        "玩法与设置": {
+          "首局黑桃3先出": "first_round_spade_three_first",
+          "每局黑桃3先出": "every_round_spade_three_first",
+          "可不压牌": "may_pass",
+          "显示手牌": "show_hand",
+          "炸弹可拆": "bomb_splittable",
+          "3A为最大炸": "triple_ace_max_bomb",
+          "红桃10扎鸟": "heart_ten_bonus",
+          "首出不必带黑桃3": "first_play_spade_three_optional",
+          "手动过牌": "manual_pass",
+          "手动准备": "manual_ready",
+          "尾张算分": "last_card_scoring",
+          "无炸弹": "no_bomb",
+          "3A为炸": "triple_ace_bomb",
+          "防作弊": "anti_cheat"
+        },
+        "炸弹结算方式": {
+          "炸弹归每轮最大玩家": "max_bomb_to_owner",
+          "只算每轮最大炸": "max_bomb_per_round",
+          "炸弹不算分": 0,
+          "有炸就算": "count_any_bomb"
+        },
+        "炸弹记分": {
+          "炸弹翻倍": "double",
+          "炸弹加10分": 10
+        },
+        "房间设置": {
+          "房间内切换人数": "switch_player_count",
+          "小局托管解散": "dissolve_on_round_trustee"
+        },
+        "托管罚分": {
+          "罚5分": 5,
+          "罚10分": 10,
+          "罚20分": 20,
+          "罚50分": 50,
+          "无托管罚分": 0
+        },
+        "操作时间": {
+          "不限制": -1,
+          "3分出牌": 180,
+          "5分出牌": 300,
+          "1分出牌": 60,
+          "30秒出牌": 30
+        },
+        "解散时间": {
+          "30秒解散": 30,
+          "1分解散": 60,
+          "3分解散": 180,
+          "5分解散": 300,
+          "不可解散": -1
+        },
+        "其他": {
+          "同IP不可进": "same_ip_blocked",
+          "100米内不可进": "within_100m_blocked",
+          "禁止使用道具": "items_forbidden",
+          "200米内不可进": "within_200m_blocked",
+          "30秒未准备自动踢出房间": "kick_unready_30s",
+          "禁止语音": "voice_forbidden",
+          "禁止文字": "chat_forbidden"
+        }
+      }
+    },
+    {
+      "workbookPath": "Client/docs/开房规则表/跑得快/吉安跑得快.xlsx",
+      "publishingEnabled": true,
+      "sourceIdentity": [
+        "江西",
+        "吉安",
+        "吉安跑得快"
+      ],
+      "gameId": 90011,
+      "gameCode": "JA201",
+      "playVersion": "legacy-equivalent-1",
+      "family": "poker:pao-de-kuai",
+      "regionCode": "CN-36-08",
+      "releaseScope": "REGIONAL",
+      "requiredRoomRuleFields": [
+        {
+          "key": "roundCount",
+          "sourceLabel": "局数"
+        },
+        {
+          "key": "playerCount",
+          "sourceLabel": "人数"
+        },
+        {
+          "key": "paymentMode",
+          "sourceLabel": "支付方式"
+        },
+        {
+          "key": "dealCardCount",
+          "sourceLabel": "发牌张数"
+        },
+        {
+          "key": "playRule",
+          "sourceLabel": "玩法与设置"
+        },
+        {
+          "key": "bombSettlementMode",
+          "sourceLabel": "炸弹结算方式"
+        },
+        {
+          "key": "bombScore",
+          "sourceLabel": "炸弹记分"
+        },
+        {
+          "key": "fourWithMode",
+          "sourceLabel": "四带"
+        },
+        {
+          "key": "roomSettings",
+          "sourceLabel": "房间设置"
+        },
+        {
+          "key": "operationTimeoutSeconds",
+          "sourceLabel": "操作时间"
+        },
+        {
+          "key": "dissolveTimeoutSeconds",
+          "sourceLabel": "解散时间"
+        },
+        {
+          "key": "roomRestriction",
+          "sourceLabel": "其他"
+        }
+      ],
+      "numericRoomRuleFields": [
+        {
+          "sourceLabel": "局数",
+          "suffix": "局"
+        },
+        {
+          "sourceLabel": "人数",
+          "suffix": "人"
+        },
+        {
+          "sourceLabel": "发牌张数",
+          "suffix": "张"
+        },
+        {
+          "sourceLabel": "炸弹记分",
+          "suffix": "分"
+        }
+      ],
+      "roomRuleOptionValues": {
+        "局数": {
+          "8局": 8,
+          "10局": 10,
+          "16局": 16
+        },
+        "人数": {
+          "2人": 2,
+          "3人": 3
+        },
+        "支付方式": {
+          "房主付": "owner_pays",
+          "平分付": "split_pays",
+          "胜家付": "winner_pays"
+        },
+        "发牌张数": {
+          "15张": 15,
+          "16张": 16
+        },
+        "玩法与设置": {
+          "首局黑桃3先出": "first_round_spade_three_first",
+          "每局黑桃3先出": "every_round_spade_three_first",
+          "可不压牌": "may_pass",
+          "显示手牌": "show_hand",
+          "炸弹可拆": "bomb_splittable",
+          "3A为最大炸": "triple_ace_max_bomb",
+          "红桃10扎鸟": "heart_ten_bonus",
+          "首出不必带黑桃3": "first_play_spade_three_optional",
+          "手动过牌": "manual_pass",
+          "手动准备": "manual_ready",
+          "尾张算分": "last_card_scoring",
+          "无炸弹": "no_bomb",
+          "3A为炸": "triple_ace_bomb",
+          "防作弊": "anti_cheat",
+          "比赛分不能低于0": "match_score_floor_zero",
+          "只能赢当前身上分": "win_current_score_only"
+        },
+        "炸弹结算方式": {
+          "炸弹归每轮最大玩家": "max_bomb_to_owner",
+          "只算每轮最大炸": "max_bomb_per_round",
+          "炸弹不算分": 0,
+          "有炸就算": "count_any_bomb"
+        },
+        "炸弹记分": {
+          "炸弹翻倍": "double",
+          "炸弹加10分": 10
+        },
+        "四带": {
+          "四带一": "four_with_one",
+          "四带二": "four_with_two",
+          "四带三": "four_with_three"
+        },
+        "房间设置": {
+          "房间内切换人数": "switch_player_count",
+          "小局托管解散": "dissolve_on_round_trustee",
+          "托管2小局解散": "dissolve_after_two_rounds_trustee"
+        },
+        "操作时间": {
+          "不限制": -1,
+          "3分出牌": 180,
+          "5分出牌": 300,
+          "1分出牌": 60,
+          "30秒出牌": 30
+        },
+        "解散时间": {
+          "30秒解散": 30,
+          "1分解散": 60,
+          "3分解散": 180,
+          "5分解散": 300,
+          "不可解散": -1
+        },
+        "其他": {
+          "同IP不可进": "same_ip_blocked",
+          "100米内不可进": "within_100m_blocked",
+          "禁止使用道具": "items_forbidden",
+          "200米内不可进": "within_200m_blocked",
+          "30秒未准备自动踢出房间": "kick_unready_30s",
+          "禁止语音": "voice_forbidden",
+          "禁止文字": "chat_forbidden"
+        }
+      }
+    },
+    {
+      "workbookPath": "Client/docs/开房规则表/跑得快/固始跑得快.xlsx",
+      "publishingEnabled": true,
+      "sourceIdentity": [
+        "河南",
+        "固始",
+        "固始跑得快"
+      ],
+      "gameId": 90012,
+      "gameCode": "GS201",
+      "playVersion": "legacy-equivalent-1",
+      "family": "poker:pao-de-kuai",
+      "regionCode": "CN-41-15-25",
+      "releaseScope": "REGIONAL",
+      "requiredRoomRuleFields": [
+        {
+          "key": "roundCount",
+          "sourceLabel": "局数"
+        },
+        {
+          "key": "playerCount",
+          "sourceLabel": "人数"
+        },
+        {
+          "key": "paymentMode",
+          "sourceLabel": "支付方式"
+        },
+        {
+          "key": "dealCardCount",
+          "sourceLabel": "发牌张数"
+        },
+        {
+          "key": "firstPlayRule",
+          "sourceLabel": "先出牌"
+        },
+        {
+          "key": "playRule",
+          "sourceLabel": "玩法与设置"
+        },
+        {
+          "key": "bombScore",
+          "sourceLabel": "炸弹记分"
+        },
+        {
+          "key": "roomSettings",
+          "sourceLabel": "房间设置"
+        },
+        {
+          "key": "operationTimeoutSeconds",
+          "sourceLabel": "操作时间"
+        },
+        {
+          "key": "dissolveTimeoutSeconds",
+          "sourceLabel": "解散时间"
+        },
+        {
+          "key": "roomRestriction",
+          "sourceLabel": "其他"
+        }
+      ],
+      "numericRoomRuleFields": [
+        {
+          "sourceLabel": "局数",
+          "suffix": "局"
+        },
+        {
+          "sourceLabel": "人数",
+          "suffix": "人"
+        },
+        {
+          "sourceLabel": "发牌张数",
+          "suffix": "张"
+        },
+        {
+          "sourceLabel": "炸弹记分",
+          "suffix": "分"
+        }
+      ],
+      "roomRuleOptionValues": {
+        "局数": {
+          "8局": 8,
+          "10局": 10,
+          "16局": 16
+        },
+        "人数": {
+          "2人": 2,
+          "3人": 3
+        },
+        "支付方式": {
+          "房主付": "owner_pays",
+          "平分付": "split_pays",
+          "胜家付": "winner_pays"
+        },
+        "发牌张数": {
+          "15张": 15,
+          "16张": 16
+        },
+        "先出牌": {
+          "首局红桃3": "first_round_heart_three_first",
+          "每局红桃3": "every_round_heart_three_first"
+        },
+        "玩法与设置": {
+          "显示手牌": "show_hand",
+          "炸弹可拆": "bomb_splittable",
+          "手动过牌": "manual_pass",
+          "尾张算分": "last_card_scoring"
+        },
+        "炸弹记分": {
+          "炸弹翻倍": "double",
+          "炸弹加10分": 10
+        },
+        "房间设置": {
+          "房间内切换人数": "switch_player_count",
+          "小局托管解散": "dissolve_on_round_trustee"
+        },
+        "操作时间": {
+          "不限制": -1,
+          "3分出牌": 180,
+          "5分出牌": 300,
+          "1分出牌": 60,
+          "30秒出牌": 30
+        },
+        "解散时间": {
+          "30秒解散": 30,
+          "1分解散": 60,
+          "3分解散": 180,
+          "5分解散": 300,
+          "不可解散": -1
+        },
+        "其他": {
+          "同IP不可进": "same_ip_blocked",
+          "100米内不可进": "within_100m_blocked",
+          "禁止使用道具": "items_forbidden",
+          "200米内不可进": "within_200m_blocked",
+          "30秒未准备自动踢出房间": "kick_unready_30s",
+          "禁止语音": "voice_forbidden",
+          "禁止文字": "chat_forbidden"
+        }
+      }
+    },
+    {
+      "workbookPath": "Client/docs/开房规则表/跑得快/孝感跑得快.xlsx",
+      "publishingEnabled": true,
+      "sourceIdentity": [
+        "湖北",
+        "孝感",
+        "孝感跑得快"
+      ],
+      "gameId": 90013,
+      "gameCode": "XG201",
+      "playVersion": "legacy-equivalent-1",
+      "family": "poker:pao-de-kuai",
+      "regionCode": "CN-42-09",
+      "releaseScope": "REGIONAL",
+      "requiredRoomRuleFields": [
+        {
+          "key": "roundCount",
+          "sourceLabel": "局数"
+        },
+        {
+          "key": "playerCount",
+          "sourceLabel": "人数"
+        },
+        {
+          "key": "paymentMode",
+          "sourceLabel": "支付方式"
+        },
+        {
+          "key": "dealCardCount",
+          "sourceLabel": "发牌张数"
+        },
+        {
+          "key": "playRule",
+          "sourceLabel": "玩法与设置"
+        },
+        {
+          "key": "piaoMode",
+          "sourceLabel": "飘花"
+        },
+        {
+          "key": "piaoRounds",
+          "sourceLabel": "飘花生效局数"
+        },
+        {
+          "key": "bombSettlementMode",
+          "sourceLabel": "炸弹结算方式"
+        },
+        {
+          "key": "bombScore",
+          "sourceLabel": "炸弹记分"
+        },
+        {
+          "key": "roomSettings",
+          "sourceLabel": "房间设置"
+        },
+        {
+          "key": "operationTimeoutSeconds",
+          "sourceLabel": "操作时间"
+        },
+        {
+          "key": "dissolveTimeoutSeconds",
+          "sourceLabel": "解散时间"
+        },
+        {
+          "key": "roomRestriction",
+          "sourceLabel": "其他"
+        }
+      ],
+      "numericRoomRuleFields": [
+        {
+          "sourceLabel": "局数",
+          "suffix": "局"
+        },
+        {
+          "sourceLabel": "人数",
+          "suffix": "人"
+        },
+        {
+          "sourceLabel": "发牌张数",
+          "suffix": "张"
+        },
+        {
+          "sourceLabel": "炸弹记分",
+          "suffix": "分"
+        }
+      ],
+      "roomRuleOptionValues": {
+        "局数": {
+          "8局": 8,
+          "10局": 10,
+          "16局": 16
+        },
+        "人数": {
+          "2人": 2,
+          "3人": 3
+        },
+        "支付方式": {
+          "房主付": "owner_pays",
+          "平分付": "split_pays",
+          "胜家付": "winner_pays"
+        },
+        "发牌张数": {
+          "15张": 15,
+          "16张": 16
+        },
+        "玩法与设置": {
+          "首局黑桃3先出": "first_round_spade_three_first",
+          "每局黑桃3先出": "every_round_spade_three_first",
+          "可不压牌": "may_pass",
+          "显示手牌": "show_hand",
+          "炸弹可拆": "bomb_splittable",
+          "3A为最大炸": "triple_ace_max_bomb",
+          "红桃10扎鸟": "heart_ten_bonus",
+          "首出不必带黑桃3": "first_play_spade_three_optional",
+          "手动过牌": "manual_pass",
+          "手动准备": "manual_ready",
+          "尾张算分": "last_card_scoring",
+          "无炸弹": "no_bomb",
+          "3A为炸": "triple_ace_bomb",
+          "防作弊": "anti_cheat"
+        },
+        "飘花": {
+          "不飘": "no_piao",
+          "自选飘": "piao_custom",
+          "固定飘1分": 1,
+          "固定飘2分": 2
+        },
+        "飘花生效局数": {
+          "首局飘": "first_round_only",
+          "局局飘": "every_round"
+        },
+        "炸弹结算方式": {
+          "炸弹归每轮最大玩家": "max_bomb_to_owner",
+          "只算每轮最大炸": "max_bomb_per_round",
+          "炸弹不算分": 0,
+          "有炸就算": "count_any_bomb"
+        },
+        "炸弹记分": {
+          "炸弹翻倍": "double",
+          "炸弹加10分": 10
+        },
+        "房间设置": {
+          "房间内切换人数": "switch_player_count",
+          "小局托管解散": "dissolve_on_round_trustee"
+        },
+        "操作时间": {
+          "不限制": -1,
+          "3分出牌": 180,
+          "5分出牌": 300,
+          "1分出牌": 60,
+          "30秒出牌": 30
+        },
+        "解散时间": {
+          "30秒解散": 30,
+          "1分解散": 60,
+          "3分解散": 180,
+          "5分解散": 300,
+          "不可解散": -1
+        },
+        "其他": {
+          "同IP不可进": "same_ip_blocked",
+          "100米内不可进": "within_100m_blocked",
+          "禁止使用道具": "items_forbidden",
+          "200米内不可进": "within_200m_blocked",
+          "30秒未准备自动踢出房间": "kick_unready_30s",
+          "禁止语音": "voice_forbidden",
+          "禁止文字": "chat_forbidden"
+        }
+      }
+    },
+    {
+      "workbookPath": "Client/docs/开房规则表/跑得快/宁都跑得快.xlsx",
+      "publishingEnabled": true,
+      "sourceIdentity": [
+        "江西",
+        "宁都",
+        "宁都跑得快"
+      ],
+      "gameId": 90014,
+      "gameCode": "ND201",
+      "playVersion": "legacy-equivalent-1",
+      "family": "poker:pao-de-kuai",
+      "regionCode": "CN-36-07-30",
+      "releaseScope": "REGIONAL",
+      "requiredRoomRuleFields": [
+        {
+          "key": "roundCount",
+          "sourceLabel": "局数"
+        },
+        {
+          "key": "playerCount",
+          "sourceLabel": "人数"
+        },
+        {
+          "key": "paymentMode",
+          "sourceLabel": "支付方式"
+        },
+        {
+          "key": "dealCardCount",
+          "sourceLabel": "发牌张数"
+        },
+        {
+          "key": "playRule",
+          "sourceLabel": "玩法与设置"
+        },
+        {
+          "key": "bombSettlementMode",
+          "sourceLabel": "炸弹结算方式"
+        },
+        {
+          "key": "bombScore",
+          "sourceLabel": "炸弹记分"
+        },
+        {
+          "key": "fourWithMode",
+          "sourceLabel": "四带"
+        },
+        {
+          "key": "roomSettings",
+          "sourceLabel": "房间设置"
+        },
+        {
+          "key": "operationTimeoutSeconds",
+          "sourceLabel": "操作时间"
+        },
+        {
+          "key": "dissolveTimeoutSeconds",
+          "sourceLabel": "解散时间"
+        },
+        {
+          "key": "roomRestriction",
+          "sourceLabel": "其他"
+        }
+      ],
+      "numericRoomRuleFields": [
+        {
+          "sourceLabel": "局数",
+          "suffix": "局"
+        },
+        {
+          "sourceLabel": "人数",
+          "suffix": "人"
+        },
+        {
+          "sourceLabel": "发牌张数",
+          "suffix": "张"
+        },
+        {
+          "sourceLabel": "炸弹记分",
+          "suffix": "分"
+        }
+      ],
+      "roomRuleOptionValues": {
+        "局数": {
+          "8局": 8,
+          "10局": 10,
+          "16局": 16
+        },
+        "人数": {
+          "2人": 2,
+          "3人": 3
+        },
+        "支付方式": {
+          "房主付": "owner_pays",
+          "平分付": "split_pays",
+          "胜家付": "winner_pays"
+        },
+        "发牌张数": {
+          "15张": 15,
+          "16张": 16
+        },
+        "玩法与设置": {
+          "可不压牌": "may_pass",
+          "显示手牌": "show_hand",
+          "炸弹可拆": "bomb_splittable",
+          "3A为最大炸": "triple_ace_max_bomb",
+          "红桃10扎鸟": "heart_ten_bonus",
+          "手动过牌": "manual_pass",
+          "手动准备": "manual_ready",
+          "尾张算分": "last_card_scoring",
+          "无炸弹": "no_bomb",
+          "3A为炸": "triple_ace_bomb",
+          "防作弊": "anti_cheat",
+          "比赛分不能低于0": "match_score_floor_zero",
+          "只能赢当前身上分": "win_current_score_only"
+        },
+        "炸弹结算方式": {
+          "炸弹归每轮最大玩家": "max_bomb_to_owner",
+          "只算每轮最大炸": "max_bomb_per_round",
+          "炸弹不算分": 0,
+          "有炸就算": "count_any_bomb"
+        },
+        "炸弹记分": {
+          "炸弹翻倍": "double",
+          "炸弹加10分": 10
+        },
+        "四带": {
+          "四带一": "four_with_one",
+          "四带二": "four_with_two",
+          "四带三": "four_with_three"
+        },
+        "房间设置": {
+          "房间内切换人数": "switch_player_count",
+          "小局托管解散": "dissolve_on_round_trustee",
+          "托管2小局解散": "dissolve_after_two_rounds_trustee"
+        },
+        "操作时间": {
+          "不限制": -1,
+          "3分出牌": 180,
+          "5分出牌": 300,
+          "1分出牌": 60,
+          "30秒出牌": 30
+        },
+        "解散时间": {
+          "30秒解散": 30,
+          "1分解散": 60,
+          "3分解散": 180,
+          "5分解散": 300,
+          "不可解散": -1
+        },
+        "其他": {
+          "同IP不可进": "same_ip_blocked",
+          "100米内不可进": "within_100m_blocked",
+          "禁止使用道具": "items_forbidden",
+          "200米内不可进": "within_200m_blocked",
+          "30秒未准备自动踢出房间": "kick_unready_30s",
+          "禁止语音": "voice_forbidden",
+          "禁止文字": "chat_forbidden"
+        }
+      }
+    },
+    {
+      "workbookPath": "Client/docs/开房规则表/跑得快/怀化跑得快.xlsx",
+      "publishingEnabled": true,
+      "sourceIdentity": [
+        "湖南",
+        "怀化",
+        "怀化跑得快"
+      ],
+      "gameId": 90015,
+      "gameCode": "HH201",
+      "playVersion": "legacy-equivalent-1",
+      "family": "poker:pao-de-kuai",
+      "regionCode": "CN-43-12",
+      "releaseScope": "REGIONAL",
+      "requiredRoomRuleFields": [
+        {
+          "key": "roundCount",
+          "sourceLabel": "局数"
+        },
+        {
+          "key": "playerCount",
+          "sourceLabel": "人数"
+        },
+        {
+          "key": "paymentMode",
+          "sourceLabel": "支付方式"
+        },
+        {
+          "key": "dealCardCount",
+          "sourceLabel": "发牌张数"
+        },
+        {
+          "key": "playRule",
+          "sourceLabel": "玩法与设置"
+        },
+        {
+          "key": "bombSettlementMode",
+          "sourceLabel": "炸弹结算方式"
+        },
+        {
+          "key": "bombScore",
+          "sourceLabel": "炸弹记分"
+        },
+        {
+          "key": "cutCardScore",
+          "sourceLabel": "小局切牌"
+        },
+        {
+          "key": "bigRoundScoring",
+          "sourceLabel": "大局算分"
+        },
+        {
+          "key": "roomSettings",
+          "sourceLabel": "房间设置"
+        },
+        {
+          "key": "operationTimeoutSeconds",
+          "sourceLabel": "操作时间"
+        },
+        {
+          "key": "dissolveTimeoutSeconds",
+          "sourceLabel": "解散时间"
+        },
+        {
+          "key": "roomRestriction",
+          "sourceLabel": "其他"
+        }
+      ],
+      "numericRoomRuleFields": [
+        {
+          "sourceLabel": "局数",
+          "suffix": "局"
+        },
+        {
+          "sourceLabel": "人数",
+          "suffix": "人"
+        },
+        {
+          "sourceLabel": "发牌张数",
+          "suffix": "张"
+        },
+        {
+          "sourceLabel": "炸弹记分",
+          "suffix": "分"
+        }
+      ],
+      "roomRuleOptionValues": {
+        "局数": {
+          "8局": 8,
+          "10局": 10,
+          "16局": 16
+        },
+        "人数": {
+          "2人": 2,
+          "3人": 3
+        },
+        "支付方式": {
+          "房主付": "owner_pays",
+          "平分付": "split_pays",
+          "胜家付": "winner_pays"
+        },
+        "发牌张数": {
+          "15张": 15,
+          "16张": 16
+        },
+        "玩法与设置": {
+          "首局黑桃3先出": "first_round_spade_three_first",
+          "每局黑桃3先出": "every_round_spade_three_first",
+          "可不压牌": "may_pass",
+          "显示手牌": "show_hand",
+          "炸弹可拆": "bomb_splittable",
+          "3A为最大炸": "triple_ace_max_bomb",
+          "红桃10扎鸟": "heart_ten_bonus",
+          "首出不必带黑桃3": "first_play_spade_three_optional",
+          "手动过牌": "manual_pass",
+          "尾张算分": "last_card_scoring",
+          "无炸弹": "no_bomb",
+          "3A为炸": "triple_ace_bomb",
+          "防作弊": "anti_cheat",
+          "随机首出": "random_first_play",
+          "比赛分不能低于0": "match_score_floor_zero",
+          "带多少只赢多少": "win_carried_only"
+        },
+        "炸弹结算方式": {
+          "炸弹归每轮最大玩家": "max_bomb_to_owner",
+          "只算每轮最大炸": "max_bomb_per_round",
+          "炸弹不算分": 0,
+          "有炸就算": "count_any_bomb"
+        },
+        "炸弹记分": {
+          "炸弹翻倍": "double",
+          "炸弹加10分": 10
+        },
+        "小局切牌": {
+          "不切牌": "no_cut",
+          "0.1分切牌": 0.1,
+          "0.2分切牌": 0.2,
+          "0.5分切牌": 0.5,
+          "0.8分切牌": 0.8,
+          "1分切牌": 1.0
+        },
+        "大局算分": {
+          "正常": "normal",
+          "不足10算10": "floor_ten",
+          "不足10翻倍": "double_below_ten"
+        },
+        "房间设置": {
+          "房间内切换人数": "switch_player_count",
+          "自动准备": "auto_ready",
+          "小局托管解散": "dissolve_on_round_trustee",
+          "解散次数不超过5次": "dissolve_limit_5",
+          "解散次数不超过3次": "dissolve_limit_3",
+          "托管3小局解散": "dissolve_after_three_rounds_trustee"
+        },
+        "操作时间": {
+          "不限制": -1,
+          "3分出牌": 180,
+          "5分出牌": 300,
+          "1分出牌": 60,
+          "30秒出牌": 30
+        },
+        "解散时间": {
+          "30秒解散": 30,
+          "1分解散": 60,
+          "3分解散": 180,
+          "5分解散": 300,
+          "不可解散": -1
+        },
+        "其他": {
+          "同IP不可进": "same_ip_blocked",
+          "100米内不可进": "within_100m_blocked",
+          "禁止使用道具": "items_forbidden",
+          "200米内不可进": "within_200m_blocked",
+          "30秒未准备自动踢出房间": "kick_unready_30s",
+          "禁止语音": "voice_forbidden",
+          "禁止文字": "chat_forbidden"
+        }
+      }
+    },
+    {
+      "workbookPath": "Client/docs/开房规则表/跑得快/新县跑得快.xlsx",
+      "publishingEnabled": true,
+      "sourceIdentity": [
+        "河南",
+        "新县",
+        "新县跑得快"
+      ],
+      "gameId": 90016,
+      "gameCode": "XX201",
+      "playVersion": "legacy-equivalent-1",
+      "family": "poker:pao-de-kuai",
+      "regionCode": "CN-41-15-23",
+      "releaseScope": "REGIONAL",
+      "requiredRoomRuleFields": [
+        {
+          "key": "roundCount",
+          "sourceLabel": "局数"
+        },
+        {
+          "key": "playerCount",
+          "sourceLabel": "人数"
+        },
+        {
+          "key": "paymentMode",
+          "sourceLabel": "支付方式"
+        },
+        {
+          "key": "dealCardCount",
+          "sourceLabel": "发牌张数"
+        },
+        {
+          "key": "playRule",
+          "sourceLabel": "玩法与设置"
+        },
+        {
+          "key": "bombSettlementMode",
+          "sourceLabel": "炸弹结算方式"
+        },
+        {
+          "key": "bombScore",
+          "sourceLabel": "炸弹记分"
+        },
+        {
+          "key": "fourWithMode",
+          "sourceLabel": "四带"
+        },
+        {
+          "key": "roomSettings",
+          "sourceLabel": "房间设置"
+        },
+        {
+          "key": "operationTimeoutSeconds",
+          "sourceLabel": "操作时间"
+        },
+        {
+          "key": "dissolveTimeoutSeconds",
+          "sourceLabel": "解散时间"
+        },
+        {
+          "key": "roomRestriction",
+          "sourceLabel": "其他"
+        }
+      ],
+      "numericRoomRuleFields": [
+        {
+          "sourceLabel": "局数",
+          "suffix": "局"
+        },
+        {
+          "sourceLabel": "人数",
+          "suffix": "人"
+        },
+        {
+          "sourceLabel": "发牌张数",
+          "suffix": "张"
+        },
+        {
+          "sourceLabel": "炸弹记分",
+          "suffix": "分"
+        }
+      ],
+      "roomRuleOptionValues": {
+        "局数": {
+          "8局": 8,
+          "10局": 10,
+          "16局": 16
+        },
+        "人数": {
+          "2人": 2,
+          "3人": 3,
+          "4人": 4
+        },
+        "支付方式": {
+          "房主付": "owner_pays",
+          "平分付": "split_pays",
+          "胜家付": "winner_pays"
+        },
+        "发牌张数": {
+          "15张": 15,
+          "16张": 16
+        },
+        "玩法与设置": {
+          "首局红桃3先出": "first_round_heart_three_first",
+          "每局红桃3先出": "every_round_heart_three_first",
+          "可不压牌": "may_pass",
+          "显示手牌": "show_hand",
+          "炸弹可拆": "bomb_splittable",
+          "3A为最大炸": "triple_ace_max_bomb",
+          "红桃10扎鸟": "heart_ten_bonus",
+          "首出不必带红桃3": "first_play_heart_three_optional",
+          "手动过牌": "manual_pass",
+          "手动准备": "manual_ready",
+          "无炸弹": "no_bomb",
+          "3A为炸": "triple_ace_bomb",
+          "防作弊": "anti_cheat",
+          "春天": "spring",
+          "反春天": "anti_spring"
+        },
+        "炸弹结算方式": {
+          "炸弹归每轮最大玩家": "max_bomb_to_owner",
+          "只算每轮最大炸": "max_bomb_per_round",
+          "炸弹不算分": 0,
+          "有炸就算": "count_any_bomb"
+        },
+        "炸弹记分": {
+          "炸弹翻倍": "double",
+          "炸弹加10分": 10
+        },
+        "四带": {
+          "四带一": "four_with_one",
+          "四带二": "four_with_two",
+          "四带三": "four_with_three"
+        },
+        "房间设置": {
+          "房间内切换人数": "switch_player_count",
+          "小局托管解散": "dissolve_on_round_trustee"
+        },
+        "操作时间": {
+          "不限制": -1,
+          "3分出牌": 180,
+          "5分出牌": 300,
+          "1分出牌": 60,
+          "30秒出牌": 30
+        },
+        "解散时间": {
+          "30秒解散": 30,
+          "1分解散": 60,
+          "3分解散": 180,
+          "5分解散": 300,
+          "不可解散": -1
+        },
+        "其他": {
+          "同IP不可进": "same_ip_blocked",
+          "100米内不可进": "within_100m_blocked",
+          "禁止使用道具": "items_forbidden",
+          "200米内不可进": "within_200m_blocked",
+          "30秒未准备自动踢出房间": "kick_unready_30s",
+          "禁止语音": "voice_forbidden",
+          "禁止文字": "chat_forbidden"
+        }
+      }
+    },
+    {
+      "workbookPath": "Client/docs/开房规则表/跑得快/景德镇跑得快.xlsx",
+      "publishingEnabled": true,
+      "sourceIdentity": [
+        "江西",
+        "景德镇",
+        "景德镇跑得快"
+      ],
+      "gameId": 90017,
+      "gameCode": "JD201",
+      "playVersion": "legacy-equivalent-1",
+      "family": "poker:pao-de-kuai",
+      "regionCode": "CN-36-02",
+      "releaseScope": "REGIONAL",
+      "requiredRoomRuleFields": [
+        {
+          "key": "roundCount",
+          "sourceLabel": "局数"
+        },
+        {
+          "key": "playerCount",
+          "sourceLabel": "人数"
+        },
+        {
+          "key": "paymentMode",
+          "sourceLabel": "支付方式"
+        },
+        {
+          "key": "dealCardCount",
+          "sourceLabel": "发牌张数"
+        },
+        {
+          "key": "playRule",
+          "sourceLabel": "玩法与设置"
+        },
+        {
+          "key": "bombSettlementMode",
+          "sourceLabel": "炸弹结算方式"
+        },
+        {
+          "key": "roomSettings",
+          "sourceLabel": "房间设置"
+        },
+        {
+          "key": "operationTimeoutSeconds",
+          "sourceLabel": "操作时间"
+        },
+        {
+          "key": "dissolveTimeoutSeconds",
+          "sourceLabel": "解散时间"
+        },
+        {
+          "key": "roomRestriction",
+          "sourceLabel": "其他"
+        }
+      ],
+      "numericRoomRuleFields": [
+        {
+          "sourceLabel": "局数",
+          "suffix": "局"
+        },
+        {
+          "sourceLabel": "人数",
+          "suffix": "人"
+        },
+        {
+          "sourceLabel": "发牌张数",
+          "suffix": "张"
+        }
+      ],
+      "roomRuleOptionValues": {
+        "局数": {
+          "8局": 8,
+          "12局": 12,
+          "16局": 16
+        },
+        "人数": {
+          "2人": 2,
+          "3人": 3
+        },
+        "支付方式": {
+          "房主付": "owner_pays",
+          "平分付": "split_pays",
+          "胜家付": "winner_pays"
+        },
+        "发牌张数": {
+          "15张": 15,
+          "16张": 16
+        },
+        "玩法与设置": {
+          "首局黑桃3先出": "first_round_spade_three_first",
+          "每局黑桃3先出": "every_round_spade_three_first",
+          "非必出": "not_required",
+          "显示手牌": "show_hand",
+          "炸弹可拆": "bomb_splittable",
+          "3A为最大炸": "triple_ace_max_bomb",
+          "红桃10扎鸟": "heart_ten_bonus",
+          "首出不必带黑桃3": "first_play_spade_three_optional",
+          "手动过牌": "manual_pass",
+          "自动准备": "auto_ready"
+        },
+        "炸弹结算方式": {
+          "有炸就算": "count_any_bomb",
+          "只算赢家": "winner_only",
+          "炸弹不算分": 0
+        },
+        "房间设置": {
+          "房间内切换人数": "switch_player_count"
+        },
+        "操作时间": {
+          "不限制": -1,
+          "3分出牌": 180,
+          "5分出牌": 300,
+          "1分出牌": 60,
+          "30秒出牌": 30
+        },
+        "解散时间": {
+          "30秒解散": 30,
+          "1分解散": 60,
+          "3分解散": 180,
+          "5分解散": 300,
+          "不可解散": -1
+        },
+        "其他": {
+          "同IP不可进": "same_ip_blocked",
+          "100米内不可进": "within_100m_blocked",
+          "禁止使用道具": "items_forbidden",
+          "200米内不可进": "within_200m_blocked",
+          "30秒未准备自动踢出房间": "kick_unready_30s",
+          "禁止语音": "voice_forbidden"
+        }
+      }
+    },
+    {
+      "workbookPath": "Client/docs/开房规则表/跑得快/江苏跑得快.xlsx",
+      "publishingEnabled": true,
+      "sourceIdentity": [
+        "江苏",
+        "江苏",
+        "江苏跑得快"
+      ],
+      "gameId": 90018,
+      "gameCode": "JS201",
+      "playVersion": "legacy-equivalent-1",
+      "family": "poker:pao-de-kuai",
+      "regionCode": "CN-32",
+      "releaseScope": "REGIONAL",
+      "requiredRoomRuleFields": [
+        {
+          "key": "roundCount",
+          "sourceLabel": "局数"
+        },
+        {
+          "key": "playerCount",
+          "sourceLabel": "人数"
+        },
+        {
+          "key": "paymentMode",
+          "sourceLabel": "支付方式"
+        },
+        {
+          "key": "dealCardCount",
+          "sourceLabel": "发牌张数"
+        },
+        {
+          "key": "playRule",
+          "sourceLabel": "玩法与设置"
+        },
+        {
+          "key": "fourWithMode",
+          "sourceLabel": "四带"
+        },
+        {
+          "key": "threeWithMode",
+          "sourceLabel": "三带"
+        },
+        {
+          "key": "capMode",
+          "sourceLabel": "封顶"
+        },
+        {
+          "key": "bombSettlementMode",
+          "sourceLabel": "炸弹结算方式"
+        },
+        {
+          "key": "bombScore",
+          "sourceLabel": "炸弹记分"
+        },
+        {
+          "key": "roomSettings",
+          "sourceLabel": "房间设置"
+        },
+        {
+          "key": "operationTimeoutSeconds",
+          "sourceLabel": "操作时间"
+        },
+        {
+          "key": "dissolveTimeoutSeconds",
+          "sourceLabel": "解散时间"
+        },
+        {
+          "key": "roomRestriction",
+          "sourceLabel": "其他"
+        }
+      ],
+      "numericRoomRuleFields": [
+        {
+          "sourceLabel": "局数",
+          "suffix": "局"
+        },
+        {
+          "sourceLabel": "人数",
+          "suffix": "人"
+        },
+        {
+          "sourceLabel": "发牌张数",
+          "suffix": "张"
+        },
+        {
+          "sourceLabel": "炸弹记分",
+          "suffix": "分"
+        }
+      ],
+      "roomRuleOptionValues": {
+        "局数": {
+          "8局": 8,
+          "10局": 10,
+          "16局": 16
+        },
+        "人数": {
+          "2人": 2,
+          "3人": 3
+        },
+        "支付方式": {
+          "房主付": "owner_pays",
+          "平分付": "split_pays",
+          "胜家付": "winner_pays"
+        },
+        "发牌张数": {
+          "15张": 15,
+          "16张": 16
+        },
+        "玩法与设置": {
+          "首局黑桃3先出": "first_round_spade_three_first",
+          "每局黑桃3先出": "every_round_spade_three_first",
+          "可不压牌": "may_pass",
+          "显示手牌": "show_hand",
+          "炸弹可拆": "bomb_splittable",
+          "3A为最大炸": "triple_ace_max_bomb",
+          "红桃10扎鸟": "heart_ten_bonus",
+          "首出不必带黑桃3": "first_play_spade_three_optional",
+          "手动过牌": "manual_pass",
+          "手动准备": "manual_ready",
+          "尾张算分": "last_card_scoring",
+          "无炸弹": "no_bomb",
+          "3A为炸": "triple_ace_bomb",
+          "防作弊": "anti_cheat"
+        },
+        "四带": {
+          "四带一": "four_with_one",
+          "四带二": "four_with_two",
+          "四带三": "four_with_three"
+        },
+        "三带": {
+          "三带一张": "triple_with_one",
+          "三带二张": "triple_with_two",
+          "三带一对": "triple_with_pair"
+        },
+        "封顶": {
+          "紧淌": "no_cap",
+          "20进园子": "cap_20",
+          "60进园子": "cap_60",
+          "100进园子": "cap_100",
+          "200进园子": "cap_200"
+        },
+        "炸弹结算方式": {
+          "炸弹归每轮最大玩家": "max_bomb_to_owner",
+          "只算每轮最大炸": "max_bomb_per_round",
+          "炸弹不算分": 0,
+          "有炸就算": "count_any_bomb"
+        },
+        "炸弹记分": {
+          "炸弹翻倍": "double",
+          "炸弹加10分": 10
+        },
+        "房间设置": {
+          "房间内切换人数": "switch_player_count"
+        },
+        "操作时间": {
+          "不限制": -1,
+          "3分出牌": 180,
+          "5分出牌": 300,
+          "1分出牌": 60,
+          "30秒出牌": 30
+        },
+        "解散时间": {
+          "30秒解散": 30,
+          "1分解散": 60,
+          "3分解散": 180,
+          "5分解散": 300,
+          "不可解散": -1
+        },
+        "其他": {
+          "同IP不可进": "same_ip_blocked",
+          "100米内不可进": "within_100m_blocked",
+          "禁止使用道具": "items_forbidden",
+          "200米内不可进": "within_200m_blocked",
+          "30秒未准备自动踢出房间": "kick_unready_30s",
+          "禁止语音": "voice_forbidden",
+          "禁止文字": "chat_forbidden"
+        }
+      }
+    },
+    {
+      "workbookPath": "Client/docs/开房规则表/跑得快/河南跑得快.xlsx",
+      "publishingEnabled": true,
+      "sourceIdentity": [
+        "河南",
+        "河南",
+        "河南跑得快"
+      ],
+      "gameId": 90019,
+      "gameCode": "HN201",
+      "playVersion": "legacy-equivalent-1",
+      "family": "poker:pao-de-kuai",
+      "regionCode": "CN-41",
+      "releaseScope": "REGIONAL",
+      "requiredRoomRuleFields": [
+        {
+          "key": "roundCount",
+          "sourceLabel": "局数"
+        },
+        {
+          "key": "playerCount",
+          "sourceLabel": "人数"
+        },
+        {
+          "key": "paymentMode",
+          "sourceLabel": "支付方式"
+        },
+        {
+          "key": "dealCardCount",
+          "sourceLabel": "发牌张数"
+        },
+        {
+          "key": "firstPlayMode",
+          "sourceLabel": "首出规则"
+        },
+        {
+          "key": "playRule",
+          "sourceLabel": "玩法与设置"
+        },
+        {
+          "key": "aceThreeBombMode",
+          "sourceLabel": "3A炸弹"
+        },
+        {
+          "key": "bombSettlementMode",
+          "sourceLabel": "炸弹结算方式"
+        },
+        {
+          "key": "bombScore",
+          "sourceLabel": "炸弹记分"
+        },
+        {
+          "key": "roomSettings",
+          "sourceLabel": "房间设置"
+        },
+        {
+          "key": "operationTimeoutSeconds",
+          "sourceLabel": "操作时间"
+        },
+        {
+          "key": "dissolveTimeoutSeconds",
+          "sourceLabel": "解散时间"
+        },
+        {
+          "key": "roomRestriction",
+          "sourceLabel": "其他"
+        }
+      ],
+      "numericRoomRuleFields": [
+        {
+          "sourceLabel": "局数",
+          "suffix": "局"
+        },
+        {
+          "sourceLabel": "人数",
+          "suffix": "人"
+        },
+        {
+          "sourceLabel": "发牌张数",
+          "suffix": "张"
+        },
+        {
+          "sourceLabel": "炸弹记分",
+          "suffix": "分"
+        }
+      ],
+      "roomRuleOptionValues": {
+        "局数": {
+          "8局": 8,
+          "10局": 10,
+          "16局": 16
+        },
+        "人数": {
+          "2人": 2,
+          "3人": 3
+        },
+        "支付方式": {
+          "房主付": "owner_pays",
+          "平分付": "split_pays",
+          "胜家付": "winner_pays"
+        },
+        "发牌张数": {
+          "15张": 15,
+          "16张": 16
+        },
+        "首出规则": {
+          "首局红桃3先出（需带红桃3）": "first_round_heart_three_required",
+          "每局红桃3先出（需带红桃3）": "every_round_heart_three_required",
+          "首局红桃3先出（不需带红桃3）": "first_round_heart_three_optional",
+          "每局红桃3先出（不需带红桃3）": "every_round_heart_three_optional"
+        },
+        "玩法与设置": {
+          "防作弊": "anti_cheat",
+          "红桃十扎鸟": "heart_ten_bonus",
+          "有大必压": "must_beat_with_big",
+          "逢跑必压": "must_beat_on_run",
+          "自动过牌": "auto_pass",
+          "显示手牌": "show_hand",
+          "尾张算分": "last_card_scoring",
+          "允许3带1": "allow_triple_with_one",
+          "允许3带2": "allow_triple_with_two",
+          "允许3带一对": "allow_triple_with_pair",
+          "允许4带1": "allow_four_with_one",
+          "允许4带2": "allow_four_with_two",
+          "允许4带3": "allow_four_with_three",
+          "自动准备": "auto_ready"
+        },
+        "3A炸弹": {
+          "3A最大炸": "ace_three_max_bomb",
+          "3A最小炸": "ace_three_min_bomb",
+          "3A不为炸": "ace_three_not_bomb"
+        },
+        "炸弹结算方式": {
+          "有炸就算": "count_any_bomb",
+          "只算每轮最大炸": "max_bomb_per_round",
+          "炸弹不算分": 0,
+          "炸弹归每轮最大玩家": "max_bomb_to_owner"
+        },
+        "炸弹记分": {
+          "炸弹翻倍": "double",
+          "炸弹加10分": 10
+        },
+        "房间设置": {
+          "房间内切换人数": "switch_player_count"
+        },
+        "操作时间": {
+          "不限制": -1,
+          "3分出牌": 180,
+          "5分出牌": 300,
+          "1分出牌": 60,
+          "30秒出牌": 30
+        },
+        "解散时间": {
+          "30秒解散": 30,
+          "1分解散": 60,
+          "3分解散": 180,
+          "5分解散": 300,
+          "不可解散": -1
+        },
+        "其他": {
+          "同IP不可进": "same_ip_blocked",
+          "100米内不可进": "within_100m_blocked",
+          "禁止使用道具": "items_forbidden",
+          "200米内不可进": "within_200m_blocked",
+          "30秒未准备自动踢出房间": "kick_unready_30s",
+          "禁止语音": "voice_forbidden"
+        }
+      }
+    },
+    {
+      "workbookPath": "Client/docs/开房规则表/跑得快/泰州跑得快.xlsx",
+      "publishingEnabled": true,
+      "sourceIdentity": [
+        "江苏",
+        "泰州",
+        "泰州跑得快"
+      ],
+      "gameId": 90020,
+      "gameCode": "TZ201",
+      "playVersion": "legacy-equivalent-1",
+      "family": "poker:pao-de-kuai",
+      "regionCode": "CN-32-12",
+      "releaseScope": "REGIONAL",
+      "requiredRoomRuleFields": [
+        {
+          "key": "roundCount",
+          "sourceLabel": "局数"
+        },
+        {
+          "key": "playerCount",
+          "sourceLabel": "人数"
+        },
+        {
+          "key": "paymentMode",
+          "sourceLabel": "支付方式"
+        },
+        {
+          "key": "dealCardCount",
+          "sourceLabel": "发牌张数"
+        },
+        {
+          "key": "playRule",
+          "sourceLabel": "玩法与设置"
+        },
+        {
+          "key": "reportScoreMode",
+          "sourceLabel": "报单计分"
+        },
+        {
+          "key": "bombSettlementMode",
+          "sourceLabel": "炸弹结算方式"
+        },
+        {
+          "key": "bombScore",
+          "sourceLabel": "炸弹记分"
+        },
+        {
+          "key": "straightLengthMode",
+          "sourceLabel": "顺子"
+        },
+        {
+          "key": "roomSettings",
+          "sourceLabel": "房间设置"
+        },
+        {
+          "key": "operationTimeoutSeconds",
+          "sourceLabel": "操作时间"
+        },
+        {
+          "key": "roomTimeLimitMinutes",
+          "sourceLabel": "房间时限"
+        },
+        {
+          "key": "dissolveTimeoutSeconds",
+          "sourceLabel": "解散时间"
+        },
+        {
+          "key": "roomRestriction",
+          "sourceLabel": "其他"
+        }
+      ],
+      "numericRoomRuleFields": [
+        {
+          "sourceLabel": "局数",
+          "suffix": "局"
+        },
+        {
+          "sourceLabel": "人数",
+          "suffix": "人"
+        },
+        {
+          "sourceLabel": "发牌张数",
+          "suffix": "张"
+        },
+        {
+          "sourceLabel": "炸弹记分",
+          "suffix": "分"
+        },
+        {
+          "sourceLabel": "房间时限",
+          "suffix": "分钟"
+        }
+      ],
+      "roomRuleOptionValues": {
+        "局数": {
+          "8局": 8,
+          "10局": 10,
+          "16局": 16
+        },
+        "人数": {
+          "2人": 2,
+          "3人": 3
+        },
+        "支付方式": {
+          "房主付": "owner_pays",
+          "平分付": "split_pays",
+          "胜家付": "winner_pays"
+        },
+        "发牌张数": {
+          "16张": 16
+        },
+        "玩法与设置": {
+          "每局红桃3先出": "every_round_heart_three_first",
+          "赢家先出": "winner_first",
+          "输家先出": "loser_first",
+          "可不压牌": "may_pass",
+          "显示手牌": "show_hand",
+          "炸弹可拆": "bomb_splittable",
+          "3A为最大炸": "triple_ace_max_bomb",
+          "手动过牌": "manual_pass",
+          "手动准备": "manual_ready",
+          "无炸弹": "no_bomb",
+          "3A为炸": "triple_ace_bomb",
+          "防作弊": "anti_cheat",
+          "比赛分不能低于0": "match_score_floor_zero",
+          "只能赢当前身上分": "win_current_score_only",
+          "炸弹可带一张": "bomb_with_one",
+          "小关": "small_gate"
+        },
+        "报单计分": {
+          "报单算分": "score_reported",
+          "不算分": "no_score"
+        },
+        "炸弹结算方式": {
+          "只算每轮最大炸": "max_bomb_per_round",
+          "炸弹不算分": 0
+        },
+        "炸弹记分": {
+          "炸弹加10分": 10,
+          "炸弹加5分": 5
+        },
+        "顺子": {
+          "五张起": "five_or_more",
+          "六张起": "six_or_more"
+        },
+        "房间设置": {
+          "房间内切换人数": "switch_player_count",
+          "小局托管解散": "dissolve_on_round_trustee",
+          "托管2小局解散": "dissolve_after_two_rounds_trustee"
+        },
+        "操作时间": {
+          "不限制": -1,
+          "3分出牌": 180,
+          "5分出牌": 300,
+          "1分出牌": 60,
+          "30秒出牌": 30,
+          "15秒出牌": 15,
+          "10分出牌": 600
+        },
+        "房间时限": {
+          "不限制": -1,
+          "8分钟": 8,
+          "10分钟": 10,
+          "12分钟": 12,
+          "15分钟": 15,
+          "20分钟": 20
+        },
+        "解散时间": {
+          "30秒解散": 30,
+          "1分解散": 60,
+          "3分解散": 180,
+          "5分解散": 300,
+          "不可解散": -1
+        },
+        "其他": {
+          "同IP不可进": "same_ip_blocked",
+          "100米内不可进": "within_100m_blocked",
+          "禁止使用道具": "items_forbidden",
+          "200米内不可进": "within_200m_blocked",
+          "30秒未准备自动踢出房间": "kick_unready_30s",
+          "禁止语音": "voice_forbidden",
+          "禁止文字": "chat_forbidden"
+        }
+      }
+    },
+    {
+      "workbookPath": "Client/docs/开房规则表/跑得快/淮滨跑得快.xlsx",
+      "publishingEnabled": true,
+      "sourceIdentity": [
+        "河南",
+        "淮滨",
+        "淮滨跑得快"
+      ],
+      "gameId": 90021,
+      "gameCode": "HB201",
+      "playVersion": "legacy-equivalent-1",
+      "family": "poker:pao-de-kuai",
+      "regionCode": "CN-41-15-27",
+      "releaseScope": "REGIONAL",
+      "requiredRoomRuleFields": [
+        {
+          "key": "roundCount",
+          "sourceLabel": "局数"
+        },
+        {
+          "key": "playerCount",
+          "sourceLabel": "人数"
+        },
+        {
+          "key": "paymentMode",
+          "sourceLabel": "支付方式"
+        },
+        {
+          "key": "dealCardCount",
+          "sourceLabel": "发牌张数"
+        },
+        {
+          "key": "firstPlayRule",
+          "sourceLabel": "先出牌"
+        },
+        {
+          "key": "playRule",
+          "sourceLabel": "玩法与设置"
+        },
+        {
+          "key": "bombScore",
+          "sourceLabel": "炸弹记分"
+        },
+        {
+          "key": "roomRestriction",
+          "sourceLabel": "其他"
+        }
+      ],
+      "numericRoomRuleFields": [
+        {
+          "sourceLabel": "局数",
+          "suffix": "局"
+        },
+        {
+          "sourceLabel": "人数",
+          "suffix": "人"
+        },
+        {
+          "sourceLabel": "发牌张数",
+          "suffix": "张"
+        },
+        {
+          "sourceLabel": "炸弹记分",
+          "suffix": "分"
+        }
+      ],
+      "roomRuleOptionValues": {
+        "局数": {
+          "8局": 8,
+          "16局": 16
+        },
+        "人数": {
+          "2人": 2,
+          "3人": 3
+        },
+        "支付方式": {
+          "房主付": "owner_pays",
+          "平分付": "split_pays",
+          "胜家付": "winner_pays"
+        },
+        "发牌张数": {
+          "15张": 15,
+          "16张": 16
+        },
+        "先出牌": {
+          "首局红桃3": "first_round_heart_three_first",
+          "每局红桃3": "every_round_heart_three_first"
+        },
+        "玩法与设置": {
+          "显示手牌": "show_hand"
+        },
+        "炸弹记分": {
+          "炸弹翻倍": "double",
+          "炸弹加10分": 10
+        },
+        "其他": {
+          "同IP不可进": "same_ip_blocked",
+          "同位置不可进": "same_location_blocked"
+        }
+      }
+    },
+    {
+      "workbookPath": "Client/docs/开房规则表/跑得快/潢川跑得快.xlsx",
+      "publishingEnabled": true,
+      "sourceIdentity": [
+        "河南",
+        "潢川",
+        "潢川跑得快"
+      ],
+      "gameId": 90022,
+      "gameCode": "HC201",
+      "playVersion": "legacy-equivalent-1",
+      "family": "poker:pao-de-kuai",
+      "regionCode": "CN-41-15-26",
+      "releaseScope": "REGIONAL",
+      "requiredRoomRuleFields": [
+        {
+          "key": "roundCount",
+          "sourceLabel": "局数"
+        },
+        {
+          "key": "playerCount",
+          "sourceLabel": "人数"
+        },
+        {
+          "key": "paymentMode",
+          "sourceLabel": "支付方式"
+        },
+        {
+          "key": "dealCardCount",
+          "sourceLabel": "发牌张数"
+        },
+        {
+          "key": "firstPlayRule",
+          "sourceLabel": "先出牌"
+        },
+        {
+          "key": "threeWithMode",
+          "sourceLabel": "三带"
+        },
+        {
+          "key": "aceThreeBombMode",
+          "sourceLabel": "3A炸弹"
+        },
+        {
+          "key": "playRule",
+          "sourceLabel": "玩法与设置"
+        },
+        {
+          "key": "bombScore",
+          "sourceLabel": "炸弹记分"
+        },
+        {
+          "key": "roomSettings",
+          "sourceLabel": "房间设置"
+        },
+        {
+          "key": "operationTimeoutSeconds",
+          "sourceLabel": "操作时间"
+        },
+        {
+          "key": "dissolveTimeoutSeconds",
+          "sourceLabel": "解散时间"
+        },
+        {
+          "key": "roomRestriction",
+          "sourceLabel": "其他"
+        }
+      ],
+      "numericRoomRuleFields": [
+        {
+          "sourceLabel": "局数",
+          "suffix": "局"
+        },
+        {
+          "sourceLabel": "人数",
+          "suffix": "人"
+        },
+        {
+          "sourceLabel": "发牌张数",
+          "suffix": "张"
+        },
+        {
+          "sourceLabel": "炸弹记分",
+          "suffix": "分"
+        }
+      ],
+      "roomRuleOptionValues": {
+        "局数": {
+          "8局": 8,
+          "10局": 10,
+          "16局": 16
+        },
+        "人数": {
+          "2人": 2,
+          "3人": 3
+        },
+        "支付方式": {
+          "房主付": "owner_pays",
+          "平分付": "split_pays",
+          "胜家付": "winner_pays"
+        },
+        "发牌张数": {
+          "15张": 15,
+          "16张": 16
+        },
+        "先出牌": {
+          "首局红桃3": "first_round_heart_three_first",
+          "每局红桃3": "every_round_heart_three_first"
+        },
+        "三带": {
+          "三带一": "triple_with_one",
+          "三带一对": "triple_with_pair"
+        },
+        "3A炸弹": {
+          "3A最大炸": "ace_three_max_bomb",
+          "3A最小炸": "ace_three_min_bomb",
+          "3A不为炸": "ace_three_not_bomb"
+        },
+        "玩法与设置": {
+          "显示手牌": "show_hand",
+          "炸弹可拆": "bomb_splittable",
+          "手动过牌": "manual_pass",
+          "尾张算分": "last_card_scoring",
+          "非必管": "not_required_beat",
+          "留3随关门翻倍": "keep_three_door_double"
+        },
+        "炸弹记分": {
+          "炸弹加10分": 10
+        },
+        "房间设置": {
+          "房间内切换人数": "switch_player_count",
+          "小局托管解散": "dissolve_on_round_trustee",
+          "解散次数不超过5次": "dissolve_limit_5",
+          "托管2小局解散": "dissolve_after_two_rounds_trustee",
+          "解散次数不超过3次": "dissolve_limit_3"
+        },
+        "操作时间": {
+          "不限制": -1,
+          "3分出牌": 180,
+          "5分出牌": 300,
+          "1分出牌": 60,
+          "30秒出牌": 30
+        },
+        "解散时间": {
+          "30秒解散": 30,
+          "1分解散": 60,
+          "3分解散": 180,
+          "5分解散": 300,
+          "不可解散": -1
+        },
+        "其他": {
+          "同IP不可进": "same_ip_blocked",
+          "100米内不可进": "within_100m_blocked",
+          "禁止使用道具": "items_forbidden",
+          "200米内不可进": "within_200m_blocked",
+          "30秒未准备自动踢出房间": "kick_unready_30s",
+          "禁止语音": "voice_forbidden",
+          "禁止文字": "chat_forbidden"
+        }
+      }
+    },
+    {
+      "workbookPath": "Client/docs/开房规则表/跑得快/鄱阳跑得快.xlsx",
+      "publishingEnabled": true,
+      "sourceIdentity": [
+        "江西",
+        "鄱阳",
+        "鄱阳跑得快"
+      ],
+      "gameId": 90023,
+      "gameCode": "PY201",
+      "playVersion": "legacy-equivalent-1",
+      "family": "poker:pao-de-kuai",
+      "regionCode": "CN-36-11-28",
+      "releaseScope": "REGIONAL",
+      "requiredRoomRuleFields": [
+        {
+          "key": "roundCount",
+          "sourceLabel": "局数"
+        },
+        {
+          "key": "playerCount",
+          "sourceLabel": "人数"
+        },
+        {
+          "key": "paymentMode",
+          "sourceLabel": "支付方式"
+        },
+        {
+          "key": "dealCardCount",
+          "sourceLabel": "发牌张数"
+        },
+        {
+          "key": "playRule",
+          "sourceLabel": "玩法与设置"
+        },
+        {
+          "key": "bombSettlementMode",
+          "sourceLabel": "炸弹结算方式"
+        },
+        {
+          "key": "roomSettings",
+          "sourceLabel": "房间设置"
+        },
+        {
+          "key": "operationTimeoutSeconds",
+          "sourceLabel": "操作时间"
+        },
+        {
+          "key": "dissolveTimeoutSeconds",
+          "sourceLabel": "解散时间"
+        },
+        {
+          "key": "roomRestriction",
+          "sourceLabel": "其他"
+        }
+      ],
+      "numericRoomRuleFields": [
+        {
+          "sourceLabel": "局数",
+          "suffix": "局"
+        },
+        {
+          "sourceLabel": "人数",
+          "suffix": "人"
+        },
+        {
+          "sourceLabel": "发牌张数",
+          "suffix": "张"
+        }
+      ],
+      "roomRuleOptionValues": {
+        "局数": {
+          "8局": 8,
+          "16局": 16
+        },
+        "人数": {
+          "2人": 2,
+          "3人": 3
+        },
+        "支付方式": {
+          "房主付": "owner_pays",
+          "平分付": "split_pays",
+          "胜家付": "winner_pays"
+        },
+        "发牌张数": {
+          "15张": 15,
+          "16张": 16
+        },
+        "玩法与设置": {
+          "首局黑桃3先出": "first_round_spade_three_first",
+          "每局黑桃3先出": "every_round_spade_three_first",
+          "非必出": "not_required",
+          "显示手牌": "show_hand",
+          "炸弹可拆": "bomb_splittable",
+          "3A为最大炸": "triple_ace_max_bomb",
+          "红桃10扎鸟": "heart_ten_bonus",
+          "首出不必带黑桃3": "first_play_spade_three_optional",
+          "自动准备": "auto_ready",
+          "小局托管解散": "dissolve_on_round_trustee"
+        },
+        "炸弹结算方式": {
+          "有炸就算": "count_any_bomb",
+          "只算赢家": "winner_only",
+          "炸弹不算分": 0
+        },
+        "房间设置": {
+          "房间内切换人数": "switch_player_count"
+        },
+        "操作时间": {
+          "不限制": -1,
+          "3分出牌": 180,
+          "5分出牌": 300,
+          "1分出牌": 60,
+          "30秒出牌": 30
+        },
+        "解散时间": {
+          "30秒解散": 30,
+          "1分解散": 60,
+          "3分解散": 180,
+          "5分解散": 300,
+          "不可解散": -1
+        },
+        "其他": {
+          "同IP不可进": "same_ip_blocked",
+          "100米内不可进": "within_100m_blocked",
+          "禁止使用道具": "items_forbidden",
+          "200米内不可进": "within_200m_blocked",
+          "30秒未准备自动踢出房间": "kick_unready_30s",
+          "禁止语音": "voice_forbidden",
+          "禁止文字": "chat_forbidden"
+        }
+      }
+    },
+    {
+      "workbookPath": "Client/docs/开房规则表/跑得快/金坛跑得快.xlsx",
+      "publishingEnabled": true,
+      "sourceIdentity": [
+        "江苏",
+        "金坛",
+        "金坛跑得快"
+      ],
+      "gameId": 90024,
+      "gameCode": "JT201",
+      "playVersion": "legacy-equivalent-1",
+      "family": "poker:pao-de-kuai",
+      "regionCode": "CN-32-04-13",
+      "releaseScope": "REGIONAL",
+      "requiredRoomRuleFields": [
+        {
+          "key": "roundCount",
+          "sourceLabel": "局数"
+        },
+        {
+          "key": "playerCount",
+          "sourceLabel": "人数"
+        },
+        {
+          "key": "paymentMode",
+          "sourceLabel": "支付方式"
+        },
+        {
+          "key": "dealCardCount",
+          "sourceLabel": "发牌张数"
+        },
+        {
+          "key": "playRule",
+          "sourceLabel": "玩法与设置"
+        },
+        {
+          "key": "bombSettlementMode",
+          "sourceLabel": "炸弹结算方式"
+        },
+        {
+          "key": "bombScore",
+          "sourceLabel": "炸弹记分"
+        },
+        {
+          "key": "fourWithMode",
+          "sourceLabel": "四带"
+        },
+        {
+          "key": "roomSettings",
+          "sourceLabel": "房间设置"
+        },
+        {
+          "key": "operationTimeoutSeconds",
+          "sourceLabel": "操作时间"
+        },
+        {
+          "key": "roomTimeLimitMinutes",
+          "sourceLabel": "房间时限"
+        },
+        {
+          "key": "dissolveTimeoutSeconds",
+          "sourceLabel": "解散时间"
+        },
+        {
+          "key": "roomRestriction",
+          "sourceLabel": "其他"
+        }
+      ],
+      "numericRoomRuleFields": [
+        {
+          "sourceLabel": "局数",
+          "suffix": "局"
+        },
+        {
+          "sourceLabel": "人数",
+          "suffix": "人"
+        },
+        {
+          "sourceLabel": "发牌张数",
+          "suffix": "张"
+        },
+        {
+          "sourceLabel": "炸弹记分",
+          "suffix": "分"
+        },
+        {
+          "sourceLabel": "房间时限",
+          "suffix": "分钟"
+        }
+      ],
+      "roomRuleOptionValues": {
+        "局数": {
+          "8局": 8,
+          "10局": 10,
+          "16局": 16
+        },
+        "人数": {
+          "2人": 2,
+          "3人": 3
+        },
+        "支付方式": {
+          "房主付": "owner_pays",
+          "平分付": "split_pays",
+          "胜家付": "winner_pays"
+        },
+        "发牌张数": {
+          "15张": 15,
+          "16张": 16
+        },
+        "玩法与设置": {
+          "首局黑桃3先出": "first_round_spade_three_first",
+          "每局黑桃3先出": "every_round_spade_three_first",
+          "可不压牌": "may_pass",
+          "显示手牌": "show_hand",
+          "炸弹可拆": "bomb_splittable",
+          "3A为最大炸": "triple_ace_max_bomb",
+          "红桃10扎鸟": "heart_ten_bonus",
+          "首出不必带黑桃3": "first_play_spade_three_optional",
+          "手动过牌": "manual_pass",
+          "手动准备": "manual_ready",
+          "尾张算分": "last_card_scoring",
+          "无炸弹": "no_bomb",
+          "3A为炸": "triple_ace_bomb",
+          "防作弊": "anti_cheat",
+          "比赛分不能低于0": "match_score_floor_zero",
+          "只能赢当前身上分": "win_current_score_only",
+          "四带一为炸弹": "four_with_one_is_bomb"
+        },
+        "炸弹结算方式": {
+          "炸弹归每轮最大玩家": "max_bomb_to_owner",
+          "只算每轮最大炸": "max_bomb_per_round",
+          "炸弹不算分": 0,
+          "有炸就算": "count_any_bomb"
+        },
+        "炸弹记分": {
+          "炸弹翻倍": "double",
+          "炸弹加10分": 10,
+          "炸弹加5分": 5
+        },
+        "四带": {
+          "四带一": "four_with_one",
+          "四带二": "four_with_two"
+        },
+        "房间设置": {
+          "房间内切换人数": "switch_player_count",
+          "小局托管解散": "dissolve_on_round_trustee",
+          "托管2小局解散": "dissolve_after_two_rounds_trustee"
+        },
+        "操作时间": {
+          "不限制": -1,
+          "3分出牌": 180,
+          "5分出牌": 300,
+          "1分出牌": 60,
+          "30秒出牌": 30,
+          "15秒出牌": 15
+        },
+        "房间时限": {
+          "不限制": -1,
+          "8分钟": 8,
+          "10分钟": 10,
+          "12分钟": 12,
+          "15分钟": 15,
+          "20分钟": 20
+        },
+        "解散时间": {
+          "30秒解散": 30,
+          "1分解散": 60,
+          "3分解散": 180,
+          "5分解散": 300,
+          "不可解散": -1
+        },
+        "其他": {
+          "同IP不可进": "same_ip_blocked",
+          "100米内不可进": "within_100m_blocked",
+          "禁止使用道具": "items_forbidden",
+          "200米内不可进": "within_200m_blocked",
+          "30秒未准备自动踢出房间": "kick_unready_30s",
+          "禁止语音": "voice_forbidden",
+          "禁止文字": "chat_forbidden"
+        }
+      }
+    },
+    {
+      "workbookPath": "Client/docs/开房规则表/跑得快/高安跑得快.xlsx",
+      "publishingEnabled": true,
+      "sourceIdentity": [
+        "江西",
+        "高安",
+        "高安跑得快"
+      ],
+      "gameId": 90025,
+      "gameCode": "GA201",
+      "playVersion": "legacy-equivalent-1",
+      "family": "poker:pao-de-kuai",
+      "regionCode": "CN-36-09-83",
+      "releaseScope": "REGIONAL",
+      "requiredRoomRuleFields": [
+        {
+          "key": "roundCount",
+          "sourceLabel": "局数"
+        },
+        {
+          "key": "playerCount",
+          "sourceLabel": "人数"
+        },
+        {
+          "key": "paymentMode",
+          "sourceLabel": "支付方式"
+        },
+        {
+          "key": "dealCardCount",
+          "sourceLabel": "发牌张数"
+        },
+        {
+          "key": "playRule",
+          "sourceLabel": "玩法与设置"
+        },
+        {
+          "key": "bombSettlementMode",
+          "sourceLabel": "炸弹结算方式"
+        },
+        {
+          "key": "bombScore",
+          "sourceLabel": "炸弹记分"
+        },
+        {
+          "key": "fourWithMode",
+          "sourceLabel": "四带"
+        },
+        {
+          "key": "roomSettings",
+          "sourceLabel": "房间设置"
+        },
+        {
+          "key": "operationTimeoutSeconds",
+          "sourceLabel": "操作时间"
+        },
+        {
+          "key": "roomTimeLimitMinutes",
+          "sourceLabel": "房间时限"
+        },
+        {
+          "key": "dissolveTimeoutSeconds",
+          "sourceLabel": "解散时间"
+        },
+        {
+          "key": "roomRestriction",
+          "sourceLabel": "其他"
+        }
+      ],
+      "numericRoomRuleFields": [
+        {
+          "sourceLabel": "局数",
+          "suffix": "局"
+        },
+        {
+          "sourceLabel": "人数",
+          "suffix": "人"
+        },
+        {
+          "sourceLabel": "发牌张数",
+          "suffix": "张"
+        },
+        {
+          "sourceLabel": "炸弹记分",
+          "suffix": "分"
+        },
+        {
+          "sourceLabel": "房间时限",
+          "suffix": "分钟"
+        }
+      ],
+      "roomRuleOptionValues": {
+        "局数": {
+          "8局": 8,
+          "10局": 10,
+          "16局": 16
+        },
+        "人数": {
+          "2人": 2,
+          "3人": 3
+        },
+        "支付方式": {
+          "房主付": "owner_pays",
+          "平分付": "split_pays",
+          "胜家付": "winner_pays"
+        },
+        "发牌张数": {
+          "15张": 15,
+          "16张": 16
+        },
+        "玩法与设置": {
+          "首局黑桃3先出": "first_round_spade_three_first",
+          "每局黑桃3先出": "every_round_spade_three_first",
+          "可不压牌": "may_pass",
+          "显示手牌": "show_hand",
+          "炸弹可拆": "bomb_splittable",
+          "3A为最大炸": "triple_ace_max_bomb",
+          "红桃10扎鸟": "heart_ten_bonus",
+          "首出不必带黑桃3": "first_play_spade_three_optional",
+          "手动过牌": "manual_pass",
+          "手动准备": "manual_ready",
+          "尾张算分": "last_card_scoring",
+          "无炸弹": "no_bomb",
+          "3A为炸": "triple_ace_bomb",
+          "防作弊": "anti_cheat",
+          "比赛分不能低于0": "match_score_floor_zero",
+          "只能赢当前身上分": "win_current_score_only"
+        },
+        "炸弹结算方式": {
+          "炸弹归每轮最大玩家": "max_bomb_to_owner",
+          "只算每轮最大炸": "max_bomb_per_round",
+          "炸弹不算分": 0,
+          "有炸就算": "count_any_bomb"
+        },
+        "炸弹记分": {
+          "炸弹翻倍": "double",
+          "炸弹加10分": 10
+        },
+        "四带": {
+          "四带一": "four_with_one",
+          "四带二": "four_with_two",
+          "四带三": "four_with_three"
+        },
+        "房间设置": {
+          "房间内切换人数": "switch_player_count",
+          "小局托管解散": "dissolve_on_round_trustee",
+          "托管2小局解散": "dissolve_after_two_rounds_trustee",
+          "大局托管三次不可取消": "trustee_three_times_irrevocable"
+        },
+        "操作时间": {
+          "不限制": -1,
+          "3分出牌": 180,
+          "5分出牌": 300,
+          "1分出牌": 60,
+          "30秒出牌": 30,
+          "15秒出牌": 15
+        },
+        "房间时限": {
+          "不限制": -1,
+          "8分钟": 8,
+          "10分钟": 10,
+          "12分钟": 12,
+          "15分钟": 15,
+          "20分钟": 20
+        },
+        "解散时间": {
+          "30秒解散": 30,
+          "1分解散": 60,
+          "3分解散": 180,
+          "5分解散": 300,
+          "不可解散": -1
+        },
+        "其他": {
+          "同IP不可进": "same_ip_blocked",
+          "100米内不可进": "within_100m_blocked",
+          "禁止使用道具": "items_forbidden",
+          "200米内不可进": "within_200m_blocked",
+          "30秒未准备自动踢出房间": "kick_unready_30s",
+          "禁止语音": "voice_forbidden",
+          "禁止文字": "chat_forbidden"
+        }
+      }
+    },
+    {
+      "workbookPath": "Client/docs/开房规则表/跑得快/宜兴跑得快.xlsx",
+      "publishingEnabled": true,
+      "sourceIdentity": [
+        "江苏",
+        "宜兴",
+        "宜兴跑得快"
+      ],
+      "gameId": 90026,
+      "gameCode": "YX201",
+      "playVersion": "legacy-equivalent-1",
+      "family": "poker:pao-de-kuai",
+      "regionCode": "CN-32-02-82",
+      "releaseScope": "REGIONAL",
+      "requiredRoomRuleFields": [
+        {
+          "key": "roundCount",
+          "sourceLabel": "局数"
+        },
+        {
+          "key": "playerCount",
+          "sourceLabel": "人数"
+        },
+        {
+          "key": "paymentMode",
+          "sourceLabel": "支付方式"
+        },
+        {
+          "key": "dealCardCount",
+          "sourceLabel": "发牌张数"
+        },
+        {
+          "key": "playRule",
+          "sourceLabel": "玩法与设置"
+        },
+        {
+          "key": "bombSettlementMode",
+          "sourceLabel": "炸弹结算方式"
+        },
+        {
+          "key": "bombScore",
+          "sourceLabel": "炸弹记分"
+        },
+        {
+          "key": "fourWithMode",
+          "sourceLabel": "四带"
+        },
+        {
+          "key": "piaoMode",
+          "sourceLabel": "飘花"
+        },
+        {
+          "key": "piaoRounds",
+          "sourceLabel": "飘花生效局数"
+        },
+        {
+          "key": "roomSettings",
+          "sourceLabel": "房间设置"
+        },
+        {
+          "key": "operationTimeoutSeconds",
+          "sourceLabel": "操作时间"
+        },
+        {
+          "key": "dissolveTimeoutSeconds",
+          "sourceLabel": "解散时间"
+        },
+        {
+          "key": "roomRestriction",
+          "sourceLabel": "其他"
+        }
+      ],
+      "numericRoomRuleFields": [
+        {
+          "sourceLabel": "局数",
+          "suffix": "局"
+        },
+        {
+          "sourceLabel": "人数",
+          "suffix": "人"
+        },
+        {
+          "sourceLabel": "发牌张数",
+          "suffix": "张"
+        },
+        {
+          "sourceLabel": "炸弹记分",
+          "suffix": "分"
+        }
+      ],
+      "roomRuleOptionValues": {
+        "局数": {
+          "8局": 8,
+          "10局": 10,
+          "16局": 16
+        },
+        "人数": {
+          "2人": 2,
+          "3人": 3
+        },
+        "支付方式": {
+          "房主付": "owner_pays",
+          "平分付": "split_pays",
+          "胜家付": "winner_pays"
+        },
+        "发牌张数": {
+          "15张": 15,
+          "16张": 16
+        },
+        "玩法与设置": {
+          "首局黑桃3先出": "first_round_spade_three_first",
+          "每局黑桃3先出": "every_round_spade_three_first",
+          "可不压牌": "may_pass",
+          "显示手牌": "show_hand",
+          "炸弹可拆": "bomb_splittable",
+          "3A为最大炸": "triple_ace_max_bomb",
+          "红桃10扎鸟": "heart_ten_bonus",
+          "首出不必带黑桃3": "first_play_spade_three_optional",
+          "手动过牌": "manual_pass",
+          "手动准备": "manual_ready",
+          "尾张算分": "last_card_scoring",
+          "无炸弹": "no_bomb",
+          "3A为炸": "triple_ace_bomb",
+          "防作弊": "anti_cheat",
+          "比赛分不能低于0": "match_score_floor_zero",
+          "只能赢当前身上分": "win_current_score_only"
+        },
+        "炸弹结算方式": {
+          "炸弹归每轮最大玩家": "max_bomb_to_owner",
+          "只算每轮最大炸": "max_bomb_per_round",
+          "炸弹不算分": 0,
+          "有炸就算": "count_any_bomb"
+        },
+        "炸弹记分": {
+          "炸弹翻倍": "double",
+          "炸弹加10分": 10
+        },
+        "四带": {
+          "四带一": "four_with_one",
+          "四带二": "four_with_two",
+          "四带三": "four_with_three"
+        },
+        "飘花": {
+          "不飘": "no_piao",
+          "自选飘": "piao_custom",
+          "固定飘1分": 1,
+          "固定飘2分": 2,
+          "固定飘5分": 5
+        },
+        "飘花生效局数": {
+          "首局飘": "first_round_only",
+          "局局飘": "every_round"
+        },
+        "房间设置": {
+          "房间内切换人数": "switch_player_count",
+          "小局托管解散": "dissolve_on_round_trustee",
+          "托管2小局解散": "dissolve_after_two_rounds_trustee"
+        },
+        "操作时间": {
+          "不限制": -1,
+          "3分出牌": 180,
+          "5分出牌": 300,
+          "1分出牌": 60,
+          "30秒出牌": 30
+        },
+        "解散时间": {
+          "30秒解散": 30,
+          "1分解散": 60,
+          "3分解散": 180,
+          "5分解散": 300,
+          "不可解散": -1
+        },
+        "其他": {
+          "同IP不可进": "same_ip_blocked",
+          "100米内不可进": "within_100m_blocked",
+          "禁止使用道具": "items_forbidden",
+          "200米内不可进": "within_200m_blocked",
+          "30秒未准备自动踢出房间": "kick_unready_30s",
+          "禁止语音": "voice_forbidden",
+          "禁止文字": "chat_forbidden"
+        }
+      }
+    },
+    {
+      "workbookPath": "Client/docs/开房规则表/跑得快/宣城跑得快.xlsx",
+      "publishingEnabled": true,
+      "sourceIdentity": [
+        "安徽",
+        "宣城",
+        "宣城跑得快"
+      ],
+      "gameId": 90027,
+      "gameCode": "XC201",
+      "playVersion": "legacy-equivalent-1",
+      "family": "poker:pao-de-kuai",
+      "regionCode": "CN-34-18",
+      "releaseScope": "REGIONAL",
+      "requiredRoomRuleFields": [
+        {
+          "key": "roundCount",
+          "sourceLabel": "局数"
+        },
+        {
+          "key": "playerCount",
+          "sourceLabel": "人数"
+        },
+        {
+          "key": "paymentMode",
+          "sourceLabel": "支付方式"
+        },
+        {
+          "key": "dealCardCount",
+          "sourceLabel": "发牌张数"
+        },
+        {
+          "key": "playRule",
+          "sourceLabel": "玩法与设置"
+        },
+        {
+          "key": "bombScore",
+          "sourceLabel": "炸弹记分"
+        },
+        {
+          "key": "roomSettings",
+          "sourceLabel": "房间设置"
+        },
+        {
+          "key": "operationTimeoutSeconds",
+          "sourceLabel": "操作时间"
+        },
+        {
+          "key": "roomTimeLimitMinutes",
+          "sourceLabel": "房间时限"
+        },
+        {
+          "key": "dissolveTimeoutSeconds",
+          "sourceLabel": "解散时间"
+        },
+        {
+          "key": "roomRestriction",
+          "sourceLabel": "其他"
+        }
+      ],
+      "numericRoomRuleFields": [
+        {
+          "sourceLabel": "局数",
+          "suffix": "局"
+        },
+        {
+          "sourceLabel": "人数",
+          "suffix": "人"
+        },
+        {
+          "sourceLabel": "发牌张数",
+          "suffix": "张"
+        },
+        {
+          "sourceLabel": "炸弹记分",
+          "suffix": "分"
+        },
+        {
+          "sourceLabel": "房间时限",
+          "suffix": "分钟"
+        }
+      ],
+      "roomRuleOptionValues": {
+        "局数": {
+          "8局": 8,
+          "10局": 10,
+          "16局": 16
+        },
+        "人数": {
+          "2人": 2,
+          "3人": 3
+        },
+        "支付方式": {
+          "房主付": "owner_pays",
+          "平分付": "split_pays",
+          "胜家付": "winner_pays"
+        },
+        "发牌张数": {
+          "15张": 15,
+          "16张": 16
+        },
+        "玩法与设置": {
+          "首局红桃3先出": "first_round_heart_three_first",
+          "可不压牌": "may_pass",
+          "显示手牌": "show_hand",
+          "炸弹可拆": "bomb_splittable",
+          "3A为最大炸": "triple_ace_max_bomb",
+          "手动过牌": "manual_pass",
+          "手动准备": "manual_ready",
+          "尾张算分": "last_card_scoring",
+          "3A为炸": "triple_ace_bomb",
+          "防作弊": "anti_cheat",
+          "比赛分不能低于0": "match_score_floor_zero",
+          "只能赢当前身上分": "win_current_score_only"
+        },
+        "炸弹记分": {
+          "炸弹加5分": 5,
+          "炸弹加10分": 10,
+          "炸弹不算分": 0
+        },
+        "房间设置": {
+          "房间内切换人数": "switch_player_count",
+          "小局托管解散": "dissolve_on_round_trustee",
+          "托管2小局解散": "dissolve_after_two_rounds_trustee"
+        },
+        "操作时间": {
+          "不限制": -1,
+          "3分出牌": 180,
+          "5分出牌": 300,
+          "1分出牌": 60,
+          "30秒出牌": 30,
+          "15秒出牌": 15
+        },
+        "房间时限": {
+          "不限制": -1,
+          "8分钟": 8,
+          "10分钟": 10,
+          "12分钟": 12,
+          "15分钟": 15,
+          "20分钟": 20
+        },
+        "解散时间": {
+          "30秒解散": 30,
+          "1分解散": 60,
+          "3分解散": 180,
+          "5分解散": 300,
+          "不可解散": -1
+        },
+        "其他": {
+          "同IP不可进": "same_ip_blocked",
+          "100米内不可进": "within_100m_blocked",
+          "禁止使用道具": "items_forbidden",
+          "200米内不可进": "within_200m_blocked",
+          "30秒未准备自动踢出房间": "kick_unready_30s",
+          "禁止语音": "voice_forbidden",
+          "禁止文字": "chat_forbidden"
+        }
+      }
+    },
+    {
+      "workbookPath": "Client/docs/开房规则表/跑得快/抚州跑得快.xlsx",
+      "publishingEnabled": true,
+      "sourceIdentity": [
+        "江西",
+        "抚州",
+        "抚州跑得快"
+      ],
+      "gameId": 90028,
+      "gameCode": "FZ201",
+      "playVersion": "legacy-equivalent-1",
+      "family": "poker:pao-de-kuai",
+      "regionCode": "CN-36-10",
+      "releaseScope": "REGIONAL",
+      "requiredRoomRuleFields": [
+        {
+          "key": "roundCount",
+          "sourceLabel": "局数"
+        },
+        {
+          "key": "playerCount",
+          "sourceLabel": "人数"
+        },
+        {
+          "key": "paymentMode",
+          "sourceLabel": "支付方式"
+        },
+        {
+          "key": "dealCardCount",
+          "sourceLabel": "发牌张数"
+        },
+        {
+          "key": "baseScore",
+          "sourceLabel": "底分"
+        },
+        {
+          "key": "playRule",
+          "sourceLabel": "玩法与设置"
+        },
+        {
+          "key": "bombScore",
+          "sourceLabel": "炸弹记分"
+        },
+        {
+          "key": "roomSettings",
+          "sourceLabel": "房间设置"
+        },
+        {
+          "key": "operationTimeoutSeconds",
+          "sourceLabel": "操作时间"
+        },
+        {
+          "key": "dissolveTimeoutSeconds",
+          "sourceLabel": "解散时间"
+        },
+        {
+          "key": "roomRestriction",
+          "sourceLabel": "其他"
+        }
+      ],
+      "numericRoomRuleFields": [
+        {
+          "sourceLabel": "局数",
+          "suffix": "局"
+        },
+        {
+          "sourceLabel": "人数",
+          "suffix": "人"
+        },
+        {
+          "sourceLabel": "发牌张数",
+          "suffix": "张"
+        },
+        {
+          "sourceLabel": "底分",
+          "suffix": "分"
+        },
+        {
+          "sourceLabel": "炸弹记分",
+          "suffix": "分"
+        }
+      ],
+      "roomRuleOptionValues": {
+        "局数": {
+          "8局": 8,
+          "16局": 16,
+          "24局": 24
+        },
+        "人数": {
+          "2人": 2,
+          "3人": 3
+        },
+        "支付方式": {
+          "房主付": "owner_pays",
+          "平分付": "split_pays",
+          "胜家付": "winner_pays"
+        },
+        "发牌张数": {
+          "15张": 15,
+          "16张": 16
+        },
+        "底分": {
+          "1分": 1,
+          "2分": 2,
+          "5分": 5,
+          "10分": 10
+        },
+        "玩法与设置": {
+          "必须管": "must_beat",
+          "胜家先出": "winner_first",
+          "逢跑必压": "must_beat_on_run",
+          "自动过牌": "auto_pass",
+          "显示手牌": "show_hand",
+          "尾张算分": "last_card_scoring",
+          "四带三": "four_with_three"
+        },
+        "炸弹记分": {
+          "炸弹不算分": 0,
+          "炸弹加5分": 5,
+          "炸弹加10分": 10
+        },
+        "房间设置": {
+          "房间内切换人数": "switch_player_count"
+        },
+        "操作时间": {
+          "不限制": -1,
+          "3分出牌": 180,
+          "5分出牌": 300,
+          "1分出牌": 60,
+          "30秒出牌": 30
+        },
+        "解散时间": {
+          "30秒解散": 30,
+          "1分解散": 60,
+          "3分解散": 180,
+          "5分解散": 300,
+          "不可解散": -1
+        },
+        "其他": {
+          "同IP不可进": "same_ip_blocked",
+          "同位置不可进": "same_location_blocked",
+          "禁止使用道具": "items_forbidden"
+        }
+      }
     }
   ]
 }

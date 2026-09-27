@@ -82,10 +82,10 @@ final class GatewayRoomBroadcastHubTest {
     @Test void broadcastsOneServerProducedPerspectivePerActiveRoomConnection() throws Exception {
         ObjectMapper json = new ObjectMapper();
         Clock clock = Clock.fixed(Instant.parse("2026-08-26T12:00:00Z"), ZoneOffset.UTC);
-        GatewayRoomBroadcastHub hub = new GatewayRoomBroadcastHub((roomId, playerId) -> Map.of(
+        GatewayRoomBroadcastHub hub = new GatewayRoomBroadcastHub((roomId, playerId) -> new GatewayRoomBroadcastHub.Perspective("pdk-v1",Map.of(
                 "roomId", roomId,
                 "viewerPlayerId", playerId,
-                "cards", playerId == 11 ? List.of(101, 102) : List.of(201, 202)), json, clock);
+                "cards", playerId == 11 ? List.of(101, 102) : List.of(201, 202))), json, clock);
         List<String> presence = new ArrayList<>();
         hub.configurePresenceSink((roomId,accountId,online) ->
                 presence.add(roomId+":"+accountId+":"+online));
@@ -93,12 +93,17 @@ final class GatewayRoomBroadcastHubTest {
                 new ChannelInboundHandlerAdapter());
         EmbeddedChannel second = new EmbeddedChannel(DefaultChannelId.newInstance(), true, false,
                 new ChannelInboundHandlerAdapter());
+        EmbeddedChannel stale = new EmbeddedChannel(DefaultChannelId.newInstance(), true, false,
+                new ChannelInboundHandlerAdapter());
         var firstContext = first.pipeline().firstContext();
         var secondContext = second.pipeline().firstContext();
+        var staleContext = stale.pipeline().firstContext();
         ConnectionSession firstSession = new ConnectionSession("11", "9001", 0, "pdk-v1", 0);
         ConnectionSession secondSession = new ConnectionSession("22", "9001", 1, "pdk-v1", 0);
         hub.connected(firstContext, new ConnectionIdentity(11, "device-11", "https://game.example", "page-11"), firstSession);
         hub.connected(secondContext, new ConnectionIdentity(22, "device-22", "https://game.example", "page-22"), secondSession);
+        hub.connected(staleContext, new ConnectionIdentity(33, "device-33", "https://game.example", "page-33"),
+                new ConnectionSession("33", "9001", 2, "old-version", 0));
 
         WebSocketFrame request = new WebSocketFrame("2.0", "poker.NJ201.dispatch", "req", "request-1", 7,
                 "trace-1", "9001", 3, "pdk-v1", clock.millis(), Map.of());
@@ -107,8 +112,10 @@ final class GatewayRoomBroadcastHubTest {
 
         assertPerspective(json, first.readOutbound(), 11, List.of(101, 102));
         assertPerspective(json, second.readOutbound(), 22, List.of(201, 202));
+        assertNull(stale.readOutbound(), "old-version connection must not receive a new room snapshot");
         hub.disconnected(secondContext);
-        assertEquals(List.of("9001:11:true","9001:22:true","9001:22:false"), presence);
+        hub.disconnected(staleContext);
+        assertEquals(List.of("9001:11:true","9001:22:true","9001:33:true","9001:22:false","9001:33:false"), presence);
         assertEquals(1, hub.connectionCount());
         hub.publish(firstSession, request,
                 new GameCommandResult("poker.NJ201.dispatch_resp", "request-1", Map.of("accepted", true)));
@@ -116,12 +123,13 @@ final class GatewayRoomBroadcastHubTest {
         assertNull(second.readOutbound());
         first.finishAndReleaseAll();
         second.finishAndReleaseAll();
+        stale.finishAndReleaseAll();
     }
 
     @Test void forwardsCommittedMemberExitToTheAuthoritativeHallLifecycle() {
         ObjectMapper json = new ObjectMapper();
         Clock clock = Clock.fixed(Instant.parse("2026-08-26T12:00:00Z"), ZoneOffset.UTC);
-        GatewayRoomBroadcastHub hub = new GatewayRoomBroadcastHub((roomId, playerId) -> Map.of(), json, clock);
+        GatewayRoomBroadcastHub hub = new GatewayRoomBroadcastHub((roomId, playerId) -> new GatewayRoomBroadcastHub.Perspective("pdk-v1",Map.of()), json, clock);
         AtomicReference<String> completion = new AtomicReference<>();
         hub.configureMembershipCompletion((roomId, accountId, requestId, traceId) ->
                 completion.set(roomId + ":" + accountId + ":" + requestId + ":" + traceId));
@@ -142,8 +150,8 @@ final class GatewayRoomBroadcastHubTest {
     @Test void forwardsDurablyMarkedTerminalVoteToRoomClosureAfterStateBroadcast() throws Exception {
         ObjectMapper json = new ObjectMapper();
         Clock clock = Clock.fixed(Instant.parse("2026-08-26T12:00:00Z"), ZoneOffset.UTC);
-        GatewayRoomBroadcastHub hub = new GatewayRoomBroadcastHub((roomId, playerId) -> Map.of(
-                "roomId", roomId, "phase", "DISSOLVED", "dissolved", true), json, clock);
+        GatewayRoomBroadcastHub hub = new GatewayRoomBroadcastHub((roomId, playerId) -> new GatewayRoomBroadcastHub.Perspective("pdk-v1",Map.of(
+                "roomId", roomId, "phase", "DISSOLVED", "dissolved", true)), json, clock);
         AtomicReference<String> completion = new AtomicReference<>();
         hub.configureLifecycleCompletion((roomId, requestId, traceId, reason) ->
                 completion.set(roomId + ":" + requestId + ":" + traceId + ":" + reason));
@@ -152,6 +160,10 @@ final class GatewayRoomBroadcastHubTest {
         var context = channel.pipeline().firstContext();
         ConnectionSession session = new ConnectionSession("22", "9001", 1, "pdk-v1", 0);
         hub.connected(context, new ConnectionIdentity(22, "device-22", "https://game.example", "page-22"), session);
+        EmbeddedChannel stale = new EmbeddedChannel(DefaultChannelId.newInstance(), true, false,
+                new ChannelInboundHandlerAdapter());
+        hub.connected(stale.pipeline().firstContext(), new ConnectionIdentity(33, "device-33", "https://game.example", "page-33"),
+                new ConnectionSession("33", "9001", 2, "old-version", 0));
         WebSocketFrame request = new WebSocketFrame("2.0", "common.room.dissolve_agree_req", "req",
                 "agree-1", 1, "trace-agree", "9001", 1, "pdk-v1", clock.millis(), Map.of());
 
@@ -163,9 +175,12 @@ final class GatewayRoomBroadcastHubTest {
         Map<?, ?> envelope = json.readValue(state.text(), Map.class);
         state.release();
         assertEquals("common.room.state_push", envelope.get("msgId"));
+        assertEquals("pdk-v1", envelope.get("playVersion"));
         assertEquals("DISSOLVED", ((Map<?, ?>) envelope.get("body")).get("phase"));
+        assertNull(stale.readOutbound(), "old-version connection must not receive lifecycle state");
         assertEquals("9001:agree-1:trace-agree:VOTE_APPROVED", completion.get());
         channel.finishAndReleaseAll();
+        stale.finishAndReleaseAll();
     }
 
     @Test void terminalCompletionSurvivesPerspectiveBroadcastFailure() {
@@ -193,6 +208,70 @@ final class GatewayRoomBroadcastHubTest {
         channel.finishAndReleaseAll();
     }
 
+    @Test void missingCurrentPerspectiveFailsClosedForBothStatePushPaths() {
+        ObjectMapper json = new ObjectMapper();
+        Clock clock = Clock.fixed(Instant.parse("2026-08-26T12:00:00Z"), ZoneOffset.UTC);
+        GatewayRoomBroadcastHub hub = new GatewayRoomBroadcastHub((roomId, playerId) -> {
+            throw new IllegalStateException("current room unavailable");
+        }, json, clock);
+        EmbeddedChannel channel = new EmbeddedChannel(DefaultChannelId.newInstance(), true, false,
+                new ChannelInboundHandlerAdapter());
+        ConnectionSession session = new ConnectionSession("11", "9001", 0, "pdk-v1", 0);
+        hub.connected(channel.pipeline().firstContext(),
+                new ConnectionIdentity(11, "device-11", "https://game.example", "page-11"), session);
+        WebSocketFrame request = new WebSocketFrame("2.0", "poker.NJ201.dispatch", "req", "request-1", 1,
+                "trace-1", "9001", 0, "pdk-v1", clock.millis(), Map.of());
+        hub.publish(session, request, new GameCommandResult("poker.NJ201.dispatch_resp", "request-1", Map.of()));
+        hub.publishAuthoritativeState(9001, "lifecycle-1", "trace-2", 2);
+        assertNull(channel.readOutbound());
+        channel.finishAndReleaseAll();
+    }
+
+    @Test void lifecycleStateUsesCurrentVersionAndEachRecipientsPerspective() throws Exception {
+        ObjectMapper json = new ObjectMapper();
+        Clock clock = Clock.fixed(Instant.parse("2026-08-26T12:00:00Z"), ZoneOffset.UTC);
+        GatewayRoomBroadcastHub hub = new GatewayRoomBroadcastHub((roomId, playerId) ->
+                new GatewayRoomBroadcastHub.Perspective("current-version", Map.of(
+                        "roomId", roomId, "viewerPlayerId", playerId,
+                        "cards", playerId == 11 ? List.of(101) : List.of(202))), json, clock);
+        EmbeddedChannel first = new EmbeddedChannel(DefaultChannelId.newInstance(), true, false,
+                new ChannelInboundHandlerAdapter());
+        EmbeddedChannel second = new EmbeddedChannel(DefaultChannelId.newInstance(), true, false,
+                new ChannelInboundHandlerAdapter());
+        EmbeddedChannel stale = new EmbeddedChannel(DefaultChannelId.newInstance(), true, false,
+                new ChannelInboundHandlerAdapter());
+        hub.connected(first.pipeline().firstContext(),
+                new ConnectionIdentity(11, "device-11", "https://game.example", "page-11"),
+                new ConnectionSession("11", "9001", 0, "current-version", 0));
+        hub.connected(second.pipeline().firstContext(),
+                new ConnectionIdentity(22, "device-22", "https://game.example", "page-22"),
+                new ConnectionSession("22", "9001", 1, "current-version", 0));
+        hub.connected(stale.pipeline().firstContext(),
+                new ConnectionIdentity(33, "device-33", "https://game.example", "page-33"),
+                new ConnectionSession("33", "9001", 2, "old-version", 0));
+
+        hub.publishAuthoritativeState(9001, "join-1", "trace-join", 8);
+
+        assertLifecyclePerspective(json, first.readOutbound(), 11, List.of(101));
+        assertLifecyclePerspective(json, second.readOutbound(), 22, List.of(202));
+        assertNull(stale.readOutbound());
+        first.finishAndReleaseAll();
+        second.finishAndReleaseAll();
+        stale.finishAndReleaseAll();
+    }
+
+    private static void assertLifecyclePerspective(ObjectMapper json, TextWebSocketFrame frame,
+            long playerId, List<Integer> cards) throws Exception {
+        assertNotNull(frame);
+        Map<?, ?> envelope = json.readValue(frame.text(), Map.class);
+        frame.release();
+        assertEquals("common.room.state_push", envelope.get("msgId"));
+        assertEquals("current-version", envelope.get("playVersion"));
+        Map<?, ?> body = (Map<?, ?>) envelope.get("body");
+        assertEquals(playerId, ((Number) body.get("viewerPlayerId")).longValue());
+        assertEquals(cards, body.get("cards"));
+    }
+
     private static void assertPerspective(ObjectMapper json, TextWebSocketFrame frame, long playerId,
             List<Integer> cards) throws Exception {
         assertNotNull(frame);
@@ -200,6 +279,7 @@ final class GatewayRoomBroadcastHubTest {
         frame.release();
         assertEquals("poker.NJ201.state_push", envelope.get("msgId"));
         assertEquals("push", envelope.get("kind"));
+        assertEquals("pdk-v1", envelope.get("playVersion"));
         Map<?, ?> body = (Map<?, ?>) envelope.get("body");
         assertEquals(playerId, ((Number) body.get("viewerPlayerId")).longValue());
         assertEquals(cards, body.get("cards"));
@@ -216,6 +296,7 @@ final class GatewayRoomBroadcastHubTest {
         Map<?, ?> envelope = json.readValue(frame.text(), Map.class);
         frame.release();
         assertEquals(event, envelope.get("msgId"));
+        assertFalse(envelope.containsKey("playVersion"));
         assertEquals(payload, envelope.get("body"));
     }
 }

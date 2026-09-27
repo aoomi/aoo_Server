@@ -47,7 +47,22 @@ final class PdkGameProvider extends RegionalPokerProvider implements PokerGamePr
   super(descriptor.code(),descriptor.gameId(),descriptor.version(),PaoDeKuaiFamily.CODE,"");
   playVersion=descriptor.version();
   chengdu=descriptor.gameId()==GAME_ID&&PdkBusinessCodes.CHENGDU.equals(descriptor.code());
-  regionalRules=switch(descriptor.code()){case PdkBusinessCodes.NEIJIANG->new NeijiangPdkRules();case PdkBusinessCodes.LIANGSHAN->new LiangshanPdkRules();default->null;};
+  regionalRules=switch(descriptor.code()){
+   case PdkBusinessCodes.NEIJIANG->new NeijiangPdkRules();
+   case PdkBusinessCodes.LIANGSHAN->new LiangshanPdkRules();
+   case PdkBusinessCodes.MIANNING->new MianningPdkRegionRules();
+   case PdkBusinessCodes.ANYUE->new AnyuePdkRegionRules();
+   case PdkBusinessCodes.PANZHIHUA->new PanzhihuaPdkRegionRules();
+   case PdkBusinessCodes.WANNIAN,PdkBusinessCodes.LEPING,PdkBusinessCodes.BOZHOU,
+     PdkBusinessCodes.YUGAN,PdkBusinessCodes.JIAN,PdkBusinessCodes.GUSHI,
+     PdkBusinessCodes.XIAOGAN,PdkBusinessCodes.NINGDU,PdkBusinessCodes.HUAIHUA,
+     PdkBusinessCodes.XINXIAN,PdkBusinessCodes.JINGDEZHEN,PdkBusinessCodes.JIANGSU,
+     PdkBusinessCodes.HENAN,PdkBusinessCodes.TAIZHOU,PdkBusinessCodes.HUAIBIN,
+     PdkBusinessCodes.HUANGCHUAN,PdkBusinessCodes.POYANG,PdkBusinessCodes.JINTAN,
+     PdkBusinessCodes.GAOAN,PdkBusinessCodes.YIXING,PdkBusinessCodes.XUANCHENG,
+     PdkBusinessCodes.FUZHOU->new LegacyPdkRegionRules(descriptor.code());
+   default->null;
+  };
   baseConfig=chengdu?ChengduPdkRules.defaults():regionalRules==null?GENERIC_BASE:regionalRules.defaults();
   if(chengdu)family=familyForNewRoom(baseConfig,Map.of("deckMode","CUT_40"),false);
   else if(regionalRules!=null){

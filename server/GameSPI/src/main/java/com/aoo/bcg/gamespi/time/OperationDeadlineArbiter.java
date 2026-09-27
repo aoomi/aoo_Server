@@ -18,7 +18,7 @@ public final class OperationDeadlineArbiter {
         Resolution previous = resolutions.get(window.operationId());
         if (previous != null) throw new IllegalStateException("operation already resolved as " + previous.outcome());
         Instant now = time.now();
-        if (!now.isBefore(window.deadline())) {
+        if (!window.unlimited() && !now.isBefore(window.deadline())) {
             resolutions.put(window.operationId(), new Resolution(window.operationId(), Outcome.TIMEOUT, "", now));
             throw new IllegalStateException("operation deadline expired");
         }
@@ -30,6 +30,7 @@ public final class OperationDeadlineArbiter {
 
     public synchronized Resolution resolveTimeout(OperationDeadline window, AuthoritativeTimeSource time, Runnable timeoutMutation) {
         require(window, time); Objects.requireNonNull(timeoutMutation, "timeoutMutation");
+        if (window.unlimited()) throw new IllegalStateException("operation has no timeout");
         Resolution previous = resolutions.get(window.operationId());
         if (previous != null) return previous;
         Instant now = time.now();

@@ -21,9 +21,15 @@ public record PdkAdvancedRules(int baseScore, int requiredFirstCardRounds,
         List<Set<Integer>> directWinPatterns, int operationTimeoutSeconds,
         int hostingMissThreshold, RoomGovernance governance) {
 
+    /**
+     * 托管关闭。公共归一化（{@link PdkPublishedRuleOptions} 的 roomRestriction 分支）在「其他」未选中
+     * timeout_auto_play 时写入的既有取值，{@link #hostingMissThreshold} 校验接受 -1 或正数。
+     */
+    public static final int HOSTING_MISS_THRESHOLD_DISABLED = -1;
+
     public enum ScoreMode { DISABLED, FIXED, HAND_TABLE }
-    public enum BombMode { PAIRWISE, DISABLED, MULTIPLIER, FIXED_POINTS }
-    public enum PayerMode { SPLIT, OWNER, PROPORTIONAL }
+    public enum BombMode { PAIRWISE, WINNER_ONLY, DISABLED, MULTIPLIER, FIXED_POINTS }
+    public enum PayerMode { SPLIT, OWNER, WINNER_PAYS, PROPORTIONAL }
     public enum SettlementPresentation { FLOATING, POPUP }
     public enum EntryMode { PARTICIPANT, OBSERVER }
     public enum InitialPattern {
@@ -114,8 +120,8 @@ public record PdkAdvancedRules(int baseScore, int requiredFirstCardRounds,
         Objects.requireNonNull(dealerRule);
         if (initialPatternLimit < 0 || initialPatternScoreUnit < 0 || jinHuaScoreUnit < 0)
             throw new IllegalArgumentException("invalid initial hand scoring rule");
-        if (operationTimeoutSeconds < 1 || operationTimeoutSeconds > 86400)
-            throw new IllegalArgumentException("operation timeout must be 1..86400 seconds");
+        if (operationTimeoutSeconds < 0 || operationTimeoutSeconds > 86400)
+            throw new IllegalArgumentException("operation timeout must be 0 (unlimited) or 1..86400 seconds");
         if (hostingMissThreshold < -1 || hostingMissThreshold == 0)
             throw new IllegalArgumentException("hosting threshold must be -1 or positive");
         Objects.requireNonNull(governance);
@@ -156,6 +162,10 @@ public record PdkAdvancedRules(int baseScore, int requiredFirstCardRounds,
             score = band.score();
         }
         return handScoreTable.isEmpty() ? Math.max(1, cards) : score;
+    }
+
+    public boolean unlimitedOperationTime() {
+        return operationTimeoutSeconds == 0;
     }
 
     public static PdkAdvancedRules defaults() {

@@ -450,8 +450,8 @@ final class JdbcGatewayGameCommandCommitter implements GameCommandCommitter {
     private static boolean replayMutation(GameCommandRequest request){
         String action=replayAction(request).strip().toLowerCase(java.util.Locale.ROOT);
         String msgId=request.msgId().strip().toLowerCase(java.util.Locale.ROOT);
-        if(List.of("state","hint","reconnect").contains(action))return false;
-        return !(msgId.endsWith(".state_req")||msgId.endsWith(".hint_req")||msgId.endsWith(".reconnect_req"));
+        if(List.of("state","reconnect").contains(action))return false;
+        return !(msgId.endsWith(".state_req")||msgId.endsWith(".reconnect_req"));
     }
     static boolean shouldRecordReplay(Map<String,Object> state,GameCommandRequest request){
         return firstRoundStarted(state)&&replayMutation(request);

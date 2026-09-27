@@ -81,8 +81,7 @@ final class PokerAuthoritativeSessionPlayedCardVisibilityTest {
     long player = 10L + seat;
     Map<String, Object> ownSeat = seat(session.viewFor(player), seat);
     int cardsBeforePlay = ((Number) ownSeat.get("cardCount")).intValue();
-    var hint = session.execute(command(session, "hint_req", sequence++, seat, player, Map.of()));
-    List<CardCombination> hints = (List<CardCombination>) hint.body().get("hints");
+    List<CardCombination> hints = PdkLegalMoves.hints(session);
     CardCombination played = hints.stream()
         .filter(candidate -> candidate.cards().size() < cardsBeforePlay)
         .findFirst()
@@ -142,8 +141,7 @@ final class PokerAuthoritativeSessionPlayedCardVisibilityTest {
       assertTrue(guard++ < 50, "authoritative round did not converge");
       int seat = ((Number) session.viewFor(10).get("currentSeat")).intValue();
       long player = 10L + seat;
-      var hint = session.execute(command(session, "hint_req", sequence++, seat, player, Map.of()));
-      List<CardCombination> hints = (List<CardCombination>) hint.body().get("hints");
+      List<CardCombination> hints = PdkLegalMoves.hints(session);
       session.execute(command(
           session, hints.isEmpty() ? "pass_req" : "play_req", sequence++, seat, player,
           hints.isEmpty() ? Map.of() : Map.of("cards", hints.getFirst().cards())));
