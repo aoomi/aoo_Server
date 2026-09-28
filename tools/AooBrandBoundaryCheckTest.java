@@ -27,11 +27,43 @@ public final class AooBrandBoundaryCheckTest {
         } finally {
             deleteTree(fixture);
         }
+
+        Path fixture2 = Files.createTempDirectory("aoo-brand-gate-narrow-");
+        try {
+            Path server2 = Files.createDirectories(fixture2.resolve("Server"));
+            Path client2 = Files.createDirectories(fixture2.resolve("Client"));
+            Path migrations = Files.createDirectories(server2.resolve("database/migrations"));
+            Files.writeString(migrations.resolve("V20260821_01__baseline_legacy_player_table.sql"),
+                    "legacy qh_reference 情怀\n");
+            assertExit(0, server2, client2, "exact exempt path must pass");
+
+            Files.writeString(migrations.resolve("V20260821_02__baseline_legacy_player_table.sql"),
+                    "legacy qh_reference 情怀\n");
+            assertExit(1, server2, client2, "sibling migration name must still fail");
+
+            Path siblingMigrations = Files.createDirectories(server2.resolve("database/migrations2"));
+            Files.writeString(siblingMigrations.resolve("V20260821_01__baseline_legacy_player_table.sql"),
+                    "legacy qh_reference 情怀\n");
+            assertExit(1, server2, client2, "sibling directory must still fail");
+
+            Files.writeString(server2.resolve("database/V20260821_01__baseline_legacy_player_table.sql"),
+                    "legacy qh_reference 情怀\n");
+            assertExit(1, server2, client2, "top-level directory variant must still fail");
+        } finally {
+            deleteTree(fixture2);
+        }
     }
 
     private static void assertExit(int expected, Path server, Path client, String message) throws Exception {
+        // Same origin as the check's rootA (user.dir): works with CWD=Aoo (direct run) and CWD=Server (Maven exec).
+        Path repo = Path.of(System.getProperty("user.dir")).toAbsolutePath();
+        Path gateMain = repo.resolve("Server/tools/AooBrandBoundaryCheck.java");
+        if (!Files.isRegularFile(gateMain)) {
+            gateMain = repo.resolve("tools/AooBrandBoundaryCheck.java");
+        }
+        final Path gateMainPath = gateMain;
         Process process = new ProcessBuilder(javaBinary(),
-                Path.of("tools/AooBrandBoundaryCheck.java").toAbsolutePath().toString(),
+                gateMainPath.toString(),
                 server.toString(), client.toString()).redirectErrorStream(true).start();
         String output = new String(process.getInputStream().readAllBytes(), java.nio.charset.StandardCharsets.UTF_8);
         int actual = process.waitFor();

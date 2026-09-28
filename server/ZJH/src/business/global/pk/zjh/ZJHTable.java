@@ -17,6 +17,8 @@ import java.time.Instant;
 public final class ZJHTable {
     public enum State { WAITING, PLAYING, ROUND_FINISHED, FINISHED }
     private static final int SCHEMA_VERSION = 3;
+    // XQP glob_1.xml sid=12006, JINHUATYPE ascending: mixed/pair/straight/flush/straight-flush/leopard.
+    private static final int[] DEAL_TYPE_WEIGHTS = {7500, 1500, 500, 400, 80, 20};
     private static final String SEAT_RANDOM_DOMAIN = "CN297-SEAT";
     private static final AuthoritativeRandomSeatAllocator SEAT_ALLOCATOR = new AuthoritativeRandomSeatAllocator();
 
@@ -111,7 +113,7 @@ public final class ZJHTable {
         ZJHSetCard deck = new ZJHSetCard(this, random);
         deck.onXiPai();
         // The persisted join order is authoritative for the first operator and deal.
-        players.keySet().forEach(seat -> hands.put(seat, List.copyOf(deck.popList(3))));
+        weightedDeal(deck);
         activeSeats.addAll(players.keySet());
         for (Integer seat : activeSeats) committedBets.put(seat, (long) rules.baseBet());
         pot = Math.multiplyExact((long) activeSeats.size(), rules.baseBet());
@@ -122,6 +124,43 @@ public final class ZJHTable {
         state = State.PLAYING;
         stateVersion++;
         touchDeadline();
+    }
+
+    private void weightedDeal(ZJHSetCard deck) {
+        ArrayList<Integer> pool = new ArrayList<>(players.size() * 3);
+        for (int index = 0; index < players.size(); index++) pool.addAll(deck.popList(3));
+
+        int[] cumulativeWeights = new int[DEAL_TYPE_WEIGHTS.length];
+        int totalWeight = 0;
+        for (int index = 0; index < DEAL_TYPE_WEIGHTS.length; index++) {
+            totalWeight += DEAL_TYPE_WEIGHTS[index];
+            cumulativeWeights[index] = totalWeight;
+        }
+
+        for (Integer seat : players.keySet()) {
+            int roll = random.nextInt(totalWeight);
+            int targetIndex = 0;
+            while (roll >= cumulativeWeights[targetIndex]) targetIndex++;
+            for (int attempt = 0; attempt < 1000; attempt++) {
+                ArrayList<Integer> hand = new ArrayList<>(3);
+                for (int card = 0; card < 3; card++) hand.add(pool.remove(random.nextInt(pool.size())));
+                if (cardTypeIndex(ZJHGameLogic.GetCardType(hand)) == targetIndex || attempt == 999) {
+                    hands.put(seat, List.copyOf(hand));
+                    break;
+                }
+                pool.addAll(hand);
+            }
+        }
+    }
+
+    private static int cardTypeIndex(int cardType) {
+        if (cardType == ZJHGameLogic.ZJH_VALUE) return 0;
+        if (cardType == ZJHGameLogic.ZJH_DUIZI) return 1;
+        if (cardType == ZJHGameLogic.ZJH_SHUNZI) return 2;
+        if (cardType == ZJHGameLogic.ZJH_JINHUA) return 3;
+        if (cardType == ZJHGameLogic.ZJH_SHUNJIN) return 4;
+        if (cardType == ZJHGameLogic.ZJH_PAOZI) return 5;
+        throw new IllegalStateException("unsupported ZJH card type: " + cardType);
     }
 
     public synchronized void ready(int seatId, boolean ready) {
@@ -178,7 +217,7 @@ public final class ZJHTable {
         requireTurn(seatId);
         if (bettingRound < rules.compareStartRound()) throw new IllegalStateException("compare is not available in this betting round");
         if (seatId == targetSeatId || !activeSeats.contains(targetSeatId)) throw new IllegalArgumentException("invalid compare target");
-        int compareCost = Math.multiplyExact(minimumBet(seatId), 2);
+        int compareCost = minimumBet(seatId);
         if (compareCost > rules.maximumBet()) throw new IllegalStateException("compare cost exceeds maximum bet");
         committedBets.merge(seatId, (long) compareCost, Math::addExact);
         pot = Math.addExact(pot, compareCost);

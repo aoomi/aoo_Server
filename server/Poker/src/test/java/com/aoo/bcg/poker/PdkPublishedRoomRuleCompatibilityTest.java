@@ -2,6 +2,7 @@ package com.aoo.bcg.poker;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertAll;
 
 import com.aoo.bcg.gamespi.GameCategory;
 import com.aoo.bcg.gamespi.GameCommandRequest;
@@ -118,6 +119,72 @@ final class PdkPublishedRoomRuleCompatibilityTest {
     assertEquals("SINGLE_OR_PAIR", rules.get("tripleAttachmentMode"));
     assertEquals(true, rules.get("compareTripleAttachments"));
     assertEquals("POPUP", rules.get("settlementPresentation"));
+    assertEquals(session.authoritativeState(), provider.restoreAuthoritativeSession(
+        session.authoritativeState()).orElseThrow().authoritativeState());
+  }
+
+  @Test
+  void schemaNormalizationDoesNotEraseSevenRegionsAuthoritativeFirstLeadSemantics() {
+    assertFirstLead(90004, "AY201", "安岳跑得快", "anyue", 105,
+        PokerRuleProfile.FirstLead.REQUIRED_CARD_HOLDER);
+    assertFirstLead(90006, "PZ201", "攀枝花跑得快", "panzhihua", 105,
+        PokerRuleProfile.FirstLead.REQUIRED_CARD_HOLDER);
+    assertFirstLead(90005, "LS201", "凉山跑得快", "liangshan", 103,
+        PokerRuleProfile.FirstLead.MINIMUM_CARD_HOLDER);
+    assertFirstLead(90003, "MN201", "冕宁跑得快", "mianning", null,
+        PokerRuleProfile.FirstLead.MINIMUM_CARD_HOLDER);
+    assertFirstLead(629, "NJ201", "内江跑得快", "neijiang", null,
+        PokerRuleProfile.FirstLead.MINIMUM_CARD_HOLDER);
+    assertFirstLead(90007, "WN201", "万年跑得快", "wannian",
+        PdkPublishedRuleOptions.normalizePublishedRoomFields(Map.of(
+            "playerCount", 2,
+            "playRule", List.of("first_round_spade_three_first"))),
+        103, PokerRuleProfile.FirstLead.MINIMUM_CARD_HOLDER);
+
+    Map<String,Object> unchecked = Map.of("playerCount", 2, "playRule", List.of());
+    Map<String,Object> normalizedUnchecked =
+        PdkPublishedRuleOptions.normalizePublishedRoomFields(new LinkedHashMap<>(Map.of(
+            "playerCount", 2, "playRule", List.of(), "requiredFirstCard", 103,
+            "requiredFirstCardRounds", 1)));
+    assertAll(
+        () -> assertFalse(normalizedUnchecked.containsKey("requiredFirstCard")),
+        () -> assertFalse(normalizedUnchecked.containsKey("requiredFirstCardRounds")));
+    assertFirstLead(8, "CD201", "成都跑得快", "chengdu", unchecked, null,
+        PokerRuleProfile.FirstLead.MINIMUM_CARD_HOLDER);
+
+    Map<String,Object> checked = Map.of("playerCount", 2,
+        "playRule", List.of("require_spade_three"));
+    Map<String,Object> normalizedChecked =
+        PdkPublishedRuleOptions.normalizePublishedRoomFields(checked);
+    assertAll(
+        () -> assertEquals(103, normalizedChecked.get("requiredFirstCard")),
+        () -> assertEquals(1, normalizedChecked.get("requiredFirstCardRounds")));
+    assertFirstLead(8, "CD201", "成都跑得快", "chengdu", checked, 103,
+        PokerRuleProfile.FirstLead.REQUIRED_CARD_HOLDER);
+  }
+
+  private static void assertFirstLead(int id, String code, String name, String city,
+      Integer requiredFirstCard, PokerRuleProfile.FirstLead firstLead) {
+    assertFirstLead(id, code, name, city,
+        PdkPublishedRuleOptions.normalizePublishedRoomFields(
+            Map.of("playerCount", 2, "playRule", List.of())),
+        requiredFirstCard, firstLead);
+  }
+
+  private static void assertFirstLead(int id, String code, String name, String city,
+      Map<String,Object> hallPayload, Integer requiredFirstCard,
+      PokerRuleProfile.FirstLead firstLead) {
+    GameProvider provider = PokerCatalogRuntimeRegistry.providerFor(new GameDescriptor(
+        id, code, name, GameCategory.POKER, PaoDeKuaiFamily.CODE,
+        RegionScope.CITY, "sichuan", city, "xqp-equivalent-1")).orElseThrow();
+    var session = provider.roomFactory().create(new RoomCreationContext(
+        9_100_000L + id, 10, hallPayload)).requireAuthoritativeSession();
+    Map<?,?> rules = (Map<?,?>) session.authoritativeState().get("pdkRuleOptions");
+    assertAll(code,
+        () -> assertEquals(firstLead.name(), rules.get("firstLead")),
+        () -> assertEquals(requiredFirstCard, rules.get("requiredFirstCard")),
+        () -> assertEquals(requiredFirstCard == null ? 0 : 1,
+            rules.get("requiredFirstCardRounds")));
     assertEquals(session.authoritativeState(), provider.restoreAuthoritativeSession(
         session.authoritativeState()).orElseThrow().authoritativeState());
   }

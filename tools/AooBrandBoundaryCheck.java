@@ -59,6 +59,14 @@ public final class AooBrandBoundaryCheck {
             "scripts/audit-ccfg02-10-config-integrity.rb",
             "scripts/audit-creal04-web-build.rb");
 
+    // Governance-approved narrow exception (AOO-0038 director ruling G5, 2026-09-28): only this exact
+    // Server-relative path is exempted from the brand scan; the file stays git-tracked and its content
+    // is still covered by its own tests and other governance checks. Keep this exception narrow: it must
+    // not become a prefix, suffix, pattern, wildcard, or directory rule, and must not be driven by any
+    // configuration, environment variable, or command-line switch.
+    private static final Set<String> TRACKED_HISTORICAL_ASSETS = Set.of(
+            "database/migrations/V20260821_01__baseline_legacy_player_table.sql");
+
     private AooBrandBoundaryCheck() {
     }
 
@@ -109,6 +117,9 @@ public final class AooBrandBoundaryCheck {
             return;
         }
         if (NON_RUNTIME_METADATA.contains(relative.toString())) {
+            return;
+        }
+        if (TRACKED_HISTORICAL_ASSETS.contains(relative.toString())) {
             return;
         }
         if (relative.getNameCount() == 2

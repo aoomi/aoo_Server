@@ -60,7 +60,7 @@ public final class PdkPublishedRuleOptions {
     public static PaoDeKuaiConfig apply(Map<String,Object> rules, PaoDeKuaiConfig base) {
         Objects.requireNonNull(rules);
         Objects.requireNonNull(base);
-        rules = normalizePublishedRoomFields(rules);
+        rules = normalizeAuthoritativeRoomFields(rules);
         int straight = integer(rules, "minimumStraightLength", base.minimumStraightLength());
         int pairs = integer(rules, "minimumPairRunLength", base.minimumPairRunLength());
         PaoDeKuaiConfig.AttachmentMode triple = attachment(rules, "tripleAttachmentMode",
@@ -111,6 +111,16 @@ public final class PdkPublishedRuleOptions {
      * stable values throughout.
      */
     public static Map<String,Object> normalizePublishedRoomFields(Map<String,Object> source) {
+        return normalizeRoomFields(source, true);
+    }
+
+    private static Map<String,Object> normalizeAuthoritativeRoomFields(
+            Map<String,Object> source) {
+        return normalizeRoomFields(source, false);
+    }
+
+    private static Map<String,Object> normalizeRoomFields(
+            Map<String,Object> source, boolean clearUncheckedRequiredFirstCard) {
         Map<String,Object> rules = new LinkedHashMap<>(source);
         normalizeSettlementPresentation(source, rules);
         normalizePresentationOnlyPlayOptions(rules);
@@ -146,7 +156,7 @@ public final class PdkPublishedRuleOptions {
             if (selected.contains("require_spade_three")) {
                 rules.put("requiredFirstCard", 103);
                 rules.put("requiredFirstCardRounds", 1);
-            } else {
+            } else if (clearUncheckedRequiredFirstCard) {
                 rules.remove("requiredFirstCard");
                 rules.remove("requiredFirstCardRounds");
             }

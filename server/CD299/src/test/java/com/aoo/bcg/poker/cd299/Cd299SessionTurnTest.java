@@ -462,6 +462,58 @@ class Cd299SessionTurnTest {
     }
 
     @Test
+    void expiredSettlementSeatKeepsAuthoritativeRoundDisplayForReconnect() {
+        MutableClock clock = new MutableClock(Instant.parse("2026-09-28T08:00:00Z"));
+        Cd299Session session = depletedSettlementSession(clock, 330L);
+        Map<String, Object> beforeExpiry = state(session);
+        long versionBeforeExpiry = session.stateVersion();
+
+        clock.advance(Duration.ofSeconds(120));
+        session.timeout(0, "expire-settled-seat-0");
+
+        Map<String, Object> afterExpiry = state(session);
+        assertTrue(session.stateVersion() > versionBeforeExpiry);
+        assertFalse(((Map<?, ?>) afterExpiry.get("players")).containsKey(0));
+        assertFalse(((Map<?, ?>) afterExpiry.get("seatRetentionDeadlineEpochMillis")).containsKey(0));
+        assertEquals(((Map<?, ?>) beforeExpiry.get("hands")).get(0),
+                ((Map<?, ?>) afterExpiry.get("hands")).get(0));
+        assertEquals(((Map<?, ?>) beforeExpiry.get("bets")).get(0),
+                ((Map<?, ?>) afterExpiry.get("bets")).get(0));
+        assertEquals(((List<?>) beforeExpiry.get("splitSeats")).contains(0),
+                ((List<?>) afterExpiry.get("splitSeats")).contains(0));
+        assertTrue(((List<?>) afterExpiry.get("roundSeats")).contains(0));
+        Map<String, Object> reconnectView = session.viewFor(101L);
+        assertTrue(((Map<?, ?>) reconnectView.get("hands")).containsKey(0));
+        assertEquals("SEATED", reconnectView.get("viewerRole"));
+        assertEquals(List.of(), session.invariantViolations());
+    }
+
+    @Test
+    void nextRoundClearsExpiredSeatsRetainedDisplayState() {
+        MutableClock clock = new MutableClock(Instant.parse("2026-09-28T09:00:00Z"));
+        Cd299Session session = depletedSettlementSession(clock, 331L);
+        execute(session, "poker.cd299.rebuy_req", "rebuy-seat-1", 1, 101L, Map.of("carryScore", 100L));
+        session.sit(102L, 100L, "sit-replacement");
+
+        clock.advance(Duration.ofSeconds(120));
+        session.timeout(0, "expire-before-next-round");
+        clock.advance(Duration.ofSeconds(2));
+        session.timeout(1, "start-next-round");
+
+        Map<String, Object> nextRound = state(session);
+        assertEquals("BETTING", nextRound.get("phase"));
+        assertEquals(2, nextRound.get("round"));
+        assertFalse(((Map<?, ?>) nextRound.get("hands")).containsKey(0));
+        assertFalse(((Map<?, ?>) nextRound.get("bets")).containsKey(0));
+        assertFalse(((Map<?, ?>) nextRound.get("committed")).containsKey(0));
+        assertFalse(((List<?>) nextRound.get("splitSeats")).contains(0));
+        assertFalse(((List<?>) nextRound.get("droppedSeats")).contains(0));
+        assertFalse(((List<?>) nextRound.get("roundSeats")).contains(0));
+        assertEquals(Map.of(), nextRound.get("lastBetActions"));
+        assertEquals(List.of(), session.invariantViolations());
+    }
+
+    @Test
     void fundedSpectatorSittingDuringSettlementRestoresNextRoundSchedule() {
         MutableClock clock = new MutableClock(Instant.parse("2026-09-24T08:00:00Z"));
         Cd299Session live = new Cd299Session(93312L, 100L, 312L,
@@ -609,6 +661,19 @@ class Cd299SessionTurnTest {
 
     private static Cd299Session bettingSession(int players, long seed) {
         return bettingSessionWithCarry(players, seed, 100L);
+    }
+
+    private static Cd299Session depletedSettlementSession(MutableClock clock, long seed) {
+        Cd299Session session = new Cd299Session(93000L + seed, 100L, seed,
+                Cd299Rules.from(Map.of("startPlayers", 2, "roomDurationMinutes", 30)),
+                new AuthoritativeTimeSource(clock), SEQUENTIAL_SEAT_SEED);
+        session.sit(0, 100L, 8L, "sit-0");
+        session.sit(1, 101L, 8L, "sit-1");
+        session.bet(0, Cd299Session.BetAction.REST, 0, "rest-0");
+        session.bet(1, Cd299Session.BetAction.REST, 0, "rest-1");
+        assertEquals("ROUND_SETTLEMENT", state(session).get("phase"));
+        assertEquals(Set.of(0, 1), ((Map<?, ?>) state(session).get("seatRetentionDeadlineEpochMillis")).keySet());
+        return session;
     }
 
     private static Cd299Session bettingSessionWithCarry(int players, long seed, long carryScore) {
