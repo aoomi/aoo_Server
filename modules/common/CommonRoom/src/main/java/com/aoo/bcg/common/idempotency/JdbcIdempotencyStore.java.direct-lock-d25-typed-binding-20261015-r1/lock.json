@@ -1,0 +1,11 @@
+{
+  "owner": "/root/kuangjia_login_low",
+  "state": "RELEASED",
+  "status": "RELEASED",
+  "acquiredAt": "2026-10-15T11:01:58.273345+00:00",
+  "expiresAt": "2026-10-15T13:01:58.273345+00:00",
+  "writePaths": [
+    "/Users/aoo/Code/Game/BCG/Aoo/server/modules/common/CommonRoom/src/main/java/com/aoo/bcg/common/idempotency/JdbcIdempotencyStore.java"
+  ],
+  "releasedAt": "2026-10-15T11:05:19.493141+00:00"
+}

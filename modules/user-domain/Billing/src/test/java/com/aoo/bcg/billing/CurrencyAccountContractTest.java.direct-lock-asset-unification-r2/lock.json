@@ -1,0 +1,11 @@
+{
+  "owner": "/root/fangka_xuqian",
+  "attempt": "r2",
+  "state": "RELEASED",
+  "acquiredAt": "2026-10-16T19:18:25.772656+00:00",
+  "expiresAt": "2026-10-16T22:18:25.772656+00:00",
+  "writePaths": [
+    "/Users/aoo/Code/Game/BCG/Aoo/server/modules/user-domain/Billing/src/test/java/com/aoo/bcg/billing/CurrencyAccountContractTest.java"
+  ],
+  "releasedAt": "2026-10-16T19:19:10.107152+00:00"
+}

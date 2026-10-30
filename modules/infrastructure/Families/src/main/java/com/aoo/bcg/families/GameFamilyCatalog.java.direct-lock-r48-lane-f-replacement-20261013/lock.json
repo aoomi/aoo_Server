@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 2,
+  "lockId": "R48-LANE-F-REPLACEMENT-20261013T085343Z-03",
+  "status": "RELEASED_FOR_INDEPENDENT_REVIEW",
+  "owner": "/root/lane_f_service_input_package",
+  "taskCard": "DIRECT-20261012T131224Z-8c4e7a2d-server-path-migration-r3",
+  "taskCardSha256AtAcquire": "1f8e05d17734aaed7b1781fef4cc4773b590d72099f4ab195cf37d83f29dd4ad",
+  "acquiredAt": "2026-10-13T08:53:43.212858000Z",
+  "path": "Server/Modules/Families/src/main/java/com/aoo/bcg/families/GameFamilyCatalog.java",
+  "preimageSha256": "caf7bcfabbcf4390327d5837a35aa32accabe16f152a59e50e46cbae2276d068",
+  "sourceWrite": false,
+  "physicalMutation": false,
+  "scope": "Current-path custody only; no source mutation, directory move, POM repair, or runtime acceptance",
+  "supersedes": "R48-TAKEOVER-20261010T050917Z-03",
+  "oldLockSha256": "ad45eb291a477ed5a501c3be014271312794d417c7cd26fb32adc46b42745781",
+  "successorLockSha256": "d1b6bf2cb6556f6b88bb3367e382395b2682213b5385a57cdff8b7f61e1dd03b",
+  "releasedAt": "2026-10-13T09:12:08.380787000Z",
+  "releaseReason": "Current bytes unchanged; R48 successor released; custody-only handoff receipt finalized"
+}

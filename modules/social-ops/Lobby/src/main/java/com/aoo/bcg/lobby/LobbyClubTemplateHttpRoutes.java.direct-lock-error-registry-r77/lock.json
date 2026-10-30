@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 2,
+  "task": "DIRECT-20261008T084000Z-4a7f1c9e",
+  "lane": "D",
+  "attempt": "error-registry-20261012-r77",
+  "status": "RELEASED_FOR_INDEPENDENT_REVIEW",
+  "owner": "/root/error_registry_impl",
+  "path": "Server/server/Hall/src/main/java/com/aoo/bcg/lobby/LobbyClubTemplateHttpRoutes.java",
+  "preimageSha256": "4c4f8ad97d6753fb8890f2339f5af008d5592d72c54d190846d695c75bc8bf85",
+  "scope": "expose canonical root classification on club-template generic failures",
+  "sourceWrite": true,
+  "testWrite": false,
+  "independentReviewer": "lane_g",
+  "replacementCounts": {"canonical generic failure payload": 1},
+  "postimageSha256": "40ac650d242b07e3e3dc325e3dd2fdd502c03738bc5bbc5e3cc6fcb528a24965"
+}

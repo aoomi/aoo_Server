@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "status": "RELEASED_FOR_INDEPENDENT_REVIEW",
+  "owner": "/root/implement_v198_sql_only",
+  "task": "DIRECT-20261008T065513Z-4d6e8a2b-provider-projection-convergence",
+  "attempt": "v1-r1",
+  "acquiredAt": "2026-10-08T14:43:00+08:00",
+  "purpose": "gameServer consumes canonical production projection",
+  "allowlist": ["Server/server/gameServer/src/core/server/GameServerUnifiedRuntime.java", "docs/05-当前状态/evidence/DIRECT-20261008T065513Z-4d6e8a2b/**"],
+  "sourceWrite": true,
+  "productionDatabase": false,
+  "dirtyCustody": "inherited c41/v1.1/v1.3 dirty; preimage captured before implementation",
+  "releasedAt": "2026-10-08T15:04:00+08:00",
+  "releaseEvidence": "docs/05-当前状态/evidence/DIRECT-20261008T065513Z-4d6e8a2b/DEV_SELF_CHECK-v1.md"
+}

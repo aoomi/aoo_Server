@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "status": "RELEASED_FOR_INDEPENDENT_REVIEW",
+  "owner": "/root/implement_manifest_projection_s1",
+  "task": "DIRECT-20261008T084000Z-4a7f1c9e",
+  "attempt": "R19-server-build-resource-projection-20261009",
+  "purpose": "JAR/classloader singleton resource and SHA/edition packaging contract",
+  "acquiredAt": "2026-10-09T05:35:13Z",
+  "releasedAt": "2026-10-09T05:38:15Z",
+  "releaseReason": "DEV_SELF_CHECK-R19 sealed; ready for independent review",
+  "allowlist": ["Server/server/Bootstrap/src/test/java/com/aoo/bcg/bootstrap/CanonicalRuntimeMetadataManifestPackagingTest.java"],
+  "productionDatabase": false
+}

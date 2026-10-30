@@ -45,3 +45,5 @@
 *.sql.gz
 /database/backups/
 /database/original/*.sql
+
+/build-only/

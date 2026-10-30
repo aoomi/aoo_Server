@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/commdef"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/common"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/gameServer"/>
+	<classpathentry kind="lib" path="/common/lib/Gson/gson-2.8.6.jar"/>
+	<classpathentry kind="lib" path="/common/lib/kernel.jar"/>
+	<classpathentry kind="lib" path="/common/lib/junit_mock/mockito-all-2.0.2-beta.jar"/>
+	<classpathentry kind="lib" path="/common/lib/slf4j-api-1.7.12/slf4j-api-1.7.12.jar"/>
+	<classpathentry kind="lib" path="/common/lib/junit_mock/powermock-api-mockito-1.6.3.jar"/>
+	<classpathentry kind="lib" path="/common/lib/junit_mock/powermock-api-support-1.6.3.jar"/>
+	<classpathentry kind="lib" path="/common/lib/junit_mock/powermock-core-1.6.3.jar"/>
+	<classpathentry kind="lib" path="/common/lib/junit_mock/powermock-module-junit4-1.6.1.jar"/>
+	<classpathentry kind="lib" path="/common/lib/junit_mock/powermock-module-junit4-common-1.6.1.jar"/>
+	<classpathentry kind="lib" path="/common/lib/junit_mock/powermock-reflect-1.6.3.jar"/>
+	<classpathentry kind="lib" path="/common/lib/junit_mock/javassist-3.25.0-GA.jar"/>
+	<classpathentry kind="lib" path="/common/lib/junit_mock/junit-4.12.jar"/>
+	<classpathentry kind="lib" path="/common/lib/apache-commons/commons-collections-3.2.2.jar"/>
+	<classpathentry kind="lib" path="/common/lib/commons-lang3-3.7/commons-lang3-3.7.jar"/>
+	<classpathentry kind="lib" path="/common/lib/lombok-1.18.8.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

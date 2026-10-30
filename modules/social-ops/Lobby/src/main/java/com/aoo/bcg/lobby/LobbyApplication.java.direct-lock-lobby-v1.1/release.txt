@@ -1,0 +1,12 @@
+Status=RELEASED_FOR_COORDINATION
+Owner=/root/implement_lobby_owner_increment
+Task=DIRECT-20261008T084000Z-4a7f1c9e
+Attempt=v1.1-lobby-canonical-owner-20261010
+Lock=Server/server/Hall/src/main/java/com/aoo/bcg/lobby/LobbyApplication.java.direct-lock-lobby-v1.1/lock.json
+ReleasedAt=2026-10-10T14:39:40+08:00
+PriorStatus=HELD
+ReviewVerdict=ACCEPT_BOUNDED_SCOPE
+ReviewEvidence=docs/05-当前状态/evidence/c3-lobby-naming-scoped-independent-review-20261010/independent-review-v1.md
+PreReleaseLockSha256=186e83f96ded1481d17e3bce82e6d9065d6de5650066668a9c21422a5c29f1a0
+PostReleaseLockSha256=5ad3dafe3f600520635f30df300e66a01257f0ab3e845972712d39527b017576
+Reason=bounded independent acceptance received; canonical Lobby lifecycle owner remains in place

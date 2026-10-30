@@ -1,0 +1,9 @@
+{
+  "owner": "/root/shuju_low",
+  "state": "RELEASED_FROZEN_OPS09_DEDUP_IMPLEMENTATION",
+  "path": "server/modules/social-ops/Telemetry/src/main/java/com/aoo/bcg/telemetry/JdbcTelemetryRiskService.java",
+  "createdAt": "2026-10-14T11:34:47.727744+00:00",
+  "preimageSha256": "7a6f53449c85b693b660df38d33fdaa0813d8927ffdf7a105320bf1bf38f6eef",
+  "releasedAt": "2026-10-14T11:36:47.255735+00:00",
+  "manifestSha256": "27c77e73cb02e8e511821c55c5eae179cdbb7e60b0f1475c729486866c1e3823"
+}

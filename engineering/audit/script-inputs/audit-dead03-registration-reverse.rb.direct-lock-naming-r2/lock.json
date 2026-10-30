@@ -1,0 +1,14 @@
+{
+  "owner": "/root/kuangjia_mingming_low",
+  "state": "RELEASED",
+  "attempt": "directory-execution-r2",
+  "acquiredAt": "2026-10-16T14:07:00.681508+00:00",
+  "expiresAt": "2026-10-16T14:47:00.681508+00:00",
+  "authority": "root r2 SourceReady + independent plan93f895ea + dirty custody63409758; NN4 controlled call_fbc24e860e4a4b779d5ecda7e1dfef95",
+  "writePaths": [
+    "server/engineering/audit/script-inputs/audit-dead03-registration-reverse.rb"
+  ],
+  "scope": "directory physical path only; 7 consumers exact reviewed path lines; no internal source content or business ownership",
+  "releasedAt": "2026-10-16T14:08:52.348263+00:00",
+  "reason": "directory path and seven exact consumers frozen for independent parity review; no class/content ownership transferred"
+}

@@ -1,0 +1,33 @@
+gameId	code	displayName	category	family	regionScope	provinceCode	cityCode	version	enabled	sourceModule
+5	quanguo2998	全国牛牛	POKER	poker:betting	NATIONAL			nn-v1.0.0	1	quanguo2998
+2001	chengdu2001	成都跑得快	POKER	poker:pao-de-kuai	CITY	sichuan	chengdu	chengdu2001-v1.0.0	1	chengdu2001
+9	quanguo2997	全国金花	POKER	poker:compare-hand	NATIONAL			zjh-v1.0.0	1	quanguo2997
+1001	chengdu1001	成都麻将	MAHJONG	mahjong:xue-zhan	CITY	SC	CD	chengdu1001-v1.0.0	1	Mahjong
+2002	neijiang2002	内江跑得快	POKER	poker:pao-de-kuai	CITY	sichuan	neijiang	neijiang2002-v1.0.0	1	neijiang2002
+2999	chengdu2999	成都扯旋	POKER	poker:cx	CITY	sichuan	chengdu	cx-v1.0.0	1	chengdu2999
+2003	liangshan2003	凉山跑得快	POKER	poker:pao-de-kuai	CITY	sichuan	liangshan	liangshan2003-v1.0.0	1	liangshan2003
+2004	mianning2004	冕宁跑得快	POKER	poker:pao-de-kuai	CITY	sichuan	mianning	mianning2004-v1.0.0	1	mianning2004
+2005	anyue2005	安岳跑得快	POKER	poker:pao-de-kuai	CITY	sichuan	anyue	anyue2005-v1.0.0	1	anyue2005
+2006	panzhihua2006	攀枝花跑得快	POKER	poker:pao-de-kuai	CITY	sichuan	panzhihua	panzhihua2006-v1.0.0	1	panzhihua2006
+2007	wannian2007	万年跑得快	POKER	poker:pao-de-kuai	CITY	jiangxi	wannian	wannian2007-v1.0.0	1	wannian2007
+2008	leping2008	乐平跑得快	POKER	poker:pao-de-kuai	CITY	jiangxi	leping	leping2008-v1.0.0	1	leping2008
+2009	bozhou2009	亳州跑得快	POKER	poker:pao-de-kuai	CITY	anhui	bozhou	bozhou2009-v1.0.0	1	bozhou2009
+2010	yugan2010	余干跑得快	POKER	poker:pao-de-kuai	CITY	jiangxi	yugan	yugan2010-v1.0.0	1	yugan2010
+2011	jian2011	吉安跑得快	POKER	poker:pao-de-kuai	CITY	jiangxi	jian	jian2011-v1.0.0	1	jian2011
+2012	gushi2012	固始跑得快	POKER	poker:pao-de-kuai	CITY	henan	gushi	gushi2012-v1.0.0	1	gushi2012
+2013	xiaogan2013	孝感跑得快	POKER	poker:pao-de-kuai	CITY	hubei	xiaogan	xiaogan2013-v1.0.0	1	xiaogan2013
+2014	ningdu2014	宁都跑得快	POKER	poker:pao-de-kuai	CITY	jiangxi	ningdu	ningdu2014-v1.0.0	1	ningdu2014
+2015	huaihua2015	怀化跑得快	POKER	poker:pao-de-kuai	CITY	hunan	huaihua	huaihua2015-v1.0.0	1	huaihua2015
+2016	xinxian2016	新县跑得快	POKER	poker:pao-de-kuai	CITY	henan	xinxian	xinxian2016-v1.0.0	1	xinxian2016
+2017	jingdezhen2017	景德镇跑得快	POKER	poker:pao-de-kuai	CITY	jiangxi	jingdezhen	jingdezhen2017-v1.0.0	1	jingdezhen2017
+2018	jiangsu2018	江苏跑得快	POKER	poker:pao-de-kuai	PROVINCE	jiangsu		jiangsu2018-v1.0.0	1	jiangsu2018
+2019	henan2019	河南跑得快	POKER	poker:pao-de-kuai	PROVINCE	henan		henan2019-v1.0.0	1	henan2019
+2020	taizhou2020	泰州跑得快	POKER	poker:pao-de-kuai	CITY	jiangsu	taizhou	taizhou2020-v1.0.0	1	taizhou2020
+2021	huaibin2021	淮滨跑得快	POKER	poker:pao-de-kuai	CITY	henan	huaibin	huaibin2021-v1.0.0	1	huaibin2021
+2022	huangchuan2022	潢川跑得快	POKER	poker:pao-de-kuai	CITY	henan	huangchuan	huangchuan2022-v1.0.0	1	huangchuan2022
+2023	poyang2023	鄱阳跑得快	POKER	poker:pao-de-kuai	CITY	jiangxi	poyang	poyang2023-v1.0.0	1	poyang2023
+2024	jintan2024	金坛跑得快	POKER	poker:pao-de-kuai	CITY	jiangsu	jintan	jintan2024-v1.0.0	1	jintan2024
+2025	gaoan2025	高安跑得快	POKER	poker:pao-de-kuai	CITY	jiangxi	gaoan	gaoan2025-v1.0.0	1	gaoan2025
+2026	yixing2026	宜兴跑得快	POKER	poker:pao-de-kuai	CITY	jiangsu	yixing	yixing2026-v1.0.0	1	yixing2026
+2027	xuancheng2027	宣城跑得快	POKER	poker:pao-de-kuai	CITY	anhui	xuancheng	xuancheng2027-v1.0.0	1	xuancheng2027
+2028	fuzhou2028	抚州跑得快	POKER	poker:pao-de-kuai	CITY	jiangxi	fuzhou	fuzhou2028-v1.0.0	1	fuzhou2028

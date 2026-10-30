@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 2,
+  "task": "DIRECT-20261008T084000Z-4a7f1c9e",
+  "lane": "D",
+  "attempt": "error-registry-20261011-r2",
+  "status": "RELEASED_FOR_INDEPENDENT_REVIEW",
+  "owner": "/root/error_registry_impl",
+  "path": "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/error/ErrorCodeCatalog.java",
+  "preimageSha256": "76ed335cc45379ea3ea100bbc6a3bb93e6999c1a2c039e42891421ad73732a44",
+  "scope": "append-only canonical error taxonomy and permission aliases",
+  "sourceWrite": true,
+  "testWrite": false,
+  "independentReviewer": "non-writer reviewer required"
+}

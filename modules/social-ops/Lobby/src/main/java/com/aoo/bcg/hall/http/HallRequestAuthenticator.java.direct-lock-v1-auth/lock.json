@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "status": "RELEASED_FOR_COORDINATION",
+  "owner": "/root/implement_lobby_http_canonicalization",
+  "task": "DIRECT-20261008T084000Z-4a7f1c9e",
+  "change": "c3-lobby-next-auth-canonicalization-v1",
+  "path": "Server/server/Hall/src/main/java/com/aoo/bcg/hall/http/HallRequestAuthenticator.java",
+  "acquiredAt": "2026-10-10T07:52:19Z",
+  "purpose": "Forward-only Hall auth compatibility adapter",
+  "preimageSha256": "e34447a006b4f7da70364b4526277f81fa50f8e876b01c53f84e030d3cc8025a",
+  "sourceExistsBeforeLock": true,
+  "dirtyCustody": "preimage captured before edit",
+  "sourceWrite": true,
+  "testWrite": false,
+  "allowlist": ["Server/server/Hall/src/main/java/com/aoo/bcg/hall/http/HallRequestAuthenticator.java", "docs/05-当前状态/evidence/c3-lobby-next-auth-canonicalization-v1/**"],
+  "forbidden": ["HallError semantics", "protocol paths/events", "DB/SQL", "POM", "Client", "rules", "deploy", "shared services/ports/Creator/browser", "HallCostPolicyError.java", "HallCostPolicyErrorMappingTest.java", "commits/pushes/merges/rebases"],
+  "releasedAt": "2026-10-10T07:59:52Z",
+  "releaseReason": "BLOCKED_CUSTODY_MISMATCH_CLEANUP",
+  "currentSha256": "44865bded36c5a81d70a92706cc9223877aaeaaea866d50abca2458ee9a4846e",
+  "incidentReceiptSha256": "4aa792fcb09511e0d45479242d962ea89763a302272297a74b6b9c91608bf12",
+  "releaseReceipt": "release.txt"
+}

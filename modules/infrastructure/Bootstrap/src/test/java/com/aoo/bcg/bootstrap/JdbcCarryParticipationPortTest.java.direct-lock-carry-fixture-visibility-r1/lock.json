@@ -1,0 +1,13 @@
+{
+  "owner": "/root/kuangjia_low",
+  "status": "RELEASED",
+  "acquiredAt": "2026-10-17T11:07:53.394624+00:00",
+  "expiresAt": "2026-10-17T11:09:02.394459+00:00",
+  "scope": [
+    "/Users/aoo/Code/Game/BCG/Aoo/server/modules/infrastructure/Bootstrap/src/test/java/com/aoo/bcg/bootstrap/JdbcCarryParticipationPortTest.java"
+  ],
+  "originalAcquire": "2026-10-17T10:59:02.394459+00:00",
+  "noBudgetReset": true,
+  "releasedAt": "2026-10-17T11:07:54.988477+00:00",
+  "manifestSHA": "2a0b4906e84522751625a2fa57a03a23e9e4666325fb7af3749965cc705e9ab0"
+}

@@ -1,0 +1,11 @@
+{
+  "owner": "/root/kuangjia_mingming_low",
+  "state": "RELEASED_FOR_INDEPENDENT_REVIEW",
+  "acquiredAt": "2026-10-16T20:37:37.153747+00:00",
+  "expiresAt": "2026-10-16T21:19:46.205299+00:00",
+  "writePaths": [
+    "/Users/aoo/Code/Game/BCG/Aoo/server/engineering/release/issue-current-identity-metadata.py",
+    "/Users/aoo/Code/Game/BCG/Aoo/server/engineering/release/issue-current-identity-metadata.py.current32-issuer-r12.direct-lock/lock.json"
+  ],
+  "releasedAt": "2026-10-16T20:41:06.200809+00:00"
+}

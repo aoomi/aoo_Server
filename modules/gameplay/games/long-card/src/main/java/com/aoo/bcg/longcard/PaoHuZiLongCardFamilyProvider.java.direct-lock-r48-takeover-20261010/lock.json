@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 2,
+  "lockId": "R48-TAKEOVER-20261010T050917Z-05",
+  "status": "RELEASED_FOR_INDEPENDENT_REVIEW",
+  "owner": "/root/implement_r48_takeover",
+  "task": "DIRECT-20261008T084000Z-4a7f1c9e",
+  "attempt": "R48-R50-takeover-implementation-20261010",
+  "acquiredAt": "2026-10-10T05:09:17Z",
+  "releasedAt": "2026-10-13T09:07:34.964768000Z",
+  "path": "Server/server/Games/LongCard/src/main/java/com/aoo/bcg/longcard/PaoHuZiLongCardFamilyProvider.java",
+  "preimageSha256": "51f4bb97a18fecbb33a072285e0d7bb4be369f9570929b38115b03aa5b49a99f",
+  "handoffCurrentSha256": "51f4bb97a18fecbb33a072285e0d7bb4be369f9570929b38115b03aa5b49a99f",
+  "oldPreimageSha256": "ABSENT",
+  "oldOwner": "/root/r48_longcard_provider_implementation",
+  "supersedes": "Server/server/Games/LongCard/src/main/java/com/aoo/bcg/longcard/PaoHuZiLongCardFamilyProvider.java.direct-lock-r48/lock.json",
+  "sourceWrite": true,
+  "releaseReceipt": "docs/05-当前状态/evidence/DIRECT-20261008T084000Z-4a7f1c9e/c3-r48-takeover-implementation-20261010/r48-eight-successor-release-receipt-20261013.md",
+  "independentAcceptance": "ACCEPT_BOUNDED",
+  "scope": "R48 exact PaoHuZi LongCard carrier wrapper for this file only"
+}

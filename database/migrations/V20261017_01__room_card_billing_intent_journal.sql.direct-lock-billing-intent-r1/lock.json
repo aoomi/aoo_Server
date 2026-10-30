@@ -1,0 +1,11 @@
+{
+  "owner": "/root/fangka_xuqian",
+  "attempt": "intent-r1",
+  "state": "RELEASED",
+  "acquiredAt": "2026-10-16T22:22:56.281866+00:00",
+  "expiresAt": "2026-10-17T00:22:56.281866+00:00",
+  "writePaths": [
+    "/Users/aoo/Code/Game/BCG/Aoo/server/database/migrations/V20261017_01__room_card_billing_intent_journal.sql"
+  ],
+  "releasedAt": "2026-10-16T22:24:32.595900+00:00"
+}

@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "lockId": "c3-protocol-source-restore-20261011",
+  "status": "RELEASED_FOR_INDEPENDENT_REVIEW",
+  "owner": "/root/task_only_runtime_startup",
+  "task": "DIRECT-20261008T084000Z-4a7f1c9e",
+  "purpose": "Restore canonical current PDK protocol IDs from the formal source and regenerate projections so ProtocolV2Bridge compiles",
+  "allowlist": [
+    "Server/protocol/aoo-protocol-v2.json",
+    "Server/server/LegacyCommon/src/com/ddm/server/protocol/v2/ProtocolV2Bridge.java",
+    "Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/protocol/GeneratedProtocolIds.java",
+    "Client/assets/Common/Code/Runtime/network/GeneratedProtocolIds.ts",
+    "Server/docs/generated/protocol-reference.md",
+    "docs/05-当前状态/evidence/DIRECT-20261008T084000Z-4a7f1c9e/c3-protocol-source-restore-20261011/**"
+  ],
+  "readOnlyInputs": [
+    "Server/tools/protocol/generate.mjs",
+    "Server/tools/protocol/protocol-model.mjs",
+    "Server/server/GameSPI/src/main/resources/current-game-identities.tsv",
+    "Server/server/Bootstrap/src/main/resources/game-catalog-528.tsv",
+    "Server/tools/room-rule-play-identities.json",
+    "/tmp/aoo-lobby-club-source-build-20261010-YrPTMe/Server/protocol/aoo-protocol-v2.json",
+    "/tmp/aoo-lobby-club-source-build-20261010-YrPTMe/Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/protocol/GeneratedProtocolIds.java"
+  ],
+  "forbidden": [
+    "protocol semantics unrelated to the three canonical PDK IDs",
+    "generated bundle",
+    "production database",
+    "shared services and ports",
+    "rules workbooks",
+    "LoginScene",
+    "deployment directories",
+    "historical migrations"
+  ],
+  "preimage": {
+    "Server/protocol/aoo-protocol-v2.json": "79cb1c767d65468c696b4595fa3ede8852d4b182e714169979d1518a85b0218c",
+    "Server/server/LegacyCommon/src/com/ddm/server/protocol/v2/ProtocolV2Bridge.java": "dd356a9c1b016b744a66c4445be9046abf45f94e2675c4027312562daeeed315",
+    "Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/protocol/GeneratedProtocolIds.java": "78717e629ac74e24dcf9f2df3b3a0c33f369e3171cc45194e9b2fadcdb0c9c9e",
+    "Client/assets/Common/Code/Runtime/network/GeneratedProtocolIds.ts": "ded682874c48b4282b835999eaccb96e4e95cf4ba67b7fef47d2ded16baf8124",
+    "Server/docs/generated/protocol-reference.md": "9ad707dd070bd16ec2a184a8341a84e6ba443221ecd10cfccef15a63716860cc"
+  },
+  "postimage": {
+    "Server/protocol/aoo-protocol-v2.json": "4df861d356da270d5ff89393f3a36301046d3c918da6fc4b1c51152c82b731b4",
+    "Server/server/LegacyCommon/src/com/ddm/server/protocol/v2/ProtocolV2Bridge.java": "40b72bd1a48377fefb5e12ab5187810e36fa4c4278c0446d4ffe473f23cb5481",
+    "Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/protocol/GeneratedProtocolIds.java": "b63411298dd456856094e9cb2f8a7c1263162c10cebf5a97d39e0ea6bbf9d0dd",
+    "Client/assets/Common/Code/Runtime/network/GeneratedProtocolIds.ts": "4cd2f213bceaed5a5c873e799381eb3ad13cde8810b2df90caba2a56cb35e85f",
+    "Server/docs/generated/protocol-reference.md": "e14988b739c20c964b82de5cb4d4cd71dbb89f771151469f29e9b9bc446e532d"
+  },
+  "sourceWrite": true,
+  "productionDatabase": false,
+  "sharedRuntime": false,
+  "independentAcceptanceRequired": true,
+  "releasedAt": "2026-10-10T19:38:40Z",
+  "handoffTo": "/root/lane_g"
+}

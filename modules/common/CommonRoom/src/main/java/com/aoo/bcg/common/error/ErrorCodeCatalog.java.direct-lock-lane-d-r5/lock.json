@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 2,
+  "task": "DIRECT-20261008T084000Z-4a7f1c9e",
+  "lane": "D",
+  "attempt": "error-registry-20261011-r5",
+  "status": "RELEASED_FOR_INDEPENDENT_REVIEW",
+  "owner": "/root/error_registry_impl",
+  "path": "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/error/ErrorCodeCatalog.java",
+  "preimageSha256": "6f59a5dba74e8cf796a5fee6743ec93514d76bee936bf732eb95648ae318eba0",
+  "scope": "register remaining typed Lobby/Hall aliases for fail-closed canonical mapping",
+  "sourceWrite": true,
+  "testWrite": false,
+  "independentReviewer": "lane_g",
+  "replacementCounts": {
+    "upstream aliases": 1,
+    "invalid-envelope aliases": 1,
+    "permission aliases": 1,
+    "route aliases": 1
+  },
+  "postimageSha256": "c6bd8298ce90d2ca913112b0f49001f9e8717aa3bb3142eec79a40a71916249f"
+}

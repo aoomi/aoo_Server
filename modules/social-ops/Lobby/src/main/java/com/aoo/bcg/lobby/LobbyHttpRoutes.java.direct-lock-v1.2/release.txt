@@ -1,0 +1,7 @@
+STATUS=RELEASED_FOR_COORDINATION
+OWNER=/root/implement_lobby_http_canonicalization
+RELEASED_AT=2026-10-10T07:05:45Z
+REASON=Independent review ACCEPT_BOUNDED_SCOPE
+REVIEW=docs/05-当前状态/evidence/c3-lobby-http-canonicalization-v1.2/independent-review/independent-review-v1.md
+REVIEW_SHA256=9aac938fee56ee0c69b2b90d03436c30f15e7d409da507d37f3ff0f11b408ad6
+POSTIMAGE_SHA256=b579285af588501c2a0c04379a3b89bf9c22567c18e642bc44897c40a04602e4

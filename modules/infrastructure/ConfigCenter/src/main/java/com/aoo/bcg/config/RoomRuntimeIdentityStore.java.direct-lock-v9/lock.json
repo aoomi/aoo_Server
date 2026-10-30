@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "status": "RELEASED_FOR_INDEPENDENT_REVIEW",
+  "owner": "/root/implement_v197_room_lock_metadata",
+  "task": "DIRECT-20261008T084000Z-4a7f1c9e",
+  "attempt": "c3-v9-failed-identity-root-cause-v1-20261009",
+  "acquiredAt": "2026-10-09T03:25:17Z",
+  "purpose": "Only a proven fail-closed allocation/cleanup repair; no identity reuse without exact authority proof",
+  "allowlist": [
+    "Server/server/ConfigCenter/src/main/java/com/aoo/bcg/config/RoomRuntimeIdentityStore.java",
+    "Server/server/ConfigCenter/src/test/java/com/aoo/bcg/config/RoomRuntimeIdentityAllocationRetryTest.java"
+  ],
+  "productionDatabase": false,
+  "migrationWrite": false,
+  "releasedAt": "2026-10-09T03:29:29Z",
+  "releaseReason": "No proven safe store repair; source unchanged; fail-closed blocker recorded in v9 evidence"
+}

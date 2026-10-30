@@ -1,0 +1,27 @@
+{
+  "lockKind": "direct-writer-lock",
+  "taskCard": "docs/05-当前状态/DIRECT-20261011T054445Z-lane-f-r50-current-provenance.md",
+  "taskCardSha256": "0fe6ce0d0685a89e0170f15010050541dbf42dbb2016f4f71217e9641c9688d5",
+  "owner": "/root/lane_f_service_input_package",
+  "lane": "F",
+  "batch": "R50-current-provenance",
+  "acquiredAt": "2026-10-11T05:46:00Z",
+  "sourceWrite": true,
+  "scope": [
+    "Server/tools/validate-runtime-metadata-manifest.rb"
+  ],
+  "preimageSha256": "158d8f8b409ea6a26e879a751b0f73abd43b262e9c80c2e2bbce0fa9b4746c1b",
+  "postimageSha256": "1d869234cd63dc97878715543e65fea0a1674060137bbaf2a13bdf5915a548b6",
+  "forbidden": [
+    "Server/tools/runtime-metadata-canonical-manifest.json",
+    "Server/tools/canonical-identity-registry.json",
+    "Server/tools/canonical-identity-contract-source.json",
+    "Client/docs/开房规则表/**",
+    "production-db",
+    "shared-services",
+    "generated-bundle"
+  ],
+  "status": "RELEASED",
+  "releasedAt": "2026-10-11T05:52:16Z",
+  "releaseReason": "BLOCKED_PROVIDER_SOURCE_DRIFT; current row-9 provider is untracked and no signable source revision exists"
+}

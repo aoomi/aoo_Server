@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "status": "RELEASED_FOR_COORDINATION",
+  "owner": "/root/implement_lobby_owner_increment",
+  "task": "DIRECT-20261008T084000Z-4a7f1c9e",
+  "attempt": "v1.1-lobby-canonical-owner-20261010",
+  "path": "Server/server/Hall/src/main/java/com/aoo/bcg/lobby/LobbyApplication.java",
+  "purpose": "Canonical Lobby lifecycle entry",
+  "preimageSha256": "ABSENT",
+  "dirtyCustody": "new-file",
+  "independentAcceptanceRequired": true
+}

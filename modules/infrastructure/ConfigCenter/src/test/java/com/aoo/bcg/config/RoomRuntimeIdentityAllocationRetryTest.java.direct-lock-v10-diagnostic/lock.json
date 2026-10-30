@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "status": "RELEASED_FOR_INDEPENDENT_REVIEW",
+  "owner": "/root/implement_v197_room_lock_metadata",
+  "task": "DIRECT-20261008T084000Z-4a7f1c9e",
+  "attempt": "c3-v10-diagnostic-identity-audit-v1-20261009",
+  "acquiredAt": "2026-10-09T03:32:20Z",
+  "purpose": "Focused diagnostic log contract tests; existing behavior assertions retained",
+  "allowlist": ["Server/server/ConfigCenter/src/test/java/com/aoo/bcg/config/RoomRuntimeIdentityAllocationRetryTest.java"],
+  "productionDatabase": false,
+  "releasedAt": "2026-10-09T03:37:32Z",
+  "releaseReason": "Diagnostic privacy/field contract test added; 8/8 ConfigCenter tests PASS; pending independent v10 replay"
+}

@@ -1,0 +1,566 @@
+{
+  "_generated": "自动生成，权威来源为只读 Excel",
+  "sourceHash": "4a98640193e56317b8b84d5ad6a1b22460b11077305ec6192b1fc82d2537d241",
+  "identity": {
+    "publishingEnabled": true,
+    "gameId": 2005,
+    "gameCode": "anyue2005",
+    "legacyFieldKeyAliases": {
+      "rule_ay201_0001": "rule_anyue2005_0001"
+    },
+    "playVersion": "anyue2005-v1.0.0",
+    "family": "poker:pao-de-kuai",
+    "regionCode": "CN-51-20-21",
+    "releaseScope": "REGIONAL",
+    "requiredRoomRuleFields": [
+      {
+        "key": "playerCount",
+        "sourceLabel": "人数"
+      },
+      {
+        "key": "roundCount",
+        "sourceLabel": "局数"
+      },
+      {
+        "key": "operationTimeoutSeconds",
+        "sourceLabel": "操作时间"
+      },
+      {
+        "key": "deckRange",
+        "sourceLabel": "牌库范围"
+      },
+      {
+        "key": "firstPlayRule",
+        "sourceLabel": "先出牌"
+      },
+      {
+        "key": "requiredFirstCardRule",
+        "sourceLabel": "首张必出"
+      },
+      {
+        "key": "tripleWithTwoMode",
+        "sourceLabel": "三带二"
+      },
+      {
+        "key": "planeWithTwoMode",
+        "sourceLabel": "飞机带二"
+      },
+      {
+        "key": "bombScore",
+        "sourceLabel": "炸弹记分"
+      },
+      {
+        "key": "playRule",
+        "sourceLabel": "玩法"
+      },
+      {
+        "key": "hostingMissThreshold",
+        "sourceLabel": "托管次数",
+        "serverOwned": true
+      },
+      {
+        "key": "roomRestriction",
+        "sourceLabel": "其他"
+      }
+    ],
+    "numericRoomRuleFields": [
+      {
+        "sourceLabel": "人数",
+        "suffix": "人"
+      },
+      {
+        "sourceLabel": "局数",
+        "suffix": "局"
+      },
+      {
+        "sourceLabel": "炸弹记分",
+        "suffix": "分"
+      },
+      {
+        "sourceLabel": "托管次数",
+        "suffix": "次"
+      }
+    ],
+    "roomRuleOptionValues": {
+      "人数": {
+        "2人": 2,
+        "3人": 3
+      },
+      "局数": {
+        "8局": 8,
+        "12局": 12,
+        "16局": 16
+      },
+      "操作时间": {
+        "10秒": 10,
+        "15秒": 15,
+        "20秒": 20
+      },
+      "牌库范围": {
+        "5-K，2一张，A三张": "cut_40"
+      },
+      "先出牌": {
+        "黑桃5优先出": "spade_five_first"
+      },
+      "首张必出": {
+        "第一局必须出黑桃5": "first_round_spade_five_required"
+      },
+      "三带二": {
+        "只能带两张且不比较带牌": "two_cards_no_compare",
+        "只能带两张且比较带牌": "two_cards_compare"
+      },
+      "飞机带二": {
+        "只能带两张且不比较带牌": "two_cards_no_compare",
+        "只能带两张且比较带牌": "two_cards_compare"
+      },
+      "炸弹记分": {
+        "5分": 5,
+        "10分": 10,
+        "20分": 20
+      },
+      "小结算": {
+        "小局结算弹窗": "option_0001"
+      },
+      "玩法": {
+        "三不带（任何时候可出）": "three_no_attachment",
+        "飞机不带（任何时候可出）": "plane_no_attachment",
+        "四带二（只能带两张）": "four_with_two",
+        "3A算炸弹": "triple_ace_bomb",
+        "四个3直接赢": "four_threes_direct_win",
+        "三个A加一个2直接赢": "triple_ace_plus_two_direct_win"
+      },
+      "托管次数": {
+        "3次": 3,
+        "4次": 4,
+        "5次": 5
+      },
+      "其他": {
+        "IP限制": "ip_limit",
+        "GPS限制": "gps_limit",
+        "5次不操作进入托管": "timeout_auto_play",
+        "距离过近提示": "distance_warning",
+        "禁止互动": "interaction_forbidden",
+        "禁言": "chat_muted"
+      }
+    }
+  },
+  "targets": [
+    {
+      "gameId": 2005,
+      "playVersion": "anyue2005-v1.0.0"
+    }
+  ],
+  "fields": [
+    {
+      "key": "playerCount",
+      "label": "人数",
+      "control": "radio",
+      "order": 80,
+      "visible": true,
+      "disabled": false,
+      "required": true,
+      "defaultCandidateIndexes": [
+        1
+      ],
+      "defaultValue": 2,
+      "options": [
+        {
+          "value": 2,
+          "label": "2人",
+          "order": 10,
+          "disabled": false
+        },
+        {
+          "value": 3,
+          "label": "3人",
+          "order": 20,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "key": "roundCount",
+      "label": "局数",
+      "control": "radio",
+      "order": 90,
+      "visible": true,
+      "disabled": false,
+      "required": true,
+      "defaultCandidateIndexes": [
+        1
+      ],
+      "defaultValue": 8,
+      "options": [
+        {
+          "value": 8,
+          "label": "8局",
+          "order": 10,
+          "disabled": false
+        },
+        {
+          "value": 12,
+          "label": "12局",
+          "order": 20,
+          "disabled": false
+        },
+        {
+          "value": 16,
+          "label": "16局",
+          "order": 30,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "key": "operationTimeoutSeconds",
+      "label": "操作时间",
+      "control": "radio",
+      "order": 100,
+      "visible": true,
+      "disabled": false,
+      "required": true,
+      "defaultCandidateIndexes": [
+        1
+      ],
+      "defaultValue": 10,
+      "options": [
+        {
+          "value": 10,
+          "label": "10秒",
+          "order": 10,
+          "disabled": false
+        },
+        {
+          "value": 15,
+          "label": "15秒",
+          "order": 20,
+          "disabled": false
+        },
+        {
+          "value": 20,
+          "label": "20秒",
+          "order": 30,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "key": "deckRange",
+      "label": "牌库范围",
+      "control": "radio",
+      "order": 110,
+      "visible": true,
+      "disabled": false,
+      "required": true,
+      "defaultCandidateIndexes": [
+        1
+      ],
+      "defaultValue": "cut_40",
+      "options": [
+        {
+          "value": "cut_40",
+          "label": "5-K，2一张，A三张",
+          "order": 10,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "key": "firstPlayRule",
+      "label": "先出牌",
+      "control": "radio",
+      "order": 120,
+      "visible": true,
+      "disabled": false,
+      "required": true,
+      "defaultCandidateIndexes": [
+        1
+      ],
+      "defaultValue": "spade_five_first",
+      "options": [
+        {
+          "value": "spade_five_first",
+          "label": "黑桃5优先出",
+          "order": 10,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "key": "requiredFirstCardRule",
+      "label": "首张必出",
+      "control": "radio",
+      "order": 130,
+      "visible": true,
+      "disabled": false,
+      "required": true,
+      "defaultCandidateIndexes": [
+        1
+      ],
+      "defaultValue": "first_round_spade_five_required",
+      "options": [
+        {
+          "value": "first_round_spade_five_required",
+          "label": "第一局必须出黑桃5",
+          "order": 10,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "key": "tripleWithTwoMode",
+      "label": "三带二",
+      "control": "radio",
+      "order": 140,
+      "visible": true,
+      "disabled": false,
+      "required": true,
+      "defaultCandidateIndexes": [
+        1
+      ],
+      "defaultValue": "two_cards_no_compare",
+      "options": [
+        {
+          "value": "two_cards_no_compare",
+          "label": "只能带两张且不比较带牌",
+          "order": 10,
+          "disabled": false
+        },
+        {
+          "value": "two_cards_compare",
+          "label": "只能带两张且比较带牌",
+          "order": 20,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "key": "planeWithTwoMode",
+      "label": "飞机带二",
+      "control": "radio",
+      "order": 150,
+      "visible": true,
+      "disabled": false,
+      "required": true,
+      "defaultCandidateIndexes": [
+        1
+      ],
+      "defaultValue": "two_cards_no_compare",
+      "options": [
+        {
+          "value": "two_cards_no_compare",
+          "label": "只能带两张且不比较带牌",
+          "order": 10,
+          "disabled": false
+        },
+        {
+          "value": "two_cards_compare",
+          "label": "只能带两张且比较带牌",
+          "order": 20,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "key": "bombScore",
+      "label": "炸弹记分",
+      "control": "radio",
+      "order": 160,
+      "visible": true,
+      "disabled": false,
+      "required": true,
+      "defaultCandidateIndexes": [
+        1
+      ],
+      "defaultValue": 5,
+      "options": [
+        {
+          "value": 5,
+          "label": "5分",
+          "order": 10,
+          "disabled": false
+        },
+        {
+          "value": 10,
+          "label": "10分",
+          "order": 20,
+          "disabled": false
+        },
+        {
+          "value": 20,
+          "label": "20分",
+          "order": 30,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "key": "rule_anyue2005_0001",
+      "label": "小结算",
+      "control": "checkbox",
+      "order": 170,
+      "visible": true,
+      "disabled": false,
+      "required": false,
+      "defaultCandidateIndexes": [
+        1
+      ],
+      "defaultValue": [
+        "option_0001"
+      ],
+      "options": [
+        {
+          "value": "option_0001",
+          "label": "小局结算弹窗",
+          "order": 10,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "key": "playRule",
+      "label": "玩法",
+      "control": "checkbox",
+      "order": 180,
+      "visible": true,
+      "disabled": false,
+      "required": false,
+      "defaultCandidateIndexes": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "defaultValue": [
+        "three_no_attachment",
+        "plane_no_attachment",
+        "four_with_two",
+        "triple_ace_bomb"
+      ],
+      "options": [
+        {
+          "value": "three_no_attachment",
+          "label": "三不带（任何时候可出）",
+          "order": 10,
+          "disabled": false
+        },
+        {
+          "value": "plane_no_attachment",
+          "label": "飞机不带（任何时候可出）",
+          "order": 20,
+          "disabled": false
+        },
+        {
+          "value": "four_with_two",
+          "label": "四带二（只能带两张）",
+          "order": 30,
+          "disabled": false
+        },
+        {
+          "value": "triple_ace_bomb",
+          "label": "3A算炸弹",
+          "order": 40,
+          "disabled": false
+        },
+        {
+          "value": "four_threes_direct_win",
+          "label": "四个3直接赢",
+          "order": 50,
+          "disabled": false
+        },
+        {
+          "value": "triple_ace_plus_two_direct_win",
+          "label": "三个A加一个2直接赢",
+          "order": 60,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "key": "hostingMissThreshold",
+      "label": "托管次数",
+      "control": "radio",
+      "order": 190,
+      "visible": false,
+      "disabled": true,
+      "required": true,
+      "defaultCandidateIndexes": [
+        1
+      ],
+      "defaultValue": 3,
+      "options": [
+        {
+          "value": 3,
+          "label": "3次",
+          "order": 10,
+          "disabled": false
+        },
+        {
+          "value": 4,
+          "label": "4次",
+          "order": 20,
+          "disabled": false
+        },
+        {
+          "value": 5,
+          "label": "5次",
+          "order": 30,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "key": "roomRestriction",
+      "label": "其他",
+      "control": "checkbox",
+      "order": 200,
+      "visible": true,
+      "disabled": false,
+      "required": false,
+      "defaultCandidateIndexes": [
+
+      ],
+      "defaultValue": [
+
+      ],
+      "options": [
+        {
+          "value": "ip_limit",
+          "label": "IP限制",
+          "order": 10,
+          "disabled": false
+        },
+        {
+          "value": "gps_limit",
+          "label": "GPS限制",
+          "order": 20,
+          "disabled": false
+        },
+        {
+          "value": "timeout_auto_play",
+          "label": "5次不操作进入托管",
+          "order": 30,
+          "disabled": false
+        },
+        {
+          "value": "distance_warning",
+          "label": "距离过近提示",
+          "order": 40,
+          "disabled": false
+        },
+        {
+          "value": "interaction_forbidden",
+          "label": "禁止互动",
+          "order": 50,
+          "disabled": false
+        },
+        {
+          "value": "chat_muted",
+          "label": "禁言",
+          "order": 60,
+          "disabled": false
+        }
+      ]
+    }
+  ]
+}

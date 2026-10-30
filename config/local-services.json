@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "services": {
     "gateway": {
-      "module": "server/Gateway",
+      "module": "modules/infrastructure/Bootstrap",
       "mainClass": "com.aoo.bcg.gateway.GatewayApplication",
       "configDir": "work/local-runtime/core-services",
       "pidFile": "work/local-runtime/core-services/gateway.pid",
@@ -10,7 +10,7 @@
       "ports": [8080, 18080]
     },
     "version": {
-      "module": "server/Bootstrap",
+      "module": "modules/infrastructure/Bootstrap",
       "mainClass": "com.aoo.bcg.bootstrap.BootstrapAPP version",
       "configDir": "work/local-runtime/core-services",
       "pidFile": "work/local-runtime/core-services/version.pid",
@@ -18,7 +18,7 @@
       "ports": [8095]
     },
     "account": {
-      "module": "server/Bootstrap",
+      "module": "modules/infrastructure/Bootstrap",
       "mainClass": "com.aoo.bcg.bootstrap.BootstrapAPP account",
       "configDir": "work/local-runtime/core-services",
       "pidFile": "work/local-runtime/core-services/account.pid",
@@ -26,7 +26,7 @@
       "ports": [8096]
     },
     "hall": {
-      "module": "server/Bootstrap",
+      "module": "modules/infrastructure/Bootstrap",
       "mainClass": "com.aoo.bcg.bootstrap.BootstrapAPP hall",
       "configDir": "work/local-runtime/core-services",
       "pidFile": "work/local-runtime/core-services/hall.pid",

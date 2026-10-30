@@ -1,0 +1,12 @@
+Status=RELEASED_FOR_COORDINATION
+Owner=/root/implement_lobby_owner_increment
+Task=DIRECT-20261008T084000Z-4a7f1c9e
+Attempt=v1.1-lobby-canonical-owner-20261010
+Lock=Server/server/Hall/src/main/java/com/aoo/bcg/lobby/LobbyHttpRoutes.java.direct-lock-lobby-v1.1/lock.json
+ReleasedAt=2026-10-10T14:39:40+08:00
+PriorStatus=HELD
+ReviewVerdict=ACCEPT_BOUNDED_SCOPE
+ReviewEvidence=docs/05-当前状态/evidence/c3-lobby-naming-scoped-independent-review-20261010/independent-review-v1.md
+PreReleaseLockSha256=add96ead33997a387bc283f13395829d95c2495bf866996a1e31748afe543833
+PostReleaseLockSha256=068bc7f97f8536a11cb2496a7490a4d1d3027852bd12a173aecc41b83fa022be
+Reason=bounded independent acceptance received; route facade continues delegating to existing Hall handlers only

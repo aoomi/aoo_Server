@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "status": "RELEASED_FOR_INDEPENDENT_REVIEW",
+  "owner": "/root/r62_commonroom_dead13_repair",
+  "task": "DIRECT-20261008T084000Z-4a7f1c9e-R62",
+  "attempt": "R62-commonroom-dead13-repair-v1",
+  "acquiredAt": "2026-10-10T08:00:00+08:00",
+  "purpose": "Bounded inline assertion repair for the eight R60b DEAD13 false-positive methods",
+  "allowlist": ["Server/server/CommonRoom/src/test/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGateTest.java"],
+  "sourceWrite": false,
+  "testWrite": true,
+  "serviceStart": false,
+  "forbidden": ["production code", "other tests", "DEAD13 script", "POMs", "database/config/runtime/service writes or starts", "commits/pushes"],
+  "releasedAt": "2026-10-10T04:27:00+08:00",
+  "releaseReason": "R62_DEV_SELF_CHECK_COMPLETE_PENDING_INDEPENDENT_REVIEW",
+  "releaseEvidence": "docs/05-当前状态/evidence/DIRECT-20261008T084000Z-4a7f1c9e/c3-r62-commonroom-dead13-repair-v1/DEV_SELF_CHECK-v1.md"
+}

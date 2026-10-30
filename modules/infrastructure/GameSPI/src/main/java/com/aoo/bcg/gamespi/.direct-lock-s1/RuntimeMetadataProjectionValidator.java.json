@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "status": "RELEASED_FOR_INDEPENDENT_REVIEW",
+  "owner": "/root/implement_v197_room_lock_metadata",
+  "task": "DIRECT-20261008T084000Z-4a7f1c9e",
+  "attempt": "R15-S1",
+  "purpose": "canonical runtime metadata server projection",
+  "allowlist": ["Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/RuntimeMetadataProjectionValidator.java"],
+  "releasedAt": "2026-10-09T05:09:04Z",
+  "releaseReason": "DEV_SELF_CHECK R15 S1 sealed; ready for independent review",
+  "releaseEvidence": "docs/05-当前状态/evidence/DIRECT-20261008T084000Z-4a7f1c9e/runtime-metadata-projection-s1/DEV_SELF_CHECK-R15-S1.md",
+  "productionDatabase": false,
+  "forbidden": ["Server/tools runtime reads", "Client", "LoginScene", "protocol", "migration", "seed", "deployment", "shared runtime"]
+}

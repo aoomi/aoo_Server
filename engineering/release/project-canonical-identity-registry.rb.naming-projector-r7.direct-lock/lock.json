@@ -1,0 +1,23 @@
+{
+  "owner": "/root/kuangjia_mingming_low",
+  "state": "RELEASED",
+  "acquiredAt": "2026-10-16T16:10:18.674217+00:00",
+  "expiresAt": "2026-10-16T16:40:18.674217+00:00",
+  "writePaths": [
+    "/Users/aoo/Code/Game/BCG/Aoo/server/engineering/release/project-canonical-identity-registry.rb",
+    "/Users/aoo/Code/Game/BCG/Aoo/server/engineering/release/project-canonical-identity-registry.rb.naming-projector-r7.direct-lock/lock.json",
+    "/Users/aoo/Code/Game/BCG/Aoo/docs/05-\u5f53\u524d\u72b6\u6001/evidence/DIRECT-20261016T134154Z-6e8b1c20-active-game-naming-migration/release-projector-source-execution-r7/input.json",
+    "/Users/aoo/Code/Game/BCG/Aoo/docs/05-\u5f53\u524d\u72b6\u6001/evidence/DIRECT-20261016T134154Z-6e8b1c20-active-game-naming-migration/release-projector-source-execution-r7/lock.json",
+    "/Users/aoo/Code/Game/BCG/Aoo/docs/05-\u5f53\u524d\u72b6\u6001/evidence/DIRECT-20261016T134154Z-6e8b1c20-active-game-naming-migration/release-projector-source-execution-r7/execution-lock.json",
+    "/Users/aoo/Code/Game/BCG/Aoo/docs/05-\u5f53\u524d\u72b6\u6001/evidence/DIRECT-20261016T134154Z-6e8b1c20-active-game-naming-migration/release-projector-source-execution-r7/preimage.json",
+    "/Users/aoo/Code/Game/BCG/Aoo/docs/05-\u5f53\u524d\u72b6\u6001/evidence/DIRECT-20261016T134154Z-6e8b1c20-active-game-naming-migration/release-projector-source-execution-r7/command.json",
+    "/Users/aoo/Code/Game/BCG/Aoo/docs/05-\u5f53\u524d\u72b6\u6001/evidence/DIRECT-20261016T134154Z-6e8b1c20-active-game-naming-migration/release-projector-source-execution-r7/stdout.log",
+    "/Users/aoo/Code/Game/BCG/Aoo/docs/05-\u5f53\u524d\u72b6\u6001/evidence/DIRECT-20261016T134154Z-6e8b1c20-active-game-naming-migration/release-projector-source-execution-r7/stderr.log",
+    "/Users/aoo/Code/Game/BCG/Aoo/docs/05-\u5f53\u524d\u72b6\u6001/evidence/DIRECT-20261016T134154Z-6e8b1c20-active-game-naming-migration/release-projector-source-execution-r7/exit.json",
+    "/Users/aoo/Code/Game/BCG/Aoo/docs/05-\u5f53\u524d\u72b6\u6001/evidence/DIRECT-20261016T134154Z-6e8b1c20-active-game-naming-migration/release-projector-source-execution-r7/checks.json",
+    "/Users/aoo/Code/Game/BCG/Aoo/docs/05-\u5f53\u524d\u72b6\u6001/evidence/DIRECT-20261016T134154Z-6e8b1c20-active-game-naming-migration/release-projector-source-execution-r7/manifest.json",
+    "/Users/aoo/Code/Game/BCG/Aoo/docs/05-\u5f53\u524d\u72b6\u6001/evidence/DIRECT-20261016T134154Z-6e8b1c20-active-game-naming-migration/release-projector-source-execution-r7/review-input.json",
+    "/Users/aoo/Code/Game/BCG/Aoo/docs/05-\u5f53\u524d\u72b6\u6001/evidence/DIRECT-20261016T134154Z-6e8b1c20-active-game-naming-migration/release-projector-source-execution-r7/release.json"
+  ],
+  "releasedAt": "2026-10-16T16:10:55.955089+00:00"
+}

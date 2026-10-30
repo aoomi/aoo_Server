@@ -1,0 +1,6 @@
+Status=RELEASED_FOR_INDEPENDENT_REVIEW
+Owner=/root/implement_v198_sql_only
+Task=DIRECT-20261008T073000Z-5b7c9d1e
+Attempt=v1.1-r1
+ReleasedAt=2026-10-08T15:58:17+08:00
+Reason=DEV_SELF_CHECK_READY_FOR_INDEPENDENT_REVIEW; pre-existing dirty test custody unchanged; no self-acceptance

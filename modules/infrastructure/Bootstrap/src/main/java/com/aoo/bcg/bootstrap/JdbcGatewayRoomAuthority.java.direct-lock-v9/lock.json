@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "status": "RELEASED_FOR_INDEPENDENT_REVIEW",
+  "owner": "/root/implement_v197_room_lock_metadata",
+  "task": "DIRECT-20261008T084000Z-4a7f1c9e",
+  "attempt": "c3-v9-failed-identity-root-cause-v1-20261009",
+  "acquiredAt": "2026-10-09T03:25:17Z",
+  "purpose": "Audit/fix only create/recovery failure cleanup; retain metadata and generation fail-closed behavior",
+  "allowlist": [
+    "Server/server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/JdbcGatewayRoomAuthority.java"
+  ],
+  "productionDatabase": false,
+  "forbidden": ["RoomOrchestrator", "committer", "reconnect", "handoff", "transport", "RoomMgr", "Compatibility"],
+  "releasedAt": "2026-10-09T03:29:29Z",
+  "releaseReason": "No proven safe authority repair; runtime artifact/attempt provenance missing; source unchanged"
+}

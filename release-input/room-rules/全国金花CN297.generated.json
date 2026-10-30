@@ -1,0 +1,581 @@
+{
+  "_generated": "自动生成，权威来源为只读 Excel",
+  "sourceHash": "ebef183a1af2471940cb26e1f48e0b4829eac794f16320ca2365df428df59b49",
+  "identity": {
+    "publishingEnabled": true,
+    "gameId": 9,
+    "gameCode": "quanguo2997",
+    "playVersion": "cn297-v1.0.0",
+    "family": "poker:compare-hand",
+    "regionCode": "GLOBAL",
+    "releaseScope": "GLOBAL",
+    "provider": "business.global.pk.zjh.ZJHPokerFamilyProviderFactory",
+    "requiredRoomRuleFields": [
+      {
+        "key": "totalRounds",
+        "sourceLabel": "局数",
+        "order": 10
+      },
+      {
+        "key": "seatLimit",
+        "sourceLabel": "桌型",
+        "order": 20
+      },
+      {
+        "key": "minimumPlayers",
+        "sourceLabel": "开局人数",
+        "order": 30
+      },
+      {
+        "key": "operationSeconds",
+        "sourceLabel": "操作时间",
+        "order": 40
+      },
+      {
+        "key": "compareStartRound",
+        "sourceLabel": "开始比牌",
+        "order": 50
+      },
+      {
+        "key": "maximumBet",
+        "sourceLabel": "单注封顶",
+        "order": 60
+      },
+      {
+        "key": "mustBlindRounds",
+        "sourceLabel": "闷牌轮数",
+        "order": 70
+      },
+      {
+        "key": "baseBet",
+        "sourceLabel": "底分",
+        "order": 80
+      },
+      {
+        "key": "aaaBonus",
+        "sourceLabel": "AAA奖励",
+        "order": 90
+      },
+      {
+        "key": "leopardBonus",
+        "sourceLabel": "豹子奖励",
+        "order": 100
+      },
+      {
+        "key": "straightFlushBonus",
+        "sourceLabel": "同花顺奖励",
+        "order": 110
+      },
+      {
+        "key": "hostingMissThreshold",
+        "sourceLabel": "托管次数",
+        "order": 120,
+        "serverOwned": true
+      }
+    ],
+    "numericRoomRuleFields": [
+      {
+        "sourceLabel": "局数",
+        "suffix": "局"
+      },
+      {
+        "sourceLabel": "操作时间",
+        "suffix": "秒"
+      },
+      {
+        "sourceLabel": "开始比牌",
+        "suffix": "轮"
+      },
+      {
+        "sourceLabel": "单注封顶",
+        "suffix": "分"
+      },
+      {
+        "sourceLabel": "底分",
+        "suffix": "分"
+      }
+    ],
+    "roomRuleRowProjections": [
+      {
+        "sourceLabel": "人数",
+        "sourceControl": "单选",
+        "sourceOptions": [
+          "8人桌（2人｜4人｜6人开局）",
+          "10人桌（2人｜4人｜6人开局）"
+        ],
+        "kind": "nested-radio",
+        "outputs": [
+          {
+            "key": "seatLimit",
+            "label": "桌型",
+            "order": 20,
+            "sourceDefaultMap": {
+              "1": 1,
+              "2": 2
+            },
+            "options": [
+              {
+                "label": "8人桌",
+                "value": 8
+              },
+              {
+                "label": "10人桌",
+                "value": 10
+              }
+            ]
+          },
+          {
+            "key": "minimumPlayers",
+            "label": "开局人数",
+            "order": 30,
+            "defaultIndex": 1,
+            "options": [
+              {
+                "label": "2人开局",
+                "value": 2
+              },
+              {
+                "label": "4人开局",
+                "value": 4
+              },
+              {
+                "label": "6人开局",
+                "value": 6
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "sourceLabel": "特殊牌奖励",
+        "sourceControl": "数字",
+        "sourceOptions": [
+          "AAA奖励",
+          "豹子奖励",
+          "同花顺奖励"
+        ],
+        "kind": "number-tuple",
+        "outputs": [
+          {
+            "sourceOption": "AAA奖励",
+            "key": "aaaBonus",
+            "label": "AAA奖励",
+            "order": 90,
+            "min": 0,
+            "max": 2147483647,
+            "step": 1
+          },
+          {
+            "sourceOption": "豹子奖励",
+            "key": "leopardBonus",
+            "label": "豹子奖励",
+            "order": 100,
+            "min": 0,
+            "max": 2147483647,
+            "step": 1
+          },
+          {
+            "sourceOption": "同花顺奖励",
+            "key": "straightFlushBonus",
+            "label": "同花顺奖励",
+            "order": 110,
+            "min": 0,
+            "max": 2147483647,
+            "step": 1
+          }
+        ]
+      }
+    ],
+    "roomRuleOptionValues": {
+      "局数": {
+        "10局": 10,
+        "20局": 20,
+        "30局": 30
+      },
+      "操作时间": {
+        "10秒": 10,
+        "15秒": 15,
+        "20秒": 20
+      },
+      "开始比牌": {
+        "第1轮": 1,
+        "第3轮": 3,
+        "第5轮": 5
+      },
+      "单注封顶": {
+        "10分": 10,
+        "20分": 20,
+        "50分": 50
+      },
+      "闷牌轮数": {
+        "不强制": 0,
+        "1轮": 1,
+        "2轮": 2
+      },
+      "底分": {
+        "1分": 1,
+        "2分": 2,
+        "5分": 5,
+        "10分": 10
+      },
+      "托管次数": {
+        "3次": 3,
+        "4次": 4,
+        "5次": 5
+      }
+    }
+  },
+  "targets": [
+    {
+      "gameId": 9,
+      "playVersion": "cn297-v1.0.0"
+    }
+  ],
+  "fields": [
+    {
+      "key": "totalRounds",
+      "label": "局数",
+      "control": "radio",
+      "order": 10,
+      "visible": true,
+      "disabled": false,
+      "required": true,
+      "defaultCandidateIndexes": [
+        1
+      ],
+      "defaultValue": 10,
+      "options": [
+        {
+          "value": 10,
+          "label": "10局",
+          "order": 10,
+          "disabled": false
+        },
+        {
+          "value": 20,
+          "label": "20局",
+          "order": 20,
+          "disabled": false
+        },
+        {
+          "value": 30,
+          "label": "30局",
+          "order": 30,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "key": "seatLimit",
+      "label": "桌型",
+      "control": "radio",
+      "order": 20,
+      "visible": true,
+      "disabled": false,
+      "required": true,
+      "defaultCandidateIndexes": [
+        1
+      ],
+      "defaultValue": 8,
+      "options": [
+        {
+          "value": 8,
+          "label": "8人桌",
+          "order": 10,
+          "disabled": false
+        },
+        {
+          "value": 10,
+          "label": "10人桌",
+          "order": 20,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "key": "minimumPlayers",
+      "label": "开局人数",
+      "control": "radio",
+      "order": 30,
+      "visible": true,
+      "disabled": false,
+      "required": true,
+      "defaultCandidateIndexes": [
+        1
+      ],
+      "defaultValue": 2,
+      "options": [
+        {
+          "value": 2,
+          "label": "2人开局",
+          "order": 10,
+          "disabled": false
+        },
+        {
+          "value": 4,
+          "label": "4人开局",
+          "order": 20,
+          "disabled": false
+        },
+        {
+          "value": 6,
+          "label": "6人开局",
+          "order": 30,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "key": "operationSeconds",
+      "label": "操作时间",
+      "control": "radio",
+      "order": 40,
+      "visible": true,
+      "disabled": false,
+      "required": true,
+      "defaultCandidateIndexes": [
+        1
+      ],
+      "defaultValue": 10,
+      "options": [
+        {
+          "value": 10,
+          "label": "10秒",
+          "order": 10,
+          "disabled": false
+        },
+        {
+          "value": 15,
+          "label": "15秒",
+          "order": 20,
+          "disabled": false
+        },
+        {
+          "value": 20,
+          "label": "20秒",
+          "order": 30,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "key": "compareStartRound",
+      "label": "开始比牌",
+      "control": "radio",
+      "order": 50,
+      "visible": true,
+      "disabled": false,
+      "required": true,
+      "defaultCandidateIndexes": [
+        3
+      ],
+      "defaultValue": 5,
+      "options": [
+        {
+          "value": 1,
+          "label": "第1轮",
+          "order": 10,
+          "disabled": false
+        },
+        {
+          "value": 3,
+          "label": "第3轮",
+          "order": 20,
+          "disabled": false
+        },
+        {
+          "value": 5,
+          "label": "第5轮",
+          "order": 30,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "key": "maximumBet",
+      "label": "单注封顶",
+      "control": "radio",
+      "order": 60,
+      "visible": true,
+      "disabled": false,
+      "required": true,
+      "defaultCandidateIndexes": [
+        3
+      ],
+      "defaultValue": 50,
+      "options": [
+        {
+          "value": 10,
+          "label": "10分",
+          "order": 10,
+          "disabled": false
+        },
+        {
+          "value": 20,
+          "label": "20分",
+          "order": 20,
+          "disabled": false
+        },
+        {
+          "value": 50,
+          "label": "50分",
+          "order": 30,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "key": "mustBlindRounds",
+      "label": "闷牌轮数",
+      "control": "radio",
+      "order": 70,
+      "visible": true,
+      "disabled": false,
+      "required": true,
+      "defaultCandidateIndexes": [
+        2
+      ],
+      "defaultValue": 1,
+      "options": [
+        {
+          "value": 0,
+          "label": "不强制",
+          "order": 10,
+          "disabled": false
+        },
+        {
+          "value": 1,
+          "label": "1轮",
+          "order": 20,
+          "disabled": false
+        },
+        {
+          "value": 2,
+          "label": "2轮",
+          "order": 30,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "key": "baseBet",
+      "label": "底分",
+      "control": "radio",
+      "order": 80,
+      "visible": true,
+      "disabled": false,
+      "required": true,
+      "defaultCandidateIndexes": [
+        1
+      ],
+      "defaultValue": 1,
+      "options": [
+        {
+          "value": 1,
+          "label": "1分",
+          "order": 10,
+          "disabled": false
+        },
+        {
+          "value": 2,
+          "label": "2分",
+          "order": 20,
+          "disabled": false
+        },
+        {
+          "value": 5,
+          "label": "5分",
+          "order": 30,
+          "disabled": false
+        },
+        {
+          "value": 10,
+          "label": "10分",
+          "order": 40,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "key": "aaaBonus",
+      "label": "AAA奖励",
+      "control": "number",
+      "order": 90,
+      "visible": true,
+      "disabled": false,
+      "required": true,
+      "defaultValue": 20,
+      "min": 0,
+      "max": 2147483647,
+      "step": 1,
+      "options": [
+
+      ]
+    },
+    {
+      "key": "leopardBonus",
+      "label": "豹子奖励",
+      "control": "number",
+      "order": 100,
+      "visible": true,
+      "disabled": false,
+      "required": true,
+      "defaultValue": 10,
+      "min": 0,
+      "max": 2147483647,
+      "step": 1,
+      "options": [
+
+      ]
+    },
+    {
+      "key": "straightFlushBonus",
+      "label": "同花顺奖励",
+      "control": "number",
+      "order": 110,
+      "visible": true,
+      "disabled": false,
+      "required": true,
+      "defaultValue": 5,
+      "min": 0,
+      "max": 2147483647,
+      "step": 1,
+      "options": [
+
+      ]
+    },
+    {
+      "key": "hostingMissThreshold",
+      "label": "托管次数",
+      "control": "radio",
+      "order": 120,
+      "visible": false,
+      "disabled": true,
+      "required": true,
+      "defaultCandidateIndexes": [
+        1
+      ],
+      "defaultValue": 3,
+      "options": [
+        {
+          "value": 3,
+          "label": "3次",
+          "order": 10,
+          "disabled": false
+        },
+        {
+          "value": 4,
+          "label": "4次",
+          "order": 20,
+          "disabled": false
+        },
+        {
+          "value": 5,
+          "label": "5次",
+          "order": 30,
+          "disabled": false
+        }
+      ]
+    }
+  ]
+}

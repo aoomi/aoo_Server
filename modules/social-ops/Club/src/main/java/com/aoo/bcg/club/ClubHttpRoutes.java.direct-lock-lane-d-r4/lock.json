@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 2,
+  "task": "DIRECT-20261008T084000Z-4a7f1c9e",
+  "lane": "D",
+  "attempt": "error-registry-20261011-r4",
+  "status": "RELEASED_FOR_INDEPENDENT_REVIEW",
+  "owner": "/root/error_registry_impl",
+  "path": "Server/server/Club/src/main/java/com/aoo/bcg/club/ClubHttpRoutes.java",
+  "preimageSha256": "3a6e509d9f8edcb3c5a816d3872834c88a72420a9a130548c9a8975a318bd1f3",
+  "scope": "Club canonical provider/config/pricing/snapshot/identity/version mapping",
+  "sourceWrite": true,
+  "testWrite": false,
+  "independentReviewer": "lane_g",
+  "replacementCounts": {},
+  "postimageSha256": "3a6e509d9f8edcb3c5a816d3872834c88a72420a9a130548c9a8975a318bd1f3"
+}

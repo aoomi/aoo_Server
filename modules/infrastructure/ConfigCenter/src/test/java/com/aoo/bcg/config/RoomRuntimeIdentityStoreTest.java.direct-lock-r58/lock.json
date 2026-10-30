@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "status": "RELEASED_FOR_INDEPENDENT_REVIEW",
+  "owner": "/root/r58_configcenter_exception_repair",
+  "task": "DIRECT-20261008T084000Z-4a7f1c9e",
+  "attempt": "c3-r58-configcenter-exception-policy-20261010",
+  "acquiredAt": "2026-10-09T20:07:42Z",
+  "purpose": "R58 focused regression proof that rollback cleanup failure preserves the original fail-closed identity error",
+  "allowlist": [
+    "Server/server/ConfigCenter/src/test/java/com/aoo/bcg/config/RoomRuntimeIdentityStoreTest.java"
+  ],
+  "forbidden": [
+    "production behavior changes",
+    "database or service runtime start",
+    "commits"
+  ],
+  "productionDatabase": false,
+  "migrationWrite": false,
+  "releasedAt": "2026-10-09T20:09:30Z",
+  "releaseReason": "R58 focused rollback-failure regression test added; exact Maven command blocked before compilation by external parent workbook gate; evidence recorded for independent review"
+}

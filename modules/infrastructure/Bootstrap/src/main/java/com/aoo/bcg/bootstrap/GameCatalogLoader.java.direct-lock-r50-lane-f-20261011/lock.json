@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 2,
+  "lockId": "R50-LANE-F-20261011T054200Z-GameCatalogLoader",
+  "status": "RELEASED_FOR_COORDINATION",
+  "owner": "/root/lane_f_service_input_package",
+  "task": "DIRECT-20261011T052900Z-4a7f1c9e-生产运行时目录收敛.md",
+  "attempt": "R50-user-authorized-baseline-adoption-lane-f",
+  "acquiredAt": "2026-10-11T05:42:00Z",
+  "path": "Server/server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/GameCatalogLoader.java",
+  "preimageSha256": "1660d19f7e85dc36e99c85a8bed5915586feefa23f9e0aa880576f4e351e03af",
+  "sourceWrite": true,
+  "supersedes": [
+    "Server/server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/GameCatalogLoader.java.direct-lock-r48/lock.json",
+    "Server/server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/GameCatalogLoader.java.direct-lock-r48-takeover-20261010/lock.json"
+  ],
+  "oldLocksRemainByteIdentical": true,
+  "custodyBasis": "R50 user-authorized R49 baseline adoption; old owner liveness remains TREE_UNVERIFIED; this replacement lock does not edit or release old locks",
+  "taskCardSha256": "948f2c8c0ba5744edf2a0710a19e76654240a36f5c03b70fee947fae1d7b629",
+  "releasedAt": "2026-10-13T08:40:37.678965000Z",
+  "sourcePostimageSha256": "1351a366d799c727a2425b06af1ce70bf0f4e8ae6787bb3d93b32506adc4efc4",
+  "currentPathSha256": "1351a366d799c727a2425b06af1ce70bf0f4e8ae6787bb3d93b32506adc4efc4",
+  "releaseReason": "SUPERSEDED_BY_R50_CORRECTION_LOCK; current bytes match already released correction postimage; no source write in custody-close batch",
+  "releaseReceipt": "docs/05-当前状态/evidence/DIRECT-20261012T131224Z-8c4e7a2d-server-path-migration-r3/r50-lock-custody-close-20261013/release-receipt.md",
+  "independentAcceptance": "PENDING_LANE_G"
+}

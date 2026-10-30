@@ -1,0 +1,499 @@
+{
+  "version": 1,
+  "gameCode": "taizhou2020",
+  "nextFieldSequence": 1,
+  "fields": [
+    {
+      "key": "roundCount",
+      "label": "局数",
+      "position": 1,
+      "active": true,
+      "nextOptionSequence": 1,
+      "options": [
+        {
+          "label": "8局",
+          "position": 1,
+          "active": true,
+          "value": 8
+        },
+        {
+          "label": "10局",
+          "position": 2,
+          "active": true,
+          "value": 10
+        },
+        {
+          "label": "16局",
+          "position": 3,
+          "active": true,
+          "value": 16
+        }
+      ]
+    },
+    {
+      "key": "playerCount",
+      "label": "人数",
+      "position": 2,
+      "active": true,
+      "nextOptionSequence": 1,
+      "options": [
+        {
+          "label": "2人",
+          "position": 1,
+          "active": true,
+          "value": 2
+        },
+        {
+          "label": "3人",
+          "position": 2,
+          "active": true,
+          "value": 3
+        }
+      ]
+    },
+    {
+      "key": "paymentMode",
+      "label": "支付方式",
+      "position": 3,
+      "active": true,
+      "nextOptionSequence": 1,
+      "options": [
+        {
+          "label": "房主付",
+          "position": 1,
+          "active": true,
+          "value": "owner_pays"
+        },
+        {
+          "label": "平分付",
+          "position": 2,
+          "active": true,
+          "value": "split_pays"
+        },
+        {
+          "label": "胜家付",
+          "position": 3,
+          "active": true,
+          "value": "winner_pays"
+        }
+      ]
+    },
+    {
+      "key": "dealCardCount",
+      "label": "发牌张数",
+      "position": 4,
+      "active": true,
+      "nextOptionSequence": 1,
+      "options": [
+        {
+          "label": "16张",
+          "position": 1,
+          "active": true,
+          "value": 16
+        }
+      ]
+    },
+    {
+      "key": "playRule",
+      "label": "玩法与设置",
+      "position": 5,
+      "active": true,
+      "nextOptionSequence": 1,
+      "options": [
+        {
+          "label": "每局红桃3先出",
+          "position": 1,
+          "active": true,
+          "value": "every_round_heart_three_first"
+        },
+        {
+          "label": "赢家先出",
+          "position": 2,
+          "active": true,
+          "value": "winner_first"
+        },
+        {
+          "label": "输家先出",
+          "position": 3,
+          "active": true,
+          "value": "loser_first"
+        },
+        {
+          "label": "可不压牌",
+          "position": 4,
+          "active": true,
+          "value": "may_pass"
+        },
+        {
+          "label": "显示手牌",
+          "position": 5,
+          "active": true,
+          "value": "show_hand"
+        },
+        {
+          "label": "炸弹可拆",
+          "position": 6,
+          "active": true,
+          "value": "bomb_splittable"
+        },
+        {
+          "label": "3A为最大炸",
+          "position": 7,
+          "active": true,
+          "value": "triple_ace_max_bomb"
+        },
+        {
+          "label": "手动过牌",
+          "position": 8,
+          "active": true,
+          "value": "manual_pass"
+        },
+        {
+          "label": "手动准备",
+          "position": 9,
+          "active": true,
+          "value": "manual_ready"
+        },
+        {
+          "label": "无炸弹",
+          "position": 10,
+          "active": true,
+          "value": "no_bomb"
+        },
+        {
+          "label": "3A为炸",
+          "position": 11,
+          "active": true,
+          "value": "triple_ace_bomb"
+        },
+        {
+          "label": "防作弊",
+          "position": 12,
+          "active": true,
+          "value": "anti_cheat"
+        },
+        {
+          "label": "比赛分不能低于0",
+          "position": 13,
+          "active": true,
+          "value": "match_score_floor_zero"
+        },
+        {
+          "label": "只能赢当前身上分",
+          "position": 14,
+          "active": true,
+          "value": "win_current_score_only"
+        },
+        {
+          "label": "炸弹可带一张",
+          "position": 15,
+          "active": true,
+          "value": "bomb_with_one"
+        },
+        {
+          "label": "小关",
+          "position": 16,
+          "active": true,
+          "value": "small_gate"
+        }
+      ]
+    },
+    {
+      "key": "reportScoreMode",
+      "label": "报单计分",
+      "position": 6,
+      "active": true,
+      "nextOptionSequence": 1,
+      "options": [
+        {
+          "label": "报单算分",
+          "position": 1,
+          "active": true,
+          "value": "score_reported"
+        },
+        {
+          "label": "不算分",
+          "position": 2,
+          "active": true,
+          "value": "no_score"
+        }
+      ]
+    },
+    {
+      "key": "bombSettlementMode",
+      "label": "炸弹结算方式",
+      "position": 7,
+      "active": true,
+      "nextOptionSequence": 1,
+      "options": [
+        {
+          "label": "只算每轮最大炸",
+          "position": 1,
+          "active": true,
+          "value": "max_bomb_per_round"
+        },
+        {
+          "label": "炸弹不算分",
+          "position": 2,
+          "active": true,
+          "value": 0
+        }
+      ]
+    },
+    {
+      "key": "bombScore",
+      "label": "炸弹记分",
+      "position": 8,
+      "active": true,
+      "nextOptionSequence": 1,
+      "options": [
+        {
+          "label": "炸弹加10分",
+          "position": 1,
+          "active": true,
+          "value": 10
+        },
+        {
+          "label": "炸弹加5分",
+          "position": 2,
+          "active": true,
+          "value": 5
+        }
+      ]
+    },
+    {
+      "key": "straightLengthMode",
+      "label": "顺子",
+      "position": 9,
+      "active": true,
+      "nextOptionSequence": 1,
+      "options": [
+        {
+          "label": "五张起",
+          "position": 1,
+          "active": true,
+          "value": "five_or_more"
+        },
+        {
+          "label": "六张起",
+          "position": 2,
+          "active": true,
+          "value": "six_or_more"
+        }
+      ]
+    },
+    {
+      "key": "roomSettings",
+      "label": "房间设置",
+      "position": 10,
+      "active": true,
+      "nextOptionSequence": 1,
+      "options": [
+        {
+          "label": "房间内切换人数",
+          "position": 1,
+          "active": true,
+          "value": "switch_player_count"
+        },
+        {
+          "label": "小局托管解散",
+          "position": 2,
+          "active": true,
+          "value": "dissolve_on_round_trustee"
+        },
+        {
+          "label": "托管2小局解散",
+          "position": 3,
+          "active": true,
+          "value": "dissolve_after_two_rounds_trustee"
+        }
+      ]
+    },
+    {
+      "key": "operationTimeoutSeconds",
+      "label": "操作时间",
+      "position": 11,
+      "active": true,
+      "nextOptionSequence": 1,
+      "options": [
+        {
+          "label": "不限制",
+          "position": 1,
+          "active": true,
+          "value": -1
+        },
+        {
+          "label": "3分出牌",
+          "position": 2,
+          "active": true,
+          "value": 180
+        },
+        {
+          "label": "5分出牌",
+          "position": 3,
+          "active": true,
+          "value": 300
+        },
+        {
+          "label": "1分出牌",
+          "position": 4,
+          "active": true,
+          "value": 60
+        },
+        {
+          "label": "30秒出牌",
+          "position": 5,
+          "active": true,
+          "value": 30
+        },
+        {
+          "label": "15秒出牌",
+          "position": 6,
+          "active": true,
+          "value": 15
+        },
+        {
+          "label": "10分出牌",
+          "position": 7,
+          "active": true,
+          "value": 600
+        }
+      ]
+    },
+    {
+      "key": "roomTimeLimitMinutes",
+      "label": "房间时限",
+      "position": 12,
+      "active": true,
+      "nextOptionSequence": 1,
+      "options": [
+        {
+          "label": "不限制",
+          "position": 1,
+          "active": true,
+          "value": -1
+        },
+        {
+          "label": "8分钟",
+          "position": 2,
+          "active": true,
+          "value": 8
+        },
+        {
+          "label": "10分钟",
+          "position": 3,
+          "active": true,
+          "value": 10
+        },
+        {
+          "label": "12分钟",
+          "position": 4,
+          "active": true,
+          "value": 12
+        },
+        {
+          "label": "15分钟",
+          "position": 5,
+          "active": true,
+          "value": 15
+        },
+        {
+          "label": "20分钟",
+          "position": 6,
+          "active": true,
+          "value": 20
+        }
+      ]
+    },
+    {
+      "key": "dissolveTimeoutSeconds",
+      "label": "解散时间",
+      "position": 13,
+      "active": true,
+      "nextOptionSequence": 1,
+      "options": [
+        {
+          "label": "30秒解散",
+          "position": 1,
+          "active": true,
+          "value": 30
+        },
+        {
+          "label": "1分解散",
+          "position": 2,
+          "active": true,
+          "value": 60
+        },
+        {
+          "label": "3分解散",
+          "position": 3,
+          "active": true,
+          "value": 180
+        },
+        {
+          "label": "5分解散",
+          "position": 4,
+          "active": true,
+          "value": 300
+        },
+        {
+          "label": "不可解散",
+          "position": 5,
+          "active": true,
+          "value": -1
+        }
+      ]
+    },
+    {
+      "key": "roomRestriction",
+      "label": "其他",
+      "position": 14,
+      "active": true,
+      "nextOptionSequence": 1,
+      "options": [
+        {
+          "label": "同IP不可进",
+          "position": 1,
+          "active": true,
+          "value": "same_ip_blocked"
+        },
+        {
+          "label": "100米内不可进",
+          "position": 2,
+          "active": true,
+          "value": "within_100m_blocked"
+        },
+        {
+          "label": "禁止使用道具",
+          "position": 3,
+          "active": true,
+          "value": "items_forbidden"
+        },
+        {
+          "label": "200米内不可进",
+          "position": 4,
+          "active": true,
+          "value": "within_200m_blocked"
+        },
+        {
+          "label": "30秒未准备自动踢出房间",
+          "position": 5,
+          "active": true,
+          "value": "kick_unready_30s"
+        },
+        {
+          "label": "禁止语音",
+          "position": 6,
+          "active": true,
+          "value": "voice_forbidden"
+        },
+        {
+          "label": "禁止文字",
+          "position": 7,
+          "active": true,
+          "value": "chat_forbidden"
+        }
+      ]
+    }
+  ]
+}

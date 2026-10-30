@@ -1,0 +1,327 @@
+{
+  "_generated": "自动生成，权威来源为只读 Excel",
+  "sourceHash": "7e074b04961c102005f22943c9e5f18990e5a87e55a7bc1f9d72b05b7ecbe901",
+  "identity": {
+    "publishingEnabled": true,
+    "gameId": 2021,
+    "gameCode": "huaibin2021",
+    "playVersion": "legacy-equivalent-1",
+    "family": "poker:pao-de-kuai",
+    "regionCode": "CN-41-15-27",
+    "releaseScope": "REGIONAL",
+    "requiredRoomRuleFields": [
+      {
+        "key": "roundCount",
+        "sourceLabel": "局数"
+      },
+      {
+        "key": "playerCount",
+        "sourceLabel": "人数"
+      },
+      {
+        "key": "paymentMode",
+        "sourceLabel": "支付方式"
+      },
+      {
+        "key": "dealCardCount",
+        "sourceLabel": "发牌张数"
+      },
+      {
+        "key": "firstPlayRule",
+        "sourceLabel": "先出牌"
+      },
+      {
+        "key": "playRule",
+        "sourceLabel": "玩法与设置"
+      },
+      {
+        "key": "bombScore",
+        "sourceLabel": "炸弹记分"
+      },
+      {
+        "key": "roomRestriction",
+        "sourceLabel": "其他"
+      }
+    ],
+    "numericRoomRuleFields": [
+      {
+        "sourceLabel": "局数",
+        "suffix": "局"
+      },
+      {
+        "sourceLabel": "人数",
+        "suffix": "人"
+      },
+      {
+        "sourceLabel": "发牌张数",
+        "suffix": "张"
+      },
+      {
+        "sourceLabel": "炸弹记分",
+        "suffix": "分"
+      }
+    ],
+    "roomRuleOptionValues": {
+      "局数": {
+        "8局": 8,
+        "16局": 16
+      },
+      "人数": {
+        "2人": 2,
+        "3人": 3
+      },
+      "支付方式": {
+        "房主付": "owner_pays",
+        "平分付": "split_pays",
+        "胜家付": "winner_pays"
+      },
+      "发牌张数": {
+        "15张": 15,
+        "16张": 16
+      },
+      "先出牌": {
+        "首局红桃3": "first_round_heart_three_first",
+        "每局红桃3": "every_round_heart_three_first"
+      },
+      "玩法与设置": {
+        "显示手牌": "show_hand"
+      },
+      "炸弹记分": {
+        "炸弹翻倍": "double",
+        "炸弹加10分": 10
+      },
+      "其他": {
+        "同IP不可进": "same_ip_blocked",
+        "同位置不可进": "same_location_blocked"
+      }
+    }
+  },
+  "targets": [
+    {
+      "gameId": 2021,
+      "playVersion": "legacy-equivalent-1"
+    }
+  ],
+  "fields": [
+    {
+      "key": "roundCount",
+      "label": "局数",
+      "control": "radio",
+      "order": 80,
+      "visible": true,
+      "disabled": false,
+      "required": true,
+      "defaultCandidateIndexes": [
+        1
+      ],
+      "defaultValue": 8,
+      "options": [
+        {
+          "value": 8,
+          "label": "8局",
+          "order": 10,
+          "disabled": false
+        },
+        {
+          "value": 16,
+          "label": "16局",
+          "order": 20,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "key": "playerCount",
+      "label": "人数",
+      "control": "radio",
+      "order": 90,
+      "visible": true,
+      "disabled": false,
+      "required": true,
+      "defaultCandidateIndexes": [
+        1
+      ],
+      "defaultValue": 2,
+      "options": [
+        {
+          "value": 2,
+          "label": "2人",
+          "order": 10,
+          "disabled": false
+        },
+        {
+          "value": 3,
+          "label": "3人",
+          "order": 20,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "key": "paymentMode",
+      "label": "支付方式",
+      "control": "radio",
+      "order": 100,
+      "visible": true,
+      "disabled": false,
+      "required": true,
+      "defaultCandidateIndexes": [
+        1
+      ],
+      "defaultValue": "owner_pays",
+      "options": [
+        {
+          "value": "owner_pays",
+          "label": "房主付",
+          "order": 10,
+          "disabled": false
+        },
+        {
+          "value": "split_pays",
+          "label": "平分付",
+          "order": 20,
+          "disabled": false
+        },
+        {
+          "value": "winner_pays",
+          "label": "胜家付",
+          "order": 30,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "key": "dealCardCount",
+      "label": "发牌张数",
+      "control": "radio",
+      "order": 110,
+      "visible": true,
+      "disabled": false,
+      "required": true,
+      "defaultCandidateIndexes": [
+        1
+      ],
+      "defaultValue": 15,
+      "options": [
+        {
+          "value": 15,
+          "label": "15张",
+          "order": 10,
+          "disabled": false
+        },
+        {
+          "value": 16,
+          "label": "16张",
+          "order": 20,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "key": "firstPlayRule",
+      "label": "先出牌",
+      "control": "radio",
+      "order": 120,
+      "visible": true,
+      "disabled": false,
+      "required": true,
+      "defaultCandidateIndexes": [
+        1
+      ],
+      "defaultValue": "first_round_heart_three_first",
+      "options": [
+        {
+          "value": "first_round_heart_three_first",
+          "label": "首局红桃3",
+          "order": 10,
+          "disabled": false
+        },
+        {
+          "value": "every_round_heart_three_first",
+          "label": "每局红桃3",
+          "order": 20,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "key": "playRule",
+      "label": "玩法与设置",
+      "control": "checkbox",
+      "order": 130,
+      "visible": true,
+      "disabled": false,
+      "required": false,
+      "defaultCandidateIndexes": [
+        1
+      ],
+      "defaultValue": [
+        "show_hand"
+      ],
+      "options": [
+        {
+          "value": "show_hand",
+          "label": "显示手牌",
+          "order": 10,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "key": "bombScore",
+      "label": "炸弹记分",
+      "control": "radio",
+      "order": 140,
+      "visible": true,
+      "disabled": false,
+      "required": true,
+      "defaultCandidateIndexes": [
+        1
+      ],
+      "defaultValue": "double",
+      "options": [
+        {
+          "value": "double",
+          "label": "炸弹翻倍",
+          "order": 10,
+          "disabled": false
+        },
+        {
+          "value": 10,
+          "label": "炸弹加10分",
+          "order": 20,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "key": "roomRestriction",
+      "label": "其他",
+      "control": "checkbox",
+      "order": 150,
+      "visible": true,
+      "disabled": false,
+      "required": false,
+      "defaultCandidateIndexes": [
+        1
+      ],
+      "defaultValue": [
+        "same_ip_blocked"
+      ],
+      "options": [
+        {
+          "value": "same_ip_blocked",
+          "label": "同IP不可进",
+          "order": 10,
+          "disabled": false
+        },
+        {
+          "value": "same_location_blocked",
+          "label": "同位置不可进",
+          "order": 20,
+          "disabled": false
+        }
+      ]
+    }
+  ]
+}

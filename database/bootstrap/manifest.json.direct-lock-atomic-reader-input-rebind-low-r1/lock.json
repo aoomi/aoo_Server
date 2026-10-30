@@ -1,0 +1,19 @@
+{
+  "owner": "/root/shuju_low",
+  "state": "RELEASED_FROZEN_ATOMIC_READER_REBIND",
+  "path": "server/database/bootstrap/manifest.json",
+  "preimageSha256": "3714cab709c443d76b024bec1b3e8fd866043e0d88c01092631368c3a3f915e6",
+  "createdAt": "2026-10-14T10:16:33.948268+00:00",
+  "allowedKeys": [
+    "inputs[344].sha256",
+    "inputs[346].sha256",
+    "verificationQueries[3].sourceSha256",
+    "verificationQueries[6].sourceSha256",
+    "verificationQueries[7].sourceSha256",
+    "verificationQueries[8].sourceSha256",
+    "verificationQueries[9].sourceSha256"
+  ],
+  "releasedAt": "2026-10-14T10:16:34.248703+00:00",
+  "postManifestSha256": "56b2ccb0db8149547c7c13399153d38b0b66f81af61104b40286c950ce8ccb92",
+  "packetManifestSha256": "8237543f5cbea8249ad959dca0af62b80092c1b64f03a48d151fa1b808f4d05b"
+}

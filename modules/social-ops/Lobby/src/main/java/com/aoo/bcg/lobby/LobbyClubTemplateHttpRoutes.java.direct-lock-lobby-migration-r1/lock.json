@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "status": "RELEASED_FOR_INDEPENDENT_REVIEW",
+  "owner": "/root/join_authority_race_diagnosis_r1",
+  "task": "DIRECT-20261012T114416Z-6d4a91c2",
+  "attempt": "hall-lobby-internal-migration-r1",
+  "acquiredAt": "2026-10-12T19:44:16+08:00",
+  "purpose": "Rename only canonical Lobby internal owner parameter/comment; preserve frozen Hall compatibility protocol",
+  "custodyTransfer": "主线下达；用户已明确要求 Hall→Lobby；preserve-existing-dirty",
+  "allowlist": [
+    "Server/server/Lobby/src/main/java/com/aoo/bcg/lobby/LobbyClubTemplateHttpRoutes.java",
+    "Server/server/Lobby/src/main/java/com/aoo/bcg/lobby/LobbyClubTemplateHttpRoutes.java.direct-lock-lobby-migration-r1/lock.json",
+    "docs/05-当前状态/DIRECT-20261012T114416Z-6d4a91c2-hall-lobby-internal-migration.md",
+    "docs/05-当前状态/evidence/DIRECT-20261012T114416Z-6d4a91c2-hall-lobby-internal-migration/**"
+  ],
+  "forbidden": [
+    "all other source files",
+    "Hall facade classes",
+    "protocol paths/messages/error codes",
+    "database tables/columns/migrations",
+    "deployment directories",
+    "Client",
+    "rules workbooks",
+    "production database",
+    "shared services/ports/Creator/browser",
+    "generated Bundle",
+    "commits/pushes/merges/rebases"
+  ],
+  "preimageSha256": "40ac650d242b07e3e3dc325e3dd2fdd502c03738bc5bbc5e3cc6fcb528a24965",
+  "preimageKind": "current-worktree-untracked-module-preserve-existing-dirty",
+  "reviewer": "/root/lane_g_evidence_review",
+  "preserveExistingDirty": true,
+  "releasedAt": "2026-10-12T19:47:05+08:00",
+  "releaseReason": "DEV_SELF_CHECK_COMPLETE_PENDING_INDEPENDENT_REVIEW",
+  "postimageSha256": "e7b0812cf0cd8de94d0f49aa2ddd5ac96bf0e8347c276fb2758132dc872764f0",
+  "evidence": {
+    "classification": "b4d679ad8d58e67c095bdece84281db393cf2aad3ae9b2edeeac87eab325eda3",
+    "preimageManifest": "97dd3513f62cf34a01e1b1dadaa7abe21d2b7b1f699d6c9cd3c9f20529c71305",
+    "testOutput": "1a7d136faf3ed66c75f00bc810be37d451de9a3a1459a0d9f6e7fdb2e8ebe1f1",
+    "postimageManifest": "6dd53dcc1f5399b3941e5e69e33f9914996b09943f413cb93a0fc42d16bc0171",
+    "custodyReconciliation": "1dee2fd45964bab264c429d12e1347b54f9fb0058c38693af4e5362500a91983"
+  },
+  "independentReviewRequired": true
+}

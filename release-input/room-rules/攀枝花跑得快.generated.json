@@ -1,0 +1,559 @@
+{
+  "_generated": "自动生成，权威来源为只读 Excel",
+  "sourceHash": "d0d4dc518b8acbae16df64756c9e0b6f32278568b395eee01b4809f9657219e7",
+  "identity": {
+    "publishingEnabled": true,
+    "gameId": 2006,
+    "gameCode": "panzhihua2006",
+    "legacyFieldKeyAliases": {
+      "rule_pz201_0001": "rule_panzhihua2006_0001"
+    },
+    "playVersion": "panzhihua2006-v1.0.0",
+    "family": "poker:pao-de-kuai",
+    "regionCode": "CN-51-04",
+    "releaseScope": "REGIONAL",
+    "requiredRoomRuleFields": [
+      {
+        "key": "playerCount",
+        "sourceLabel": "人数"
+      },
+      {
+        "key": "cardsPerPlayer",
+        "sourceLabel": "发牌张数"
+      },
+      {
+        "key": "roundCount",
+        "sourceLabel": "局数"
+      },
+      {
+        "key": "operationTimeoutSeconds",
+        "sourceLabel": "操作时间"
+      },
+      {
+        "key": "requiredFirstCardRule",
+        "sourceLabel": "首张必出"
+      },
+      {
+        "key": "bombScore",
+        "sourceLabel": "炸弹记分"
+      },
+      {
+        "key": "specialPatternScore",
+        "sourceLabel": "特殊牌型计分"
+      },
+      {
+        "key": "playRule",
+        "sourceLabel": "玩法"
+      },
+      {
+        "key": "hostingMissThreshold",
+        "sourceLabel": "托管次数",
+        "serverOwned": true
+      },
+      {
+        "key": "roomRestriction",
+        "sourceLabel": "其他"
+      }
+    ],
+    "numericRoomRuleFields": [
+      {
+        "sourceLabel": "局数",
+        "suffix": "局"
+      },
+      {
+        "sourceLabel": "炸弹记分",
+        "suffix": "分"
+      },
+      {
+        "sourceLabel": "特殊牌型计分",
+        "suffix": "分"
+      },
+      {
+        "sourceLabel": "托管次数",
+        "suffix": "次"
+      }
+    ],
+    "roomRuleOptionValues": {
+      "局数": {
+        "8局": 8,
+        "12局": 12,
+        "16局": 16
+      },
+      "操作时间": {
+        "10秒": 10,
+        "15秒": 15,
+        "30秒": 30,
+        "60秒": 60
+      },
+      "首张必出": {
+        "首局黑桃5先出，下局赢家先出": "first_round_spade_five_then_winner"
+      },
+      "炸弹记分": {
+        "10分": 10,
+        "20分": 20,
+        "30分": 30
+      },
+      "特殊牌型计分": {
+        "5分": 5,
+        "10分": 10
+      },
+      "小结算": {
+        "小局结算弹窗": "option_0001"
+      },
+      "玩法": {
+        "全单": "all_singles",
+        "全对": "all_pairs",
+        "全黑": "all_black",
+        "全红": "all_red",
+        "全大": "all_big",
+        "全小": "all_small",
+        "3个5-A算炸弹": "triple_five_to_ace_bomb"
+      },
+      "托管次数": {
+        "3次": 3,
+        "4次": 4,
+        "5次": 5
+      },
+      "其他": {
+        "IP限制": "ip_limit",
+        "GPS限制": "gps_limit",
+        "距离过近提示": "distance_warning",
+        "禁止互动": "interaction_forbidden",
+        "禁言": "chat_muted"
+      }
+    },
+    "roomRuleRowProjections": [
+      {
+        "sourceLabel": "人数和发牌张数",
+        "sourceControl": "单选",
+        "sourceOptions": [
+          "2人10张",
+          "3人10张",
+          "4人10张"
+        ],
+        "kind": "nested-radio",
+        "outputs": [
+          {
+            "key": "playerCount",
+            "label": "人数",
+            "order": 90,
+            "sourceDefaultMap": {
+              "1": 1,
+              "2": 2,
+              "3": 3
+            },
+            "options": [
+              {
+                "label": "2人",
+                "value": 2
+              },
+              {
+                "label": "3人",
+                "value": 3
+              },
+              {
+                "label": "4人",
+                "value": 4
+              }
+            ]
+          },
+          {
+            "key": "cardsPerPlayer",
+            "label": "发牌张数",
+            "order": 91,
+            "defaultIndex": 1,
+            "options": [
+              {
+                "label": "10张",
+                "value": 10
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "targets": [
+    {
+      "gameId": 2006,
+      "playVersion": "panzhihua2006-v1.0.0"
+    }
+  ],
+  "fields": [
+    {
+      "key": "playerCount",
+      "label": "人数",
+      "control": "radio",
+      "order": 90,
+      "visible": true,
+      "disabled": false,
+      "required": true,
+      "defaultCandidateIndexes": [
+        1
+      ],
+      "defaultValue": 2,
+      "options": [
+        {
+          "value": 2,
+          "label": "2人",
+          "order": 10,
+          "disabled": false
+        },
+        {
+          "value": 3,
+          "label": "3人",
+          "order": 20,
+          "disabled": false
+        },
+        {
+          "value": 4,
+          "label": "4人",
+          "order": 30,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "key": "cardsPerPlayer",
+      "label": "发牌张数",
+      "control": "radio",
+      "order": 91,
+      "visible": true,
+      "disabled": false,
+      "required": true,
+      "defaultCandidateIndexes": [
+        1
+      ],
+      "defaultValue": 10,
+      "options": [
+        {
+          "value": 10,
+          "label": "10张",
+          "order": 10,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "key": "roundCount",
+      "label": "局数",
+      "control": "radio",
+      "order": 90,
+      "visible": true,
+      "disabled": false,
+      "required": true,
+      "defaultCandidateIndexes": [
+        1
+      ],
+      "defaultValue": 8,
+      "options": [
+        {
+          "value": 8,
+          "label": "8局",
+          "order": 10,
+          "disabled": false
+        },
+        {
+          "value": 12,
+          "label": "12局",
+          "order": 20,
+          "disabled": false
+        },
+        {
+          "value": 16,
+          "label": "16局",
+          "order": 30,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "key": "operationTimeoutSeconds",
+      "label": "操作时间",
+      "control": "radio",
+      "order": 100,
+      "visible": true,
+      "disabled": false,
+      "required": true,
+      "defaultCandidateIndexes": [
+        1
+      ],
+      "defaultValue": 10,
+      "options": [
+        {
+          "value": 10,
+          "label": "10秒",
+          "order": 10,
+          "disabled": false
+        },
+        {
+          "value": 15,
+          "label": "15秒",
+          "order": 20,
+          "disabled": false
+        },
+        {
+          "value": 30,
+          "label": "30秒",
+          "order": 30,
+          "disabled": false
+        },
+        {
+          "value": 60,
+          "label": "60秒",
+          "order": 40,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "key": "requiredFirstCardRule",
+      "label": "首张必出",
+      "control": "radio",
+      "order": 110,
+      "visible": true,
+      "disabled": false,
+      "required": true,
+      "defaultCandidateIndexes": [
+        1
+      ],
+      "defaultValue": "first_round_spade_five_then_winner",
+      "options": [
+        {
+          "value": "first_round_spade_five_then_winner",
+          "label": "首局黑桃5先出，下局赢家先出",
+          "order": 10,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "key": "bombScore",
+      "label": "炸弹记分",
+      "control": "radio",
+      "order": 120,
+      "visible": true,
+      "disabled": false,
+      "required": true,
+      "defaultCandidateIndexes": [
+        1
+      ],
+      "defaultValue": 10,
+      "options": [
+        {
+          "value": 10,
+          "label": "10分",
+          "order": 10,
+          "disabled": false
+        },
+        {
+          "value": 20,
+          "label": "20分",
+          "order": 20,
+          "disabled": false
+        },
+        {
+          "value": 30,
+          "label": "30分",
+          "order": 30,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "key": "specialPatternScore",
+      "label": "特殊牌型计分",
+      "control": "radio",
+      "order": 130,
+      "visible": true,
+      "disabled": false,
+      "required": true,
+      "defaultCandidateIndexes": [
+        1
+      ],
+      "defaultValue": 5,
+      "options": [
+        {
+          "value": 5,
+          "label": "5分",
+          "order": 10,
+          "disabled": false
+        },
+        {
+          "value": 10,
+          "label": "10分",
+          "order": 20,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "key": "rule_panzhihua2006_0001",
+      "label": "小结算",
+      "control": "checkbox",
+      "order": 140,
+      "visible": true,
+      "disabled": false,
+      "required": false,
+      "defaultCandidateIndexes": [
+        1
+      ],
+      "defaultValue": [
+        "option_0001"
+      ],
+      "options": [
+        {
+          "value": "option_0001",
+          "label": "小局结算弹窗",
+          "order": 10,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "key": "playRule",
+      "label": "玩法",
+      "control": "checkbox",
+      "order": 150,
+      "visible": true,
+      "disabled": false,
+      "required": false,
+      "defaultCandidateIndexes": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "defaultValue": [
+        "all_singles",
+        "all_pairs",
+        "all_black",
+        "all_red"
+      ],
+      "options": [
+        {
+          "value": "all_singles",
+          "label": "全单",
+          "order": 10,
+          "disabled": false
+        },
+        {
+          "value": "all_pairs",
+          "label": "全对",
+          "order": 20,
+          "disabled": false
+        },
+        {
+          "value": "all_black",
+          "label": "全黑",
+          "order": 30,
+          "disabled": false
+        },
+        {
+          "value": "all_red",
+          "label": "全红",
+          "order": 40,
+          "disabled": false
+        },
+        {
+          "value": "all_big",
+          "label": "全大",
+          "order": 50,
+          "disabled": false
+        },
+        {
+          "value": "all_small",
+          "label": "全小",
+          "order": 60,
+          "disabled": false
+        },
+        {
+          "value": "triple_five_to_ace_bomb",
+          "label": "3个5-A算炸弹",
+          "order": 70,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "key": "hostingMissThreshold",
+      "label": "托管次数",
+      "control": "radio",
+      "order": 160,
+      "visible": false,
+      "disabled": true,
+      "required": true,
+      "defaultCandidateIndexes": [
+        1
+      ],
+      "defaultValue": 3,
+      "options": [
+        {
+          "value": 3,
+          "label": "3次",
+          "order": 10,
+          "disabled": false
+        },
+        {
+          "value": 4,
+          "label": "4次",
+          "order": 20,
+          "disabled": false
+        },
+        {
+          "value": 5,
+          "label": "5次",
+          "order": 30,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "key": "roomRestriction",
+      "label": "其他",
+      "control": "checkbox",
+      "order": 170,
+      "visible": true,
+      "disabled": false,
+      "required": false,
+      "defaultCandidateIndexes": [
+
+      ],
+      "defaultValue": [
+
+      ],
+      "options": [
+        {
+          "value": "ip_limit",
+          "label": "IP限制",
+          "order": 10,
+          "disabled": false
+        },
+        {
+          "value": "gps_limit",
+          "label": "GPS限制",
+          "order": 20,
+          "disabled": false
+        },
+        {
+          "value": "distance_warning",
+          "label": "距离过近提示",
+          "order": 30,
+          "disabled": false
+        },
+        {
+          "value": "interaction_forbidden",
+          "label": "禁止互动",
+          "order": 40,
+          "disabled": false
+        },
+        {
+          "value": "chat_muted",
+          "label": "禁言",
+          "order": 50,
+          "disabled": false
+        }
+      ]
+    }
+  ]
+}

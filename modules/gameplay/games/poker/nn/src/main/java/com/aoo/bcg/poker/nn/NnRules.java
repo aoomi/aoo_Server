@@ -1,0 +1,66 @@
+package com.aoo.bcg.poker.nn;
+
+import java.util.Map;
+import java.util.Set;
+
+/** NN 权威开房规则快照，只包含牛牛玩法自身规则。 */
+public record NnRules(
+    int rounds, int maxPlayers, int startPlayers, Mode mode, int maxRobMultiplier,
+    int maxPushMultiplier, StandPolicy standPolicy, boolean fastModeEnabled,
+    boolean kanShunDouEnabled, long baseScore, long enterScore, long leaveScore) {
+  public static final String GAME_CODE = "quanguo2998";
+  public static final String FAMILY = "poker:betting";
+  public static final String PLAY_VERSION = "nn-v1.0.0";
+  public static final long BASE_SCORE = 1;
+  public static final long ENTER_SCORE = 100;
+  public static final long LEAVE_SCORE = 50;
+  public enum Mode { CLASSIC, PASSION, CRAZY }
+  public enum StandPolicy { LOSER_MAY_STAND, EVERYONE_MAY_STAND, NO_ONE_MAY_STAND }
+
+  private static final Set<Integer> ROUND_OPTIONS = Set.of(10, 20, 30);
+  private static final Set<Integer> MAX_PLAYER_OPTIONS = Set.of(8, 10);
+  private static final Set<Integer> START_PLAYER_OPTIONS = Set.of(2, 4, 6);
+  private static final Set<Integer> ROB_OPTIONS = Set.of(3, 4, 5);
+  private static final Set<Integer> PUSH_OPTIONS = Set.of(0, 5, 10, 15);
+
+  public NnRules {
+    if (!ROUND_OPTIONS.contains(rounds) || !MAX_PLAYER_OPTIONS.contains(maxPlayers)
+        || !START_PLAYER_OPTIONS.contains(startPlayers) || startPlayers > maxPlayers
+        || !ROB_OPTIONS.contains(maxRobMultiplier) || !PUSH_OPTIONS.contains(maxPushMultiplier)
+        || mode == null || standPolicy == null || baseScore < 0 || enterScore < 0 || leaveScore < 0)
+      throw new IllegalArgumentException("invalid NN room rules");
+  }
+
+  public NnRules(int rounds,int maxPlayers,int startPlayers,Mode mode,int maxRobMultiplier,
+      int maxPushMultiplier,StandPolicy standPolicy,boolean fastModeEnabled,boolean kanShunDouEnabled) {
+    this(rounds,maxPlayers,startPlayers,mode,maxRobMultiplier,maxPushMultiplier,standPolicy,
+        fastModeEnabled,kanShunDouEnabled,BASE_SCORE,ENTER_SCORE,LEAVE_SCORE);
+  }
+
+  public static NnRules defaults() {
+    return new NnRules(10, 8, 2, Mode.CLASSIC, 4, 10,
+        StandPolicy.EVERYONE_MAY_STAND, true, true, BASE_SCORE, ENTER_SCORE, LEAVE_SCORE);
+  }
+
+  /** XQP 明牌抢庄只公布这三档倍率；0 始终表示不抢。 */
+  public Set<Integer> robOptions() {
+    return switch (maxRobMultiplier) {
+      case 3 -> Set.of(0, 1, 2, 3);
+      case 4 -> Set.of(0, 2, 3, 4);
+      case 5 -> Set.of(0, 3, 4, 5);
+      default -> throw new IllegalStateException("unsupported NN rob rule");
+    };
+  }
+
+  public int settlementMultiplier(NnHandEvaluator.Type type) {
+    int bull = type.legacyCode();
+    return switch (mode) {
+      case CLASSIC -> Map.ofEntries(
+          Map.entry(7,2), Map.entry(8,2), Map.entry(9,3), Map.entry(10,4), Map.entry(11,4),
+          Map.entry(101,5), Map.entry(111,5), Map.entry(121,6), Map.entry(131,6),
+          Map.entry(141,7), Map.entry(151,8), Map.entry(161,9), Map.entry(171,10)).getOrDefault(bull, 1);
+      case PASSION -> bull <= 10 ? Math.max(1, bull) : Map.of(11,10,101,11,111,11,121,12,131,12,141,13,151,14,161,15,171,16).get(bull);
+      case CRAZY -> bull <= 10 ? Math.max(1, bull) : Map.of(11,10,101,15,111,15,121,16,131,16,141,17,151,18,161,19,171,20).get(bull);
+    };
+  }
+}

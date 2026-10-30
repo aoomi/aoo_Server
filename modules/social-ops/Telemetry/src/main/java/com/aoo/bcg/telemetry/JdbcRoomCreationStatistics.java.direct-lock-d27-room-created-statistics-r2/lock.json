@@ -1,0 +1,15 @@
+{
+  "owner": "/root/shuju_low",
+  "state": "RELEASED",
+  "actualAcquire": "2026-10-17T14:59:25.546347+00:00",
+  "expiresAt": "2026-10-17T15:09:25.546347+00:00",
+  "sourcePaths": [
+    "/Users/aoo/Code/Game/BCG/Aoo/server/modules/social-ops/Telemetry/src/main/java/com/aoo/bcg/telemetry/JdbcRoomCreationStatistics.java",
+    "/Users/aoo/Code/Game/BCG/Aoo/server/modules/social-ops/Telemetry/src/test/java/com/aoo/bcg/telemetry/JdbcRoomCreationStatisticsTest.java"
+  ],
+  "executionRoot": "/Users/aoo/Code/Game/BCG/Aoo/docs/05-\u5f53\u524d\u72b6\u6001/evidence/DIRECT-20261008T084000Z-4a7f1c9e/d27-room-created-statistics-execution-r2",
+  "authorityMainSHA": "8efbc55d6ddfcab05e7c1b583b9cef1465e1a499e7c9bb64d87b88222cddde1d",
+  "planAccepted": "e5eaec30b76560a955ddf8cdad37cc275b76ce08f2cbe2c83022904104b67008",
+  "releasedAt": "2026-10-17T15:03:05.890290+00:00",
+  "manifestSHA256": "3d0e5127ca552492f0c3b038d9241c5093583d99b5779ebb3e91a8e2d9205522"
+}

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "status": "RELEASED_FOR_COORDINATION",
+  "owner": "/root/repair_canonical_projection_forward_migration",
+  "task": "DIRECT-20261008T084000Z-4a7f1c9e",
+  "attempt": "canonical-active-projection-forward-v1",
+  "purpose": "Forward-only correction of V20261008_03 derived active pointers using accepted r9-v4 literal manifest rows",
+  "allowlist": [
+    "Server/database/migrations/V20261010_01__align_canonical_active_runtime_metadata_projection.sql"
+  ],
+  "sourceWrite": true,
+  "productionDatabase": false,
+  "historicalMigrationWrite": false,
+  "seedWrite": false,
+  "forbidden": [
+    "Server/database/migrations/V20261008_03__repair_active_release_snapshot_hashes.sql",
+    "Server/database/local/seed_local_runtime.sql",
+    "Server/tools/runtime-metadata-canonical-manifest.json",
+    "Client",
+    "rules workbooks",
+    "protocol",
+    "deployment",
+    "generated bundles",
+    "shared services",
+    "production database"
+  ],
+  "manifestSha256": "654e67bb445ba0ed3b85b57cc4a1f8267b01abae178dee9c08d364ea32299ad6",
+  "preimage": "ABSENT",
+  "postimage": "eba5d861371fe1e2ac004ea26ffbe9881cdc8b531e55ad3b694db1329566bfec",
+  "independentReviewRequired": true,
+  "independentReview": {
+    "verdict": "ACCEPT",
+    "reviewer": "/root/final_package_acceptance",
+    "reviewEvidence": "/tmp/aoo-v20261010-independent-20261010180740-29536/",
+    "reviewedAt": "2026-10-10T18:07:40Z",
+    "activeCanonicalMatch": "32/32",
+    "containerRemoved": true,
+    "portReleased": true
+  },
+  "releasedBy": "/root",
+  "releasedAt": "2026-10-10T18:10:00Z",
+  "releaseReason": "Independent disposable-DB replay accepted; full chain and canonical active pointers verified 32/32"
+}

@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 2,
+  "lockId": "R50-LANE-F-CORRECTION-20261011T053825Z-GameCatalogCurrent32",
+  "status": "RELEASED_BLOCKED",
+  "owner": "/root/lane_f_service_input_package",
+  "task": "DIRECT-20261011T052900Z-4a7f1c9e-生产运行时目录收敛.md",
+  "attempt": "R50-review-correction-r2-byte-preserving-receipt",
+  "acquiredAt": "2026-10-11T05:38:25Z",
+  "path": "Server/server/Bootstrap/src/main/resources/game-catalog-current-32.tsv",
+  "preimageSha256": "ce9697ccbb4a052cd34cbd8644e0955375c3f91bf7af7860689d8d7647845d21",
+  "sourceWrite": true,
+  "supersedes": [
+    "Server/server/Bootstrap/src/main/resources/game-catalog-current-32.tsv.direct-lock-r50-lane-f-20261011/lock.json"
+  ],
+  "oldLocksRemainByteIdentical": true,
+  "custodyBasis": "R50 review correction: prior receipt chronology was rejected; this lock accepts the already-produced bytes as the correction-batch preimage and precedes only the byte-preserving metadata receipt",
+  "taskCardSha256": "948f2c8c0ba5744edf2a0710a19e76654240a36f5c03b70fee947fae1d7b629",
+  "releasedAt": "2026-10-13T08:40:37.678965000Z",
+  "currentPathSha256": "e89f295bebadfc96d71656b84c26c5df801d5bbdd993cfe0611fdc1e6f1fc81c",
+  "releaseReason": "SOURCE_SHA_DRIFT_AFTER_R50_CORRECTION_PREIMAGE; current canonical release-input bytes differ; formal acceptance remains fail-closed; no source write in custody-close batch",
+  "releaseReceipt": "docs/05-当前状态/evidence/DIRECT-20261012T131224Z-8c4e7a2d-server-path-migration-r3/r50-lock-custody-close-20261013/release-receipt.md",
+  "independentAcceptance": "PENDING_LANE_G"
+}

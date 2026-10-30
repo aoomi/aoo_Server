@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "status": "RELEASED_FOR_COORDINATION",
+  "owner": "/root/implement_lobby_owner_increment",
+  "task": "DIRECT-20261008T084000Z-4a7f1c9e",
+  "attempt": "v1.1-lobby-canonical-owner-20261010",
+  "path": "Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/api/ApiOwnershipCatalog.java",
+  "purpose": "Project existing hall protocol patterns to Lobby owner without protocol changes",
+  "preimageSha256": "2a24d96499f446acf214b71428ad0d466356e70a2786685ba8ffccb050f6c991",
+  "dirtyCustody": "clean-at-acquisition",
+  "independentAcceptanceRequired": true
+}

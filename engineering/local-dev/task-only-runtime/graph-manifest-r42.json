@@ -1,0 +1,148 @@
+{
+  "schemaVersion": 1,
+  "graphKind": "task-only-service-graph",
+  "graphVersion": "r42-v1",
+  "admission": "FAIL_CLOSED_UNTIL_ALL_EXPLICIT_INPUTS_AND_READINESS_PASS",
+  "sourceBundle": {
+    "pathField": "R42_SOURCE_BUNDLE_ROOT",
+    "expectedRootManifest": "bundle-manifest-r38.json",
+    "expectedBundleManifestSha256": "660e99fc0c41a972bcddd448c891a569671418c61da00ba3e33e980c73ab3fd0",
+    "expectedJarManifestSha256": "66a6ad06caf4a7229f7756528c8ec61a9ea936323f7c3679cc0232db86d0c1a0",
+    "expectedPayloadCount": 173,
+    "requiredEntrypoints": {
+      "bootstrap": "com.aoo.bcg.bootstrap.BootstrapAPP",
+      "gateway": "com.aoo.bcg.gateway.GatewayApplication"
+    },
+    "requiredServiceLoader": {
+      "gatewayRuntimeProvider": "com.aoo.bcg.bootstrap.ProductionGatewayRuntimeProvider",
+      "gatewayRuntimeProviderCardinality": 1,
+      "gameProviderCardinality": 3
+    },
+    "forbiddenAdmissionMarkers": [
+      "WORDCARD_ARTIFACT_PRESENT",
+      "CANDIDATE_FAIL_CLOSED"
+    ]
+  },
+  "attempt": {
+    "rootField": "R42_ATTEMPT_ROOT",
+    "requiredPrefix": "/tmp/aoo-c3-runtime-matrix-r42-",
+    "bundleRootField": "R42_BUNDLE_ROOT",
+    "logRootField": "R42_LOG_ROOT",
+    "pidRootField": "R42_PID_ROOT",
+    "stateRootField": "R42_STATE_ROOT",
+    "configField": "R42_CONFIG_PATH"
+  },
+  "nodes": [
+    {
+      "id": "db",
+      "kind": "disposable-mysql",
+      "runnerField": "R42_DB_RUNNER",
+      "cleanupField": "R42_DB_CLEANUP_RUNNER",
+      "readiness": "R42_DB_READY_FILE",
+      "requiredFields": ["R42_DB_IMAGE", "R42_DB_IMAGE_DIGEST", "R42_DB_CONTAINER_NAME", "R42_DB_HOST", "R42_DB_PORT", "R42_DB_NAME", "R42_DB_USER", "R42_DB_PASSWORD_FILE", "R42_DB_URL", "R42_DB_PREIMAGE_FILE", "R42_DB_PREIMAGE_SHA256"]
+    },
+    {
+      "id": "s3",
+      "kind": "task-owned-s3-compatible-store",
+      "runnerField": "R42_S3_RUNNER",
+      "cleanupField": "R42_S3_CLEANUP_RUNNER",
+      "readiness": "R42_S3_READY_URL",
+      "requiredFields": ["R42_S3_IMAGE", "R42_S3_IMAGE_DIGEST", "R42_S3_CONTAINER_NAME", "R42_S3_ENDPOINT", "R42_S3_BUCKET", "R42_S3_REGION", "R42_S3_ACCESS_KEY_FILE", "R42_S3_SECRET_KEY_FILE"]
+    },
+    {
+      "id": "version",
+      "kind": "BootstrapAPP",
+      "args": ["version"],
+      "runnerField": "R42_VERSION_RUNNER",
+      "readiness": "R42_VERSION_READY_URL",
+      "requiredFields": ["VERSION_DATABASE_URL", "VERSION_DATABASE_USER", "VERSION_DATABASE_PASSWORD_FILE", "VERSION_INTERNAL_TOKEN_FILE", "VERSION_CLIENT_TOKEN_FILE", "VERSION_HTTP_PORT"]
+    },
+    {
+      "id": "account",
+      "kind": "BootstrapAPP",
+      "args": ["account"],
+      "runnerField": "R42_ACCOUNT_RUNNER",
+      "readiness": "R42_ACCOUNT_READY_URL",
+      "requiredFields": ["ACCOUNT_DATABASE_URL", "ACCOUNT_DATABASE_USER", "ACCOUNT_DATABASE_PASSWORD_FILE", "ACCOUNT_OPERATOR_TOKEN_FILE", "ACCOUNT_IDENTITY_SECOND_FACTOR_TOKEN_FILE", "ACCOUNT_GATEWAY_INTERNAL_URL", "ACCOUNT_GATEWAY_INTERNAL_TOKEN_FILE", "ACCOUNT_HTTP_PORT"]
+    },
+    {
+      "id": "billing",
+      "kind": "BootstrapAPP",
+      "args": ["billing"],
+      "runnerField": "R42_BILLING_RUNNER",
+      "readiness": "R42_BILLING_READY_URL",
+      "requiredFields": ["BILLING_DATABASE_URL", "BILLING_DATABASE_USER", "BILLING_DATABASE_PASSWORD_FILE", "BILLING_INTERNAL_TOKEN_FILE", "BILLING_CALLBACK_SECRET_FILE", "BILLING_ACCOUNT_AUTH_SECRET_FILE", "BILLING_PROVIDER_CHECKOUT_URL", "BILLING_PROVIDER_MERCHANT_ID_FILE", "BILLING_PROVIDER_SIGNING_SECRET_FILE", "BILLING_HTTP_PORT"]
+    },
+    {
+      "id": "inventory",
+      "kind": "BootstrapAPP",
+      "args": ["inventory"],
+      "runnerField": "R42_INVENTORY_RUNNER",
+      "readiness": "R42_INVENTORY_READY_URL",
+      "requiredFields": ["INVENTORY_DATABASE_URL", "INVENTORY_DATABASE_USER", "INVENTORY_DATABASE_PASSWORD_FILE", "INVENTORY_AUTH_TOKEN_FILE", "BILLING_BASE_URL", "BILLING_INTERNAL_TOKEN_FILE", "INVENTORY_HTTP_PORT"]
+    },
+    {
+      "id": "referral",
+      "kind": "BootstrapAPP",
+      "args": ["referral"],
+      "runnerField": "R42_REFERRAL_RUNNER",
+      "readiness": "R42_REFERRAL_READY_URL",
+      "requiredFields": ["REFERRAL_DATABASE_URL", "REFERRAL_DATABASE_USER", "REFERRAL_DATABASE_PASSWORD_FILE", "REFERRAL_INTERNAL_TOKEN_FILE", "REFERRAL_BILLING_URL", "REFERRAL_BILLING_TOKEN_FILE", "REFERRAL_HTTP_PORT"]
+    },
+    {
+      "id": "social",
+      "kind": "BootstrapAPP",
+      "args": ["social"],
+      "runnerField": "R42_SOCIAL_RUNNER",
+      "readiness": "R42_SOCIAL_READY_URL",
+      "requiredFields": ["SOCIAL_DATABASE_URL", "SOCIAL_DATABASE_USER", "SOCIAL_DATABASE_PASSWORD_FILE", "SOCIAL_HTTP_PORT"]
+    },
+    {
+      "id": "gifting",
+      "kind": "BootstrapAPP",
+      "args": ["gifting"],
+      "runnerField": "R42_GIFTING_RUNNER",
+      "readiness": "R42_GIFTING_READY_URL",
+      "requiredFields": ["GIFTING_DATABASE_URL", "GIFTING_DATABASE_USER", "GIFTING_DATABASE_PASSWORD_FILE", "BILLING_BASE_URL", "BILLING_INTERNAL_TOKEN_FILE", "INVENTORY_BASE_URL", "INVENTORY_AUTH_TOKEN_FILE", "GIFTING_HTTP_PORT"]
+    },
+    {
+      "id": "media",
+      "kind": "BootstrapAPP",
+      "args": ["media"],
+      "runnerField": "R42_MEDIA_RUNNER",
+      "readiness": "R42_MEDIA_READY_URL",
+      "requiredFields": ["MEDIA_DATABASE_URL", "MEDIA_DATABASE_USER", "MEDIA_DATABASE_PASSWORD_FILE", "MEDIA_S3_ENDPOINT", "MEDIA_S3_BUCKET", "MEDIA_S3_REGION", "MEDIA_S3_ACCESS_KEY_FILE", "MEDIA_S3_SECRET_KEY_FILE", "MEDIA_CLEANUP_TOKEN_FILE", "MEDIA_ROOM_TOKEN_FILE", "MEDIA_HTTP_PORT"]
+    },
+    {
+      "id": "gateway",
+      "kind": "GatewayApplication",
+      "args": [],
+      "runnerField": "R42_GATEWAY_RUNNER",
+      "readiness": "R42_GATEWAY_READY_URL",
+      "authorityReadiness": "R42_AUTHORITY_READY_URL",
+      "requiredFields": ["GATEWAY_DATABASE_URL", "GATEWAY_DATABASE_USER", "GATEWAY_DATABASE_PASSWORD_FILE", "GATEWAY_HTTP_PORT", "GATEWAY_OFFICIAL_ORIGINS", "GATEWAY_INTERNAL_TOKEN_FILE", "GATEWAY_INTERNAL_PORT", "GATEWAY_VERSION_URL", "GATEWAY_ACCOUNT_URL", "GATEWAY_HALL_URL", "GATEWAY_SOCIAL_URL", "GATEWAY_GIFTING_URL", "GATEWAY_MEDIA_URL", "AOO_GATEWAY_NODE_ID", "AOO_GATEWAY_PUBLIC_ENDPOINT"]
+    },
+    {
+      "id": "hall",
+      "kind": "BootstrapAPP",
+      "args": ["hall"],
+      "runnerField": "R42_HALL_RUNNER",
+      "readiness": "R42_HALL_READY_URL",
+      "requiredFields": ["HALL_DATABASE_URL", "HALL_DATABASE_USER", "HALL_DATABASE_PASSWORD_FILE", "HALL_AUTH_SECRET_FILE", "HALL_INTERNAL_TOKEN_FILE", "HALL_ROOM_AUTHORITY_URL", "HALL_ROOM_AUTHORITY_TOKEN_FILE", "INVITE_SIGNING_KEY_FILE", "INVITE_REFERRAL_URL", "INVITE_REFERRAL_TOKEN_FILE", "HALL_HTTP_PORT"]
+    }
+  ],
+  "relations": [
+    {"from": "account", "to": "gateway", "path": "/internal/v1/session/replace", "tokenEquality": ["ACCOUNT_GATEWAY_INTERNAL_TOKEN_FILE", "GATEWAY_INTERNAL_TOKEN_FILE"]},
+    {"from": "hall", "to": "gateway", "path": "/internal/v1/room-authority/{create,recover,join,leave,remove}", "tokenEquality": ["HALL_ROOM_AUTHORITY_TOKEN_FILE", "GATEWAY_INTERNAL_TOKEN_FILE"]},
+    {"from": "gateway", "to": "hall", "path": "/internal/v1/hall/rooms", "tokenEquality": ["HALL_INTERNAL_TOKEN_FILE"]},
+    {"from": "gifting", "to": "billing", "path": "/v1/billing", "tokenEquality": ["BILLING_INTERNAL_TOKEN_FILE"]},
+    {"from": "gifting", "to": "inventory", "path": "/v1/inventory", "tokenEquality": ["INVENTORY_AUTH_TOKEN_FILE"]},
+    {"from": "inventory", "to": "billing", "path": "/v1/billing", "tokenEquality": ["BILLING_INTERNAL_TOKEN_FILE"]},
+    {"from": "referral", "to": "billing", "path": "/v1/billing", "tokenEquality": ["REFERRAL_BILLING_TOKEN_FILE", "BILLING_INTERNAL_TOKEN_FILE"]},
+    {"from": "hall", "to": "referral", "path": "/v1/invite-rewards", "tokenEquality": ["INVITE_REFERRAL_TOKEN_FILE", "REFERRAL_INTERNAL_TOKEN_FILE"]},
+    {"from": "media", "to": "s3", "path": "S3 object API", "tokenEquality": ["MEDIA_S3_ACCESS_KEY_FILE", "MEDIA_S3_SECRET_KEY_FILE"]}
+  ],
+  "startOrder": ["db", "s3", "billing", "inventory", "referral", "version", "account", "social", "gifting", "media", "gateway", "hall"],
+  "cleanupOrder": ["hall", "gateway", "media", "gifting", "social", "account", "version", "referral", "inventory", "billing", "s3", "db"],
+  "matrixAdmission": "all_nodes_readiness_and_relation_checks_must_pass"
+}

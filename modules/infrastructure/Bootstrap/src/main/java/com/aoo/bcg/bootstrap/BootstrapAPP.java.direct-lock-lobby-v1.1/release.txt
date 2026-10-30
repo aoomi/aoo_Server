@@ -1,0 +1,12 @@
+Status=RELEASED_FOR_COORDINATION
+Owner=/root/implement_lobby_owner_increment
+Task=DIRECT-20261008T084000Z-4a7f1c9e
+Attempt=v1.1-lobby-canonical-owner-20261010
+Lock=Server/server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java.direct-lock-lobby-v1.1/lock.json
+ReleasedAt=2026-10-10T14:39:40+08:00
+PriorStatus=HELD
+ReviewVerdict=ACCEPT_BOUNDED_SCOPE
+ReviewEvidence=docs/05-当前状态/evidence/c3-lobby-naming-scoped-independent-review-20261010/independent-review-v1.md
+PreReleaseLockSha256=cc7f1ad31b19cf85d2a31681509dc455f1d7cab6b80ebc11660f8ea5242a0ac4
+PostReleaseLockSha256=b30755db19dc17ab7ab50ff21dc8f4b7723a406243843b365124f983681fe294
+Reason=bounded independent acceptance received; inherited Bootstrap dirty custody preserved; no unrelated diff reset or overwrite

@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 2,
+  "task": "DIRECT-20261008T084000Z-4a7f1c9e",
+  "lane": "D",
+  "attempt": "error-registry-20261012-r77",
+  "status": "RELEASED_FOR_INDEPENDENT_REVIEW",
+  "owner": "/root/error_registry_impl",
+  "path": "Server/server/Hall/src/main/java/com/aoo/bcg/lobby/LobbyRoomAuthorityRejected.java",
+  "preimageSha256": "e003d6153730c910e8719a0ef3ef4aafe0e5f506e16e0bb025933b72f8b0d920",
+  "scope": "retain causal root for authority transport failures",
+  "sourceWrite": true,
+  "testWrite": false,
+  "independentReviewer": "lane_g",
+  "replacementCounts": {"cause-aware constructor": 1},
+  "postimageSha256": "8f3babc4a019e4ccb192ecfbd3dfa80d2649f4cc3c537099fa1062ccfff77905"
+}

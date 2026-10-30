@@ -1,0 +1,13 @@
+{
+  "owner": "/root/dating_low",
+  "state": "RELEASED_FOR_INDEPENDENT_REVIEW",
+  "createdAt": "2026-10-16T11:59:10.460846+00:00",
+  "expiresInSeconds": 7200,
+  "writePaths": [
+    "/Users/aoo/Code/Game/BCG/Aoo/server/modules/social-ops/Lobby/src/main/java/com/aoo/bcg/lobby/JdbcLobbyRepository.java",
+    "/Users/aoo/Code/Game/BCG/Aoo/server/modules/social-ops/Lobby/src/test/java/com/aoo/bcg/lobby/JdbcLobbyRepositoryUiPublicationHashContractTest.java",
+    "/Users/aoo/Code/Game/BCG/Aoo/docs/05-\u5f53\u524d\u72b6\u6001/evidence/DIRECT-20261008T084000Z-4a7f1c9e/room-publication-uihash-503-diagnostic-r1/consumer-uihash-correction-r1"
+  ],
+  "authority": "call_d6eb6508501a499d986815735317b8da/M4a7c3171",
+  "releasedAt": "2026-10-16T12:01:17.005317+00:00"
+}

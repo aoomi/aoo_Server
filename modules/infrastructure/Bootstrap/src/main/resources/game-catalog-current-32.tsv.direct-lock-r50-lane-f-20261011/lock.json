@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 2,
+  "lockId": "R50-LANE-F-20261011T054202Z-GameCatalogCurrent32",
+  "status": "RELEASED_FOR_COORDINATION",
+  "owner": "/root/lane_f_service_input_package",
+  "task": "DIRECT-20261011T052900Z-4a7f1c9e-生产运行时目录收敛.md",
+  "attempt": "R50-user-authorized-baseline-adoption-lane-f",
+  "acquiredAt": "2026-10-11T05:42:02Z",
+  "path": "Server/server/Bootstrap/src/main/resources/game-catalog-current-32.tsv",
+  "preimageSha256": "ABSENT",
+  "sourceWrite": true,
+  "supersedes": [],
+  "oldLocksRemainByteIdentical": true,
+  "custodyBasis": "R50 user-authorized R49 baseline adoption; current-32 resource path was absent and is explicitly within the appended task card whitelist",
+  "taskCardSha256": "948f2c8c0ba5744edf2a0710a19e76654240a36f5c03b70fee947fae1d7b629",
+  "releasedAt": "2026-10-13T08:40:37.678965000Z",
+  "currentPathSha256": "e89f295bebadfc96d71656b84c26c5df801d5bbdd993cfe0611fdc1e6f1fc81c",
+  "releaseReason": "SUPERSEDED_BY_R50_RESOURCE_CORRECTION_LOCK; ABSENT baseline is not source acceptance; no source write in custody-close batch",
+  "releaseReceipt": "docs/05-当前状态/evidence/DIRECT-20261012T131224Z-8c4e7a2d-server-path-migration-r3/r50-lock-custody-close-20261013/release-receipt.md",
+  "independentAcceptance": "PENDING_LANE_G"
+}

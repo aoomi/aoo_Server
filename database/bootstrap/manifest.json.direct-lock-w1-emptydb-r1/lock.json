@@ -1,0 +1,12 @@
+{
+  "owner": "/root/shuju",
+  "task": "DIRECT-20261008T084000Z-4a7f1c9e",
+  "revision": "R78",
+  "path": "server/database/bootstrap/manifest.json",
+  "preimage": "ABSENT",
+  "state": "RELEASED",
+  "sourceWrite": true,
+  "createdAt": "2026-10-14T08:05:55.440121+00:00",
+  "releasedAt": "2026-10-14T08:22:34.161209+00:00",
+  "postimageSha256": "661c1cbda4c0589879375e6967360ef3e72d6aa723be2ceb396ddd95a87c9c58"
+}

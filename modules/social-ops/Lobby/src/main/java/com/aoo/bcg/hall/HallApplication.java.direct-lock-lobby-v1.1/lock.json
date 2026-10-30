@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "status": "RELEASED_FOR_COORDINATION",
+  "owner": "/root/implement_lobby_owner_increment",
+  "task": "DIRECT-20261008T084000Z-4a7f1c9e",
+  "attempt": "v1.1-lobby-canonical-owner-20261010",
+  "path": "Server/server/Hall/src/main/java/com/aoo/bcg/hall/HallApplication.java",
+  "purpose": "Hall compatibility facade delegating lifecycle ownership to Lobby",
+  "preimageSha256": "c7af6fee36e0bde88edd1b58635f7646bed2ad4ae93fa0ac654d3c6e40ea9339",
+  "dirtyCustody": "clean-at-acquisition",
+  "independentAcceptanceRequired": true
+}

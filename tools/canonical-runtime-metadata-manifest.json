@@ -1,0 +1,2182 @@
+{
+  "manifestKind": "runtime-metadata-canonical",
+  "manifestVersion": "r50-current-20261011",
+  "schemaVersion": 1,
+  "manifestStatus": "SIGNED_CANONICAL_INPUT",
+  "consumable": true,
+  "requiredFields": [
+    "snapshotSchemaVersion",
+    "cardCodecVersion",
+    "eventInterpreterVersion",
+    "protocolVersion",
+    "contractVersion",
+    "sourceHash",
+    "releaseId",
+    "indexGeneration"
+  ],
+  "sourceContract": {
+    "algorithm": "SHA-256(normalized production rule registry + normalized workbook + component source + binding evidence)",
+    "sourceKind": "normalized-current-production-rule-and-component-artifact",
+    "runtimeMetadataBinding": "identity -> current provider/family implementation -> common metadata contract, with no global-value substitution",
+    "noFallbacks": true,
+    "releaseEdition": "r15-cd2999-20261012",
+    "sourceRevisionKind": "sha256(current source inventory and rule artifacts)",
+    "contractVersion": "common-room-v1",
+    "releaseIssuer": "/root/lobby_runtime_from_staged_source"
+  },
+  "rows": [
+    {
+      "gameId": 2001,
+      "gameCode": "chengdu2001",
+      "family": "poker:pao-de-kuai",
+      "playVersion": "chengdu2001-v1.0.0",
+      "regionCode": "CN-51-01",
+      "snapshotSchemaVersion": "room-snapshot-v1",
+      "cardCodecVersion": "card-v3",
+      "eventInterpreterVersion": "events-v4",
+      "protocolVersion": "protocol-v2",
+      "sourceHash": "ca8ffd29cc851946e304a1e942725adebfe661b40323b3dc3614d9707078ac6b",
+      "releaseId": 1318087,
+      "indexGeneration": 1006137,
+      "ruleContentHash": "d86c3973ba3595efe37c08ffaff21c806ca91e75803edc9773ae378506fde996",
+      "componentContentHash": "b5dfd06a2c85d23827f2b27ecd013aa7713fd423c6d24c01bd5794ed68e7525b",
+      "providerBinding": {
+        "route": "GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily",
+        "providerClass": "com.aoo.bcg.poker.PdkGameProvider",
+        "implementationEvidence": [
+          "Server/server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/GameCatalogLoader.java#sha256=1351a366d799c727a2425b06af1ce70bf0f4e8ae6787bb3d93b32506adc4efc4",
+          "Server/server/Bootstrap/src/main/resources/game-catalog-528.tsv#sha256=9786f5c37d132315c17fcf5215e76982c57cf397badf65b333a608fcc827e557",
+          "Server/server/GameSPI/src/main/resources/current-game-identities.tsv#sha256=0ede8365f6202bf6738b4f01584be7ce25b21decbdc221d85ac75e6d015bdc65",
+          "Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/GameDescriptor.java#sha256=08bbe20cfdd3ceef62caf259ac8cdf78934b759156a56fd23a86465720e0655e",
+          "Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/RoomCreationContext.java#sha256=1e5841f901a76922510067d61bc640089a023b986d91340cfeed2fc5048243fb",
+          "Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/RoomSnapshotMetadataSource.java#sha256=f31db29edff055e7d7e8c0cc6a0332a36aa03781a208b4cf69f993e32fd80ab0",
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#sha256=2b0fc5d1855aea8ba6da8c82275036c0ffaf559321cb56ceae6d7d0146371d4b",
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/CanonicalRoomSnapshotMetadataProducer.java#sha256=1e433e0c3279e4e3c3962c39f45c810d29b6985c2332e37f64e9b7d36fe44094",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/PokerCatalogRuntimeRegistry.java#sha256=c05e1ac0414c6157d85b2416b807da99cb0f6d8482bbfeb7563aa8059ce5c7a2",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/PokerFamilyProviderFactories.java#sha256=d4e45baae25e0179b35fa082c22732b9dba7dc479ff91d031b6796f304bfc065",
+          "Server/server/Games/Poker/src/main/resources/poker-family-region-config.tsv#sha256=5f99c6936274b76b1c216b43c9e6356e80824547ada0a91fa6e40092b6bd3178",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/PaoDeKuaiFamily.java#sha256=5fc6316646331fdad60ef9139b867ad7463c0acf17db43db32168e48ec53013e",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/ChengduPdkRules.java#sha256=d170668098319d037a58d90fb377c2e3cbe34b97c8cc1d40fe9957816013ea90",
+          "Server/server/Bootstrap/src/main/resources/game-catalog-current-32.tsv#sha256=e89f295bebadfc96d71656b84c26c5df801d5bbdd993cfe0611fdc1e6f1fc81c"
+        ]
+      },
+      "runtimeMetadataEvidence": {
+        "snapshotSchemaVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_SNAPSHOT_SCHEMA_VERSION=room-snapshot-v1",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily#common-metadata-contract-no-override"
+        ],
+        "cardCodecVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_CARD_CODEC_VERSION=card-v3",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily#common-metadata-contract-no-override"
+        ],
+        "eventInterpreterVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_EVENT_INTERPRETER_VERSION=events-v4",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily#common-metadata-contract-no-override"
+        ],
+        "protocolVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_PROTOCOL_VERSION=protocol-v2",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily#common-metadata-contract-no-override"
+        ]
+      },
+      "sourceArtifact": {
+        "normalizedIdentitySource": "Server/tools/room-rule-play-identities.json#plays[0]",
+        "normalizedComponentSource": "SHA-256 over ordered production component path+hash records",
+        "normalizedContentHash": "b5dfd06a2c85d23827f2b27ecd013aa7713fd423c6d24c01bd5794ed68e7525b",
+        "normalizedWorkbookSource": "Client/docs/开房规则表/跑得快/成都跑得快.xlsx#normalized-zip-member-sha256-excluding-docProps/core.xml",
+        "normalizedWorkbookHash": "24eae92b615dceb7a93a73bc5f1da001027475bfba75871c1d936e20a35b316d"
+      },
+      "issuanceReason": "Release issuer /root/lobby_runtime_from_staged_source r15-cd2999-20261012 assigned explicit literal releaseId/indexGeneration for this unchanged current identity and re-bound normalized provider, rule, workbook, catalog and client inputs; no fallback, DB MAX, time or formula",
+      "admission": "ACCEPTED",
+      "artifactVersion": "rule-artifact-chengdu2001-20261009-r2-20261011-r50",
+      "sourceRevision": "0ba3ed58032deeaf9e79f211dfe4bd9f8a1b015b95d47c3298f3b1bcf3aa1012",
+      "contractVersion": "common-room-v1"
+    },
+    {
+      "gameId": 2002,
+      "gameCode": "neijiang2002",
+      "family": "poker:pao-de-kuai",
+      "playVersion": "neijiang2002-v1.0.0",
+      "regionCode": "CN-51-10",
+      "snapshotSchemaVersion": "room-snapshot-v1",
+      "cardCodecVersion": "card-v3",
+      "eventInterpreterVersion": "events-v4",
+      "protocolVersion": "protocol-v2",
+      "sourceHash": "e874258955e09787e77801518830d85bf25527ec38ffff2fa117e83c518e5cad",
+      "releaseId": 1318093,
+      "indexGeneration": 1006143,
+      "ruleContentHash": "2499b3dca1410c6e4c841c046119e20c96bc7245f8add9fc02c1c1d4aa8cba5b",
+      "componentContentHash": "c69b0625d2fcc285e23814c273b89daf1afba50f16c042e6fc1e15e52e892168",
+      "providerBinding": {
+        "route": "GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily",
+        "providerClass": "com.aoo.bcg.poker.PdkGameProvider",
+        "implementationEvidence": [
+          "Server/server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/GameCatalogLoader.java#sha256=1351a366d799c727a2425b06af1ce70bf0f4e8ae6787bb3d93b32506adc4efc4",
+          "Server/server/Bootstrap/src/main/resources/game-catalog-528.tsv#sha256=9786f5c37d132315c17fcf5215e76982c57cf397badf65b333a608fcc827e557",
+          "Server/server/GameSPI/src/main/resources/current-game-identities.tsv#sha256=0ede8365f6202bf6738b4f01584be7ce25b21decbdc221d85ac75e6d015bdc65",
+          "Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/GameDescriptor.java#sha256=08bbe20cfdd3ceef62caf259ac8cdf78934b759156a56fd23a86465720e0655e",
+          "Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/RoomCreationContext.java#sha256=1e5841f901a76922510067d61bc640089a023b986d91340cfeed2fc5048243fb",
+          "Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/RoomSnapshotMetadataSource.java#sha256=f31db29edff055e7d7e8c0cc6a0332a36aa03781a208b4cf69f993e32fd80ab0",
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#sha256=2b0fc5d1855aea8ba6da8c82275036c0ffaf559321cb56ceae6d7d0146371d4b",
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/CanonicalRoomSnapshotMetadataProducer.java#sha256=1e433e0c3279e4e3c3962c39f45c810d29b6985c2332e37f64e9b7d36fe44094",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/PokerCatalogRuntimeRegistry.java#sha256=c05e1ac0414c6157d85b2416b807da99cb0f6d8482bbfeb7563aa8059ce5c7a2",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/PokerFamilyProviderFactories.java#sha256=d4e45baae25e0179b35fa082c22732b9dba7dc479ff91d031b6796f304bfc065",
+          "Server/server/Games/Poker/src/main/resources/poker-family-region-config.tsv#sha256=5f99c6936274b76b1c216b43c9e6356e80824547ada0a91fa6e40092b6bd3178",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/PaoDeKuaiFamily.java#sha256=5fc6316646331fdad60ef9139b867ad7463c0acf17db43db32168e48ec53013e",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/NeijiangPdkRules.java#sha256=b2fc739bf553cf5b7801e1dab6664339167698971800f8049054f7e997a24d68",
+          "Server/server/Bootstrap/src/main/resources/game-catalog-current-32.tsv#sha256=e89f295bebadfc96d71656b84c26c5df801d5bbdd993cfe0611fdc1e6f1fc81c"
+        ]
+      },
+      "runtimeMetadataEvidence": {
+        "snapshotSchemaVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_SNAPSHOT_SCHEMA_VERSION=room-snapshot-v1",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily#common-metadata-contract-no-override"
+        ],
+        "cardCodecVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_CARD_CODEC_VERSION=card-v3",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily#common-metadata-contract-no-override"
+        ],
+        "eventInterpreterVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_EVENT_INTERPRETER_VERSION=events-v4",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily#common-metadata-contract-no-override"
+        ],
+        "protocolVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_PROTOCOL_VERSION=protocol-v2",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily#common-metadata-contract-no-override"
+        ]
+      },
+      "sourceArtifact": {
+        "normalizedIdentitySource": "Server/tools/room-rule-play-identities.json#plays[1]",
+        "normalizedComponentSource": "SHA-256 over ordered production component path+hash records",
+        "normalizedContentHash": "c69b0625d2fcc285e23814c273b89daf1afba50f16c042e6fc1e15e52e892168",
+        "normalizedWorkbookSource": "Client/docs/开房规则表/跑得快/内江跑得快.xlsx#normalized-zip-member-sha256-excluding-docProps/core.xml",
+        "normalizedWorkbookHash": "4067969fc9ba4db5edb3719997f8721fda1923954becb27fc38144a8ec3b6745"
+      },
+      "issuanceReason": "Release issuer /root/lobby_runtime_from_staged_source r15-cd2999-20261012 assigned explicit literal releaseId/indexGeneration for this unchanged current identity and re-bound normalized provider, rule, workbook, catalog and client inputs; no fallback, DB MAX, time or formula",
+      "admission": "ACCEPTED",
+      "artifactVersion": "rule-artifact-neijiang2002-20261009-r2-20261011-r50",
+      "sourceRevision": "a45007a3169a8a8834636f932203f11060b2aca612933957d6c440038c43721b",
+      "contractVersion": "common-room-v1"
+    },
+    {
+      "gameId": 2003,
+      "gameCode": "liangshan2003",
+      "family": "poker:pao-de-kuai",
+      "playVersion": "liangshan2003-v1.0.0",
+      "regionCode": "CN-51-34",
+      "snapshotSchemaVersion": "room-snapshot-v1",
+      "cardCodecVersion": "card-v3",
+      "eventInterpreterVersion": "events-v4",
+      "protocolVersion": "protocol-v2",
+      "sourceHash": "c5fe7d0e7078992537ba68c5ae1d96614d4ae0e32822c6dd7a1e0b4e862250c3",
+      "releaseId": 1318101,
+      "indexGeneration": 1006151,
+      "ruleContentHash": "2b66b69fe32e3a9a5e8027c3c756ab2f77d4bfdc7b9799b69c50fb73770ce159",
+      "componentContentHash": "0da08967683ee45752c069308ed7f12f608e7b2fb61dd3e1c425b8cf0b3b3e64",
+      "providerBinding": {
+        "route": "GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily",
+        "providerClass": "com.aoo.bcg.poker.PdkGameProvider",
+        "implementationEvidence": [
+          "Server/server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/GameCatalogLoader.java#sha256=1351a366d799c727a2425b06af1ce70bf0f4e8ae6787bb3d93b32506adc4efc4",
+          "Server/server/Bootstrap/src/main/resources/game-catalog-528.tsv#sha256=9786f5c37d132315c17fcf5215e76982c57cf397badf65b333a608fcc827e557",
+          "Server/server/GameSPI/src/main/resources/current-game-identities.tsv#sha256=0ede8365f6202bf6738b4f01584be7ce25b21decbdc221d85ac75e6d015bdc65",
+          "Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/GameDescriptor.java#sha256=08bbe20cfdd3ceef62caf259ac8cdf78934b759156a56fd23a86465720e0655e",
+          "Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/RoomCreationContext.java#sha256=1e5841f901a76922510067d61bc640089a023b986d91340cfeed2fc5048243fb",
+          "Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/RoomSnapshotMetadataSource.java#sha256=f31db29edff055e7d7e8c0cc6a0332a36aa03781a208b4cf69f993e32fd80ab0",
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#sha256=2b0fc5d1855aea8ba6da8c82275036c0ffaf559321cb56ceae6d7d0146371d4b",
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/CanonicalRoomSnapshotMetadataProducer.java#sha256=1e433e0c3279e4e3c3962c39f45c810d29b6985c2332e37f64e9b7d36fe44094",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/PokerCatalogRuntimeRegistry.java#sha256=c05e1ac0414c6157d85b2416b807da99cb0f6d8482bbfeb7563aa8059ce5c7a2",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/PokerFamilyProviderFactories.java#sha256=d4e45baae25e0179b35fa082c22732b9dba7dc479ff91d031b6796f304bfc065",
+          "Server/server/Games/Poker/src/main/resources/poker-family-region-config.tsv#sha256=5f99c6936274b76b1c216b43c9e6356e80824547ada0a91fa6e40092b6bd3178",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/PaoDeKuaiFamily.java#sha256=5fc6316646331fdad60ef9139b867ad7463c0acf17db43db32168e48ec53013e",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/LiangshanPdkRules.java#sha256=73184ecd4fbfe3b94e5aceac07be3b96fdf2ebcdf8a86e519e3cafb05836f94b",
+          "Server/server/Bootstrap/src/main/resources/game-catalog-current-32.tsv#sha256=e89f295bebadfc96d71656b84c26c5df801d5bbdd993cfe0611fdc1e6f1fc81c"
+        ]
+      },
+      "runtimeMetadataEvidence": {
+        "snapshotSchemaVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_SNAPSHOT_SCHEMA_VERSION=room-snapshot-v1",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily#common-metadata-contract-no-override"
+        ],
+        "cardCodecVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_CARD_CODEC_VERSION=card-v3",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily#common-metadata-contract-no-override"
+        ],
+        "eventInterpreterVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_EVENT_INTERPRETER_VERSION=events-v4",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily#common-metadata-contract-no-override"
+        ],
+        "protocolVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_PROTOCOL_VERSION=protocol-v2",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily#common-metadata-contract-no-override"
+        ]
+      },
+      "sourceArtifact": {
+        "normalizedIdentitySource": "Server/tools/room-rule-play-identities.json#plays[2]",
+        "normalizedComponentSource": "SHA-256 over ordered production component path+hash records",
+        "normalizedContentHash": "0da08967683ee45752c069308ed7f12f608e7b2fb61dd3e1c425b8cf0b3b3e64",
+        "normalizedWorkbookSource": "Client/docs/开房规则表/跑得快/凉山跑得快.xlsx#normalized-zip-member-sha256-excluding-docProps/core.xml",
+        "normalizedWorkbookHash": "ac22182e3d03084e463f1ca74eb2e95cf3e535cc7284855b4a3e176fb3c7b27d"
+      },
+      "issuanceReason": "Release issuer /root/lobby_runtime_from_staged_source r15-cd2999-20261012 assigned explicit literal releaseId/indexGeneration for this unchanged current identity and re-bound normalized provider, rule, workbook, catalog and client inputs; no fallback, DB MAX, time or formula",
+      "admission": "ACCEPTED",
+      "artifactVersion": "rule-artifact-liangshan2003-20261009-r2-20261011-r50",
+      "sourceRevision": "0e1debb7b2b710d1b7a636c2cee36a3856cc9fac89a49460d0859103ab78c139",
+      "contractVersion": "common-room-v1"
+    },
+    {
+      "gameId": 5,
+      "gameCode": "quanguo2998",
+      "family": "poker:betting",
+      "playVersion": "cn298-v1.0.0",
+      "regionCode": "GLOBAL",
+      "snapshotSchemaVersion": "room-snapshot-v1",
+      "cardCodecVersion": "card-v3",
+      "eventInterpreterVersion": "events-v4",
+      "protocolVersion": "protocol-v2",
+      "sourceHash": "1a4a372aba8f49eb8d7ea224e19680b5532e1d7288d2cfcf091bbf556b63ad52",
+      "releaseId": 1318057,
+      "indexGeneration": 1006107,
+      "ruleContentHash": "4cc7cc5ae78a52b54c464083c8eec0d31d0f66a71b7275ce88fda28652d3878e",
+      "componentContentHash": "7cd0d1ed23ef7d33274e0f97c7e54622db2b67954d8c27e00081d7292563f141",
+      "providerBinding": {
+        "route": "GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> CN298PokerFamilyProviderFactory -> CN298GameProvider",
+        "providerClass": "com.aoo.bcg.poker.nn.CN298GameProvider",
+        "implementationEvidence": [
+          "Server/server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/GameCatalogLoader.java#sha256=1351a366d799c727a2425b06af1ce70bf0f4e8ae6787bb3d93b32506adc4efc4",
+          "Server/server/Bootstrap/src/main/resources/game-catalog-528.tsv#sha256=9786f5c37d132315c17fcf5215e76982c57cf397badf65b333a608fcc827e557",
+          "Server/server/GameSPI/src/main/resources/current-game-identities.tsv#sha256=0ede8365f6202bf6738b4f01584be7ce25b21decbdc221d85ac75e6d015bdc65",
+          "Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/GameDescriptor.java#sha256=08bbe20cfdd3ceef62caf259ac8cdf78934b759156a56fd23a86465720e0655e",
+          "Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/RoomCreationContext.java#sha256=1e5841f901a76922510067d61bc640089a023b986d91340cfeed2fc5048243fb",
+          "Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/RoomSnapshotMetadataSource.java#sha256=f31db29edff055e7d7e8c0cc6a0332a36aa03781a208b4cf69f993e32fd80ab0",
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#sha256=2b0fc5d1855aea8ba6da8c82275036c0ffaf559321cb56ceae6d7d0146371d4b",
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/CanonicalRoomSnapshotMetadataProducer.java#sha256=1e433e0c3279e4e3c3962c39f45c810d29b6985c2332e37f64e9b7d36fe44094",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/PokerCatalogRuntimeRegistry.java#sha256=c05e1ac0414c6157d85b2416b807da99cb0f6d8482bbfeb7563aa8059ce5c7a2",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/PokerFamilyProviderFactories.java#sha256=d4e45baae25e0179b35fa082c22732b9dba7dc479ff91d031b6796f304bfc065",
+          "Server/server/Games/Poker/src/main/resources/poker-family-region-config.tsv#sha256=5f99c6936274b76b1c216b43c9e6356e80824547ada0a91fa6e40092b6bd3178",
+          "Server/server/Games/Poker/NN/src/main/java/com/aoo/bcg/poker/nn/CN298PokerFamilyProviderFactory.java#sha256=ba2735ecfa9e8289c429fa3670fd10fd153223e1fcc65f895ce48a843549031d",
+          "Server/server/Games/Poker/NN/src/main/java/com/aoo/bcg/poker/nn/CN298GameProvider.java#sha256=69f35e4c48ff6554aa9bcb0e256c0317eca2baae04a04efeb67fd6d36bdfcf47",
+          "Server/server/Games/Poker/NN/src/main/java/com/aoo/bcg/poker/nn/NiuNiuRules.java#sha256=27dbafb283c88e6dc3940063d519d0323a97df810df2a482a5b4dabc3c5d25fe",
+          "Server/server/Bootstrap/src/main/resources/game-catalog-current-32.tsv#sha256=e89f295bebadfc96d71656b84c26c5df801d5bbdd993cfe0611fdc1e6f1fc81c"
+        ]
+      },
+      "runtimeMetadataEvidence": {
+        "snapshotSchemaVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_SNAPSHOT_SCHEMA_VERSION=room-snapshot-v1",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> CN298PokerFamilyProviderFactory -> CN298GameProvider#common-metadata-contract-no-override"
+        ],
+        "cardCodecVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_CARD_CODEC_VERSION=card-v3",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> CN298PokerFamilyProviderFactory -> CN298GameProvider#common-metadata-contract-no-override"
+        ],
+        "eventInterpreterVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_EVENT_INTERPRETER_VERSION=events-v4",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> CN298PokerFamilyProviderFactory -> CN298GameProvider#common-metadata-contract-no-override"
+        ],
+        "protocolVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_PROTOCOL_VERSION=protocol-v2",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> CN298PokerFamilyProviderFactory -> CN298GameProvider#common-metadata-contract-no-override"
+        ]
+      },
+      "sourceArtifact": {
+        "normalizedIdentitySource": "Server/tools/room-rule-play-identities.json#plays[3]",
+        "normalizedComponentSource": "SHA-256 over ordered production component path+hash records",
+        "normalizedContentHash": "7cd0d1ed23ef7d33274e0f97c7e54622db2b67954d8c27e00081d7292563f141",
+        "normalizedWorkbookSource": "Client/docs/开房规则表/牛牛/全国牛牛.xlsx#normalized-zip-member-sha256-excluding-docProps/core.xml",
+        "normalizedWorkbookHash": "143d2044613be17e6fd82ac7252724db9787708928ac882a55082e8bc71174c7"
+      },
+      "issuanceReason": "Release issuer /root/lobby_runtime_from_staged_source r15-cd2999-20261012 assigned explicit literal releaseId/indexGeneration for this unchanged current identity and re-bound normalized provider, rule, workbook, catalog and client inputs; no fallback, DB MAX, time or formula",
+      "admission": "ACCEPTED",
+      "artifactVersion": "rule-artifact-quanguo2998-20261009-r2-20261011-r50",
+      "sourceRevision": "76f5d437e3963b68d9c3d4a910e8a40be2cfa1cb108b7bd96c57275eaff00240",
+      "contractVersion": "common-room-v1"
+    },
+    {
+      "gameId": 9,
+      "gameCode": "quanguo2997",
+      "family": "poker:compare-hand",
+      "playVersion": "cn297-v1.0.0",
+      "regionCode": "GLOBAL",
+      "snapshotSchemaVersion": "room-snapshot-v1",
+      "cardCodecVersion": "card-v3",
+      "eventInterpreterVersion": "events-v4",
+      "protocolVersion": "protocol-v2",
+      "sourceHash": "1d7b6785e3c4905cbf482312c54b4fc192726b9274e2dc575cdcf72619d8a546",
+      "releaseId": 1318063,
+      "indexGeneration": 1006113,
+      "ruleContentHash": "70a3438c29ec6a667b9b8e6fa6abd41ab4197a19e0b4745dbb498d5f863977a6",
+      "componentContentHash": "e009598ee5adb25eb0a6c6bc1d9a5abf7913a5df80b54892250efe11472a34a2",
+      "providerBinding": {
+        "route": "GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> ZJHPokerFamilyProviderFactory -> ZJHGameProvider",
+        "providerClass": "business.global.pk.zjh.ZJHGameProvider",
+        "implementationEvidence": [
+          "Server/server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/GameCatalogLoader.java#sha256=1351a366d799c727a2425b06af1ce70bf0f4e8ae6787bb3d93b32506adc4efc4",
+          "Server/server/Bootstrap/src/main/resources/game-catalog-528.tsv#sha256=9786f5c37d132315c17fcf5215e76982c57cf397badf65b333a608fcc827e557",
+          "Server/server/GameSPI/src/main/resources/current-game-identities.tsv#sha256=0ede8365f6202bf6738b4f01584be7ce25b21decbdc221d85ac75e6d015bdc65",
+          "Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/GameDescriptor.java#sha256=08bbe20cfdd3ceef62caf259ac8cdf78934b759156a56fd23a86465720e0655e",
+          "Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/RoomCreationContext.java#sha256=1e5841f901a76922510067d61bc640089a023b986d91340cfeed2fc5048243fb",
+          "Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/RoomSnapshotMetadataSource.java#sha256=f31db29edff055e7d7e8c0cc6a0332a36aa03781a208b4cf69f993e32fd80ab0",
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#sha256=2b0fc5d1855aea8ba6da8c82275036c0ffaf559321cb56ceae6d7d0146371d4b",
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/CanonicalRoomSnapshotMetadataProducer.java#sha256=1e433e0c3279e4e3c3962c39f45c810d29b6985c2332e37f64e9b7d36fe44094",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/PokerCatalogRuntimeRegistry.java#sha256=c05e1ac0414c6157d85b2416b807da99cb0f6d8482bbfeb7563aa8059ce5c7a2",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/PokerFamilyProviderFactories.java#sha256=d4e45baae25e0179b35fa082c22732b9dba7dc479ff91d031b6796f304bfc065",
+          "Server/server/Games/Poker/src/main/resources/poker-family-region-config.tsv#sha256=5f99c6936274b76b1c216b43c9e6356e80824547ada0a91fa6e40092b6bd3178",
+          "Server/server/Games/Poker/ZJH/src/business/global/pk/zjh/ZJHPokerFamilyProviderFactory.java#sha256=d4da358fc01e5a9ad142b1966d8745dc78a1ae47887d28488a310df009277bfd",
+          "Server/server/Games/Poker/ZJH/src/business/global/pk/zjh/ZJHGameProvider.java#sha256=74d7bccf2bbd2705735e87c953d18fa88ea9afb095756467b99673930e0a9e55",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/ComparePokerFamily.java#sha256=95ed79883f7fd43379ffba99d2ebf994798481f506956bea124c08dfac82f402",
+          "Server/server/Bootstrap/src/main/resources/game-catalog-current-32.tsv#sha256=e89f295bebadfc96d71656b84c26c5df801d5bbdd993cfe0611fdc1e6f1fc81c"
+        ]
+      },
+      "runtimeMetadataEvidence": {
+        "snapshotSchemaVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_SNAPSHOT_SCHEMA_VERSION=room-snapshot-v1",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> ZJHPokerFamilyProviderFactory -> ZJHGameProvider#common-metadata-contract-no-override"
+        ],
+        "cardCodecVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_CARD_CODEC_VERSION=card-v3",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> ZJHPokerFamilyProviderFactory -> ZJHGameProvider#common-metadata-contract-no-override"
+        ],
+        "eventInterpreterVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_EVENT_INTERPRETER_VERSION=events-v4",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> ZJHPokerFamilyProviderFactory -> ZJHGameProvider#common-metadata-contract-no-override"
+        ],
+        "protocolVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_PROTOCOL_VERSION=protocol-v2",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> ZJHPokerFamilyProviderFactory -> ZJHGameProvider#common-metadata-contract-no-override"
+        ]
+      },
+      "sourceArtifact": {
+        "normalizedIdentitySource": "Server/tools/room-rule-play-identities.json#plays[4]",
+        "normalizedComponentSource": "SHA-256 over ordered production component path+hash records",
+        "normalizedContentHash": "e009598ee5adb25eb0a6c6bc1d9a5abf7913a5df80b54892250efe11472a34a2",
+        "normalizedWorkbookSource": "Client/docs/开房规则表/金花/全国金花CN297.xlsx#normalized-zip-member-sha256-excluding-docProps/core.xml",
+        "normalizedWorkbookHash": "5e4476aedf1ebd0a15ebdfdd395a03ee0d62b4ffd25bc0e29c60c82d6f83cffa"
+      },
+      "issuanceReason": "Release issuer /root/lobby_runtime_from_staged_source r15-cd2999-20261012 assigned explicit literal releaseId/indexGeneration for this unchanged current identity and re-bound normalized provider, rule, workbook, catalog and client inputs; no fallback, DB MAX, time or formula",
+      "admission": "ACCEPTED",
+      "artifactVersion": "rule-artifact-quanguo2997-20261009-r2-20261011-r50",
+      "sourceRevision": "f7f86568eb531bac50b4fac6524302877292c1d62efb6b5dd0754fb81229ec27",
+      "contractVersion": "common-room-v1"
+    },
+    {
+      "gameId": 2999,
+      "gameCode": "chengdu2999",
+      "family": "poker:cd299",
+      "playVersion": "cd299-v1.0.0",
+      "regionCode": "CN-51-01",
+      "snapshotSchemaVersion": "room-snapshot-v1",
+      "cardCodecVersion": "card-v3",
+      "eventInterpreterVersion": "events-v4",
+      "protocolVersion": "protocol-v2",
+      "sourceHash": "f608c559c969209a1bbdf985fe54b7807bd0022c4c4a711a9a75a94aee6dbab5",
+      "releaseId": 2999001,
+      "indexGeneration": 3999001,
+      "ruleContentHash": "8aa129dcd826a9d49b0a3872731c2452d8532d45cc1d714d43320885b3024e1c",
+      "componentContentHash": "eb63818b2060a975bb8bf5408c90efbaa2099b1ce1b1c3e8033f84f91efd874d",
+      "providerBinding": {
+        "route": "GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> Cd299ProviderFactory -> Cd299GameProvider",
+        "providerClass": "com.aoo.bcg.poker.cd299.Cd299GameProvider",
+        "implementationEvidence": [
+          "Server/server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/GameCatalogLoader.java#sha256=1351a366d799c727a2425b06af1ce70bf0f4e8ae6787bb3d93b32506adc4efc4",
+          "Server/server/Bootstrap/src/main/resources/game-catalog-528.tsv#sha256=9786f5c37d132315c17fcf5215e76982c57cf397badf65b333a608fcc827e557",
+          "Server/server/GameSPI/src/main/resources/current-game-identities.tsv#sha256=0ede8365f6202bf6738b4f01584be7ce25b21decbdc221d85ac75e6d015bdc65",
+          "Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/GameDescriptor.java#sha256=08bbe20cfdd3ceef62caf259ac8cdf78934b759156a56fd23a86465720e0655e",
+          "Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/RoomCreationContext.java#sha256=1e5841f901a76922510067d61bc640089a023b986d91340cfeed2fc5048243fb",
+          "Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/RoomSnapshotMetadataSource.java#sha256=f31db29edff055e7d7e8c0cc6a0332a36aa03781a208b4cf69f993e32fd80ab0",
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#sha256=2b0fc5d1855aea8ba6da8c82275036c0ffaf559321cb56ceae6d7d0146371d4b",
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/CanonicalRoomSnapshotMetadataProducer.java#sha256=1e433e0c3279e4e3c3962c39f45c810d29b6985c2332e37f64e9b7d36fe44094",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/PokerCatalogRuntimeRegistry.java#sha256=c05e1ac0414c6157d85b2416b807da99cb0f6d8482bbfeb7563aa8059ce5c7a2",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/PokerFamilyProviderFactories.java#sha256=d4e45baae25e0179b35fa082c22732b9dba7dc479ff91d031b6796f304bfc065",
+          "Server/server/Games/Poker/src/main/resources/poker-family-region-config.tsv#sha256=5f99c6936274b76b1c216b43c9e6356e80824547ada0a91fa6e40092b6bd3178",
+          "Server/server/Games/Poker/CX/src/main/java/com/aoo/bcg/poker/cd299/Cd299ProviderFactory.java#sha256=026abfd0f72328c40d5f284c9325f1dbb61038a55161afec1d09aea96cd6a55d",
+          "Server/server/Games/Poker/CX/src/main/java/com/aoo/bcg/poker/cd299/Cd299GameProvider.java#sha256=b274e0ae872aaff7a9571baf64d5f81f460d5b71e1a9343ccfc3cf64c5c30d22",
+          "Server/server/Games/Poker/CX/src/main/java/com/aoo/bcg/poker/cd299/Cd299Rules.java#sha256=5025fa1c299b9c2b175567072f72d157020a9bdea2ecb483da9522b9dd408721",
+          "Server/server/Bootstrap/src/main/resources/game-catalog-current-32.tsv#sha256=e89f295bebadfc96d71656b84c26c5df801d5bbdd993cfe0611fdc1e6f1fc81c"
+        ]
+      },
+      "runtimeMetadataEvidence": {
+        "snapshotSchemaVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_SNAPSHOT_SCHEMA_VERSION=room-snapshot-v1",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> Cd299ProviderFactory -> Cd299GameProvider#common-metadata-contract-no-override"
+        ],
+        "cardCodecVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_CARD_CODEC_VERSION=card-v3",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> Cd299ProviderFactory -> Cd299GameProvider#common-metadata-contract-no-override"
+        ],
+        "eventInterpreterVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_EVENT_INTERPRETER_VERSION=events-v4",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> Cd299ProviderFactory -> Cd299GameProvider#common-metadata-contract-no-override"
+        ],
+        "protocolVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_PROTOCOL_VERSION=protocol-v2",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> Cd299ProviderFactory -> Cd299GameProvider#common-metadata-contract-no-override"
+        ]
+      },
+      "sourceArtifact": {
+        "normalizedIdentitySource": "Server/tools/room-rule-play-identities.json#plays[5]",
+        "normalizedComponentSource": "SHA-256 over ordered production component path+hash records",
+        "normalizedContentHash": "eb63818b2060a975bb8bf5408c90efbaa2099b1ce1b1c3e8033f84f91efd874d",
+        "normalizedWorkbookSource": "Client/docs/开房规则表/扯旋/成都扯旋CD299.xlsx#normalized-zip-member-sha256-excluding-docProps/core.xml",
+        "normalizedWorkbookHash": "d6169a704925bb3af47e2fcfc2f80dc84718b40a5da4fdeb4eda4b7cb2e51853"
+      },
+      "issuanceReason": "Release issuer /root/lobby_runtime_from_staged_source r15-cd2999-20261012 assigned explicit literal releaseId/indexGeneration; normalized provider, rule, workbook, catalog and client inputs are bound; no fallback, DB MAX, time or formula",
+      "admission": "ACCEPTED",
+      "artifactVersion": "rule-artifact-chengdu2999-20261012-r15",
+      "sourceRevision": "6fbbcaba4b1903c3be57157bb320178ac24c97fd61a3e642308eef788aa4b825",
+      "contractVersion": "common-room-v1"
+    },
+    {
+      "gameId": 2004,
+      "gameCode": "mianning2004",
+      "family": "poker:pao-de-kuai",
+      "playVersion": "mianning2004-v1.0.0",
+      "regionCode": "CN-51-34-33",
+      "snapshotSchemaVersion": "room-snapshot-v1",
+      "cardCodecVersion": "card-v3",
+      "eventInterpreterVersion": "events-v4",
+      "protocolVersion": "protocol-v2",
+      "sourceHash": "713a219390223ec6926f2c1825a95b28c95a43ef37f86b78a5923d236ef5549a",
+      "releaseId": 1318109,
+      "indexGeneration": 1006159,
+      "ruleContentHash": "9ff749259943a882d96690d3c6560104ce901a2fcf0304b72820a46a434541a6",
+      "componentContentHash": "62eef1d67112921c29db2177da1d1bfafdf91394e388112b3cceee7ee0d66cc1",
+      "providerBinding": {
+        "route": "GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily",
+        "providerClass": "com.aoo.bcg.poker.PdkGameProvider",
+        "implementationEvidence": [
+          "Server/server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/GameCatalogLoader.java#sha256=1351a366d799c727a2425b06af1ce70bf0f4e8ae6787bb3d93b32506adc4efc4",
+          "Server/server/Bootstrap/src/main/resources/game-catalog-528.tsv#sha256=9786f5c37d132315c17fcf5215e76982c57cf397badf65b333a608fcc827e557",
+          "Server/server/GameSPI/src/main/resources/current-game-identities.tsv#sha256=0ede8365f6202bf6738b4f01584be7ce25b21decbdc221d85ac75e6d015bdc65",
+          "Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/GameDescriptor.java#sha256=08bbe20cfdd3ceef62caf259ac8cdf78934b759156a56fd23a86465720e0655e",
+          "Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/RoomCreationContext.java#sha256=1e5841f901a76922510067d61bc640089a023b986d91340cfeed2fc5048243fb",
+          "Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/RoomSnapshotMetadataSource.java#sha256=f31db29edff055e7d7e8c0cc6a0332a36aa03781a208b4cf69f993e32fd80ab0",
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#sha256=2b0fc5d1855aea8ba6da8c82275036c0ffaf559321cb56ceae6d7d0146371d4b",
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/CanonicalRoomSnapshotMetadataProducer.java#sha256=1e433e0c3279e4e3c3962c39f45c810d29b6985c2332e37f64e9b7d36fe44094",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/PokerCatalogRuntimeRegistry.java#sha256=c05e1ac0414c6157d85b2416b807da99cb0f6d8482bbfeb7563aa8059ce5c7a2",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/PokerFamilyProviderFactories.java#sha256=d4e45baae25e0179b35fa082c22732b9dba7dc479ff91d031b6796f304bfc065",
+          "Server/server/Games/Poker/src/main/resources/poker-family-region-config.tsv#sha256=5f99c6936274b76b1c216b43c9e6356e80824547ada0a91fa6e40092b6bd3178",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/PaoDeKuaiFamily.java#sha256=5fc6316646331fdad60ef9139b867ad7463c0acf17db43db32168e48ec53013e",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/MianningPdkRegionRules.java#sha256=f1c4db182ce7680f11472d375e08e140b15866cf5c31d910a342489b1d7c457c",
+          "Server/server/Bootstrap/src/main/resources/game-catalog-current-32.tsv#sha256=e89f295bebadfc96d71656b84c26c5df801d5bbdd993cfe0611fdc1e6f1fc81c"
+        ]
+      },
+      "runtimeMetadataEvidence": {
+        "snapshotSchemaVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_SNAPSHOT_SCHEMA_VERSION=room-snapshot-v1",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily#common-metadata-contract-no-override"
+        ],
+        "cardCodecVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_CARD_CODEC_VERSION=card-v3",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily#common-metadata-contract-no-override"
+        ],
+        "eventInterpreterVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_EVENT_INTERPRETER_VERSION=events-v4",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily#common-metadata-contract-no-override"
+        ],
+        "protocolVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_PROTOCOL_VERSION=protocol-v2",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily#common-metadata-contract-no-override"
+        ]
+      },
+      "sourceArtifact": {
+        "normalizedIdentitySource": "Server/tools/room-rule-play-identities.json#plays[6]",
+        "normalizedComponentSource": "SHA-256 over ordered production component path+hash records",
+        "normalizedContentHash": "62eef1d67112921c29db2177da1d1bfafdf91394e388112b3cceee7ee0d66cc1",
+        "normalizedWorkbookSource": "Client/docs/开房规则表/跑得快/冕宁跑得快.xlsx#normalized-zip-member-sha256-excluding-docProps/core.xml",
+        "normalizedWorkbookHash": "dcf58514b1bf6578e11748472826565faf891990a64f99d60b353fc0b334c6e7"
+      },
+      "issuanceReason": "Release issuer /root/lobby_runtime_from_staged_source r15-cd2999-20261012 assigned explicit literal releaseId/indexGeneration for this unchanged current identity and re-bound normalized provider, rule, workbook, catalog and client inputs; no fallback, DB MAX, time or formula",
+      "admission": "ACCEPTED",
+      "artifactVersion": "rule-artifact-mianning2004-20261009-r2-20261011-r50",
+      "sourceRevision": "1be0f035971d90fc0f157ab752f6f2eef4188d6676ddcaefb1be90f0eeeba613",
+      "contractVersion": "common-room-v1"
+    },
+    {
+      "gameId": 2005,
+      "gameCode": "anyue2005",
+      "family": "poker:pao-de-kuai",
+      "playVersion": "anyue2005-v1.0.0",
+      "regionCode": "CN-51-20-21",
+      "snapshotSchemaVersion": "room-snapshot-v1",
+      "cardCodecVersion": "card-v3",
+      "eventInterpreterVersion": "events-v4",
+      "protocolVersion": "protocol-v2",
+      "sourceHash": "dabb398a4ebb6dd2700fc7d639ccc7ad589abc1142cd9f00fce2884c5932ce0a",
+      "releaseId": 1318117,
+      "indexGeneration": 1006167,
+      "ruleContentHash": "041aabc23045ca5da27827bdc0b275d205016853361e25334e7676f1c47dce63",
+      "componentContentHash": "bbf62e464276069f0931df75893c6cd1044d810d2117928d80693da915542b2b",
+      "providerBinding": {
+        "route": "GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily",
+        "providerClass": "com.aoo.bcg.poker.PdkGameProvider",
+        "implementationEvidence": [
+          "Server/server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/GameCatalogLoader.java#sha256=1351a366d799c727a2425b06af1ce70bf0f4e8ae6787bb3d93b32506adc4efc4",
+          "Server/server/Bootstrap/src/main/resources/game-catalog-528.tsv#sha256=9786f5c37d132315c17fcf5215e76982c57cf397badf65b333a608fcc827e557",
+          "Server/server/GameSPI/src/main/resources/current-game-identities.tsv#sha256=0ede8365f6202bf6738b4f01584be7ce25b21decbdc221d85ac75e6d015bdc65",
+          "Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/GameDescriptor.java#sha256=08bbe20cfdd3ceef62caf259ac8cdf78934b759156a56fd23a86465720e0655e",
+          "Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/RoomCreationContext.java#sha256=1e5841f901a76922510067d61bc640089a023b986d91340cfeed2fc5048243fb",
+          "Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/RoomSnapshotMetadataSource.java#sha256=f31db29edff055e7d7e8c0cc6a0332a36aa03781a208b4cf69f993e32fd80ab0",
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#sha256=2b0fc5d1855aea8ba6da8c82275036c0ffaf559321cb56ceae6d7d0146371d4b",
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/CanonicalRoomSnapshotMetadataProducer.java#sha256=1e433e0c3279e4e3c3962c39f45c810d29b6985c2332e37f64e9b7d36fe44094",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/PokerCatalogRuntimeRegistry.java#sha256=c05e1ac0414c6157d85b2416b807da99cb0f6d8482bbfeb7563aa8059ce5c7a2",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/PokerFamilyProviderFactories.java#sha256=d4e45baae25e0179b35fa082c22732b9dba7dc479ff91d031b6796f304bfc065",
+          "Server/server/Games/Poker/src/main/resources/poker-family-region-config.tsv#sha256=5f99c6936274b76b1c216b43c9e6356e80824547ada0a91fa6e40092b6bd3178",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/PaoDeKuaiFamily.java#sha256=5fc6316646331fdad60ef9139b867ad7463c0acf17db43db32168e48ec53013e",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/AnyuePdkRegionRules.java#sha256=fb9c662fb1b60e4ed17360f6d11da734ab9dda4d1ae4b92806fdbc3f3c3b2dfd",
+          "Server/server/Bootstrap/src/main/resources/game-catalog-current-32.tsv#sha256=e89f295bebadfc96d71656b84c26c5df801d5bbdd993cfe0611fdc1e6f1fc81c"
+        ]
+      },
+      "runtimeMetadataEvidence": {
+        "snapshotSchemaVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_SNAPSHOT_SCHEMA_VERSION=room-snapshot-v1",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily#common-metadata-contract-no-override"
+        ],
+        "cardCodecVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_CARD_CODEC_VERSION=card-v3",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily#common-metadata-contract-no-override"
+        ],
+        "eventInterpreterVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_EVENT_INTERPRETER_VERSION=events-v4",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily#common-metadata-contract-no-override"
+        ],
+        "protocolVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_PROTOCOL_VERSION=protocol-v2",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily#common-metadata-contract-no-override"
+        ]
+      },
+      "sourceArtifact": {
+        "normalizedIdentitySource": "Server/tools/room-rule-play-identities.json#plays[7]",
+        "normalizedComponentSource": "SHA-256 over ordered production component path+hash records",
+        "normalizedContentHash": "bbf62e464276069f0931df75893c6cd1044d810d2117928d80693da915542b2b",
+        "normalizedWorkbookSource": "Client/docs/开房规则表/跑得快/安岳跑得快.xlsx#normalized-zip-member-sha256-excluding-docProps/core.xml",
+        "normalizedWorkbookHash": "e7c4779c65ccbc8d983c920e9f51113ff8335ae22155ab55ecedf7fca9a2fc9f"
+      },
+      "issuanceReason": "Release issuer /root/lobby_runtime_from_staged_source r15-cd2999-20261012 assigned explicit literal releaseId/indexGeneration for this unchanged current identity and re-bound normalized provider, rule, workbook, catalog and client inputs; no fallback, DB MAX, time or formula",
+      "admission": "ACCEPTED",
+      "artifactVersion": "rule-artifact-anyue2005-20261009-r2-20261011-r50",
+      "sourceRevision": "89823d87aed32a39e71313bd533825901175025a5d4c4b9094cdbbc8e9605ecf",
+      "contractVersion": "common-room-v1"
+    },
+    {
+      "gameId": 2006,
+      "gameCode": "panzhihua2006",
+      "family": "poker:pao-de-kuai",
+      "playVersion": "panzhihua2006-v1.0.0",
+      "regionCode": "CN-51-04",
+      "snapshotSchemaVersion": "room-snapshot-v1",
+      "cardCodecVersion": "card-v3",
+      "eventInterpreterVersion": "events-v4",
+      "protocolVersion": "protocol-v2",
+      "sourceHash": "2863f927671d0c2bc8dfed680a3388fc68e0f10b2b6ea296a44f6e5e89567fa5",
+      "releaseId": 1318123,
+      "indexGeneration": 1006173,
+      "ruleContentHash": "88acd42b7d9ec311219f344035bc908696eb94ce093839c2a66582e128f7f823",
+      "componentContentHash": "8760b9f1fd91fa0e056d3b6dd3ad31f3c2e19fbac52c3c8261267eb3d1a10762",
+      "providerBinding": {
+        "route": "GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily",
+        "providerClass": "com.aoo.bcg.poker.PdkGameProvider",
+        "implementationEvidence": [
+          "Server/server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/GameCatalogLoader.java#sha256=1351a366d799c727a2425b06af1ce70bf0f4e8ae6787bb3d93b32506adc4efc4",
+          "Server/server/Bootstrap/src/main/resources/game-catalog-528.tsv#sha256=9786f5c37d132315c17fcf5215e76982c57cf397badf65b333a608fcc827e557",
+          "Server/server/GameSPI/src/main/resources/current-game-identities.tsv#sha256=0ede8365f6202bf6738b4f01584be7ce25b21decbdc221d85ac75e6d015bdc65",
+          "Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/GameDescriptor.java#sha256=08bbe20cfdd3ceef62caf259ac8cdf78934b759156a56fd23a86465720e0655e",
+          "Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/RoomCreationContext.java#sha256=1e5841f901a76922510067d61bc640089a023b986d91340cfeed2fc5048243fb",
+          "Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/RoomSnapshotMetadataSource.java#sha256=f31db29edff055e7d7e8c0cc6a0332a36aa03781a208b4cf69f993e32fd80ab0",
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#sha256=2b0fc5d1855aea8ba6da8c82275036c0ffaf559321cb56ceae6d7d0146371d4b",
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/CanonicalRoomSnapshotMetadataProducer.java#sha256=1e433e0c3279e4e3c3962c39f45c810d29b6985c2332e37f64e9b7d36fe44094",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/PokerCatalogRuntimeRegistry.java#sha256=c05e1ac0414c6157d85b2416b807da99cb0f6d8482bbfeb7563aa8059ce5c7a2",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/PokerFamilyProviderFactories.java#sha256=d4e45baae25e0179b35fa082c22732b9dba7dc479ff91d031b6796f304bfc065",
+          "Server/server/Games/Poker/src/main/resources/poker-family-region-config.tsv#sha256=5f99c6936274b76b1c216b43c9e6356e80824547ada0a91fa6e40092b6bd3178",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/PaoDeKuaiFamily.java#sha256=5fc6316646331fdad60ef9139b867ad7463c0acf17db43db32168e48ec53013e",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/PanzhihuaPdkRegionRules.java#sha256=a904bcb0902271ec570301fee4f011d32f0ea345e105fa2756f86747679aabab",
+          "Server/server/Bootstrap/src/main/resources/game-catalog-current-32.tsv#sha256=e89f295bebadfc96d71656b84c26c5df801d5bbdd993cfe0611fdc1e6f1fc81c"
+        ]
+      },
+      "runtimeMetadataEvidence": {
+        "snapshotSchemaVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_SNAPSHOT_SCHEMA_VERSION=room-snapshot-v1",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily#common-metadata-contract-no-override"
+        ],
+        "cardCodecVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_CARD_CODEC_VERSION=card-v3",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily#common-metadata-contract-no-override"
+        ],
+        "eventInterpreterVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_EVENT_INTERPRETER_VERSION=events-v4",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily#common-metadata-contract-no-override"
+        ],
+        "protocolVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_PROTOCOL_VERSION=protocol-v2",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily#common-metadata-contract-no-override"
+        ]
+      },
+      "sourceArtifact": {
+        "normalizedIdentitySource": "Server/tools/room-rule-play-identities.json#plays[8]",
+        "normalizedComponentSource": "SHA-256 over ordered production component path+hash records",
+        "normalizedContentHash": "8760b9f1fd91fa0e056d3b6dd3ad31f3c2e19fbac52c3c8261267eb3d1a10762",
+        "normalizedWorkbookSource": "Client/docs/开房规则表/跑得快/攀枝花跑得快.xlsx#normalized-zip-member-sha256-excluding-docProps/core.xml",
+        "normalizedWorkbookHash": "217d5875477f55c04ea1c293174b21273c8ebadc254559e421236a49279e3187"
+      },
+      "issuanceReason": "Release issuer /root/lobby_runtime_from_staged_source r15-cd2999-20261012 assigned explicit literal releaseId/indexGeneration for this unchanged current identity and re-bound normalized provider, rule, workbook, catalog and client inputs; no fallback, DB MAX, time or formula",
+      "admission": "ACCEPTED",
+      "artifactVersion": "rule-artifact-panzhihua2006-20261009-r2-20261011-r50",
+      "sourceRevision": "8f5b7a080c2d0a0c54545ac69f70e26ef99d4796f352e32304997ecaee2f25b5",
+      "contractVersion": "common-room-v1"
+    },
+    {
+      "gameId": 2007,
+      "gameCode": "wannian2007",
+      "family": "poker:pao-de-kuai",
+      "playVersion": "wannian2007-v1.0.0",
+      "regionCode": "CN-36-11-29",
+      "snapshotSchemaVersion": "room-snapshot-v1",
+      "cardCodecVersion": "card-v3",
+      "eventInterpreterVersion": "events-v4",
+      "protocolVersion": "protocol-v2",
+      "sourceHash": "b41006caa29b13d1f8a7e17966f9f599cd01a233dcbe331b6588fcfbf5579c8a",
+      "releaseId": 1318131,
+      "indexGeneration": 1006181,
+      "ruleContentHash": "f05a652e6d03d02533af32b228e01ac8a02564c109648cf107f1d228c4a32a23",
+      "componentContentHash": "bbb5aab5e7663f754d677804d395a1df4c98653507c50ed7d80ceb1fe402cc68",
+      "providerBinding": {
+        "route": "GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily",
+        "providerClass": "com.aoo.bcg.poker.PdkGameProvider",
+        "implementationEvidence": [
+          "Server/server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/GameCatalogLoader.java#sha256=1351a366d799c727a2425b06af1ce70bf0f4e8ae6787bb3d93b32506adc4efc4",
+          "Server/server/Bootstrap/src/main/resources/game-catalog-528.tsv#sha256=9786f5c37d132315c17fcf5215e76982c57cf397badf65b333a608fcc827e557",
+          "Server/server/GameSPI/src/main/resources/current-game-identities.tsv#sha256=0ede8365f6202bf6738b4f01584be7ce25b21decbdc221d85ac75e6d015bdc65",
+          "Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/GameDescriptor.java#sha256=08bbe20cfdd3ceef62caf259ac8cdf78934b759156a56fd23a86465720e0655e",
+          "Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/RoomCreationContext.java#sha256=1e5841f901a76922510067d61bc640089a023b986d91340cfeed2fc5048243fb",
+          "Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/RoomSnapshotMetadataSource.java#sha256=f31db29edff055e7d7e8c0cc6a0332a36aa03781a208b4cf69f993e32fd80ab0",
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#sha256=2b0fc5d1855aea8ba6da8c82275036c0ffaf559321cb56ceae6d7d0146371d4b",
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/CanonicalRoomSnapshotMetadataProducer.java#sha256=1e433e0c3279e4e3c3962c39f45c810d29b6985c2332e37f64e9b7d36fe44094",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/PokerCatalogRuntimeRegistry.java#sha256=c05e1ac0414c6157d85b2416b807da99cb0f6d8482bbfeb7563aa8059ce5c7a2",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/PokerFamilyProviderFactories.java#sha256=d4e45baae25e0179b35fa082c22732b9dba7dc479ff91d031b6796f304bfc065",
+          "Server/server/Games/Poker/src/main/resources/poker-family-region-config.tsv#sha256=5f99c6936274b76b1c216b43c9e6356e80824547ada0a91fa6e40092b6bd3178",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/PaoDeKuaiFamily.java#sha256=5fc6316646331fdad60ef9139b867ad7463c0acf17db43db32168e48ec53013e",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/LegacyPdkRegionRules.java#sha256=e9c64c0d144c52fa418f6869157d9b19875f307f6f6d26eb17621a28ba5cac25",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/LegacyPdkRegionCatalog.java#sha256=290d48cca49c60d3302c629a0549a02b85bab02839f94612906417b22bcd3369",
+          "Server/server/Bootstrap/src/main/resources/game-catalog-current-32.tsv#sha256=e89f295bebadfc96d71656b84c26c5df801d5bbdd993cfe0611fdc1e6f1fc81c"
+        ]
+      },
+      "runtimeMetadataEvidence": {
+        "snapshotSchemaVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_SNAPSHOT_SCHEMA_VERSION=room-snapshot-v1",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily#common-metadata-contract-no-override"
+        ],
+        "cardCodecVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_CARD_CODEC_VERSION=card-v3",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily#common-metadata-contract-no-override"
+        ],
+        "eventInterpreterVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_EVENT_INTERPRETER_VERSION=events-v4",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily#common-metadata-contract-no-override"
+        ],
+        "protocolVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_PROTOCOL_VERSION=protocol-v2",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily#common-metadata-contract-no-override"
+        ]
+      },
+      "sourceArtifact": {
+        "normalizedIdentitySource": "Server/tools/room-rule-play-identities.json#plays[9]",
+        "normalizedComponentSource": "SHA-256 over ordered production component path+hash records",
+        "normalizedContentHash": "bbb5aab5e7663f754d677804d395a1df4c98653507c50ed7d80ceb1fe402cc68",
+        "normalizedWorkbookSource": "Client/docs/开房规则表/跑得快/万年跑得快.xlsx#normalized-zip-member-sha256-excluding-docProps/core.xml",
+        "normalizedWorkbookHash": "6b31238d31f1ede8ae560c99f27d278e23d25a7301c5f1dbfda9069dc8165263"
+      },
+      "issuanceReason": "Release issuer /root/lobby_runtime_from_staged_source r15-cd2999-20261012 assigned explicit literal releaseId/indexGeneration for this unchanged current identity and re-bound normalized provider, rule, workbook, catalog and client inputs; no fallback, DB MAX, time or formula",
+      "admission": "ACCEPTED",
+      "artifactVersion": "rule-artifact-wannian2007-20261009-r2-20261011-r50",
+      "sourceRevision": "bf2f7dda72a9e9c855dd76fe8f2c363717c4d59125cfb15057456be7f2963d38",
+      "contractVersion": "common-room-v1"
+    },
+    {
+      "gameId": 2008,
+      "gameCode": "leping2008",
+      "family": "poker:pao-de-kuai",
+      "playVersion": "leping2008-v1.0.0",
+      "regionCode": "CN-36-02-81",
+      "snapshotSchemaVersion": "room-snapshot-v1",
+      "cardCodecVersion": "card-v3",
+      "eventInterpreterVersion": "events-v4",
+      "protocolVersion": "protocol-v2",
+      "sourceHash": "d04b51b4cded129fd40dc4ace9fc7ab2fa2d6263e755f5925663b746ac24a933",
+      "releaseId": 1318139,
+      "indexGeneration": 1006189,
+      "ruleContentHash": "09b54a0b658dc48c08b90905e9f25374c31ad67f1a3dbeb9611227a23512c649",
+      "componentContentHash": "bbb5aab5e7663f754d677804d395a1df4c98653507c50ed7d80ceb1fe402cc68",
+      "providerBinding": {
+        "route": "GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily",
+        "providerClass": "com.aoo.bcg.poker.PdkGameProvider",
+        "implementationEvidence": [
+          "Server/server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/GameCatalogLoader.java#sha256=1351a366d799c727a2425b06af1ce70bf0f4e8ae6787bb3d93b32506adc4efc4",
+          "Server/server/Bootstrap/src/main/resources/game-catalog-528.tsv#sha256=9786f5c37d132315c17fcf5215e76982c57cf397badf65b333a608fcc827e557",
+          "Server/server/GameSPI/src/main/resources/current-game-identities.tsv#sha256=0ede8365f6202bf6738b4f01584be7ce25b21decbdc221d85ac75e6d015bdc65",
+          "Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/GameDescriptor.java#sha256=08bbe20cfdd3ceef62caf259ac8cdf78934b759156a56fd23a86465720e0655e",
+          "Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/RoomCreationContext.java#sha256=1e5841f901a76922510067d61bc640089a023b986d91340cfeed2fc5048243fb",
+          "Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/RoomSnapshotMetadataSource.java#sha256=f31db29edff055e7d7e8c0cc6a0332a36aa03781a208b4cf69f993e32fd80ab0",
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#sha256=2b0fc5d1855aea8ba6da8c82275036c0ffaf559321cb56ceae6d7d0146371d4b",
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/CanonicalRoomSnapshotMetadataProducer.java#sha256=1e433e0c3279e4e3c3962c39f45c810d29b6985c2332e37f64e9b7d36fe44094",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/PokerCatalogRuntimeRegistry.java#sha256=c05e1ac0414c6157d85b2416b807da99cb0f6d8482bbfeb7563aa8059ce5c7a2",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/PokerFamilyProviderFactories.java#sha256=d4e45baae25e0179b35fa082c22732b9dba7dc479ff91d031b6796f304bfc065",
+          "Server/server/Games/Poker/src/main/resources/poker-family-region-config.tsv#sha256=5f99c6936274b76b1c216b43c9e6356e80824547ada0a91fa6e40092b6bd3178",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/PaoDeKuaiFamily.java#sha256=5fc6316646331fdad60ef9139b867ad7463c0acf17db43db32168e48ec53013e",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/LegacyPdkRegionRules.java#sha256=e9c64c0d144c52fa418f6869157d9b19875f307f6f6d26eb17621a28ba5cac25",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/LegacyPdkRegionCatalog.java#sha256=290d48cca49c60d3302c629a0549a02b85bab02839f94612906417b22bcd3369",
+          "Server/server/Bootstrap/src/main/resources/game-catalog-current-32.tsv#sha256=e89f295bebadfc96d71656b84c26c5df801d5bbdd993cfe0611fdc1e6f1fc81c"
+        ]
+      },
+      "runtimeMetadataEvidence": {
+        "snapshotSchemaVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_SNAPSHOT_SCHEMA_VERSION=room-snapshot-v1",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily#common-metadata-contract-no-override"
+        ],
+        "cardCodecVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_CARD_CODEC_VERSION=card-v3",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily#common-metadata-contract-no-override"
+        ],
+        "eventInterpreterVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_EVENT_INTERPRETER_VERSION=events-v4",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily#common-metadata-contract-no-override"
+        ],
+        "protocolVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_PROTOCOL_VERSION=protocol-v2",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily#common-metadata-contract-no-override"
+        ]
+      },
+      "sourceArtifact": {
+        "normalizedIdentitySource": "Server/tools/room-rule-play-identities.json#plays[10]",
+        "normalizedComponentSource": "SHA-256 over ordered production component path+hash records",
+        "normalizedContentHash": "bbb5aab5e7663f754d677804d395a1df4c98653507c50ed7d80ceb1fe402cc68",
+        "normalizedWorkbookSource": "Client/docs/开房规则表/跑得快/乐平跑得快.xlsx#normalized-zip-member-sha256-excluding-docProps/core.xml",
+        "normalizedWorkbookHash": "67226cbe6da66d81468f14f30a2bfb2afa22b305270e3ca11480f0b3a5e0bd71"
+      },
+      "issuanceReason": "Release issuer /root/lobby_runtime_from_staged_source r15-cd2999-20261012 assigned explicit literal releaseId/indexGeneration for this unchanged current identity and re-bound normalized provider, rule, workbook, catalog and client inputs; no fallback, DB MAX, time or formula",
+      "admission": "ACCEPTED",
+      "artifactVersion": "rule-artifact-leping2008-20261009-r2-20261011-r50",
+      "sourceRevision": "7ac1bf3cdb375eb212bdefc9ed2a1994aa73254e85b846346402a8f8be93a0d1",
+      "contractVersion": "common-room-v1"
+    },
+    {
+      "gameId": 2009,
+      "gameCode": "bozhou2009",
+      "family": "poker:pao-de-kuai",
+      "playVersion": "bozhou2009-v1.0.0",
+      "regionCode": "CN-34-16",
+      "snapshotSchemaVersion": "room-snapshot-v1",
+      "cardCodecVersion": "card-v3",
+      "eventInterpreterVersion": "events-v4",
+      "protocolVersion": "protocol-v2",
+      "sourceHash": "1695a3e59c6a5daf33071cf17d442f4d5f73cba2d82ac93353c9b39b09e534d3",
+      "releaseId": 1318147,
+      "indexGeneration": 1006197,
+      "ruleContentHash": "3a37f01af34e6993ece021df8b3e47170d5b3259067e1f3ab4c3cde220b74478",
+      "componentContentHash": "bbb5aab5e7663f754d677804d395a1df4c98653507c50ed7d80ceb1fe402cc68",
+      "providerBinding": {
+        "route": "GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily",
+        "providerClass": "com.aoo.bcg.poker.PdkGameProvider",
+        "implementationEvidence": [
+          "Server/server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/GameCatalogLoader.java#sha256=1351a366d799c727a2425b06af1ce70bf0f4e8ae6787bb3d93b32506adc4efc4",
+          "Server/server/Bootstrap/src/main/resources/game-catalog-528.tsv#sha256=9786f5c37d132315c17fcf5215e76982c57cf397badf65b333a608fcc827e557",
+          "Server/server/GameSPI/src/main/resources/current-game-identities.tsv#sha256=0ede8365f6202bf6738b4f01584be7ce25b21decbdc221d85ac75e6d015bdc65",
+          "Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/GameDescriptor.java#sha256=08bbe20cfdd3ceef62caf259ac8cdf78934b759156a56fd23a86465720e0655e",
+          "Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/RoomCreationContext.java#sha256=1e5841f901a76922510067d61bc640089a023b986d91340cfeed2fc5048243fb",
+          "Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/RoomSnapshotMetadataSource.java#sha256=f31db29edff055e7d7e8c0cc6a0332a36aa03781a208b4cf69f993e32fd80ab0",
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#sha256=2b0fc5d1855aea8ba6da8c82275036c0ffaf559321cb56ceae6d7d0146371d4b",
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/CanonicalRoomSnapshotMetadataProducer.java#sha256=1e433e0c3279e4e3c3962c39f45c810d29b6985c2332e37f64e9b7d36fe44094",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/PokerCatalogRuntimeRegistry.java#sha256=c05e1ac0414c6157d85b2416b807da99cb0f6d8482bbfeb7563aa8059ce5c7a2",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/PokerFamilyProviderFactories.java#sha256=d4e45baae25e0179b35fa082c22732b9dba7dc479ff91d031b6796f304bfc065",
+          "Server/server/Games/Poker/src/main/resources/poker-family-region-config.tsv#sha256=5f99c6936274b76b1c216b43c9e6356e80824547ada0a91fa6e40092b6bd3178",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/PaoDeKuaiFamily.java#sha256=5fc6316646331fdad60ef9139b867ad7463c0acf17db43db32168e48ec53013e",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/LegacyPdkRegionRules.java#sha256=e9c64c0d144c52fa418f6869157d9b19875f307f6f6d26eb17621a28ba5cac25",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/LegacyPdkRegionCatalog.java#sha256=290d48cca49c60d3302c629a0549a02b85bab02839f94612906417b22bcd3369",
+          "Server/server/Bootstrap/src/main/resources/game-catalog-current-32.tsv#sha256=e89f295bebadfc96d71656b84c26c5df801d5bbdd993cfe0611fdc1e6f1fc81c"
+        ]
+      },
+      "runtimeMetadataEvidence": {
+        "snapshotSchemaVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_SNAPSHOT_SCHEMA_VERSION=room-snapshot-v1",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily#common-metadata-contract-no-override"
+        ],
+        "cardCodecVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_CARD_CODEC_VERSION=card-v3",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily#common-metadata-contract-no-override"
+        ],
+        "eventInterpreterVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_EVENT_INTERPRETER_VERSION=events-v4",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily#common-metadata-contract-no-override"
+        ],
+        "protocolVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_PROTOCOL_VERSION=protocol-v2",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily#common-metadata-contract-no-override"
+        ]
+      },
+      "sourceArtifact": {
+        "normalizedIdentitySource": "Server/tools/room-rule-play-identities.json#plays[11]",
+        "normalizedComponentSource": "SHA-256 over ordered production component path+hash records",
+        "normalizedContentHash": "bbb5aab5e7663f754d677804d395a1df4c98653507c50ed7d80ceb1fe402cc68",
+        "normalizedWorkbookSource": "Client/docs/开房规则表/跑得快/亳州跑得快.xlsx#normalized-zip-member-sha256-excluding-docProps/core.xml",
+        "normalizedWorkbookHash": "042fc74836af042c538dbc438e89281f040e5fc4e3047f5e64612b2d806b2966"
+      },
+      "issuanceReason": "Release issuer /root/lobby_runtime_from_staged_source r15-cd2999-20261012 assigned explicit literal releaseId/indexGeneration for this unchanged current identity and re-bound normalized provider, rule, workbook, catalog and client inputs; no fallback, DB MAX, time or formula",
+      "admission": "ACCEPTED",
+      "artifactVersion": "rule-artifact-bozhou2009-20261009-r2-20261011-r50",
+      "sourceRevision": "be3a03c181a073c21a761a8b1c8638a4f2aab483774b5759934966ab111dd55e",
+      "contractVersion": "common-room-v1"
+    },
+    {
+      "gameId": 2010,
+      "gameCode": "yugan2010",
+      "family": "poker:pao-de-kuai",
+      "playVersion": "yugan2010-v1.0.0",
+      "regionCode": "CN-36-11-27",
+      "snapshotSchemaVersion": "room-snapshot-v1",
+      "cardCodecVersion": "card-v3",
+      "eventInterpreterVersion": "events-v4",
+      "protocolVersion": "protocol-v2",
+      "sourceHash": "8365bf3ebeaa545f9fee2cf4008717833dd96b967f76b4a08002da2e55527627",
+      "releaseId": 1318153,
+      "indexGeneration": 1006203,
+      "ruleContentHash": "76318b47785a2eeff62e73a4ac930811192ae7b0af386cc4095643f4e9cf31f7",
+      "componentContentHash": "bbb5aab5e7663f754d677804d395a1df4c98653507c50ed7d80ceb1fe402cc68",
+      "providerBinding": {
+        "route": "GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily",
+        "providerClass": "com.aoo.bcg.poker.PdkGameProvider",
+        "implementationEvidence": [
+          "Server/server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/GameCatalogLoader.java#sha256=1351a366d799c727a2425b06af1ce70bf0f4e8ae6787bb3d93b32506adc4efc4",
+          "Server/server/Bootstrap/src/main/resources/game-catalog-528.tsv#sha256=9786f5c37d132315c17fcf5215e76982c57cf397badf65b333a608fcc827e557",
+          "Server/server/GameSPI/src/main/resources/current-game-identities.tsv#sha256=0ede8365f6202bf6738b4f01584be7ce25b21decbdc221d85ac75e6d015bdc65",
+          "Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/GameDescriptor.java#sha256=08bbe20cfdd3ceef62caf259ac8cdf78934b759156a56fd23a86465720e0655e",
+          "Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/RoomCreationContext.java#sha256=1e5841f901a76922510067d61bc640089a023b986d91340cfeed2fc5048243fb",
+          "Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/RoomSnapshotMetadataSource.java#sha256=f31db29edff055e7d7e8c0cc6a0332a36aa03781a208b4cf69f993e32fd80ab0",
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#sha256=2b0fc5d1855aea8ba6da8c82275036c0ffaf559321cb56ceae6d7d0146371d4b",
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/CanonicalRoomSnapshotMetadataProducer.java#sha256=1e433e0c3279e4e3c3962c39f45c810d29b6985c2332e37f64e9b7d36fe44094",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/PokerCatalogRuntimeRegistry.java#sha256=c05e1ac0414c6157d85b2416b807da99cb0f6d8482bbfeb7563aa8059ce5c7a2",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/PokerFamilyProviderFactories.java#sha256=d4e45baae25e0179b35fa082c22732b9dba7dc479ff91d031b6796f304bfc065",
+          "Server/server/Games/Poker/src/main/resources/poker-family-region-config.tsv#sha256=5f99c6936274b76b1c216b43c9e6356e80824547ada0a91fa6e40092b6bd3178",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/PaoDeKuaiFamily.java#sha256=5fc6316646331fdad60ef9139b867ad7463c0acf17db43db32168e48ec53013e",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/LegacyPdkRegionRules.java#sha256=e9c64c0d144c52fa418f6869157d9b19875f307f6f6d26eb17621a28ba5cac25",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/LegacyPdkRegionCatalog.java#sha256=290d48cca49c60d3302c629a0549a02b85bab02839f94612906417b22bcd3369",
+          "Server/server/Bootstrap/src/main/resources/game-catalog-current-32.tsv#sha256=e89f295bebadfc96d71656b84c26c5df801d5bbdd993cfe0611fdc1e6f1fc81c"
+        ]
+      },
+      "runtimeMetadataEvidence": {
+        "snapshotSchemaVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_SNAPSHOT_SCHEMA_VERSION=room-snapshot-v1",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily#common-metadata-contract-no-override"
+        ],
+        "cardCodecVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_CARD_CODEC_VERSION=card-v3",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily#common-metadata-contract-no-override"
+        ],
+        "eventInterpreterVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_EVENT_INTERPRETER_VERSION=events-v4",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily#common-metadata-contract-no-override"
+        ],
+        "protocolVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_PROTOCOL_VERSION=protocol-v2",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily#common-metadata-contract-no-override"
+        ]
+      },
+      "sourceArtifact": {
+        "normalizedIdentitySource": "Server/tools/room-rule-play-identities.json#plays[12]",
+        "normalizedComponentSource": "SHA-256 over ordered production component path+hash records",
+        "normalizedContentHash": "bbb5aab5e7663f754d677804d395a1df4c98653507c50ed7d80ceb1fe402cc68",
+        "normalizedWorkbookSource": "Client/docs/开房规则表/跑得快/余干跑得快.xlsx#normalized-zip-member-sha256-excluding-docProps/core.xml",
+        "normalizedWorkbookHash": "f5a09198de3065caf4169c4214417625d87ec744846487003917a6c6040caf40"
+      },
+      "issuanceReason": "Release issuer /root/lobby_runtime_from_staged_source r15-cd2999-20261012 assigned explicit literal releaseId/indexGeneration for this unchanged current identity and re-bound normalized provider, rule, workbook, catalog and client inputs; no fallback, DB MAX, time or formula",
+      "admission": "ACCEPTED",
+      "artifactVersion": "rule-artifact-yugan2010-20261009-r2-20261011-r50",
+      "sourceRevision": "1d7ef672540f5ef39c527e2a192a412a4bb5f61c97adac83dba45ddfe7d88438",
+      "contractVersion": "common-room-v1"
+    },
+    {
+      "gameId": 2011,
+      "gameCode": "jian2011",
+      "family": "poker:pao-de-kuai",
+      "playVersion": "jian2011-v1.0.0",
+      "regionCode": "CN-36-08",
+      "snapshotSchemaVersion": "room-snapshot-v1",
+      "cardCodecVersion": "card-v3",
+      "eventInterpreterVersion": "events-v4",
+      "protocolVersion": "protocol-v2",
+      "sourceHash": "fb6d8852883d33fa04c9c71f9c604e4ab5fec38a293afa2b75196da10198a42c",
+      "releaseId": 1318161,
+      "indexGeneration": 1006211,
+      "ruleContentHash": "06910170d35025f0fb3d00923af23f28b4e8f9ebe86f6548cec2823cfed1e0d2",
+      "componentContentHash": "bbb5aab5e7663f754d677804d395a1df4c98653507c50ed7d80ceb1fe402cc68",
+      "providerBinding": {
+        "route": "GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily",
+        "providerClass": "com.aoo.bcg.poker.PdkGameProvider",
+        "implementationEvidence": [
+          "Server/server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/GameCatalogLoader.java#sha256=1351a366d799c727a2425b06af1ce70bf0f4e8ae6787bb3d93b32506adc4efc4",
+          "Server/server/Bootstrap/src/main/resources/game-catalog-528.tsv#sha256=9786f5c37d132315c17fcf5215e76982c57cf397badf65b333a608fcc827e557",
+          "Server/server/GameSPI/src/main/resources/current-game-identities.tsv#sha256=0ede8365f6202bf6738b4f01584be7ce25b21decbdc221d85ac75e6d015bdc65",
+          "Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/GameDescriptor.java#sha256=08bbe20cfdd3ceef62caf259ac8cdf78934b759156a56fd23a86465720e0655e",
+          "Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/RoomCreationContext.java#sha256=1e5841f901a76922510067d61bc640089a023b986d91340cfeed2fc5048243fb",
+          "Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/RoomSnapshotMetadataSource.java#sha256=f31db29edff055e7d7e8c0cc6a0332a36aa03781a208b4cf69f993e32fd80ab0",
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#sha256=2b0fc5d1855aea8ba6da8c82275036c0ffaf559321cb56ceae6d7d0146371d4b",
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/CanonicalRoomSnapshotMetadataProducer.java#sha256=1e433e0c3279e4e3c3962c39f45c810d29b6985c2332e37f64e9b7d36fe44094",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/PokerCatalogRuntimeRegistry.java#sha256=c05e1ac0414c6157d85b2416b807da99cb0f6d8482bbfeb7563aa8059ce5c7a2",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/PokerFamilyProviderFactories.java#sha256=d4e45baae25e0179b35fa082c22732b9dba7dc479ff91d031b6796f304bfc065",
+          "Server/server/Games/Poker/src/main/resources/poker-family-region-config.tsv#sha256=5f99c6936274b76b1c216b43c9e6356e80824547ada0a91fa6e40092b6bd3178",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/PaoDeKuaiFamily.java#sha256=5fc6316646331fdad60ef9139b867ad7463c0acf17db43db32168e48ec53013e",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/LegacyPdkRegionRules.java#sha256=e9c64c0d144c52fa418f6869157d9b19875f307f6f6d26eb17621a28ba5cac25",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/LegacyPdkRegionCatalog.java#sha256=290d48cca49c60d3302c629a0549a02b85bab02839f94612906417b22bcd3369",
+          "Server/server/Bootstrap/src/main/resources/game-catalog-current-32.tsv#sha256=e89f295bebadfc96d71656b84c26c5df801d5bbdd993cfe0611fdc1e6f1fc81c"
+        ]
+      },
+      "runtimeMetadataEvidence": {
+        "snapshotSchemaVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_SNAPSHOT_SCHEMA_VERSION=room-snapshot-v1",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily#common-metadata-contract-no-override"
+        ],
+        "cardCodecVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_CARD_CODEC_VERSION=card-v3",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily#common-metadata-contract-no-override"
+        ],
+        "eventInterpreterVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_EVENT_INTERPRETER_VERSION=events-v4",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily#common-metadata-contract-no-override"
+        ],
+        "protocolVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_PROTOCOL_VERSION=protocol-v2",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily#common-metadata-contract-no-override"
+        ]
+      },
+      "sourceArtifact": {
+        "normalizedIdentitySource": "Server/tools/room-rule-play-identities.json#plays[13]",
+        "normalizedComponentSource": "SHA-256 over ordered production component path+hash records",
+        "normalizedContentHash": "bbb5aab5e7663f754d677804d395a1df4c98653507c50ed7d80ceb1fe402cc68",
+        "normalizedWorkbookSource": "Client/docs/开房规则表/跑得快/吉安跑得快.xlsx#normalized-zip-member-sha256-excluding-docProps/core.xml",
+        "normalizedWorkbookHash": "14a25742f52c45179a7ec9a7447e6044ae254d39766da26eccd4742b713aee2c"
+      },
+      "issuanceReason": "Release issuer /root/lobby_runtime_from_staged_source r15-cd2999-20261012 assigned explicit literal releaseId/indexGeneration for this unchanged current identity and re-bound normalized provider, rule, workbook, catalog and client inputs; no fallback, DB MAX, time or formula",
+      "admission": "ACCEPTED",
+      "artifactVersion": "rule-artifact-jian2011-20261009-r2-20261011-r50",
+      "sourceRevision": "f8767d44ca9112dffe0df5af39eedb15843e01329087aac4301d4de881e54a08",
+      "contractVersion": "common-room-v1"
+    },
+    {
+      "gameId": 2012,
+      "gameCode": "gushi2012",
+      "family": "poker:pao-de-kuai",
+      "playVersion": "gushi2012-v1.0.0",
+      "regionCode": "CN-41-15-25",
+      "snapshotSchemaVersion": "room-snapshot-v1",
+      "cardCodecVersion": "card-v3",
+      "eventInterpreterVersion": "events-v4",
+      "protocolVersion": "protocol-v2",
+      "sourceHash": "17b3caa687fc6de086995f26199c96f87db2bd33336f402e17f9659b7751d180",
+      "releaseId": 1318169,
+      "indexGeneration": 1006219,
+      "ruleContentHash": "1aa5e1fce7108cfe6b4cb680c4bfff06da4fa5dd3f1521d1bad64ca961cb477d",
+      "componentContentHash": "bbb5aab5e7663f754d677804d395a1df4c98653507c50ed7d80ceb1fe402cc68",
+      "providerBinding": {
+        "route": "GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily",
+        "providerClass": "com.aoo.bcg.poker.PdkGameProvider",
+        "implementationEvidence": [
+          "Server/server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/GameCatalogLoader.java#sha256=1351a366d799c727a2425b06af1ce70bf0f4e8ae6787bb3d93b32506adc4efc4",
+          "Server/server/Bootstrap/src/main/resources/game-catalog-528.tsv#sha256=9786f5c37d132315c17fcf5215e76982c57cf397badf65b333a608fcc827e557",
+          "Server/server/GameSPI/src/main/resources/current-game-identities.tsv#sha256=0ede8365f6202bf6738b4f01584be7ce25b21decbdc221d85ac75e6d015bdc65",
+          "Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/GameDescriptor.java#sha256=08bbe20cfdd3ceef62caf259ac8cdf78934b759156a56fd23a86465720e0655e",
+          "Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/RoomCreationContext.java#sha256=1e5841f901a76922510067d61bc640089a023b986d91340cfeed2fc5048243fb",
+          "Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/RoomSnapshotMetadataSource.java#sha256=f31db29edff055e7d7e8c0cc6a0332a36aa03781a208b4cf69f993e32fd80ab0",
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#sha256=2b0fc5d1855aea8ba6da8c82275036c0ffaf559321cb56ceae6d7d0146371d4b",
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/CanonicalRoomSnapshotMetadataProducer.java#sha256=1e433e0c3279e4e3c3962c39f45c810d29b6985c2332e37f64e9b7d36fe44094",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/PokerCatalogRuntimeRegistry.java#sha256=c05e1ac0414c6157d85b2416b807da99cb0f6d8482bbfeb7563aa8059ce5c7a2",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/PokerFamilyProviderFactories.java#sha256=d4e45baae25e0179b35fa082c22732b9dba7dc479ff91d031b6796f304bfc065",
+          "Server/server/Games/Poker/src/main/resources/poker-family-region-config.tsv#sha256=5f99c6936274b76b1c216b43c9e6356e80824547ada0a91fa6e40092b6bd3178",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/PaoDeKuaiFamily.java#sha256=5fc6316646331fdad60ef9139b867ad7463c0acf17db43db32168e48ec53013e",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/LegacyPdkRegionRules.java#sha256=e9c64c0d144c52fa418f6869157d9b19875f307f6f6d26eb17621a28ba5cac25",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/LegacyPdkRegionCatalog.java#sha256=290d48cca49c60d3302c629a0549a02b85bab02839f94612906417b22bcd3369",
+          "Server/server/Bootstrap/src/main/resources/game-catalog-current-32.tsv#sha256=e89f295bebadfc96d71656b84c26c5df801d5bbdd993cfe0611fdc1e6f1fc81c"
+        ]
+      },
+      "runtimeMetadataEvidence": {
+        "snapshotSchemaVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_SNAPSHOT_SCHEMA_VERSION=room-snapshot-v1",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily#common-metadata-contract-no-override"
+        ],
+        "cardCodecVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_CARD_CODEC_VERSION=card-v3",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily#common-metadata-contract-no-override"
+        ],
+        "eventInterpreterVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_EVENT_INTERPRETER_VERSION=events-v4",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily#common-metadata-contract-no-override"
+        ],
+        "protocolVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_PROTOCOL_VERSION=protocol-v2",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily#common-metadata-contract-no-override"
+        ]
+      },
+      "sourceArtifact": {
+        "normalizedIdentitySource": "Server/tools/room-rule-play-identities.json#plays[14]",
+        "normalizedComponentSource": "SHA-256 over ordered production component path+hash records",
+        "normalizedContentHash": "bbb5aab5e7663f754d677804d395a1df4c98653507c50ed7d80ceb1fe402cc68",
+        "normalizedWorkbookSource": "Client/docs/开房规则表/跑得快/固始跑得快.xlsx#normalized-zip-member-sha256-excluding-docProps/core.xml",
+        "normalizedWorkbookHash": "59e03d5b10130a83f04c746e95d764b09173d2ceb66823e424f0926ba141fe76"
+      },
+      "issuanceReason": "Release issuer /root/lobby_runtime_from_staged_source r15-cd2999-20261012 assigned explicit literal releaseId/indexGeneration for this unchanged current identity and re-bound normalized provider, rule, workbook, catalog and client inputs; no fallback, DB MAX, time or formula",
+      "admission": "ACCEPTED",
+      "artifactVersion": "rule-artifact-gushi2012-20261009-r2-20261011-r50",
+      "sourceRevision": "ab6cb9efe3e5cb269769b4b358ae677d577bc3fe1c144c3db84d375106faffe3",
+      "contractVersion": "common-room-v1"
+    },
+    {
+      "gameId": 2013,
+      "gameCode": "xiaogan2013",
+      "family": "poker:pao-de-kuai",
+      "playVersion": "xiaogan2013-v1.0.0",
+      "regionCode": "CN-42-09",
+      "snapshotSchemaVersion": "room-snapshot-v1",
+      "cardCodecVersion": "card-v3",
+      "eventInterpreterVersion": "events-v4",
+      "protocolVersion": "protocol-v2",
+      "sourceHash": "d89e9fc10aff8916ce29901b46a51a3d3a1fc398f3b43315e1be9a02a01aa779",
+      "releaseId": 1318177,
+      "indexGeneration": 1006227,
+      "ruleContentHash": "7c819a43ba06ec615eda64646fba11715d76919887d18e10df8bd6b17f531d4e",
+      "componentContentHash": "bbb5aab5e7663f754d677804d395a1df4c98653507c50ed7d80ceb1fe402cc68",
+      "providerBinding": {
+        "route": "GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily",
+        "providerClass": "com.aoo.bcg.poker.PdkGameProvider",
+        "implementationEvidence": [
+          "Server/server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/GameCatalogLoader.java#sha256=1351a366d799c727a2425b06af1ce70bf0f4e8ae6787bb3d93b32506adc4efc4",
+          "Server/server/Bootstrap/src/main/resources/game-catalog-528.tsv#sha256=9786f5c37d132315c17fcf5215e76982c57cf397badf65b333a608fcc827e557",
+          "Server/server/GameSPI/src/main/resources/current-game-identities.tsv#sha256=0ede8365f6202bf6738b4f01584be7ce25b21decbdc221d85ac75e6d015bdc65",
+          "Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/GameDescriptor.java#sha256=08bbe20cfdd3ceef62caf259ac8cdf78934b759156a56fd23a86465720e0655e",
+          "Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/RoomCreationContext.java#sha256=1e5841f901a76922510067d61bc640089a023b986d91340cfeed2fc5048243fb",
+          "Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/RoomSnapshotMetadataSource.java#sha256=f31db29edff055e7d7e8c0cc6a0332a36aa03781a208b4cf69f993e32fd80ab0",
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#sha256=2b0fc5d1855aea8ba6da8c82275036c0ffaf559321cb56ceae6d7d0146371d4b",
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/CanonicalRoomSnapshotMetadataProducer.java#sha256=1e433e0c3279e4e3c3962c39f45c810d29b6985c2332e37f64e9b7d36fe44094",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/PokerCatalogRuntimeRegistry.java#sha256=c05e1ac0414c6157d85b2416b807da99cb0f6d8482bbfeb7563aa8059ce5c7a2",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/PokerFamilyProviderFactories.java#sha256=d4e45baae25e0179b35fa082c22732b9dba7dc479ff91d031b6796f304bfc065",
+          "Server/server/Games/Poker/src/main/resources/poker-family-region-config.tsv#sha256=5f99c6936274b76b1c216b43c9e6356e80824547ada0a91fa6e40092b6bd3178",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/PaoDeKuaiFamily.java#sha256=5fc6316646331fdad60ef9139b867ad7463c0acf17db43db32168e48ec53013e",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/LegacyPdkRegionRules.java#sha256=e9c64c0d144c52fa418f6869157d9b19875f307f6f6d26eb17621a28ba5cac25",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/LegacyPdkRegionCatalog.java#sha256=290d48cca49c60d3302c629a0549a02b85bab02839f94612906417b22bcd3369",
+          "Server/server/Bootstrap/src/main/resources/game-catalog-current-32.tsv#sha256=e89f295bebadfc96d71656b84c26c5df801d5bbdd993cfe0611fdc1e6f1fc81c"
+        ]
+      },
+      "runtimeMetadataEvidence": {
+        "snapshotSchemaVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_SNAPSHOT_SCHEMA_VERSION=room-snapshot-v1",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily#common-metadata-contract-no-override"
+        ],
+        "cardCodecVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_CARD_CODEC_VERSION=card-v3",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily#common-metadata-contract-no-override"
+        ],
+        "eventInterpreterVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_EVENT_INTERPRETER_VERSION=events-v4",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily#common-metadata-contract-no-override"
+        ],
+        "protocolVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_PROTOCOL_VERSION=protocol-v2",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily#common-metadata-contract-no-override"
+        ]
+      },
+      "sourceArtifact": {
+        "normalizedIdentitySource": "Server/tools/room-rule-play-identities.json#plays[15]",
+        "normalizedComponentSource": "SHA-256 over ordered production component path+hash records",
+        "normalizedContentHash": "bbb5aab5e7663f754d677804d395a1df4c98653507c50ed7d80ceb1fe402cc68",
+        "normalizedWorkbookSource": "Client/docs/开房规则表/跑得快/孝感跑得快.xlsx#normalized-zip-member-sha256-excluding-docProps/core.xml",
+        "normalizedWorkbookHash": "1a56279bd711ead9333853dace8b954b05e04231e9da49bdc5ca2b665fe1c6b8"
+      },
+      "issuanceReason": "Release issuer /root/lobby_runtime_from_staged_source r15-cd2999-20261012 assigned explicit literal releaseId/indexGeneration for this unchanged current identity and re-bound normalized provider, rule, workbook, catalog and client inputs; no fallback, DB MAX, time or formula",
+      "admission": "ACCEPTED",
+      "artifactVersion": "rule-artifact-xiaogan2013-20261009-r2-20261011-r50",
+      "sourceRevision": "e6129a254db1844ad42c25d949022102d6fca8011bae8084c22d9988e56b5352",
+      "contractVersion": "common-room-v1"
+    },
+    {
+      "gameId": 2014,
+      "gameCode": "ningdu2014",
+      "family": "poker:pao-de-kuai",
+      "playVersion": "ningdu2014-v1.0.0",
+      "regionCode": "CN-36-07-30",
+      "snapshotSchemaVersion": "room-snapshot-v1",
+      "cardCodecVersion": "card-v3",
+      "eventInterpreterVersion": "events-v4",
+      "protocolVersion": "protocol-v2",
+      "sourceHash": "65533898342b858c546668393f7fbddd4d161f561862193eb7e681927db68270",
+      "releaseId": 1318183,
+      "indexGeneration": 1006233,
+      "ruleContentHash": "38c52a3403b9f381da27b1d12a38766fa8827e1d0e903de587b8b24350f2a2a6",
+      "componentContentHash": "bbb5aab5e7663f754d677804d395a1df4c98653507c50ed7d80ceb1fe402cc68",
+      "providerBinding": {
+        "route": "GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily",
+        "providerClass": "com.aoo.bcg.poker.PdkGameProvider",
+        "implementationEvidence": [
+          "Server/server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/GameCatalogLoader.java#sha256=1351a366d799c727a2425b06af1ce70bf0f4e8ae6787bb3d93b32506adc4efc4",
+          "Server/server/Bootstrap/src/main/resources/game-catalog-528.tsv#sha256=9786f5c37d132315c17fcf5215e76982c57cf397badf65b333a608fcc827e557",
+          "Server/server/GameSPI/src/main/resources/current-game-identities.tsv#sha256=0ede8365f6202bf6738b4f01584be7ce25b21decbdc221d85ac75e6d015bdc65",
+          "Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/GameDescriptor.java#sha256=08bbe20cfdd3ceef62caf259ac8cdf78934b759156a56fd23a86465720e0655e",
+          "Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/RoomCreationContext.java#sha256=1e5841f901a76922510067d61bc640089a023b986d91340cfeed2fc5048243fb",
+          "Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/RoomSnapshotMetadataSource.java#sha256=f31db29edff055e7d7e8c0cc6a0332a36aa03781a208b4cf69f993e32fd80ab0",
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#sha256=2b0fc5d1855aea8ba6da8c82275036c0ffaf559321cb56ceae6d7d0146371d4b",
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/CanonicalRoomSnapshotMetadataProducer.java#sha256=1e433e0c3279e4e3c3962c39f45c810d29b6985c2332e37f64e9b7d36fe44094",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/PokerCatalogRuntimeRegistry.java#sha256=c05e1ac0414c6157d85b2416b807da99cb0f6d8482bbfeb7563aa8059ce5c7a2",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/PokerFamilyProviderFactories.java#sha256=d4e45baae25e0179b35fa082c22732b9dba7dc479ff91d031b6796f304bfc065",
+          "Server/server/Games/Poker/src/main/resources/poker-family-region-config.tsv#sha256=5f99c6936274b76b1c216b43c9e6356e80824547ada0a91fa6e40092b6bd3178",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/PaoDeKuaiFamily.java#sha256=5fc6316646331fdad60ef9139b867ad7463c0acf17db43db32168e48ec53013e",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/LegacyPdkRegionRules.java#sha256=e9c64c0d144c52fa418f6869157d9b19875f307f6f6d26eb17621a28ba5cac25",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/LegacyPdkRegionCatalog.java#sha256=290d48cca49c60d3302c629a0549a02b85bab02839f94612906417b22bcd3369",
+          "Server/server/Bootstrap/src/main/resources/game-catalog-current-32.tsv#sha256=e89f295bebadfc96d71656b84c26c5df801d5bbdd993cfe0611fdc1e6f1fc81c"
+        ]
+      },
+      "runtimeMetadataEvidence": {
+        "snapshotSchemaVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_SNAPSHOT_SCHEMA_VERSION=room-snapshot-v1",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily#common-metadata-contract-no-override"
+        ],
+        "cardCodecVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_CARD_CODEC_VERSION=card-v3",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily#common-metadata-contract-no-override"
+        ],
+        "eventInterpreterVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_EVENT_INTERPRETER_VERSION=events-v4",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily#common-metadata-contract-no-override"
+        ],
+        "protocolVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_PROTOCOL_VERSION=protocol-v2",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily#common-metadata-contract-no-override"
+        ]
+      },
+      "sourceArtifact": {
+        "normalizedIdentitySource": "Server/tools/room-rule-play-identities.json#plays[16]",
+        "normalizedComponentSource": "SHA-256 over ordered production component path+hash records",
+        "normalizedContentHash": "bbb5aab5e7663f754d677804d395a1df4c98653507c50ed7d80ceb1fe402cc68",
+        "normalizedWorkbookSource": "Client/docs/开房规则表/跑得快/宁都跑得快.xlsx#normalized-zip-member-sha256-excluding-docProps/core.xml",
+        "normalizedWorkbookHash": "cd237f7d4af68cbccb1d2122a6d0f64e017f58726acfbf62a38b267f424f67c5"
+      },
+      "issuanceReason": "Release issuer /root/lobby_runtime_from_staged_source r15-cd2999-20261012 assigned explicit literal releaseId/indexGeneration for this unchanged current identity and re-bound normalized provider, rule, workbook, catalog and client inputs; no fallback, DB MAX, time or formula",
+      "admission": "ACCEPTED",
+      "artifactVersion": "rule-artifact-ningdu2014-20261009-r2-20261011-r50",
+      "sourceRevision": "9d4354f85bd832f9264dff0ff240a7227dc23754bf95913e90ccf05a6eebc488",
+      "contractVersion": "common-room-v1"
+    },
+    {
+      "gameId": 2015,
+      "gameCode": "huaihua2015",
+      "family": "poker:pao-de-kuai",
+      "playVersion": "huaihua2015-v1.0.0",
+      "regionCode": "CN-43-12",
+      "snapshotSchemaVersion": "room-snapshot-v1",
+      "cardCodecVersion": "card-v3",
+      "eventInterpreterVersion": "events-v4",
+      "protocolVersion": "protocol-v2",
+      "sourceHash": "50a363b43bb8ae70c9208726be947572b953edc1dabdb6b11f9abe793672c2f7",
+      "releaseId": 1318191,
+      "indexGeneration": 1006241,
+      "ruleContentHash": "4d4303ecfc1ad8828d661c042fea75a96bd31b0907436cdbc3f3e70ba34eff8f",
+      "componentContentHash": "bbb5aab5e7663f754d677804d395a1df4c98653507c50ed7d80ceb1fe402cc68",
+      "providerBinding": {
+        "route": "GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily",
+        "providerClass": "com.aoo.bcg.poker.PdkGameProvider",
+        "implementationEvidence": [
+          "Server/server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/GameCatalogLoader.java#sha256=1351a366d799c727a2425b06af1ce70bf0f4e8ae6787bb3d93b32506adc4efc4",
+          "Server/server/Bootstrap/src/main/resources/game-catalog-528.tsv#sha256=9786f5c37d132315c17fcf5215e76982c57cf397badf65b333a608fcc827e557",
+          "Server/server/GameSPI/src/main/resources/current-game-identities.tsv#sha256=0ede8365f6202bf6738b4f01584be7ce25b21decbdc221d85ac75e6d015bdc65",
+          "Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/GameDescriptor.java#sha256=08bbe20cfdd3ceef62caf259ac8cdf78934b759156a56fd23a86465720e0655e",
+          "Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/RoomCreationContext.java#sha256=1e5841f901a76922510067d61bc640089a023b986d91340cfeed2fc5048243fb",
+          "Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/RoomSnapshotMetadataSource.java#sha256=f31db29edff055e7d7e8c0cc6a0332a36aa03781a208b4cf69f993e32fd80ab0",
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#sha256=2b0fc5d1855aea8ba6da8c82275036c0ffaf559321cb56ceae6d7d0146371d4b",
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/CanonicalRoomSnapshotMetadataProducer.java#sha256=1e433e0c3279e4e3c3962c39f45c810d29b6985c2332e37f64e9b7d36fe44094",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/PokerCatalogRuntimeRegistry.java#sha256=c05e1ac0414c6157d85b2416b807da99cb0f6d8482bbfeb7563aa8059ce5c7a2",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/PokerFamilyProviderFactories.java#sha256=d4e45baae25e0179b35fa082c22732b9dba7dc479ff91d031b6796f304bfc065",
+          "Server/server/Games/Poker/src/main/resources/poker-family-region-config.tsv#sha256=5f99c6936274b76b1c216b43c9e6356e80824547ada0a91fa6e40092b6bd3178",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/PaoDeKuaiFamily.java#sha256=5fc6316646331fdad60ef9139b867ad7463c0acf17db43db32168e48ec53013e",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/LegacyPdkRegionRules.java#sha256=e9c64c0d144c52fa418f6869157d9b19875f307f6f6d26eb17621a28ba5cac25",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/LegacyPdkRegionCatalog.java#sha256=290d48cca49c60d3302c629a0549a02b85bab02839f94612906417b22bcd3369",
+          "Server/server/Bootstrap/src/main/resources/game-catalog-current-32.tsv#sha256=e89f295bebadfc96d71656b84c26c5df801d5bbdd993cfe0611fdc1e6f1fc81c"
+        ]
+      },
+      "runtimeMetadataEvidence": {
+        "snapshotSchemaVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_SNAPSHOT_SCHEMA_VERSION=room-snapshot-v1",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily#common-metadata-contract-no-override"
+        ],
+        "cardCodecVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_CARD_CODEC_VERSION=card-v3",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily#common-metadata-contract-no-override"
+        ],
+        "eventInterpreterVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_EVENT_INTERPRETER_VERSION=events-v4",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily#common-metadata-contract-no-override"
+        ],
+        "protocolVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_PROTOCOL_VERSION=protocol-v2",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily#common-metadata-contract-no-override"
+        ]
+      },
+      "sourceArtifact": {
+        "normalizedIdentitySource": "Server/tools/room-rule-play-identities.json#plays[17]",
+        "normalizedComponentSource": "SHA-256 over ordered production component path+hash records",
+        "normalizedContentHash": "bbb5aab5e7663f754d677804d395a1df4c98653507c50ed7d80ceb1fe402cc68",
+        "normalizedWorkbookSource": "Client/docs/开房规则表/跑得快/怀化跑得快.xlsx#normalized-zip-member-sha256-excluding-docProps/core.xml",
+        "normalizedWorkbookHash": "2bf8c7ddd3f3bd12f6315fb0f165036e9f315fb5cb8d77fd0b1cd7579f646eeb"
+      },
+      "issuanceReason": "Release issuer /root/lobby_runtime_from_staged_source r15-cd2999-20261012 assigned explicit literal releaseId/indexGeneration for this unchanged current identity and re-bound normalized provider, rule, workbook, catalog and client inputs; no fallback, DB MAX, time or formula",
+      "admission": "ACCEPTED",
+      "artifactVersion": "rule-artifact-huaihua2015-20261009-r2-20261011-r50",
+      "sourceRevision": "9a885c15a3725e8b01dbc35baa6f44620aa273ebb72784b0162edef8bbd2f93b",
+      "contractVersion": "common-room-v1"
+    },
+    {
+      "gameId": 2016,
+      "gameCode": "xinxian2016",
+      "family": "poker:pao-de-kuai",
+      "playVersion": "xinxian2016-v1.0.0",
+      "regionCode": "CN-41-15-23",
+      "snapshotSchemaVersion": "room-snapshot-v1",
+      "cardCodecVersion": "card-v3",
+      "eventInterpreterVersion": "events-v4",
+      "protocolVersion": "protocol-v2",
+      "sourceHash": "459031972aaaf8d25fb025e849712b60df6cf9361f4cf1f3a7e7c97255713b73",
+      "releaseId": 1318199,
+      "indexGeneration": 1006249,
+      "ruleContentHash": "3f823beb09135a34ed5de0c3a90e38a58954ca31ece9b812f5107d5ed957c714",
+      "componentContentHash": "bbb5aab5e7663f754d677804d395a1df4c98653507c50ed7d80ceb1fe402cc68",
+      "providerBinding": {
+        "route": "GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily",
+        "providerClass": "com.aoo.bcg.poker.PdkGameProvider",
+        "implementationEvidence": [
+          "Server/server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/GameCatalogLoader.java#sha256=1351a366d799c727a2425b06af1ce70bf0f4e8ae6787bb3d93b32506adc4efc4",
+          "Server/server/Bootstrap/src/main/resources/game-catalog-528.tsv#sha256=9786f5c37d132315c17fcf5215e76982c57cf397badf65b333a608fcc827e557",
+          "Server/server/GameSPI/src/main/resources/current-game-identities.tsv#sha256=0ede8365f6202bf6738b4f01584be7ce25b21decbdc221d85ac75e6d015bdc65",
+          "Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/GameDescriptor.java#sha256=08bbe20cfdd3ceef62caf259ac8cdf78934b759156a56fd23a86465720e0655e",
+          "Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/RoomCreationContext.java#sha256=1e5841f901a76922510067d61bc640089a023b986d91340cfeed2fc5048243fb",
+          "Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/RoomSnapshotMetadataSource.java#sha256=f31db29edff055e7d7e8c0cc6a0332a36aa03781a208b4cf69f993e32fd80ab0",
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#sha256=2b0fc5d1855aea8ba6da8c82275036c0ffaf559321cb56ceae6d7d0146371d4b",
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/CanonicalRoomSnapshotMetadataProducer.java#sha256=1e433e0c3279e4e3c3962c39f45c810d29b6985c2332e37f64e9b7d36fe44094",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/PokerCatalogRuntimeRegistry.java#sha256=c05e1ac0414c6157d85b2416b807da99cb0f6d8482bbfeb7563aa8059ce5c7a2",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/PokerFamilyProviderFactories.java#sha256=d4e45baae25e0179b35fa082c22732b9dba7dc479ff91d031b6796f304bfc065",
+          "Server/server/Games/Poker/src/main/resources/poker-family-region-config.tsv#sha256=5f99c6936274b76b1c216b43c9e6356e80824547ada0a91fa6e40092b6bd3178",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/PaoDeKuaiFamily.java#sha256=5fc6316646331fdad60ef9139b867ad7463c0acf17db43db32168e48ec53013e",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/LegacyPdkRegionRules.java#sha256=e9c64c0d144c52fa418f6869157d9b19875f307f6f6d26eb17621a28ba5cac25",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/LegacyPdkRegionCatalog.java#sha256=290d48cca49c60d3302c629a0549a02b85bab02839f94612906417b22bcd3369",
+          "Server/server/Bootstrap/src/main/resources/game-catalog-current-32.tsv#sha256=e89f295bebadfc96d71656b84c26c5df801d5bbdd993cfe0611fdc1e6f1fc81c"
+        ]
+      },
+      "runtimeMetadataEvidence": {
+        "snapshotSchemaVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_SNAPSHOT_SCHEMA_VERSION=room-snapshot-v1",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily#common-metadata-contract-no-override"
+        ],
+        "cardCodecVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_CARD_CODEC_VERSION=card-v3",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily#common-metadata-contract-no-override"
+        ],
+        "eventInterpreterVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_EVENT_INTERPRETER_VERSION=events-v4",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily#common-metadata-contract-no-override"
+        ],
+        "protocolVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_PROTOCOL_VERSION=protocol-v2",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily#common-metadata-contract-no-override"
+        ]
+      },
+      "sourceArtifact": {
+        "normalizedIdentitySource": "Server/tools/room-rule-play-identities.json#plays[18]",
+        "normalizedComponentSource": "SHA-256 over ordered production component path+hash records",
+        "normalizedContentHash": "bbb5aab5e7663f754d677804d395a1df4c98653507c50ed7d80ceb1fe402cc68",
+        "normalizedWorkbookSource": "Client/docs/开房规则表/跑得快/新县跑得快.xlsx#normalized-zip-member-sha256-excluding-docProps/core.xml",
+        "normalizedWorkbookHash": "14e03dc66eb2670a3f7a6246eae479f28620aeeb0c6415bc8ab4c6738955be1f"
+      },
+      "issuanceReason": "Release issuer /root/lobby_runtime_from_staged_source r15-cd2999-20261012 assigned explicit literal releaseId/indexGeneration for this unchanged current identity and re-bound normalized provider, rule, workbook, catalog and client inputs; no fallback, DB MAX, time or formula",
+      "admission": "ACCEPTED",
+      "artifactVersion": "rule-artifact-xinxian2016-20261009-r2-20261011-r50",
+      "sourceRevision": "e6266a1630d70df15c9f3c2cf29570f894bce82073abab9b1d782e518395f02a",
+      "contractVersion": "common-room-v1"
+    },
+    {
+      "gameId": 2017,
+      "gameCode": "jingdezhen2017",
+      "family": "poker:pao-de-kuai",
+      "playVersion": "jingdezhen2017-v1.0.0",
+      "regionCode": "CN-36-02",
+      "snapshotSchemaVersion": "room-snapshot-v1",
+      "cardCodecVersion": "card-v3",
+      "eventInterpreterVersion": "events-v4",
+      "protocolVersion": "protocol-v2",
+      "sourceHash": "69283dd4d468617b61245ae2c08913c7ab289fc2339281d7b809d7c38854b7b2",
+      "releaseId": 1318207,
+      "indexGeneration": 1006257,
+      "ruleContentHash": "9a02cb4d1b755f84f1d85e4eafc2b83f6b66620cc66910455231049db875dda9",
+      "componentContentHash": "bbb5aab5e7663f754d677804d395a1df4c98653507c50ed7d80ceb1fe402cc68",
+      "providerBinding": {
+        "route": "GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily",
+        "providerClass": "com.aoo.bcg.poker.PdkGameProvider",
+        "implementationEvidence": [
+          "Server/server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/GameCatalogLoader.java#sha256=1351a366d799c727a2425b06af1ce70bf0f4e8ae6787bb3d93b32506adc4efc4",
+          "Server/server/Bootstrap/src/main/resources/game-catalog-528.tsv#sha256=9786f5c37d132315c17fcf5215e76982c57cf397badf65b333a608fcc827e557",
+          "Server/server/GameSPI/src/main/resources/current-game-identities.tsv#sha256=0ede8365f6202bf6738b4f01584be7ce25b21decbdc221d85ac75e6d015bdc65",
+          "Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/GameDescriptor.java#sha256=08bbe20cfdd3ceef62caf259ac8cdf78934b759156a56fd23a86465720e0655e",
+          "Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/RoomCreationContext.java#sha256=1e5841f901a76922510067d61bc640089a023b986d91340cfeed2fc5048243fb",
+          "Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/RoomSnapshotMetadataSource.java#sha256=f31db29edff055e7d7e8c0cc6a0332a36aa03781a208b4cf69f993e32fd80ab0",
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#sha256=2b0fc5d1855aea8ba6da8c82275036c0ffaf559321cb56ceae6d7d0146371d4b",
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/CanonicalRoomSnapshotMetadataProducer.java#sha256=1e433e0c3279e4e3c3962c39f45c810d29b6985c2332e37f64e9b7d36fe44094",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/PokerCatalogRuntimeRegistry.java#sha256=c05e1ac0414c6157d85b2416b807da99cb0f6d8482bbfeb7563aa8059ce5c7a2",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/PokerFamilyProviderFactories.java#sha256=d4e45baae25e0179b35fa082c22732b9dba7dc479ff91d031b6796f304bfc065",
+          "Server/server/Games/Poker/src/main/resources/poker-family-region-config.tsv#sha256=5f99c6936274b76b1c216b43c9e6356e80824547ada0a91fa6e40092b6bd3178",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/PaoDeKuaiFamily.java#sha256=5fc6316646331fdad60ef9139b867ad7463c0acf17db43db32168e48ec53013e",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/LegacyPdkRegionRules.java#sha256=e9c64c0d144c52fa418f6869157d9b19875f307f6f6d26eb17621a28ba5cac25",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/LegacyPdkRegionCatalog.java#sha256=290d48cca49c60d3302c629a0549a02b85bab02839f94612906417b22bcd3369",
+          "Server/server/Bootstrap/src/main/resources/game-catalog-current-32.tsv#sha256=e89f295bebadfc96d71656b84c26c5df801d5bbdd993cfe0611fdc1e6f1fc81c"
+        ]
+      },
+      "runtimeMetadataEvidence": {
+        "snapshotSchemaVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_SNAPSHOT_SCHEMA_VERSION=room-snapshot-v1",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily#common-metadata-contract-no-override"
+        ],
+        "cardCodecVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_CARD_CODEC_VERSION=card-v3",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily#common-metadata-contract-no-override"
+        ],
+        "eventInterpreterVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_EVENT_INTERPRETER_VERSION=events-v4",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily#common-metadata-contract-no-override"
+        ],
+        "protocolVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_PROTOCOL_VERSION=protocol-v2",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily#common-metadata-contract-no-override"
+        ]
+      },
+      "sourceArtifact": {
+        "normalizedIdentitySource": "Server/tools/room-rule-play-identities.json#plays[19]",
+        "normalizedComponentSource": "SHA-256 over ordered production component path+hash records",
+        "normalizedContentHash": "bbb5aab5e7663f754d677804d395a1df4c98653507c50ed7d80ceb1fe402cc68",
+        "normalizedWorkbookSource": "Client/docs/开房规则表/跑得快/景德镇跑得快.xlsx#normalized-zip-member-sha256-excluding-docProps/core.xml",
+        "normalizedWorkbookHash": "0ca7f9047ec3a8006fae81a1815cf0846f31a6ce6ee31cc20b6f615ca96fdd94"
+      },
+      "issuanceReason": "Release issuer /root/lobby_runtime_from_staged_source r15-cd2999-20261012 assigned explicit literal releaseId/indexGeneration for this unchanged current identity and re-bound normalized provider, rule, workbook, catalog and client inputs; no fallback, DB MAX, time or formula",
+      "admission": "ACCEPTED",
+      "artifactVersion": "rule-artifact-jingdezhen2017-20261009-r2-20261011-r50",
+      "sourceRevision": "c5b232d24055c6ed0b4064262128153494f6bd8cb4418b1e2fe1c2c414be2ed9",
+      "contractVersion": "common-room-v1"
+    },
+    {
+      "gameId": 2018,
+      "gameCode": "jiangsu2018",
+      "family": "poker:pao-de-kuai",
+      "playVersion": "jiangsu2018-v1.0.0",
+      "regionCode": "CN-32",
+      "snapshotSchemaVersion": "room-snapshot-v1",
+      "cardCodecVersion": "card-v3",
+      "eventInterpreterVersion": "events-v4",
+      "protocolVersion": "protocol-v2",
+      "sourceHash": "f4bd0a78f9398cb120fc6705c8d91786d8efe452cb7ab8c6882b2ae3d472dcc5",
+      "releaseId": 1318213,
+      "indexGeneration": 1006263,
+      "ruleContentHash": "beff7d89baa958f298b850553c2cd681750869644d3603e145fc0fa255d3eca3",
+      "componentContentHash": "bbb5aab5e7663f754d677804d395a1df4c98653507c50ed7d80ceb1fe402cc68",
+      "providerBinding": {
+        "route": "GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily",
+        "providerClass": "com.aoo.bcg.poker.PdkGameProvider",
+        "implementationEvidence": [
+          "Server/server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/GameCatalogLoader.java#sha256=1351a366d799c727a2425b06af1ce70bf0f4e8ae6787bb3d93b32506adc4efc4",
+          "Server/server/Bootstrap/src/main/resources/game-catalog-528.tsv#sha256=9786f5c37d132315c17fcf5215e76982c57cf397badf65b333a608fcc827e557",
+          "Server/server/GameSPI/src/main/resources/current-game-identities.tsv#sha256=0ede8365f6202bf6738b4f01584be7ce25b21decbdc221d85ac75e6d015bdc65",
+          "Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/GameDescriptor.java#sha256=08bbe20cfdd3ceef62caf259ac8cdf78934b759156a56fd23a86465720e0655e",
+          "Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/RoomCreationContext.java#sha256=1e5841f901a76922510067d61bc640089a023b986d91340cfeed2fc5048243fb",
+          "Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/RoomSnapshotMetadataSource.java#sha256=f31db29edff055e7d7e8c0cc6a0332a36aa03781a208b4cf69f993e32fd80ab0",
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#sha256=2b0fc5d1855aea8ba6da8c82275036c0ffaf559321cb56ceae6d7d0146371d4b",
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/CanonicalRoomSnapshotMetadataProducer.java#sha256=1e433e0c3279e4e3c3962c39f45c810d29b6985c2332e37f64e9b7d36fe44094",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/PokerCatalogRuntimeRegistry.java#sha256=c05e1ac0414c6157d85b2416b807da99cb0f6d8482bbfeb7563aa8059ce5c7a2",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/PokerFamilyProviderFactories.java#sha256=d4e45baae25e0179b35fa082c22732b9dba7dc479ff91d031b6796f304bfc065",
+          "Server/server/Games/Poker/src/main/resources/poker-family-region-config.tsv#sha256=5f99c6936274b76b1c216b43c9e6356e80824547ada0a91fa6e40092b6bd3178",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/PaoDeKuaiFamily.java#sha256=5fc6316646331fdad60ef9139b867ad7463c0acf17db43db32168e48ec53013e",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/LegacyPdkRegionRules.java#sha256=e9c64c0d144c52fa418f6869157d9b19875f307f6f6d26eb17621a28ba5cac25",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/LegacyPdkRegionCatalog.java#sha256=290d48cca49c60d3302c629a0549a02b85bab02839f94612906417b22bcd3369",
+          "Server/server/Bootstrap/src/main/resources/game-catalog-current-32.tsv#sha256=e89f295bebadfc96d71656b84c26c5df801d5bbdd993cfe0611fdc1e6f1fc81c"
+        ]
+      },
+      "runtimeMetadataEvidence": {
+        "snapshotSchemaVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_SNAPSHOT_SCHEMA_VERSION=room-snapshot-v1",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily#common-metadata-contract-no-override"
+        ],
+        "cardCodecVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_CARD_CODEC_VERSION=card-v3",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily#common-metadata-contract-no-override"
+        ],
+        "eventInterpreterVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_EVENT_INTERPRETER_VERSION=events-v4",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily#common-metadata-contract-no-override"
+        ],
+        "protocolVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_PROTOCOL_VERSION=protocol-v2",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily#common-metadata-contract-no-override"
+        ]
+      },
+      "sourceArtifact": {
+        "normalizedIdentitySource": "Server/tools/room-rule-play-identities.json#plays[20]",
+        "normalizedComponentSource": "SHA-256 over ordered production component path+hash records",
+        "normalizedContentHash": "bbb5aab5e7663f754d677804d395a1df4c98653507c50ed7d80ceb1fe402cc68",
+        "normalizedWorkbookSource": "Client/docs/开房规则表/跑得快/江苏跑得快.xlsx#normalized-zip-member-sha256-excluding-docProps/core.xml",
+        "normalizedWorkbookHash": "5fc7a6c7c619137c0d3e992b5d4f0b7f31d626f9ad13b4aa94e3b5c3ce9d310f"
+      },
+      "issuanceReason": "Release issuer /root/lobby_runtime_from_staged_source r15-cd2999-20261012 assigned explicit literal releaseId/indexGeneration for this unchanged current identity and re-bound normalized provider, rule, workbook, catalog and client inputs; no fallback, DB MAX, time or formula",
+      "admission": "ACCEPTED",
+      "artifactVersion": "rule-artifact-jiangsu2018-20261009-r2-20261011-r50",
+      "sourceRevision": "bc90a484a9a023e1843373ec2901ae61b79959aa074d6ed1f92205b6ef801933",
+      "contractVersion": "common-room-v1"
+    },
+    {
+      "gameId": 2019,
+      "gameCode": "henan2019",
+      "family": "poker:pao-de-kuai",
+      "playVersion": "henan2019-v1.0.0",
+      "regionCode": "CN-41",
+      "snapshotSchemaVersion": "room-snapshot-v1",
+      "cardCodecVersion": "card-v3",
+      "eventInterpreterVersion": "events-v4",
+      "protocolVersion": "protocol-v2",
+      "sourceHash": "c7259d1a9542079f5c6a3b52be2255ffd5ee769b965e490cdf8eaaf307b930df",
+      "releaseId": 1318221,
+      "indexGeneration": 1006271,
+      "ruleContentHash": "a4183ad50e72c57f2735d9c8b660fb68361ef580512fb3ef6593e0a6fb993ba5",
+      "componentContentHash": "bbb5aab5e7663f754d677804d395a1df4c98653507c50ed7d80ceb1fe402cc68",
+      "providerBinding": {
+        "route": "GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily",
+        "providerClass": "com.aoo.bcg.poker.PdkGameProvider",
+        "implementationEvidence": [
+          "Server/server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/GameCatalogLoader.java#sha256=1351a366d799c727a2425b06af1ce70bf0f4e8ae6787bb3d93b32506adc4efc4",
+          "Server/server/Bootstrap/src/main/resources/game-catalog-528.tsv#sha256=9786f5c37d132315c17fcf5215e76982c57cf397badf65b333a608fcc827e557",
+          "Server/server/GameSPI/src/main/resources/current-game-identities.tsv#sha256=0ede8365f6202bf6738b4f01584be7ce25b21decbdc221d85ac75e6d015bdc65",
+          "Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/GameDescriptor.java#sha256=08bbe20cfdd3ceef62caf259ac8cdf78934b759156a56fd23a86465720e0655e",
+          "Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/RoomCreationContext.java#sha256=1e5841f901a76922510067d61bc640089a023b986d91340cfeed2fc5048243fb",
+          "Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/RoomSnapshotMetadataSource.java#sha256=f31db29edff055e7d7e8c0cc6a0332a36aa03781a208b4cf69f993e32fd80ab0",
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#sha256=2b0fc5d1855aea8ba6da8c82275036c0ffaf559321cb56ceae6d7d0146371d4b",
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/CanonicalRoomSnapshotMetadataProducer.java#sha256=1e433e0c3279e4e3c3962c39f45c810d29b6985c2332e37f64e9b7d36fe44094",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/PokerCatalogRuntimeRegistry.java#sha256=c05e1ac0414c6157d85b2416b807da99cb0f6d8482bbfeb7563aa8059ce5c7a2",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/PokerFamilyProviderFactories.java#sha256=d4e45baae25e0179b35fa082c22732b9dba7dc479ff91d031b6796f304bfc065",
+          "Server/server/Games/Poker/src/main/resources/poker-family-region-config.tsv#sha256=5f99c6936274b76b1c216b43c9e6356e80824547ada0a91fa6e40092b6bd3178",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/PaoDeKuaiFamily.java#sha256=5fc6316646331fdad60ef9139b867ad7463c0acf17db43db32168e48ec53013e",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/LegacyPdkRegionRules.java#sha256=e9c64c0d144c52fa418f6869157d9b19875f307f6f6d26eb17621a28ba5cac25",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/LegacyPdkRegionCatalog.java#sha256=290d48cca49c60d3302c629a0549a02b85bab02839f94612906417b22bcd3369",
+          "Server/server/Bootstrap/src/main/resources/game-catalog-current-32.tsv#sha256=e89f295bebadfc96d71656b84c26c5df801d5bbdd993cfe0611fdc1e6f1fc81c"
+        ]
+      },
+      "runtimeMetadataEvidence": {
+        "snapshotSchemaVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_SNAPSHOT_SCHEMA_VERSION=room-snapshot-v1",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily#common-metadata-contract-no-override"
+        ],
+        "cardCodecVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_CARD_CODEC_VERSION=card-v3",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily#common-metadata-contract-no-override"
+        ],
+        "eventInterpreterVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_EVENT_INTERPRETER_VERSION=events-v4",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily#common-metadata-contract-no-override"
+        ],
+        "protocolVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_PROTOCOL_VERSION=protocol-v2",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily#common-metadata-contract-no-override"
+        ]
+      },
+      "sourceArtifact": {
+        "normalizedIdentitySource": "Server/tools/room-rule-play-identities.json#plays[21]",
+        "normalizedComponentSource": "SHA-256 over ordered production component path+hash records",
+        "normalizedContentHash": "bbb5aab5e7663f754d677804d395a1df4c98653507c50ed7d80ceb1fe402cc68",
+        "normalizedWorkbookSource": "Client/docs/开房规则表/跑得快/河南跑得快.xlsx#normalized-zip-member-sha256-excluding-docProps/core.xml",
+        "normalizedWorkbookHash": "b4397cf9e0fa1b1af28512cc3f612907395deccd80bc8aa960ac3c23e372b945"
+      },
+      "issuanceReason": "Release issuer /root/lobby_runtime_from_staged_source r15-cd2999-20261012 assigned explicit literal releaseId/indexGeneration for this unchanged current identity and re-bound normalized provider, rule, workbook, catalog and client inputs; no fallback, DB MAX, time or formula",
+      "admission": "ACCEPTED",
+      "artifactVersion": "rule-artifact-henan2019-20261009-r2-20261011-r50",
+      "sourceRevision": "6417a1265d4be51be0576ea0a23c28f94c7f7c9a6f32e25a75b7ea7d6cc53d15",
+      "contractVersion": "common-room-v1"
+    },
+    {
+      "gameId": 2020,
+      "gameCode": "taizhou2020",
+      "family": "poker:pao-de-kuai",
+      "playVersion": "taizhou2020-v1.0.0",
+      "regionCode": "CN-32-12",
+      "snapshotSchemaVersion": "room-snapshot-v1",
+      "cardCodecVersion": "card-v3",
+      "eventInterpreterVersion": "events-v4",
+      "protocolVersion": "protocol-v2",
+      "sourceHash": "e0e8e5763652c506c8a0d18eaefe8bc58f3c6fc272c0a2ded8b1cc3626fa54e9",
+      "releaseId": 1318229,
+      "indexGeneration": 1006279,
+      "ruleContentHash": "e850e7cd9851ed3c8e58579790e95c17f3b23bf4e5ade97efe5c0f8ec15430a3",
+      "componentContentHash": "bbb5aab5e7663f754d677804d395a1df4c98653507c50ed7d80ceb1fe402cc68",
+      "providerBinding": {
+        "route": "GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily",
+        "providerClass": "com.aoo.bcg.poker.PdkGameProvider",
+        "implementationEvidence": [
+          "Server/server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/GameCatalogLoader.java#sha256=1351a366d799c727a2425b06af1ce70bf0f4e8ae6787bb3d93b32506adc4efc4",
+          "Server/server/Bootstrap/src/main/resources/game-catalog-528.tsv#sha256=9786f5c37d132315c17fcf5215e76982c57cf397badf65b333a608fcc827e557",
+          "Server/server/GameSPI/src/main/resources/current-game-identities.tsv#sha256=0ede8365f6202bf6738b4f01584be7ce25b21decbdc221d85ac75e6d015bdc65",
+          "Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/GameDescriptor.java#sha256=08bbe20cfdd3ceef62caf259ac8cdf78934b759156a56fd23a86465720e0655e",
+          "Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/RoomCreationContext.java#sha256=1e5841f901a76922510067d61bc640089a023b986d91340cfeed2fc5048243fb",
+          "Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/RoomSnapshotMetadataSource.java#sha256=f31db29edff055e7d7e8c0cc6a0332a36aa03781a208b4cf69f993e32fd80ab0",
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#sha256=2b0fc5d1855aea8ba6da8c82275036c0ffaf559321cb56ceae6d7d0146371d4b",
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/CanonicalRoomSnapshotMetadataProducer.java#sha256=1e433e0c3279e4e3c3962c39f45c810d29b6985c2332e37f64e9b7d36fe44094",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/PokerCatalogRuntimeRegistry.java#sha256=c05e1ac0414c6157d85b2416b807da99cb0f6d8482bbfeb7563aa8059ce5c7a2",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/PokerFamilyProviderFactories.java#sha256=d4e45baae25e0179b35fa082c22732b9dba7dc479ff91d031b6796f304bfc065",
+          "Server/server/Games/Poker/src/main/resources/poker-family-region-config.tsv#sha256=5f99c6936274b76b1c216b43c9e6356e80824547ada0a91fa6e40092b6bd3178",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/PaoDeKuaiFamily.java#sha256=5fc6316646331fdad60ef9139b867ad7463c0acf17db43db32168e48ec53013e",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/LegacyPdkRegionRules.java#sha256=e9c64c0d144c52fa418f6869157d9b19875f307f6f6d26eb17621a28ba5cac25",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/LegacyPdkRegionCatalog.java#sha256=290d48cca49c60d3302c629a0549a02b85bab02839f94612906417b22bcd3369",
+          "Server/server/Bootstrap/src/main/resources/game-catalog-current-32.tsv#sha256=e89f295bebadfc96d71656b84c26c5df801d5bbdd993cfe0611fdc1e6f1fc81c"
+        ]
+      },
+      "runtimeMetadataEvidence": {
+        "snapshotSchemaVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_SNAPSHOT_SCHEMA_VERSION=room-snapshot-v1",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily#common-metadata-contract-no-override"
+        ],
+        "cardCodecVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_CARD_CODEC_VERSION=card-v3",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily#common-metadata-contract-no-override"
+        ],
+        "eventInterpreterVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_EVENT_INTERPRETER_VERSION=events-v4",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily#common-metadata-contract-no-override"
+        ],
+        "protocolVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_PROTOCOL_VERSION=protocol-v2",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily#common-metadata-contract-no-override"
+        ]
+      },
+      "sourceArtifact": {
+        "normalizedIdentitySource": "Server/tools/room-rule-play-identities.json#plays[22]",
+        "normalizedComponentSource": "SHA-256 over ordered production component path+hash records",
+        "normalizedContentHash": "bbb5aab5e7663f754d677804d395a1df4c98653507c50ed7d80ceb1fe402cc68",
+        "normalizedWorkbookSource": "Client/docs/开房规则表/跑得快/泰州跑得快.xlsx#normalized-zip-member-sha256-excluding-docProps/core.xml",
+        "normalizedWorkbookHash": "24ace2efca59da6e73d75925dfef3933ed69aec844eae02391111fe25a417327"
+      },
+      "issuanceReason": "Release issuer /root/lobby_runtime_from_staged_source r15-cd2999-20261012 assigned explicit literal releaseId/indexGeneration for this unchanged current identity and re-bound normalized provider, rule, workbook, catalog and client inputs; no fallback, DB MAX, time or formula",
+      "admission": "ACCEPTED",
+      "artifactVersion": "rule-artifact-taizhou2020-20261009-r2-20261011-r50",
+      "sourceRevision": "a964a3857682688b2d5b029b825ebc7a38bc654d0762258ba0ae1819c8dc0a00",
+      "contractVersion": "common-room-v1"
+    },
+    {
+      "gameId": 2021,
+      "gameCode": "huaibin2021",
+      "family": "poker:pao-de-kuai",
+      "playVersion": "huaibin2021-v1.0.0",
+      "regionCode": "CN-41-15-27",
+      "snapshotSchemaVersion": "room-snapshot-v1",
+      "cardCodecVersion": "card-v3",
+      "eventInterpreterVersion": "events-v4",
+      "protocolVersion": "protocol-v2",
+      "sourceHash": "1cdbda81f69213ae48db360070b1af4a96aa3bd857b4f7d78e9d7f41d91bba60",
+      "releaseId": 1318237,
+      "indexGeneration": 1006287,
+      "ruleContentHash": "ec58e24749f61512382cb87a53bd9fcc31a2d8cebba8cdbe43bfedf3cdc0e5dc",
+      "componentContentHash": "bbb5aab5e7663f754d677804d395a1df4c98653507c50ed7d80ceb1fe402cc68",
+      "providerBinding": {
+        "route": "GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily",
+        "providerClass": "com.aoo.bcg.poker.PdkGameProvider",
+        "implementationEvidence": [
+          "Server/server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/GameCatalogLoader.java#sha256=1351a366d799c727a2425b06af1ce70bf0f4e8ae6787bb3d93b32506adc4efc4",
+          "Server/server/Bootstrap/src/main/resources/game-catalog-528.tsv#sha256=9786f5c37d132315c17fcf5215e76982c57cf397badf65b333a608fcc827e557",
+          "Server/server/GameSPI/src/main/resources/current-game-identities.tsv#sha256=0ede8365f6202bf6738b4f01584be7ce25b21decbdc221d85ac75e6d015bdc65",
+          "Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/GameDescriptor.java#sha256=08bbe20cfdd3ceef62caf259ac8cdf78934b759156a56fd23a86465720e0655e",
+          "Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/RoomCreationContext.java#sha256=1e5841f901a76922510067d61bc640089a023b986d91340cfeed2fc5048243fb",
+          "Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/RoomSnapshotMetadataSource.java#sha256=f31db29edff055e7d7e8c0cc6a0332a36aa03781a208b4cf69f993e32fd80ab0",
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#sha256=2b0fc5d1855aea8ba6da8c82275036c0ffaf559321cb56ceae6d7d0146371d4b",
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/CanonicalRoomSnapshotMetadataProducer.java#sha256=1e433e0c3279e4e3c3962c39f45c810d29b6985c2332e37f64e9b7d36fe44094",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/PokerCatalogRuntimeRegistry.java#sha256=c05e1ac0414c6157d85b2416b807da99cb0f6d8482bbfeb7563aa8059ce5c7a2",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/PokerFamilyProviderFactories.java#sha256=d4e45baae25e0179b35fa082c22732b9dba7dc479ff91d031b6796f304bfc065",
+          "Server/server/Games/Poker/src/main/resources/poker-family-region-config.tsv#sha256=5f99c6936274b76b1c216b43c9e6356e80824547ada0a91fa6e40092b6bd3178",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/PaoDeKuaiFamily.java#sha256=5fc6316646331fdad60ef9139b867ad7463c0acf17db43db32168e48ec53013e",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/LegacyPdkRegionRules.java#sha256=e9c64c0d144c52fa418f6869157d9b19875f307f6f6d26eb17621a28ba5cac25",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/LegacyPdkRegionCatalog.java#sha256=290d48cca49c60d3302c629a0549a02b85bab02839f94612906417b22bcd3369",
+          "Server/server/Bootstrap/src/main/resources/game-catalog-current-32.tsv#sha256=e89f295bebadfc96d71656b84c26c5df801d5bbdd993cfe0611fdc1e6f1fc81c"
+        ]
+      },
+      "runtimeMetadataEvidence": {
+        "snapshotSchemaVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_SNAPSHOT_SCHEMA_VERSION=room-snapshot-v1",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily#common-metadata-contract-no-override"
+        ],
+        "cardCodecVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_CARD_CODEC_VERSION=card-v3",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily#common-metadata-contract-no-override"
+        ],
+        "eventInterpreterVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_EVENT_INTERPRETER_VERSION=events-v4",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily#common-metadata-contract-no-override"
+        ],
+        "protocolVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_PROTOCOL_VERSION=protocol-v2",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily#common-metadata-contract-no-override"
+        ]
+      },
+      "sourceArtifact": {
+        "normalizedIdentitySource": "Server/tools/room-rule-play-identities.json#plays[23]",
+        "normalizedComponentSource": "SHA-256 over ordered production component path+hash records",
+        "normalizedContentHash": "bbb5aab5e7663f754d677804d395a1df4c98653507c50ed7d80ceb1fe402cc68",
+        "normalizedWorkbookSource": "Client/docs/开房规则表/跑得快/淮滨跑得快.xlsx#normalized-zip-member-sha256-excluding-docProps/core.xml",
+        "normalizedWorkbookHash": "b6f2f7055ba0e1f741380545f1375e2eac51a62b60252139f819236ab469d235"
+      },
+      "issuanceReason": "Release issuer /root/lobby_runtime_from_staged_source r15-cd2999-20261012 assigned explicit literal releaseId/indexGeneration for this unchanged current identity and re-bound normalized provider, rule, workbook, catalog and client inputs; no fallback, DB MAX, time or formula",
+      "admission": "ACCEPTED",
+      "artifactVersion": "rule-artifact-huaibin2021-20261009-r2-20261011-r50",
+      "sourceRevision": "6968a08ffc68b768df07083832111ceb5feb9668bbc3c014394f52a981f560ae",
+      "contractVersion": "common-room-v1"
+    },
+    {
+      "gameId": 2022,
+      "gameCode": "huangchuan2022",
+      "family": "poker:pao-de-kuai",
+      "playVersion": "huangchuan2022-v1.0.0",
+      "regionCode": "CN-41-15-26",
+      "snapshotSchemaVersion": "room-snapshot-v1",
+      "cardCodecVersion": "card-v3",
+      "eventInterpreterVersion": "events-v4",
+      "protocolVersion": "protocol-v2",
+      "sourceHash": "11179dda7de218affa7b30cd4b8f0cd2270857b3220f2a2d27f2bd6230eb85c8",
+      "releaseId": 1318243,
+      "indexGeneration": 1006293,
+      "ruleContentHash": "e8c693b893227f9e6fd2f0e3978aaddffb5f7c0951c47cf37080177c977925e7",
+      "componentContentHash": "bbb5aab5e7663f754d677804d395a1df4c98653507c50ed7d80ceb1fe402cc68",
+      "providerBinding": {
+        "route": "GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily",
+        "providerClass": "com.aoo.bcg.poker.PdkGameProvider",
+        "implementationEvidence": [
+          "Server/server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/GameCatalogLoader.java#sha256=1351a366d799c727a2425b06af1ce70bf0f4e8ae6787bb3d93b32506adc4efc4",
+          "Server/server/Bootstrap/src/main/resources/game-catalog-528.tsv#sha256=9786f5c37d132315c17fcf5215e76982c57cf397badf65b333a608fcc827e557",
+          "Server/server/GameSPI/src/main/resources/current-game-identities.tsv#sha256=0ede8365f6202bf6738b4f01584be7ce25b21decbdc221d85ac75e6d015bdc65",
+          "Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/GameDescriptor.java#sha256=08bbe20cfdd3ceef62caf259ac8cdf78934b759156a56fd23a86465720e0655e",
+          "Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/RoomCreationContext.java#sha256=1e5841f901a76922510067d61bc640089a023b986d91340cfeed2fc5048243fb",
+          "Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/RoomSnapshotMetadataSource.java#sha256=f31db29edff055e7d7e8c0cc6a0332a36aa03781a208b4cf69f993e32fd80ab0",
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#sha256=2b0fc5d1855aea8ba6da8c82275036c0ffaf559321cb56ceae6d7d0146371d4b",
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/CanonicalRoomSnapshotMetadataProducer.java#sha256=1e433e0c3279e4e3c3962c39f45c810d29b6985c2332e37f64e9b7d36fe44094",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/PokerCatalogRuntimeRegistry.java#sha256=c05e1ac0414c6157d85b2416b807da99cb0f6d8482bbfeb7563aa8059ce5c7a2",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/PokerFamilyProviderFactories.java#sha256=d4e45baae25e0179b35fa082c22732b9dba7dc479ff91d031b6796f304bfc065",
+          "Server/server/Games/Poker/src/main/resources/poker-family-region-config.tsv#sha256=5f99c6936274b76b1c216b43c9e6356e80824547ada0a91fa6e40092b6bd3178",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/PaoDeKuaiFamily.java#sha256=5fc6316646331fdad60ef9139b867ad7463c0acf17db43db32168e48ec53013e",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/LegacyPdkRegionRules.java#sha256=e9c64c0d144c52fa418f6869157d9b19875f307f6f6d26eb17621a28ba5cac25",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/LegacyPdkRegionCatalog.java#sha256=290d48cca49c60d3302c629a0549a02b85bab02839f94612906417b22bcd3369",
+          "Server/server/Bootstrap/src/main/resources/game-catalog-current-32.tsv#sha256=e89f295bebadfc96d71656b84c26c5df801d5bbdd993cfe0611fdc1e6f1fc81c"
+        ]
+      },
+      "runtimeMetadataEvidence": {
+        "snapshotSchemaVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_SNAPSHOT_SCHEMA_VERSION=room-snapshot-v1",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily#common-metadata-contract-no-override"
+        ],
+        "cardCodecVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_CARD_CODEC_VERSION=card-v3",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily#common-metadata-contract-no-override"
+        ],
+        "eventInterpreterVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_EVENT_INTERPRETER_VERSION=events-v4",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily#common-metadata-contract-no-override"
+        ],
+        "protocolVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_PROTOCOL_VERSION=protocol-v2",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily#common-metadata-contract-no-override"
+        ]
+      },
+      "sourceArtifact": {
+        "normalizedIdentitySource": "Server/tools/room-rule-play-identities.json#plays[24]",
+        "normalizedComponentSource": "SHA-256 over ordered production component path+hash records",
+        "normalizedContentHash": "bbb5aab5e7663f754d677804d395a1df4c98653507c50ed7d80ceb1fe402cc68",
+        "normalizedWorkbookSource": "Client/docs/开房规则表/跑得快/潢川跑得快.xlsx#normalized-zip-member-sha256-excluding-docProps/core.xml",
+        "normalizedWorkbookHash": "fa5051c3d07c58a5ad798c2e05fd67fbd50dd5a5937cf87cde0382640283e5e9"
+      },
+      "issuanceReason": "Release issuer /root/lobby_runtime_from_staged_source r15-cd2999-20261012 assigned explicit literal releaseId/indexGeneration for this unchanged current identity and re-bound normalized provider, rule, workbook, catalog and client inputs; no fallback, DB MAX, time or formula",
+      "admission": "ACCEPTED",
+      "artifactVersion": "rule-artifact-huangchuan2022-20261009-r2-20261011-r50",
+      "sourceRevision": "6ad95f08a13b84a7d043be0ae760ad3b42877930de7b04ccbef4210fb883c74b",
+      "contractVersion": "common-room-v1"
+    },
+    {
+      "gameId": 2023,
+      "gameCode": "poyang2023",
+      "family": "poker:pao-de-kuai",
+      "playVersion": "poyang2023-v1.0.0",
+      "regionCode": "CN-36-11-28",
+      "snapshotSchemaVersion": "room-snapshot-v1",
+      "cardCodecVersion": "card-v3",
+      "eventInterpreterVersion": "events-v4",
+      "protocolVersion": "protocol-v2",
+      "sourceHash": "2046952da61c13511b5acc164efee81b8475c5b34717fe63cd6b4862a8f673c0",
+      "releaseId": 1318251,
+      "indexGeneration": 1006301,
+      "ruleContentHash": "a4222ff240d6d827efff78778f1a7699c979535fa816fd6a3cefcd5acb8da81d",
+      "componentContentHash": "bbb5aab5e7663f754d677804d395a1df4c98653507c50ed7d80ceb1fe402cc68",
+      "providerBinding": {
+        "route": "GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily",
+        "providerClass": "com.aoo.bcg.poker.PdkGameProvider",
+        "implementationEvidence": [
+          "Server/server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/GameCatalogLoader.java#sha256=1351a366d799c727a2425b06af1ce70bf0f4e8ae6787bb3d93b32506adc4efc4",
+          "Server/server/Bootstrap/src/main/resources/game-catalog-528.tsv#sha256=9786f5c37d132315c17fcf5215e76982c57cf397badf65b333a608fcc827e557",
+          "Server/server/GameSPI/src/main/resources/current-game-identities.tsv#sha256=0ede8365f6202bf6738b4f01584be7ce25b21decbdc221d85ac75e6d015bdc65",
+          "Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/GameDescriptor.java#sha256=08bbe20cfdd3ceef62caf259ac8cdf78934b759156a56fd23a86465720e0655e",
+          "Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/RoomCreationContext.java#sha256=1e5841f901a76922510067d61bc640089a023b986d91340cfeed2fc5048243fb",
+          "Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/RoomSnapshotMetadataSource.java#sha256=f31db29edff055e7d7e8c0cc6a0332a36aa03781a208b4cf69f993e32fd80ab0",
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#sha256=2b0fc5d1855aea8ba6da8c82275036c0ffaf559321cb56ceae6d7d0146371d4b",
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/CanonicalRoomSnapshotMetadataProducer.java#sha256=1e433e0c3279e4e3c3962c39f45c810d29b6985c2332e37f64e9b7d36fe44094",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/PokerCatalogRuntimeRegistry.java#sha256=c05e1ac0414c6157d85b2416b807da99cb0f6d8482bbfeb7563aa8059ce5c7a2",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/PokerFamilyProviderFactories.java#sha256=d4e45baae25e0179b35fa082c22732b9dba7dc479ff91d031b6796f304bfc065",
+          "Server/server/Games/Poker/src/main/resources/poker-family-region-config.tsv#sha256=5f99c6936274b76b1c216b43c9e6356e80824547ada0a91fa6e40092b6bd3178",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/PaoDeKuaiFamily.java#sha256=5fc6316646331fdad60ef9139b867ad7463c0acf17db43db32168e48ec53013e",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/LegacyPdkRegionRules.java#sha256=e9c64c0d144c52fa418f6869157d9b19875f307f6f6d26eb17621a28ba5cac25",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/LegacyPdkRegionCatalog.java#sha256=290d48cca49c60d3302c629a0549a02b85bab02839f94612906417b22bcd3369",
+          "Server/server/Bootstrap/src/main/resources/game-catalog-current-32.tsv#sha256=e89f295bebadfc96d71656b84c26c5df801d5bbdd993cfe0611fdc1e6f1fc81c"
+        ]
+      },
+      "runtimeMetadataEvidence": {
+        "snapshotSchemaVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_SNAPSHOT_SCHEMA_VERSION=room-snapshot-v1",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily#common-metadata-contract-no-override"
+        ],
+        "cardCodecVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_CARD_CODEC_VERSION=card-v3",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily#common-metadata-contract-no-override"
+        ],
+        "eventInterpreterVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_EVENT_INTERPRETER_VERSION=events-v4",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily#common-metadata-contract-no-override"
+        ],
+        "protocolVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_PROTOCOL_VERSION=protocol-v2",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily#common-metadata-contract-no-override"
+        ]
+      },
+      "sourceArtifact": {
+        "normalizedIdentitySource": "Server/tools/room-rule-play-identities.json#plays[25]",
+        "normalizedComponentSource": "SHA-256 over ordered production component path+hash records",
+        "normalizedContentHash": "bbb5aab5e7663f754d677804d395a1df4c98653507c50ed7d80ceb1fe402cc68",
+        "normalizedWorkbookSource": "Client/docs/开房规则表/跑得快/鄱阳跑得快.xlsx#normalized-zip-member-sha256-excluding-docProps/core.xml",
+        "normalizedWorkbookHash": "f2517b040ec7c94d2920d0b574226acd36835c841337267c304f14b6076141bb"
+      },
+      "issuanceReason": "Release issuer /root/lobby_runtime_from_staged_source r15-cd2999-20261012 assigned explicit literal releaseId/indexGeneration for this unchanged current identity and re-bound normalized provider, rule, workbook, catalog and client inputs; no fallback, DB MAX, time or formula",
+      "admission": "ACCEPTED",
+      "artifactVersion": "rule-artifact-poyang2023-20261009-r2-20261011-r50",
+      "sourceRevision": "1d7b5698e8a00ed79e3466a262895d1bb824b78ca6e501ad9c60111bca48c95c",
+      "contractVersion": "common-room-v1"
+    },
+    {
+      "gameId": 2024,
+      "gameCode": "jintan2024",
+      "family": "poker:pao-de-kuai",
+      "playVersion": "jintan2024-v1.0.0",
+      "regionCode": "CN-32-04-13",
+      "snapshotSchemaVersion": "room-snapshot-v1",
+      "cardCodecVersion": "card-v3",
+      "eventInterpreterVersion": "events-v4",
+      "protocolVersion": "protocol-v2",
+      "sourceHash": "caf2c0631f040188f358fc13823412671b45dee99704ecebf285e4b8ecd5895a",
+      "releaseId": 1318259,
+      "indexGeneration": 1006309,
+      "ruleContentHash": "15928d6d46e500814e6af92826c3dcbdf4eaf38d661126b5b7da2a09c68e8ea0",
+      "componentContentHash": "bbb5aab5e7663f754d677804d395a1df4c98653507c50ed7d80ceb1fe402cc68",
+      "providerBinding": {
+        "route": "GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily",
+        "providerClass": "com.aoo.bcg.poker.PdkGameProvider",
+        "implementationEvidence": [
+          "Server/server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/GameCatalogLoader.java#sha256=1351a366d799c727a2425b06af1ce70bf0f4e8ae6787bb3d93b32506adc4efc4",
+          "Server/server/Bootstrap/src/main/resources/game-catalog-528.tsv#sha256=9786f5c37d132315c17fcf5215e76982c57cf397badf65b333a608fcc827e557",
+          "Server/server/GameSPI/src/main/resources/current-game-identities.tsv#sha256=0ede8365f6202bf6738b4f01584be7ce25b21decbdc221d85ac75e6d015bdc65",
+          "Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/GameDescriptor.java#sha256=08bbe20cfdd3ceef62caf259ac8cdf78934b759156a56fd23a86465720e0655e",
+          "Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/RoomCreationContext.java#sha256=1e5841f901a76922510067d61bc640089a023b986d91340cfeed2fc5048243fb",
+          "Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/RoomSnapshotMetadataSource.java#sha256=f31db29edff055e7d7e8c0cc6a0332a36aa03781a208b4cf69f993e32fd80ab0",
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#sha256=2b0fc5d1855aea8ba6da8c82275036c0ffaf559321cb56ceae6d7d0146371d4b",
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/CanonicalRoomSnapshotMetadataProducer.java#sha256=1e433e0c3279e4e3c3962c39f45c810d29b6985c2332e37f64e9b7d36fe44094",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/PokerCatalogRuntimeRegistry.java#sha256=c05e1ac0414c6157d85b2416b807da99cb0f6d8482bbfeb7563aa8059ce5c7a2",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/PokerFamilyProviderFactories.java#sha256=d4e45baae25e0179b35fa082c22732b9dba7dc479ff91d031b6796f304bfc065",
+          "Server/server/Games/Poker/src/main/resources/poker-family-region-config.tsv#sha256=5f99c6936274b76b1c216b43c9e6356e80824547ada0a91fa6e40092b6bd3178",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/PaoDeKuaiFamily.java#sha256=5fc6316646331fdad60ef9139b867ad7463c0acf17db43db32168e48ec53013e",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/LegacyPdkRegionRules.java#sha256=e9c64c0d144c52fa418f6869157d9b19875f307f6f6d26eb17621a28ba5cac25",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/LegacyPdkRegionCatalog.java#sha256=290d48cca49c60d3302c629a0549a02b85bab02839f94612906417b22bcd3369",
+          "Server/server/Bootstrap/src/main/resources/game-catalog-current-32.tsv#sha256=e89f295bebadfc96d71656b84c26c5df801d5bbdd993cfe0611fdc1e6f1fc81c"
+        ]
+      },
+      "runtimeMetadataEvidence": {
+        "snapshotSchemaVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_SNAPSHOT_SCHEMA_VERSION=room-snapshot-v1",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily#common-metadata-contract-no-override"
+        ],
+        "cardCodecVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_CARD_CODEC_VERSION=card-v3",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily#common-metadata-contract-no-override"
+        ],
+        "eventInterpreterVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_EVENT_INTERPRETER_VERSION=events-v4",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily#common-metadata-contract-no-override"
+        ],
+        "protocolVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_PROTOCOL_VERSION=protocol-v2",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily#common-metadata-contract-no-override"
+        ]
+      },
+      "sourceArtifact": {
+        "normalizedIdentitySource": "Server/tools/room-rule-play-identities.json#plays[26]",
+        "normalizedComponentSource": "SHA-256 over ordered production component path+hash records",
+        "normalizedContentHash": "bbb5aab5e7663f754d677804d395a1df4c98653507c50ed7d80ceb1fe402cc68",
+        "normalizedWorkbookSource": "Client/docs/开房规则表/跑得快/金坛跑得快.xlsx#normalized-zip-member-sha256-excluding-docProps/core.xml",
+        "normalizedWorkbookHash": "6f5e3fe20bcb4b0dbe456bdae960781ea74cc1f06a7d608acd30913481283218"
+      },
+      "issuanceReason": "Release issuer /root/lobby_runtime_from_staged_source r15-cd2999-20261012 assigned explicit literal releaseId/indexGeneration for this unchanged current identity and re-bound normalized provider, rule, workbook, catalog and client inputs; no fallback, DB MAX, time or formula",
+      "admission": "ACCEPTED",
+      "artifactVersion": "rule-artifact-jintan2024-20261009-r2-20261011-r50",
+      "sourceRevision": "ea74fff7313657fdb7cd057557dfd88ee665f80f213cdbde560d66fd296ab761",
+      "contractVersion": "common-room-v1"
+    },
+    {
+      "gameId": 2025,
+      "gameCode": "gaoan2025",
+      "family": "poker:pao-de-kuai",
+      "playVersion": "gaoan2025-v1.0.0",
+      "regionCode": "CN-36-09-83",
+      "snapshotSchemaVersion": "room-snapshot-v1",
+      "cardCodecVersion": "card-v3",
+      "eventInterpreterVersion": "events-v4",
+      "protocolVersion": "protocol-v2",
+      "sourceHash": "abc410a038074f70381c857359c1043a6316c7e6186864321c1c74dd7032e599",
+      "releaseId": 1318267,
+      "indexGeneration": 1006317,
+      "ruleContentHash": "c593ccd2f96e5c3e677b11cae27a5b69cc183fb19cd31707b5124f59ffb1cad3",
+      "componentContentHash": "bbb5aab5e7663f754d677804d395a1df4c98653507c50ed7d80ceb1fe402cc68",
+      "providerBinding": {
+        "route": "GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily",
+        "providerClass": "com.aoo.bcg.poker.PdkGameProvider",
+        "implementationEvidence": [
+          "Server/server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/GameCatalogLoader.java#sha256=1351a366d799c727a2425b06af1ce70bf0f4e8ae6787bb3d93b32506adc4efc4",
+          "Server/server/Bootstrap/src/main/resources/game-catalog-528.tsv#sha256=9786f5c37d132315c17fcf5215e76982c57cf397badf65b333a608fcc827e557",
+          "Server/server/GameSPI/src/main/resources/current-game-identities.tsv#sha256=0ede8365f6202bf6738b4f01584be7ce25b21decbdc221d85ac75e6d015bdc65",
+          "Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/GameDescriptor.java#sha256=08bbe20cfdd3ceef62caf259ac8cdf78934b759156a56fd23a86465720e0655e",
+          "Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/RoomCreationContext.java#sha256=1e5841f901a76922510067d61bc640089a023b986d91340cfeed2fc5048243fb",
+          "Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/RoomSnapshotMetadataSource.java#sha256=f31db29edff055e7d7e8c0cc6a0332a36aa03781a208b4cf69f993e32fd80ab0",
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#sha256=2b0fc5d1855aea8ba6da8c82275036c0ffaf559321cb56ceae6d7d0146371d4b",
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/CanonicalRoomSnapshotMetadataProducer.java#sha256=1e433e0c3279e4e3c3962c39f45c810d29b6985c2332e37f64e9b7d36fe44094",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/PokerCatalogRuntimeRegistry.java#sha256=c05e1ac0414c6157d85b2416b807da99cb0f6d8482bbfeb7563aa8059ce5c7a2",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/PokerFamilyProviderFactories.java#sha256=d4e45baae25e0179b35fa082c22732b9dba7dc479ff91d031b6796f304bfc065",
+          "Server/server/Games/Poker/src/main/resources/poker-family-region-config.tsv#sha256=5f99c6936274b76b1c216b43c9e6356e80824547ada0a91fa6e40092b6bd3178",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/PaoDeKuaiFamily.java#sha256=5fc6316646331fdad60ef9139b867ad7463c0acf17db43db32168e48ec53013e",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/LegacyPdkRegionRules.java#sha256=e9c64c0d144c52fa418f6869157d9b19875f307f6f6d26eb17621a28ba5cac25",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/LegacyPdkRegionCatalog.java#sha256=290d48cca49c60d3302c629a0549a02b85bab02839f94612906417b22bcd3369",
+          "Server/server/Bootstrap/src/main/resources/game-catalog-current-32.tsv#sha256=e89f295bebadfc96d71656b84c26c5df801d5bbdd993cfe0611fdc1e6f1fc81c"
+        ]
+      },
+      "runtimeMetadataEvidence": {
+        "snapshotSchemaVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_SNAPSHOT_SCHEMA_VERSION=room-snapshot-v1",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily#common-metadata-contract-no-override"
+        ],
+        "cardCodecVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_CARD_CODEC_VERSION=card-v3",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily#common-metadata-contract-no-override"
+        ],
+        "eventInterpreterVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_EVENT_INTERPRETER_VERSION=events-v4",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily#common-metadata-contract-no-override"
+        ],
+        "protocolVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_PROTOCOL_VERSION=protocol-v2",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily#common-metadata-contract-no-override"
+        ]
+      },
+      "sourceArtifact": {
+        "normalizedIdentitySource": "Server/tools/room-rule-play-identities.json#plays[27]",
+        "normalizedComponentSource": "SHA-256 over ordered production component path+hash records",
+        "normalizedContentHash": "bbb5aab5e7663f754d677804d395a1df4c98653507c50ed7d80ceb1fe402cc68",
+        "normalizedWorkbookSource": "Client/docs/开房规则表/跑得快/高安跑得快.xlsx#normalized-zip-member-sha256-excluding-docProps/core.xml",
+        "normalizedWorkbookHash": "16f3cbe03524c11f50f41c658a9925c7c2a127e2bc572bc507a190d57fb818d6"
+      },
+      "issuanceReason": "Release issuer /root/lobby_runtime_from_staged_source r15-cd2999-20261012 assigned explicit literal releaseId/indexGeneration for this unchanged current identity and re-bound normalized provider, rule, workbook, catalog and client inputs; no fallback, DB MAX, time or formula",
+      "admission": "ACCEPTED",
+      "artifactVersion": "rule-artifact-gaoan2025-20261009-r2-20261011-r50",
+      "sourceRevision": "9c2908d2e2594f74596df22dd0aae74db64659c77e8fcc74b127295a76b742e7",
+      "contractVersion": "common-room-v1"
+    },
+    {
+      "gameId": 2026,
+      "gameCode": "yixing2026",
+      "family": "poker:pao-de-kuai",
+      "playVersion": "yixing2026-v1.0.0",
+      "regionCode": "CN-32-02-82",
+      "snapshotSchemaVersion": "room-snapshot-v1",
+      "cardCodecVersion": "card-v3",
+      "eventInterpreterVersion": "events-v4",
+      "protocolVersion": "protocol-v2",
+      "sourceHash": "49582391861a51b8fc166f1729670d2f403a8ca6925b023d71148802d08cb252",
+      "releaseId": 1318273,
+      "indexGeneration": 1006323,
+      "ruleContentHash": "39418a32800a403af4a69c65035390d8cd6f9c09ace9c6f1b9c559253badc5d8",
+      "componentContentHash": "bbb5aab5e7663f754d677804d395a1df4c98653507c50ed7d80ceb1fe402cc68",
+      "providerBinding": {
+        "route": "GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily",
+        "providerClass": "com.aoo.bcg.poker.PdkGameProvider",
+        "implementationEvidence": [
+          "Server/server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/GameCatalogLoader.java#sha256=1351a366d799c727a2425b06af1ce70bf0f4e8ae6787bb3d93b32506adc4efc4",
+          "Server/server/Bootstrap/src/main/resources/game-catalog-528.tsv#sha256=9786f5c37d132315c17fcf5215e76982c57cf397badf65b333a608fcc827e557",
+          "Server/server/GameSPI/src/main/resources/current-game-identities.tsv#sha256=0ede8365f6202bf6738b4f01584be7ce25b21decbdc221d85ac75e6d015bdc65",
+          "Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/GameDescriptor.java#sha256=08bbe20cfdd3ceef62caf259ac8cdf78934b759156a56fd23a86465720e0655e",
+          "Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/RoomCreationContext.java#sha256=1e5841f901a76922510067d61bc640089a023b986d91340cfeed2fc5048243fb",
+          "Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/RoomSnapshotMetadataSource.java#sha256=f31db29edff055e7d7e8c0cc6a0332a36aa03781a208b4cf69f993e32fd80ab0",
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#sha256=2b0fc5d1855aea8ba6da8c82275036c0ffaf559321cb56ceae6d7d0146371d4b",
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/CanonicalRoomSnapshotMetadataProducer.java#sha256=1e433e0c3279e4e3c3962c39f45c810d29b6985c2332e37f64e9b7d36fe44094",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/PokerCatalogRuntimeRegistry.java#sha256=c05e1ac0414c6157d85b2416b807da99cb0f6d8482bbfeb7563aa8059ce5c7a2",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/PokerFamilyProviderFactories.java#sha256=d4e45baae25e0179b35fa082c22732b9dba7dc479ff91d031b6796f304bfc065",
+          "Server/server/Games/Poker/src/main/resources/poker-family-region-config.tsv#sha256=5f99c6936274b76b1c216b43c9e6356e80824547ada0a91fa6e40092b6bd3178",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/PaoDeKuaiFamily.java#sha256=5fc6316646331fdad60ef9139b867ad7463c0acf17db43db32168e48ec53013e",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/LegacyPdkRegionRules.java#sha256=e9c64c0d144c52fa418f6869157d9b19875f307f6f6d26eb17621a28ba5cac25",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/LegacyPdkRegionCatalog.java#sha256=290d48cca49c60d3302c629a0549a02b85bab02839f94612906417b22bcd3369",
+          "Server/server/Bootstrap/src/main/resources/game-catalog-current-32.tsv#sha256=e89f295bebadfc96d71656b84c26c5df801d5bbdd993cfe0611fdc1e6f1fc81c"
+        ]
+      },
+      "runtimeMetadataEvidence": {
+        "snapshotSchemaVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_SNAPSHOT_SCHEMA_VERSION=room-snapshot-v1",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily#common-metadata-contract-no-override"
+        ],
+        "cardCodecVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_CARD_CODEC_VERSION=card-v3",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily#common-metadata-contract-no-override"
+        ],
+        "eventInterpreterVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_EVENT_INTERPRETER_VERSION=events-v4",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily#common-metadata-contract-no-override"
+        ],
+        "protocolVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_PROTOCOL_VERSION=protocol-v2",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily#common-metadata-contract-no-override"
+        ]
+      },
+      "sourceArtifact": {
+        "normalizedIdentitySource": "Server/tools/room-rule-play-identities.json#plays[28]",
+        "normalizedComponentSource": "SHA-256 over ordered production component path+hash records",
+        "normalizedContentHash": "bbb5aab5e7663f754d677804d395a1df4c98653507c50ed7d80ceb1fe402cc68",
+        "normalizedWorkbookSource": "Client/docs/开房规则表/跑得快/宜兴跑得快.xlsx#normalized-zip-member-sha256-excluding-docProps/core.xml",
+        "normalizedWorkbookHash": "7366e2f095572dac8432953652e12945d92b69ef42f88dcb956cb09c87b86080"
+      },
+      "issuanceReason": "Release issuer /root/lobby_runtime_from_staged_source r15-cd2999-20261012 assigned explicit literal releaseId/indexGeneration for this unchanged current identity and re-bound normalized provider, rule, workbook, catalog and client inputs; no fallback, DB MAX, time or formula",
+      "admission": "ACCEPTED",
+      "artifactVersion": "rule-artifact-yixing2026-20261009-r2-20261011-r50",
+      "sourceRevision": "342f5ad61111cdb4fd35b54a771817c4e8efa58f0f9ec2ae4275b76a43261d5f",
+      "contractVersion": "common-room-v1"
+    },
+    {
+      "gameId": 2027,
+      "gameCode": "xuancheng2027",
+      "family": "poker:pao-de-kuai",
+      "playVersion": "xuancheng2027-v1.0.0",
+      "regionCode": "CN-34-18",
+      "snapshotSchemaVersion": "room-snapshot-v1",
+      "cardCodecVersion": "card-v3",
+      "eventInterpreterVersion": "events-v4",
+      "protocolVersion": "protocol-v2",
+      "sourceHash": "b42092ec31bebf63f04cd3918105c5b3db5757588c81f4612d6410689ee57a33",
+      "releaseId": 1318281,
+      "indexGeneration": 1006331,
+      "ruleContentHash": "759251643d10080608c1f87b82c19771cfd6f3090b8fa0eaf99e01f6dc3e7429",
+      "componentContentHash": "bbb5aab5e7663f754d677804d395a1df4c98653507c50ed7d80ceb1fe402cc68",
+      "providerBinding": {
+        "route": "GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily",
+        "providerClass": "com.aoo.bcg.poker.PdkGameProvider",
+        "implementationEvidence": [
+          "Server/server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/GameCatalogLoader.java#sha256=1351a366d799c727a2425b06af1ce70bf0f4e8ae6787bb3d93b32506adc4efc4",
+          "Server/server/Bootstrap/src/main/resources/game-catalog-528.tsv#sha256=9786f5c37d132315c17fcf5215e76982c57cf397badf65b333a608fcc827e557",
+          "Server/server/GameSPI/src/main/resources/current-game-identities.tsv#sha256=0ede8365f6202bf6738b4f01584be7ce25b21decbdc221d85ac75e6d015bdc65",
+          "Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/GameDescriptor.java#sha256=08bbe20cfdd3ceef62caf259ac8cdf78934b759156a56fd23a86465720e0655e",
+          "Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/RoomCreationContext.java#sha256=1e5841f901a76922510067d61bc640089a023b986d91340cfeed2fc5048243fb",
+          "Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/RoomSnapshotMetadataSource.java#sha256=f31db29edff055e7d7e8c0cc6a0332a36aa03781a208b4cf69f993e32fd80ab0",
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#sha256=2b0fc5d1855aea8ba6da8c82275036c0ffaf559321cb56ceae6d7d0146371d4b",
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/CanonicalRoomSnapshotMetadataProducer.java#sha256=1e433e0c3279e4e3c3962c39f45c810d29b6985c2332e37f64e9b7d36fe44094",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/PokerCatalogRuntimeRegistry.java#sha256=c05e1ac0414c6157d85b2416b807da99cb0f6d8482bbfeb7563aa8059ce5c7a2",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/PokerFamilyProviderFactories.java#sha256=d4e45baae25e0179b35fa082c22732b9dba7dc479ff91d031b6796f304bfc065",
+          "Server/server/Games/Poker/src/main/resources/poker-family-region-config.tsv#sha256=5f99c6936274b76b1c216b43c9e6356e80824547ada0a91fa6e40092b6bd3178",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/PaoDeKuaiFamily.java#sha256=5fc6316646331fdad60ef9139b867ad7463c0acf17db43db32168e48ec53013e",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/LegacyPdkRegionRules.java#sha256=e9c64c0d144c52fa418f6869157d9b19875f307f6f6d26eb17621a28ba5cac25",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/LegacyPdkRegionCatalog.java#sha256=290d48cca49c60d3302c629a0549a02b85bab02839f94612906417b22bcd3369",
+          "Server/server/Bootstrap/src/main/resources/game-catalog-current-32.tsv#sha256=e89f295bebadfc96d71656b84c26c5df801d5bbdd993cfe0611fdc1e6f1fc81c"
+        ]
+      },
+      "runtimeMetadataEvidence": {
+        "snapshotSchemaVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_SNAPSHOT_SCHEMA_VERSION=room-snapshot-v1",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily#common-metadata-contract-no-override"
+        ],
+        "cardCodecVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_CARD_CODEC_VERSION=card-v3",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily#common-metadata-contract-no-override"
+        ],
+        "eventInterpreterVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_EVENT_INTERPRETER_VERSION=events-v4",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily#common-metadata-contract-no-override"
+        ],
+        "protocolVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_PROTOCOL_VERSION=protocol-v2",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily#common-metadata-contract-no-override"
+        ]
+      },
+      "sourceArtifact": {
+        "normalizedIdentitySource": "Server/tools/room-rule-play-identities.json#plays[29]",
+        "normalizedComponentSource": "SHA-256 over ordered production component path+hash records",
+        "normalizedContentHash": "bbb5aab5e7663f754d677804d395a1df4c98653507c50ed7d80ceb1fe402cc68",
+        "normalizedWorkbookSource": "Client/docs/开房规则表/跑得快/宣城跑得快.xlsx#normalized-zip-member-sha256-excluding-docProps/core.xml",
+        "normalizedWorkbookHash": "b2818ecdfbe01b95bfd295d5148a8f6060509a3106dc82bf5b6386723c03857c"
+      },
+      "issuanceReason": "Release issuer /root/lobby_runtime_from_staged_source r15-cd2999-20261012 assigned explicit literal releaseId/indexGeneration for this unchanged current identity and re-bound normalized provider, rule, workbook, catalog and client inputs; no fallback, DB MAX, time or formula",
+      "admission": "ACCEPTED",
+      "artifactVersion": "rule-artifact-xuancheng2027-20261009-r2-20261011-r50",
+      "sourceRevision": "f00eaeee28b0d86c0dee3c76223ae051e4a8b961b0806d2cc674997fa90706eb",
+      "contractVersion": "common-room-v1"
+    },
+    {
+      "gameId": 2028,
+      "gameCode": "fuzhou2028",
+      "family": "poker:pao-de-kuai",
+      "playVersion": "fuzhou2028-v1.0.0",
+      "regionCode": "CN-36-10",
+      "snapshotSchemaVersion": "room-snapshot-v1",
+      "cardCodecVersion": "card-v3",
+      "eventInterpreterVersion": "events-v4",
+      "protocolVersion": "protocol-v2",
+      "sourceHash": "e3c08c0afa5b3133b2833f08f390c096f0de9c4718068518b71998bf06e78aee",
+      "releaseId": 1318289,
+      "indexGeneration": 1006339,
+      "ruleContentHash": "4b6d4faa65bf610281229cfb537fd66551a7c4b022b75cd9b3e2ddfe7a885a3b",
+      "componentContentHash": "bbb5aab5e7663f754d677804d395a1df4c98653507c50ed7d80ceb1fe402cc68",
+      "providerBinding": {
+        "route": "GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily",
+        "providerClass": "com.aoo.bcg.poker.PdkGameProvider",
+        "implementationEvidence": [
+          "Server/server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/GameCatalogLoader.java#sha256=1351a366d799c727a2425b06af1ce70bf0f4e8ae6787bb3d93b32506adc4efc4",
+          "Server/server/Bootstrap/src/main/resources/game-catalog-528.tsv#sha256=9786f5c37d132315c17fcf5215e76982c57cf397badf65b333a608fcc827e557",
+          "Server/server/GameSPI/src/main/resources/current-game-identities.tsv#sha256=0ede8365f6202bf6738b4f01584be7ce25b21decbdc221d85ac75e6d015bdc65",
+          "Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/GameDescriptor.java#sha256=08bbe20cfdd3ceef62caf259ac8cdf78934b759156a56fd23a86465720e0655e",
+          "Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/RoomCreationContext.java#sha256=1e5841f901a76922510067d61bc640089a023b986d91340cfeed2fc5048243fb",
+          "Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/RoomSnapshotMetadataSource.java#sha256=f31db29edff055e7d7e8c0cc6a0332a36aa03781a208b4cf69f993e32fd80ab0",
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#sha256=2b0fc5d1855aea8ba6da8c82275036c0ffaf559321cb56ceae6d7d0146371d4b",
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/CanonicalRoomSnapshotMetadataProducer.java#sha256=1e433e0c3279e4e3c3962c39f45c810d29b6985c2332e37f64e9b7d36fe44094",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/PokerCatalogRuntimeRegistry.java#sha256=c05e1ac0414c6157d85b2416b807da99cb0f6d8482bbfeb7563aa8059ce5c7a2",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/PokerFamilyProviderFactories.java#sha256=d4e45baae25e0179b35fa082c22732b9dba7dc479ff91d031b6796f304bfc065",
+          "Server/server/Games/Poker/src/main/resources/poker-family-region-config.tsv#sha256=5f99c6936274b76b1c216b43c9e6356e80824547ada0a91fa6e40092b6bd3178",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/PaoDeKuaiFamily.java#sha256=5fc6316646331fdad60ef9139b867ad7463c0acf17db43db32168e48ec53013e",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/LegacyPdkRegionRules.java#sha256=e9c64c0d144c52fa418f6869157d9b19875f307f6f6d26eb17621a28ba5cac25",
+          "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/LegacyPdkRegionCatalog.java#sha256=290d48cca49c60d3302c629a0549a02b85bab02839f94612906417b22bcd3369",
+          "Server/server/Bootstrap/src/main/resources/game-catalog-current-32.tsv#sha256=e89f295bebadfc96d71656b84c26c5df801d5bbdd993cfe0611fdc1e6f1fc81c"
+        ]
+      },
+      "runtimeMetadataEvidence": {
+        "snapshotSchemaVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_SNAPSHOT_SCHEMA_VERSION=room-snapshot-v1",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily#common-metadata-contract-no-override"
+        ],
+        "cardCodecVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_CARD_CODEC_VERSION=card-v3",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily#common-metadata-contract-no-override"
+        ],
+        "eventInterpreterVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_EVENT_INTERPRETER_VERSION=events-v4",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily#common-metadata-contract-no-override"
+        ],
+        "protocolVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_PROTOCOL_VERSION=protocol-v2",
+          "provider-route=GameCatalogLoader -> PokerCatalogRuntimeRegistry -> PokerFamilyProviderFactories -> PdkGameProvider -> PaoDeKuaiFamily#common-metadata-contract-no-override"
+        ]
+      },
+      "sourceArtifact": {
+        "normalizedIdentitySource": "Server/tools/room-rule-play-identities.json#plays[30]",
+        "normalizedComponentSource": "SHA-256 over ordered production component path+hash records",
+        "normalizedContentHash": "bbb5aab5e7663f754d677804d395a1df4c98653507c50ed7d80ceb1fe402cc68",
+        "normalizedWorkbookSource": "Client/docs/开房规则表/跑得快/抚州跑得快.xlsx#normalized-zip-member-sha256-excluding-docProps/core.xml",
+        "normalizedWorkbookHash": "a4808d675b626a32955c340285f0dca7090c3e68fd79eefee3f03e0c417bee7f"
+      },
+      "issuanceReason": "Release issuer /root/lobby_runtime_from_staged_source r15-cd2999-20261012 assigned explicit literal releaseId/indexGeneration for this unchanged current identity and re-bound normalized provider, rule, workbook, catalog and client inputs; no fallback, DB MAX, time or formula",
+      "admission": "ACCEPTED",
+      "artifactVersion": "rule-artifact-fuzhou2028-20261009-r2-20261011-r50",
+      "sourceRevision": "8b3eae93e591d779d8b812283238bada49e25c43e183f64680910628bdd5a601",
+      "contractVersion": "common-room-v1"
+    },
+    {
+      "gameId": 1001,
+      "gameCode": "chengdu1001",
+      "family": "mahjong:xue-zhan",
+      "playVersion": "chengdu1001-v1.0.0",
+      "regionCode": "CN-51-01",
+      "snapshotSchemaVersion": "room-snapshot-v1",
+      "cardCodecVersion": "card-v3",
+      "eventInterpreterVersion": "events-v4",
+      "protocolVersion": "protocol-v2",
+      "sourceHash": "c2ec22c31e4e965153c942f1f2f3634ce5c216e3dd4c1b971da578d060d85665",
+      "releaseId": 1318079,
+      "indexGeneration": 1006129,
+      "ruleContentHash": "d7d453b3ad4264b43dfdac93f914d5fb6c16b39c112da69ee76eb0219cbfdb42",
+      "componentContentHash": "6ed639cfc253d099c868e5f581c3eb3afe37d8d55e5f8dceaaa660784b681139",
+      "providerBinding": {
+        "route": "GameCatalogLoader -> MahjongCatalogRuntimeRegistry -> MahjongRegionRuntimeProfiles -> CatalogMahjongFamilyProvider",
+        "providerClass": "com.aoo.bcg.mahjong.CatalogMahjongFamilyProvider",
+        "implementationEvidence": [
+          "Server/server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/GameCatalogLoader.java#sha256=1351a366d799c727a2425b06af1ce70bf0f4e8ae6787bb3d93b32506adc4efc4",
+          "Server/server/Bootstrap/src/main/resources/game-catalog-528.tsv#sha256=9786f5c37d132315c17fcf5215e76982c57cf397badf65b333a608fcc827e557",
+          "Server/server/GameSPI/src/main/resources/current-game-identities.tsv#sha256=0ede8365f6202bf6738b4f01584be7ce25b21decbdc221d85ac75e6d015bdc65",
+          "Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/GameDescriptor.java#sha256=08bbe20cfdd3ceef62caf259ac8cdf78934b759156a56fd23a86465720e0655e",
+          "Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/RoomCreationContext.java#sha256=1e5841f901a76922510067d61bc640089a023b986d91340cfeed2fc5048243fb",
+          "Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/RoomSnapshotMetadataSource.java#sha256=f31db29edff055e7d7e8c0cc6a0332a36aa03781a208b4cf69f993e32fd80ab0",
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#sha256=2b0fc5d1855aea8ba6da8c82275036c0ffaf559321cb56ceae6d7d0146371d4b",
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/CanonicalRoomSnapshotMetadataProducer.java#sha256=1e433e0c3279e4e3c3962c39f45c810d29b6985c2332e37f64e9b7d36fe44094",
+          "Server/server/Games/Mahjong/src/main/java/com/aoo/bcg/mahjong/MahjongCatalogRuntimeRegistry.java#sha256=9a13b1082c4d5e4aa8a8b3afe29e766f44202c80d5b7add982e4c915e1c4798a",
+          "Server/server/Games/Mahjong/src/main/java/com/aoo/bcg/mahjong/MahjongRegionRuntimeProfiles.java#sha256=4100e63ca4450a449d7991d627fa143a6782e920e987879c9206ed09eadcc6d6",
+          "Server/server/Games/Mahjong/src/main/java/com/aoo/bcg/mahjong/CatalogMahjongFamilyProvider.java#sha256=909584116a0265d51066be24b347f0399331facab57b02a5644c50eef779d411",
+          "Server/server/Games/Mahjong/src/main/resources/mahjong-family-region-config.tsv#sha256=9b16364b7156b4dced134acd509fe80360abaaa900a6dc36adcac697c57c52d1",
+          "Server/server/Bootstrap/src/main/resources/game-catalog-current-32.tsv#sha256=e89f295bebadfc96d71656b84c26c5df801d5bbdd993cfe0611fdc1e6f1fc81c"
+        ]
+      },
+      "runtimeMetadataEvidence": {
+        "snapshotSchemaVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_SNAPSHOT_SCHEMA_VERSION=room-snapshot-v1",
+          "provider-route=GameCatalogLoader -> MahjongCatalogRuntimeRegistry -> MahjongRegionRuntimeProfiles -> CatalogMahjongFamilyProvider#common-metadata-contract-no-override"
+        ],
+        "cardCodecVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_CARD_CODEC_VERSION=card-v3",
+          "provider-route=GameCatalogLoader -> MahjongCatalogRuntimeRegistry -> MahjongRegionRuntimeProfiles -> CatalogMahjongFamilyProvider#common-metadata-contract-no-override"
+        ],
+        "eventInterpreterVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_EVENT_INTERPRETER_VERSION=events-v4",
+          "provider-route=GameCatalogLoader -> MahjongCatalogRuntimeRegistry -> MahjongRegionRuntimeProfiles -> CatalogMahjongFamilyProvider#common-metadata-contract-no-override"
+        ],
+        "protocolVersion": [
+          "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java#SUPPORTED_PROTOCOL_VERSION=protocol-v2",
+          "provider-route=GameCatalogLoader -> MahjongCatalogRuntimeRegistry -> MahjongRegionRuntimeProfiles -> CatalogMahjongFamilyProvider#common-metadata-contract-no-override"
+        ]
+      },
+      "sourceArtifact": {
+        "normalizedIdentitySource": "Server/tools/room-rule-play-identities.json#plays[31]",
+        "normalizedComponentSource": "SHA-256 over ordered production component path+hash records",
+        "normalizedContentHash": "6ed639cfc253d099c868e5f581c3eb3afe37d8d55e5f8dceaaa660784b681139",
+        "normalizedWorkbookSource": "Client/docs/开房规则表/麻将/成都血战麻将.xlsx#normalized-zip-member-sha256-excluding-docProps/core.xml",
+        "normalizedWorkbookHash": "a34ecb9dcb36053098c1e8e4bfe4ba6c2ac19da369cb36ce335b29ccdc2c2103"
+      },
+      "issuanceReason": "Release issuer /root/lobby_runtime_from_staged_source r15-cd2999-20261012 assigned explicit literal releaseId/indexGeneration for this unchanged current identity and re-bound normalized provider, rule, workbook, catalog and client inputs; no fallback, DB MAX, time or formula",
+      "admission": "ACCEPTED",
+      "artifactVersion": "rule-artifact-chengdu1001-20261009-r2-20261011-r50",
+      "sourceRevision": "14b53bd1466630ea4044ff36c2570887355775f56c89a858df0c183385d601c6",
+      "contractVersion": "common-room-v1"
+    }
+  ],
+  "releaseIssuer": "/root/lobby_runtime_from_staged_source",
+  "releaseEdition": "r15-cd2999-20261012",
+  "supersedes": "r50-current-20261011",
+  "sourceDigests": {
+    "bootstrapCurrentCatalog": {
+      "path": "Server/server/Bootstrap/src/main/resources/game-catalog-current-32.tsv",
+      "sha256": "ce9697ccbb4a052cd34cbd8644e0955375c3f91bf7af7860689d8d7647845d21"
+    },
+    "gameSpiCurrentCatalog": {
+      "path": "Server/server/GameSPI/src/main/resources/current-game-identities.tsv",
+      "sha256": "8781ec81cd7434d45312f18651553bd287559536deb228b636ed51f7e94cff27"
+    },
+    "gameCatalogLoader": {
+      "path": "Server/server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/GameCatalogLoader.java",
+      "sha256": "1351a366d799c727a2425b06af1ce70bf0f4e8ae6787bb3d93b32506adc4efc4"
+    }
+  }
+}

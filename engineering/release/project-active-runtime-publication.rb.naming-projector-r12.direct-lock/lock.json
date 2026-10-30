@@ -1,0 +1,27 @@
+{
+  "owner": "/root/kuangjia_mingming_low",
+  "state": "RELEASED",
+  "acquiredAt": "2026-10-16T19:45:34.824837+00:00",
+  "expiresAt": "2026-10-16T20:05:34.824837+00:00",
+  "writePaths": [
+    "/Users/aoo/Code/Game/BCG/Aoo/server/engineering/release/project-active-runtime-publication.rb",
+    "/Users/aoo/Code/Game/BCG/Aoo/server/engineering/release/project-active-runtime-publication.rb.naming-projector-r12.direct-lock/lock.json",
+    "/Users/aoo/Code/Game/BCG/Aoo/docs/05-\u5f53\u524d\u72b6\u6001/evidence/DIRECT-20261016T134154Z-6e8b1c20-active-game-naming-migration/active-runtime-projector-current-contract-execution-r12/lock.json",
+    "/Users/aoo/Code/Game/BCG/Aoo/docs/05-\u5f53\u524d\u72b6\u6001/evidence/DIRECT-20261016T134154Z-6e8b1c20-active-game-naming-migration/active-runtime-projector-current-contract-execution-r12/input.json",
+    "/Users/aoo/Code/Game/BCG/Aoo/docs/05-\u5f53\u524d\u72b6\u6001/evidence/DIRECT-20261016T134154Z-6e8b1c20-active-game-naming-migration/active-runtime-projector-current-contract-execution-r12/preimage.json",
+    "/Users/aoo/Code/Game/BCG/Aoo/docs/05-\u5f53\u524d\u72b6\u6001/evidence/DIRECT-20261016T134154Z-6e8b1c20-active-game-naming-migration/active-runtime-projector-current-contract-execution-r12/verify.rb",
+    "/Users/aoo/Code/Game/BCG/Aoo/docs/05-\u5f53\u524d\u72b6\u6001/evidence/DIRECT-20261016T134154Z-6e8b1c20-active-game-naming-migration/active-runtime-projector-current-contract-execution-r12/command.json",
+    "/Users/aoo/Code/Game/BCG/Aoo/docs/05-\u5f53\u524d\u72b6\u6001/evidence/DIRECT-20261016T134154Z-6e8b1c20-active-game-naming-migration/active-runtime-projector-current-contract-execution-r12/test-authority.json",
+    "/Users/aoo/Code/Game/BCG/Aoo/docs/05-\u5f53\u524d\u72b6\u6001/evidence/DIRECT-20261016T134154Z-6e8b1c20-active-game-naming-migration/active-runtime-projector-current-contract-execution-r12/syntax.stdout.log",
+    "/Users/aoo/Code/Game/BCG/Aoo/docs/05-\u5f53\u524d\u72b6\u6001/evidence/DIRECT-20261016T134154Z-6e8b1c20-active-game-naming-migration/active-runtime-projector-current-contract-execution-r12/syntax.stderr.log",
+    "/Users/aoo/Code/Game/BCG/Aoo/docs/05-\u5f53\u524d\u72b6\u6001/evidence/DIRECT-20261016T134154Z-6e8b1c20-active-game-naming-migration/active-runtime-projector-current-contract-execution-r12/syntax-exit.json",
+    "/Users/aoo/Code/Game/BCG/Aoo/docs/05-\u5f53\u524d\u72b6\u6001/evidence/DIRECT-20261016T134154Z-6e8b1c20-active-game-naming-migration/active-runtime-projector-current-contract-execution-r12/test.stdout.log",
+    "/Users/aoo/Code/Game/BCG/Aoo/docs/05-\u5f53\u524d\u72b6\u6001/evidence/DIRECT-20261016T134154Z-6e8b1c20-active-game-naming-migration/active-runtime-projector-current-contract-execution-r12/test.stderr.log",
+    "/Users/aoo/Code/Game/BCG/Aoo/docs/05-\u5f53\u524d\u72b6\u6001/evidence/DIRECT-20261016T134154Z-6e8b1c20-active-game-naming-migration/active-runtime-projector-current-contract-execution-r12/test-exit.json",
+    "/Users/aoo/Code/Game/BCG/Aoo/docs/05-\u5f53\u524d\u72b6\u6001/evidence/DIRECT-20261016T134154Z-6e8b1c20-active-game-naming-migration/active-runtime-projector-current-contract-execution-r12/checks.json",
+    "/Users/aoo/Code/Game/BCG/Aoo/docs/05-\u5f53\u524d\u72b6\u6001/evidence/DIRECT-20261016T134154Z-6e8b1c20-active-game-naming-migration/active-runtime-projector-current-contract-execution-r12/DEV_SELF_CHECK.md",
+    "/Users/aoo/Code/Game/BCG/Aoo/docs/05-\u5f53\u524d\u72b6\u6001/evidence/DIRECT-20261016T134154Z-6e8b1c20-active-game-naming-migration/active-runtime-projector-current-contract-execution-r12/manifest.json",
+    "/Users/aoo/Code/Game/BCG/Aoo/docs/05-\u5f53\u524d\u72b6\u6001/evidence/DIRECT-20261016T134154Z-6e8b1c20-active-game-naming-migration/active-runtime-projector-current-contract-execution-r12/review-input.json"
+  ],
+  "releasedAt": "2026-10-16T19:47:39.133918+00:00"
+}

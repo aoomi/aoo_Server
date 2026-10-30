@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "status": "RELEASED_FOR_INDEPENDENT_REVIEW",
+  "owner": "/root/implement_v197_room_lock_metadata",
+  "task": "DIRECT-20261006T211500Z-e5b8c2d1-v254",
+  "attempt": "v2.54-20261008-r1",
+  "purpose": "reconnect adapter positive and stale-state tests",
+  "allowlist": [
+    "Server/server/CommonRoom/src/test/java/com/aoo/bcg/common/authority/ProductionRoomOrchestratorAdapterTest.java",
+    "docs/05-当前状态/evidence/DIRECT-20261006T211500Z-e5b8c2d1/room-lifecycle-v254/**"
+  ],
+  "sourceWrite": true,
+  "productionDatabase": false
+}

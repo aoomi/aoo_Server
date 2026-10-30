@@ -8,22 +8,30 @@ managedFacilities:
   - {name: mongodb, image: "mongo:8.0.29-noble", serverVersion: "8.0.29", port: 27017, manifest: deploy/ops/kubernetes/mongodb.yaml}
 services:
   - name: account
-    module: server/LegacyAccountServer/server
+    module: Modules/Compatibility/LegacyAccountServer/server
     ports: [{name: http, containerPort: 904}]
     readiness: {type: http, port: 904, path: /health, initialDelaySeconds: 30, timeoutSeconds: 5}
     resources: {cpuRequest: 500m, cpuLimit: "2", memoryRequest: 512Mi, memoryLimit: 2Gi}
   - name: hall
-    module: server/LegacyGameHall
+    module: Modules/Compatibility/LegacyGameHall
     ports: [{name: wss, containerPort: 9998}, {name: http, containerPort: 9888}]
     readiness: {type: tcp, port: 9998, initialDelaySeconds: 30, timeoutSeconds: 5}
     resources: {cpuRequest: 500m, cpuLimit: "2", memoryRequest: 512Mi, memoryLimit: 2Gi}
   - name: njpdk
-    module: server/NJPDK
+    module: Modules/Gameplay/Games/Poker/PDK
     ports: [{name: wss, containerPort: 9996}, {name: http, containerPort: 9886}]
     readiness: {type: tcp, port: 9996, initialDelaySeconds: 30, timeoutSeconds: 5}
     resources: {cpuRequest: 500m, cpuLimit: "2", memoryRequest: 512Mi, memoryLimit: 2Gi}
+compatibilityWorkloads:
   - name: cdxzmj
-    module: server/CDXZMJ
+    module: Modules/Gameplay/Games/Mahjong/CDXZMJ
+    mode: compatibility
+    currentProduction: false
+    render: false
+    recoveryOnly: true
+    admission: deny-current-production
+    allowedGameIds: [516]
+    allowedPlayVersions: [legacy-equivalent-1]
     ports: [{name: wss, containerPort: 19996}, {name: http, containerPort: 19886}]
     readiness: {type: tcp, port: 19996, initialDelaySeconds: 30, timeoutSeconds: 5}
     resources: {cpuRequest: 500m, cpuLimit: "2", memoryRequest: 512Mi, memoryLimit: 2Gi}

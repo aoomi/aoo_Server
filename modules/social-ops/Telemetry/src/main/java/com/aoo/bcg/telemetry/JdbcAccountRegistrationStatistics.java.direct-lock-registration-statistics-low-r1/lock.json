@@ -1,0 +1,9 @@
+{
+  "owner": "/root/shuju_low",
+  "state": "RELEASED_FROZEN_REGISTRATION_STATISTICS_ACTUAL",
+  "path": "server/modules/social-ops/Telemetry/src/main/java/com/aoo/bcg/telemetry/JdbcAccountRegistrationStatistics.java",
+  "preimage": "ABSENT",
+  "createdAt": "2026-10-14T12:17:32.193413+00:00",
+  "releasedAt": "2026-10-14T12:24:26.026825+00:00",
+  "manifestSha256": "fa3b2a601fd35a7d06a426da25d74a16ef5fbdf312b062574141805b087abc87"
+}

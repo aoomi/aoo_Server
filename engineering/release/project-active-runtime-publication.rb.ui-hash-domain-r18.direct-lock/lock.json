@@ -1,0 +1,27 @@
+{
+  "owner": "/root/kuangjia_mingming_low",
+  "state": "RELEASED",
+  "acquiredAt": "2026-10-17T00:28:56.026886+00:00",
+  "expiresAt": "2026-10-17T00:48:56.026886+00:00",
+  "writePaths": [
+    "/Users/aoo/Code/Game/BCG/Aoo/server/engineering/release/project-active-runtime-publication.rb",
+    "/Users/aoo/Code/Game/BCG/Aoo/server/engineering/release/project-active-runtime-publication.rb.ui-hash-domain-r18.direct-lock/lock.json",
+    "/Users/aoo/Code/Game/BCG/Aoo/docs/05-当前状态/evidence/DIRECT-20261016T134154Z-6e8b1c20-active-game-naming-migration/active-runtime-ui-hash-domain-source-execution-r18/input.json",
+    "/Users/aoo/Code/Game/BCG/Aoo/docs/05-当前状态/evidence/DIRECT-20261016T134154Z-6e8b1c20-active-game-naming-migration/active-runtime-ui-hash-domain-source-execution-r18/lock.json",
+    "/Users/aoo/Code/Game/BCG/Aoo/docs/05-当前状态/evidence/DIRECT-20261016T134154Z-6e8b1c20-active-game-naming-migration/active-runtime-ui-hash-domain-source-execution-r18/execution-lock.json",
+    "/Users/aoo/Code/Game/BCG/Aoo/docs/05-当前状态/evidence/DIRECT-20261016T134154Z-6e8b1c20-active-game-naming-migration/active-runtime-ui-hash-domain-source-execution-r18/preimage.json",
+    "/Users/aoo/Code/Game/BCG/Aoo/docs/05-当前状态/evidence/DIRECT-20261016T134154Z-6e8b1c20-active-game-naming-migration/active-runtime-ui-hash-domain-source-execution-r18/command.json",
+    "/Users/aoo/Code/Game/BCG/Aoo/docs/05-当前状态/evidence/DIRECT-20261016T134154Z-6e8b1c20-active-game-naming-migration/active-runtime-ui-hash-domain-source-execution-r18/stdout.log",
+    "/Users/aoo/Code/Game/BCG/Aoo/docs/05-当前状态/evidence/DIRECT-20261016T134154Z-6e8b1c20-active-game-naming-migration/active-runtime-ui-hash-domain-source-execution-r18/stderr.log",
+    "/Users/aoo/Code/Game/BCG/Aoo/docs/05-当前状态/evidence/DIRECT-20261016T134154Z-6e8b1c20-active-game-naming-migration/active-runtime-ui-hash-domain-source-execution-r18/exit.json",
+    "/Users/aoo/Code/Game/BCG/Aoo/docs/05-当前状态/evidence/DIRECT-20261016T134154Z-6e8b1c20-active-game-naming-migration/active-runtime-ui-hash-domain-source-execution-r18/apply-exit.json",
+    "/Users/aoo/Code/Game/BCG/Aoo/docs/05-当前状态/evidence/DIRECT-20261016T134154Z-6e8b1c20-active-game-naming-migration/active-runtime-ui-hash-domain-source-execution-r18/checks.json",
+    "/Users/aoo/Code/Game/BCG/Aoo/docs/05-当前状态/evidence/DIRECT-20261016T134154Z-6e8b1c20-active-game-naming-migration/active-runtime-ui-hash-domain-source-execution-r18/DEV_SELF_CHECK.md",
+    "/Users/aoo/Code/Game/BCG/Aoo/docs/05-当前状态/evidence/DIRECT-20261016T134154Z-6e8b1c20-active-game-naming-migration/active-runtime-ui-hash-domain-source-execution-r18/manifest.json",
+    "/Users/aoo/Code/Game/BCG/Aoo/docs/05-当前状态/evidence/DIRECT-20261016T134154Z-6e8b1c20-active-game-naming-migration/active-runtime-ui-hash-domain-source-execution-r18/review-input.json",
+    "/Users/aoo/Code/Game/BCG/Aoo/docs/05-当前状态/evidence/DIRECT-20261016T134154Z-6e8b1c20-active-game-naming-migration/active-runtime-ui-hash-domain-source-execution-r18/release.json"
+  ],
+  "acceptedPlan": "8ec3df6c771124a58414dd93e3f777c4a919abceb7b7997c043f184f70a99e61",
+  "scope": "Existing single projector UI hash domain delta only, no SQL/sign/service",
+  "releasedAt": "2026-10-17T00:28:56.077517+00:00"
+}

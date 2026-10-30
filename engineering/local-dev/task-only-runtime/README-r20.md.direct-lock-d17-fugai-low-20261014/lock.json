@@ -1,0 +1,10 @@
+{
+  "owner": "/root/fugai_low",
+  "state": "RELEASED",
+  "path": "server/engineering/local-dev/task-only-runtime/README-r20.md",
+  "task": "D17 under DIRECT-20261008T084000Z-4a7f1c9e",
+  "preSHA": "014910fc5b3868911e80fbcc8fbd5bcf3db7f2fcde366e3122512982579cd866",
+  "createdAt": "2026-10-14T14:26:00.864814+00:00",
+  "releasedAt": "2026-10-14T14:26:00.865881+00:00",
+  "manifestSHA256": "85fbd1b534a653d912988ebcf0018270a9d9856a4317b51f56ed0b8ee632070d"
+}

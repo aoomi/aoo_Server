@@ -1,0 +1,366 @@
+{
+  "version": 1,
+  "gameCode": "chengdu2999",
+  "nextFieldSequence": 1,
+  "fields": [
+    {
+      "key": "roomEndSelection",
+      "label": "房间时长",
+      "position": 1,
+      "active": true,
+      "nextOptionSequence": 1,
+      "options": [
+        {
+          "label": "30分钟",
+          "position": 1,
+          "active": true,
+          "value": "DURATION_MINUTES:30"
+        },
+        {
+          "label": "45分钟",
+          "position": 2,
+          "active": true,
+          "value": "DURATION_MINUTES:45"
+        },
+        {
+          "label": "60分钟",
+          "position": 3,
+          "active": true,
+          "value": "DURATION_MINUTES:60"
+        },
+        {
+          "label": "10局",
+          "position": 4,
+          "active": true,
+          "value": "ROUND_COUNT:10"
+        },
+        {
+          "label": "20局",
+          "position": 5,
+          "active": true,
+          "value": "ROUND_COUNT:20"
+        },
+        {
+          "label": "30局",
+          "position": 6,
+          "active": true,
+          "value": "ROUND_COUNT:30"
+        }
+      ]
+    },
+    {
+      "key": "startPlayers",
+      "label": "开局人数",
+      "position": 2,
+      "active": true,
+      "nextOptionSequence": 1,
+      "options": [
+        {
+          "label": "2人",
+          "position": 1,
+          "active": true,
+          "value": 2
+        },
+        {
+          "label": "4人",
+          "position": 2,
+          "active": true,
+          "value": 4
+        },
+        {
+          "label": "6人",
+          "position": 3,
+          "active": true,
+          "value": 6
+        }
+      ]
+    },
+    {
+      "key": "operationSeconds",
+      "label": "操作时间",
+      "position": 3,
+      "active": true,
+      "nextOptionSequence": 1,
+      "options": [
+        {
+          "label": "10秒",
+          "position": 1,
+          "active": true,
+          "value": 10
+        },
+        {
+          "label": "15秒",
+          "position": 2,
+          "active": true,
+          "value": 15
+        },
+        {
+          "label": "30秒",
+          "position": 3,
+          "active": true,
+          "value": 30
+        }
+      ]
+    },
+    {
+      "key": "standPolicy",
+      "label": "站起规则",
+      "position": 4,
+      "active": true,
+      "nextOptionSequence": 1,
+      "options": [
+        {
+          "label": "输家可站起",
+          "position": 1,
+          "active": true,
+          "value": "LOSER_ONLY"
+        },
+        {
+          "label": "所有人可站起",
+          "position": 2,
+          "active": true,
+          "value": "EVERYONE"
+        },
+        {
+          "label": "所有人不可站起",
+          "position": 3,
+          "active": true,
+          "value": "NOBODY"
+        }
+      ]
+    },
+    {
+      "key": "mangoFlipMode",
+      "label": "芒果翻法",
+      "position": 5,
+      "active": true,
+      "nextOptionSequence": 1,
+      "options": [
+        {
+          "label": "梯翻",
+          "position": 1,
+          "active": true,
+          "value": "LADDER"
+        },
+        {
+          "label": "滚翻",
+          "position": 2,
+          "active": true,
+          "value": "ROLLING"
+        }
+      ]
+    },
+    {
+      "key": "mangoRaise",
+      "label": "升芒",
+      "position": 6,
+      "active": true,
+      "nextOptionSequence": 1,
+      "options": [
+        {
+          "label": "不升",
+          "position": 1,
+          "active": true,
+          "value": 0
+        },
+        {
+          "label": "1芒",
+          "position": 2,
+          "active": true,
+          "value": 1
+        },
+        {
+          "label": "2芒",
+          "position": 3,
+          "active": true,
+          "value": 2
+        },
+        {
+          "label": "3芒",
+          "position": 4,
+          "active": true,
+          "value": 3
+        },
+        {
+          "label": "4芒",
+          "position": 5,
+          "active": true,
+          "value": 4
+        },
+        {
+          "label": "5芒",
+          "position": 6,
+          "active": true,
+          "value": 5
+        }
+      ]
+    },
+    {
+      "key": "mangoScore",
+      "label": "芒果分数",
+      "position": 7,
+      "active": true,
+      "nextOptionSequence": 1,
+      "options": [
+
+      ]
+    },
+    {
+      "key": "openingBet",
+      "label": "发招分数",
+      "position": 8,
+      "active": true,
+      "nextOptionSequence": 1,
+      "options": [
+
+      ]
+    },
+    {
+      "key": "restMango",
+      "label": "休芒",
+      "position": 9,
+      "active": true,
+      "nextOptionSequence": 1,
+      "options": [
+        {
+          "label": "休芒",
+          "position": 1,
+          "active": true,
+          "value": true
+        }
+      ]
+    },
+    {
+      "key": "beatMango",
+      "label": "揍芒",
+      "position": 10,
+      "active": true,
+      "nextOptionSequence": 1,
+      "options": [
+        {
+          "label": "揍芒",
+          "position": 1,
+          "active": true,
+          "value": true
+        }
+      ]
+    },
+    {
+      "key": "everyHandMango",
+      "label": "手手芒",
+      "position": 11,
+      "active": true,
+      "nextOptionSequence": 1,
+      "options": [
+        {
+          "label": "手手芒",
+          "position": 1,
+          "active": true,
+          "value": true
+        }
+      ]
+    },
+    {
+      "key": "firstRoundCanRest",
+      "label": "首轮可休",
+      "position": 12,
+      "active": true,
+      "nextOptionSequence": 1,
+      "options": [
+        {
+          "label": "首轮可休",
+          "position": 1,
+          "active": true,
+          "value": true
+        }
+      ]
+    },
+    {
+      "key": "eachPlayerMustFollow",
+      "label": "挨家必挨",
+      "position": 13,
+      "active": true,
+      "nextOptionSequence": 1,
+      "options": [
+        {
+          "label": "挨家必挨",
+          "position": 1,
+          "active": true,
+          "value": true
+        }
+      ]
+    },
+    {
+      "key": "earthNineKing",
+      "label": "地九王",
+      "position": 14,
+      "active": true,
+      "nextOptionSequence": 1,
+      "options": [
+        {
+          "label": "地九王",
+          "position": 1,
+          "active": true,
+          "value": true
+        }
+      ]
+    },
+    {
+      "key": "fireproofCard",
+      "label": "防火牌",
+      "position": 15,
+      "active": true,
+      "nextOptionSequence": 1,
+      "options": [
+        {
+          "label": "防火牌",
+          "position": 1,
+          "active": true,
+          "value": true
+        }
+      ]
+    },
+    {
+      "key": "bigHeadKeepsBase",
+      "label": "头大不输底",
+      "position": 16,
+      "active": true,
+      "nextOptionSequence": 1,
+      "options": [
+        {
+          "label": "头大不输底",
+          "position": 1,
+          "active": true,
+          "value": true
+        }
+      ]
+    },
+    {
+      "key": "autoOperateAfterTimeouts",
+      "label": "托管次数",
+      "position": 17,
+      "active": true,
+      "nextOptionSequence": 1,
+      "options": [
+        {
+          "label": "3次",
+          "position": 1,
+          "active": true,
+          "value": 3
+        },
+        {
+          "label": "4次",
+          "position": 2,
+          "active": true,
+          "value": 4
+        },
+        {
+          "label": "5次",
+          "position": 3,
+          "active": true,
+          "value": 5
+        }
+      ]
+    }
+  ]
+}

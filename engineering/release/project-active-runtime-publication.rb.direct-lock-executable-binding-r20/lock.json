@@ -1,0 +1,10 @@
+{
+  "owner": "/root/kuangjia_mingming_low",
+  "state": "RELEASED_FOR_INDEPENDENT_REVIEW",
+  "acquiredAt": "2026-10-17T02:47:22.284768+00:00",
+  "expiresAt": "2026-10-17T03:07:22.284768+00:00",
+  "reviewManifestSHA256": "e37262ba41e9a73d0ab9bbbfda68c7545c320d69649c157d513c0c5457080209",
+  "source": "/Users/aoo/Code/Game/BCG/Aoo/server/engineering/release/project-active-runtime-publication.rb",
+  "releasedAt": "2026-10-17T02:47:34.800312+00:00",
+  "manifestSHA256": "b9580dd82d7b0b64a78e3666b1e1a415a7a5938831cc14dc86687ec49f812d0e"
+}

@@ -1,0 +1,238 @@
+{
+  "version": 1,
+  "gameCode": "quanguo2998",
+  "nextFieldSequence": 1,
+  "fields": [
+    {
+      "key": "rounds",
+      "label": "局数",
+      "position": 1,
+      "active": true,
+      "nextOptionSequence": 1,
+      "options": [
+        {
+          "label": "10局",
+          "position": 1,
+          "active": true,
+          "value": 10
+        },
+        {
+          "label": "20局",
+          "position": 2,
+          "active": true,
+          "value": 20
+        },
+        {
+          "label": "30局",
+          "position": 3,
+          "active": true,
+          "value": 30
+        }
+      ]
+    },
+    {
+      "key": "maxPlayers",
+      "label": "最大人数",
+      "position": 2,
+      "active": true,
+      "nextOptionSequence": 1,
+      "options": [
+        {
+          "label": "8人",
+          "position": 1,
+          "active": true,
+          "value": 8
+        },
+        {
+          "label": "10人",
+          "position": 2,
+          "active": true,
+          "value": 10
+        }
+      ]
+    },
+    {
+      "key": "startPlayers",
+      "label": "开局人数",
+      "position": 3,
+      "active": true,
+      "nextOptionSequence": 1,
+      "options": [
+        {
+          "label": "2人",
+          "position": 1,
+          "active": true,
+          "value": 2
+        },
+        {
+          "label": "4人",
+          "position": 2,
+          "active": true,
+          "value": 4
+        },
+        {
+          "label": "6人",
+          "position": 3,
+          "active": true,
+          "value": 6
+        }
+      ]
+    },
+    {
+      "key": "mode",
+      "label": "玩法模式",
+      "position": 4,
+      "active": true,
+      "nextOptionSequence": 1,
+      "options": [
+        {
+          "label": "经典模式",
+          "position": 1,
+          "active": true,
+          "value": "CLASSIC"
+        },
+        {
+          "label": "激情模式",
+          "position": 2,
+          "active": true,
+          "value": "PASSION"
+        },
+        {
+          "label": "疯狂模式",
+          "position": 3,
+          "active": true,
+          "value": "CRAZY"
+        }
+      ]
+    },
+    {
+      "key": "maxRobMultiplier",
+      "label": "抢庄倍数",
+      "position": 5,
+      "active": true,
+      "nextOptionSequence": 1,
+      "options": [
+        {
+          "label": "最高3倍",
+          "position": 1,
+          "active": true,
+          "value": 3
+        },
+        {
+          "label": "最高4倍",
+          "position": 2,
+          "active": true,
+          "value": 4
+        },
+        {
+          "label": "最高5倍",
+          "position": 3,
+          "active": true,
+          "value": 5
+        }
+      ]
+    },
+    {
+      "key": "maxPushMultiplier",
+      "label": "推注上限",
+      "position": 6,
+      "active": true,
+      "nextOptionSequence": 1,
+      "options": [
+        {
+          "label": "不推注",
+          "position": 1,
+          "active": true,
+          "value": 0
+        },
+        {
+          "label": "5倍",
+          "position": 2,
+          "active": true,
+          "value": 5
+        },
+        {
+          "label": "10倍",
+          "position": 3,
+          "active": true,
+          "value": 10
+        },
+        {
+          "label": "15倍",
+          "position": 4,
+          "active": true,
+          "value": 15
+        }
+      ]
+    },
+    {
+      "key": "standPolicy",
+      "label": "站起规则",
+      "position": 7,
+      "active": true,
+      "nextOptionSequence": 1,
+      "options": [
+        {
+          "label": "输家可站起",
+          "position": 1,
+          "active": true,
+          "value": "LOSER_MAY_STAND"
+        },
+        {
+          "label": "所有人可站起",
+          "position": 2,
+          "active": true,
+          "value": "EVERYONE_MAY_STAND"
+        },
+        {
+          "label": "所有人不可站起",
+          "position": 3,
+          "active": true,
+          "value": "NO_ONE_MAY_STAND"
+        }
+      ]
+    },
+    {
+      "key": "fastModeEnabled",
+      "label": "快速模式",
+      "position": 8,
+      "active": true,
+      "nextOptionSequence": 1,
+      "options": [
+        {
+          "label": "启用快速模式",
+          "position": 1,
+          "active": true,
+          "value": true
+        }
+      ]
+    },
+    {
+      "key": "hostingMissThreshold",
+      "label": "托管次数",
+      "position": 9,
+      "active": true,
+      "nextOptionSequence": 1,
+      "options": [
+        {
+          "label": "3次",
+          "position": 1,
+          "active": true,
+          "value": 3
+        },
+        {
+          "label": "4次",
+          "position": 2,
+          "active": true,
+          "value": 4
+        },
+        {
+          "label": "5次",
+          "position": 3,
+          "active": true,
+          "value": 5
+        }
+      ]
+    }
+  ]
+}

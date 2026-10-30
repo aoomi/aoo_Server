@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "status": "RELEASED_FOR_INDEPENDENT_REVIEW",
+  "owner": "/root/implement_v198_sql_only",
+  "task": "DIRECT-20261008T055848Z-3a91c7e4-old-runtime-admission-gate",
+  "attempt": "v1.1-implementation-r2",
+  "acquiredAt": "2026-10-08T14:10:51+08:00",
+  "purpose": "require explicit CompatibilityOrigin before legacy reconnect membership access",
+  "allowlist": ["Server/server/gameServer/src/core/server/ProductionRoomReconnectService.java", "docs/05-当前状态/evidence/DIRECT-20261008T055848Z-3a91c7e4/implementation/**"],
+  "sourceWrite": true,
+  "productionDatabase": false,
+  "dirtyCustody": "clean baseline at acquisition",
+  "releasedAt": "2026-10-08T14:17:30+08:00",
+  "releaseEvidence": "docs/05-当前状态/evidence/DIRECT-20261008T055848Z-3a91c7e4/implementation/v1.1-implementation-evidence.md"
+}

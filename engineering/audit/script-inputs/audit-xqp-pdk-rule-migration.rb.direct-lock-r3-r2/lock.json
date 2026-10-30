@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "lockId": "R3-R2-XQP-PATH-ADOPTION-20261012T132057Z",
+  "owner": "/root/lane_f_service_input_package",
+  "status": "RELEASED_FOR_INDEPENDENT_REVIEW",
+  "acquiredAt": "2026-10-12T13:20:57Z",
+  "sourceWriteAt": "2026-10-12T13:20:57Z",
+  "path": "Server/scripts/audit-xqp-pdk-rule-migration.rb",
+  "preimageSha256": "2f6a4bcae689778aaf6c86c856cd3f82b06a4879dff824a243b723a849ce7b91",
+  "scope": "replace stale server module-root path literals with modules; preserve all other script content",
+  "sourceWrite": false,
+  "physicalMutation": false,
+  "productionWrite": false,
+  "postimageSha256": "d839c2d72e8e08abc6fc7140396ab45f52197362ece050b1c0ac9e3dc2a54011",
+  "releasedAt": "2026-10-13T10:27:05Z",
+  "releaseReason": "custody-only metadata closure; script business bytes unchanged; no sourceWrite in R23",
+  "releaseEvidence": "docs/05-当前状态/evidence/DIRECT-20261012T131224Z-8c4e7a2d-server-path-migration-r3/r23-full-scope-custody-closure-20261013/evidence-manifest.json",
+  "releaseEvidenceSha256": "e199d3ea14ccb049d247f8bfc219dde194d23f07019217a305eae4419055fbbd"
+}

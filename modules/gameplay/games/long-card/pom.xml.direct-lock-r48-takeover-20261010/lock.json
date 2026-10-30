@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 2,
+  "lockId": "R48-TAKEOVER-20261010T050917Z-07",
+  "status": "RELEASED_FOR_INDEPENDENT_REVIEW",
+  "owner": "/root/implement_r48_takeover",
+  "task": "DIRECT-20261008T084000Z-4a7f1c9e",
+  "attempt": "R48-R50-takeover-implementation-20261010",
+  "acquiredAt": "2026-10-10T05:09:17Z",
+  "releasedAt": "2026-10-13T09:07:34.964768000Z",
+  "path": "Server/server/Games/LongCard/pom.xml",
+  "preimageSha256": "0ecb80bc93607b30fbca1b3371ae1a014f8cc4472b9afd0bf06170b2609c7478",
+  "handoffCurrentSha256": "0ecb80bc93607b30fbca1b3371ae1a014f8cc4472b9afd0bf06170b2609c7478",
+  "oldPreimageSha256": "a3bd911de3ef769e243762772be3414ec792487241373fa1e180ef10b60e7a2e",
+  "r49BaselineSha256": "a3bd911de3ef769e243762772be3414ec792487241373fa1e180ef10b60e7a2e",
+  "oldOwner": "/root/r48_longcard_provider_implementation",
+  "supersedes": "Server/server/Games/LongCard/pom.xml.direct-lock-r48/lock.json",
+  "sourceWrite": true,
+  "releaseReceipt": "docs/05-当前状态/evidence/DIRECT-20261008T084000Z-4a7f1c9e/c3-r48-takeover-implementation-20261010/r48-eight-successor-release-receipt-20261013.md",
+  "independentAcceptance": "ACCEPT_BOUNDED",
+  "scope": "R48 exact wrapper dependency edge for this file only"
+}

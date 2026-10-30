@@ -1,0 +1,11 @@
+{
+  "owner": "/root/dating_low",
+  "state": "RELEASED_FOR_INDEPENDENT_REVIEW",
+  "createdAt": "2026-10-16T11:48:16.186820+00:00",
+  "writePaths": [
+    "/Users/aoo/Code/Game/BCG/Aoo/server/engineering/release/issue-pdk-room-resource-metadata.rb",
+    "/Users/aoo/Code/Game/BCG/Aoo/docs/05-\u5f53\u524d\u72b6\u6001/evidence/DIRECT-20261008T084000Z-4a7f1c9e/room-publication-uihash-503-diagnostic-r1/issuer-uihash-correction-r1"
+  ],
+  "scope": "issuer UI hash only; consumer/test forbidden",
+  "releasedAt": "2026-10-16T11:49:05.319666+00:00"
+}

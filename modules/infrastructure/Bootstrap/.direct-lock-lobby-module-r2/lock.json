@@ -1,0 +1,13 @@
+{
+  "lockId": "hall-lobby-module-contract-r2-bootstrap-pom",
+  "owner": "/root/lane_f_service_input_package",
+  "status": "RELEASED",
+  "acquiredAt": "2026-10-12T11:51:49.300Z",
+  "scope": "only Server/server/Bootstrap/pom.xml dependency game-hall -> game-lobby",
+  "path": "Server/server/Bootstrap/pom.xml",
+  "preimageSha256": "5860a282e3824919142232b5e3efca51779699a5f53c7dc66313bb4a261f887d",
+  "preserveExistingDirtyHunks": true,
+  "forbidden": ["existing resources hunk", "Java source", "protocol", "database", "deployment", "generated bundle"],
+  "releasedAt": "2026-10-12T11:58:19Z",
+  "releaseReason": "r2 Evidence sealed; handed to independent review"
+}

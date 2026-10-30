@@ -1,0 +1,9 @@
+{
+  "owner": "/root/fangka_xuqian",
+  "state": "RELEASED_STOPPED_FIRST_FAILURE",
+  "acquiredAt": "2026-10-17T09:51:22.099038+00:00",
+  "expiresAt": "2026-10-17T09:53:10.883102+00:00",
+  "path": "/Users/aoo/Code/Game/BCG/Aoo/server/modules/user-domain/Billing/src/test/java/com/aoo/bcg/billing/JdbcRoomAaCreationTest.java",
+  "releasedAt": "2026-10-17T09:51:59.191675+00:00",
+  "manifestSHA": "d506ce09f2560d8a47bd3de7811c36314fbe94c7b4dd804063ec861b33cc1b77"
+}

@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 2,
+  "lockId": "R48-TAKEOVER-20261010T050917Z-04",
+  "status": "RELEASED_FOR_INDEPENDENT_REVIEW",
+  "owner": "/root/implement_r48_takeover",
+  "task": "DIRECT-20261008T084000Z-4a7f1c9e",
+  "attempt": "R48-R50-takeover-implementation-20261010",
+  "acquiredAt": "2026-10-10T05:09:17Z",
+  "releasedAt": "2026-10-13T09:07:34.964768000Z",
+  "path": "Server/server/Games/LongCard/src/main/java/com/aoo/bcg/longcard/LongCardCatalogRuntimeRegistry.java",
+  "preimageSha256": "3a8811accd7b84d8843aa2c3e131e830d789d2852e5cc2183b588a355d4704e1",
+  "handoffCurrentSha256": "3a8811accd7b84d8843aa2c3e131e830d789d2852e5cc2183b588a355d4704e1",
+  "oldPreimageSha256": "9ed2fdee1881a222343e457050a88f7d14be48c6126a72f84446d047dbf2a9e8",
+  "r49BaselineSha256": "9ed2fdee1881a222343e457050a88f7d14be48c6126a72f84446d047dbf2a9e8",
+  "oldOwner": "/root/r48_longcard_provider_implementation",
+  "supersedes": "Server/server/Games/LongCard/src/main/java/com/aoo/bcg/longcard/LongCardCatalogRuntimeRegistry.java.direct-lock-r48/lock.json",
+  "sourceWrite": true,
+  "releaseReceipt": "docs/05-当前状态/evidence/DIRECT-20261008T084000Z-4a7f1c9e/c3-r48-takeover-implementation-20261010/r48-eight-successor-release-receipt-20261013.md",
+  "independentAcceptance": "ACCEPT_BOUNDED",
+  "scope": "R48 exact ten tuple admission and delegating carrier route for this file only"
+}

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.aoo.bcg</groupId>
+    <artifactId>aoo-server-parent</artifactId>
+    <version>${revision}</version>
+    <relativePath>../../../pom.xml</relativePath>
+  </parent>
+  <artifactId>games</artifactId>
+  <packaging>pom</packaging>
+  <modules>
+    <module>mahjong</module>
+    <module>mahjong/CDXZMJ</module>
+    <module>mahjong/SCJYMJ</module>
+    <module>poker</module>
+    <module>poker/PDK</module>
+    <module>poker/zjh</module>
+    <module>poker/ZYPK</module>
+    <module>poker/cx</module>
+    <module>poker/nn</module>
+    <module>long-card</module>
+    <module>long-card/compatibility/WordCard</module>
+  </modules>
+</project>

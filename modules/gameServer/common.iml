@@ -1,0 +1,547 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="EclipseModuleManager">
+    <libelement value="jar://$MODULE_DIR$/../common/lib/bsh/bsh-2.0b5.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/../common/lib/Gson/gson-2.8.6.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/../common/lib/c3p0_0.9.5/c3p0-0.9.5-pre7.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/../common/lib/javolution_6.0/javolution-core-java-6.0.0.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/../common/lib/protobuf/protobuf-java-2.5.0.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/../common/lib/MySQLDriver/mysql-connector-java-5.1.23-bin.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/../common/lib/apache-commons/commons-codec-1.9.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/../common/lib/bonecp-0.7.1.RELEASE.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/../common/lib/commons-cli-1.2.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/../common/lib/logback1.1.3/logback-classic-1.1.3.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/../common/lib/logback1.1.3/logback-core-1.1.3.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/../common/lib/slf4j-api-1.7.12/slf4j-api-1.7.12.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/../common/lib/apns-0.2.3.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/../common/lib/apache-http/httpasyncclient-4.0.2.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/../common/lib/apache-http/httpclient-4.4.1.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/../common/lib/apache-http/httpcore-4.4.1.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/../common/lib/apache-http/httpcore-nio-4.4.1.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/../common/lib/scribe/libfb303.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/../common/lib/scribe/libthrift.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/../common/lib/guava-10.0.1.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/../common/lib/commons-lang3-3.7/commons-lang3-3.7.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/../common/lib/commons-beanutils-1.9.3/commons-beanutils-1.9.3.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/../common/lib/redis/jedis-2.9.0.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/../common/lib/redis/commons-pool2-2.4.2.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/../common/lib/cglib-3.2.7.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/../common/lib/asm-6.2.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/../common/lib/log4j-1.2.17.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/../common/lib/joda-time-2.9.9.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/../common/lib/quartz-2.3.0.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/../common/lib/kernel.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/../common/lib/fastjson-1.2.31.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/../common/lib/javax.servlet-3.0.0.v201112011016.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/../common/lib/jfinal-3.2.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/../common/lib/jfinal-weixin-1.9.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/../common/lib/jdbc/druid-1.1.10.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/../common/lib/jdbc/commons-dbutils-1.7.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/../common/lib/lombok-1.18.8.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/../common/lib/mina/mina-core-2.0.9.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/../common/lib/netty-all-4.1.6.Final.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/../common/lib/disruptor-3.4.2.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/../common/lib/ehcache-3.8.1.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/../common/lib/kryo/kryo-4.0.2.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/../common/lib/kryo/kryo-serializers-0.45.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/../common/lib/kryo/minlog-1.3.0.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/../common/lib/kryo/reflectasm-1.07.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/../common/lib/jackson/jackson-annotations-2.1.4.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/../common/lib/jackson/jackson-core-2.1.4.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/../common/lib/jackson/jackson-databind-2.1.4.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/../common/lib/rocketmq/commons-validator-1.6.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/../common/lib/rocketmq/rocketmq-client-4.7.1.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/../common/lib/rocketmq/rocketmq-common-4.7.1.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/../common/lib/rocketmq/rocketmq-remoting-4.7.1.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/../common/lib/rocketmq/rocketmq-logging-4.7.1.jar!/" />
+    <src_description expected_position="0">
+      <src_folder value="file://$MODULE_DIR$/../common/src" expected_position="0" />
+    </src_description>
+  </component>
+  <component name="NewModuleRootManager">
+    <output url="file://$MODULE_DIR$/../common/bin" />
+    <exclude-output />
+    <content url="file://$MODULE_DIR$/../common">
+      <sourceFolder url="file://$MODULE_DIR$/../common/src" isTestSource="false" />
+    </content>
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library">
+      <library name="bsh-2.0b5.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../common/lib/bsh/bsh-2.0b5.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="gson-2.8.6.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../common/lib/Gson/gson-2.8.6.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="c3p0-0.9.5-pre7.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../common/lib/c3p0_0.9.5/c3p0-0.9.5-pre7.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="javolution-core-java-6.0.0.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../common/lib/javolution_6.0/javolution-core-java-6.0.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="protobuf-java-2.5.0.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../common/lib/protobuf/protobuf-java-2.5.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="mysql-connector-java-5.1.23-bin.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../common/lib/MySQLDriver/mysql-connector-java-5.1.23-bin.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="commons-codec-1.9.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../common/lib/apache-commons/commons-codec-1.9.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="bonecp-0.7.1.RELEASE.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../common/lib/bonecp-0.7.1.RELEASE.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="commons-cli-1.2.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../common/lib/commons-cli-1.2.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="logback-classic-1.1.3.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../common/lib/logback1.1.3/logback-classic-1.1.3.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="logback-core-1.1.3.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../common/lib/logback1.1.3/logback-core-1.1.3.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="slf4j-api-1.7.12.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../common/lib/slf4j-api-1.7.12/slf4j-api-1.7.12.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="apns-0.2.3.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../common/lib/apns-0.2.3.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="httpasyncclient-4.0.2.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../common/lib/apache-http/httpasyncclient-4.0.2.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="httpclient-4.4.1.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../common/lib/apache-http/httpclient-4.4.1.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="httpcore-4.4.1.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../common/lib/apache-http/httpcore-4.4.1.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="httpcore-nio-4.4.1.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../common/lib/apache-http/httpcore-nio-4.4.1.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="libfb303.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../common/lib/scribe/libfb303.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="libthrift.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../common/lib/scribe/libthrift.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="guava-10.0.1.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../common/lib/guava-10.0.1.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="commons-lang3-3.7.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../common/lib/commons-lang3-3.7/commons-lang3-3.7.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="commons-beanutils-1.9.3.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../common/lib/commons-beanutils-1.9.3/commons-beanutils-1.9.3.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="jedis-2.9.0.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../common/lib/redis/jedis-2.9.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="commons-pool2-2.4.2.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../common/lib/redis/commons-pool2-2.4.2.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="cglib-3.2.7.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../common/lib/cglib-3.2.7.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="asm-6.2.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../common/lib/asm-6.2.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="log4j-1.2.17.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../common/lib/log4j-1.2.17.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="joda-time-2.9.9.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../common/lib/joda-time-2.9.9.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="quartz-2.3.0.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../common/lib/quartz-2.3.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="module-library">
+      <library name="kernel.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../common/lib/kernel.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="fastjson-1.2.31.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../common/lib/fastjson-1.2.31.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="javax.servlet-3.0.0.v201112011016.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../common/lib/javax.servlet-3.0.0.v201112011016.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="jfinal-3.2.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../common/lib/jfinal-3.2.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="jfinal-weixin-1.9.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../common/lib/jfinal-weixin-1.9.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="druid-1.1.10.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../common/lib/jdbc/druid-1.1.10.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="commons-dbutils-1.7.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../common/lib/jdbc/commons-dbutils-1.7.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="lombok-1.18.8.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../common/lib/lombok-1.18.8.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="mina-core-2.0.9.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../common/lib/mina/mina-core-2.0.9.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="netty-all-4.1.6.Final.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../common/lib/netty-all-4.1.6.Final.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="disruptor-3.4.2.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../common/lib/disruptor-3.4.2.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="ehcache-3.8.1.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../common/lib/ehcache-3.8.1.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="kryo-4.0.2.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../common/lib/kryo/kryo-4.0.2.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="kryo-serializers-0.45.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../common/lib/kryo/kryo-serializers-0.45.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="minlog-1.3.0.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../common/lib/kryo/minlog-1.3.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="reflectasm-1.07.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../common/lib/kryo/reflectasm-1.07.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="jackson-annotations-2.1.4.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../common/lib/jackson/jackson-annotations-2.1.4.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="jackson-core-2.1.4.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../common/lib/jackson/jackson-core-2.1.4.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="jackson-databind-2.1.4.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../common/lib/jackson/jackson-databind-2.1.4.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="commons-validator-1.6.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../common/lib/rocketmq/commons-validator-1.6.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="rocketmq-client-4.7.1.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../common/lib/rocketmq/rocketmq-client-4.7.1.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="rocketmq-common-4.7.1.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../common/lib/rocketmq/rocketmq-common-4.7.1.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="rocketmq-remoting-4.7.1.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../common/lib/rocketmq/rocketmq-remoting-4.7.1.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="rocketmq-logging-4.7.1.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../common/lib/rocketmq/rocketmq-logging-4.7.1.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+  </component>
+</module>

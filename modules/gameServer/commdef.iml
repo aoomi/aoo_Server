@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="EclipseModuleManager">
+    <libelement value="jar://$MODULE_DIR$/../common/lib/protobuf/protobuf-java-2.5.0.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/../common/lib/protobuf/protobuf-java-2.5.0-javadoc.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/../common/lib/protobuf/protobuf-java-2.5.0-sources.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/../common/lib/slf4j-api-1.7.12/slf4j-api-1.7.12.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/../common/lib/kernel.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/../common/lib/commons-lang3-3.7/commons-lang3-3.7.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/../common/lib/lombok-1.18.8.jar!/" />
+    <src_description expected_position="0">
+      <src_folder value="file://$MODULE_DIR$/../commdef/src" expected_position="0" />
+    </src_description>
+  </component>
+  <component name="NewModuleRootManager">
+    <output url="file://$MODULE_DIR$/../commdef/bin" />
+    <exclude-output />
+    <content url="file://$MODULE_DIR$/../commdef">
+      <sourceFolder url="file://$MODULE_DIR$/../commdef/src" isTestSource="false" />
+    </content>
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="module-library">
+      <library name="protobuf-java-2.5.0.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../common/lib/protobuf/protobuf-java-2.5.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="protobuf-java-2.5.0-javadoc.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../common/lib/protobuf/protobuf-java-2.5.0-javadoc.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="protobuf-java-2.5.0-sources.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../common/lib/protobuf/protobuf-java-2.5.0-sources.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="slf4j-api-1.7.12.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../common/lib/slf4j-api-1.7.12/slf4j-api-1.7.12.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="kernel.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../common/lib/kernel.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="commons-lang3-3.7.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../common/lib/commons-lang3-3.7/commons-lang3-3.7.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="lombok-1.18.8.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../common/lib/lombok-1.18.8.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+  </component>
+</module>

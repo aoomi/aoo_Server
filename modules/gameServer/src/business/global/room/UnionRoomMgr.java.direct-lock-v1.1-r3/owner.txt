@@ -1,0 +1,6 @@
+Owner=/root/implement_v198_sql_only
+Task=DIRECT-20261008T055848Z-3a91c7e4-old-runtime-admission-gate
+Attempt=v1.1-repair-r1
+Acquired=2026-10-08T14:21:00+08:00
+Scope=union create propagation only; prior dirty custody preserved
+SourceWrite=true

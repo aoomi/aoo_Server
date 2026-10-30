@@ -1,0 +1,13 @@
+{
+  "owner": "/root/kefu_low",
+  "status": "RELEASED_FOR_INDEPENDENT_ACTUAL",
+  "writePaths": [
+    "server/modules/social-ops/Support/src/test/java/com/aoo/bcg/support/SupportWorkflowHttpTest.java"
+  ],
+  "preSHA": "ABSENT",
+  "acquiredAt": "2026-10-14T11:25:57.725025+00:00",
+  "expiresAt": "2026-10-14T13:25:57.725026+00:00",
+  "cardSHA": "67f07f8c1bd697aa4a81859011f087005abc76b0b6b9e0da19f4c15974943d84",
+  "releasedAt": "2026-10-14T11:32:23.341939+00:00",
+  "postSHA": "3c7516449849360bb6c50fd8af7044dcfd365aad92f947dc1172a9c67a51cc58"
+}

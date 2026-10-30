@@ -1,0 +1,11 @@
+{
+  "task": "DIRECT-20261016T105522Z-25162442-unified-room-card-billing",
+  "owner": "/root/chexuan_mingming_low",
+  "state": "RELEASED",
+  "acquiredAt": "2026-10-18T02:42:51.607383+00:00",
+  "expiresAt": "2026-10-18T03:02:51.607383+00:00",
+  "writePaths": [
+    "/Users/aoo/Code/Game/BCG/Aoo/server/modules/gameplay/games/poker/cx/src/test/java/com/aoo/bcg/poker/cx/CxSceneProgressTest.java"
+  ],
+  "releasedAt": "2026-10-18T02:43:07.219735+00:00"
+}

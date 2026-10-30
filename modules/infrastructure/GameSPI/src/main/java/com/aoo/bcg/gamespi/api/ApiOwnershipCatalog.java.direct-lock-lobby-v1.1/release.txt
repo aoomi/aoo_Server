@@ -1,0 +1,12 @@
+Status=RELEASED_FOR_COORDINATION
+Owner=/root/implement_lobby_owner_increment
+Task=DIRECT-20261008T084000Z-4a7f1c9e
+Attempt=v1.1-lobby-canonical-owner-20261010
+Lock=Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/api/ApiOwnershipCatalog.java.direct-lock-lobby-v1.1/lock.json
+ReleasedAt=2026-10-10T14:39:40+08:00
+PriorStatus=HELD
+ReviewVerdict=ACCEPT_BOUNDED_SCOPE
+ReviewEvidence=docs/05-当前状态/evidence/c3-lobby-naming-scoped-independent-review-20261010/independent-review-v1.md
+PreReleaseLockSha256=43640916644b334e1c487f906a689847ea25f2fd1c54218492b74c13f59c6d95
+PostReleaseLockSha256=4e66508ca081acb6303da2f26050267bf90547c1c1fd36d072c20c496f96b78f
+Reason=bounded independent acceptance received; protocol patterns remain unchanged and only owner metadata was scoped

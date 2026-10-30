@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 2,
+  "task": "DIRECT-20261008T084000Z-4a7f1c9e",
+  "lane": "D",
+  "attempt": "error-registry-20261011-r3",
+  "status": "RELEASED_FOR_INDEPENDENT_REVIEW",
+  "owner": "/root/error_registry_impl",
+  "path": "Server/server/Gateway/src/main/java/com/aoo/bcg/gateway/GatewayWebSocketFrameHandler.java",
+  "preimageSha256": "d0fc514cd3f76d61ac3d67bc16d3159f176cbf5a12aa81dbce89cfb0b1c396ca",
+  "scope": "typed Gateway WS exception classification; preserve numeric wire codes",
+  "sourceWrite": true,
+  "testWrite": false,
+  "independentReviewer": "lane_g",
+  "replacementCounts": {
+    "GatewayTicketException typed catch": 1,
+    "IllegalArgumentException classifier call": 1,
+    "generic exception classifier call": 1,
+    "classifyFailure helper": 1,
+    "failure writer diagnostic": 1
+  },
+  "postimageSha256": "e1897cf0431d1c9e408913644ab1dad0c19f1fe6b7119239feb883505f8c058a"
+}

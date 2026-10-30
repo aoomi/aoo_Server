@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "status": "RELEASED_FOR_INDEPENDENT_REVIEW",
+  "owner": "/root/implement_wordcard_longcard_catalog_boundary",
+  "task": "DIRECT-20261006T211500Z-e5b8c2d1-v261-authorityLeave-delete",
+  "attempt": "v2.61-delete-20261008",
+  "purpose": "Delete only verified-unused legacy four-argument authorityLeave helper",
+  "scope": "single method authorityLeave(long,String,long,String) in JdbcHallRepository.java",
+  "forbidden": "all other methods; RoomOrchestrator; old handlers; protocol; DB; Client; rules; deployment; shared runtime",
+  "sourceWrite": true,
+  "releasedAt": "2026-10-08T05:57:14+08:00",
+  "releaseReason": "Bounded deletion and developer self-check complete; handed to non-owner independent review."
+}

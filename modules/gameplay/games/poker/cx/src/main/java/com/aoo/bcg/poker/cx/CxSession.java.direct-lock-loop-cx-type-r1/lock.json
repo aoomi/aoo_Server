@@ -1,0 +1,13 @@
+{
+  "task": "DIRECT-20261016T105522Z-25162442-unified-room-card-billing",
+  "owner": "/root/chexuan_mingming_low",
+  "state": "RELEASED",
+  "acquiredAt": "2026-10-17T18:36:31.132893+00:00",
+  "expiresAt": "2026-10-17T18:43:38.058843+00:00",
+  "writeRoot": "docs/05-当前状态/evidence/DIRECT-20261016T105522Z-25162442-unified-room-card-billing/room-billing-loop-cx-scene-execution-r1/generic-list-correction-r1",
+  "scope": "v223 exact generic-list-correction-r1 original17 output surface",
+  "writePaths": [
+    "server/modules/gameplay/games/poker/cx/src/main/java/com/aoo/bcg/poker/cx/CxSession.java"
+  ],
+  "releasedAt": "2026-10-17T18:37:17.212656+00:00"
+}

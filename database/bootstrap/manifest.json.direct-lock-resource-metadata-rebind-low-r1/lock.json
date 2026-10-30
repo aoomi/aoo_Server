@@ -1,0 +1,18 @@
+{
+  "owner": "/root/shuju_low",
+  "state": "RELEASED_FROZEN_METADATA_REBIND",
+  "path": "server/database/bootstrap/manifest.json",
+  "createdAt": "2026-10-14T09:37:33.464287+00:00",
+  "preimageSha256": "73d826d472aba6901f8ffaea2ab3fc3992f2a2976d8e42bf77ad20020fe6081b",
+  "allowedJSONKeys": [
+    "container",
+    "databases",
+    "network",
+    "owner",
+    "ownerLabel",
+    "volume"
+  ],
+  "releasedAt": "2026-10-14T09:37:33.855844+00:00",
+  "sourcePostimageSha256": "3714cab709c443d76b024bec1b3e8fd866043e0d88c01092631368c3a3f915e6",
+  "packetManifestSha256": "2d727d69adae9061b428b2973ee8058f291f7732da23ad0263f6745170f11de9"
+}

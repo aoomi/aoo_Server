@@ -1,0 +1,402 @@
+{
+  "_generated": "自动生成，权威来源为只读 Excel",
+  "sourceHash": "648e76a9a41930aad64a1bdb4be7a921df04faf57d60736b9d832426ba2705d7",
+  "identity": {
+    "publishingEnabled": true,
+    "gameId": 2004,
+    "gameCode": "mianning2004",
+    "legacyFieldKeyAliases": {
+      "rule_mn201_0001": "rule_mianning2004_0001"
+    },
+    "playVersion": "mianning2004-v1.0.0",
+    "family": "poker:pao-de-kuai",
+    "regionCode": "CN-51-34-33",
+    "releaseScope": "REGIONAL",
+    "requiredRoomRuleFields": [
+      {
+        "key": "playerCount",
+        "sourceLabel": "人数"
+      },
+      {
+        "key": "cardsPerPlayer",
+        "sourceLabel": "发牌张数"
+      },
+      {
+        "key": "roundCount",
+        "sourceLabel": "局数"
+      },
+      {
+        "key": "robDealerRule",
+        "sourceLabel": "抢庄"
+      },
+      {
+        "key": "bombScore",
+        "sourceLabel": "炸弹记分"
+      },
+      {
+        "key": "roomRestriction",
+        "sourceLabel": "其他"
+      },
+      {
+        "key": "hostingMissThreshold",
+        "sourceLabel": "托管次数",
+        "serverOwned": true
+      }
+    ],
+    "numericRoomRuleFields": [
+      {
+        "sourceLabel": "局数",
+        "suffix": "局"
+      },
+      {
+        "sourceLabel": "炸弹记分",
+        "suffix": "分"
+      },
+      {
+        "sourceLabel": "托管次数",
+        "suffix": "次"
+      }
+    ],
+    "roomRuleOptionValues": {
+      "局数": {
+        "8局": 8,
+        "12局": 12,
+        "16局": 16
+      },
+      "抢庄": {
+        "抢庄": "rob_dealer",
+        "首局不抢": "first_round_no_compete",
+        "闲家都不抢时庄家不能抢": "dealer_cannot_rob_when_idle_pass"
+      },
+      "炸弹记分": {
+        "不加番": "no_multiplier",
+        "1番": 1,
+        "无限番": "unlimited_multiplier"
+      },
+      "小结算": {
+        "小局结算弹窗": "option_0001"
+      },
+      "其他": {
+        "IP限制": "ip_limit",
+        "GPS限制": "gps_limit",
+        "5次不操作进入托管": "timeout_auto_play",
+        "距离过近提示": "distance_warning",
+        "禁止互动": "interaction_forbidden",
+        "禁言": "chat_muted"
+      },
+      "托管次数": {
+        "3次": 3,
+        "4次": 4,
+        "5次": 5
+      }
+    },
+    "roomRuleRowProjections": [
+      {
+        "sourceLabel": "人数和发牌张数",
+        "sourceControl": "单选",
+        "sourceOptions": [
+          "2人13张",
+          "3人13张"
+        ],
+        "kind": "nested-radio",
+        "outputs": [
+          {
+            "key": "playerCount",
+            "label": "人数",
+            "order": 90,
+            "sourceDefaultMap": {
+              "1": 1,
+              "2": 2
+            },
+            "options": [
+              {
+                "label": "2人",
+                "value": 2
+              },
+              {
+                "label": "3人",
+                "value": 3
+              }
+            ]
+          },
+          {
+            "key": "cardsPerPlayer",
+            "label": "发牌张数",
+            "order": 91,
+            "defaultIndex": 1,
+            "options": [
+              {
+                "label": "13张",
+                "value": 13
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "targets": [
+    {
+      "gameId": 2004,
+      "playVersion": "mianning2004-v1.0.0"
+    }
+  ],
+  "fields": [
+    {
+      "key": "playerCount",
+      "label": "人数",
+      "control": "radio",
+      "order": 90,
+      "visible": true,
+      "disabled": false,
+      "required": true,
+      "defaultCandidateIndexes": [
+        1
+      ],
+      "defaultValue": 2,
+      "options": [
+        {
+          "value": 2,
+          "label": "2人",
+          "order": 10,
+          "disabled": false
+        },
+        {
+          "value": 3,
+          "label": "3人",
+          "order": 20,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "key": "cardsPerPlayer",
+      "label": "发牌张数",
+      "control": "radio",
+      "order": 91,
+      "visible": true,
+      "disabled": false,
+      "required": true,
+      "defaultCandidateIndexes": [
+        1
+      ],
+      "defaultValue": 13,
+      "options": [
+        {
+          "value": 13,
+          "label": "13张",
+          "order": 10,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "key": "roundCount",
+      "label": "局数",
+      "control": "radio",
+      "order": 90,
+      "visible": true,
+      "disabled": false,
+      "required": true,
+      "defaultCandidateIndexes": [
+        1
+      ],
+      "defaultValue": 8,
+      "options": [
+        {
+          "value": 8,
+          "label": "8局",
+          "order": 10,
+          "disabled": false
+        },
+        {
+          "value": 12,
+          "label": "12局",
+          "order": 20,
+          "disabled": false
+        },
+        {
+          "value": 16,
+          "label": "16局",
+          "order": 30,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "key": "robDealerRule",
+      "label": "抢庄",
+      "control": "radio",
+      "order": 100,
+      "visible": true,
+      "disabled": false,
+      "required": true,
+      "defaultCandidateIndexes": [
+        1
+      ],
+      "defaultValue": "rob_dealer",
+      "options": [
+        {
+          "value": "rob_dealer",
+          "label": "抢庄",
+          "order": 10,
+          "disabled": false
+        },
+        {
+          "value": "first_round_no_compete",
+          "label": "首局不抢",
+          "order": 20,
+          "disabled": false
+        },
+        {
+          "value": "dealer_cannot_rob_when_idle_pass",
+          "label": "闲家都不抢时庄家不能抢",
+          "order": 30,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "key": "bombScore",
+      "label": "炸弹记分",
+      "control": "radio",
+      "order": 110,
+      "visible": true,
+      "disabled": false,
+      "required": true,
+      "defaultCandidateIndexes": [
+        1
+      ],
+      "defaultValue": "no_multiplier",
+      "options": [
+        {
+          "value": "no_multiplier",
+          "label": "不加番",
+          "order": 10,
+          "disabled": false
+        },
+        {
+          "value": 1,
+          "label": "1番",
+          "order": 20,
+          "disabled": false
+        },
+        {
+          "value": "unlimited_multiplier",
+          "label": "无限番",
+          "order": 30,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "key": "rule_mianning2004_0001",
+      "label": "小结算",
+      "control": "checkbox",
+      "order": 120,
+      "visible": true,
+      "disabled": false,
+      "required": false,
+      "defaultCandidateIndexes": [
+        1
+      ],
+      "defaultValue": [
+        "option_0001"
+      ],
+      "options": [
+        {
+          "value": "option_0001",
+          "label": "小局结算弹窗",
+          "order": 10,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "key": "roomRestriction",
+      "label": "其他",
+      "control": "checkbox",
+      "order": 130,
+      "visible": true,
+      "disabled": false,
+      "required": false,
+      "defaultCandidateIndexes": [
+
+      ],
+      "defaultValue": [
+
+      ],
+      "options": [
+        {
+          "value": "ip_limit",
+          "label": "IP限制",
+          "order": 10,
+          "disabled": false
+        },
+        {
+          "value": "gps_limit",
+          "label": "GPS限制",
+          "order": 20,
+          "disabled": false
+        },
+        {
+          "value": "timeout_auto_play",
+          "label": "5次不操作进入托管",
+          "order": 30,
+          "disabled": false
+        },
+        {
+          "value": "distance_warning",
+          "label": "距离过近提示",
+          "order": 40,
+          "disabled": false
+        },
+        {
+          "value": "interaction_forbidden",
+          "label": "禁止互动",
+          "order": 50,
+          "disabled": false
+        },
+        {
+          "value": "chat_muted",
+          "label": "禁言",
+          "order": 60,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "key": "hostingMissThreshold",
+      "label": "托管次数",
+      "control": "radio",
+      "order": 140,
+      "visible": false,
+      "disabled": true,
+      "required": true,
+      "defaultCandidateIndexes": [
+        1
+      ],
+      "defaultValue": 3,
+      "options": [
+        {
+          "value": 3,
+          "label": "3次",
+          "order": 10,
+          "disabled": false
+        },
+        {
+          "value": 4,
+          "label": "4次",
+          "order": 20,
+          "disabled": false
+        },
+        {
+          "value": 5,
+          "label": "5次",
+          "order": 30,
+          "disabled": false
+        }
+      ]
+    }
+  ]
+}

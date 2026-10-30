@@ -1,0 +1,12 @@
+Status=RELEASED_FOR_COORDINATION
+Owner=/root/implement_lobby_owner_increment
+Task=DIRECT-20261008T084000Z-4a7f1c9e
+Attempt=v1.1-lobby-canonical-owner-20261010
+Lock=Server/server/Hall/src/main/java/com/aoo/bcg/hall/HallApplication.java.direct-lock-lobby-v1.1/lock.json
+ReleasedAt=2026-10-10T14:39:40+08:00
+PriorStatus=HELD
+ReviewVerdict=ACCEPT_BOUNDED_SCOPE
+ReviewEvidence=docs/05-当前状态/evidence/c3-lobby-naming-scoped-independent-review-20261010/independent-review-v1.md
+PreReleaseLockSha256=e9b0de23156fc52454ca3e11ec27d123fc5d7799d4718c8830ea5fedda26f363
+PostReleaseLockSha256=8c0dfb3565f8caa51dd713ba70881827d90e9b8304e065485c36c00f56ccb8d0
+Reason=bounded independent acceptance received; Hall compatibility facade retained; no source or forbidden-surface cleanup performed

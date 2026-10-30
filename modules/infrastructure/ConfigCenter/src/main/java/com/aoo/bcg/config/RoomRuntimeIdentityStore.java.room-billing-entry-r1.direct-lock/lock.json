@@ -1,0 +1,10 @@
+{
+  "owner": "/root/kuangjia_low",
+  "status": "RELEASED_FOR_CORRECTION",
+  "acquiredAt": "2026-10-17T01:26:47.541956+00:00",
+  "expiresAt": "2026-10-17T01:36:47.541956+00:00",
+  "exactWritePaths": [
+    "/Users/aoo/Code/Game/BCG/Aoo/server/modules/infrastructure/ConfigCenter/src/main/java/com/aoo/bcg/config/RoomRuntimeIdentityStore.java"
+  ],
+  "releasedAt": "2026-10-17T01:31:00.669040+00:00"
+}

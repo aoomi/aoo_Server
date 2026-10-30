@@ -1,0 +1,6 @@
+status=RELEASED_FOR_INDEPENDENT_REVIEW
+owner=/root/implement_v198_sql_only
+task=DIRECT-20261008T055848Z-3a91c7e4-old-runtime-admission-gate
+attempt=v1.3-repair-r1
+releasedAt=2026-10-08T14:38:00+08:00
+evidence=docs/05-当前状态/evidence/DIRECT-20261008T055848Z-3a91c7e4/implementation/v1.3-repair-evidence.md

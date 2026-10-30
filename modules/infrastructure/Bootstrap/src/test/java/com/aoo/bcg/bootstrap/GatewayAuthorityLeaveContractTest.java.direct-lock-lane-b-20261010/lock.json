@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "status": "RELEASED_FOR_INDEPENDENT_REVIEW",
+  "owner": "/root/lane_b_ws_contract",
+  "task": "DIRECT-20261008T084000Z-4a7f1c9e",
+  "taskCardSha256": "6d4b950b668076760ce48e37e6b8fbee5e0dccbe00b51f5c1ce6cb471c44d685",
+  "purpose": "Lane B HTTP/WS leave event-field compatibility contract test",
+  "allowlist": [
+    "Server/server/Bootstrap/src/test/java/com/aoo/bcg/bootstrap/GatewayAuthorityLeaveContractTest.java"
+  ],
+  "forbidden": ["Client/work", "LoginScene", "规则工作簿", "生产数据库", "共享服务", "生成 bundle", "旧链路回退"],
+  "preimage": {
+    "Server/server/Bootstrap/src/test/java/com/aoo/bcg/bootstrap/GatewayAuthorityLeaveContractTest.java": "8283ea02848d4c496ed123b23d5afbbe3101d09a95f3e4330552070ea235491f"
+  },
+  "postimage": {
+    "Server/server/Bootstrap/src/test/java/com/aoo/bcg/bootstrap/GatewayAuthorityLeaveContractTest.java": "240d878387f723be4a8c5ff9e14c02e8ca39e554198ba763f6b44712644ee5aa"
+  },
+  "sourceWrite": false,
+  "productionDatabase": false,
+  "sharedRuntime": false
+}

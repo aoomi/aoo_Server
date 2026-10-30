@@ -1,0 +1,16 @@
+{
+  "owner": "/root/kuangjia_low",
+  "status": "RELEASED",
+  "acquiredAt": "2026-10-17T10:59:02.394459+00:00",
+  "expiresAt": "2026-10-17T11:09:02.394459+00:00",
+  "wholeSeconds": 600,
+  "eachCommand180": true,
+  "scope": [
+    "/Users/aoo/Code/Game/BCG/Aoo/server/modules/infrastructure/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/ProductionGatewayRuntimeProvider.java"
+  ],
+  "sourcePlan": "e792ac1e0f6cae0c50e5614e15f8975f4dcae72d4fbac702485d6c284c6fdc41",
+  "cpFixedAccepted": "0906ad5a476824a61e3729551e1ce119d2cde268651f793b2ea09a1660d2bdfe",
+  "preSHA": "f77a78c9854877bb1f116f47ec6192b8dfa77cc25d2864e6a3b7ed3d70b715ef",
+  "releasedAt": "2026-10-17T11:02:33.671246+00:00",
+  "manifestSHA": "930d8184691e8163f6267f38373ee5d52070a0e000169b036306e016cc168e3c"
+}

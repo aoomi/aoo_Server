@@ -1,0 +1,5 @@
+Status=RELEASED_FOR_INDEPENDENT_REVIEW
+Owner=/root/implement_v197_room_lock_metadata
+Task=DIRECT-20261006T211500Z-e5b8c2d1-v258
+ReleasedAt=2026-10-08T05:46:30+08:00
+Reason=implementation complete; focused tests passed; awaiting independent review

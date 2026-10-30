@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 2,
+  "task": "DIRECT-20261008T084000Z-4a7f1c9e",
+  "lane": "D",
+  "attempt": "error-registry-20261011-r2",
+  "status": "RELEASED_FOR_INDEPENDENT_REVIEW",
+  "owner": "/root/error_registry_impl",
+  "path": "Server/server/Hall/src/main/java/com/aoo/bcg/lobby/LobbyHttpRoutes.java",
+  "preimageSha256": "7ca2a54c0536e9712438c0585de57768e9e5dd9178447804ace76b5a15c92f80",
+  "scope": "typed canonical mapping for Lobby HTTP failures without wire changes",
+  "sourceWrite": true,
+  "testWrite": false,
+  "independentReviewer": "non-writer reviewer required"
+}

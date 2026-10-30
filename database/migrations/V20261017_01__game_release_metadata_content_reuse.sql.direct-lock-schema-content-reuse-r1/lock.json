@@ -1,0 +1,11 @@
+{
+  "owner": "/root/kuangjia_low",
+  "state": "RELEASED_FOR_INDEPENDENT_REVIEW",
+  "acquiredAt": "2026-10-16T17:48:08.016598+00:00",
+  "expiresAt": "2026-10-16T18:18:08.016598+00:00",
+  "writePaths": [
+    "/Users/aoo/Code/Game/BCG/Aoo/server/database/migrations/V20261017_01__game_release_metadata_content_reuse.sql"
+  ],
+  "releasedAt": "2026-10-16T17:48:08.021519+00:00",
+  "postSHA256": "7dfd37f6374fba9669aa37b55d870dc1d8eb66ae09b560bb85591fadab3e86bf"
+}

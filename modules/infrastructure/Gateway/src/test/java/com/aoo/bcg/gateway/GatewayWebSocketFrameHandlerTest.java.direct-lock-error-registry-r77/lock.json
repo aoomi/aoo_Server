@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 2,
+  "task": "DIRECT-20261008T084000Z-4a7f1c9e",
+  "lane": "D",
+  "attempt": "error-registry-20261012-r77",
+  "status": "RELEASED_FOR_INDEPENDENT_REVIEW",
+  "owner": "/root/error_registry_impl",
+  "path": "Server/server/Gateway/src/test/java/com/aoo/bcg/gateway/GatewayWebSocketFrameHandlerTest.java",
+  "preimageSha256": "bee42f90aeafe279ddc172d136f9a30d42d8917b366774f4e884fac845ce7262",
+  "scope": "negative WS exception classification remains fail-closed",
+  "sourceWrite": false,
+  "testWrite": true,
+  "independentReviewer": "lane_g",
+  "replacementCounts": {},
+  "postimageSha256": "bee42f90aeafe279ddc172d136f9a30d42d8917b366774f4e884fac845ce7262"
+}

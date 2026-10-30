@@ -1,0 +1,27 @@
+{
+  "owner": "/root/kuangjia_mingming_low",
+  "state": "RELEASED",
+  "acquiredAt": "2026-10-17T00:14:20.989309+00:00",
+  "expiresAt": "2026-10-17T00:39:20.989309+00:00",
+  "writePaths": [
+    "/Users/aoo/Code/Game/BCG/Aoo/server/engineering/release/project-active-runtime-publication.rb",
+    "/Users/aoo/Code/Game/BCG/Aoo/server/engineering/release/project-active-runtime-publication.rb.version-cas-r17.direct-lock/lock.json",
+    "/Users/aoo/Code/Game/BCG/Aoo/docs/05-当前状态/evidence/DIRECT-20261016T134154Z-6e8b1c20-active-game-naming-migration/active-runtime-version-migration-source-execution-r17/input.json",
+    "/Users/aoo/Code/Game/BCG/Aoo/docs/05-当前状态/evidence/DIRECT-20261016T134154Z-6e8b1c20-active-game-naming-migration/active-runtime-version-migration-source-execution-r17/lock.json",
+    "/Users/aoo/Code/Game/BCG/Aoo/docs/05-当前状态/evidence/DIRECT-20261016T134154Z-6e8b1c20-active-game-naming-migration/active-runtime-version-migration-source-execution-r17/execution-lock.json",
+    "/Users/aoo/Code/Game/BCG/Aoo/docs/05-当前状态/evidence/DIRECT-20261016T134154Z-6e8b1c20-active-game-naming-migration/active-runtime-version-migration-source-execution-r17/preimage.json",
+    "/Users/aoo/Code/Game/BCG/Aoo/docs/05-当前状态/evidence/DIRECT-20261016T134154Z-6e8b1c20-active-game-naming-migration/active-runtime-version-migration-source-execution-r17/command.json",
+    "/Users/aoo/Code/Game/BCG/Aoo/docs/05-当前状态/evidence/DIRECT-20261016T134154Z-6e8b1c20-active-game-naming-migration/active-runtime-version-migration-source-execution-r17/stdout.log",
+    "/Users/aoo/Code/Game/BCG/Aoo/docs/05-当前状态/evidence/DIRECT-20261016T134154Z-6e8b1c20-active-game-naming-migration/active-runtime-version-migration-source-execution-r17/stderr.log",
+    "/Users/aoo/Code/Game/BCG/Aoo/docs/05-当前状态/evidence/DIRECT-20261016T134154Z-6e8b1c20-active-game-naming-migration/active-runtime-version-migration-source-execution-r17/exit.json",
+    "/Users/aoo/Code/Game/BCG/Aoo/docs/05-当前状态/evidence/DIRECT-20261016T134154Z-6e8b1c20-active-game-naming-migration/active-runtime-version-migration-source-execution-r17/apply-exit.json",
+    "/Users/aoo/Code/Game/BCG/Aoo/docs/05-当前状态/evidence/DIRECT-20261016T134154Z-6e8b1c20-active-game-naming-migration/active-runtime-version-migration-source-execution-r17/checks.json",
+    "/Users/aoo/Code/Game/BCG/Aoo/docs/05-当前状态/evidence/DIRECT-20261016T134154Z-6e8b1c20-active-game-naming-migration/active-runtime-version-migration-source-execution-r17/DEV_SELF_CHECK.md",
+    "/Users/aoo/Code/Game/BCG/Aoo/docs/05-当前状态/evidence/DIRECT-20261016T134154Z-6e8b1c20-active-game-naming-migration/active-runtime-version-migration-source-execution-r17/manifest.json",
+    "/Users/aoo/Code/Game/BCG/Aoo/docs/05-当前状态/evidence/DIRECT-20261016T134154Z-6e8b1c20-active-game-naming-migration/active-runtime-version-migration-source-execution-r17/review-input.json",
+    "/Users/aoo/Code/Game/BCG/Aoo/docs/05-当前状态/evidence/DIRECT-20261016T134154Z-6e8b1c20-active-game-naming-migration/active-runtime-version-migration-source-execution-r17/release.json"
+  ],
+  "acceptedPlanManifest": "00cf96ef30684689faf5f263a15546222865096dc49e58497c4f366a5c8d084a",
+  "scope": "One existing projector source; no SQL/sign/DB/service",
+  "releasedAt": "2026-10-17T00:14:51.738752+00:00"
+}

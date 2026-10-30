@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "status": "RELEASED_FOR_INDEPENDENT_REVIEW",
+  "owner": "/root/implement_manifest_projection_s1",
+  "task": "DIRECT-20261008T084000Z-4a7f1c9e",
+  "attempt": "c3-runtime-matrix-r27-task-only-launcher-v4",
+  "acquiredAt": "2026-10-09T13:17:49Z",
+  "purpose": "R27 read-only README source hash verification",
+  "allowlist": ["Server/tools/task-only-runtime/README-r20.md"],
+  "sourceWrite": false,
+  "databaseWrite": false,
+  "releasedAt": "2026-10-09T13:18:49Z",
+  "releaseReason": "DEV_SELF_CHECK-R27 sealed; source unchanged; ready for independent review"
+}

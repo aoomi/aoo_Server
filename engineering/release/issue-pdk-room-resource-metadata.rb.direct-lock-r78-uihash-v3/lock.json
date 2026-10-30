@@ -1,0 +1,19 @@
+{
+  "owner": "/root/dating_low",
+  "state": "RELEASED_FOR_INDEPENDENT_REVIEW",
+  "createdAt": "2026-10-16T12:03:14.492948+00:00",
+  "expiresAt": "2026-10-16T14:03:14.492948+00:00",
+  "edition": "r78-pdk-room-resource-v2",
+  "pairs": {
+    "2001": [
+      730000001003,
+      740000001003
+    ],
+    "2003": [
+      730000001004,
+      740000001004
+    ]
+  },
+  "scope": "new registered edition source/candidate; no SQL/deployment/browser",
+  "releasedAt": "2026-10-16T12:08:14.496023+00:00"
+}

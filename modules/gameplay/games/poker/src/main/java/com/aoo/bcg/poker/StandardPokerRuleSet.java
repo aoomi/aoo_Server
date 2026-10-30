@@ -1,0 +1,8 @@
+package com.aoo.bcg.poker;
+import java.util.*;
+/** Common single/pair/triple/straight/bomb recognition and comparison. */
+public final class StandardPokerRuleSet<T> implements PokerRuleSet<T>{
+ public CardCombination recognize(List<Integer> cards,T state){if(cards==null||cards.isEmpty())throw new IllegalArgumentException("cards required");List<Integer> sorted=cards.stream().sorted(Comparator.comparingInt(StandardPokerRuleSet::rank)).toList();Map<Integer,Long> counts=new TreeMap<>();sorted.forEach(card->counts.merge(rank(card),1L,Long::sum));String type;if(sorted.size()==1)type="SINGLE";else if(counts.size()==1&&sorted.size()==2)type="PAIR";else if(counts.size()==1&&sorted.size()==3)type="TRIPLE";else if(counts.size()==1&&sorted.size()==4)type="BOMB";else if(sorted.size()>=5&&counts.size()==sorted.size()&&consecutive(counts.keySet()))type="STRAIGHT";else throw new IllegalArgumentException("unsupported card combination");return new CardCombination(type,counts.keySet().stream().max(Integer::compareTo).orElseThrow(),sorted);}
+ public boolean canBeat(CardCombination candidate,CardCombination previous,T state){if(previous==null)return true;if(candidate.type().equals("BOMB")&&!previous.type().equals("BOMB"))return true;return candidate.type().equals(previous.type())&&candidate.cards().size()==previous.cards().size()&&candidate.primaryRank()>previous.primaryRank();}
+ public static int rank(int card){return PokerCardCodec.rank(card);} private static boolean consecutive(Set<Integer> ranks){int previous=-1;for(int rank:ranks){if(previous>=0&&rank!=previous+1)return false;previous=rank;}return true;}
+}

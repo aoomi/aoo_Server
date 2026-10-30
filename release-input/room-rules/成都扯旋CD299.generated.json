@@ -1,0 +1,730 @@
+{
+  "_generated": "自动生成，权威来源为只读 Excel",
+  "sourceHash": "40963a9d93dc2a6495297b86cd3a961106680b9c28ae3cce3fd7918bb7f848e8",
+  "identity": {
+    "publishingEnabled": true,
+    "automaticPublishingEnabled": false,
+    "automaticPublishingBlockReason": "CD299候选尚未完成独立验证与ACTIVE发布合同",
+    "gameId": 2999,
+    "gameCode": "chengdu2999",
+    "playVersion": "cd299-v1.0.0",
+    "family": "poker:cd299",
+    "regionCode": "CN-51-01",
+    "releaseScope": "REGIONAL",
+    "provider": "com.aoo.bcg.poker.chengdu2999.Cd299ProviderFactory",
+    "displayName": "扯旋",
+    "requiredRoomRuleFields": [
+      {
+        "key": "roomEndSelection",
+        "sourceLabel": "房间时长",
+        "order": 10
+      },
+      {
+        "key": "startPlayers",
+        "sourceLabel": "开局人数",
+        "order": 20
+      },
+      {
+        "key": "operationSeconds",
+        "sourceLabel": "操作时间",
+        "order": 30
+      },
+      {
+        "key": "standPolicy",
+        "sourceLabel": "站起规则",
+        "order": 40
+      },
+      {
+        "key": "mangoFlipMode",
+        "sourceLabel": "芒果翻法",
+        "order": 50
+      },
+      {
+        "key": "mangoRaise",
+        "sourceLabel": "升芒",
+        "order": 60
+      },
+      {
+        "key": "mangoScore",
+        "sourceLabel": "芒果分数",
+        "order": 70
+      },
+      {
+        "key": "openingBet",
+        "sourceLabel": "发招分数",
+        "order": 80
+      },
+      {
+        "key": "restMango",
+        "sourceLabel": "休芒",
+        "order": 90
+      },
+      {
+        "key": "beatMango",
+        "sourceLabel": "揍芒",
+        "order": 100
+      },
+      {
+        "key": "everyHandMango",
+        "sourceLabel": "手手芒",
+        "order": 110
+      },
+      {
+        "key": "firstRoundCanRest",
+        "sourceLabel": "首轮可休",
+        "order": 120
+      },
+      {
+        "key": "eachPlayerMustFollow",
+        "sourceLabel": "挨家必挨",
+        "order": 130
+      },
+      {
+        "key": "earthNineKing",
+        "sourceLabel": "地九王",
+        "order": 140
+      },
+      {
+        "key": "fireproofCard",
+        "sourceLabel": "防火牌",
+        "order": 150
+      },
+      {
+        "key": "bigHeadKeepsBase",
+        "sourceLabel": "头大不输底",
+        "order": 160
+      },
+      {
+        "key": "autoOperateAfterTimeouts",
+        "sourceLabel": "托管次数",
+        "order": 170,
+        "serverOwned": true
+      }
+    ],
+    "numericRoomRuleFields": [
+      {
+        "sourceLabel": "开局人数",
+        "suffix": "人"
+      },
+      {
+        "sourceLabel": "操作时间",
+        "suffix": "秒"
+      },
+      {
+        "sourceLabel": "升芒",
+        "suffix": "芒"
+      },
+      {
+        "sourceLabel": "托管次数",
+        "suffix": "次"
+      }
+    ],
+    "roomRuleRowProjections": [
+      {
+        "sourceLabel": "分数设置",
+        "sourceControl": "数字",
+        "sourceOptions": [
+          "芒果分数",
+          "发招分数（发招分数不低于芒果分数）"
+        ],
+        "kind": "number-tuple",
+        "outputs": [
+          {
+            "sourceOption": "芒果分数",
+            "key": "mangoScore",
+            "label": "芒果分数",
+            "order": 70,
+            "min": 0,
+            "max": 2147483647,
+            "step": 1
+          },
+          {
+            "sourceOption": "发招分数（发招分数不低于芒果分数）",
+            "key": "openingBet",
+            "label": "发招分数",
+            "order": 80,
+            "min": 0,
+            "max": 2147483647,
+            "step": 1
+          }
+        ]
+      },
+      {
+        "sourceLabel": "玩法",
+        "sourceControl": "多选",
+        "sourceOptions": [
+          "休芒",
+          "揍芒",
+          "手手芒",
+          "首轮可休",
+          "挨家必挨",
+          "地九王",
+          "防火牌",
+          "头大不输底"
+        ],
+        "kind": "boolean-options",
+        "outputs": [
+          {
+            "sourceOption": "休芒",
+            "key": "restMango",
+            "label": "休芒",
+            "order": 90
+          },
+          {
+            "sourceOption": "揍芒",
+            "key": "beatMango",
+            "label": "揍芒",
+            "order": 100
+          },
+          {
+            "sourceOption": "手手芒",
+            "key": "everyHandMango",
+            "label": "手手芒",
+            "order": 110
+          },
+          {
+            "sourceOption": "首轮可休",
+            "key": "firstRoundCanRest",
+            "label": "首轮可休",
+            "order": 120
+          },
+          {
+            "sourceOption": "挨家必挨",
+            "key": "eachPlayerMustFollow",
+            "label": "挨家必挨",
+            "order": 130
+          },
+          {
+            "sourceOption": "地九王",
+            "key": "earthNineKing",
+            "label": "地九王",
+            "order": 140
+          },
+          {
+            "sourceOption": "防火牌",
+            "key": "fireproofCard",
+            "label": "防火牌",
+            "order": 150
+          },
+          {
+            "sourceOption": "头大不输底",
+            "key": "bigHeadKeepsBase",
+            "label": "头大不输底",
+            "order": 160
+          }
+        ]
+      }
+    ],
+    "roomRuleOptionValues": {
+      "房间时长": {
+        "30分钟": "DURATION_MINUTES:30",
+        "45分钟": "DURATION_MINUTES:45",
+        "60分钟": "DURATION_MINUTES:60",
+        "10局": "ROUND_COUNT:10",
+        "20局": "ROUND_COUNT:20",
+        "30局": "ROUND_COUNT:30"
+      },
+      "开局人数": {
+        "2人": 2,
+        "4人": 4,
+        "6人": 6
+      },
+      "操作时间": {
+        "10秒": 10,
+        "15秒": 15,
+        "30秒": 30
+      },
+      "站起规则": {
+        "输家可站起": "LOSER_ONLY",
+        "所有人可站起": "EVERYONE",
+        "所有人不可站起": "NOBODY"
+      },
+      "芒果翻法": {
+        "梯翻": "LADDER",
+        "滚翻": "ROLLING"
+      },
+      "升芒": {
+        "不升": 0,
+        "1芒": 1,
+        "2芒": 2,
+        "3芒": 3,
+        "4芒": 4,
+        "5芒": 5
+      },
+      "托管次数": {
+        "3次": 3,
+        "4次": 4,
+        "5次": 5
+      }
+    }
+  },
+  "targets": [
+    {
+      "gameId": 2999,
+      "playVersion": "cd299-v1.0.0"
+    }
+  ],
+  "fields": [
+    {
+      "key": "roomEndSelection",
+      "label": "房间时长",
+      "control": "radio",
+      "order": 10,
+      "visible": true,
+      "disabled": false,
+      "required": true,
+      "defaultCandidateIndexes": [
+        4
+      ],
+      "defaultValue": "ROUND_COUNT:10",
+      "options": [
+        {
+          "value": "DURATION_MINUTES:30",
+          "label": "30分钟",
+          "order": 10,
+          "disabled": false
+        },
+        {
+          "value": "DURATION_MINUTES:45",
+          "label": "45分钟",
+          "order": 20,
+          "disabled": false
+        },
+        {
+          "value": "DURATION_MINUTES:60",
+          "label": "60分钟",
+          "order": 30,
+          "disabled": false
+        },
+        {
+          "value": "ROUND_COUNT:10",
+          "label": "10局",
+          "order": 40,
+          "disabled": false
+        },
+        {
+          "value": "ROUND_COUNT:20",
+          "label": "20局",
+          "order": 50,
+          "disabled": false
+        },
+        {
+          "value": "ROUND_COUNT:30",
+          "label": "30局",
+          "order": 60,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "key": "startPlayers",
+      "label": "开局人数",
+      "control": "radio",
+      "order": 20,
+      "visible": true,
+      "disabled": false,
+      "required": true,
+      "defaultCandidateIndexes": [
+        1
+      ],
+      "defaultValue": 2,
+      "options": [
+        {
+          "value": 2,
+          "label": "2人",
+          "order": 10,
+          "disabled": false
+        },
+        {
+          "value": 4,
+          "label": "4人",
+          "order": 20,
+          "disabled": false
+        },
+        {
+          "value": 6,
+          "label": "6人",
+          "order": 30,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "key": "operationSeconds",
+      "label": "操作时间",
+      "control": "radio",
+      "order": 30,
+      "visible": true,
+      "disabled": false,
+      "required": true,
+      "defaultCandidateIndexes": [
+        1
+      ],
+      "defaultValue": 10,
+      "options": [
+        {
+          "value": 10,
+          "label": "10秒",
+          "order": 10,
+          "disabled": false
+        },
+        {
+          "value": 15,
+          "label": "15秒",
+          "order": 20,
+          "disabled": false
+        },
+        {
+          "value": 30,
+          "label": "30秒",
+          "order": 30,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "key": "standPolicy",
+      "label": "站起规则",
+      "control": "radio",
+      "order": 40,
+      "visible": true,
+      "disabled": false,
+      "required": true,
+      "defaultCandidateIndexes": [
+        1
+      ],
+      "defaultValue": "LOSER_ONLY",
+      "options": [
+        {
+          "value": "LOSER_ONLY",
+          "label": "输家可站起",
+          "order": 10,
+          "disabled": false
+        },
+        {
+          "value": "EVERYONE",
+          "label": "所有人可站起",
+          "order": 20,
+          "disabled": false
+        },
+        {
+          "value": "NOBODY",
+          "label": "所有人不可站起",
+          "order": 30,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "key": "mangoFlipMode",
+      "label": "芒果翻法",
+      "control": "radio",
+      "order": 50,
+      "visible": true,
+      "disabled": false,
+      "required": true,
+      "defaultCandidateIndexes": [
+        1
+      ],
+      "defaultValue": "LADDER",
+      "options": [
+        {
+          "value": "LADDER",
+          "label": "梯翻",
+          "order": 10,
+          "disabled": false
+        },
+        {
+          "value": "ROLLING",
+          "label": "滚翻",
+          "order": 20,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "key": "mangoRaise",
+      "label": "升芒",
+      "control": "radio",
+      "order": 60,
+      "visible": true,
+      "disabled": false,
+      "required": true,
+      "defaultCandidateIndexes": [
+        4
+      ],
+      "defaultValue": 3,
+      "options": [
+        {
+          "value": 0,
+          "label": "不升",
+          "order": 10,
+          "disabled": false
+        },
+        {
+          "value": 1,
+          "label": "1芒",
+          "order": 20,
+          "disabled": false
+        },
+        {
+          "value": 2,
+          "label": "2芒",
+          "order": 30,
+          "disabled": false
+        },
+        {
+          "value": 3,
+          "label": "3芒",
+          "order": 40,
+          "disabled": false
+        },
+        {
+          "value": 4,
+          "label": "4芒",
+          "order": 50,
+          "disabled": false
+        },
+        {
+          "value": 5,
+          "label": "5芒",
+          "order": 60,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "key": "mangoScore",
+      "label": "芒果分数",
+      "control": "number",
+      "order": 70,
+      "visible": true,
+      "disabled": false,
+      "required": true,
+      "defaultValue": 3,
+      "min": 0,
+      "max": 2147483647,
+      "step": 1,
+      "options": [
+
+      ]
+    },
+    {
+      "key": "openingBet",
+      "label": "发招分数",
+      "control": "number",
+      "order": 80,
+      "visible": true,
+      "disabled": false,
+      "required": true,
+      "defaultValue": 3,
+      "min": 0,
+      "max": 2147483647,
+      "step": 1,
+      "options": [
+
+      ]
+    },
+    {
+      "key": "restMango",
+      "label": "休芒",
+      "control": "checkbox",
+      "order": 90,
+      "visible": true,
+      "disabled": false,
+      "required": false,
+      "defaultCandidateIndexes": [
+        1
+      ],
+      "defaultValue": true,
+      "options": [
+        {
+          "value": true,
+          "label": "休芒",
+          "order": 10,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "key": "beatMango",
+      "label": "揍芒",
+      "control": "checkbox",
+      "order": 100,
+      "visible": true,
+      "disabled": false,
+      "required": false,
+      "defaultCandidateIndexes": [
+        1
+      ],
+      "defaultValue": true,
+      "options": [
+        {
+          "value": true,
+          "label": "揍芒",
+          "order": 10,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "key": "everyHandMango",
+      "label": "手手芒",
+      "control": "checkbox",
+      "order": 110,
+      "visible": true,
+      "disabled": false,
+      "required": false,
+      "defaultCandidateIndexes": [
+        1
+      ],
+      "defaultValue": true,
+      "options": [
+        {
+          "value": true,
+          "label": "手手芒",
+          "order": 10,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "key": "firstRoundCanRest",
+      "label": "首轮可休",
+      "control": "checkbox",
+      "order": 120,
+      "visible": true,
+      "disabled": false,
+      "required": false,
+      "defaultCandidateIndexes": [
+        1
+      ],
+      "defaultValue": true,
+      "options": [
+        {
+          "value": true,
+          "label": "首轮可休",
+          "order": 10,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "key": "eachPlayerMustFollow",
+      "label": "挨家必挨",
+      "control": "checkbox",
+      "order": 130,
+      "visible": true,
+      "disabled": false,
+      "required": false,
+      "defaultCandidateIndexes": [
+
+      ],
+      "defaultValue": false,
+      "options": [
+        {
+          "value": true,
+          "label": "挨家必挨",
+          "order": 10,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "key": "earthNineKing",
+      "label": "地九王",
+      "control": "checkbox",
+      "order": 140,
+      "visible": true,
+      "disabled": false,
+      "required": false,
+      "defaultCandidateIndexes": [
+        1
+      ],
+      "defaultValue": true,
+      "options": [
+        {
+          "value": true,
+          "label": "地九王",
+          "order": 10,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "key": "fireproofCard",
+      "label": "防火牌",
+      "control": "checkbox",
+      "order": 150,
+      "visible": true,
+      "disabled": false,
+      "required": false,
+      "defaultCandidateIndexes": [
+        1
+      ],
+      "defaultValue": true,
+      "options": [
+        {
+          "value": true,
+          "label": "防火牌",
+          "order": 10,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "key": "bigHeadKeepsBase",
+      "label": "头大不输底",
+      "control": "checkbox",
+      "order": 160,
+      "visible": true,
+      "disabled": false,
+      "required": false,
+      "defaultCandidateIndexes": [
+
+      ],
+      "defaultValue": false,
+      "options": [
+        {
+          "value": true,
+          "label": "头大不输底",
+          "order": 10,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "key": "autoOperateAfterTimeouts",
+      "label": "托管次数",
+      "control": "radio",
+      "order": 170,
+      "visible": false,
+      "disabled": true,
+      "required": true,
+      "defaultCandidateIndexes": [
+        1
+      ],
+      "defaultValue": 3,
+      "options": [
+        {
+          "value": 3,
+          "label": "3次",
+          "order": 10,
+          "disabled": false
+        },
+        {
+          "value": 4,
+          "label": "4次",
+          "order": 20,
+          "disabled": false
+        },
+        {
+          "value": 5,
+          "label": "5次",
+          "order": 30,
+          "disabled": false
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "status": "RELEASED_FOR_INDEPENDENT_REVIEW",
+  "owner": "/root/lane_b_ws_contract",
+  "task": "DIRECT-20261008T084000Z-4a7f1c9e",
+  "taskCardSha256": "6d4b950b668076760ce48e37e6b8fbee5e0dccbe00b51f5c1ce6cb471c44d685",
+  "purpose": "Lane B typed leave and handoff transport adapter",
+  "allowlist": [
+    "Server/server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/JdbcGatewayRoomAuthority.java",
+    "Server/server/Bootstrap/src/test/java/com/aoo/bcg/bootstrap/JdbcGatewayRoomAuthorityTest.java",
+    "Server/server/Bootstrap/src/test/java/com/aoo/bcg/bootstrap/RoomOrchestratorHandoffAuthorityTest.java"
+  ],
+  "forbidden": ["Client/work", "LoginScene", "规则工作簿", "生产数据库", "共享服务", "生成 bundle", "旧链路回退"],
+  "preimage": {"JdbcGatewayRoomAuthority.java": "a54ae376b0641bea1a09917c680755c3bc36d0fa231eb0553c765445b6d31175"},
+  "postimage": {
+    "Server/server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/JdbcGatewayRoomAuthority.java": "722508426054f3db3287e0b76bd726ef24c47c95b005c0426505d806e9d964a8",
+    "Server/server/Bootstrap/src/test/java/com/aoo/bcg/bootstrap/JdbcGatewayRoomAuthorityTest.java": "8695d424975b721f167286a5d1cc4d7394dce469228bc9b09e0504b1a68f1e84",
+    "Server/server/Bootstrap/src/test/java/com/aoo/bcg/bootstrap/GatewayAuthorityLeaveContractTest.java": "240d878387f723be4a8c5ff9e14c02e8ca39e554198ba763f6b44712644ee5aa",
+    "Server/server/Bootstrap/src/test/java/com/aoo/bcg/bootstrap/RoomOrchestratorHandoffAuthorityTest.java": "a5f8eca955980d8845d3a567c504a2a98b2b3ba5ba63b0951d6543a08728a444"
+  },
+  "sourceWrite": true,
+  "productionDatabase": false,
+  "sharedRuntime": false
+}

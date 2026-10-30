@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 2,
+  "lockId": "R48-TAKEOVER-20261010T050917Z-09",
+  "status": "RELEASED_FOR_INDEPENDENT_REVIEW",
+  "owner": "/root/implement_r48_takeover",
+  "task": "DIRECT-20261008T084000Z-4a7f1c9e",
+  "attempt": "R48-R50-takeover-implementation-20261010",
+  "acquiredAt": "2026-10-10T05:09:17Z",
+  "releasedAt": "2026-10-13T09:07:34.964768000Z",
+  "path": "Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/GameIdentityPolicy.java",
+  "preimageSha256": "65eef8492fc09c3696e2e29ff940256d247ec155edfbcc1aca69b7c72c564023",
+  "handoffCurrentSha256": "65eef8492fc09c3696e2e29ff940256d247ec155edfbcc1aca69b7c72c564023",
+  "oldPreimageSha256": "0799edbebfb1b0db93b04b3e56f9aa161aa767eb59ef1d542b0affb06bf5c7f4",
+  "r49BaselineSha256": "0799edbebfb1b0db93b04b3e56f9aa161aa767eb59ef1d542b0affb06bf5c7f4",
+  "oldOwner": "/root/r48_longcard_provider_implementation",
+  "supersedes": "Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/GameIdentityPolicy.java.direct-lock-r48/lock.json",
+  "sourceWrite": true,
+  "releaseReceipt": "docs/05-当前状态/evidence/DIRECT-20261008T084000Z-4a7f1c9e/c3-r48-takeover-implementation-20261010/r48-eight-successor-release-receipt-20261013.md",
+  "independentAcceptance": "ACCEPT_BOUNDED",
+  "scope": "R48 exact ten compatibility-only identity tuples for this file only"
+}

@@ -1,0 +1,66 @@
+package com.aoo.bcg.support;
+
+import com.fasterxml.jackson.core.type.TypeReference;import com.fasterxml.jackson.databind.ObjectMapper;import javax.sql.DataSource;import java.sql.*;import java.time.*;import java.util.*;
+
+/** Durable owner-scoped case repository; all player mutations enforce ownership in SQL. */
+public final class JdbcSupportRepository {
+ private final DataSource source;private final ObjectMapper json;private final Clock clock;
+ public JdbcSupportRepository(DataSource source,ObjectMapper json,Clock clock){this.source=Objects.requireNonNull(source);this.json=Objects.requireNonNull(json);this.clock=Objects.requireNonNull(clock);}
+ public SupportCase create(long playerId,SupportCase.Kind kind,String subject,String description,List<SupportCase.Evidence> evidence){requireText(subject,120,"subject");requireText(description,4000,"description");validateEvidence(playerId,evidence);try(var c=source.getConnection()){c.setAutoCommit(false);try{long id;try(var q=c.prepareStatement("INSERT INTO support_case(player_id,case_kind,subject,description,status,resolution_summary,created_at,updated_at,row_version) VALUES(?,?,?,?, 'OPEN',NULL,?,?,1)",Statement.RETURN_GENERATED_KEYS)){Instant now=clock.instant();q.setLong(1,playerId);q.setString(2,kind.name());q.setString(3,subject.strip());q.setString(4,description.strip());q.setTimestamp(5,Timestamp.from(now));q.setTimestamp(6,Timestamp.from(now));q.executeUpdate();try(var keys=q.getGeneratedKeys()){if(!keys.next())throw new SQLException("case id unavailable");id=keys.getLong(1);}}for(var e:evidence)insertEvidence(c,id,e);insertEvent(c,id,playerId,"CREATED","OPEN");c.commit();return find(playerId,id).orElseThrow();}catch(Exception e){c.rollback();throw e;}}catch(Exception e){throw failure(e);}}
+ public List<SupportCase> list(long playerId,int limit){limit=Math.max(1,Math.min(limit,100));try(var c=source.getConnection();var q=c.prepareStatement("SELECT id,player_id,case_kind,subject,description,status,resolution_summary,created_at,updated_at,row_version FROM support_case WHERE player_id=? ORDER BY id DESC LIMIT ?")){q.setLong(1,playerId);q.setInt(2,limit);try(var r=q.executeQuery()){List<SupportCase> out=new ArrayList<>();while(r.next())out.add(row(c,r));return List.copyOf(out);}}catch(Exception e){throw failure(e);}}
+ public Optional<SupportCase> find(long playerId,long id){try(var c=source.getConnection();var q=c.prepareStatement("SELECT id,player_id,case_kind,subject,description,status,resolution_summary,created_at,updated_at,row_version FROM support_case WHERE id=? AND player_id=?")){q.setLong(1,id);q.setLong(2,playerId);try(var r=q.executeQuery()){return r.next()?Optional.of(row(c,r)):Optional.empty();}}catch(Exception e){throw failure(e);}}
+ public SupportCase withdraw(long playerId,long id,long version){try(var c=source.getConnection()){c.setAutoCommit(false);try(var q=c.prepareStatement("UPDATE support_case SET status='WITHDRAWN',updated_at=?,row_version=row_version+1 WHERE id=? AND player_id=? AND row_version=? AND status IN ('OPEN','IN_REVIEW')")){q.setTimestamp(1,Timestamp.from(clock.instant()));q.setLong(2,id);q.setLong(3,playerId);q.setLong(4,version);if(q.executeUpdate()!=1)throw new IllegalStateException("case cannot be withdrawn or version is stale");insertEvent(c,id,playerId,"WITHDRAWN","WITHDRAWN");c.commit();return find(playerId,id).orElseThrow();}catch(Exception e){c.rollback();throw e;}}catch(Exception e){throw failure(e);}}
+ public List<Map<String,Object>> events(long playerId,long after){try(var c=source.getConnection();var q=c.prepareStatement("SELECT e.id,e.case_id,e.event_type,e.case_status,e.created_at FROM support_case_event e JOIN support_case s ON s.id=e.case_id WHERE s.player_id=? AND e.id>? ORDER BY e.id LIMIT 100")){q.setLong(1,playerId);q.setLong(2,after);try(var r=q.executeQuery()){List<Map<String,Object>> out=new ArrayList<>();while(r.next())out.add(Map.of("id",r.getLong(1),"caseId",r.getLong(2),"type",r.getString(3),"status",r.getString(4),"createdAt",r.getTimestamp(5).toInstant()));return List.copyOf(out);}}catch(Exception e){throw failure(e);}}
+ public List<SupportCase> handoff(long after,int limit){limit=Math.max(1,Math.min(limit,100));try(var c=source.getConnection();var q=c.prepareStatement("SELECT id,player_id,case_kind,subject,description,status,resolution_summary,created_at,updated_at,row_version FROM support_case WHERE id>? ORDER BY id LIMIT ?")){q.setLong(1,after);q.setInt(2,limit);try(var r=q.executeQuery()){List<SupportCase> out=new ArrayList<>();while(r.next())out.add(row(c,r));return out;}}catch(Exception e){throw failure(e);}}
+ SupportStaffSessionAuthenticator staffAuthenticator(){return new SupportStaffSessionAuthenticator(source,clock);}
+ public Map<String,Object> playerWorkflow(long player,long id){return workflowView(player,id,true);}
+ public Map<String,Object> staffWorkflow(long id){return workflowView(0,id,false);}
+ private Map<String,Object> workflowView(long player,long id,boolean owned){
+  try(var c=source.getConnection()){c.setAutoCommit(false);try{var row=workflowRow(c,id,true);if(owned&&row.player()!=player)throw new SecurityException("case not owned");var result=workflowView(c,row,!owned);c.commit();return result;}catch(Exception e){c.rollback();throw e;}}catch(Exception e){throw failure(e);}
+ }
+ public Map<String,Object> handleCase(long agent,long id,long version,String action,String reply){return transition(agent,id,version,action,reply,false);}
+ public Map<String,Object> reopen(long player,long id,long version){return transition(player,id,version,"reopen",null,true);}
+ private Map<String,Object> transition(long actor,long id,long version,String action,String reply,boolean player){
+  if(actor<=0||version<=0)throw new IllegalArgumentException("positive actor and version required");
+  try(var c=source.getConnection()){c.setAutoCommit(false);try{
+   var row=workflowRow(c,id,true);String phase=phase(c,row);Long assigned=assigned(c,row.id(),phase);
+   if(row.version()!=version)throw new IllegalStateException("stale case version");
+   String event,status;String summary=row.summary();
+   if(player){if(row.player()!=actor)throw new SecurityException("case not owned");if(!phase.equals("CLOSED"))throw new IllegalStateException("only closed cases can reopen");event="REOPENED";status="OPEN";}
+   else if(action.equals("accept")){if(!Set.of("SUBMITTED","REOPENED").contains(phase))throw new IllegalStateException("case cannot be accepted");event="ACCEPTED";status="IN_REVIEW";}
+   else{
+    if(!Objects.equals(assigned,actor))throw new SecurityException("case not assigned to staff");
+    switch(action){
+     case "process" -> {if(!phase.equals("ACCEPTED"))throw new IllegalStateException("case must be accepted");event="PROCESSING";status="IN_REVIEW";}
+     case "reply" -> {if(!phase.equals("PROCESSING"))throw new IllegalStateException("case must be processing");requireText(reply,1000,"reply");summary=reply.strip();event="REPLIED";status="IN_REVIEW";}
+     case "close" -> {if(!phase.equals("REPLIED"))throw new IllegalStateException("case must have a reply");event="CLOSED";status="RESOLVED";}
+     default -> throw new IllegalArgumentException("unsupported case action");
+    }
+   }
+   try(var q=c.prepareStatement("UPDATE support_case SET status=?,resolution_summary=?,updated_at=?,row_version=row_version+1 WHERE id=? AND row_version=?")){q.setString(1,status);q.setString(2,summary);q.setTimestamp(3,Timestamp.from(clock.instant()));q.setLong(4,id);q.setLong(5,version);if(q.executeUpdate()!=1)throw new IllegalStateException("stale case version");}
+   try(var q=c.prepareStatement("INSERT INTO support_case_event(case_id,actor_type,actor_id,event_type,case_status,created_at) VALUES(?,?,?,?,?,?)")){q.setLong(1,id);q.setString(2,player?"PLAYER":"SUPPORT");q.setLong(3,actor);q.setString(4,event);q.setString(5,status);q.setTimestamp(6,Timestamp.from(clock.instant()));q.executeUpdate();}
+   var result=workflowView(c,workflowRow(c,id,false),!player);c.commit();return result;
+  }catch(Exception e){c.rollback();throw e;}}catch(Exception e){throw failure(e);}
+ }
+ private record WorkflowRow(long id,long player,String status,String summary,long version){}
+ private WorkflowRow workflowRow(Connection c,long id,boolean lock)throws SQLException{
+  try(var q=c.prepareStatement("SELECT id,player_id,status,resolution_summary,row_version FROM support_case WHERE id=?"+(lock?" FOR UPDATE":""))){q.setLong(1,id);try(var r=q.executeQuery()){if(!r.next())throw new IllegalArgumentException("case not found");return new WorkflowRow(r.getLong(1),r.getLong(2),r.getString(3),r.getString(4),r.getLong(5));}}
+ }
+ private String phase(Connection c,WorkflowRow row)throws SQLException{
+  if(Set.of("WITHDRAWN","REJECTED").contains(row.status()))return row.status();
+  try(var q=c.prepareStatement("SELECT event_type FROM support_case_event WHERE case_id=? ORDER BY id DESC LIMIT 1")){q.setLong(1,row.id());try(var r=q.executeQuery()){if(r.next()){String event=r.getString(1);if(event.equals("CREATED"))return "SUBMITTED";if(Set.of("ACCEPTED","PROCESSING","REPLIED","CLOSED","REOPENED").contains(event))return event;}}}
+  return row.status().equals("RESOLVED")?"LEGACY_TERMINAL":"LEGACY_UNHANDLED";
+ }
+ private Long assigned(Connection c,long id,String phase)throws SQLException{
+  if(!Set.of("ACCEPTED","PROCESSING","REPLIED","CLOSED").contains(phase))return null;
+  try(var q=c.prepareStatement("SELECT actor_id FROM support_case_event WHERE case_id=? AND actor_type='SUPPORT' AND event_type='ACCEPTED' ORDER BY id DESC LIMIT 1")){q.setLong(1,id);try(var r=q.executeQuery()){return r.next()?r.getLong(1):null;}}
+ }
+ private Map<String,Object> workflowView(Connection c,WorkflowRow row,boolean staff)throws SQLException{
+  String phase=phase(c,row);Map<String,Object> out=new LinkedHashMap<>();out.put("caseId",row.id());out.put("phase",phase);out.put("status",row.status());out.put("version",row.version());out.put("assignedStaffId",assigned(c,row.id(),phase));String summary=Objects.toString(row.summary(),"");out.put("reply",staff?summary.replaceAll("(?i)[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,}","[redacted-email]").replaceAll("(?<!\\d)1[3-9]\\d{9}(?!\\d)","[redacted-phone]"):summary);return out;
+ }
+ private SupportCase row(Connection c,ResultSet r)throws Exception{long id=r.getLong(1);List<SupportCase.Evidence> ev=new ArrayList<>();try(var q=c.prepareStatement("SELECT evidence_type,reference_id,label FROM support_case_evidence WHERE case_id=? ORDER BY id")){q.setLong(1,id);try(var x=q.executeQuery()){while(x.next())ev.add(new SupportCase.Evidence(SupportCase.Evidence.Type.valueOf(x.getString(1)),x.getString(2),x.getString(3)));}}return new SupportCase(id,r.getLong(2),SupportCase.Kind.valueOf(r.getString(3)),r.getString(4),r.getString(5),SupportCase.Status.valueOf(r.getString(6)),r.getString(7),List.copyOf(ev),r.getTimestamp(8).toInstant(),r.getTimestamp(9).toInstant(),r.getLong(10));}
+ private void validateEvidence(long playerId,List<SupportCase.Evidence> evidence){if(evidence==null||evidence.size()>10)throw new IllegalArgumentException("evidence must contain at most 10 references");for(var e:evidence){requireText(e.referenceId(),256,"referenceId");if(e.type()==SupportCase.Evidence.Type.REPLAY){String[] p=e.referenceId().split(":",-1);if(p.length!=2)throw new IllegalArgumentException("replay reference must be roomId:setId");try(var c=source.getConnection();var q=c.prepareStatement("SELECT 1 FROM replay_participant WHERE room_id=? AND set_id=? AND player_id=? UNION ALL SELECT 1 FROM replay_participant_archive WHERE room_id=? AND set_id=? AND player_id=? LIMIT 1")){q.setLong(1,Long.parseLong(p[0]));q.setInt(2,Integer.parseInt(p[1]));q.setLong(3,playerId);q.setLong(4,Long.parseLong(p[0]));q.setInt(5,Integer.parseInt(p[1]));q.setLong(6,playerId);try(var r=q.executeQuery()){if(!r.next())throw new SecurityException("replay evidence is not owned by player");}}catch(SecurityException x){throw x;}catch(Exception x){throw failure(x);}}}}
+ private void insertEvidence(Connection c,long id,SupportCase.Evidence e)throws Exception{try(var q=c.prepareStatement("INSERT INTO support_case_evidence(case_id,evidence_type,reference_id,label) VALUES(?,?,?,?)")){q.setLong(1,id);q.setString(2,e.type().name());q.setString(3,e.referenceId());q.setString(4,sanitize(e.label(),80));q.executeUpdate();}}
+ private void insertEvent(Connection c,long id,long actor,String type,String status)throws Exception{try(var q=c.prepareStatement("INSERT INTO support_case_event(case_id,actor_type,actor_id,event_type,case_status,created_at) VALUES(?,'PLAYER',?,?,?,?)")){q.setLong(1,id);q.setLong(2,actor);q.setString(3,type);q.setString(4,status);q.setTimestamp(5,Timestamp.from(clock.instant()));q.executeUpdate();}}
+ private static void requireText(String s,int max,String name){if(s==null||s.isBlank()||s.length()>max)throw new IllegalArgumentException(name+" invalid");}private static String sanitize(String s,int max){if(s==null)return "";String v=s.replaceAll("[\\p{Cntrl}]"," ").strip();return v.length()>max?v.substring(0,max):v;}private static RuntimeException failure(Exception e){return e instanceof RuntimeException r?r:new IllegalStateException("support persistence unavailable",e);}
+}

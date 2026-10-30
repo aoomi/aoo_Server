@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 2,
+  "task": "DIRECT-20261008T084000Z-4a7f1c9e",
+  "lane": "D",
+  "attempt": "error-registry-20261012-r77",
+  "status": "RELEASED_FOR_INDEPENDENT_REVIEW",
+  "owner": "/root/error_registry_impl",
+  "path": "Server/server/Gateway/src/main/java/com/aoo/bcg/gateway/GatewayErrorCode.java",
+  "preimageSha256": "59506429fae648bbf7f1b8ad94524269d9beba2e7a5d4dd5b95ecbc38c62c3e1",
+  "scope": "map canonical registry categories to existing numeric transport semantics",
+  "sourceWrite": true,
+  "testWrite": false,
+  "independentReviewer": "lane_g",
+  "replacementCounts": {"registry category mapper": 1},
+  "postimageSha256": "3421c89a83cb178fd711e748c740b7e5dba69cc30cdde99d5c26d2404b00d343"
+}

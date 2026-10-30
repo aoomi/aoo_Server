@@ -1,0 +1,8 @@
+Status=RELEASED_STALE_C41_LOCK
+Owner=/root
+Task=DIRECT-20261006T151500Z-c41e8b9a
+Attempt=DIRECT-20261006T151500Z-c41e8b9a-v2
+ReleasedAtUtc=2026-10-08T06:05:49Z
+ReleasedAtLocal=2026-10-08T14:05:49+08:00
+ReleaseReason=STALE_C41_ATTEMPT; v3 independent review is recorded; no active c41 producer or handoff was found; release by original owner custody path
+SourceChangesByThisReceipt=none

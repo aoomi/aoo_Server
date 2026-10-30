@@ -1,0 +1,16 @@
+{
+  "owner": "/root/kuangjia_low",
+  "status": "RELEASED",
+  "acquiredAt": "2026-10-17T10:24:56.228293+00:00",
+  "expiresAt": "2026-10-17T10:31:27.422131+00:00",
+  "originalAcquire": "2026-10-17T10:21:27.422131+00:00",
+  "scope": [
+    "/Users/aoo/Code/Game/BCG/Aoo/server/modules/infrastructure/GameSPI/src/main/java/com/aoo/bcg/gamespi/CarryBillingEffectSource.java"
+  ],
+  "preSHA": "ABSENT",
+  "stage": "SPI_ONLY",
+  "mechanicalBindingSHA": "b6091a6901f6209955b1c9bb25f6013b560b756cbadbf84e3dcd4286f4fcd2aa",
+  "releasedAt": "2026-10-17T10:24:56.548273+00:00",
+  "postSHA": "090229d0cf2aef2ee87ba437acc39ac14fe6a719c492e6e05648d2c20184bf4c",
+  "manifestSHA": "2a21c1c7d645aa34157a7463327463772e7cb134b34480d61b4c882fb44889a3"
+}

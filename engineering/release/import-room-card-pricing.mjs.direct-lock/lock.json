@@ -1,0 +1,11 @@
+{
+  "owner": "/root/fangka_low",
+  "state": "RELEASED",
+  "attempt": "B0-r2-plan-accepted",
+  "acquiredAt": "2026-10-16T13:49:28.208245+00:00",
+  "expiresAt": "2026-10-16T18:55:22.969546+00:00",
+  "writePaths": [
+    "/Users/aoo/Code/Game/BCG/Aoo/server/engineering/release/import-room-card-pricing.mjs"
+  ],
+  "releasedAt": "2026-10-16T13:56:29.590877+00:00"
+}

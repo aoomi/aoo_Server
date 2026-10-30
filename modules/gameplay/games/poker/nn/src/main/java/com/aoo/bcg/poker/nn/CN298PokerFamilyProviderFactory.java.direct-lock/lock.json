@@ -1,0 +1,11 @@
+{
+  "owner": "/root/niuniu_mingming_low",
+  "task": "DIRECT-20261016T134154Z-6e8b1c20-active-game-naming-migration",
+  "acquiredAt": "2026-10-16T14:32:25.074463+00:00",
+  "expiresAt": "2026-10-16T15:12:25.074463+00:00",
+  "state": "RELEASED",
+  "writePaths": [
+    "server/modules/gameplay/games/poker/nn/src/main/java/com/aoo/bcg/poker/nn/CN298PokerFamilyProviderFactory.java"
+  ],
+  "releasedAt": "2026-10-16T14:48:44.850205+00:00"
+}

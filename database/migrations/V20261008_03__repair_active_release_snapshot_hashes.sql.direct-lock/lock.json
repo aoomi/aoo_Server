@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "status": "RELEASED_FOR_INDEPENDENT_REVIEW",
+  "owner": "/root/rule_mapping_v29",
+  "attempt": "v2.46-r1-evidence-replay-20261008",
+  "acquiredAt": "2026-10-08T03:03:00+08:00",
+  "purpose": "Evidence-only disposable-DB parse/apply/failure-rollback replay; migration source remains immutable",
+  "sourceWrite": false,
+  "releasedAt": "2026-10-08T03:20:00+08:00",
+  "releaseReason": "DISPOSABLE_DB_PARSE_APPLY_AND_FAILURE_ROLLBACK_REPLAY_COMPLETE; MIGRATION_SOURCE_UNCHANGED"
+}

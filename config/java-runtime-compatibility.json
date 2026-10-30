@@ -9,7 +9,7 @@
   },
   "compatibilityProof": {
     "method": "full Maven reactor compilation and tests on Java 26 with --release 25",
-    "gate": "tools/check_java_runtime_compatibility.rb"
+    "gate": "engineering/audit/tool-inputs/check_java_runtime_compatibility.rb"
   },
   "managedRuntimeLibraries": [
     "netty", "mina", "gson", "guava", "fastjson2", "protobuf", "druid",

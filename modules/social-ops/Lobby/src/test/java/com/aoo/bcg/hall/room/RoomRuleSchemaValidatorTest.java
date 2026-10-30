@@ -1,0 +1,127 @@
+package com.aoo.bcg.hall.room;
+
+import static org.junit.jupiter.api.Assertions.*;
+import com.aoo.bcg.hall.http.HallError;
+import java.util.List;
+import java.util.Map;
+import org.junit.jupiter.api.Test;
+
+final class RoomRuleSchemaValidatorTest {
+    private static final Map<String,Object> SCHEMA = Map.of("fields", List.of(
+            Map.of("key","roundCount","label","局数","control","STEPPER","required",true,
+                    "defaultValue",8,"min",8,"max",16,"step",2),
+            Map.of("key","playerCount","label","人数","control","SINGLE_SELECT","required",true,
+                    "defaultValue",3,"options",List.of(Map.of("value",2,"label","2人"),Map.of("value",3,"label","3人"))),
+            Map.of("key","commonOptions","label","通用选项","control","MULTI_SELECT","defaultValue",List.of(),
+                    "options",List.of(Map.of("value","voice","label","语音"),Map.of("value","debug","label","调试","disabled",true))),
+            Map.of("key","hostingMissThreshold","label","托管次数","control","radio","disabled",true,
+                    "defaultValue",3,"options",List.of(Map.of("value",3),Map.of("value",4),Map.of("value",5))),
+            Map.of("key","fourWithThree","label","四带三","control","CHECKBOX","disabled",true,
+                    "defaultValue",List.of(),"options",List.of(Map.of("value",true,"label","开启")))));
+
+    @Test void oneOptionBooleanCheckboxNormalizesToBoolean() {
+        Map<String,Object> schema=Map.of("fields",List.of(Map.of(
+                "key","fastModeEnabled","control","checkbox","defaultValue",true,
+                "options",List.of(Map.of("value",true,"label","启用快速模式")))));
+        assertEquals(true,RoomRuleSchemaValidator.validate(schema,Map.of("fastModeEnabled",true)).get("fastModeEnabled"));
+        assertEquals(false,RoomRuleSchemaValidator.validate(schema,Map.of("fastModeEnabled",false)).get("fastModeEnabled"));
+    }
+
+    @Test void normalizesDefaultsAndValidValues() {
+        // Disabled fields with a declared default remain part of the canonical normalized output.
+        assertEquals(Map.of("roundCount",8,"playerCount",2,"commonOptions",List.of("voice"),
+                        "hostingMissThreshold",3,"fourWithThree",List.of(),"baseScore",1),
+                RoomRuleSchemaValidator.validate(SCHEMA,Map.of("playerCount",2,"commonOptions",List.of("voice"))));
+    }
+
+    @Test void acceptsPositivePlatformBaseScoreAndRejectsInvalidValues() {
+        assertEquals(5,RoomRuleSchemaValidator.validate(SCHEMA,Map.of("playerCount",2,"baseScore",5)).get("baseScore"));
+        for(Object invalid:List.of(0,-1,1.5,"abc"))
+            assertThrows(HallError.class,()->RoomRuleSchemaValidator.validate(SCHEMA,Map.of("playerCount",2,"baseScore",invalid)));
+    }
+
+    @Test void validatesSingleRoomEndSelectionAndReturnsCanonicalProtocolField() {
+        Map<String,Object> schema=Map.of("fields",List.of(Map.of(
+                "key","roomEndSelection","control","radio","defaultValue","ROUND_COUNT:10",
+                "options",List.of("DURATION_MINUTES:30","DURATION_MINUTES:45","DURATION_MINUTES:60",
+                        "ROUND_COUNT:10","ROUND_COUNT:20","ROUND_COUNT:30"))));
+        assertEquals(Map.of("roundCount",10,"baseScore",1),
+                RoomRuleSchemaValidator.validate(schema,Map.of("roundCount",10)));
+        assertEquals(Map.of("roomDurationMinutes",45,"baseScore",1),
+                RoomRuleSchemaValidator.validate(schema,Map.of("roomDurationMinutes",45)));
+        List<Map<String,Object>> invalidInputs=List.of(
+                Map.of(),
+                Map.of("roundCount",10,"roomDurationMinutes",30),
+                Map.of("roundCount",12),
+                Map.of("roomEndSelection","ROUND_COUNT:10"));
+        for(Map<String,Object> invalid:invalidInputs)
+            assertThrows(HallError.class,()->RoomRuleSchemaValidator.validate(schema,invalid));
+    }
+
+    @Test void rejectsDisabledUnknownAndInvalidStepperValues() {
+        assertThrows(HallError.class,() -> RoomRuleSchemaValidator.validate(SCHEMA,Map.of("fourWithThree",List.of(true))));
+        assertThrows(HallError.class,() -> RoomRuleSchemaValidator.validate(SCHEMA,Map.of("hostingMissThreshold",5)));
+        assertThrows(HallError.class,() -> RoomRuleSchemaValidator.validate(SCHEMA,Map.of("unknown",1)));
+        assertThrows(HallError.class,() -> RoomRuleSchemaValidator.validate(SCHEMA,Map.of("roundCount",9)));
+        assertThrows(HallError.class,() -> RoomRuleSchemaValidator.validate(SCHEMA,Map.of("commonOptions",List.of("debug"))));
+    }
+
+    @Test void enforcesPublishedDependenciesAndConflicts() {
+        Map<String,Object> schema=Map.of(
+                "fields",List.of(
+                        Map.of("key","tripleMode","control","SINGLE_SELECT","required",true,
+                                "defaultValue","SINGLES","options",List.of("SINGLES","PAIRS")),
+                        Map.of("key","tripleTwo","control","SINGLE_SELECT","required",true,
+                                "defaultValue",false,"options",List.of(false,true)),
+                        Map.of("key","freeAttachments","control","SINGLE_SELECT","required",true,
+                                "defaultValue",false,"options",List.of(false,true))),
+                "constraints",List.of(
+                        Map.of("type","REQUIRES","field","tripleMode","whenValues",List.of("PAIRS"),
+                                "otherField","tripleTwo","allowedValues",List.of(true)),
+                        Map.of("type","CONFLICTS","field","tripleMode","whenValues",List.of("PAIRS"),
+                                "otherField","freeAttachments","allowedValues",List.of(true))));
+        assertDoesNotThrow(()->RoomRuleSchemaValidator.validate(schema,
+                Map.of("tripleMode","PAIRS","tripleTwo",true,"freeAttachments",false)));
+        HallError missing=assertThrows(HallError.class,()->RoomRuleSchemaValidator.validate(schema,
+                Map.of("tripleMode","PAIRS","tripleTwo",false,"freeAttachments",false)));
+        assertEquals("HALL_RULE_DEPENDENCY_INVALID",missing.code());
+        HallError conflict=assertThrows(HallError.class,()->RoomRuleSchemaValidator.validate(schema,
+                Map.of("tripleMode","PAIRS","tripleTwo",true,"freeAttachments",true)));
+        assertEquals("HALL_RULE_CONFLICT",conflict.code());
+    }
+
+    @Test void normalizesOnlyIdentityBoundDeclaredHistoricalFieldAlias() {
+        Map<String,Object> normalized=RoomRuleSchemaValidator.validate(liangshanAliasSchema(),
+                Map.of("rule_ls201_0001",List.of("option_0001")),2003,"liangshan2003-v1.0.0");
+        assertEquals(Map.of("rule_liangshan2003_0001",List.of("option_0001"),"baseScore",1),normalized);
+    }
+
+    @Test void rejectsHistoricalAliasForAnotherRoomIdentity() {
+        HallError error=assertThrows(HallError.class,()->RoomRuleSchemaValidator.validate(
+                liangshanAliasSchema(),Map.of("rule_ls201_0001",List.of("option_0001")),2004,"mianning2004-v1.0.0"));
+        assertEquals("HALL_RULE_SCHEMA_INVALID",error.code());
+    }
+
+    @Test void rejectsConflictingAliasAndCanonicalValues() {
+        HallError error=assertThrows(HallError.class,()->RoomRuleSchemaValidator.validate(
+                liangshanAliasSchema(),Map.of("rule_ls201_0001",List.of("option_0001"),
+                        "rule_liangshan2003_0001",List.of("option_0002")),2003,"liangshan2003-v1.0.0"));
+        assertEquals("HALL_RULE_ALIAS_CONFLICT",error.code());
+    }
+
+    @Test void rejectsUndeclaredHistoricalAlias() {
+        HallError error=assertThrows(HallError.class,()->RoomRuleSchemaValidator.validate(
+                liangshanAliasSchema(),Map.of("rule_fake201_0001",List.of("option_0001")),2003,"liangshan2003-v1.0.0"));
+        assertEquals("HALL_RULE_UNKNOWN_FIELD",error.code());
+    }
+
+    private static Map<String,Object> liangshanAliasSchema(){
+        return Map.of("gameId",2003,"gameCode","liangshan2003","playVersion","liangshan2003-v1.0.0",
+                "legacyFieldAliases",Map.of("rule_ls201_0001",Map.of("gameId",2003,
+                        "gameCode","liangshan2003","playVersion","liangshan2003-v1.0.0",
+                        "canonicalKey","rule_liangshan2003_0001")),
+                "fields",List.of(Map.of("key","rule_liangshan2003_0001","control","MULTI_SELECT",
+                        "defaultValue",List.of(),"options",List.of(Map.of("value","option_0001"),
+                                Map.of("value","option_0002")))));
+    }
+}

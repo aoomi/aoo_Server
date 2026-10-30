@@ -1,0 +1,546 @@
+package com.aoo.bcg.poker.nn;
+
+import com.aoo.bcg.common.random.SeededGameRandomSource;
+import com.aoo.bcg.common.room.AuthoritativeRandomSeatAllocator;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+import java.util.Random;
+import java.util.Set;
+
+/**
+ * NN 真人牌局状态机。该类不依赖大厅或跑得快实现，接入层只需把鉴权后的玩家命令映射到这里。
+ * 所有改变状态的操作都携带 operationId，并在房间内幂等去重。
+ */
+public final class NnSession {
+  private static final AuthoritativeRandomSeatAllocator SEAT_ALLOCATOR = new AuthoritativeRandomSeatAllocator();
+  private static final long SEAT_DOMAIN = 0x2ca1e740bc324677L;
+  public enum Phase { WAITING, ROBBING, BETTING, SPLITTING, SETTLEMENT, FINISHED }
+  public record Result(int round, int bankerSeat, long settledAtEpochMillis,
+                       Map<Integer, Long> scoreDelta, Map<Integer, NnHandEvaluator.Hand> hands) {}
+
+  private final long roomId;
+  private final long ownerId;
+  private final long seed;
+  private final long seatRandomSeed;
+  private final NnRules rules;
+  private final Map<Integer, Long> players = new LinkedHashMap<>();
+  private final Map<Integer, String> playerNames = new LinkedHashMap<>();
+  private final Map<Long, String> observers = new LinkedHashMap<>();
+  private final List<Map<String, Object>> historyRecords = new ArrayList<>();
+  private final Set<Integer> continuationSeats = new LinkedHashSet<>();
+  private final Map<Integer, List<Integer>> hands = new LinkedHashMap<>();
+  private final Map<Integer, Integer> fifthCards = new LinkedHashMap<>();
+  private final Map<Integer, Integer> robMultipliers = new LinkedHashMap<>();
+  private final Map<Integer, Integer> bets = new LinkedHashMap<>();
+  private final Set<Integer> splitSeats = new LinkedHashSet<>();
+  private final Map<Integer, Long> totalScores = new LinkedHashMap<>();
+  private final Map<Integer, Integer> winRounds = new LinkedHashMap<>();
+  private final Map<Integer, Integer> lossRounds = new LinkedHashMap<>();
+  private final Map<Integer, Integer> bankerRounds = new LinkedHashMap<>();
+  private final Map<Integer, Integer> bullBullRounds = new LinkedHashMap<>();
+  private final Map<Integer, Long> maxRoundWins = new LinkedHashMap<>();
+  private final Set<String> consumedOperations = new LinkedHashSet<>();
+  private Phase phase = Phase.WAITING;
+  private int round;
+  private int bankerSeat = -1;
+  private long stateVersion;
+  private long seatRandomSequence;
+  private Result lastResult;
+  private long robMinCarryScore = 0;
+  private java.util.function.LongFunction<Long> carryQuery = seat -> null;
+
+  public NnSession(long roomId, long ownerId, long seed, NnRules rules) {
+    this(roomId, ownerId, seed, SeededGameRandomSource.create().seed(), rules);
+  }
+
+  private NnSession(long roomId, long ownerId, long seed, long seatRandomSeed, NnRules rules) {
+    if (roomId <= 0 || ownerId <= 0) throw new IllegalArgumentException("invalid room identity");
+    this.roomId = roomId;
+    this.ownerId = ownerId;
+    this.seed = seed;
+    this.seatRandomSeed = seatRandomSeed;
+    this.rules = Objects.requireNonNull(rules);
+  }
+
+  public synchronized int sit(long playerId, String operationId) {
+    requireMutable(operationId);
+    if (players.containsValue(playerId)) throw sitFailure("NN_ALREADY_SEATED");
+    if (players.size() >= rules.maxPlayers()) throw sitFailure("NN_SEATS_FULL");
+    if (phase != Phase.WAITING || round != 0) throw sitFailure("NN_SIT_NOT_ALLOWED");
+    // Select from the authoritative occupied set while holding the room mutation lock.
+    int seat = SEAT_ALLOCATOR.allocate(rules.maxPlayers(), Set.copyOf(players.keySet()),
+        new SeededGameRandomSource(seatStreamSeed(seatRandomSeed, seatRandomSequence)));
+    observers.remove(playerId);
+    players.put(seat, playerId);
+    totalScores.put(seat, 0L);
+    winRounds.put(seat, 0); lossRounds.put(seat, 0); bankerRounds.put(seat, 0);
+    bullBullRounds.put(seat, 0); maxRoundWins.put(seat, 0L);
+    seatRandomSequence++;
+    changed(operationId);
+    if (players.size() == rules.maxPlayers()) startRound();
+    System.out.printf("[NnSeat] allocated roomId=%d playerId=%d operationId=%s stateVersion=%d seat=%d sequence=%d%n",
+        roomId, playerId, operationId, stateVersion, seat, seatRandomSequence);
+    return seat;
+  }
+
+  public synchronized void setPlayerName(int seat, String nickname) {
+    if (players.containsKey(seat) && nickname != null && !nickname.isBlank()) {
+      playerNames.put(seat, nickname); changed(null);
+    }
+  }
+
+  public synchronized boolean hasPlayerName(int seat) { return playerNames.containsKey(seat); }
+  public synchronized String playerName(int seat) { return playerNames.get(seat); }
+
+  public synchronized void observe(long playerId, String nickname) {
+    if (players.containsValue(playerId)) { observers.remove(playerId); return; }
+    String visibleName = nickname == null || nickname.isBlank() ? "玩家" + playerId : nickname;
+    if (!visibleName.equals(observers.put(playerId, visibleName))) stateVersion++;
+  }
+
+  public synchronized void start(long playerId, String operationId) {
+    requireMutable(operationId);
+    if (phase != Phase.WAITING || round != 0) throw new IllegalStateException("NN_START_NOT_ALLOWED");
+    if (playerId != ownerId) throw new IllegalStateException("NN_ONLY_OWNER_CAN_START");
+    if (players.size() < rules.startPlayers()) throw new IllegalStateException("NN_NOT_ENOUGH_PLAYERS");
+    changed(operationId);
+    startRound();
+  }
+
+  public synchronized void rob(int seat, int multiplier, String operationId) {
+    requireMutable(operationId); requirePlayer(seat);
+    if (phase != Phase.ROBBING || !rules.robOptions().contains(multiplier))
+      throw new IllegalArgumentException("NN invalid rob multiplier");
+    if (multiplier > 0 && robMinCarryScore > 0) {
+      Long carryScore = carryQuery.apply(seat);
+      if (carryScore == null) throw new IllegalStateException("NN rob threshold requires carry score data");
+      if (carryScore < robMinCarryScore) throw new IllegalArgumentException("NN insufficient carry score to rob");
+    }
+    robMultipliers.put(seat, multiplier); changed(operationId);
+    if (robMultipliers.keySet().containsAll(players.keySet())) chooseBanker();
+  }
+
+  public synchronized void bet(int seat, int multiplier, String operationId) {
+    requireMutable(operationId); requirePlayer(seat);
+    if (phase != Phase.BETTING || seat == bankerSeat || !betOptions(seat).contains(multiplier))
+      throw new IllegalArgumentException("NN invalid bet");
+    bets.put(seat, multiplier); changed(operationId);
+    Set<Integer> required = new LinkedHashSet<>(players.keySet()); required.remove(bankerSeat);
+    if (bets.keySet().containsAll(required)) {
+      players.keySet().forEach(playerSeat -> {
+        List<Integer> complete = new ArrayList<>(hands.get(playerSeat));
+        complete.add(fifthCards.get(playerSeat));
+        hands.put(playerSeat, List.copyOf(complete));
+      });
+      fifthCards.clear();
+      phase = Phase.SPLITTING;
+      stateVersion++;
+    }
+  }
+
+  public synchronized void split(int seat, List<Integer> arrangedCards, String operationId) {
+    requireMutable(operationId); requirePlayer(seat);
+    if (phase != Phase.SPLITTING || splitSeats.contains(seat) || arrangedCards == null
+        || !validSplitSelection(hands.get(seat), arrangedCards)) throw new IllegalArgumentException("NN invalid split");
+    List<Integer> selected = List.copyOf(arrangedCards);
+    List<Integer> complete = new ArrayList<>(selected);
+    hands.get(seat).stream().filter(card -> !selected.contains(card)).forEach(complete::add);
+    NnHandEvaluator.evaluate(complete, rules.kanShunDouEnabled());
+    hands.put(seat, List.copyOf(complete)); splitSeats.add(seat); changed(operationId);
+    if (splitSeats.containsAll(players.keySet())) settle();
+  }
+
+  /** 真人超时的确定性保底；不包含机器人选择或策略。 */
+  public synchronized void timeout(int seat, String operationId) {
+    requireMutable(operationId); requirePlayer(seat);
+    switch (phase) {
+      case ROBBING -> rob(seat, 0, operationId);
+      case BETTING -> {
+        if (seat == bankerSeat) throw new IllegalStateException("banker does not bet");
+        bet(seat, betOptions(seat).getFirst(), operationId);
+      }
+      case SPLITTING -> split(seat, autoSplitSelection(seat), operationId);
+      default -> throw new IllegalStateException("NN has no pending operation");
+    }
+  }
+
+  public synchronized void continueNextRound(int seat, String operationId) {
+    requireMutable(operationId); requirePlayer(seat);
+    if (phase != Phase.SETTLEMENT) throw new IllegalStateException("NN continuation is not allowed");
+    continuationSeats.add(seat); changed(operationId);
+    if (continuationSeats.containsAll(players.keySet())) startRound();
+  }
+
+  public synchronized void leave(int seat, String operationId) {
+    if (operationId == null || operationId.isBlank()) throw new IllegalArgumentException("operationId is required");
+    if (consumedOperations.contains(operationId)) throw new IllegalStateException("duplicate NN operationId");
+    requirePlayer(seat);
+    if (phase != Phase.SETTLEMENT && phase != Phase.FINISHED) {
+      throw new IllegalStateException("NN leave only allowed after settlement");
+    }
+    historyRecords.add(Map.of("seat", seat, "playerId", players.get(seat),
+        "nickname", playerNames.getOrDefault(seat, "玩家" + players.get(seat)),
+        "totalScore", totalScores.getOrDefault(seat, 0L)));
+    continuationSeats.remove(seat);
+    players.remove(seat);
+    playerNames.remove(seat);
+    changed(operationId);
+    if (players.isEmpty()) phase = Phase.FINISHED;
+  }
+
+  public synchronized Map<String, Object> snapshotFor(long playerId) {
+    Integer viewerSeat = players.entrySet().stream().filter(e -> e.getValue() == playerId)
+        .map(Map.Entry::getKey).findFirst().orElse(null);
+    Map<Integer, List<Integer>> visibleHands = new LinkedHashMap<>();
+    hands.forEach((seat, cards) -> visibleHands.put(seat,
+        phase == Phase.SETTLEMENT || phase == Phase.FINISHED || Objects.equals(seat, viewerSeat)
+            ? cards : Collections.nCopies(cards.size(), 0)));
+    Map<String, Object> snapshot = new LinkedHashMap<>();
+    snapshot.put("gameCode", NnRules.GAME_CODE); snapshot.put("roomId", roomId);
+    snapshot.put("playVersion", NnRules.PLAY_VERSION);
+    snapshot.put("stateVersion", stateVersion); snapshot.put("round", round);
+    snapshot.put("ownerPlayerId", ownerId);
+    snapshot.put("roundLimit", rules.rounds()); snapshot.put("maxPlayers", rules.maxPlayers());
+    snapshot.put("startPlayers", rules.startPlayers());
+    snapshot.put("phase", phase.name());
+    snapshot.put("players", Map.copyOf(players));
+    snapshot.put("rules", Map.of("baseScore", rules.baseScore(), "enterScore", rules.enterScore(),
+        "leaveScore", rules.leaveScore(), "minCarryToRob", robMinCarryScore,
+        "kanShunDouEnabled", rules.kanShunDouEnabled()));
+    snapshot.put("playerNames", Map.copyOf(playerNames));
+    snapshot.put("observers", observers.entrySet().stream().map(entry -> Map.<String, Object>of(
+        "playerId", entry.getKey(), "nickname", entry.getValue())).toList());
+    snapshot.put("historyRecords", List.copyOf(historyRecords));
+    // Ready is derived from seating. There is intentionally no mutable ready command or independent ready state.
+    snapshot.put("readySeats", Set.copyOf(players.keySet()));
+    snapshot.put("viewerStatus", viewerSeat == null ? "SPECTATOR" : "SEATED");
+    snapshot.put("viewerSeat", viewerSeat == null ? -1 : viewerSeat);
+    snapshot.put("bankerSeat", bankerSeat); snapshot.put("robs", Map.copyOf(robMultipliers));
+    snapshot.put("bets", Map.copyOf(bets)); snapshot.put("splitSeats", Set.copyOf(splitSeats));
+    snapshot.put("pendingSeats", pendingSeats());
+    snapshot.put("robOptions", phase == Phase.ROBBING && viewerSeat != null
+        && !robMultipliers.containsKey(viewerSeat) ? rules.robOptions().stream().sorted().toList() : List.of());
+    snapshot.put("betOptions", phase == Phase.BETTING && viewerSeat != null && viewerSeat != bankerSeat
+        && !bets.containsKey(viewerSeat) ? betOptions(viewerSeat) : List.of());
+    snapshot.put("hands", visibleHands); snapshot.put("totalScores", Map.copyOf(totalScores));
+    snapshot.put("roundSettlement", lastResult == null ? Map.of() : resultSnapshot(lastResult));
+    snapshot.put("playerStats", playerStats());
+    snapshot.put("finalSettlement", phase == Phase.FINISHED ? playerStats() : Map.of());
+    return Collections.unmodifiableMap(snapshot);
+  }
+
+  public synchronized Map<String, Object> authoritativeState() {
+    Map<String, Object> state = new LinkedHashMap<>();
+    state.put("schemaVersion", 3); state.put("gameCode", NnRules.GAME_CODE);
+    state.put("playVersion", NnRules.PLAY_VERSION); state.put("roomId", roomId);
+    state.put("ownerId", ownerId); state.put("seed", seed);
+    state.put("seatRandomSeed", seatRandomSeed); state.put("seatRandomSequence", seatRandomSequence);
+    state.put("rules", Map.ofEntries(Map.entry("rounds", rules.rounds()), Map.entry("maxPlayers", rules.maxPlayers()),
+        Map.entry("startPlayers", rules.startPlayers()), Map.entry("mode", rules.mode().name()),
+        Map.entry("maxRobMultiplier", rules.maxRobMultiplier()), Map.entry("maxPushMultiplier", rules.maxPushMultiplier()),
+        Map.entry("standPolicy", rules.standPolicy().name()), Map.entry("fastModeEnabled", rules.fastModeEnabled()),
+        Map.entry("kanShunDouEnabled", rules.kanShunDouEnabled()), Map.entry("baseScore", rules.baseScore()),
+        Map.entry("enterScore", rules.enterScore()), Map.entry("leaveScore", rules.leaveScore())));
+    state.put("phase", phase.name()); state.put("round", round); state.put("stateVersion", stateVersion);
+    state.put("bankerSeat", bankerSeat); state.put("players", Map.copyOf(players));
+    // players is the single join-order authority; this list preserves its order across map serialization.
+    state.put("joinOrderSeats", List.copyOf(players.keySet()));
+    state.put("playerNames", Map.copyOf(playerNames));
+    state.put("observers", Map.copyOf(observers));
+    state.put("historyRecords", List.copyOf(historyRecords));
+    state.put("continuationSeats", List.copyOf(continuationSeats)); state.put("hands", Map.copyOf(hands));
+    state.put("fifthCards", Map.copyOf(fifthCards)); state.put("robs", Map.copyOf(robMultipliers));
+    state.put("bets", Map.copyOf(bets)); state.put("splitSeats", List.copyOf(splitSeats));
+    state.put("totalScores", Map.copyOf(totalScores)); state.put("winRounds", Map.copyOf(winRounds));
+    state.put("lossRounds", Map.copyOf(lossRounds)); state.put("bankerRounds", Map.copyOf(bankerRounds));
+    state.put("bullBullRounds", Map.copyOf(bullBullRounds)); state.put("maxRoundWins", Map.copyOf(maxRoundWins));
+    state.put("consumedOperations", List.copyOf(consumedOperations));
+    state.put("lastResultDelta", lastResult == null ? Map.of() : lastResult.scoreDelta());
+    state.put("lastSettledAtEpochMillis", lastResult == null ? 0L : lastResult.settledAtEpochMillis());
+    return Collections.unmodifiableMap(state);
+  }
+
+  public static NnSession restore(Map<String, Object> state) {
+    long schemaVersion = number(state.get("schemaVersion"));
+    if ((schemaVersion != 1 && schemaVersion != 2 && schemaVersion != 3)
+        || !NnRules.GAME_CODE.equals(String.valueOf(state.get("gameCode")))
+        || !NnRules.PLAY_VERSION.equals(String.valueOf(state.get("playVersion")))) {
+      throw new IllegalArgumentException("NN_UNSUPPORTED_AUTHORITY_SNAPSHOT");
+    }
+    Map<String, Object> rawRules = objectMap(state.get("rules"), "rules");
+    NnRules rules = new NnRules(integer(rawRules, "rounds"), integer(rawRules, "maxPlayers"),
+        integer(rawRules, "startPlayers"), NnRules.Mode.valueOf(text(rawRules, "mode")),
+        integer(rawRules, "maxRobMultiplier"), integer(rawRules, "maxPushMultiplier"),
+        NnRules.StandPolicy.valueOf(text(rawRules, "standPolicy")),
+        bool(rawRules, "fastModeEnabled"), bool(rawRules, "kanShunDouEnabled"),
+        longNumber(rawRules, "baseScore", NnRules.BASE_SCORE),
+        longNumber(rawRules, "enterScore", NnRules.ENTER_SCORE),
+        longNumber(rawRules, "leaveScore", NnRules.LEAVE_SCORE));
+    long seed = longNumber(state, "seed");
+    long seatRandomSeed = schemaVersion == 1 ? mix64(seed ^ SEAT_DOMAIN) : longNumber(state, "seatRandomSeed");
+    NnSession restored = new NnSession(longNumber(state, "roomId"), longNumber(state, "ownerId"),
+        seed, seatRandomSeed, rules);
+    restored.phase = Phase.valueOf(text(state, "phase")); restored.round = integer(state, "round");
+    restored.stateVersion = longNumber(state, "stateVersion"); restored.bankerSeat = integer(state, "bankerSeat");
+    Map<Integer, Long> snapshotPlayers = new LinkedHashMap<>();
+    copyLongMap(state.get("players"), snapshotPlayers);
+    if (snapshotPlayers.size() > rules.maxPlayers()
+        || snapshotPlayers.keySet().stream().anyMatch(seat -> seat < 0 || seat >= rules.maxPlayers())
+        || new HashSet<>(snapshotPlayers.values()).size() != snapshotPlayers.size()) {
+      throw new IllegalArgumentException("NN_INVALID_AUTHORITY_SEATS");
+    }
+    List<Integer> joinOrder;
+    if (schemaVersion == 3) {
+      joinOrder = intList(state.get("joinOrderSeats"));
+      if (joinOrder.size() != snapshotPlayers.size()
+          || new HashSet<>(joinOrder).size() != joinOrder.size()
+          || !snapshotPlayers.keySet().equals(new HashSet<>(joinOrder))) {
+        throw new IllegalArgumentException("NN_INVALID_JOIN_ORDER");
+      }
+    } else {
+      // Pre-v3 maps lost insertion order; only zero or one occupied seat is unambiguous.
+      if (snapshotPlayers.size() > 1) {
+        throw new IllegalArgumentException("NN_LEGACY_JOIN_ORDER_UNRESOLVED");
+      }
+      joinOrder = List.copyOf(snapshotPlayers.keySet());
+    }
+    for (int seat : joinOrder) restored.players.put(seat, snapshotPlayers.get(seat));
+    Map<Integer, String> snapshotNames = new LinkedHashMap<>();
+    copyStringMap(state.getOrDefault("playerNames", Map.of()), snapshotNames);
+    if (snapshotNames.size() > snapshotPlayers.size()
+        || snapshotNames.keySet().stream().anyMatch(seat -> !snapshotPlayers.containsKey(seat))) {
+      throw new IllegalStateException("NN_INVALID_PLAYER_NAMES");
+    }
+    for (int seat : joinOrder) if (snapshotNames.containsKey(seat)) restored.playerNames.put(seat, snapshotNames.get(seat));
+    objectMap(state.getOrDefault("observers", Map.of()), "observers").forEach((key, value) ->
+        restored.observers.put(Long.parseLong(key), String.valueOf(value)));
+    Object rawHistory = state.getOrDefault("historyRecords", List.of());
+    if (!(rawHistory instanceof List<?> history)) throw new IllegalArgumentException("NN invalid history records");
+    history.forEach(value -> restored.historyRecords.add(Map.copyOf(objectMap(value, "history record"))));
+    copyIntListMap(state.get("hands"), restored.hands);
+    restored.seatRandomSequence = schemaVersion == 1 ? restored.players.size()
+        : longNumber(state, "seatRandomSequence");
+    if (restored.seatRandomSequence != restored.players.size()) {
+      throw new IllegalArgumentException("NN_INVALID_SEAT_RANDOM_SEQUENCE");
+    }
+    copyIntMap(state.get("fifthCards"), restored.fifthCards); copyIntMap(state.get("robs"), restored.robMultipliers);
+    copyIntMap(state.get("bets"), restored.bets); copyLongMap(state.get("totalScores"), restored.totalScores);
+    copyIntMap(state.get("winRounds"), restored.winRounds); copyIntMap(state.get("lossRounds"), restored.lossRounds);
+    copyIntMap(state.get("bankerRounds"), restored.bankerRounds); copyIntMap(state.get("bullBullRounds"), restored.bullBullRounds);
+    copyLongMap(state.get("maxRoundWins"), restored.maxRoundWins);
+    restored.continuationSeats.addAll(intList(state.get("continuationSeats")));
+    restored.splitSeats.addAll(intList(state.get("splitSeats")));
+    restored.consumedOperations.addAll(stringList(state.get("consumedOperations")));
+    Map<Integer, Long> delta = new LinkedHashMap<>(); copyLongMap(state.get("lastResultDelta"), delta);
+    if (!delta.isEmpty()) {
+      Map<Integer, NnHandEvaluator.Hand> evaluated = new LinkedHashMap<>();
+      restored.hands.forEach((seat, cards) -> evaluated.put(seat,
+          NnHandEvaluator.evaluate(cards, restored.rules.kanShunDouEnabled())));
+      restored.lastResult = new Result(restored.round, restored.bankerSeat,
+          longNumber(state, "lastSettledAtEpochMillis", 0L), Map.copyOf(delta), Map.copyOf(evaluated));
+    }
+    return restored;
+  }
+
+  public synchronized long roomId() { return roomId; }
+  public synchronized long stateVersion() { return stateVersion; }
+  public synchronized int round() { return round; }
+  public synchronized Phase phase() { return phase; }
+  public synchronized Result lastResult() { return lastResult; }
+  public synchronized Map<Integer, Long> players() { return Map.copyOf(players); }
+
+  void setRobMinCarryScore(long robMinCarryScore) {
+    if (robMinCarryScore < 0) throw new IllegalArgumentException("NN rob threshold must not be negative");
+    this.robMinCarryScore = robMinCarryScore;
+  }
+
+  void setCarryQuery(java.util.function.LongFunction<Long> carryQuery) {
+    this.carryQuery = Objects.requireNonNull(carryQuery);
+  }
+
+  private void startRound() {
+    if (phase == Phase.SETTLEMENT) {
+      players.keySet().removeIf(seat -> {
+        if (continuationSeats.contains(seat)) return false;
+        playerNames.remove(seat); return true;
+      });
+      if (players.isEmpty()) { phase = Phase.FINISHED; return; }
+    }
+    if (round >= rules.rounds()) { phase = Phase.FINISHED; return; }
+    round++; continuationSeats.clear(); hands.clear(); fifthCards.clear(); robMultipliers.clear(); bets.clear(); splitSeats.clear();
+    List<Integer> deck = new ArrayList<>(52);
+    for (int suit = 1; suit <= 4; suit++) for (int rank = 1; rank <= 13; rank++) deck.add(suit * 100 + rank);
+    Collections.shuffle(deck, new Random(seed + round));
+    int cursor = 0;
+    for (int seat : players.keySet()) {
+      hands.put(seat, List.copyOf(deck.subList(cursor, cursor += 4)));
+      fifthCards.put(seat, deck.get(cursor++));
+    }
+    bankerSeat = -1; phase = Phase.ROBBING; stateVersion++;
+  }
+
+  private void chooseBanker() {
+    int best = robMultipliers.values().stream().mapToInt(Integer::intValue).max().orElse(0);
+    List<Integer> candidates = robMultipliers.entrySet().stream().filter(e -> e.getValue() == best)
+        .map(Map.Entry::getKey).sorted().toList();
+    bankerSeat = candidates.get(new Random(seed + round * 31L).nextInt(candidates.size()));
+    phase = Phase.BETTING; stateVersion++;
+  }
+
+  private void settle() {
+    Map<Integer, NnHandEvaluator.Hand> evaluated = new LinkedHashMap<>();
+    hands.forEach((seat, cards) -> evaluated.put(seat,
+        NnHandEvaluator.evaluate(cards, rules.kanShunDouEnabled())));
+    Map<Integer, Long> delta = new LinkedHashMap<>(); players.keySet().forEach(s -> delta.put(s, 0L));
+    var banker = evaluated.get(bankerSeat);
+    int rob = Math.max(1, robMultipliers.getOrDefault(bankerSeat, 0));
+    for (int seat : players.keySet()) if (seat != bankerSeat) {
+      var challenger = evaluated.get(seat);
+      int comparison = challenger.compareTo(banker);
+      // AOO-0042 移植：XQP compare()==0 时按稳定座位序，座位在庄家之前者胜；见 evidence/AOO-0042/08 §A2。
+      boolean challengerWins = comparison > 0 || (comparison == 0 && seat < bankerSeat);
+      var winningHand = challengerWins ? challenger : banker;
+      long score = (long) rob * bets.getOrDefault(seat, 1) * rules.settlementMultiplier(winningHand.type());
+      delta.merge(seat, challengerWins ? score : -score, Long::sum);
+      delta.merge(bankerSeat, challengerWins ? -score : score, Long::sum);
+    }
+    delta.forEach((seat, score) -> totalScores.merge(seat, score, Long::sum));
+    delta.forEach((seat, score) -> {
+      if (score > 0) winRounds.merge(seat, 1, Integer::sum);
+      if (score < 0) lossRounds.merge(seat, 1, Integer::sum);
+      maxRoundWins.merge(seat, Math.max(0L, score), Math::max);
+    });
+    bankerRounds.merge(bankerSeat, 1, Integer::sum);
+    evaluated.forEach((seat, hand) -> {
+      if (hand.type() == NnHandEvaluator.Type.BULL_BULL) bullBullRounds.merge(seat, 1, Integer::sum);
+    });
+    lastResult = new Result(round, bankerSeat, System.currentTimeMillis(), Map.copyOf(delta), Map.copyOf(evaluated));
+    continuationSeats.clear(); phase = round >= rules.rounds() ? Phase.FINISHED : Phase.SETTLEMENT; stateVersion++;
+  }
+
+  /** XQP下注档位：抢庄倍率低于庄家为底分/2倍；达到庄家倍率才拥有推注档位。 */
+  private List<Integer> betOptions(int seat) {
+    if (seat == bankerSeat || bankerSeat < 0) return List.of();
+    int playerRob = robMultipliers.getOrDefault(seat, 0);
+    int bankerRob = robMultipliers.getOrDefault(bankerSeat, 0);
+    if (playerRob < bankerRob || rules.maxPushMultiplier() == 0) return List.of(1, 2);
+    LinkedHashSet<Integer> options = new LinkedHashSet<>();
+    options.add(2);
+    options.add(Math.max(1, rules.maxPushMultiplier() / 2));
+    options.add(rules.maxPushMultiplier());
+    return options.stream().filter(value -> value > 0).sorted().toList();
+  }
+
+  private List<Integer> pendingSeats() {
+    return players.keySet().stream().filter(seat -> switch (phase) {
+      case ROBBING -> !robMultipliers.containsKey(seat);
+      case BETTING -> seat != bankerSeat && !bets.containsKey(seat);
+      case SPLITTING -> !splitSeats.contains(seat);
+      case SETTLEMENT -> !continuationSeats.contains(seat);
+      default -> false;
+    }).sorted().toList();
+  }
+
+  private Map<Integer, Map<String, Object>> playerStats() {
+    Map<Integer, Map<String, Object>> stats = new LinkedHashMap<>();
+    players.keySet().forEach(seat -> stats.put(seat, Map.of(
+        "playerId", players.get(seat), "totalScore", totalScores.getOrDefault(seat, 0L),
+        "winRounds", winRounds.getOrDefault(seat, 0), "lossRounds", lossRounds.getOrDefault(seat, 0),
+        "bankerRounds", bankerRounds.getOrDefault(seat, 0),
+        "bullBullRounds", bullBullRounds.getOrDefault(seat, 0),
+        "maxRoundWin", maxRoundWins.getOrDefault(seat, 0L))));
+    return Map.copyOf(stats);
+  }
+
+  private Map<String, Object> resultSnapshot(Result result) {
+    Map<Integer, Integer> handTypes = new LinkedHashMap<>();
+    Map<Integer, Integer> multipliers = new LinkedHashMap<>();
+    Map<Integer, List<Integer>> arrangedHands = new LinkedHashMap<>();
+    result.hands().forEach((seat, hand) -> {
+      handTypes.put(seat, hand.type().legacyCode());
+      multipliers.put(seat, rules.settlementMultiplier(hand.type()));
+      arrangedHands.put(seat, hand.arrangedCards());
+    });
+    return Map.of("round", result.round(), "bankerSeat", result.bankerSeat(),
+        "settledAtEpochMillis", result.settledAtEpochMillis(), "scoreDelta", result.scoreDelta(),
+        "hands", Map.copyOf(arrangedHands), "handTypes", Map.copyOf(handTypes),
+        "multipliers", Map.copyOf(multipliers));
+  }
+
+  private void requireMutable(String operationId) {
+    if (operationId == null || operationId.isBlank()) throw new IllegalArgumentException("operationId is required");
+    if (consumedOperations.contains(operationId)) throw new IllegalStateException("duplicate NN operationId");
+    if (phase == Phase.FINISHED) throw new IllegalStateException("NN room is finished");
+  }
+  private void changed(String operationId) { if (operationId != null) consumedOperations.add(operationId); stateVersion++; }
+  private void requirePlayer(int seat) { if (!players.containsKey(seat)) throw new IllegalArgumentException("unknown NN seat"); }
+  private static IllegalStateException sitFailure(String code) { return new IllegalStateException(code); }
+  private static long domainHash(String domain) {
+    long hash = 0xcbf29ce484222325L;
+    for (int i = 0; i < domain.length(); i++) hash = (hash ^ domain.charAt(i)) * 0x100000001b3L;
+    return hash;
+  }
+  private static long seatStreamSeed(long sourceSeed, long sequence) {
+    return mix64(sourceSeed ^ SEAT_DOMAIN ^ (0x9e3779b97f4a7c15L * (sequence + 1)));
+  }
+  private static long mix64(long value) {
+    value = (value ^ (value >>> 30)) * 0xbf58476d1ce4e5b9L;
+    value = (value ^ (value >>> 27)) * 0x94d049bb133111ebL;
+    return value ^ (value >>> 31);
+  }
+  private List<Integer> autoSplitSelection(int seat) {
+    return NnHandEvaluator.evaluate(hands.get(seat), rules.kanShunDouEnabled())
+        .arrangedCards().subList(0, 3);
+  }
+  private static boolean validSplitSelection(List<Integer> hand, List<Integer> selected) {
+    return hand != null && hand.size() == 5 && selected.size() == 3
+        && new HashSet<>(selected).size() == 3 && hand.containsAll(selected);
+  }
+  private static Map<String, Object> objectMap(Object raw, String field) {
+    if (!(raw instanceof Map<?, ?> map)) throw new IllegalArgumentException("NN invalid snapshot " + field);
+    Map<String, Object> result = new LinkedHashMap<>(); map.forEach((k, v) -> result.put(String.valueOf(k), v)); return result;
+  }
+  private static long number(Object value) { return value instanceof Number n ? n.longValue() : Long.MIN_VALUE; }
+  private static long longNumber(Map<String, Object> map, String key) {
+    Object value = map.get(key); if (!(value instanceof Number n)) throw new IllegalArgumentException("NN invalid snapshot " + key); return n.longValue();
+  }
+  private static int integer(Map<String, Object> map, String key) { return Math.toIntExact(longNumber(map, key)); }
+  private static long longNumber(Map<String, Object> map, String key, long fallback) {
+    Object value=map.get(key);return value==null?fallback:longNumber(map,key);
+  }
+  private static String text(Map<String, Object> map, String key) {
+    Object value = map.get(key); if (!(value instanceof String text) || text.isBlank()) throw new IllegalArgumentException("NN invalid snapshot " + key); return text;
+  }
+  private static boolean bool(Map<String, Object> map, String key) {
+    Object value = map.get(key); if (!(value instanceof Boolean flag)) throw new IllegalArgumentException("NN invalid snapshot " + key); return flag;
+  }
+  private static List<Integer> intList(Object raw) {
+    if (!(raw instanceof List<?> list)) throw new IllegalArgumentException("NN invalid snapshot list");
+    return list.stream().map(value -> { if (!(value instanceof Number n)) throw new IllegalArgumentException("NN invalid snapshot integer"); return n.intValue(); }).toList();
+  }
+  private static List<String> stringList(Object raw) {
+    if (!(raw instanceof List<?> list)) throw new IllegalArgumentException("NN invalid snapshot strings");
+    return list.stream().map(String::valueOf).toList();
+  }
+  private static void copyIntMap(Object raw, Map<Integer, Integer> target) {
+    objectMap(raw, "integer map").forEach((key, value) -> { if (!(value instanceof Number n)) throw new IllegalArgumentException("NN invalid snapshot integer map"); target.put(Integer.parseInt(key), n.intValue()); });
+  }
+  private static void copyLongMap(Object raw, Map<Integer, Long> target) {
+    objectMap(raw, "long map").forEach((key, value) -> { if (!(value instanceof Number n)) throw new IllegalArgumentException("NN invalid snapshot long map"); target.put(Integer.parseInt(key), n.longValue()); });
+  }
+  private static void copyStringMap(Object raw, Map<Integer, String> target) {
+    objectMap(raw, "string map").forEach((key, value) -> {
+      if (!(value instanceof String text) || text.isBlank()) throw new IllegalStateException("NN_INVALID_PLAYER_NAMES");
+      target.put(Integer.parseInt(key), text);
+    });
+  }
+  private static void copyIntListMap(Object raw, Map<Integer, List<Integer>> target) {
+    objectMap(raw, "card map").forEach((key, value) -> target.put(Integer.parseInt(key), List.copyOf(intList(value))));
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "owner": "/root/kefu_low",
+  "status": "RELEASED_FOR_INDEPENDENT_ACTUAL",
+  "writePaths": [
+    "server/modules/social-ops/Support/src/main/java/com/aoo/bcg/support/JdbcSupportRepository.java"
+  ],
+  "preSHA": "77e9affb95925475f7d2ce01552b0202a1588b3df675dcc80ce8a1800882eef6",
+  "acquiredAt": "2026-10-14T11:25:57.723536+00:00",
+  "expiresAt": "2026-10-14T13:25:57.723718+00:00",
+  "cardSHA": "67f07f8c1bd697aa4a81859011f087005abc76b0b6b9e0da19f4c15974943d84",
+  "releasedAt": "2026-10-14T11:32:23.341154+00:00",
+  "postSHA": "695f09b72644e6e1688cf4ba76233b4993c439b9a076c3bad4f40ee367256675"
+}

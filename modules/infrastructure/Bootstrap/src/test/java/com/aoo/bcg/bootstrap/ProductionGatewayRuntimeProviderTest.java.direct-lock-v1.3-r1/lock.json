@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "status": "RELEASED_FOR_INDEPENDENT_REVIEW",
+  "owner": "/root/implement_v198_sql_only",
+  "task": "DIRECT-20261008T065513Z-4d6e8a2b-provider-projection-convergence",
+  "attempt": "v1.3-A-B",
+  "acquiredAt": "2026-10-08T15:45:00+08:00",
+  "purpose": "Gateway convergence and negative-path tests",
+  "allowlist": ["Server/server/Bootstrap/src/test/java/com/aoo/bcg/bootstrap/ProductionGatewayRuntimeProviderTest.java", "docs/05-当前状态/evidence/DIRECT-20261008T065513Z-4d6e8a2b/**"],
+  "sourceWrite": true,
+  "productionDatabase": false,
+  "dirtyCustody": "inherited v1.1 dirty; preimage captured before v1.3",
+  "releasedAt": "2026-10-08T15:58:00+08:00",
+  "releaseEvidence": "docs/05-当前状态/evidence/DIRECT-20261008T065513Z-4d6e8a2b/DEV_SELF_CHECK-v1.3.md"
+}

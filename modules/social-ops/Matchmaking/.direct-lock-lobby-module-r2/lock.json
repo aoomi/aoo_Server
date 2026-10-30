@@ -1,0 +1,13 @@
+{
+  "lockId": "hall-lobby-module-contract-r2-matchmaking-pom",
+  "owner": "/root/lane_f_service_input_package",
+  "status": "RELEASED",
+  "acquiredAt": "2026-10-12T11:51:49.300Z",
+  "scope": "only Server/server/Matchmaking/pom.xml dependency game-hall -> game-lobby",
+  "path": "Server/server/Matchmaking/pom.xml",
+  "preimageSha256": "c795a1e5f4df8684683f32406cb9395678e6317dd77009b79e9d6aa90c095bc9",
+  "preserveExistingDirtyHunks": true,
+  "forbidden": ["Java source", "protocol", "database", "deployment", "generated bundle"],
+  "releasedAt": "2026-10-12T11:58:19Z",
+  "releaseReason": "r2 Evidence sealed; handed to independent review"
+}

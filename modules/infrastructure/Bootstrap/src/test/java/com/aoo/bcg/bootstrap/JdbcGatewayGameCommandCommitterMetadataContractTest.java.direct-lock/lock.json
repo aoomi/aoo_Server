@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "status": "RELEASED_FOR_INDEPENDENT_REVIEW",
+  "owner": "/root/implement_v197_room_lock_metadata",
+  "attempt": "v2.51-20261008",
+  "acquiredAt": "2026-10-08T03:52:30+08:00",
+  "purpose": "新增 v2.51 execute metadata contract test",
+  "allowlist": [
+    "Server/server/Bootstrap/src/test/java/com/aoo/bcg/bootstrap/JdbcGatewayGameCommandCommitterMetadataContractTest.java",
+    "docs/05-当前状态/evidence/DIRECT-20261006T211500Z-e5b8c2d1/room-execute-v251/**"
+  ],
+  "forbidden": [
+    "production source",
+    "reconnect",
+    "handoff",
+    "destroy",
+    "RoomOrchestrator",
+    "Client",
+    "protocol",
+    "DB/DDL/migration",
+    "deployment",
+    "production/shared runtime"
+  ],
+  "sourceWrite": true,
+  "implementationLock": false,
+  "releasedAt": "2026-10-08T04:03:09+08:00",
+  "releaseReason": "v2.51 contract test complete; independent review required"
+}

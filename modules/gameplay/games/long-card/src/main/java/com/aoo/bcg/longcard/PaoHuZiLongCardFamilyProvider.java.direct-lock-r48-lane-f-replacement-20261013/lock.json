@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 2,
+  "lockId": "R48-LANE-F-REPLACEMENT-20261013T085343Z-05",
+  "status": "RELEASED_FOR_INDEPENDENT_REVIEW",
+  "owner": "/root/lane_f_service_input_package",
+  "taskCard": "DIRECT-20261012T131224Z-8c4e7a2d-server-path-migration-r3",
+  "taskCardSha256AtAcquire": "1f8e05d17734aaed7b1781fef4cc4773b590d72099f4ab195cf37d83f29dd4ad",
+  "acquiredAt": "2026-10-13T08:53:43.212858000Z",
+  "path": "Server/Modules/Games/LongCard/src/main/java/com/aoo/bcg/longcard/PaoHuZiLongCardFamilyProvider.java",
+  "preimageSha256": "51f4bb97a18fecbb33a072285e0d7bb4be369f9570929b38115b03aa5b49a99f",
+  "sourceWrite": false,
+  "physicalMutation": false,
+  "scope": "Current-path custody only; no source mutation, directory move, POM repair, or runtime acceptance",
+  "supersedes": "R48-TAKEOVER-20261010T050917Z-05",
+  "oldLockSha256": "8b18be52acf5b0a422ebd1a8496e4b0166a38a218267552e0f32d0314ad53c5b",
+  "successorLockSha256": "1c7fbe9d546ea57fca68796a40339d5b3c3024f3bf45149c2f0c69749b13a8b6",
+  "releasedAt": "2026-10-13T09:12:08.380787000Z",
+  "releaseReason": "Current bytes unchanged; R48 successor released; custody-only handoff receipt finalized"
+}

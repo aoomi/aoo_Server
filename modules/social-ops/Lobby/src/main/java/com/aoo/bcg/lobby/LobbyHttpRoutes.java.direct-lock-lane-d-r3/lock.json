@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 2,
+  "task": "DIRECT-20261008T084000Z-4a7f1c9e",
+  "lane": "D",
+  "attempt": "error-registry-20261011-r3",
+  "status": "RELEASED_FOR_INDEPENDENT_REVIEW",
+  "owner": "/root/error_registry_impl",
+  "path": "Server/server/Hall/src/main/java/com/aoo/bcg/lobby/LobbyHttpRoutes.java",
+  "preimageSha256": "5af46f7cabc3cf6988cf0d452650df6b23609f97f21257b62e0d0124b4709214",
+  "scope": "all Lobby HTTP catch response canonical mappings; preserve raw wire code",
+  "sourceWrite": true,
+  "testWrite": false,
+  "independentReviewer": "lane_g",
+  "replacementCounts": {
+    "HallError response maps": 2,
+    "invalid internal request map": 1,
+    "record access denied map": 1,
+    "invalid request map": 1,
+    "internal error map": 1
+  },
+  "postimageSha256": "6a3cc254a2f5a3cf9f3e5959501e88a1d1b74570603667c7dee3b29669ffa71d"
+}

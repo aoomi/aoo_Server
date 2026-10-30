@@ -1,0 +1,11 @@
+{
+  "owner": "/root/fangka_xuqian",
+  "state": "RELEASED",
+  "attempt": "qualification-r1",
+  "acquiredAt": "2026-10-16T20:57:47.426402+00:00",
+  "expiresAt": "2026-10-16T22:57:47.426566+00:00",
+  "writePaths": [
+    "/Users/aoo/Code/Game/BCG/Aoo/server/modules/user-domain/Billing/pom.xml"
+  ],
+  "releasedAt": "2026-10-16T20:58:22.192235+00:00"
+}

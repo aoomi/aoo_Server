@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "status": "RELEASED_FOR_INDEPENDENT_REVIEW",
+  "owner": "/root/implement_runtime_metadata_projection",
+  "task": "DIRECT-20261008T084000Z-4a7f1c9e",
+  "attempt": "batch-1-runtime-metadata-projection-20261010",
+  "path": "Server/server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java",
+  "preimageSha256": "91a0568b010507b5fb7c289033c5790b6d3ef6c76d4e60b5652b8b420d3f56bd",
+  "dirtyCustody": "INHERITED_UNTOUCHED_PREIMAGE",
+  "scope": "Only pass the production registry's already-bound RuntimeMetadataProjection to the Lobby repository in startHall().",
+  "postimageSha256": "a42943f107381af5c4c47cb88c23f5b61acde253b861aa54aa732ee7b60f3a37",
+  "releasedAt": "2026-10-10T14:18:00Z",
+  "releaseReason": "Implementation and writer self-check complete; independent acceptance required."
+}

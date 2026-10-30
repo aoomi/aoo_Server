@@ -1,0 +1,13 @@
+{
+  "owner": "/root/kuangjia_login_low",
+  "state": "RELEASED",
+  "acquiredAt": "2026-10-15T07:30:55.654110+00:00",
+  "scope": [
+    "/Users/aoo/Code/Game/BCG/Aoo/server/modules/infrastructure/Gateway/src/main/java/com/aoo/bcg/gateway/GatewayApplication.java",
+    "/Users/aoo/Code/Game/BCG/Aoo/server/modules/infrastructure/Gateway/src/main/java/com/aoo/bcg/gateway/LocalPreviewVersionAccess.java",
+    "/Users/aoo/Code/Game/BCG/Aoo/server/modules/infrastructure/Gateway/src/test/java/com/aoo/bcg/gateway/LocalPreviewVersionAccessTest.java",
+    "/Users/aoo/Code/Game/BCG/Aoo/docs/05-\u5f53\u524d\u72b6\u6001/evidence/DIRECT-20261008T084000Z-4a7f1c9e/login-version-public-contract-discovery-20261015-low-r1/local-preview-implementation-r1"
+  ],
+  "releasedAt": "2026-10-15T07:35:52.996990+00:00",
+  "manifestSHA": "6c53f6dd1db1b7bac4e50229b30a541dfb77b283ed8b6c518561b66d48130550"
+}

@@ -1,10 +1,10 @@
 name: engineering-governance
 on:
   pull_request:
-    paths: ['pom.xml', 'mvnw', '.mvn/**', '.github/**', 'tools/**', 'scripts/**', 'config/**']
+    paths: ['pom.xml', 'mvnw', '.mvn/**', '.github/**', 'tools/**', 'scripts/**', 'engineering/**', 'config/**']
   push:
     branches: [main]
-    paths: ['pom.xml', 'mvnw', '.mvn/**', '.github/**', 'tools/**', 'scripts/**', 'config/**']
+    paths: ['pom.xml', 'mvnw', '.mvn/**', '.github/**', 'tools/**', 'scripts/**', 'engineering/**', 'config/**']
 permissions:
   contents: read
 jobs:
@@ -15,6 +15,6 @@ jobs:
       - uses: ruby/setup-ruby@v1
         with: {ruby-version: '3.3.9'}
       - name: Validate engineering governance policy
-        run: ruby scripts/audit-engineering-governance.rb
+        run: ruby engineering/audit/script-inputs/audit-engineering-governance.rb
       - name: Verify Maven wrapper
         run: ./mvnw --version

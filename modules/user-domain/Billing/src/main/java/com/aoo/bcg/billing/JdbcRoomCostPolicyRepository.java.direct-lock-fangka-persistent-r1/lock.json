@@ -1,0 +1,15 @@
+{
+  "owner": "/root/fangka_low",
+  "state": "RELEASED",
+  "attempt": "persistent-r1",
+  "acquiredAt": "2026-10-16T12:18:04.842997+00:00",
+  "expiresAt": "2026-10-16T18:55:22.969546+00:00",
+  "writePaths": [
+    "/Users/aoo/Code/Game/BCG/Aoo/server/modules/user-domain/Billing/src/main/java/com/aoo/bcg/billing/JdbcRoomCostPolicyRepository.java"
+  ],
+  "preimage": "ABSENT",
+  "planInputSHA": "e0bd98221918b6d1af3b95e9671a7c7fa3d7730a4a3babe58e36480ac175a529",
+  "releasedAt": "2026-10-16T12:30:34.112792+00:00",
+  "postSHA256": "1b1adbcf65d8044b1f5a2b2c3aeee12b36dff95a31e5503fbf2bb177e1af5d5c",
+  "reason": "source freeze for nonproducer SOURCE review; actual DB execution still gated"
+}

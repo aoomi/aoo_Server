@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "status": "RELEASED_FOR_INDEPENDENT_REVIEW",
+  "owner": "/root/r54_reverse_registration_repair",
+  "task": "DIRECT-20261008T084000Z-4a7f1c9e",
+  "attempt": "R54-reverse-registration-repair",
+  "acquiredAt": "2026-10-09T19:37:20Z",
+  "purpose": "Fail-closed ServiceLoader factory-to-provider-to-catalog reverse proof repair",
+  "sourceWrite": true,
+  "testWrite": false,
+  "databaseWrite": false,
+  "allowlist": ["Server/scripts/audit-dead03-registration-reverse.rb"],
+  "releasedAt": "2026-10-09T19:40:30Z",
+  "releaseReason": "R54_DEV_SELF_CHECK_PASS"
+}
