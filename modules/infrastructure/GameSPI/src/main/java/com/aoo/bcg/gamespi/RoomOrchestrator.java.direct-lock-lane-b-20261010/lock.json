@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "status": "RELEASED_FOR_INDEPENDENT_REVIEW",
+  "owner": "/root/lane_b_ws_contract",
+  "task": "DIRECT-20261008T084000Z-4a7f1c9e",
+  "taskCardSha256": "6d4b950b668076760ce48e37e6b8fbee5e0dccbe00b51f5c1ce6cb471c44d685",
+  "purpose": "Lane B room lifecycle event identity carrier",
+  "allowlist": ["Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/RoomOrchestrator.java"],
+  "forbidden": ["protocol semantic changes outside room lifecycle", "DB/DDL/migration", "shared runtime"],
+  "preimage": {"RoomOrchestrator.java": "37d330b4cfbf158b50afe7ad2cc8a74446e9b2c03f234883dccb9aaa990d3368"},
+  "postimage": {
+    "Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/RoomOrchestrator.java": "c7d6fef24abde9216493d60fb6c1f537004f8f52ede652a1960c38b7b0fcbc10"
+  },
+  "sourceWrite": true,
+  "productionDatabase": false,
+  "sharedRuntime": false
+}

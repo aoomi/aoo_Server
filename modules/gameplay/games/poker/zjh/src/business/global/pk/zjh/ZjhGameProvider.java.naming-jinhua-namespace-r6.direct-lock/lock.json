@@ -1,0 +1,32 @@
+{
+  "task": "DIRECT-20261016T134154Z-6e8b1c20-active-game-naming-migration",
+  "owner": "/root/jinhua_mingming_low",
+  "state": "RELEASED",
+  "createdAt": "2026-10-16T15:59:15.135040+00:00",
+  "expiresAt": "2026-10-16T16:24:15.135040+00:00",
+  "inputSHA256": "62d3009555b2a8dc9f04ce7683fe4fd93f7c72d7068f651c67572bf0ddcf0bfe",
+  "writePaths": [
+    "server/modules/gameplay/games/poker/zjh/src/business/global/pk/zjh/ZjhGameProvider.java",
+    "server/modules/gameplay/games/poker/zjh/test/business/global/pk/zjh/ZjhGameProviderTest.java",
+    "server/modules/gameplay/games/poker/zjh/src/business/global/pk/zjh/ZjhGameProvider.java.naming-jinhua-namespace-r6.direct-lock/lock.json",
+    "server/modules/gameplay/games/poker/zjh/test/business/global/pk/zjh/ZjhGameProviderTest.java.naming-jinhua-namespace-r6.direct-lock/lock.json",
+    "docs/05-当前状态/evidence/DIRECT-20261016T134154Z-6e8b1c20-active-game-naming-migration/jinhua-namespace-execution-r6/input.json",
+    "docs/05-当前状态/evidence/DIRECT-20261016T134154Z-6e8b1c20-active-game-naming-migration/jinhua-namespace-execution-r6/lock.json",
+    "docs/05-当前状态/evidence/DIRECT-20261016T134154Z-6e8b1c20-active-game-naming-migration/jinhua-namespace-execution-r6/execution-lock.json",
+    "docs/05-当前状态/evidence/DIRECT-20261016T134154Z-6e8b1c20-active-game-naming-migration/jinhua-namespace-execution-r6/preimage.json",
+    "docs/05-当前状态/evidence/DIRECT-20261016T134154Z-6e8b1c20-active-game-naming-migration/jinhua-namespace-execution-r6/source-locks.json",
+    "docs/05-当前状态/evidence/DIRECT-20261016T134154Z-6e8b1c20-active-game-naming-migration/jinhua-namespace-execution-r6/command.json",
+    "docs/05-当前状态/evidence/DIRECT-20261016T134154Z-6e8b1c20-active-game-naming-migration/jinhua-namespace-execution-r6/apply.py",
+    "docs/05-当前状态/evidence/DIRECT-20261016T134154Z-6e8b1c20-active-game-naming-migration/jinhua-namespace-execution-r6/stdout.log",
+    "docs/05-当前状态/evidence/DIRECT-20261016T134154Z-6e8b1c20-active-game-naming-migration/jinhua-namespace-execution-r6/stderr.log",
+    "docs/05-当前状态/evidence/DIRECT-20261016T134154Z-6e8b1c20-active-game-naming-migration/jinhua-namespace-execution-r6/exit.json",
+    "docs/05-当前状态/evidence/DIRECT-20261016T134154Z-6e8b1c20-active-game-naming-migration/jinhua-namespace-execution-r6/checks.json",
+    "docs/05-当前状态/evidence/DIRECT-20261016T134154Z-6e8b1c20-active-game-naming-migration/jinhua-namespace-execution-r6/rollback-plan.json",
+    "docs/05-当前状态/evidence/DIRECT-20261016T134154Z-6e8b1c20-active-game-naming-migration/jinhua-namespace-execution-r6/DEV_SELF_CHECK.md",
+    "docs/05-当前状态/evidence/DIRECT-20261016T134154Z-6e8b1c20-active-game-naming-migration/jinhua-namespace-execution-r6/manifest.json",
+    "docs/05-当前状态/evidence/DIRECT-20261016T134154Z-6e8b1c20-active-game-naming-migration/jinhua-namespace-execution-r6/review-input.json",
+    "docs/05-当前状态/evidence/DIRECT-20261016T134154Z-6e8b1c20-active-game-naming-migration/jinhua-namespace-execution-r6/release.json"
+  ],
+  "releasedAt": "2026-10-16T16:00:00.388746+00:00",
+  "releaseReason": "Exact JH2 namespace token patch frozen for nonproducer review; composite validation pending"
+}

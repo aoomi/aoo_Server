@@ -1,0 +1,13 @@
+{
+  "owner": "/root/kefu_low",
+  "status": "RELEASED_FOR_INDEPENDENT_ACTUAL",
+  "writePaths": [
+    "server/modules/social-ops/Support/src/main/java/com/aoo/bcg/support/SupportStaffSessionAuthenticator.java"
+  ],
+  "preSHA": "ABSENT",
+  "acquiredAt": "2026-10-14T11:25:57.724919+00:00",
+  "expiresAt": "2026-10-14T13:25:57.724921+00:00",
+  "cardSHA": "67f07f8c1bd697aa4a81859011f087005abc76b0b6b9e0da19f4c15974943d84",
+  "releasedAt": "2026-10-14T11:32:23.341787+00:00",
+  "postSHA": "7b86dd0989e92f13aac644dd30f243767371aaf02dabfd67d3cc274227f36f83"
+}

@@ -1,0 +1,10 @@
+{
+  "owner": "/root/shuju_low",
+  "state": "RELEASED_FROZEN_PREIMPORT",
+  "sourceWrite": true,
+  "preimageSha256": "de6cfec7f504d72f5933c9b3bedb63e0770866ddd2dac74cbaa70ca8643a5a77",
+  "path": "server/database/bootstrap/manifest.json",
+  "createdAt": "2026-10-14T09:13:20.974714+00:00",
+  "releasedAt": "2026-10-14T09:20:20.669813+00:00",
+  "postimageSha256": "73d826d472aba6901f8ffaea2ab3fc3992f2a2976d8e42bf77ad20020fe6081b"
+}

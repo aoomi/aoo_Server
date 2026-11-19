@@ -1,0 +1,430 @@
+{
+  "_generated": "自动生成，权威来源为只读 Excel",
+  "sourceHash": "bf0a05b4787e365f47c0d9873120eae115e24c55aedbaa952bd065ad8ea5157a",
+  "identity": {
+    "publishingEnabled": true,
+    "gameId": 5,
+    "gameCode": "quanguo2998",
+    "playVersion": "cn298-v1.0.0",
+    "family": "poker:betting",
+    "regionCode": "GLOBAL",
+    "releaseScope": "GLOBAL",
+    "provider": "com.aoo.bcg.poker.nn.CN298PokerFamilyProviderFactory",
+    "requiredRoomRuleFields": [
+      {
+        "key": "rounds",
+        "sourceLabel": "局数",
+        "order": 10
+      },
+      {
+        "key": "maxPlayers",
+        "sourceLabel": "最大人数",
+        "order": 20
+      },
+      {
+        "key": "startPlayers",
+        "sourceLabel": "开局人数",
+        "order": 30
+      },
+      {
+        "key": "mode",
+        "sourceLabel": "玩法模式",
+        "order": 40
+      },
+      {
+        "key": "maxRobMultiplier",
+        "sourceLabel": "抢庄倍数",
+        "order": 50
+      },
+      {
+        "key": "maxPushMultiplier",
+        "sourceLabel": "推注上限",
+        "order": 60
+      },
+      {
+        "key": "standPolicy",
+        "sourceLabel": "站起规则",
+        "order": 70
+      },
+      {
+        "key": "fastModeEnabled",
+        "sourceLabel": "快速模式",
+        "order": 80
+      },
+      {
+        "key": "hostingMissThreshold",
+        "sourceLabel": "托管次数",
+        "order": 90,
+        "serverOwned": true
+      }
+    ],
+    "numericRoomRuleFields": [
+      {
+        "sourceLabel": "局数",
+        "suffix": "局"
+      },
+      {
+        "sourceLabel": "最大人数",
+        "suffix": "人"
+      },
+      {
+        "sourceLabel": "开局人数",
+        "suffix": "人"
+      },
+      {
+        "sourceLabel": "抢庄倍数",
+        "suffix": "倍"
+      }
+    ],
+    "roomRuleRowProjections": [
+      {
+        "sourceLabel": "快速模式",
+        "sourceControl": "多选",
+        "sourceOptions": [
+          "启用快速模式"
+        ],
+        "kind": "boolean-option",
+        "output": {
+          "key": "fastModeEnabled",
+          "label": "快速模式",
+          "trueValue": true
+        }
+      }
+    ],
+    "roomRuleOptionValues": {
+      "局数": {
+        "10局": 10,
+        "20局": 20,
+        "30局": 30
+      },
+      "最大人数": {
+        "8人": 8,
+        "10人": 10
+      },
+      "开局人数": {
+        "2人": 2,
+        "4人": 4,
+        "6人": 6
+      },
+      "玩法模式": {
+        "经典模式": "CLASSIC",
+        "激情模式": "PASSION",
+        "疯狂模式": "CRAZY"
+      },
+      "抢庄倍数": {
+        "最高3倍": 3,
+        "最高4倍": 4,
+        "最高5倍": 5
+      },
+      "推注上限": {
+        "不推注": 0,
+        "5倍": 5,
+        "10倍": 10,
+        "15倍": 15
+      },
+      "站起规则": {
+        "输家可站起": "LOSER_MAY_STAND",
+        "所有人可站起": "EVERYONE_MAY_STAND",
+        "所有人不可站起": "NO_ONE_MAY_STAND"
+      },
+      "托管次数": {
+        "3次": 3,
+        "4次": 4,
+        "5次": 5
+      }
+    }
+  },
+  "targets": [
+    {
+      "gameId": 5,
+      "playVersion": "cn298-v1.0.0"
+    }
+  ],
+  "fields": [
+    {
+      "key": "rounds",
+      "label": "局数",
+      "control": "radio",
+      "order": 10,
+      "visible": true,
+      "disabled": false,
+      "required": true,
+      "defaultCandidateIndexes": [
+        1
+      ],
+      "defaultValue": 10,
+      "options": [
+        {
+          "value": 10,
+          "label": "10局",
+          "order": 10,
+          "disabled": false
+        },
+        {
+          "value": 20,
+          "label": "20局",
+          "order": 20,
+          "disabled": false
+        },
+        {
+          "value": 30,
+          "label": "30局",
+          "order": 30,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "key": "maxPlayers",
+      "label": "最大人数",
+      "control": "radio",
+      "order": 20,
+      "visible": true,
+      "disabled": false,
+      "required": true,
+      "defaultCandidateIndexes": [
+        1
+      ],
+      "defaultValue": 8,
+      "options": [
+        {
+          "value": 8,
+          "label": "8人",
+          "order": 10,
+          "disabled": false
+        },
+        {
+          "value": 10,
+          "label": "10人",
+          "order": 20,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "key": "startPlayers",
+      "label": "开局人数",
+      "control": "radio",
+      "order": 30,
+      "visible": true,
+      "disabled": false,
+      "required": true,
+      "defaultCandidateIndexes": [
+        1
+      ],
+      "defaultValue": 2,
+      "options": [
+        {
+          "value": 2,
+          "label": "2人",
+          "order": 10,
+          "disabled": false
+        },
+        {
+          "value": 4,
+          "label": "4人",
+          "order": 20,
+          "disabled": false
+        },
+        {
+          "value": 6,
+          "label": "6人",
+          "order": 30,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "key": "mode",
+      "label": "玩法模式",
+      "control": "radio",
+      "order": 40,
+      "visible": true,
+      "disabled": false,
+      "required": true,
+      "defaultCandidateIndexes": [
+        1
+      ],
+      "defaultValue": "CLASSIC",
+      "options": [
+        {
+          "value": "CLASSIC",
+          "label": "经典模式",
+          "order": 10,
+          "disabled": false
+        },
+        {
+          "value": "PASSION",
+          "label": "激情模式",
+          "order": 20,
+          "disabled": false
+        },
+        {
+          "value": "CRAZY",
+          "label": "疯狂模式",
+          "order": 30,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "key": "maxRobMultiplier",
+      "label": "抢庄倍数",
+      "control": "radio",
+      "order": 50,
+      "visible": true,
+      "disabled": false,
+      "required": true,
+      "defaultCandidateIndexes": [
+        2
+      ],
+      "defaultValue": 4,
+      "options": [
+        {
+          "value": 3,
+          "label": "最高3倍",
+          "order": 10,
+          "disabled": false
+        },
+        {
+          "value": 4,
+          "label": "最高4倍",
+          "order": 20,
+          "disabled": false
+        },
+        {
+          "value": 5,
+          "label": "最高5倍",
+          "order": 30,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "key": "maxPushMultiplier",
+      "label": "推注上限",
+      "control": "radio",
+      "order": 60,
+      "visible": true,
+      "disabled": false,
+      "required": true,
+      "defaultCandidateIndexes": [
+        3
+      ],
+      "defaultValue": 10,
+      "options": [
+        {
+          "value": 0,
+          "label": "不推注",
+          "order": 10,
+          "disabled": false
+        },
+        {
+          "value": 5,
+          "label": "5倍",
+          "order": 20,
+          "disabled": false
+        },
+        {
+          "value": 10,
+          "label": "10倍",
+          "order": 30,
+          "disabled": false
+        },
+        {
+          "value": 15,
+          "label": "15倍",
+          "order": 40,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "key": "standPolicy",
+      "label": "站起规则",
+      "control": "radio",
+      "order": 70,
+      "visible": true,
+      "disabled": false,
+      "required": true,
+      "defaultCandidateIndexes": [
+        2
+      ],
+      "defaultValue": "EVERYONE_MAY_STAND",
+      "options": [
+        {
+          "value": "LOSER_MAY_STAND",
+          "label": "输家可站起",
+          "order": 10,
+          "disabled": false
+        },
+        {
+          "value": "EVERYONE_MAY_STAND",
+          "label": "所有人可站起",
+          "order": 20,
+          "disabled": false
+        },
+        {
+          "value": "NO_ONE_MAY_STAND",
+          "label": "所有人不可站起",
+          "order": 30,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "key": "fastModeEnabled",
+      "label": "快速模式",
+      "control": "checkbox",
+      "order": 80,
+      "visible": true,
+      "disabled": false,
+      "required": false,
+      "defaultCandidateIndexes": [
+        1
+      ],
+      "defaultValue": true,
+      "options": [
+        {
+          "value": true,
+          "label": "启用快速模式",
+          "order": 10,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "key": "hostingMissThreshold",
+      "label": "托管次数",
+      "control": "radio",
+      "order": 90,
+      "visible": false,
+      "disabled": true,
+      "required": true,
+      "defaultCandidateIndexes": [
+        1
+      ],
+      "defaultValue": 3,
+      "options": [
+        {
+          "value": 3,
+          "label": "3次",
+          "order": 10,
+          "disabled": false
+        },
+        {
+          "value": 4,
+          "label": "4次",
+          "order": 20,
+          "disabled": false
+        },
+        {
+          "value": 5,
+          "label": "5次",
+          "order": 30,
+          "disabled": false
+        }
+      ]
+    }
+  ]
+}

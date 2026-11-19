@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "status": "RELEASED_FOR_INDEPENDENT_REVIEW",
+  "owner": "/root/implement_v198_sql_only",
+  "task": "DIRECT-20261008T073000Z-5b7c9d1e",
+  "attempt": "v1.1-r1",
+  "purpose": "bounded RoomOrchestrator execute transport",
+  "allowlist": [
+    "Server/server/Gateway/src/main/java/com/aoo/bcg/gateway/GameWebSocketRouter.java",
+    "Server/server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/JdbcGatewayRoomAuthority.java",
+    "Server/server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/ProductionGatewayRuntimeProvider.java",
+    "Server/server/Gateway/src/test/java/com/aoo/bcg/gateway/GameWebSocketRouterTest.java",
+    "Server/server/Bootstrap/src/test/java/com/aoo/bcg/bootstrap/RoomOrchestratorAuthorityAdapterTest.java",
+    "Server/server/Bootstrap/src/test/java/com/aoo/bcg/bootstrap/JdbcGatewayRoomAuthorityExecuteTransportTest.java",
+    "docs/05-当前状态/evidence/DIRECT-20261008T073000Z-5b7c9d1e/**"
+  ],
+  "forbidden": ["Client", "DB", "migration", "seed", "protocol semantics", "deployment", "RoomMgr", "AbsBaseRoom", "ProductionRoomRealtimeService", "shared runtime"],
+  "sourceWrite": true,
+  "productionDatabase": false,
+  "releasedAt": "2026-10-08T15:58:17+08:00"
+}

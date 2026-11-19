@@ -1,0 +1,25 @@
+-- Forward source identity only; never apply through version glob or mutate historical intents.
+CREATE TABLE aoo_room_billing_source_binding (
+ source_namespace VARCHAR(32) NOT NULL,
+ source_request_id VARCHAR(128) NOT NULL,
+ source_request_hash CHAR(64) NOT NULL,
+ authenticated_actor_id BIGINT UNSIGNED NOT NULL,
+ operation_key CHAR(64) NOT NULL,
+ initiating_actor_id BIGINT UNSIGNED NOT NULL,
+ creator_id BIGINT UNSIGNED NOT NULL,
+ source_club_id BIGINT UNSIGNED NOT NULL,
+ subject_command_hash CHAR(64) NOT NULL,
+ release_id BIGINT UNSIGNED NOT NULL,
+ index_generation BIGINT UNSIGNED NOT NULL,
+ runtime_source_hash CHAR(64) NOT NULL,
+ classification_region_code VARCHAR(32) NOT NULL,
+ binding_hash CHAR(64) NOT NULL,
+ created_at DATETIME(3) NOT NULL,
+ PRIMARY KEY(source_namespace,source_request_id),
+ UNIQUE KEY uk_room_billing_source_operation(operation_key),
+ FOREIGN KEY(operation_key) REFERENCES aoo_room_billing_intent_journal(operation_key) ON DELETE RESTRICT,
+ CHECK(source_namespace='HALL_CREATE'),
+ CHECK(authenticated_actor_id>0 AND initiating_actor_id>0 AND creator_id>0 AND release_id>0 AND index_generation>0),
+ CHECK(CHAR_LENGTH(TRIM(classification_region_code))>0),
+ CHECK(source_request_hash REGEXP '^[0-9a-f]{64}$' AND operation_key REGEXP '^[0-9a-f]{64}$' AND subject_command_hash REGEXP '^[0-9a-f]{64}$' AND runtime_source_hash REGEXP '^[0-9a-f]{64}$' AND binding_hash REGEXP '^[0-9a-f]{64}$')
+) ENGINE=InnoDB;

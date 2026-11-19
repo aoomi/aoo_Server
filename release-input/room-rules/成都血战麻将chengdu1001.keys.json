@@ -1,0 +1,61 @@
+{
+  "version": 1,
+  "gameCode": "chengdu1001",
+  "nextFieldSequence": 1,
+  "fields": [
+    {
+      "key": "setCount",
+      "label": "局数",
+      "position": 1,
+      "active": true,
+      "nextOptionSequence": 1,
+      "options": [
+        {
+          "label": "8局",
+          "position": 1,
+          "active": true,
+          "value": 8
+        },
+        {
+          "label": "12局",
+          "position": 2,
+          "active": true,
+          "value": 12
+        },
+        {
+          "label": "16局",
+          "position": 3,
+          "active": true,
+          "value": 16
+        }
+      ]
+    },
+    {
+      "key": "playerNum",
+      "label": "人数",
+      "position": 2,
+      "active": true,
+      "nextOptionSequence": 1,
+      "options": [
+        {
+          "label": "2人",
+          "position": 1,
+          "active": true,
+          "value": 2
+        },
+        {
+          "label": "3人",
+          "position": 2,
+          "active": true,
+          "value": 3
+        },
+        {
+          "label": "4人",
+          "position": 3,
+          "active": true,
+          "value": 4
+        }
+      ]
+    }
+  ]
+}

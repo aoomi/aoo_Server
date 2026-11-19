@@ -1,0 +1,12 @@
+{
+  "owner": "/root/jinhua_mingming_low",
+  "state": "RELEASED",
+  "createdAt": "2026-10-17T07:31:22.366596+00:00",
+  "expiresAt": "2026-10-17T07:45:10.541943+00:00",
+  "writePaths": [
+    "server/modules/gameplay/games/poker/zjh/src/business/global/pk/zjh/ZjhPersistenceService.java",
+    "server/modules/gameplay/games/poker/zjh/src/business/global/pk/zjh/ZjhPersistenceService.java.jinhua-data-fields-cutover-r16.direct-lock/lock.json"
+  ],
+  "releasedAt": "2026-10-17T07:31:50.966986+00:00",
+  "frozenManifestSHA256": "39f1761258d93c6ba9945ef93cdb412b498f6172faa3c6dc3c97812877947bcc"
+}

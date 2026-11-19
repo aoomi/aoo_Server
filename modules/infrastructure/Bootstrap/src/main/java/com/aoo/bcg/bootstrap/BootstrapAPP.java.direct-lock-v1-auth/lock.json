@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "status": "RELEASED_FOR_COORDINATION",
+  "owner": "/root/implement_lobby_http_canonicalization",
+  "task": "DIRECT-20261008T084000Z-4a7f1c9e",
+  "change": "c3-lobby-next-auth-canonicalization-v1",
+  "path": "Server/server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java",
+  "acquiredAt": "2026-10-10T07:52:19Z",
+  "purpose": "Start Hall wiring instantiates canonical Lobby authenticator",
+  "preimageSha256": "deacb15bb999cf9d291dc5c07ae2308cfb81de1b6359ac8d031c19bfa0a33254",
+  "sourceExistsBeforeLock": true,
+  "dirtyCustody": "preimage captured before edit",
+  "sourceWrite": true,
+  "testWrite": false,
+  "allowlist": ["Server/server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java", "docs/05-当前状态/evidence/c3-lobby-next-auth-canonicalization-v1/**"],
+  "forbidden": ["non-startHall wiring", "protocol paths/events", "DB/SQL/migration/seed", "POM", "Client", "rules", "deploy", "shared services/ports/Creator/browser", "HallCostPolicyError.java", "HallCostPolicyErrorMappingTest.java", "commits/pushes/merges/rebases"],
+  "releasedAt": "2026-10-10T07:59:52Z",
+  "releaseReason": "BLOCKED_CUSTODY_MISMATCH_CLEANUP",
+  "currentSha256": "91a0568b010507b5fb7c289033c5790b6d3ef6c76d4e60b5652b8b420d3f56bd",
+  "incidentReceiptSha256": "4aa792fcb09511e0d45479242d962ea89763a302272297a74b6b9c91608bf12",
+  "releaseReceipt": "release.txt"
+}

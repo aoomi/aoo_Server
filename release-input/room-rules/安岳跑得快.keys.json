@@ -1,0 +1,328 @@
+{
+  "version": 1,
+  "gameCode": "anyue2005",
+  "nextFieldSequence": 2,
+  "fields": [
+    {
+      "key": "playerCount",
+      "label": "人数",
+      "position": 1,
+      "active": true,
+      "nextOptionSequence": 1,
+      "options": [
+        {
+          "label": "2人",
+          "position": 1,
+          "active": true,
+          "value": 2
+        },
+        {
+          "label": "3人",
+          "position": 2,
+          "active": true,
+          "value": 3
+        }
+      ]
+    },
+    {
+      "key": "roundCount",
+      "label": "局数",
+      "position": 2,
+      "active": true,
+      "nextOptionSequence": 1,
+      "options": [
+        {
+          "label": "8局",
+          "position": 1,
+          "active": true,
+          "value": 8
+        },
+        {
+          "label": "12局",
+          "position": 2,
+          "active": true,
+          "value": 12
+        },
+        {
+          "label": "16局",
+          "position": 3,
+          "active": true,
+          "value": 16
+        }
+      ]
+    },
+    {
+      "key": "operationTimeoutSeconds",
+      "label": "操作时间",
+      "position": 3,
+      "active": true,
+      "nextOptionSequence": 1,
+      "options": [
+        {
+          "label": "10秒",
+          "position": 1,
+          "active": true,
+          "value": 10
+        },
+        {
+          "label": "15秒",
+          "position": 2,
+          "active": true,
+          "value": 15
+        },
+        {
+          "label": "20秒",
+          "position": 3,
+          "active": true,
+          "value": 20
+        }
+      ]
+    },
+    {
+      "key": "deckRange",
+      "label": "牌库范围",
+      "position": 4,
+      "active": true,
+      "nextOptionSequence": 1,
+      "options": [
+        {
+          "label": "5-K，2一张，A三张",
+          "position": 1,
+          "active": true,
+          "value": "cut_40"
+        }
+      ]
+    },
+    {
+      "key": "firstPlayRule",
+      "label": "先出牌",
+      "position": 5,
+      "active": true,
+      "nextOptionSequence": 1,
+      "options": [
+        {
+          "label": "黑桃5优先出",
+          "position": 1,
+          "active": true,
+          "value": "spade_five_first"
+        }
+      ]
+    },
+    {
+      "key": "requiredFirstCardRule",
+      "label": "首张必出",
+      "position": 6,
+      "active": true,
+      "nextOptionSequence": 1,
+      "options": [
+        {
+          "label": "第一局必须出黑桃5",
+          "position": 1,
+          "active": true,
+          "value": "first_round_spade_five_required"
+        }
+      ]
+    },
+    {
+      "key": "tripleWithTwoMode",
+      "label": "三带二",
+      "position": 7,
+      "active": true,
+      "nextOptionSequence": 1,
+      "options": [
+        {
+          "label": "只能带两张且不比较带牌",
+          "position": 1,
+          "active": true,
+          "value": "two_cards_no_compare"
+        },
+        {
+          "label": "只能带两张且比较带牌",
+          "position": 2,
+          "active": true,
+          "value": "two_cards_compare"
+        }
+      ]
+    },
+    {
+      "key": "planeWithTwoMode",
+      "label": "飞机带二",
+      "position": 8,
+      "active": true,
+      "nextOptionSequence": 1,
+      "options": [
+        {
+          "label": "只能带两张且不比较带牌",
+          "position": 1,
+          "active": true,
+          "value": "two_cards_no_compare"
+        },
+        {
+          "label": "只能带两张且比较带牌",
+          "position": 2,
+          "active": true,
+          "value": "two_cards_compare"
+        }
+      ]
+    },
+    {
+      "key": "bombScore",
+      "label": "炸弹记分",
+      "position": 9,
+      "active": true,
+      "nextOptionSequence": 1,
+      "options": [
+        {
+          "label": "5分",
+          "position": 1,
+          "active": true,
+          "value": 5
+        },
+        {
+          "label": "10分",
+          "position": 2,
+          "active": true,
+          "value": 10
+        },
+        {
+          "label": "20分",
+          "position": 3,
+          "active": true,
+          "value": 20
+        }
+      ]
+    },
+    {
+      "key": "rule_anyue2005_0001",
+      "label": "小结算",
+      "position": 10,
+      "active": true,
+      "nextOptionSequence": 1,
+      "options": [
+        {
+          "label": "小局结算弹窗",
+          "position": 1,
+          "active": true,
+          "value": "option_0001"
+        }
+      ]
+    },
+    {
+      "key": "playRule",
+      "label": "玩法",
+      "position": 11,
+      "active": true,
+      "nextOptionSequence": 1,
+      "options": [
+        {
+          "label": "三不带（任何时候可出）",
+          "position": 1,
+          "active": true,
+          "value": "three_no_attachment"
+        },
+        {
+          "label": "飞机不带（任何时候可出）",
+          "position": 2,
+          "active": true,
+          "value": "plane_no_attachment"
+        },
+        {
+          "label": "四带二（只能带两张）",
+          "position": 3,
+          "active": true,
+          "value": "four_with_two"
+        },
+        {
+          "label": "3A算炸弹",
+          "position": 4,
+          "active": true,
+          "value": "triple_ace_bomb"
+        },
+        {
+          "label": "四个3直接赢",
+          "position": 5,
+          "active": true,
+          "value": "four_threes_direct_win"
+        },
+        {
+          "label": "三个A加一个2直接赢",
+          "position": 6,
+          "active": true,
+          "value": "triple_ace_plus_two_direct_win"
+        }
+      ]
+    },
+    {
+      "key": "hostingMissThreshold",
+      "label": "托管次数",
+      "position": 12,
+      "active": true,
+      "nextOptionSequence": 1,
+      "options": [
+        {
+          "label": "3次",
+          "position": 1,
+          "active": true,
+          "value": 3
+        },
+        {
+          "label": "4次",
+          "position": 2,
+          "active": true,
+          "value": 4
+        },
+        {
+          "label": "5次",
+          "position": 3,
+          "active": true,
+          "value": 5
+        }
+      ]
+    },
+    {
+      "key": "roomRestriction",
+      "label": "其他",
+      "position": 13,
+      "active": true,
+      "nextOptionSequence": 1,
+      "options": [
+        {
+          "label": "IP限制",
+          "position": 1,
+          "active": true,
+          "value": "ip_limit"
+        },
+        {
+          "label": "GPS限制",
+          "position": 2,
+          "active": true,
+          "value": "gps_limit"
+        },
+        {
+          "label": "5次不操作进入托管",
+          "position": 3,
+          "active": true,
+          "value": "timeout_auto_play"
+        },
+        {
+          "label": "距离过近提示",
+          "position": 4,
+          "active": true,
+          "value": "distance_warning"
+        },
+        {
+          "label": "禁止互动",
+          "position": 5,
+          "active": true,
+          "value": "interaction_forbidden"
+        },
+        {
+          "label": "禁言",
+          "position": 6,
+          "active": true,
+          "value": "chat_muted"
+        }
+      ]
+    }
+  ]
+}

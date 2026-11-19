@@ -1,0 +1,12 @@
+{
+  "task": "DIRECT-20261016T134154Z-6e8b1c20-active-game-naming-migration",
+  "owner": "/root/niuniu_mingming_low",
+  "state": "RELEASED",
+  "acquiredAt": "2026-10-16T18:18:44.051402+00:00",
+  "expiresAt": "2026-10-16T18:48:44.051402+00:00",
+  "writePaths": [
+    "server/modules/gameplay/games/poker/nn/src/main/java/com/aoo/bcg/poker/nn/NnSettlementAllocator.java"
+  ],
+  "releasedAt": "2026-10-16T18:19:32.380580+00:00",
+  "sealedManifestSHA256": "01185fc99812a923c279071bf3c7c6402cb0f1c62cc9f7faf5531c23674e6dd1"
+}

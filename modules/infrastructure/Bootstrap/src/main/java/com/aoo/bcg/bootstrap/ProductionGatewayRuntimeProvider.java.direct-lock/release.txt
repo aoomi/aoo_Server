@@ -1,0 +1,6 @@
+Status=ABORTED_RELEASED
+Owner=/root
+Task=DIRECT-20261006T151500Z-c41e8b9a
+Attempt=DIRECT-20261006T151500Z-c41e8b9a-v2
+ReleasedAt=2026-10-08T04:30:00+08:00
+ReleaseReason=STALE_OLD_TASK_LOCK; prior task is no longer active; no current implementation claims this lock; released by owning /root coordination path

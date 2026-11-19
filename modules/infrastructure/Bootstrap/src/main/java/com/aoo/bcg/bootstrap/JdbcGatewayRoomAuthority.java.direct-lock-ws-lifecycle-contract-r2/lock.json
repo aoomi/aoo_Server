@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "status": "RELEASED_FOR_INDEPENDENT_REVIEW",
+  "owner": "/root/ws_lifecycle_contract_r2",
+  "task": "DIRECT-20261008T084000Z-4a7f1c9e",
+  "attempt": "ws-lifecycle-contract-r2-legacy-epoch",
+  "purpose": "Serialize the legacy create/join room identity lifecycleEpoch as a canonical decimal string so the strict Client runtime identity mount can preserve 19-digit epochs for reconnect/handoff.",
+  "allowlist": [
+    "Server/server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/JdbcGatewayRoomAuthority.java",
+    "Server/server/Bootstrap/src/test/java/com/aoo/bcg/bootstrap/RoomRuntimeIdentitySerializationContractTest.java",
+    "docs/05-当前状态/evidence/p0-e-ws-contract-20261012-r2/**"
+  ],
+  "forbidden": [
+    "Client/assets/Login/Scenes/LoginScene.scene",
+    "Client/docs/开房规则表/**",
+    "生产数据库",
+    "共享服务",
+    "共享端口",
+    "生成 Bundle",
+    "协议语义变更",
+    "历史兼容身份放入 current 路径"
+  ],
+  "preimage": {
+    "Server/server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/JdbcGatewayRoomAuthority.java": "1bba2b2ae9f1e6d036b640908d24256c8da1bd3a900cce19bde5ba5d732c7228",
+    "Server/server/Bootstrap/src/test/java/com/aoo/bcg/bootstrap/RoomRuntimeIdentitySerializationContractTest.java": null
+  },
+  "postimage": {
+    "Server/server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/JdbcGatewayRoomAuthority.java": "1c7dc280f390f651530806b8e64f9624b177cc948db65c060bb3d11714c4f3f6",
+    "Server/server/Bootstrap/src/test/java/com/aoo/bcg/bootstrap/RoomRuntimeIdentitySerializationContractTest.java": "58444f4cfef9f3d6274274bbe9c19aed815cfd42d1c94f85920b7dd324d080dc",
+    "docs/05-当前状态/evidence/p0-e-ws-contract-20261012-r2/DEV_SELF_CHECK-v1.md": "447a0a9bed54ea8ded2f2f1a67ee0a70bce5dc2bb0ae59f4d87f4a17154c07ed"
+  },
+  "sourceWrite": true,
+  "productionDatabase": false,
+  "sharedRuntime": false,
+  "independentReviewer": "parent-lane-g",
+  "releasedAt": "2026-10-12T16:47:57+08:00",
+  "releaseReason": "DEV_SELF_CHECK_READY_FOR_INDEPENDENT_REVIEW"
+}

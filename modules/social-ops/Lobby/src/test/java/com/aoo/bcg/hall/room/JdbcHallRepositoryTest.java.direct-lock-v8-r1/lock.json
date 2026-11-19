@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "task": "DIRECT-20261008T084000Z-4a7f1c9e",
+  "attempt": "c3-v8-runtime-projection-fix-v1",
+  "owner": "/root/implement_v197_room_lock_metadata",
+  "status": "RELEASED_FOR_INDEPENDENT_REVIEW",
+  "acquiredAt": "2026-10-09T10:48:50+08:00",
+  "releasedAt": "2026-10-09T10:54:53+08:00",
+  "releaseReason": "V8_NORMALIZED_SERVER_OWNED_DEFAULT_DOUBLE_VALIDATION_FIX_SEALED_FOR_INDEPENDENT_REVIEW",
+  "purpose": "Test Hall register projection does not revalidate server-owned normalized defaults as client input",
+  "allowlist": [
+    "Server/server/Hall/src/test/java/com/aoo/bcg/hall/room/JdbcHallRepositoryTest.java"
+  ],
+  "forbidden": [
+    "product source outside allowlist",
+    "rules workbook",
+    "database/migration/seed",
+    "bundle/deployment",
+    "protocol",
+    "Client",
+    "production database",
+    "commits/pushes"
+  ]
+}

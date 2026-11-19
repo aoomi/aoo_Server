@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 2,
+  "lockId": "R48-TAKEOVER-20261010T050917Z-02",
+  "status": "RELEASED_FOR_INDEPENDENT_REVIEW",
+  "owner": "/root/implement_r48_takeover",
+  "task": "DIRECT-20261008T084000Z-4a7f1c9e",
+  "attempt": "R48-R50-takeover-implementation-20261010",
+  "acquiredAt": "2026-10-10T05:09:17Z",
+  "releasedAt": "2026-10-13T09:07:34.964768000Z",
+  "path": "Server/server/Families/src/main/java/com/aoo/bcg/families/BuiltinFamilies.java",
+  "preimageSha256": "2adb49ea456eec2f85f8416ce90568cb135b0d1d195302cdcc64f62fb0a1d875",
+  "handoffCurrentSha256": "2adb49ea456eec2f85f8416ce90568cb135b0d1d195302cdcc64f62fb0a1d875",
+  "oldPreimageSha256": "df3eb496c3d7fa019cefdad9c9df8ac374d0f358c2b86dfab9b35c10f2fa304d",
+  "r49BaselineSha256": "df3eb496c3d7fa019cefdad9c9df8ac374d0f358c2b86dfab9b35c10f2fa304d",
+  "oldOwner": "/root/r48_longcard_provider_implementation",
+  "supersedes": "Server/server/Families/src/main/java/com/aoo/bcg/families/BuiltinFamilies.java.direct-lock-r48/lock.json",
+  "sourceWrite": true,
+  "releaseReceipt": "docs/05-当前状态/evidence/DIRECT-20261008T084000Z-4a7f1c9e/c3-r48-takeover-implementation-20261010/r48-eight-successor-release-receipt-20261013.md",
+  "independentAcceptance": "ACCEPT_BOUNDED",
+  "scope": "R48 exact LongCard family token delta for this file only"
+}

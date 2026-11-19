@@ -1,0 +1,114 @@
+{
+  "_generated": "自动生成，权威来源为只读 Excel",
+  "sourceHash": "9ca9df7a061bebadbe31ccd2acfc169bf968076c6dc459baafe7cf262dc0c87c",
+  "identity": {
+    "workbook": "成都血战麻将.xlsx",
+    "publishingEnabled": true,
+    "automaticPublishingEnabled": true,
+    "gameId": 1001,
+    "gameCode": "chengdu1001",
+    "playVersion": "chengdu1001-v1.0.0",
+    "displayName": "成都麻将",
+    "family": "mahjong:xue-zhan",
+    "regionCode": "CN-51-01",
+    "releaseScope": "REGIONAL",
+    "publishedSourceLabels": [
+      "局数",
+      "人数"
+    ],
+    "requiredRoomRuleFields": [
+      {
+        "key": "setCount",
+        "sourceLabel": "局数"
+      },
+      {
+        "key": "playerNum",
+        "sourceLabel": "人数"
+      }
+    ],
+    "numericRoomRuleFields": [
+      {
+        "sourceLabel": "局数",
+        "suffix": "局"
+      },
+      {
+        "sourceLabel": "人数",
+        "suffix": "人"
+      }
+    ]
+  },
+  "targets": [
+    {
+      "gameId": 1001,
+      "playVersion": "chengdu1001-v1.0.0"
+    }
+  ],
+  "fields": [
+    {
+      "key": "setCount",
+      "label": "局数",
+      "control": "radio",
+      "order": 80,
+      "visible": true,
+      "disabled": false,
+      "required": true,
+      "defaultCandidateIndexes": [
+        1
+      ],
+      "defaultValue": 8,
+      "options": [
+        {
+          "value": 8,
+          "label": "8局",
+          "order": 10,
+          "disabled": false
+        },
+        {
+          "value": 12,
+          "label": "12局",
+          "order": 20,
+          "disabled": false
+        },
+        {
+          "value": 16,
+          "label": "16局",
+          "order": 30,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "key": "playerNum",
+      "label": "人数",
+      "control": "radio",
+      "order": 90,
+      "visible": true,
+      "disabled": false,
+      "required": true,
+      "defaultCandidateIndexes": [
+        3
+      ],
+      "defaultValue": 4,
+      "options": [
+        {
+          "value": 2,
+          "label": "2人",
+          "order": 10,
+          "disabled": false
+        },
+        {
+          "value": 3,
+          "label": "3人",
+          "order": 20,
+          "disabled": false
+        },
+        {
+          "value": 4,
+          "label": "4人",
+          "order": 30,
+          "disabled": false
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "status": "RELEASED_FOR_INDEPENDENT_REVIEW",
+  "owner": "/root/implement_v197_room_lock_metadata",
+  "task": "DIRECT-20261006T211500Z-e5b8c2d1-v258",
+  "attempt": "v2.58-r1-20261008",
+  "purpose": "validate full leave identity and canonical room-lock metadata before typed LeaveCommand",
+  "sourceWrite": true
+}

@@ -1,0 +1,11 @@
+{
+  "owner": "/root/fangka_xuqian",
+  "state": "RELEASED",
+  "acquiredAt": "2026-10-17T14:43:17.339663+00:00",
+  "expiresAt": "2026-10-17T14:53:17.339663+00:00",
+  "deadline": "2026-10-17T14:53:17.339663+00:00",
+  "scope": "/Users/aoo/Code/Game/BCG/Aoo/server/modules/user-domain/Billing/src/main/java/com/aoo/bcg/billing/JdbcRoomAaCreationRepository.java",
+  "path": "/Users/aoo/Code/Game/BCG/Aoo/server/modules/user-domain/Billing/src/main/java/com/aoo/bcg/billing/JdbcRoomAaCreationRepository.java",
+  "releasedAt": "2026-10-17T14:43:18.819822+00:00",
+  "contentManifestSHA": "5186852957e89dcf2e22fa0a7fc824ca33dc31e2929058761d07a370c10f3a08"
+}

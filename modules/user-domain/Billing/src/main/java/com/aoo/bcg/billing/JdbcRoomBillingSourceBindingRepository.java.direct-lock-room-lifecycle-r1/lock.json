@@ -1,0 +1,10 @@
+{
+  "owner": "/root/fangka_xuqian",
+  "state": "RELEASED",
+  "acquiredAt": "2026-10-17T01:05:44.298354+00:00",
+  "expiresAt": "2026-10-17T04:05:44.298354+00:00",
+  "writePaths": [
+    "/Users/aoo/Code/Game/BCG/Aoo/server/modules/user-domain/Billing/src/main/java/com/aoo/bcg/billing/JdbcRoomBillingSourceBindingRepository.java"
+  ],
+  "releasedAt": "2026-10-17T01:10:46.741276+00:00"
+}

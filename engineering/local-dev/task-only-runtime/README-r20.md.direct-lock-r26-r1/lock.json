@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "status": "RELEASED_FOR_INDEPENDENT_REVIEW",
+  "owner": "/root/implement_manifest_projection_s1",
+  "task": "DIRECT-20261008T084000Z-4a7f1c9e",
+  "attempt": "c3-runtime-matrix-r26-task-only-launcher-v3",
+  "acquiredAt": "2026-10-09T13:40:00Z",
+  "purpose": "R26 launcher usage and hardening contract documentation",
+  "allowlist": ["Server/tools/task-only-runtime/README-r20.md"],
+  "forbidden": ["Server/server/**", "Client/**", "DB", "shared services/ports", "commits"],
+  "sourceWrite": true,
+  "databaseWrite": false,
+  "releasedAt": "2026-10-09T13:13:24Z",
+  "releaseReason": "DEV_SELF_CHECK-R26 sealed; ready for independent review"
+}

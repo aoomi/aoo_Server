@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "status": "RELEASED_FOR_INDEPENDENT_REVIEW",
+  "owner": "/root/lane_b_ws_contract",
+  "task": "DIRECT-20261008T084000Z-4a7f1c9e",
+  "taskCardSha256": "6d4b950b668076760ce48e37e6b8fbee5e0dccbe00b51f5c1ce6cb471c44d685",
+  "purpose": "Lane B lossless room lifecycle WebSocket transport contract",
+  "allowlist": [
+    "Server/server/Gateway/src/main/java/com/aoo/bcg/gateway/GameWebSocketRouter.java",
+    "Server/server/Gateway/src/main/java/com/aoo/bcg/gateway/ProtocolValuePolicy.java",
+    "Server/server/Gateway/src/test/java/com/aoo/bcg/gateway/RoomOrchestratorReconnectRouterTest.java",
+    "Server/protocol/aoo-protocol-v2.json",
+    "Server/tools/protocol/**",
+    "Client/assets/Games/Common/Code/Room/RoomReconnectController.ts",
+    "Client/assets/Games/Common/Code/Room/RoomNetworkControllerMount.ts",
+    "Client/assets/Common/Code/Runtime/network/ProtocolClient.ts",
+    "Client/assets/Common/Code/Runtime/network/GeneratedProtocolIds.ts",
+    "Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/RoomOrchestrator.java",
+    "Server/server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/JdbcGatewayRoomAuthority.java",
+    "Server/server/Bootstrap/src/test/java/com/aoo/bcg/bootstrap/JdbcGatewayRoomAuthorityTest.java",
+    "Server/server/Bootstrap/src/test/java/com/aoo/bcg/bootstrap/RoomOrchestratorHandoffAuthorityTest.java",
+    "docs/05-当前状态/evidence/DIRECT-20261008T084000Z-4a7f1c9e/lane-b-ws-contract-20261010/**"
+  ],
+  "forbidden": [
+    "Client/work/pdk-007-hint-real-canvas-e2e.mjs",
+    "LoginScene",
+    "规则工作簿",
+    "生成 bundle",
+    "生产数据库",
+    "共享四端",
+    "共享端口",
+    "旧链路回退",
+    "无关协议语义"
+  ],
+  "preimage": {
+    "Server/server/Gateway/src/main/java/com/aoo/bcg/gateway/GameWebSocketRouter.java": "3d12c9b204b40b550b7764a44455f44f48391ed0b7ecf6ea93b22680f6e97ac2",
+    "Server/server/Gateway/src/main/java/com/aoo/bcg/gateway/ProtocolValuePolicy.java": "2f694f6f402100beb2f5b1ce3a009e5545ce0197c48aaa33a4f1d115ccebc936",
+    "Server/server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/JdbcGatewayRoomAuthority.java": "a54ae376b0641bea1a09917c680755c3bc36d0fa231eb0553c765445b6d31175",
+    "Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/RoomOrchestrator.java": "37d330b4cfbf158b50afe7ad2cc8a74446e9b2c03f234883dccb9aaa990d3368",
+    "Server/protocol/aoo-protocol-v2.json": "eea4c530596eb1164d01f62dec5485fd57b69d16b6ca37a09a0fcdc9e7cb0d3c",
+    "Client/assets/Games/Common/Code/Room/RoomReconnectController.ts": "98cdc547009ccd2a872c07ef4b19b2973bfad4d07079009515276cfd4d544835",
+    "Client/assets/Games/Common/Code/Room/RoomNetworkControllerMount.ts": "eb90eb3fda11ce2bc624629359455d8ecff9bc2536a2dd2ee1dc4c4d0ee76b18",
+    "Client/assets/Common/Code/Runtime/network/ProtocolClient.ts": "35245b5284936a8a63368867a398af59c6099c4740eb5cc377a889540170a07a",
+    "Client/assets/Common/Code/Runtime/network/GeneratedProtocolIds.ts": "1ebf47f39071e3059178092e0756f98ab3e3a14cd9b34ba31498b85a84b8de29"
+  },
+  "postimage": {
+    "Server/server/Gateway/src/main/java/com/aoo/bcg/gateway/GameWebSocketRouter.java": "45dd08453c966983eac5575c13d5b030177d73f3ad4c7c69151bcfb7f90c1329",
+    "Server/server/Gateway/src/main/java/com/aoo/bcg/gateway/ProtocolValuePolicy.java": "361b4175fc90ac42e34a1770e7a7cd6019771dedc23666a39453f20724ed076e",
+    "Server/server/Gateway/src/test/java/com/aoo/bcg/gateway/RoomOrchestratorReconnectRouterTest.java": "4dcaa73c7ece1d246b46ed92e2834412e3864a9d484d43a8a81e37267a4d4006",
+    "Client/assets/Common/Code/Runtime/network/ProtocolClient.ts": "71baf2e0df0e5f11d7519c79d988318cf0bf249bcab1839d1542a87bb26107e3"
+  },
+  "sourceWrite": true,
+  "productionDatabase": false,
+  "sharedRuntime": false
+}

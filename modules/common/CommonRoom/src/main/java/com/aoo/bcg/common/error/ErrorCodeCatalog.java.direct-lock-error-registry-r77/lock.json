@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 2,
+  "task": "DIRECT-20261008T084000Z-4a7f1c9e",
+  "lane": "D",
+  "attempt": "error-registry-20261012-r77",
+  "status": "RELEASED_FOR_INDEPENDENT_REVIEW",
+  "owner": "/root/error_registry_impl",
+  "path": "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/error/ErrorCodeCatalog.java",
+  "preimageSha256": "2c2b4fe9c29a8f707df82c0c93c3d60302f7b0a799f69d24927957e1474ab18c",
+  "scope": "append-only canonical taxonomy precedence and explicit compatibility aliases",
+  "sourceWrite": true,
+  "testWrite": false,
+  "independentReviewer": "lane_g",
+  "replacementCounts": {"identity precedence": 1, "identity alias": 1},
+  "postimageSha256": "caa15e36ac55b7d859da9f1b67a008b2c32550e1808300c2c1f9fac31a878782"
+}

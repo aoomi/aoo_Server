@@ -1,0 +1,280 @@
+{
+  "version": 1,
+  "gameCode": "quanguo2997",
+  "nextFieldSequence": 1,
+  "fields": [
+    {
+      "key": "totalRounds",
+      "label": "局数",
+      "position": 1,
+      "active": true,
+      "nextOptionSequence": 1,
+      "options": [
+        {
+          "label": "10局",
+          "position": 1,
+          "active": true,
+          "value": 10
+        },
+        {
+          "label": "20局",
+          "position": 2,
+          "active": true,
+          "value": 20
+        },
+        {
+          "label": "30局",
+          "position": 3,
+          "active": true,
+          "value": 30
+        }
+      ]
+    },
+    {
+      "key": "seatLimit",
+      "label": "桌型",
+      "position": 2,
+      "active": true,
+      "nextOptionSequence": 1,
+      "options": [
+        {
+          "label": "8人桌",
+          "position": 1,
+          "active": true,
+          "value": 8
+        },
+        {
+          "label": "10人桌",
+          "position": 2,
+          "active": true,
+          "value": 10
+        }
+      ]
+    },
+    {
+      "key": "minimumPlayers",
+      "label": "开局人数",
+      "position": 3,
+      "active": true,
+      "nextOptionSequence": 1,
+      "options": [
+        {
+          "label": "2人开局",
+          "position": 1,
+          "active": true,
+          "value": 2
+        },
+        {
+          "label": "4人开局",
+          "position": 2,
+          "active": true,
+          "value": 4
+        },
+        {
+          "label": "6人开局",
+          "position": 3,
+          "active": true,
+          "value": 6
+        }
+      ]
+    },
+    {
+      "key": "operationSeconds",
+      "label": "操作时间",
+      "position": 4,
+      "active": true,
+      "nextOptionSequence": 1,
+      "options": [
+        {
+          "label": "10秒",
+          "position": 1,
+          "active": true,
+          "value": 10
+        },
+        {
+          "label": "15秒",
+          "position": 2,
+          "active": true,
+          "value": 15
+        },
+        {
+          "label": "20秒",
+          "position": 3,
+          "active": true,
+          "value": 20
+        }
+      ]
+    },
+    {
+      "key": "compareStartRound",
+      "label": "开始比牌",
+      "position": 5,
+      "active": true,
+      "nextOptionSequence": 1,
+      "options": [
+        {
+          "label": "第1轮",
+          "position": 1,
+          "active": true,
+          "value": 1
+        },
+        {
+          "label": "第3轮",
+          "position": 2,
+          "active": true,
+          "value": 3
+        },
+        {
+          "label": "第5轮",
+          "position": 3,
+          "active": true,
+          "value": 5
+        }
+      ]
+    },
+    {
+      "key": "maximumBet",
+      "label": "单注封顶",
+      "position": 6,
+      "active": true,
+      "nextOptionSequence": 1,
+      "options": [
+        {
+          "label": "10分",
+          "position": 1,
+          "active": true,
+          "value": 10
+        },
+        {
+          "label": "20分",
+          "position": 2,
+          "active": true,
+          "value": 20
+        },
+        {
+          "label": "50分",
+          "position": 3,
+          "active": true,
+          "value": 50
+        }
+      ]
+    },
+    {
+      "key": "mustBlindRounds",
+      "label": "闷牌轮数",
+      "position": 7,
+      "active": true,
+      "nextOptionSequence": 1,
+      "options": [
+        {
+          "label": "不强制",
+          "position": 1,
+          "active": true,
+          "value": 0
+        },
+        {
+          "label": "1轮",
+          "position": 2,
+          "active": true,
+          "value": 1
+        },
+        {
+          "label": "2轮",
+          "position": 3,
+          "active": true,
+          "value": 2
+        }
+      ]
+    },
+    {
+      "key": "baseBet",
+      "label": "底分",
+      "position": 8,
+      "active": true,
+      "nextOptionSequence": 1,
+      "options": [
+        {
+          "label": "1分",
+          "position": 1,
+          "active": true,
+          "value": 1
+        },
+        {
+          "label": "2分",
+          "position": 2,
+          "active": true,
+          "value": 2
+        },
+        {
+          "label": "5分",
+          "position": 3,
+          "active": true,
+          "value": 5
+        },
+        {
+          "label": "10分",
+          "position": 4,
+          "active": true,
+          "value": 10
+        }
+      ]
+    },
+    {
+      "key": "aaaBonus",
+      "label": "AAA奖励",
+      "position": 9,
+      "active": true,
+      "nextOptionSequence": 1,
+      "options": [
+
+      ]
+    },
+    {
+      "key": "leopardBonus",
+      "label": "豹子奖励",
+      "position": 10,
+      "active": true,
+      "nextOptionSequence": 1,
+      "options": [
+
+      ]
+    },
+    {
+      "key": "straightFlushBonus",
+      "label": "同花顺奖励",
+      "position": 11,
+      "active": true,
+      "nextOptionSequence": 1,
+      "options": [
+
+      ]
+    },
+    {
+      "key": "hostingMissThreshold",
+      "label": "托管次数",
+      "position": 12,
+      "active": true,
+      "nextOptionSequence": 1,
+      "options": [
+        {
+          "label": "3次",
+          "position": 1,
+          "active": true,
+          "value": 3
+        },
+        {
+          "label": "4次",
+          "position": 2,
+          "active": true,
+          "value": 4
+        },
+        {
+          "label": "5次",
+          "position": 3,
+          "active": true,
+          "value": 5
+        }
+      ]
+    }
+  ]
+}

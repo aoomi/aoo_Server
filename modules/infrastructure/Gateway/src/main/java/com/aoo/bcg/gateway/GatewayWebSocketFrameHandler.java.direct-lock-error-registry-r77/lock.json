@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 2,
+  "task": "DIRECT-20261008T084000Z-4a7f1c9e",
+  "lane": "D",
+  "attempt": "error-registry-20261012-r77",
+  "status": "RELEASED_FOR_INDEPENDENT_REVIEW",
+  "owner": "/root/error_registry_impl",
+  "path": "Server/server/Gateway/src/main/java/com/aoo/bcg/gateway/GatewayWebSocketFrameHandler.java",
+  "preimageSha256": "7a330193e59405ad2c07d674cf1b22afacf03fcee266bbf92adf2fed0d44238a",
+  "scope": "canonical registry-driven WS exception mapping with legacy numeric semantics",
+  "sourceWrite": true,
+  "testWrite": false,
+  "independentReviewer": "lane_g",
+  "replacementCounts": {"registry-driven classifier": 1},
+  "postimageSha256": "4edc381447befda381f821503fa9c272df76624fb0163d2b4cd1d2e07f70ef9d"
+}

@@ -1,0 +1,504 @@
+{
+  "_generated": "自动生成，权威来源为只读 Excel",
+  "sourceHash": "234af1daa86aa3efd257e130d7cd5eadb8bb76361079ea3a0f418d0c20502026",
+  "identity": {
+    "publishingEnabled": true,
+    "gameId": 2003,
+    "gameCode": "liangshan2003",
+    "legacyFieldKeyAliases": {
+      "rule_ls201_0001": "rule_liangshan2003_0001"
+    },
+    "playVersion": "liangshan2003-v1.0.0",
+    "family": "poker:pao-de-kuai",
+    "regionCode": "CN-51-34",
+    "releaseScope": "REGIONAL",
+    "requiredRoomRuleFields": [
+      {
+        "key": "playerCount",
+        "sourceLabel": "人数"
+      },
+      {
+        "key": "roundCount",
+        "sourceLabel": "局数"
+      },
+      {
+        "key": "operationTime",
+        "sourceLabel": "操作时间"
+      },
+      {
+        "key": "dealCardCount",
+        "sourceLabel": "发牌张数"
+      },
+      {
+        "key": "jinHuaScore",
+        "sourceLabel": "比金花"
+      },
+      {
+        "key": "robDealerRule",
+        "sourceLabel": "抢庄"
+      },
+      {
+        "key": "rule_liangshan2003_0001",
+        "sourceLabel": "小结算"
+      },
+      {
+        "key": "playRule",
+        "sourceLabel": "玩法"
+      },
+      {
+        "key": "hostingMissThreshold",
+        "sourceLabel": "托管次数",
+        "serverOwned": true
+      },
+      {
+        "key": "roomRestriction",
+        "sourceLabel": "其他"
+      }
+    ],
+    "numericRoomRuleFields": [
+      {
+        "sourceLabel": "人数",
+        "suffix": "人"
+      },
+      {
+        "sourceLabel": "局数",
+        "suffix": "局"
+      },
+      {
+        "sourceLabel": "操作时间",
+        "suffix": "秒"
+      }
+    ],
+    "roomRuleOptionValues": {
+      "发牌张数": {
+        "8张(7-A)": 8,
+        "10张(5-A)": 10
+      },
+      "比金花": {
+        "1分": 1,
+        "2分": 2,
+        "3分": 3,
+        "4分": 4,
+        "5分": 5,
+        "不比": "no_compare"
+      },
+      "抢庄": {
+        "庄家先抢": "dealer_first",
+        "庄家后抢": "dealer_last",
+        "首局不抢": "first_round_no_compete",
+        "不抢庄": "no_compete"
+      },
+      "小结算": {
+        "小局结算弹窗": "option_0001"
+      },
+      "玩法": {
+        "三带比带": "compare_attachments",
+        "三带一": "triple_with_one",
+        "四带二": "four_with_two",
+        "四张A,7": "four_ace_rank",
+        "全单,全顺,全连对,全对,全黑,全红,全大,全小": "all_special_patterns"
+      },
+      "托管次数": {
+        "3次": 3,
+        "4次": 4,
+        "5次": 5
+      },
+      "其他": {
+        "IP限制": "ip_limit",
+        "GPS限制": "gps_limit",
+        "超时托管": "timeout_auto_play",
+        "距离过近警告": "distance_warning",
+        "禁止互动": "interaction_forbidden",
+        "禁言": "chat_muted"
+      }
+    }
+  },
+  "targets": [
+    {
+      "gameId": 2003,
+      "playVersion": "liangshan2003-v1.0.0"
+    }
+  ],
+  "fields": [
+    {
+      "key": "playerCount",
+      "label": "人数",
+      "control": "radio",
+      "order": 80,
+      "visible": true,
+      "disabled": false,
+      "required": true,
+      "defaultCandidateIndexes": [
+        1
+      ],
+      "defaultValue": 2,
+      "options": [
+        {
+          "value": 2,
+          "label": "2人",
+          "order": 10,
+          "disabled": false
+        },
+        {
+          "value": 3,
+          "label": "3人",
+          "order": 20,
+          "disabled": false
+        },
+        {
+          "value": 4,
+          "label": "4人",
+          "order": 30,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "key": "roundCount",
+      "label": "局数",
+      "control": "radio",
+      "order": 90,
+      "visible": true,
+      "disabled": false,
+      "required": true,
+      "defaultCandidateIndexes": [
+        1
+      ],
+      "defaultValue": 8,
+      "options": [
+        {
+          "value": 8,
+          "label": "8局",
+          "order": 10,
+          "disabled": false
+        },
+        {
+          "value": 12,
+          "label": "12局",
+          "order": 20,
+          "disabled": false
+        },
+        {
+          "value": 16,
+          "label": "16局",
+          "order": 30,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "key": "operationTime",
+      "label": "操作时间",
+      "control": "radio",
+      "order": 100,
+      "visible": true,
+      "disabled": false,
+      "required": true,
+      "defaultCandidateIndexes": [
+        1
+      ],
+      "defaultValue": 10000,
+      "options": [
+        {
+          "value": 10000,
+          "label": "10000秒",
+          "order": 10,
+          "disabled": false
+        },
+        {
+          "value": 15,
+          "label": "15秒",
+          "order": 20,
+          "disabled": false
+        },
+        {
+          "value": 20,
+          "label": "20秒",
+          "order": 30,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "key": "dealCardCount",
+      "label": "发牌张数",
+      "control": "radio",
+      "order": 110,
+      "visible": true,
+      "disabled": false,
+      "required": true,
+      "defaultCandidateIndexes": [
+        1
+      ],
+      "defaultValue": 8,
+      "options": [
+        {
+          "value": 8,
+          "label": "8张(7-A)",
+          "order": 10,
+          "disabled": false
+        },
+        {
+          "value": 10,
+          "label": "10张(5-A)",
+          "order": 20,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "key": "jinHuaScore",
+      "label": "比金花",
+      "control": "radio",
+      "order": 120,
+      "visible": true,
+      "disabled": false,
+      "required": true,
+      "defaultCandidateIndexes": [
+        6
+      ],
+      "defaultValue": "no_compare",
+      "options": [
+        {
+          "value": 1,
+          "label": "1分",
+          "order": 10,
+          "disabled": false
+        },
+        {
+          "value": 2,
+          "label": "2分",
+          "order": 20,
+          "disabled": false
+        },
+        {
+          "value": 3,
+          "label": "3分",
+          "order": 30,
+          "disabled": false
+        },
+        {
+          "value": 4,
+          "label": "4分",
+          "order": 40,
+          "disabled": false
+        },
+        {
+          "value": 5,
+          "label": "5分",
+          "order": 50,
+          "disabled": false
+        },
+        {
+          "value": "no_compare",
+          "label": "不比",
+          "order": 60,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "key": "robDealerRule",
+      "label": "抢庄",
+      "control": "radio",
+      "order": 130,
+      "visible": true,
+      "disabled": false,
+      "required": true,
+      "defaultCandidateIndexes": [
+        1
+      ],
+      "defaultValue": "dealer_first",
+      "options": [
+        {
+          "value": "dealer_first",
+          "label": "庄家先抢",
+          "order": 10,
+          "disabled": false
+        },
+        {
+          "value": "dealer_last",
+          "label": "庄家后抢",
+          "order": 20,
+          "disabled": false
+        },
+        {
+          "value": "first_round_no_compete",
+          "label": "首局不抢",
+          "order": 30,
+          "disabled": false
+        },
+        {
+          "value": "no_compete",
+          "label": "不抢庄",
+          "order": 40,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "key": "rule_liangshan2003_0001",
+      "label": "小结算",
+      "control": "checkbox",
+      "order": 140,
+      "visible": true,
+      "disabled": false,
+      "required": false,
+      "defaultCandidateIndexes": [
+        1
+      ],
+      "defaultValue": [
+        "option_0001"
+      ],
+      "options": [
+        {
+          "value": "option_0001",
+          "label": "小局结算弹窗",
+          "order": 10,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "key": "playRule",
+      "label": "玩法",
+      "control": "checkbox",
+      "order": 150,
+      "visible": true,
+      "disabled": false,
+      "required": false,
+      "defaultCandidateIndexes": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "defaultValue": [
+        "compare_attachments",
+        "triple_with_one",
+        "four_with_two",
+        "four_ace_rank",
+        "all_special_patterns"
+      ],
+      "options": [
+        {
+          "value": "compare_attachments",
+          "label": "三带比带",
+          "order": 10,
+          "disabled": false
+        },
+        {
+          "value": "triple_with_one",
+          "label": "三带一",
+          "order": 20,
+          "disabled": false
+        },
+        {
+          "value": "four_with_two",
+          "label": "四带二",
+          "order": 30,
+          "disabled": false
+        },
+        {
+          "value": "four_ace_rank",
+          "label": "四张A,7",
+          "order": 40,
+          "disabled": false
+        },
+        {
+          "value": "all_special_patterns",
+          "label": "全单,全顺,全连对,全对,全黑,全红,全大,全小",
+          "order": 50,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "key": "hostingMissThreshold",
+      "label": "托管次数",
+      "control": "radio",
+      "order": 160,
+      "visible": false,
+      "disabled": true,
+      "required": true,
+      "defaultCandidateIndexes": [
+        1
+      ],
+      "defaultValue": 3,
+      "options": [
+        {
+          "value": 3,
+          "label": "3次",
+          "order": 10,
+          "disabled": false
+        },
+        {
+          "value": 4,
+          "label": "4次",
+          "order": 20,
+          "disabled": false
+        },
+        {
+          "value": 5,
+          "label": "5次",
+          "order": 30,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "key": "roomRestriction",
+      "label": "其他",
+      "control": "checkbox",
+      "order": 170,
+      "visible": true,
+      "disabled": false,
+      "required": false,
+      "defaultCandidateIndexes": [
+
+      ],
+      "defaultValue": [
+
+      ],
+      "options": [
+        {
+          "value": "ip_limit",
+          "label": "IP限制",
+          "order": 10,
+          "disabled": false
+        },
+        {
+          "value": "gps_limit",
+          "label": "GPS限制",
+          "order": 20,
+          "disabled": false
+        },
+        {
+          "value": "timeout_auto_play",
+          "label": "超时托管",
+          "order": 30,
+          "disabled": false
+        },
+        {
+          "value": "distance_warning",
+          "label": "距离过近警告",
+          "order": 40,
+          "disabled": false
+        },
+        {
+          "value": "interaction_forbidden",
+          "label": "禁止互动",
+          "order": 50,
+          "disabled": false
+        },
+        {
+          "value": "chat_muted",
+          "label": "禁言",
+          "order": 60,
+          "disabled": false
+        }
+      ]
+    }
+  ]
+}

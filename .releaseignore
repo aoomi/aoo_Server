@@ -45,3 +45,5 @@ Archive/
 **/*.sql.gz
 **/*.pid
 **/runtime-classpath.txt
+
+/build-only/

@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "status": "RELEASED_FOR_INDEPENDENT_REVIEW",
+  "owner": "/root/r58_configcenter_exception_repair",
+  "task": "DIRECT-20261008T084000Z-4a7f1c9e",
+  "attempt": "c3-r58-configcenter-exception-policy-20261010",
+  "acquiredAt": "2026-10-09T20:07:42Z",
+  "purpose": "R58 exception-policy annotation for best-effort rollback that preserves the original fail-closed identity failure",
+  "allowlist": [
+    "Server/server/ConfigCenter/src/main/java/com/aoo/bcg/config/RoomRuntimeIdentityStore.java"
+  ],
+  "forbidden": [
+    "catch behavior changes",
+    "error propagation changes",
+    "database semantics changes",
+    "retry strategy changes",
+    "service or database runtime start",
+    "commits"
+  ],
+  "productionDatabase": false,
+  "migrationWrite": false,
+  "releasedAt": "2026-10-09T20:09:30Z",
+  "releaseReason": "R58 bounded annotation completed; exact Maven command blocked before compilation by external parent workbook gate; source/test postimages and DEV_SELF_CHECK recorded for independent review"
+}

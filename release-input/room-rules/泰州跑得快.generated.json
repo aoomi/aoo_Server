@@ -1,0 +1,774 @@
+{
+  "_generated": "自动生成，权威来源为只读 Excel",
+  "sourceHash": "c54fb2770c6fb2f2e80e173ac5fd960b7481f5172d88aa9e4c5102c5147e53f1",
+  "identity": {
+    "publishingEnabled": true,
+    "gameId": 2020,
+    "gameCode": "taizhou2020",
+    "playVersion": "legacy-equivalent-1",
+    "family": "poker:pao-de-kuai",
+    "regionCode": "CN-32-12",
+    "releaseScope": "REGIONAL",
+    "requiredRoomRuleFields": [
+      {
+        "key": "roundCount",
+        "sourceLabel": "局数"
+      },
+      {
+        "key": "playerCount",
+        "sourceLabel": "人数"
+      },
+      {
+        "key": "paymentMode",
+        "sourceLabel": "支付方式"
+      },
+      {
+        "key": "dealCardCount",
+        "sourceLabel": "发牌张数"
+      },
+      {
+        "key": "playRule",
+        "sourceLabel": "玩法与设置"
+      },
+      {
+        "key": "reportScoreMode",
+        "sourceLabel": "报单计分"
+      },
+      {
+        "key": "bombSettlementMode",
+        "sourceLabel": "炸弹结算方式"
+      },
+      {
+        "key": "bombScore",
+        "sourceLabel": "炸弹记分"
+      },
+      {
+        "key": "straightLengthMode",
+        "sourceLabel": "顺子"
+      },
+      {
+        "key": "roomSettings",
+        "sourceLabel": "房间设置"
+      },
+      {
+        "key": "operationTimeoutSeconds",
+        "sourceLabel": "操作时间"
+      },
+      {
+        "key": "roomTimeLimitMinutes",
+        "sourceLabel": "房间时限"
+      },
+      {
+        "key": "dissolveTimeoutSeconds",
+        "sourceLabel": "解散时间"
+      },
+      {
+        "key": "roomRestriction",
+        "sourceLabel": "其他"
+      }
+    ],
+    "numericRoomRuleFields": [
+      {
+        "sourceLabel": "局数",
+        "suffix": "局"
+      },
+      {
+        "sourceLabel": "人数",
+        "suffix": "人"
+      },
+      {
+        "sourceLabel": "发牌张数",
+        "suffix": "张"
+      },
+      {
+        "sourceLabel": "炸弹记分",
+        "suffix": "分"
+      },
+      {
+        "sourceLabel": "房间时限",
+        "suffix": "分钟"
+      }
+    ],
+    "roomRuleOptionValues": {
+      "局数": {
+        "8局": 8,
+        "10局": 10,
+        "16局": 16
+      },
+      "人数": {
+        "2人": 2,
+        "3人": 3
+      },
+      "支付方式": {
+        "房主付": "owner_pays",
+        "平分付": "split_pays",
+        "胜家付": "winner_pays"
+      },
+      "发牌张数": {
+        "16张": 16
+      },
+      "玩法与设置": {
+        "每局红桃3先出": "every_round_heart_three_first",
+        "赢家先出": "winner_first",
+        "输家先出": "loser_first",
+        "可不压牌": "may_pass",
+        "显示手牌": "show_hand",
+        "炸弹可拆": "bomb_splittable",
+        "3A为最大炸": "triple_ace_max_bomb",
+        "手动过牌": "manual_pass",
+        "手动准备": "manual_ready",
+        "无炸弹": "no_bomb",
+        "3A为炸": "triple_ace_bomb",
+        "防作弊": "anti_cheat",
+        "比赛分不能低于0": "match_score_floor_zero",
+        "只能赢当前身上分": "win_current_score_only",
+        "炸弹可带一张": "bomb_with_one",
+        "小关": "small_gate"
+      },
+      "报单计分": {
+        "报单算分": "score_reported",
+        "不算分": "no_score"
+      },
+      "炸弹结算方式": {
+        "只算每轮最大炸": "max_bomb_per_round",
+        "炸弹不算分": 0
+      },
+      "炸弹记分": {
+        "炸弹加10分": 10,
+        "炸弹加5分": 5
+      },
+      "顺子": {
+        "五张起": "five_or_more",
+        "六张起": "six_or_more"
+      },
+      "房间设置": {
+        "房间内切换人数": "switch_player_count",
+        "小局托管解散": "dissolve_on_round_trustee",
+        "托管2小局解散": "dissolve_after_two_rounds_trustee"
+      },
+      "操作时间": {
+        "不限制": -1,
+        "3分出牌": 180,
+        "5分出牌": 300,
+        "1分出牌": 60,
+        "30秒出牌": 30,
+        "15秒出牌": 15,
+        "10分出牌": 600
+      },
+      "房间时限": {
+        "不限制": -1,
+        "8分钟": 8,
+        "10分钟": 10,
+        "12分钟": 12,
+        "15分钟": 15,
+        "20分钟": 20
+      },
+      "解散时间": {
+        "30秒解散": 30,
+        "1分解散": 60,
+        "3分解散": 180,
+        "5分解散": 300,
+        "不可解散": -1
+      },
+      "其他": {
+        "同IP不可进": "same_ip_blocked",
+        "100米内不可进": "within_100m_blocked",
+        "禁止使用道具": "items_forbidden",
+        "200米内不可进": "within_200m_blocked",
+        "30秒未准备自动踢出房间": "kick_unready_30s",
+        "禁止语音": "voice_forbidden",
+        "禁止文字": "chat_forbidden"
+      }
+    }
+  },
+  "targets": [
+    {
+      "gameId": 2020,
+      "playVersion": "legacy-equivalent-1"
+    }
+  ],
+  "fields": [
+    {
+      "key": "roundCount",
+      "label": "局数",
+      "control": "radio",
+      "order": 80,
+      "visible": true,
+      "disabled": false,
+      "required": true,
+      "defaultCandidateIndexes": [
+        1
+      ],
+      "defaultValue": 8,
+      "options": [
+        {
+          "value": 8,
+          "label": "8局",
+          "order": 10,
+          "disabled": false
+        },
+        {
+          "value": 10,
+          "label": "10局",
+          "order": 20,
+          "disabled": false
+        },
+        {
+          "value": 16,
+          "label": "16局",
+          "order": 30,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "key": "playerCount",
+      "label": "人数",
+      "control": "radio",
+      "order": 90,
+      "visible": true,
+      "disabled": false,
+      "required": true,
+      "defaultCandidateIndexes": [
+        1
+      ],
+      "defaultValue": 2,
+      "options": [
+        {
+          "value": 2,
+          "label": "2人",
+          "order": 10,
+          "disabled": false
+        },
+        {
+          "value": 3,
+          "label": "3人",
+          "order": 20,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "key": "paymentMode",
+      "label": "支付方式",
+      "control": "radio",
+      "order": 100,
+      "visible": true,
+      "disabled": false,
+      "required": true,
+      "defaultCandidateIndexes": [
+        1
+      ],
+      "defaultValue": "owner_pays",
+      "options": [
+        {
+          "value": "owner_pays",
+          "label": "房主付",
+          "order": 10,
+          "disabled": false
+        },
+        {
+          "value": "split_pays",
+          "label": "平分付",
+          "order": 20,
+          "disabled": false
+        },
+        {
+          "value": "winner_pays",
+          "label": "胜家付",
+          "order": 30,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "key": "dealCardCount",
+      "label": "发牌张数",
+      "control": "radio",
+      "order": 110,
+      "visible": true,
+      "disabled": false,
+      "required": true,
+      "defaultCandidateIndexes": [
+        1
+      ],
+      "defaultValue": 16,
+      "options": [
+        {
+          "value": 16,
+          "label": "16张",
+          "order": 10,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "key": "playRule",
+      "label": "玩法与设置",
+      "control": "checkbox",
+      "order": 120,
+      "visible": true,
+      "disabled": false,
+      "required": false,
+      "defaultCandidateIndexes": [
+        1
+      ],
+      "defaultValue": [
+        "every_round_heart_three_first"
+      ],
+      "options": [
+        {
+          "value": "every_round_heart_three_first",
+          "label": "每局红桃3先出",
+          "order": 10,
+          "disabled": false
+        },
+        {
+          "value": "winner_first",
+          "label": "赢家先出",
+          "order": 20,
+          "disabled": false
+        },
+        {
+          "value": "loser_first",
+          "label": "输家先出",
+          "order": 30,
+          "disabled": false
+        },
+        {
+          "value": "may_pass",
+          "label": "可不压牌",
+          "order": 40,
+          "disabled": false
+        },
+        {
+          "value": "show_hand",
+          "label": "显示手牌",
+          "order": 50,
+          "disabled": false
+        },
+        {
+          "value": "bomb_splittable",
+          "label": "炸弹可拆",
+          "order": 60,
+          "disabled": false
+        },
+        {
+          "value": "triple_ace_max_bomb",
+          "label": "3A为最大炸",
+          "order": 70,
+          "disabled": false
+        },
+        {
+          "value": "manual_pass",
+          "label": "手动过牌",
+          "order": 80,
+          "disabled": false
+        },
+        {
+          "value": "manual_ready",
+          "label": "手动准备",
+          "order": 90,
+          "disabled": false
+        },
+        {
+          "value": "no_bomb",
+          "label": "无炸弹",
+          "order": 100,
+          "disabled": false
+        },
+        {
+          "value": "triple_ace_bomb",
+          "label": "3A为炸",
+          "order": 110,
+          "disabled": false
+        },
+        {
+          "value": "anti_cheat",
+          "label": "防作弊",
+          "order": 120,
+          "disabled": false
+        },
+        {
+          "value": "match_score_floor_zero",
+          "label": "比赛分不能低于0",
+          "order": 130,
+          "disabled": false
+        },
+        {
+          "value": "win_current_score_only",
+          "label": "只能赢当前身上分",
+          "order": 140,
+          "disabled": false
+        },
+        {
+          "value": "bomb_with_one",
+          "label": "炸弹可带一张",
+          "order": 150,
+          "disabled": false
+        },
+        {
+          "value": "small_gate",
+          "label": "小关",
+          "order": 160,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "key": "reportScoreMode",
+      "label": "报单计分",
+      "control": "radio",
+      "order": 130,
+      "visible": true,
+      "disabled": false,
+      "required": true,
+      "defaultCandidateIndexes": [
+        1
+      ],
+      "defaultValue": "score_reported",
+      "options": [
+        {
+          "value": "score_reported",
+          "label": "报单算分",
+          "order": 10,
+          "disabled": false
+        },
+        {
+          "value": "no_score",
+          "label": "不算分",
+          "order": 20,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "key": "bombSettlementMode",
+      "label": "炸弹结算方式",
+      "control": "radio",
+      "order": 140,
+      "visible": true,
+      "disabled": false,
+      "required": true,
+      "defaultCandidateIndexes": [
+        1
+      ],
+      "defaultValue": "max_bomb_per_round",
+      "options": [
+        {
+          "value": "max_bomb_per_round",
+          "label": "只算每轮最大炸",
+          "order": 10,
+          "disabled": false
+        },
+        {
+          "value": 0,
+          "label": "炸弹不算分",
+          "order": 20,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "key": "bombScore",
+      "label": "炸弹记分",
+      "control": "radio",
+      "order": 150,
+      "visible": true,
+      "disabled": false,
+      "required": true,
+      "defaultCandidateIndexes": [
+        1
+      ],
+      "defaultValue": 10,
+      "options": [
+        {
+          "value": 10,
+          "label": "炸弹加10分",
+          "order": 10,
+          "disabled": false
+        },
+        {
+          "value": 5,
+          "label": "炸弹加5分",
+          "order": 20,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "key": "straightLengthMode",
+      "label": "顺子",
+      "control": "radio",
+      "order": 160,
+      "visible": true,
+      "disabled": false,
+      "required": true,
+      "defaultCandidateIndexes": [
+        1
+      ],
+      "defaultValue": "five_or_more",
+      "options": [
+        {
+          "value": "five_or_more",
+          "label": "五张起",
+          "order": 10,
+          "disabled": false
+        },
+        {
+          "value": "six_or_more",
+          "label": "六张起",
+          "order": 20,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "key": "roomSettings",
+      "label": "房间设置",
+      "control": "checkbox",
+      "order": 170,
+      "visible": true,
+      "disabled": false,
+      "required": false,
+      "defaultCandidateIndexes": [
+        1
+      ],
+      "defaultValue": [
+        "switch_player_count"
+      ],
+      "options": [
+        {
+          "value": "switch_player_count",
+          "label": "房间内切换人数",
+          "order": 10,
+          "disabled": false
+        },
+        {
+          "value": "dissolve_on_round_trustee",
+          "label": "小局托管解散",
+          "order": 20,
+          "disabled": false
+        },
+        {
+          "value": "dissolve_after_two_rounds_trustee",
+          "label": "托管2小局解散",
+          "order": 30,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "key": "operationTimeoutSeconds",
+      "label": "操作时间",
+      "control": "radio",
+      "order": 180,
+      "visible": true,
+      "disabled": false,
+      "required": true,
+      "defaultCandidateIndexes": [
+        1
+      ],
+      "defaultValue": -1,
+      "options": [
+        {
+          "value": -1,
+          "label": "不限制",
+          "order": 10,
+          "disabled": false
+        },
+        {
+          "value": 180,
+          "label": "3分出牌",
+          "order": 20,
+          "disabled": false
+        },
+        {
+          "value": 300,
+          "label": "5分出牌",
+          "order": 30,
+          "disabled": false
+        },
+        {
+          "value": 60,
+          "label": "1分出牌",
+          "order": 40,
+          "disabled": false
+        },
+        {
+          "value": 30,
+          "label": "30秒出牌",
+          "order": 50,
+          "disabled": false
+        },
+        {
+          "value": 15,
+          "label": "15秒出牌",
+          "order": 60,
+          "disabled": false
+        },
+        {
+          "value": 600,
+          "label": "10分出牌",
+          "order": 70,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "key": "roomTimeLimitMinutes",
+      "label": "房间时限",
+      "control": "radio",
+      "order": 190,
+      "visible": true,
+      "disabled": false,
+      "required": true,
+      "defaultCandidateIndexes": [
+        1
+      ],
+      "defaultValue": -1,
+      "options": [
+        {
+          "value": -1,
+          "label": "不限制",
+          "order": 10,
+          "disabled": false
+        },
+        {
+          "value": 8,
+          "label": "8分钟",
+          "order": 20,
+          "disabled": false
+        },
+        {
+          "value": 10,
+          "label": "10分钟",
+          "order": 30,
+          "disabled": false
+        },
+        {
+          "value": 12,
+          "label": "12分钟",
+          "order": 40,
+          "disabled": false
+        },
+        {
+          "value": 15,
+          "label": "15分钟",
+          "order": 50,
+          "disabled": false
+        },
+        {
+          "value": 20,
+          "label": "20分钟",
+          "order": 60,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "key": "dissolveTimeoutSeconds",
+      "label": "解散时间",
+      "control": "radio",
+      "order": 200,
+      "visible": true,
+      "disabled": false,
+      "required": true,
+      "defaultCandidateIndexes": [
+        1
+      ],
+      "defaultValue": 30,
+      "options": [
+        {
+          "value": 30,
+          "label": "30秒解散",
+          "order": 10,
+          "disabled": false
+        },
+        {
+          "value": 60,
+          "label": "1分解散",
+          "order": 20,
+          "disabled": false
+        },
+        {
+          "value": 180,
+          "label": "3分解散",
+          "order": 30,
+          "disabled": false
+        },
+        {
+          "value": 300,
+          "label": "5分解散",
+          "order": 40,
+          "disabled": false
+        },
+        {
+          "value": -1,
+          "label": "不可解散",
+          "order": 50,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "key": "roomRestriction",
+      "label": "其他",
+      "control": "checkbox",
+      "order": 210,
+      "visible": true,
+      "disabled": false,
+      "required": false,
+      "defaultCandidateIndexes": [
+        1
+      ],
+      "defaultValue": [
+        "same_ip_blocked"
+      ],
+      "options": [
+        {
+          "value": "same_ip_blocked",
+          "label": "同IP不可进",
+          "order": 10,
+          "disabled": false
+        },
+        {
+          "value": "within_100m_blocked",
+          "label": "100米内不可进",
+          "order": 20,
+          "disabled": false
+        },
+        {
+          "value": "items_forbidden",
+          "label": "禁止使用道具",
+          "order": 30,
+          "disabled": false
+        },
+        {
+          "value": "within_200m_blocked",
+          "label": "200米内不可进",
+          "order": 40,
+          "disabled": false
+        },
+        {
+          "value": "kick_unready_30s",
+          "label": "30秒未准备自动踢出房间",
+          "order": 50,
+          "disabled": false
+        },
+        {
+          "value": "voice_forbidden",
+          "label": "禁止语音",
+          "order": 60,
+          "disabled": false
+        },
+        {
+          "value": "chat_forbidden",
+          "label": "禁止文字",
+          "order": 70,
+          "disabled": false
+        }
+      ]
+    }
+  ]
+}

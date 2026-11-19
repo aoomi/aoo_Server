@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "status": "RELEASED_FOR_INDEPENDENT_REVIEW",
+  "owner": "/root/implement_v198_sql_only",
+  "task": "DIRECT-20261008T055848Z-3a91c7e4-old-runtime-admission-gate",
+  "attempt": "v1.3-repair-r1",
+  "acquiredAt": "2026-10-08T14:32:00+08:00",
+  "purpose": "machine-wrap missing compatibility provider and legacy authority factory",
+  "allowlist": ["Server/server/gameServer/src/business/global/room/LegacyUnifiedRoomBinding.java", "docs/05-当前状态/evidence/DIRECT-20261008T055848Z-3a91c7e4/implementation/**"],
+  "sourceWrite": true,
+  "productionDatabase": false,
+  "dirtyCustody": "inherited c41 plus v1.1 implementation; do not overwrite or revert",
+  "releasedAt": "2026-10-08T14:38:00+08:00",
+  "releaseEvidence": "docs/05-当前状态/evidence/DIRECT-20261008T055848Z-3a91c7e4/implementation/v1.3-repair-evidence.md"
+}

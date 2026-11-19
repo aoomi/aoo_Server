@@ -1,0 +1,10 @@
+{
+  "owner": "/root/implement_v197_room_lock_metadata",
+  "task": "c3-v12-hall-authority-error-propagation-v1",
+  "path": "Server/server/Hall/src/main/java/com/aoo/bcg/hall/http/HallHttpRoutes.java",
+  "status": "RELEASED_FOR_INDEPENDENT_REVIEW",
+  "acquiredAt": "2026-10-09T04:31:22Z",
+  "releasedAt": "2026-10-09T04:35:05Z",
+  "releaseReason": "Implementation and focused self-check complete; awaiting non-implementer review",
+  "writeMode": "bounded authority rejection catches and response helper only"
+}

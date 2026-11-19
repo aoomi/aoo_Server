@@ -1,0 +1,11 @@
+{
+  "owner": "/root/shuju",
+  "state": "RELEASED_SAFE_CHECKPOINT",
+  "sourceWrite": true,
+  "preimage": "af1a8956b76feeb596f435cd4f4fb78e506f9754fcdba645112fa41c1e7ab307",
+  "path": "server/database/bootstrap/initialize_empty_database.py",
+  "createdAt": "2026-10-14T08:58:25.403766+00:00",
+  "releasedAt": "2026-10-14T09:11:18.220826+00:00",
+  "postimageSha256": "1b5c7d461812025f75e179d0357f6c261ab6e63ec779cb93a5f1744fdb59fe46",
+  "reason": "explicit user model configuration replacement"
+}

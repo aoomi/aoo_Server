@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 2,
+  "lockId": "R48-TAKEOVER-20261010T050917Z-01",
+  "status": "RELEASED_FOR_INDEPENDENT_REVIEW",
+  "owner": "/root/implement_r48_takeover",
+  "task": "DIRECT-20261008T084000Z-4a7f1c9e",
+  "attempt": "R48-R50-takeover-implementation-20261010",
+  "acquiredAt": "2026-10-10T05:09:17Z",
+  "releasedAt": "2026-10-13T09:11:57.308204000Z",
+  "path": "Server/server/Bootstrap/src/main/resources/game-catalog-528.tsv",
+  "preimageSha256": "985b6dbf660fa7e62f805398a6d59e65efdd155d39129f7f97e54ab3767b92a4",
+  "handoffCurrentSha256": "985b6dbf660fa7e62f805398a6d59e65efdd155d39129f7f97e54ab3767b92a4",
+  "oldPreimageSha256": "9c114824c1fe566d547a09429d31748f6395395ecb275a32a84f2e2cdc1fe5e4",
+  "r49BaselineSha256": "9c114824c1fe566d547a09429d31748f6395395ecb275a32a84f2e2cdc1fe5e4",
+  "oldOwner": "/root/r48_longcard_provider_implementation",
+  "supersedes": "Server/server/Bootstrap/src/main/resources/game-catalog-528.tsv.direct-lock-r48/lock.json",
+  "sourceWrite": true,
+  "releaseReceipt": "docs/05-当前状态/evidence/DIRECT-20261008T084000Z-4a7f1c9e/c3-r48-takeover-implementation-20261010/r48-catalog-source-target-successor-release-receipt-20261013.md",
+  "independentAcceptance": "ACCEPT_BOUNDED",
+  "scope": "R48 exact carrier delta for this file only"
+}

@@ -1,0 +1,13 @@
+{
+  "owner": "/root/fangka_low",
+  "state": "RELEASED",
+  "attempt": "persistent-r2-singlefinding",
+  "acquiredAt": "2026-10-16T12:36:29.572341+00:00",
+  "expiresAt": "2026-10-16T18:55:22.969546+00:00",
+  "writePaths": [
+    "/Users/aoo/Code/Game/BCG/Aoo/server/modules/user-domain/Billing/src/test/java/com/aoo/bcg/billing/JdbcRoomChargeCoordinatorIntegrationTest.java"
+  ],
+  "preimageSHA256": "35463cfaab0bfb364708ace0696cff151ce3bbc674440e32c752a7519fb8dfe2",
+  "releasedAt": "2026-10-16T12:37:05.441766+00:00",
+  "postSHA256": "b2a7a786576868f44c673d777e36d006d2890ac7c1374b0bf755c8af98ec2d9d"
+}

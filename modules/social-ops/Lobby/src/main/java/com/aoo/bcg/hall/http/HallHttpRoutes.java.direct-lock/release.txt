@@ -1,0 +1,8 @@
+Status=ABORTED_RELEASED
+Owner=/root/audit_rule_table_auto_mapping
+Task=STALE_LOCK_RECONCILIATION-v258
+Attempt=26
+ReleasedAt=2026-10-07T21:38:44Z
+ReleaseReason=STALE_BY_EVIDENCE; owner absent from live Agent Tree, .agent-teams, and process/handle checks; no release or abort record; no source changes claimed by this reconciliation
+Evidence=docs/05-当前状态/evidence/DIRECT-20261006T211500Z-e5b8c2d1/room-destroy-exit-v258-lock-reconciliation/
+Scope=coordination-only; no source/test/protocol/database/deployment changes

@@ -1,0 +1,12 @@
+{
+  "owner": "/root/kuangjia_mingming_low",
+  "state": "RELEASED",
+  "attempt": "nn-framework-r5",
+  "acquiredAt": "2026-10-16T14:33:33.281445+00:00",
+  "expiresAt": "2026-10-16T15:03:33.281445+00:00",
+  "writePaths": [
+    "server/engineering/release/project-canonical-identity-registry.rb"
+  ],
+  "scope": "exact NN path/FQN token-only diff prescribed nn-framework-consumer-plan-r5; preserve all other dirty bytes",
+  "releasedAt": "2026-10-16T14:45:47.572962+00:00"
+}

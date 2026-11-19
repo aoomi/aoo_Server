@@ -1,0 +1,11 @@
+{
+  "owner": "/root/fangka_xuqian",
+  "state": "RELEASED",
+  "attempt": "qualification-r1",
+  "acquiredAt": "2026-10-16T20:56:42.600855+00:00",
+  "expiresAt": "2026-10-16T22:56:42.600855+00:00",
+  "writePaths": [
+    "/Users/aoo/Code/Game/BCG/Aoo/server/modules/user-domain/Billing/src/test/java/com/aoo/bcg/billing/JdbcRoomCardQualificationTest.java"
+  ],
+  "releasedAt": "2026-10-16T20:58:22.192134+00:00"
+}

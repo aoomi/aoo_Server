@@ -9,4 +9,4 @@
 
 `root-common-runtime/` 保存从活动目录移出的 `common/bin` 与 `LegacyCommon/bin` Ehcache 磁盘状态，仅用于历史运行行为取证，不进入生产运行链。
 
-全部文件的来源、哈希、推断版本、用途和发布处置由 `docs/generated/legacy-common-binary-inventory.json` 记录；其中所有项 `productionRequired=false`。
+全部文件的来源、哈希、推断版本、用途和发布处置由 `Docs/generated/legacy-common-binary-inventory.json` 记录；其中所有项 `productionRequired=false`。

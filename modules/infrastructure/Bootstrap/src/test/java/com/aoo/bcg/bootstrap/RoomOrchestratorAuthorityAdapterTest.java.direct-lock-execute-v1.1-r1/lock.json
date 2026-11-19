@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "status": "RELEASED_FOR_INDEPENDENT_REVIEW",
+  "owner": "/root/implement_v198_sql_only",
+  "task": "DIRECT-20261008T073000Z-5b7c9d1e",
+  "attempt": "v1.1-r1",
+  "purpose": "bounded execute bridge contract test",
+  "sourceWrite": true,
+  "productionDatabase": false,
+  "releasedAt": "2026-10-08T15:58:17+08:00"
+}

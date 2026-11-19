@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "status": "RELEASED_FOR_INDEPENDENT_REVIEW",
+  "owner": "/root/lane_b_ws_contract",
+  "task": "DIRECT-20261008T084000Z-4a7f1c9e",
+  "taskCardSha256": "6d4b950b668076760ce48e37e6b8fbee5e0dccbe00b51f5c1ce6cb471c44d685",
+  "purpose": "Lane B versioned room handoff protocol definition and generated projections",
+  "allowlist": ["Server/protocol/aoo-protocol-v2.json", "Client/assets/Common/Code/Runtime/network/GeneratedProtocolIds.ts", "Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/protocol/GeneratedProtocolIds.java", "Server/docs/generated/protocol-reference.md"],
+  "forbidden": ["unrelated protocol semantics", "generated bundle", "production database"],
+  "preimage": {"aoo-protocol-v2.json": "eea4c530596eb1164d01f62dec5485fd57b69d16b6ca37a09a0fcdc9e7cb0d3c", "GeneratedProtocolIds.ts": "1ebf47f39071e3059178092e0756f98ab3e3a14cd9b34ba31498b85a84b8de29"},
+  "postimage": {
+    "Server/protocol/aoo-protocol-v2.json": "79cb1c767d65468c696b4595fa3ede8852d4b182e714169979d1518a85b0218c",
+    "Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/protocol/GeneratedProtocolIds.java": "78717e629ac74e24dcf9f2df3b3a0c33f369e3171cc45194e9b2fadcdb0c9c9e",
+    "Server/docs/generated/protocol-reference.md": "9ad707dd070bd16ec2a184a8341a84e6ba443221ecd10cfccef15a63716860cc",
+    "Client/assets/Common/Code/Runtime/network/GeneratedProtocolIds.ts": "ded682874c48b4282b835999eaccb96e4e95cf4ba67b7fef47d2ded16baf8124"
+  },
+  "sourceWrite": true,
+  "productionDatabase": false,
+  "sharedRuntime": false
+}

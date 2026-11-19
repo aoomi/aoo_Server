@@ -1,0 +1,7 @@
+Owner=/root/audit_isolated_preview_e2e_feasibility
+Task=DIRECT-20261006T211500Z-e5b8c2d1 CHANGE-v1.16 Batch-B
+Attempt=1
+AcquiredAt=2026-10-06T21:20:00+08:00
+Paths=Server/server/Gateway/src/test/java/com/aoo/bcg/gateway/HttpGatewayContractTest.java
+BaselineSha256=98a500a3f60339aa66a25d9af7c6c5e7186afe51b9ca69595fa9a34489c17578
+Reason=remove isolated implementation-text assertion; retain runtime header/preflight behavior coverage

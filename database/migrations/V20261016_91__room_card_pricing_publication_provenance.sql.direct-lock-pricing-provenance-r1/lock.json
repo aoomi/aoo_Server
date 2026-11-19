@@ -1,0 +1,11 @@
+{
+  "owner": "/root/fangka_xuqian",
+  "attempt": "provenance-r1",
+  "state": "RELEASED",
+  "acquiredAt": "2026-10-16T22:11:32.873622+00:00",
+  "expiresAt": "2026-10-17T00:11:32.873622+00:00",
+  "writePaths": [
+    "/Users/aoo/Code/Game/BCG/Aoo/server/database/migrations/V20261016_91__room_card_pricing_publication_provenance.sql"
+  ],
+  "releasedAt": "2026-10-16T22:13:43.295504+00:00"
+}

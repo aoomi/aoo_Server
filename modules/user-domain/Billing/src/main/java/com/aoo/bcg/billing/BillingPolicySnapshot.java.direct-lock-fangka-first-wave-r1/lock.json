@@ -1,0 +1,14 @@
+{
+  "owner": "/root/fangka_low",
+  "attempt": "first-wave-r1",
+  "state": "RELEASED",
+  "acquiredAt": "2026-10-16T11:14:00.880537+00:00",
+  "expiresAt": "2026-10-16T19:14:00.880537+00:00",
+  "writePaths": [
+    "/Users/aoo/Code/Game/BCG/Aoo/Server/modules/user-domain/Billing/src/main/java/com/aoo/bcg/billing/BillingPolicySnapshot.java"
+  ],
+  "preimageSHA256": "66941192ed3c2d8253cfb5952e3b3aa5e9c116d7fc216979f423e5c91b104900",
+  "releasedAt": "2026-10-16T11:30:55.202422+00:00",
+  "postimageSHA256": "86d7e94f2c4f19a4fd7c375e2b840a2e2f4d9e4681d674b0b272bd7d1e468794",
+  "releaseReason": "frozen for independent acceptance; producer stopped writes"
+}

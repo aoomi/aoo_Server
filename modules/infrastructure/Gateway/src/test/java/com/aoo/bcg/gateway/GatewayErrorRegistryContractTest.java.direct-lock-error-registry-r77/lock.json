@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 2,
+  "task": "DIRECT-20261008T084000Z-4a7f1c9e",
+  "lane": "D",
+  "attempt": "error-registry-20261012-r77",
+  "status": "RELEASED_FOR_INDEPENDENT_REVIEW",
+  "owner": "/root/error_registry_impl",
+  "path": "Server/server/Gateway/src/test/java/com/aoo/bcg/gateway/GatewayErrorRegistryContractTest.java",
+  "preimageSha256": "a0f496c164947c326594e99a44f5b0f50fa7b3735126ef56f3e71c7266277143",
+  "scope": "canonical category to numeric Gateway mapping contracts",
+  "sourceWrite": false,
+  "testWrite": true,
+  "independentReviewer": "lane_g",
+  "replacementCounts": {"numeric mapper and WS fail-closed contracts": 3},
+  "postimageSha256": "43a6658c75a297d453a5cd66ee211672c09208d5f1600232a8d6996683f68407"
+}

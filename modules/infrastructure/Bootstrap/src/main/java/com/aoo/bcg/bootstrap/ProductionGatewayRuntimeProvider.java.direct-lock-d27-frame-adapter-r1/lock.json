@@ -1,0 +1,10 @@
+{
+  "owner": "/root/kuangjia_low",
+  "status": "RELEASED",
+  "acquiredAt": "2026-10-17T14:36:01.709625+00:00",
+  "expiresAt": "2026-10-17T14:46:01.709625+00:00",
+  "scope": [
+    "/Users/aoo/Code/Game/BCG/Aoo/server/modules/infrastructure/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/ProductionGatewayRuntimeProvider.java"
+  ],
+  "releasedAt": "2026-10-17T14:36:02.348967+00:00"
+}

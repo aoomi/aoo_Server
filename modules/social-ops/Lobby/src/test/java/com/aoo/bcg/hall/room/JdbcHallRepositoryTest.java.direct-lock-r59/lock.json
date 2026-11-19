@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "status": "RELEASED_FOR_INDEPENDENT_REVIEW",
+  "owner": "/root/r59_hall_exception_repair",
+  "task": "DIRECT-20261008T084000Z-4a7f1c9e-R59",
+  "attempt": "R59-hall-exception-policy-v1",
+  "acquiredAt": "2026-10-10T04:08:01+08:00",
+  "purpose": "Add only malformed persisted JSON replay rejection/no-overwrite regression proof",
+  "allowlist": ["Server/server/Hall/src/test/java/com/aoo/bcg/hall/room/JdbcHallRepositoryTest.java"],
+  "forbidden": ["all other tests", "production semantics", "SQL/protocol/database changes", "runtime/service start", "commits/pushes"],
+  "preimageSha256": "53e8a764080d767b1d8b40851bfa4158dc57968f2bdd16c3f0680b66868d5007",
+  "postimageSha256": "702851d15ddb8ffbc3c73ece75c757f5985cd4ee0cb3fbac338a27a3e4ef4381",
+  "releasedAt": "2026-10-10T04:10:29+08:00",
+  "releaseReason": "R59_DEV_SELF_CHECK_COMPLETE_PENDING_INDEPENDENT_REVIEW"
+}

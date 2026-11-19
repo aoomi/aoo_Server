@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "hashAlgorithm": "sha256-canonical-v1",
+  "policies": [
+    {
+      "gameId": 2999,
+      "gameCode": "chengdu2999",
+      "playVersion": "cx-v1.0.0",
+      "regionCode": "CN-51-01",
+      "releaseId": 750000001030,
+      "indexGeneration": 760000001030,
+      "runtimeSourceHash": "431bdc86d041f05448803f94cc2e9ab5a3637fbd3a2f6a8a4de060adce5523b9",
+      "policyVersion": 2026101101,
+      "pricingSourceHash": "475cc5bebaf7350463320ae3932a419deb92f17e1e60e81f4a0c5ae182d5214f",
+      "playerCount": 8,
+      "payerMode": "OWNER",
+      "currencyCode": "ROOM_CARD",
+      "measures": [
+        { "measureKind": "ROUND_COUNT", "measureValue": 10, "costMinor": 10 },
+        { "measureKind": "ROUND_COUNT", "measureValue": 20, "costMinor": 20 },
+        { "measureKind": "ROUND_COUNT", "measureValue": 30, "costMinor": 30 },
+        { "measureKind": "DURATION_MINUTES", "measureValue": 30, "costMinor": 10 },
+        { "measureKind": "DURATION_MINUTES", "measureValue": 45, "costMinor": 15 },
+        { "measureKind": "DURATION_MINUTES", "measureValue": 60, "costMinor": 20 }
+      ]
+    }
+  ],
+  "clubCreate": {
+    "currency": "ROOM_CARD",
+    "eligibilityEnabled": true,
+    "minimumRoomCardBalance": 500,
+    "chargeEnabled": true,
+    "chargeRoomCardAmount": 100,
+    "policyVersion": 1,
+    "contentHash": "d2d78c25014585b5ab38bbc922dc2a65e0e1de51f0cf3f1e86d841610d7349b5"
+  }
+}

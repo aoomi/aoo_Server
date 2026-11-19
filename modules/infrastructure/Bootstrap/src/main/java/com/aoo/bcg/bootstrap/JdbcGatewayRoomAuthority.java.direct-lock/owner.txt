@@ -1,0 +1,5 @@
+Owner=/root/implement_v198_sql_only
+Task=DIRECT-20261006T211500Z-e5b8c2d1-v238-room-lock-create
+Attempt=v238-room-lock-create-v2
+Acquired=2026-10-07T16:15:30Z
+Scope=READ/CHANGE v2.38 Gateway fail-closed verification only; no bypass of requireProjection

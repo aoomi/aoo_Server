@@ -14,4 +14,4 @@ Gateway transport, and is excluded from every release.
 This is a private historical Aoo/2.22 compatibility binary with no declared
 third-party license or public upstream. It is retained only as internal migration
 evidence, excluded from release, and replaced at runtime by owned source in
-server/AooKernel. It must not be redistributed as a standalone artifact.
+server/modules/common/AooKernel. It must not be redistributed as a standalone artifact.

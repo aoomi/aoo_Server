@@ -1,0 +1,6 @@
+Owner=/root/implement_v198_sql_only
+Task=DIRECT-20261008T055848Z-3a91c7e4-old-runtime-admission-gate
+Attempt=v1.3-repair-r1
+Acquired=2026-10-08T14:32:00+08:00
+Scope=creation rollback/rejection self-check only
+SourceWrite=true

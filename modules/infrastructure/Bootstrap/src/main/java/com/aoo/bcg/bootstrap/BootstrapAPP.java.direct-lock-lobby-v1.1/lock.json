@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "status": "RELEASED_FOR_COORDINATION",
+  "owner": "/root/implement_lobby_owner_increment",
+  "task": "DIRECT-20261008T084000Z-4a7f1c9e",
+  "attempt": "v1.1-lobby-canonical-owner-20261010",
+  "path": "Server/server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/BootstrapAPP.java",
+  "purpose": "Bootstrap formal start/mount wiring to Lobby facade while preserving inherited dirty diff",
+  "preimageSha256": "effc6cf6c541acc09f95397ebe86fd0506f6552230d357838cf595c9afc7eb4d",
+  "dirtyCustody": "INHERITED_UNTOUCHED_PREIMAGE; existing dirty diff retained byte-for-byte except scoped Lobby wiring",
+  "existingDirtyDiff": true,
+  "existingDirtyOwner": "UNRESOLVED_PRIOR_CUSTODY; do not reset or overwrite",
+  "independentAcceptanceRequired": true
+}

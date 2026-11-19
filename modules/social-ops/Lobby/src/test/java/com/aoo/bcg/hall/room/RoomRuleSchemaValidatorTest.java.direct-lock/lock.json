@@ -1,0 +1,32 @@
+{
+  "owner": "/root/repair_hall_rule_gate_tests",
+  "role": "DOER",
+  "task": "c3-hall-rule-gate-repair-20261010",
+  "attempt": "v1",
+  "status": "RELEASED_FOR_COORDINATION",
+  "acquiredAt": "2026-10-10T14:48:41+08:00",
+  "releasedAt": "2026-10-10T14:53:30+08:00",
+  "releaseReason": "INDEPENDENT_ACCEPTANCE_ACCEPT_BOUNDED_SCOPE",
+  "releaseReceipt": "release.txt",
+  "releaseSourceSha256": "64a11bb74d292bf4d53f30eddffeefc50e8b03128d082723e6b1785cd186c3d8",
+  "reviewReport": "docs/05-当前状态/evidence/c3-hall-rule-gate-repair-independent-review-20261010/independent-acceptance-v1.md",
+  "reviewReportSha256": "99bb6379d0475ba3fd755905c40351e7417b114bb2460225e99db8736a80909f",
+  "path": "Server/server/Hall/src/test/java/com/aoo/bcg/hall/room/RoomRuleSchemaValidatorTest.java",
+  "exactWhitelist": [
+    "Server/server/Hall/src/test/java/com/aoo/bcg/hall/room/RoomRuleControlSemanticsTest.java",
+    "Server/server/Hall/src/test/java/com/aoo/bcg/hall/room/RoomRuleSchemaValidatorTest.java",
+    "docs/05-当前状态/evidence/c3-hall-rule-gate-repair-20261010/**"
+  ],
+  "forbidden": [
+    "Server/server/Hall/src/main/java/com/aoo/bcg/hall/room/RoomRuleSchemaValidator.java",
+    "rules-workbooks",
+    "protocol",
+    "database",
+    "migrations",
+    "deployment",
+    "Client",
+    "Lobby",
+    "shared-runtime"
+  ],
+  "dirtyCustody": "pre-existing workspace state preserved; no reset, checkout, commit, or cleanup"
+}

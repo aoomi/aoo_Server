@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 2,
+  "lockId": "R48-TAKEOVER-20261010T050917Z-06",
+  "status": "RELEASED_FOR_INDEPENDENT_REVIEW",
+  "owner": "/root/implement_r48_takeover",
+  "task": "DIRECT-20261008T084000Z-4a7f1c9e",
+  "attempt": "R48-R50-takeover-implementation-20261010",
+  "acquiredAt": "2026-10-10T05:09:17Z",
+  "releasedAt": "2026-10-13T09:07:34.964768000Z",
+  "path": "Server/server/Games/LongCard/Compatibility/WordCard/src/main/java/com/aoo/bcg/wordcard/WordCardCatalogRuntimeRegistry.java",
+  "preimageSha256": "592e56ccc05499ad5fbaa24cfda0394894f891e587901e975eb58e1f23f0d728",
+  "handoffCurrentSha256": "592e56ccc05499ad5fbaa24cfda0394894f891e587901e975eb58e1f23f0d728",
+  "oldPreimageSha256": "19e889d3bddf8f30d89349e9d0f9ccb214bc5b392b3fdb2ab5534f89513d4d22",
+  "r49BaselineSha256": "19e889d3bddf8f30d89349e9d0f9ccb214bc5b392b3fdb2ab5534f89513d4d22",
+  "oldOwner": "/root/r48_longcard_provider_implementation",
+  "supersedes": "Server/server/Games/LongCard/Compatibility/WordCard/src/main/java/com/aoo/bcg/wordcard/WordCardCatalogRuntimeRegistry.java.direct-lock-r48/lock.json",
+  "sourceWrite": true,
+  "releaseReceipt": "docs/05-当前状态/evidence/DIRECT-20261008T084000Z-4a7f1c9e/c3-r48-takeover-implementation-20261010/r48-eight-successor-release-receipt-20261013.md",
+  "independentAcceptance": "ACCEPT_BOUNDED",
+  "scope": "R48 exact historical WordCard compatibility regional factory for this file only"
+}

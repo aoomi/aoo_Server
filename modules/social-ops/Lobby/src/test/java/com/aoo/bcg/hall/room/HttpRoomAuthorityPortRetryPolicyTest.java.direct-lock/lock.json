@@ -1,0 +1,8 @@
+{
+  "owner": "/root/implement_v197_room_lock_metadata",
+  "task": "c3-v10-deterministic-authority-errors-v1",
+  "path": "Server/server/Hall/src/test/java/com/aoo/bcg/hall/room/HttpRoomAuthorityPortRetryPolicyTest.java",
+  "status": "RELEASED_FOR_INDEPENDENT_REVIEW",
+  "acquiredAt": "2026-10-09T04:08:23Z",
+  "releasedAt": "2026-10-09T04:11:59Z"
+}

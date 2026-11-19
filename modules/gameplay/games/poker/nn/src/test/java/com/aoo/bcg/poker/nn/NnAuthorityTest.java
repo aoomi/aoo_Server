@@ -1,0 +1,42 @@
+package com.aoo.bcg.poker.nn;
+
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+import com.aoo.bcg.gamespi.GameCommandRequest;
+import java.util.Map;
+import org.junit.jupiter.api.Test;
+
+class NnAuthorityTest {
+  @Test void rejectsCrossRoomAndVersionMismatchBeforeMutation() {
+    var authority = authority();
+    assertThrows(IllegalArgumentException.class, () -> authority.execute(
+        request("poker.quanguo2998.sit_req", "wrong-room", 999, NnRules.PLAY_VERSION, "1001", 0, Map.of())));
+    assertThrows(IllegalArgumentException.class, () -> authority.execute(
+        request("poker.quanguo2998.sit_req", "wrong-version", 298001, "v2", "1001", 0, Map.of())));
+  }
+
+  @Test void rejectsAuthenticatedPlayerUsingAnotherPlayersSeat() {
+    var authority = authority();
+    authority.execute(request("poker.quanguo2998.sit_req", "sit", 298001, NnRules.PLAY_VERSION, "1002", 1, Map.of()));
+    int assignedSeat = (int) authority.viewFor(1002L).get("viewerSeat");
+    int capacity = (int) authority.viewFor(1002L).get("maxPlayers");
+    assertThrows(IllegalArgumentException.class, () -> authority.execute(
+        request("poker.quanguo2998.rob_req", "spoof", 298001, NnRules.PLAY_VERSION, "1002",
+            (assignedSeat + 1) % capacity, Map.of("multiplier", 0))));
+  }
+
+  @Test void rejectsProtocolAliasesWithoutCanonicalPrefix() {
+    var authority = authority();
+    assertThrows(IllegalArgumentException.class, () -> authority.execute(
+        request("ready_req", "alias", 298001, NnRules.PLAY_VERSION, "1001", 0, Map.of())));
+  }
+
+  private static NnAuthority authority() {
+    return new NnAuthority(new NnSession(298001, 1001, 1, NnRules.defaults()), NnRules.PLAY_VERSION);
+  }
+
+  private static GameCommandRequest request(String msgId, String requestId, long roomId,
+      String version, String playerId, int seat, Map<String, Object> body) {
+    return new GameCommandRequest(msgId, requestId, 1, roomId, 0, version, playerId, seat, body);
+  }
+}

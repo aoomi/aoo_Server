@@ -1,0 +1,15 @@
+status=RELEASED_FOR_COORDINATION
+owner=/root/repair_hall_rule_gate_tests
+task=c3-hall-rule-gate-repair-20261010
+attempt=v1
+releasedAt=2026-10-10T14:53:30+08:00
+reason=INDEPENDENT_ACCEPTANCE_ACCEPT_BOUNDED_SCOPE
+sourcePath=Server/server/Hall/src/test/java/com/aoo/bcg/hall/room/RoomRuleSchemaValidatorTest.java
+releaseSourceSha256=64a11bb74d292bf4d53f30eddffeefc50e8b03128d082723e6b1785cd186c3d8
+reviewer=/root/review_hall_rule_gate_repair
+reviewReport=docs/05-当前状态/evidence/c3-hall-rule-gate-repair-independent-review-20261010/independent-acceptance-v1.md
+reviewReportSha256=99bb6379d0475ba3fd755905c40351e7417b114bb2460225e99db8736a80909f
+productionWrites=false
+rulesWorkbookWrites=false
+protocolDatabaseDeploymentClientLobbyWrites=false
+acceptance=bounded_scope_only; no self-acceptance

@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "status": "RELEASED_FOR_INDEPENDENT_REVIEW",
+  "owner": "/root/join_authority_race_diagnosis_r1",
+  "task": "DIRECT-20261008T200000Z-9d7e2c4b",
+  "attempt": "v1.0-R17-cd2999-server-correction-r1",
+  "acquiredAt": "2026-10-12T09:00:00+08:00",
+  "purpose": "Correct Bootstrap current identity assertion to 2999 and add 630 current-projection rejection",
+  "custodyTransfer": "user-authorized; no live prior owner exposed by Agent Tree; preserve-existing-dirty",
+  "allowlist": [
+    "Server/server/Bootstrap/src/test/java/com/aoo/bcg/bootstrap/BootstrapAPPTest.java",
+    "Server/server/Bootstrap/src/test/java/com/aoo/bcg/bootstrap/BootstrapAPPTest.java.direct-lock-r17-cd2999/lock.json",
+    "docs/05-当前状态/evidence/DIRECT-20261008T200000Z-9d7e2c4b/cd2999-server-correction-r1/**"
+  ],
+  "forbidden": ["all other source files", "Client", "rules workbooks", "database", "migrations", "protocol", "generated Bundle", "shared services", "commits/pushes"],
+  "preimageSha256": "516c0d72e52edf3b09f0d89b9696e8039784dcd0106afa3b65f95c7a84e57f08",
+  "reviewer": "/root/lane_g_evidence_review",
+  "preserveExistingDirty": true,
+  "postimageSha256": "0910795ac54a56dc1e8f11ab9cb3f83d3aba2ba0da81ccf536565654ffd2e1e4",
+  "releasedAt": "2026-10-12T18:43:24+08:00",
+  "releaseReason": "DEV_SELF_CHECK_COMPLETE_PENDING_INDEPENDENT_REVIEW",
+  "evidenceReport": "docs/05-当前状态/evidence/DIRECT-20261008T200000Z-9d7e2c4b/cd2999-server-correction-r1/implementation-r1.md",
+  "evidenceSha256": "9ab7b73ea668ecc1fb396d460089c769962cfceb00f179c3c96b5743ceab40d6"
+}

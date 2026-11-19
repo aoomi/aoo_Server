@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 2,
+  "lockId": "R50-LANE-F-CURRENT-CUSTODY-20261013T090344Z-GAMECATALOGLOADER",
+  "status": "RELEASED_FOR_INDEPENDENT_REVIEW",
+  "owner": "/root/lane_f_service_input_package",
+  "taskCard": "DIRECT-20261012T131224Z-8c4e7a2d-server-path-migration-r3",
+  "taskCardSha256AtAcquire": "1f8e05d17734aaed7b1781fef4cc4773b590d72099f4ab195cf37d83f29dd4ad",
+  "acquiredAt": "2026-10-13T09:03:44.757325000Z",
+  "path": "Server/Modules/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/GameCatalogLoader.java",
+  "preimageSha256": "1351a366d799c727a2425b06af1ce70bf0f4e8ae6787bb3d93b32506adc4efc4",
+  "sourceWrite": false,
+  "physicalMutation": false,
+  "scope": "Current physical-path custody only; no source mutation, catalog edit, directory move, runtime acceptance, or old-lock release",
+  "supersedes": "R50-CURRENT-PATH-PROPOSAL-R1-20261013",
+  "oldLockSha256": "83181b5af1de8d1272337bdc1b633a368412692a07bffea6390b5fb3229a709e",
+  "successorLockSha256": "84c67cbb98641de47122dae8c24d35d2e00dd7185e8d48d6506e90ebfb75e59d",
+  "proposalEvidence": "docs/05-当前状态/evidence/DIRECT-20261012T131224Z-8c4e7a2d-server-path-migration-r3/gamecatalogloader-r50-current-path-proposal-r1/",
+  "reviewGate": "Lane G final review required; R48 received no source-write authority from this lock",
+  "releasedAt": "2026-10-13T09:12:08.380787000Z",
+  "releaseReason": "Current bytes unchanged; R48 successor released; custody-only handoff receipt finalized"
+}

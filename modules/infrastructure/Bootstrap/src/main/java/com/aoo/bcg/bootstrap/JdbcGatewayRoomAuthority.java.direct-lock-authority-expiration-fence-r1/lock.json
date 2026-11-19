@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "status": "RELEASED_FOR_INDEPENDENT_REVIEW",
+  "owner": "/root/authority_expiration_fence_fix_r1",
+  "task": "AUTHORITY-EXPIRATION-FENCE-FIX-R1",
+  "attempt": "r1",
+  "purpose": "Fence waiting-room join against automatic expiration and preserve typed ROOM_ENDED conflicts",
+  "allowlist": [
+    "server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/JdbcGatewayRoomAuthority.java",
+    "server/Bootstrap/src/test/java/com/aoo/bcg/bootstrap/WaitingRoomJoinExpirationFenceContractTest.java",
+    "server/Gateway/src/main/java/com/aoo/bcg/gateway/DeterministicAuthorityErrorBoundary.java",
+    "server/Gateway/src/test/java/com/aoo/bcg/gateway/DeterministicAuthorityErrorBoundaryTest.java",
+    "server/Gateway/src/test/java/com/aoo/bcg/gateway/WaitingRoomExpirationErrorMappingTest.java"
+  ],
+  "forbidden": [
+    "LoginScene",
+    "Client/docs/开房规则表/**",
+    "production database",
+    "historical migrations",
+    "shared services/ports/Creator/browser",
+    "generated bundles",
+    "unrelated protocol semantics"
+  ],
+  "preimage": {
+    "JdbcGatewayRoomAuthority.java": "1c7dc280f390f651530806b8e64f9624b177cc948db65c060bb3d11714c4f3f6",
+    "DeterministicAuthorityErrorBoundary.java": "26adc98176f92fd033a4d9f26ab8a1ee347d9cb85cdfedd91db00e2c3a2c80b6",
+    "WaitingRoomJoinExpirationFenceContractTest.java": "ABSENT",
+    "DeterministicAuthorityErrorBoundaryTest.java": "ABSENT",
+    "WaitingRoomExpirationErrorMappingTest.java": "ABSENT"
+  },
+  "postimage": {
+    "JdbcGatewayRoomAuthority.java": "a73f22d4c9fe65ea21a4bc4457d95678752e73a2d87d198a1b9c234c5c312404",
+    "WaitingRoomJoinExpirationFenceContractTest.java": "34097159ba5a89744ac9668c7758ec0de43a5072605091d7c830bad0fbd46319",
+    "DeterministicAuthorityErrorBoundary.java": "523d3275569b7b4af881dc0daadef32df913d0dcd05bc30a54c3dbada3f7480a",
+    "DeterministicAuthorityErrorBoundaryTest.java": "334d8425492ca8064339f81cc3998d27d650f43f295f1d6222ad33e1fcb35ffd",
+    "WaitingRoomExpirationErrorMappingTest.java": "ff2f29e00b5f44cf3c1be99afca3d15ce75aa8875fca1d2c8fa5f42cb756d125"
+  },
+  "releaseAt": "2026-10-12T09:58:25Z",
+  "evidence": "/tmp/aoo-authority-expiration-fence-fix-r1/DEV_SELF_CHECK.md",
+  "independentReviewer": "non-writer reviewer required"
+}

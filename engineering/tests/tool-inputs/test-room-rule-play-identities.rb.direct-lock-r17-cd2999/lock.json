@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "status": "RELEASED_FOR_INDEPENDENT_REVIEW",
+  "owner": "/root/join_authority_race_diagnosis_r1",
+  "task": "DIRECT-20261008T200000Z-9d7e2c4b",
+  "attempt": "v1.0-R17-cd2999-server-correction-r1",
+  "acquiredAt": "2026-10-12T09:00:00+08:00",
+  "purpose": "Correct current room-rule positive identity to gameId=2999 and retain 630 as rejected historical identity",
+  "custodyTransfer": "user-authorized; no live prior owner exposed by Agent Tree; preserve-existing-dirty",
+  "allowlist": [
+    "Server/tools/test-room-rule-play-identities.rb",
+    "Server/tools/test-room-rule-play-identities.rb.direct-lock-r17-cd2999/lock.json",
+    "docs/05-当前状态/evidence/DIRECT-20261008T200000Z-9d7e2c4b/cd2999-server-correction-r1/**"
+  ],
+  "forbidden": ["all other source files", "Client", "rules workbooks", "database", "migrations", "protocol", "generated Bundle", "shared services", "commits/pushes"],
+  "preimageSha256": "6ceb7c3d6debbdaf84c21b69959ad4be48902ed70eafd3cdaaebc14bd0432cc4",
+  "reviewer": "/root/lane_g_evidence_review",
+  "preserveExistingDirty": true,
+  "postimageSha256": "ed1b28ca8817ddb95c22871cc1e23ea9f1e8bc302447acb568aa2f0221207d0c",
+  "releasedAt": "2026-10-12T18:43:24+08:00",
+  "releaseReason": "DEV_SELF_CHECK_COMPLETE_PENDING_INDEPENDENT_REVIEW",
+  "evidenceReport": "docs/05-当前状态/evidence/DIRECT-20261008T200000Z-9d7e2c4b/cd2999-server-correction-r1/implementation-r1.md",
+  "evidenceSha256": "9ab7b73ea668ecc1fb396d460089c769962cfceb00f179c3c96b5743ceab40d6"
+}

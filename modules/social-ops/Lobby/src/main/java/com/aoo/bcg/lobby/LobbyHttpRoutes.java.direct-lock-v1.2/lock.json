@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "status": "RELEASED_FOR_COORDINATION",
+  "owner": "/root/implement_lobby_http_canonicalization",
+  "task": "DIRECT-20261008T084000Z-4a7f1c9e",
+  "change": "c3-lobby-http-canonicalization-v1.2",
+  "path": "Server/server/Hall/src/main/java/com/aoo/bcg/lobby/LobbyHttpRoutes.java",
+  "acquiredAt": "2026-10-10T06:57:25Z",
+  "purpose": "Move frozen Hall HTTP handler implementation behind canonical Lobby owner",
+  "preimageSha256": "57c9cbff40bf5f76a0a9f69315b686db0d562bbc14ee21964d242f23b0a90d4a",
+  "sourceWrite": true,
+  "testWrite": false,
+  "databaseWrite": false,
+  "protocolWrite": false,
+  "deploymentWrite": false,
+  "clientWrite": false,
+  "allowlist": ["Server/server/Hall/src/main/java/com/aoo/bcg/lobby/LobbyHttpRoutes.java", "docs/05-当前状态/evidence/c3-lobby-http-canonicalization-v1.2/**"],
+  "forbidden": ["protocol paths and events", "DB/SQL", "room classes", "Bootstrap/Gateway/Matchmaking/Club", "POM", "Client", "rules", "deploy", "generated bundles", "shared services/ports", "LoginScene", "commits/pushes/merges/rebases"],
+  "releasedAt": "2026-10-10T07:05:45Z",
+  "releaseReason": "Independent review ACCEPT_BOUNDED_SCOPE; producer custody released for coordination",
+  "independentReview": "docs/05-当前状态/evidence/c3-lobby-http-canonicalization-v1.2/independent-review/independent-review-v1.md",
+  "independentReviewSha256": "9aac938fee56ee0c69b2b90d03436c30f15e7d409da507d37f3ff0f11b408ad6"
+}

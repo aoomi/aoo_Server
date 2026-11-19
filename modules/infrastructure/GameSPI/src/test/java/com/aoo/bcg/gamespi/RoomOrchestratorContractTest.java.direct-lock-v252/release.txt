@@ -1,0 +1,7 @@
+Status=RELEASED_FOR_INDEPENDENT_REVIEW
+Owner=/root/implement_v197_room_lock_metadata
+Task=DIRECT-20261006T211500Z-e5b8c2d1-v252
+Attempt=v2.52-20261008-r1
+ReleasedAt=2026-10-08T04:23:00+08:00
+Reason=execute contract suite passed
+PostimageEvidence=../../../../../../../../../../docs/05-当前状态/evidence/DIRECT-20261006T211500Z-e5b8c2d1/room-execute-v252/v252-postimage-sha256-r1.txt

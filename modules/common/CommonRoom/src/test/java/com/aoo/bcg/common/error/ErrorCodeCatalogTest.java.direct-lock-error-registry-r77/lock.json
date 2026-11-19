@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 2,
+  "task": "DIRECT-20261008T084000Z-4a7f1c9e",
+  "lane": "D",
+  "attempt": "error-registry-20261012-r77",
+  "status": "RELEASED_FOR_INDEPENDENT_REVIEW",
+  "owner": "/root/error_registry_impl",
+  "path": "Server/server/CommonRoom/src/test/java/com/aoo/bcg/common/error/ErrorCodeCatalogTest.java",
+  "preimageSha256": "b4e4c68a0b5b1e759d09c5c69399374c0d91494f00c1d25b4b9b20ff12dce240",
+  "scope": "focused taxonomy precedence and fail-closed classification contracts",
+  "sourceWrite": false,
+  "testWrite": true,
+  "independentReviewer": "lane_g",
+  "replacementCounts": {"taxonomy negative contract": 1},
+  "postimageSha256": "ab197cd838750e318d0c1940fa90571b93d03eb89d270477ab79f5764eaa9f76"
+}

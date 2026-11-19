@@ -1,0 +1,12 @@
+{
+  "owner": "/root/kuangjia_low",
+  "status": "RELEASED_FOR_INDEPENDENT_ACTUAL",
+  "writePaths": [
+    "server/modules/infrastructure/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/JdbcGatewayGameCommandCommitter.java"
+  ],
+  "preSHA": "a823425cbfc9a19fe602dc9a50fb8131404d8f8d4c161ef45b6689ab1f6bd2e1",
+  "acquiredAt": "2026-10-14T09:52:37.191205+00:00",
+  "contract": "docs/05-\u5f53\u524d\u72b6\u6001/DIRECT-20261008T084000Z-4a7f1c9e-downstream-closure-contract.md",
+  "releasedAt": "2026-10-14T10:00:27.985732+00:00",
+  "postSHA": "6dcf6d980923a1a3e27d309d46c6929a2e6d28ffeb56c6c1e866608e9813012b"
+}

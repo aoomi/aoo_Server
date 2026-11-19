@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 2,
+  "task": "DIRECT-20261008T084000Z-4a7f1c9e",
+  "lane": "D",
+  "attempt": "error-registry-20261012-r77",
+  "status": "RELEASED_FOR_INDEPENDENT_REVIEW",
+  "owner": "/root/error_registry_impl",
+  "path": "Server/server/Gateway/src/main/java/com/aoo/bcg/gateway/GatewayApplication.java",
+  "preimageSha256": "487e2cf1fe3fd87f13e9461cf73970bb2a82011f2fdf402804ac756122d5d3fe",
+  "scope": "classify generic HTTP ingress runtime failures without converting them to backpressure",
+  "sourceWrite": true,
+  "testWrite": false,
+  "independentReviewer": "lane_g",
+  "replacementCounts": {"generic runtime registry mapping": 1},
+  "postimageSha256": "5f6247c55453b48de476a40afb95327322c4adcfb0db79c54fe6547665b34e23"
+}

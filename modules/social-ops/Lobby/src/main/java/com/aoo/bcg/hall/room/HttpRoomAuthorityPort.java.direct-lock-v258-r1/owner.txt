@@ -1,0 +1,3 @@
+Owner=/root/implement_v197_room_lock_metadata
+Task=DIRECT-20261006T211500Z-e5b8c2d1-v258
+Attempt=v2.58-r1-20261008

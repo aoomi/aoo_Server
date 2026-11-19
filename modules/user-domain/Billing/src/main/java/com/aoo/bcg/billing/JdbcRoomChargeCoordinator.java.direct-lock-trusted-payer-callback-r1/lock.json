@@ -1,0 +1,11 @@
+{
+  "owner": "/root/fangka_xuqian",
+  "state": "RELEASED",
+  "acquiredAt": "2026-10-17T00:28:10.837372+00:00",
+  "expiresAt": "2026-10-17T02:28:10.837372+00:00",
+  "writePaths": [
+    "/Users/aoo/Code/Game/BCG/Aoo/server/modules/user-domain/Billing/src/main/java/com/aoo/bcg/billing/JdbcRoomChargeCoordinator.java"
+  ],
+  "releasedAt": "2026-10-17T00:29:22.554144+00:00",
+  "reason": "frozen for independent actual"
+}

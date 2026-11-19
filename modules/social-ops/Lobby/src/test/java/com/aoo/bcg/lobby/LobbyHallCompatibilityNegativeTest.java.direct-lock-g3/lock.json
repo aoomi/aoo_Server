@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "lockId": "g3-hall-lobby-compatibility-20261011",
+  "status": "RELEASED_FOR_INDEPENDENT_REVIEW",
+  "owner": "/root/task_only_runtime_startup",
+  "task": "DIRECT-20261008T084000Z-4a7f1c9e",
+  "purpose": "G3 Hall-to-Lobby compatibility mapping negative tests and independent evidence",
+  "allowlist": [
+    "Server/server/Hall/src/test/java/com/aoo/bcg/lobby/LobbyHallCompatibilityNegativeTest.java",
+    "docs/05-当前状态/evidence/DIRECT-20261008T084000Z-4a7f1c9e/g3-hall-lobby-compatibility-20261011/**"
+  ],
+  "readOnlyInputs": [
+    "Server/server/Hall/src/main/java/com/aoo/bcg/lobby/LobbyApplication.java",
+    "Server/server/Hall/src/main/java/com/aoo/bcg/hall/HallApplication.java",
+    "Server/server/Hall/src/main/java/com/aoo/bcg/lobby/LobbyHttpRoutes.java",
+    "Server/server/Hall/src/main/java/com/aoo/bcg/hall/http/HallHttpRoutes.java",
+    "Server/server/Hall/src/main/java/com/aoo/bcg/lobby/LobbyCapabilityCatalog.java",
+    "Server/server/Hall/src/main/java/com/aoo/bcg/lobby/LobbyClubTemplateHttpRoutes.java",
+    "Server/server/Hall/src/main/java/com/aoo/bcg/hall/http/HallClubTemplateHttpRoutes.java",
+    "Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/api/ApiOwnershipCatalog.java"
+  ],
+  "forbidden": [
+    "G1 identity projection files",
+    "G2 Client files",
+    "protocol strings or semantics",
+    "database fields or migrations",
+    "deployment directories",
+    "rules and LoginScene",
+    "generated bundles",
+    "physical Hall deletion",
+    "shared services and ports"
+  ],
+  "preimage": {
+    "Server/server/Hall/src/test/java/com/aoo/bcg/lobby/LobbyHallCompatibilityNegativeTest.java": "ABSENT",
+    "Server/server/Hall/src/main/java/com/aoo/bcg/lobby/LobbyApplication.java": "86786fdac8f3e6b34d53d68554d97425ba35bc5794fb3cab8b769855e1f39de7",
+    "Server/server/Hall/src/main/java/com/aoo/bcg/hall/HallApplication.java": "6893bc4de5add26de6c74c08e4c891d1012f2e0c6ea777c16b2cad1e9d3713cc",
+    "Server/server/Hall/src/main/java/com/aoo/bcg/lobby/LobbyHttpRoutes.java": "6a3cc254a2f5a3cf9f3e5959501e88a1d1b74570603667c7dee3b29669ffa71d",
+    "Server/server/Hall/src/main/java/com/aoo/bcg/hall/http/HallHttpRoutes.java": "ef8205776f5eb65287101a3dbe5ef40debd1da777c547d026eefb6e152b2b511",
+    "Server/server/Hall/src/main/java/com/aoo/bcg/lobby/LobbyCapabilityCatalog.java": "4ec0e231e9d7fad5c087e050b64cbfc0bd0ed859a3b8caf9e761fa251a206e77",
+    "Server/server/Hall/src/main/java/com/aoo/bcg/lobby/LobbyClubTemplateHttpRoutes.java": "4c4f8ad97d6753fb8890f2339f5af008d5592d72c54d190846d695c75bc8bf85",
+    "Server/server/Hall/src/main/java/com/aoo/bcg/hall/http/HallClubTemplateHttpRoutes.java": "6efcfc334afb127eb91498fbe8ccbf8ad2e41b7957e8148c738b24b2043cf25b",
+    "Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/api/ApiOwnershipCatalog.java": "03a642fd3b7ef3e19adb71efeae740bd8ac59564a0c0d476e222da0e8cfdf845"
+  },
+  "sourceWrite": true,
+  "productionDatabase": false,
+  "sharedRuntime": false,
+  "independentAcceptanceRequired": true,
+  "releasedAt": "2026-10-10T19:11:28Z",
+  "handoffTo": "/root/lane_g"
+}

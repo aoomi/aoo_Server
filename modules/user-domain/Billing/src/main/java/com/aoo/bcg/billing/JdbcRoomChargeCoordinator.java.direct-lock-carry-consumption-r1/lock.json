@@ -1,0 +1,9 @@
+{
+  "owner": "/root/fangka_xuqian",
+  "state": "RELEASED",
+  "source": "/Users/aoo/Code/Game/BCG/Aoo/server/modules/user-domain/Billing/src/main/java/com/aoo/bcg/billing/JdbcRoomChargeCoordinator.java",
+  "acquiredAt": "2026-10-17T10:21:31.607136+00:00",
+  "expiresAt": "2026-10-17T10:31:31.607136+00:00",
+  "releasedAt": "2026-10-17T10:25:04.066077+00:00",
+  "manifestSHA": "95ea8b635de3b4428e8626941ca55d23a666cb3e3f2e426644a22dbcb860ed1a"
+}

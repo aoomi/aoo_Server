@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 2,
+  "lockId": "R48-TAKEOVER-20261010T050917Z-03",
+  "status": "RELEASED_FOR_INDEPENDENT_REVIEW",
+  "owner": "/root/implement_r48_takeover",
+  "task": "DIRECT-20261008T084000Z-4a7f1c9e",
+  "attempt": "R48-R50-takeover-implementation-20261010",
+  "acquiredAt": "2026-10-10T05:09:17Z",
+  "releasedAt": "2026-10-13T09:07:34.964768000Z",
+  "path": "Server/server/Families/src/main/java/com/aoo/bcg/families/GameFamilyCatalog.java",
+  "preimageSha256": "caf7bcfabbcf4390327d5837a35aa32accabe16f152a59e50e46cbae2276d068",
+  "handoffCurrentSha256": "caf7bcfabbcf4390327d5837a35aa32accabe16f152a59e50e46cbae2276d068",
+  "oldPreimageSha256": "8c6293ff4d16737f2b6c20f28fb6c09f6fd7e5e3d817b7c903932426232ca6db",
+  "r49BaselineSha256": "8c6293ff4d16737f2b6c20f28fb6c09f6fd7e5e3d817b7c903932426232ca6db",
+  "oldOwner": "/root/r48_longcard_provider_implementation",
+  "supersedes": "Server/server/Families/src/main/java/com/aoo/bcg/families/GameFamilyCatalog.java.direct-lock-r48/lock.json",
+  "sourceWrite": true,
+  "releaseReceipt": "docs/05-当前状态/evidence/DIRECT-20261008T084000Z-4a7f1c9e/c3-r48-takeover-implementation-20261010/r48-eight-successor-release-receipt-20261013.md",
+  "independentAcceptance": "ACCEPT_BOUNDED",
+  "scope": "R48 exact LongCard classification and historical WordCard compatibility for this file only"
+}

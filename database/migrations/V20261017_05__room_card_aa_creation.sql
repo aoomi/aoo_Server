@@ -1,0 +1,46 @@
+-- Explicit no-money AA creation metadata. External application needs its own exact schema gate.
+CREATE TABLE aoo_room_aa_creation (
+ source_key CHAR(64) NOT NULL PRIMARY KEY,
+ request_id VARCHAR(128) NOT NULL UNIQUE,
+ request_hash CHAR(64) NOT NULL,
+ authenticated_creator_id BIGINT UNSIGNED NOT NULL,
+ room_id BIGINT UNSIGNED NOT NULL UNIQUE,
+ game_id BIGINT UNSIGNED NOT NULL,
+ play_version VARCHAR(64) NOT NULL,
+ region_code VARCHAR(32) NOT NULL,
+ measure_kind VARCHAR(32) NOT NULL,
+ measure_value INT UNSIGNED NOT NULL,
+ player_count INT UNSIGNED NOT NULL,
+ release_id BIGINT UNSIGNED NOT NULL,
+ index_generation BIGINT UNSIGNED NOT NULL,
+ runtime_source_hash CHAR(64) NOT NULL,
+ policy_publication_id BIGINT UNSIGNED NOT NULL,
+ policy_key CHAR(64) NOT NULL,
+ policy_snapshot TEXT NOT NULL,
+ policy_snapshot_hash CHAR(64) NOT NULL,
+ binding_hash CHAR(64) NOT NULL,
+ lifecycle_state VARCHAR(32) NOT NULL DEFAULT 'PENDING',
+ created_at TIMESTAMP(3) NOT NULL,
+ CHECK(lifecycle_state IN('PENDING','COMMITTED','ABORTED_BEFORE_COMMIT','DESTROYED')),
+ FOREIGN KEY(policy_publication_id) REFERENCES aoo_room_cost_publication(publication_id),
+ CHECK(authenticated_creator_id>0 AND room_id>0 AND game_id>0 AND measure_value>0 AND player_count>0 AND release_id>0 AND index_generation>0),
+ CHECK(measure_kind IN('ROUND_COUNT','DURATION_MINUTES'))
+) ENGINE=InnoDB;
+CREATE TABLE aoo_room_aa_creation_outcome (
+ source_key CHAR(64) NOT NULL,
+ event_type VARCHAR(32) NOT NULL,
+ room_instance_id VARCHAR(128),
+ lifecycle_epoch BIGINT UNSIGNED,
+ fencing_token BIGINT UNSIGNED,
+ state_version BIGINT UNSIGNED,
+ creator_id BIGINT UNSIGNED,
+ game_id BIGINT UNSIGNED,
+ play_version VARCHAR(64),
+ outcome_hash CHAR(64) NOT NULL,
+ created_at TIMESTAMP(3) NOT NULL,
+ PRIMARY KEY(source_key,event_type),
+ FOREIGN KEY(source_key) REFERENCES aoo_room_aa_creation(source_key),
+ CHECK(event_type IN('COMMITTED','ABORTED_BEFORE_COMMIT','DESTROYED')),
+ CHECK((event_type='ABORTED_BEFORE_COMMIT' AND room_instance_id IS NULL AND lifecycle_epoch IS NULL AND fencing_token IS NULL AND state_version IS NULL AND creator_id IS NULL AND game_id IS NULL AND play_version IS NULL)
+ OR (event_type IN('COMMITTED','DESTROYED') AND room_instance_id IS NOT NULL AND lifecycle_epoch>0 AND fencing_token>0 AND state_version>=0 AND creator_id>0 AND game_id>0 AND play_version IS NOT NULL))
+) ENGINE=InnoDB;

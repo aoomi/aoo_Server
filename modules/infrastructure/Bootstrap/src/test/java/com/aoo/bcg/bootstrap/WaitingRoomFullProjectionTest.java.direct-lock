@@ -1,0 +1,7 @@
+Owner=/root/audit_isolated_preview_e2e_feasibility
+Task=DIRECT-20261006T211500Z-e5b8c2d1 CHANGE-v1.16 Batch-B
+Attempt=1
+AcquiredAt=2026-10-06T21:25:00+08:00
+Paths=Server/server/Bootstrap/src/test/java/com/aoo/bcg/bootstrap/WaitingRoomFullProjectionTest.java
+BaselineSha256=d34acdb1fe772eb516b7bb34a7dc9f6236475d282dfaaf57f5bc23a992749fb9
+Reason=replace source-text implementation check with dispatcher-to-JDBC response behavior test

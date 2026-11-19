@@ -1,0 +1,18 @@
+{
+  "owner": "/root/kuangjia_mingming_low",
+  "state": "RELEASED",
+  "acquiredAt": "2026-10-16T19:05:32.906183+00:00",
+  "expiresAt": "2026-10-16T19:35:32.906183+00:00",
+  "writePaths": [
+    "/Users/aoo/Code/Game/BCG/Aoo/server/release-input/identity/room-rule-play-identities.json",
+    "/Users/aoo/Code/Game/BCG/Aoo/server/release-input/identity/room-rule-play-identities.json.naming-r11.direct-lock/lock.json",
+    "/Users/aoo/Code/Game/BCG/Aoo/docs/05-\u5f53\u524d\u72b6\u6001/evidence/DIRECT-20261016T134154Z-6e8b1c20-active-game-naming-migration/room-rule-identity-source-execution-r11/lock.json",
+    "/Users/aoo/Code/Game/BCG/Aoo/docs/05-\u5f53\u524d\u72b6\u6001/evidence/DIRECT-20261016T134154Z-6e8b1c20-active-game-naming-migration/room-rule-identity-source-execution-r11/input.json",
+    "/Users/aoo/Code/Game/BCG/Aoo/docs/05-\u5f53\u524d\u72b6\u6001/evidence/DIRECT-20261016T134154Z-6e8b1c20-active-game-naming-migration/room-rule-identity-source-execution-r11/preimage.json",
+    "/Users/aoo/Code/Game/BCG/Aoo/docs/05-\u5f53\u524d\u72b6\u6001/evidence/DIRECT-20261016T134154Z-6e8b1c20-active-game-naming-migration/room-rule-identity-source-execution-r11/checks.json",
+    "/Users/aoo/Code/Game/BCG/Aoo/docs/05-\u5f53\u524d\u72b6\u6001/evidence/DIRECT-20261016T134154Z-6e8b1c20-active-game-naming-migration/room-rule-identity-source-execution-r11/DEV_SELF_CHECK.md",
+    "/Users/aoo/Code/Game/BCG/Aoo/docs/05-\u5f53\u524d\u72b6\u6001/evidence/DIRECT-20261016T134154Z-6e8b1c20-active-game-naming-migration/room-rule-identity-source-execution-r11/manifest.json",
+    "/Users/aoo/Code/Game/BCG/Aoo/docs/05-\u5f53\u524d\u72b6\u6001/evidence/DIRECT-20261016T134154Z-6e8b1c20-active-game-naming-migration/room-rule-identity-source-execution-r11/review-input.json"
+  ],
+  "releasedAt": "2026-10-16T19:05:32.909612+00:00"
+}

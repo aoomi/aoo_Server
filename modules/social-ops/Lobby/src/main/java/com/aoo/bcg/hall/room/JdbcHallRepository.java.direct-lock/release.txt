@@ -1,0 +1,6 @@
+Status=ABORTED_RELEASED
+Owner=/root/implement_v198_sql_only
+Task=DIRECT-20261006T211500Z-e5b8c2d1-v238-room-lock-create
+Attempt=v238-room-lock-create-v2
+ReleasedAt=2026-10-07T16:24:34Z
+ReleaseReason=IMPLEMENTATION_NOT_STARTED_OR_INTERRUPTED; canonical snapshot_schema_version source missing within whitelist; no source changes

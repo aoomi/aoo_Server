@@ -48,6 +48,6 @@ DELIMITER ;
 
 CALL drop_retired_circle_card_column('family', 'clubCardNum');
 CALL drop_retired_circle_card_column('clubMember', 'clubRoomCard');
-CALL drop_retired_circle_card_column('playerRoomAlone', 'clubCostType');
+CALL drop_retired_circle_card_column('PlayerRoomAlone', 'clubCostType');
 CALL drop_retired_circle_card_column('PlayerRoomLog', 'clubCostType');
 DROP PROCEDURE drop_retired_circle_card_column;

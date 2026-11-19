@@ -1,0 +1,27 @@
+{
+  "owner": "/root/kuangjia_mingming_low",
+  "state": "RELEASED",
+  "acquiredAt": "2026-10-16T19:30:29.003038+00:00",
+  "expiresAt": "2026-10-16T19:50:29.003038+00:00",
+  "writePaths": [
+    "/Users/aoo/Code/Game/BCG/Aoo/docs/05-\u5f53\u524d\u72b6\u6001/evidence/DIRECT-20261016T134154Z-6e8b1c20-active-game-naming-migration/framework-current-consumer-cleanup-r11/lock.json",
+    "/Users/aoo/Code/Game/BCG/Aoo/docs/05-\u5f53\u524d\u72b6\u6001/evidence/DIRECT-20261016T134154Z-6e8b1c20-active-game-naming-migration/framework-current-consumer-cleanup-r11/input.json",
+    "/Users/aoo/Code/Game/BCG/Aoo/docs/05-\u5f53\u524d\u72b6\u6001/evidence/DIRECT-20261016T134154Z-6e8b1c20-active-game-naming-migration/framework-current-consumer-cleanup-r11/preimage.json",
+    "/Users/aoo/Code/Game/BCG/Aoo/docs/05-\u5f53\u524d\u72b6\u6001/evidence/DIRECT-20261016T134154Z-6e8b1c20-active-game-naming-migration/framework-current-consumer-cleanup-r11/source-locks.json",
+    "/Users/aoo/Code/Game/BCG/Aoo/docs/05-\u5f53\u524d\u72b6\u6001/evidence/DIRECT-20261016T134154Z-6e8b1c20-active-game-naming-migration/framework-current-consumer-cleanup-r11/checks.json",
+    "/Users/aoo/Code/Game/BCG/Aoo/docs/05-\u5f53\u524d\u72b6\u6001/evidence/DIRECT-20261016T134154Z-6e8b1c20-active-game-naming-migration/framework-current-consumer-cleanup-r11/DEV_SELF_CHECK.md",
+    "/Users/aoo/Code/Game/BCG/Aoo/docs/05-\u5f53\u524d\u72b6\u6001/evidence/DIRECT-20261016T134154Z-6e8b1c20-active-game-naming-migration/framework-current-consumer-cleanup-r11/manifest.json",
+    "/Users/aoo/Code/Game/BCG/Aoo/docs/05-\u5f53\u524d\u72b6\u6001/evidence/DIRECT-20261016T134154Z-6e8b1c20-active-game-naming-migration/framework-current-consumer-cleanup-r11/review-input.json",
+    "/Users/aoo/Code/Game/BCG/Aoo/server/modules/common/CommonRoom/src/test/java/com/aoo/bcg/common/idempotency/GameCommandResultJsonCodecTest.java",
+    "/Users/aoo/Code/Game/BCG/Aoo/server/modules/infrastructure/Gateway/src/test/java/com/aoo/bcg/gateway/GameWebSocketRouterTest.java",
+    "/Users/aoo/Code/Game/BCG/Aoo/server/modules/compatibility/LegacyCommon/src/com/ddm/server/protocol/v2/ProtocolV2Bridge.java",
+    "/Users/aoo/Code/Game/BCG/Aoo/server/modules/infrastructure/Bootstrap/src/test/java/com/aoo/bcg/bootstrap/ProductionGatewayRuntimeProviderTest.java",
+    "/Users/aoo/Code/Game/BCG/Aoo/server/modules/gameplay/games/poker/src/test/java/com/aoo/bcg/poker/PokerFamilyProviderFactoriesTest.java",
+    "/Users/aoo/Code/Game/BCG/Aoo/server/modules/common/CommonRoom/src/test/java/com/aoo/bcg/common/idempotency/GameCommandResultJsonCodecTest.java.naming-consumer-r11.direct-lock/lock.json",
+    "/Users/aoo/Code/Game/BCG/Aoo/server/modules/infrastructure/Gateway/src/test/java/com/aoo/bcg/gateway/GameWebSocketRouterTest.java.naming-consumer-r11.direct-lock/lock.json",
+    "/Users/aoo/Code/Game/BCG/Aoo/server/modules/compatibility/LegacyCommon/src/com/ddm/server/protocol/v2/ProtocolV2Bridge.java.naming-consumer-r11.direct-lock/lock.json",
+    "/Users/aoo/Code/Game/BCG/Aoo/server/modules/infrastructure/Bootstrap/src/test/java/com/aoo/bcg/bootstrap/ProductionGatewayRuntimeProviderTest.java.naming-consumer-r11.direct-lock/lock.json",
+    "/Users/aoo/Code/Game/BCG/Aoo/server/modules/gameplay/games/poker/src/test/java/com/aoo/bcg/poker/PokerFamilyProviderFactoriesTest.java.naming-consumer-r11.direct-lock/lock.json"
+  ],
+  "releasedAt": "2026-10-16T19:30:29.008175+00:00"
+}

@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "task": "DIRECT-20261008T084000Z-4a7f1c9e",
+  "attempt": "c3-v8-runtime-projection-fix-v1",
+  "owner": "/root/implement_v197_room_lock_metadata",
+  "status": "RELEASED_FOR_INDEPENDENT_REVIEW",
+  "acquiredAt": "2026-10-09T10:48:50+08:00",
+  "releasedAt": "2026-10-09T10:54:53+08:00",
+  "releaseReason": "V8_NORMALIZED_SERVER_OWNED_DEFAULT_DOUBLE_VALIDATION_FIX_SEALED_FOR_INDEPENDENT_REVIEW",
+  "purpose": "Carry a sealed normalized-rules marker across the Hall create saga so server-owned defaults are not revalidated as client fields",
+  "allowlist": [
+    "Server/server/Hall/src/main/java/com/aoo/bcg/hall/room/RoomCreateSaga.java"
+  ],
+  "forbidden": [
+    "RoomRuleSchemaValidator semantics",
+    "rules workbook",
+    "database/migration/seed",
+    "bundle/deployment",
+    "protocol",
+    "Client",
+    "Bootstrap",
+    "shared runtime",
+    "production database",
+    "commits/pushes"
+  ]
+}

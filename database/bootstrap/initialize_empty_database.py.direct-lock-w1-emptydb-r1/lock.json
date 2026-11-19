@@ -1,0 +1,12 @@
+{
+  "owner": "/root/shuju",
+  "task": "DIRECT-20261008T084000Z-4a7f1c9e",
+  "revision": "R78",
+  "path": "server/database/bootstrap/initialize_empty_database.py",
+  "preimage": "ABSENT",
+  "state": "RELEASED",
+  "sourceWrite": true,
+  "createdAt": "2026-10-14T08:05:55.440121+00:00",
+  "releasedAt": "2026-10-14T08:22:34.161209+00:00",
+  "postimageSha256": "af1a8956b76feeb596f435cd4f4fb78e506f9754fcdba645112fa41c1e7ab307"
+}

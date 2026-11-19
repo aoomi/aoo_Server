@@ -1,0 +1,10 @@
+{
+  "owner": "/root/kuangjia_low",
+  "status": "RELEASED_SAFE_CHECKPOINT",
+  "acquiredAt": "2026-10-17T02:57:18.823551+00:00",
+  "expiresAt": "2026-10-17T03:07:18.823551+00:00",
+  "exactWritePaths": [
+    "/Users/aoo/Code/Game/BCG/Aoo/server/modules/infrastructure/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/JdbcGatewayGameCommandCommitter.java"
+  ],
+  "releasedAt": "2026-10-17T03:02:21.305035+00:00"
+}

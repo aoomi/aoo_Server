@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 2,
+  "lockId": "R48-LANE-F-CURRENT-CUSTODY-20261013T090821Z-CATALOG-SOURCE",
+  "status": "RELEASED_FOR_INDEPENDENT_REVIEW",
+  "owner": "/root/lane_f_service_input_package",
+  "taskCard": "DIRECT-20261012T131224Z-8c4e7a2d-server-path-migration-r3",
+  "taskCardSha256AtAcquire": "1f8e05d17734aaed7b1781fef4cc4773b590d72099f4ab195cf37d83f29dd4ad",
+  "acquiredAt": "2026-10-13T09:08:21.205515000Z",
+  "path": "Server/Modules/Bootstrap/src/main/resources/game-catalog-528.tsv",
+  "preimageSha256": "9786f5c37d132315c17fcf5215e76982c57cf397badf65b333a608fcc827e557",
+  "sourceWrite": false,
+  "physicalMutation": false,
+  "scope": "Current catalog path custody only; no catalog edit, generated output edit, source mutation, directory move, runtime or business acceptance",
+  "boundary": "UNKNOWN_PREEXISTING_DIRTY",
+  "supersedes": "R48-GAME-CATALOG-528-CURRENT-CUSTODY-PROPOSAL-R1-20261013",
+  "oldLockSha256": "c3f4351eec7d755d3812e83aab7fa81ac671c3576cac76c3396bd57672255c7d",
+  "successorLockSha256": "54e5a5157c54295d22522fee626e2d6ebabebc4b7d1d37ca2fd14bc17922a7c8",
+  "reviewGate": "Lane G final review required; historical R48 lock release was observed before this release",
+  "releasedAt": "2026-10-13T09:13:44.547348000Z",
+  "releaseReason": "R48 successor release receipt observed; current bytes unchanged; custody-only handoff receipt finalized"
+}

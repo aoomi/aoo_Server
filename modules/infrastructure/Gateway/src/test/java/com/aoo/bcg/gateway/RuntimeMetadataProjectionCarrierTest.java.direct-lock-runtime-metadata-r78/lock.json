@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "status": "RELEASED_FOR_INDEPENDENT_REVIEW",
+  "owner": "/root/error_registry_impl",
+  "task": "DIRECT-20261008T084000Z-4a7f1c9e",
+  "attempt": "error-registry-runtime-metadata-r78",
+  "purpose": "Gateway RuntimeMetadataProjectionCarrierTest constructor fixture alignment",
+  "acquiredAt": "2026-10-12T07:45:56+08:00",
+  "allowlist": [
+    "Server/server/Gateway/src/test/java/com/aoo/bcg/gateway/RuntimeMetadataProjectionCarrierTest.java"
+  ],
+  "evidenceAllowlist": [
+    "docs/05-当前状态/evidence/DIRECT-20261008T084000Z-4a7f1c9e/runtime-metadata-carrier-r78-20261012/**"
+  ],
+  "forbidden": [
+    "Server/server/GameSPI/src/main/java/**",
+    "Server/server/Gateway/src/main/java/**",
+    "protocol semantics",
+    "production database",
+    "historical migrations",
+    "rule workbooks",
+    "LoginScene",
+    "generated bundles",
+    "shared services and ports"
+  ],
+  "preimage": {
+    "path": "Server/server/Gateway/src/test/java/com/aoo/bcg/gateway/RuntimeMetadataProjectionCarrierTest.java",
+    "sha256": "76e9c5f9df77283a3f3c50b3a568d58f53551d37bbcb03cb71548a73160b33b9"
+  },
+  "productionDatabase": false,
+  "releasedAt": "2026-10-12T07:49:58+08:00",
+  "releaseReason": "DEV_SELF_CHECK-R78; fixture already matches current 13-argument production source; stale local SNAPSHOT JAR is the bounded standalone blocker; ready for independent review"
+}

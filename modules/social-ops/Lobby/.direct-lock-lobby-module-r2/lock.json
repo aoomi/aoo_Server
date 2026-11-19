@@ -1,0 +1,13 @@
+{
+  "lockId": "hall-lobby-module-contract-r2-lobby-pom",
+  "owner": "/root/lane_f_service_input_package",
+  "status": "RELEASED",
+  "acquiredAt": "2026-10-12T11:51:49.300Z",
+  "scope": "only Server/server/Lobby/pom.xml artifactId and module name",
+  "path": "Server/server/Lobby/pom.xml",
+  "preimageSha256": "7e4d1100adfffa7be1a9c1647b3fcc4835b9ea3c8e6ea3a5d809ec1f8fde2bf9",
+  "preserveExistingDirtyHunks": true,
+  "forbidden": ["Java source", "compatibility facade", "protocol", "database", "deployment", "generated bundle"],
+  "releasedAt": "2026-10-12T11:58:19Z",
+  "releaseReason": "r2 Evidence sealed; handed to independent review"
+}

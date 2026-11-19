@@ -6,7 +6,7 @@
     "bashMinimum": "3.2",
     "zshMinimum": "5.9"
   },
-  "pythonDependencies": "requirements-tools.txt",
+  "pythonDependencies": "engineering/requirements-tools.txt",
   "rubyDependencies": [],
   "requiredCommands": [
     "docker", "mysql", "redis-cli", "curl", "openssl", "shasum", "java", "javac"

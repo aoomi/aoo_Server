@@ -1,0 +1,14 @@
+{
+  "owner": "/root/fangka_low",
+  "attempt": "first-wave-r1",
+  "state": "RELEASED",
+  "acquiredAt": "2026-10-16T11:14:00.880537+00:00",
+  "expiresAt": "2026-10-16T19:14:00.880537+00:00",
+  "writePaths": [
+    "/Users/aoo/Code/Game/BCG/Aoo/Server/modules/user-domain/Billing/src/main/java/com/aoo/bcg/billing/RoomChargeCoordinator.java"
+  ],
+  "preimageSHA256": "bcf5dab79e00a99404c65444a3fbe7de1adb5a99847f794fdf1ab3f5a64e0a2b",
+  "releasedAt": "2026-10-16T11:30:55.202973+00:00",
+  "postimageSHA256": "cfe625196c29e43997662b42e3f0761d5a4879383f758dd863fc0c58b0c9bef7",
+  "releaseReason": "frozen for independent acceptance; producer stopped writes"
+}

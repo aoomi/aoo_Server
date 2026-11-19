@@ -1,0 +1,27 @@
+{
+  "lockKind": "direct-writer-lock",
+  "taskCard": "docs/05-当前状态/DIRECT-20261011T054445Z-lane-f-r50-current-provenance.md",
+  "taskCardSha256": "0fe6ce0d0685a89e0170f15010050541dbf42dbb2016f4f71217e9641c9688d5",
+  "owner": "/root/lane_f_service_input_package",
+  "lane": "F",
+  "batch": "R50-current-provenance",
+  "acquiredAt": "2026-10-11T05:54:00Z",
+  "sourceWrite": true,
+  "scope": [
+    "Server/tools/runtime-metadata-canonical-manifest-r50-current-20261011.json"
+  ],
+  "preimage": "ABSENT",
+  "postimageSha256": "4e1f611b56d7c8039bceb407b687fb0d27ea9d2e227df1c5ab5f1546d0e985e2",
+  "forbidden": [
+    "Server/tools/runtime-metadata-canonical-manifest.json",
+    "Server/tools/canonical-identity-registry.json",
+    "Server/tools/canonical-identity-contract-source.json",
+    "Client/docs/开房规则表/**",
+    "production-db",
+    "shared-services",
+    "generated-bundle"
+  ],
+  "status": "RELEASED",
+  "releasedAt": "2026-10-11T05:52:16Z",
+  "releaseReason": "BLOCKED_PROVIDER_SOURCE_DRIFT; current row-9 provider is untracked and no signable source revision exists"
+}

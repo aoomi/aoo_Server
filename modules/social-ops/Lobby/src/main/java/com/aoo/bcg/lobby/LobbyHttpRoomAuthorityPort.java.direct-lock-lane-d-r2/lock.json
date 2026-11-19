@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 2,
+  "task": "DIRECT-20261008T084000Z-4a7f1c9e",
+  "lane": "D",
+  "attempt": "error-registry-20261011-r2",
+  "status": "RELEASED_FOR_INDEPENDENT_REVIEW",
+  "owner": "/root/error_registry_impl",
+  "path": "Server/server/Hall/src/main/java/com/aoo/bcg/lobby/LobbyHttpRoomAuthorityPort.java",
+  "preimageSha256": "ffee57799ee2b531b1bf30a26c419f20e51a28957d9e57e01cdc0c898b6eae0c",
+  "scope": "typed canonical mapping of room-authority HTTP failures",
+  "sourceWrite": true,
+  "testWrite": false,
+  "independentReviewer": "non-writer reviewer required"
+}

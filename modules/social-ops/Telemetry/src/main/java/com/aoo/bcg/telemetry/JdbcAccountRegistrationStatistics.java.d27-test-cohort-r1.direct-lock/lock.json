@@ -1,0 +1,10 @@
+{
+  "owner": "/root/shuju_low",
+  "state": "RELEASED",
+  "acquiredAt": "2026-10-16T22:46:30.969240+00:00",
+  "expiresAt": "2026-10-16T22:56:30.969240+00:00",
+  "writePaths": [
+    "/Users/aoo/Code/Game/BCG/Aoo/server/modules/social-ops/Telemetry/src/main/java/com/aoo/bcg/telemetry/JdbcAccountRegistrationStatistics.java"
+  ],
+  "releasedAt": "2026-10-16T22:50:47.814914+00:00"
+}

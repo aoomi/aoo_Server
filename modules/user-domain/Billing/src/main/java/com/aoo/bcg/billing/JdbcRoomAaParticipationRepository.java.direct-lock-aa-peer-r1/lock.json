@@ -1,0 +1,9 @@
+{
+  "owner": "/root/fangka_xuqian",
+  "path": "/Users/aoo/Code/Game/BCG/Aoo/server/modules/user-domain/Billing/src/main/java/com/aoo/bcg/billing/JdbcRoomAaParticipationRepository.java",
+  "state": "RELEASED_FOR_INDEPENDENT_REVIEW",
+  "acquiredAt": "2026-10-17T09:23:40.808689+00:00",
+  "expiresAt": "2026-10-17T09:33:40.808689+00:00",
+  "releasedAt": "2026-10-17T09:27:55.939840+00:00",
+  "manifestSHA": "06971bebf892e029bf610b1f5a74019385155c5bf1da09bb9ee7ffa0deeb14b4"
+}

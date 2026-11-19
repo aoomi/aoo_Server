@@ -1,0 +1,15 @@
+{
+  "owner": "/root/fangka_low",
+  "state": "RELEASED",
+  "attempt": "persistent-r1",
+  "acquiredAt": "2026-10-16T12:18:04.842997+00:00",
+  "expiresAt": "2026-10-16T18:55:22.969546+00:00",
+  "writePaths": [
+    "/Users/aoo/Code/Game/BCG/Aoo/server/database/migrations/V20261016_90__unified_room_card_billing_transactions.sql"
+  ],
+  "preimage": "ABSENT",
+  "planInputSHA": "e0bd98221918b6d1af3b95e9671a7c7fa3d7730a4a3babe58e36480ac175a529",
+  "releasedAt": "2026-10-16T12:30:34.112792+00:00",
+  "postSHA256": "babfcca6a417ca017164c75e45c73210854c3993055165dd991c98d099e10b3a",
+  "reason": "source freeze for nonproducer SOURCE review; actual DB execution still gated"
+}

@@ -1,0 +1,10 @@
+{
+  "owner": "/root/kuangjia_low",
+  "status": "RELEASED_SAFE_CHECKPOINT",
+  "acquiredAt": "2026-10-17T01:34:43.678134+00:00",
+  "expiresAt": "2026-10-17T01:36:47.541956+00:00",
+  "exactWritePaths": [
+    "/Users/aoo/Code/Game/BCG/Aoo/server/modules/social-ops/Lobby/src/test/java/com/aoo/bcg/lobby/LobbyRoomCreateBillingRecoveryTest.java"
+  ],
+  "releasedAt": "2026-10-17T01:35:42.154701+00:00"
+}

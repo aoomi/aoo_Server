@@ -1,0 +1,11 @@
+{
+  "owner": "/root/fangka_low",
+  "state": "RELEASED",
+  "attempt": "refund-policy-r1",
+  "acquiredAt": "2026-10-16T15:20:11.522422+00:00",
+  "expiresAt": "2026-10-16T18:55:22.969546+00:00",
+  "writePaths": [
+    "/Users/aoo/Code/Game/BCG/Aoo/server/modules/user-domain/Billing/src/test/java/com/aoo/bcg/billing/RoomCardRefundPolicyTest.java"
+  ],
+  "releasedAt": "2026-10-16T15:22:16.305506+00:00"
+}

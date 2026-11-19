@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 2,
+  "task": "DIRECT-20261008T084000Z-4a7f1c9e",
+  "lane": "D",
+  "attempt": "error-registry-20261012-r77",
+  "status": "RELEASED_FOR_INDEPENDENT_REVIEW",
+  "owner": "/root/error_registry_impl",
+  "path": "Server/server/Hall/src/test/java/com/aoo/bcg/lobby/LobbyHttpRoomAuthorityPortErrorContractTest.java",
+  "preimageSha256": "ABSENT",
+  "scope": "authority upstream root preservation and canonical category contracts",
+  "sourceWrite": false,
+  "testWrite": true,
+  "independentReviewer": "lane_g",
+  "replacementCounts": {"5xx wire-root contract": 1, "transport-cause contract": 1},
+  "postimageSha256": "66063c65e874597b0ad9c9e3d6d357271a3f05f0d1ce96d3745f5daf302a77bd"
+}

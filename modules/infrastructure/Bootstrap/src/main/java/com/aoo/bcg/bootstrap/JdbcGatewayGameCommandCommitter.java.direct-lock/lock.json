@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "status": "RELEASED_FOR_INDEPENDENT_REVIEW",
+  "owner": "/root/implement_v197_room_lock_metadata",
+  "attempt": "v2.51-20261008",
+  "acquiredAt": "2026-10-08T03:52:30+08:00",
+  "purpose": "接入唯一 canonical room snapshot metadata producer；只处理 execute commit",
+  "allowlist": [
+    "Server/server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/JdbcGatewayGameCommandCommitter.java",
+    "docs/05-当前状态/evidence/DIRECT-20261006T211500Z-e5b8c2d1/room-execute-v251/**"
+  ],
+  "forbidden": [
+    "reconnect",
+    "handoff",
+    "destroy",
+    "RoomOrchestrator",
+    "Client",
+    "protocol semantics",
+    "DB/DDL/migration",
+    "deployment",
+    "rule workbooks",
+    "RoomMgr/Legacy fallback",
+    "production/shared DB",
+    "shared runtime"
+  ],
+  "preimage": "v251-preimage-sha256.txt",
+  "sourceWrite": true,
+  "implementationLock": false,
+  "releasedAt": "2026-10-08T04:03:09+08:00",
+  "releaseReason": "v2.51 implementation and DEV_SELF_CHECK complete; independent review required"
+}

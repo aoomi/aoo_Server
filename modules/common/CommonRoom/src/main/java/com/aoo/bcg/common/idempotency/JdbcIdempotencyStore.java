@@ -1,0 +1,133 @@
+package com.aoo.bcg.common.idempotency;
+
+import com.aoo.bcg.common.persistence.JdbcSupport;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import javax.sql.DataSource;
+import java.sql.Timestamp;
+import java.time.Clock;
+import java.time.Duration;
+import java.time.Instant;
+import java.util.Optional;
+import java.util.Objects;
+import com.aoo.bcg.common.serialization.DomainJsonDecoder;
+
+public final class JdbcIdempotencyStore<R> implements IdempotencyStore<R> {
+    private final DataSource dataSource;
+    private final ObjectMapper mapper;
+    private final Class<R> resultType;
+    private final Clock clock;
+    private final DomainJsonDecoder decoder;
+
+    public JdbcIdempotencyStore(DataSource dataSource, ObjectMapper mapper, Class<R> resultType, Clock clock) {
+        this.dataSource = dataSource;
+        this.mapper = mapper;
+        this.resultType = resultType;
+        this.clock = clock;
+        this.decoder = new DomainJsonDecoder(mapper);
+    }
+
+    @Override public Optional<IdempotencyResult<R>> findResult(IdempotencyKey key) {
+        String sql = "SELECT response_code,response_version,response_schema_version,response_payload,expires_at FROM aoo_business_idempotency WHERE request_id=? AND status='COMPLETED'";
+        try (var connection = dataSource.getConnection(); var statement = connection.prepareStatement(sql)) {
+            statement.setString(1, key.storageKey());
+            try (var result = statement.executeQuery()) {
+                if (!result.next() || !result.getTimestamp(5).toInstant().isAfter(clock.instant())) return Optional.empty();
+                if (resultType == com.aoo.bcg.gamespi.GameCommandResult.class)
+                    validateEnvelope(result.getInt(1),result.getString(2),result.getInt(3));
+                R decoded = decodeResult(result.getString(4), key, result.getInt(3));
+                return Optional.of(new IdempotencyResult<>(result.getInt(1),result.getString(2),result.getInt(3),decoded,result.getTimestamp(5).toInstant()));
+            }
+        } catch (Exception exception) {
+            if (exception instanceof java.sql.SQLException sqlException) throw JdbcSupport.failure("find idempotency", sqlException);
+            throw new IllegalStateException("cannot deserialize idempotency result", exception);
+        }
+    }
+
+    @Override public boolean acquire(IdempotencyKey key, Duration retention) {
+        validate(key, retention);String requestId=key.storageKey();
+        Instant now = clock.instant();
+        String delete = "DELETE FROM aoo_business_idempotency WHERE request_id=? AND expires_at<=?";
+        String insert = "INSERT IGNORE INTO aoo_business_idempotency(request_id,request_hash,user_id,operation,room_id,round_no,client_request_id,status,response_payload,created_at,expires_at) VALUES(?,SHA2(?,256),?,?,?,?,?,'PROCESSING','{}',?,?)";
+        try (var connection = dataSource.getConnection()) {
+            try (var statement = connection.prepareStatement(delete)) { statement.setString(1, requestId); statement.setTimestamp(2, Timestamp.from(now)); statement.executeUpdate(); }
+            try (var statement = connection.prepareStatement(insert)) {
+                statement.setString(1,requestId);statement.setString(2,requestId);statement.setString(3,key.userId());statement.setString(4,key.operation());statement.setLong(5,key.roomId());statement.setInt(6,key.roundNo());statement.setString(7,key.requestId());statement.setTimestamp(8,Timestamp.from(now));statement.setTimestamp(9,Timestamp.from(now.plus(retention)));
+                return statement.executeUpdate() == 1;
+            }
+        } catch (java.sql.SQLException exception) { throw JdbcSupport.failure("acquire idempotency", exception); }
+    }
+
+    @Override public void saveResult(IdempotencyKey key,IdempotencyResult<R> result) {
+        String requestId=key.storageKey();
+        if (result == null) throw new IllegalArgumentException("invalid idempotency result");
+        if (result.data() instanceof com.aoo.bcg.gamespi.GameCommandResult command) {
+            validateEnvelope(result.code(),result.resultVersion(),result.schemaVersion());
+            if ((command.committedBinding() == null) != (result.schemaVersion() == 1))
+                throw new IllegalArgumentException("binding schema mismatch");
+            if (command.committedBinding() != null)
+                command.committedBinding().requireScope(key.userId(),key.operation(),key.roomId(),key.roundNo(),key.requestId());
+        }
+        String sql = "INSERT INTO aoo_business_idempotency(request_id,request_hash,user_id,operation,room_id,round_no,client_request_id,status,response_code,response_version,response_schema_version,response_payload,created_at,expires_at) VALUES(?,SHA2(?,256),?,?,?,?,?,'COMPLETED',?,?,?,?,?,?) ON DUPLICATE KEY UPDATE status='COMPLETED',response_code=VALUES(response_code),response_version=VALUES(response_version),response_schema_version=VALUES(response_schema_version),response_payload=VALUES(response_payload),expires_at=VALUES(expires_at)";
+        Instant now = clock.instant();
+        try (var connection = dataSource.getConnection(); var statement = connection.prepareStatement(sql)) {
+            String payload = encodeResult(result.data());
+            statement.setString(1,requestId);statement.setString(2,requestId);statement.setString(3,key.userId());statement.setString(4,key.operation());statement.setLong(5,key.roomId());statement.setInt(6,key.roundNo());statement.setString(7,key.requestId());statement.setInt(8,result.code());statement.setString(9,result.resultVersion());statement.setInt(10,result.schemaVersion());statement.setString(11,payload);
+            statement.setTimestamp(12,Timestamp.from(now));statement.setTimestamp(13,Timestamp.from(result.expiresAt()));
+            statement.executeUpdate();
+        } catch (Exception exception) {
+            if (exception instanceof java.sql.SQLException sqlException) throw JdbcSupport.failure("save idempotency", sqlException);
+            throw new IllegalStateException("cannot serialize idempotency result", exception);
+        }
+    }
+    @Override public void save(IdempotencyKey key,R result,Duration retention){validate(key,retention);if(result instanceof com.aoo.bcg.gamespi.GameCommandResult command && command.committedBinding()!=null)
+            saveResult(key,new IdempotencyResult<>(0,"v2",2,result,clock.instant().plus(retention)));
+        else saveResult(key,IdempotencyResult.success(result,clock.instant().plus(retention)));}
+
+    @SuppressWarnings("unchecked") private R decodeResult(String payload, IdempotencyKey key, int schema) {
+        if (resultType == com.aoo.bcg.gamespi.GameCommandResult.class)
+            return (R) GameCommandResultJsonCodec.decode(mapper, payload, key, schema);
+        return decoder.decode(payload, resultType, Objects::requireNonNull);
+    }
+    private String encodeResult(R result) throws com.fasterxml.jackson.core.JsonProcessingException {
+        if (result instanceof com.aoo.bcg.gamespi.GameCommandResult command)
+            return GameCommandResultJsonCodec.encode(mapper, command);
+        return mapper.writeValueAsString(result);
+    }
+
+    /** Empty means no trusted binding, including legacy or expired receipts. */
+    public Optional<com.aoo.bcg.gamespi.CommittedCommandBinding> findCommittedBinding(IdempotencyKey key) {
+        if (resultType != com.aoo.bcg.gamespi.GameCommandResult.class)
+            throw new IllegalStateException("binding lookup requires command results");
+        String sql = "SELECT response_code,response_version,response_schema_version,expires_at,CASE WHEN response_schema_version=2 THEN JSON_EXTRACT(response_payload,'$.committedBinding') ELSE NULL END FROM aoo_business_idempotency WHERE request_id=? AND status='COMPLETED'";
+        try(var connection=dataSource.getConnection();var statement=connection.prepareStatement(sql)) {
+            statement.setString(1,key.storageKey());
+            try(var row=statement.executeQuery()) {
+                if(!row.next() || !row.getTimestamp(4).toInstant().isAfter(clock.instant())) return Optional.empty();
+                int schema=row.getInt(3); validateEnvelope(row.getInt(1),row.getString(2),schema);
+                if(schema==1) return Optional.empty();
+                return Optional.of(GameCommandResultJsonCodec.decodeCommittedBinding(mapper,mapper.readTree(row.getString(5)),key));
+            }
+        } catch(java.sql.SQLException error) { throw JdbcSupport.failure("find committed binding",error); }
+        catch(com.fasterxml.jackson.core.JsonProcessingException error) { throw new IllegalStateException("invalid committed binding JSON",error); }
+    }
+    private static void validateEnvelope(int code,String version,int schema) {
+        if(schema==1) return;
+        if(schema!=2 || code!=0 || !"v2".equals(version)) throw new IllegalArgumentException("invalid command receipt envelope");
+    }
+
+    @Override public void release(IdempotencyKey key) {
+        String sql = "DELETE FROM aoo_business_idempotency WHERE request_id=? AND status='PROCESSING'";
+        try (var connection = dataSource.getConnection(); var statement = connection.prepareStatement(sql)) {
+            statement.setString(1,key.storageKey()); statement.executeUpdate();
+        } catch (java.sql.SQLException exception) { throw JdbcSupport.failure("release idempotency", exception); }
+    }
+    @Override public void markUnknown(IdempotencyKey key){
+        String sql="UPDATE aoo_business_idempotency SET status='UNKNOWN' WHERE request_id=? AND status='PROCESSING'";
+        try(var connection=dataSource.getConnection();var statement=connection.prepareStatement(sql)){statement.setString(1,key.storageKey());statement.executeUpdate();}
+        catch(java.sql.SQLException exception){throw JdbcSupport.failure("mark idempotency unknown",exception);}
+    }
+
+    private static void validate(IdempotencyKey key, Duration retention) {
+        if (key == null || retention == null || retention.isNegative() || retention.isZero()) throw new IllegalArgumentException("invalid idempotency entry");
+    }
+}

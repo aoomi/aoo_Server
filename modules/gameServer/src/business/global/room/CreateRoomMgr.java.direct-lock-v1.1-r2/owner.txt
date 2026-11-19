@@ -1,0 +1,6 @@
+Owner=/root/implement_v198_sql_only
+Task=DIRECT-20261008T055848Z-3a91c7e4-old-runtime-admission-gate
+Attempt=v1.1-implementation-r2
+Acquired=2026-10-08T14:10:51+08:00
+Scope=explicit CompatibilityOrigin propagation and fail-closed creation; inherited dirty custody preserved
+SourceWrite=true

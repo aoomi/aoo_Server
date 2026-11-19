@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "status": "RELEASED_FOR_INDEPENDENT_REVIEW",
+  "owner": "/root/implement_wordcard_longcard_catalog_boundary",
+  "task": "DIRECT-20261006T211500Z-e5b8c2d1-v261-authorityLeave-delete",
+  "attempt": "v2.61-delete-20261008",
+  "purpose": "Delete only the unique reflection existence assertion for the removed legacy helper",
+  "scope": "single authorityLeave reflection assertion in JdbcHallRepositoryTest.java",
+  "forbidden": "all other tests; production methods; RoomOrchestrator; old handlers; protocol; DB; Client; rules; deployment; shared runtime",
+  "sourceWrite": true,
+  "releasedAt": "2026-10-08T05:57:14+08:00",
+  "releaseReason": "Bounded assertion deletion and developer self-check complete; handed to non-owner independent review."
+}

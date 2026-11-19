@@ -1,0 +1,857 @@
+{
+  "checks": {
+    "activePointerUnique": true,
+    "atomicActivationProcedure": true,
+    "catalogAtLeast500": true,
+    "catalogCodeUnique": true,
+    "catalogGameIdUnique": true,
+    "catalogRegionsCanonical": false,
+    "fullDictionaryGenerated": true,
+    "immutableRoomLockTriggers": true,
+    "legacyConversionDeterministic": true,
+    "legacyPublicationFailClosed": true,
+    "liveMysqlGate": true,
+    "requiredSchemaObjects": true
+  },
+  "createdTableCount": 236,
+  "evidence": {
+    "dataDictionary": "database/target/data-dictionary.json",
+    "legacyConversion": "database/target/legacy-2.22-structured/manifest.json",
+    "mysqlIntegration": "database/.work/audit/mysql-integration-gate.json"
+  },
+  "java": {
+    "java26Available": false,
+    "version": "java version \"25.0.4.1\" 2026-08-18 LTS"
+  },
+  "legacyCoverage": {
+    "allCatalogRowsDraft": true,
+    "canonicalRegionCount": 35,
+    "catalogGameCount": 560,
+    "dataQualityIssueCount": 924,
+    "helpGameCount": 554,
+    "helpGamesMissingCatalog": [
+      "jmhh",
+      "nzdl",
+      "xjmj",
+      "zjh"
+    ],
+    "helpRowCount": 5627,
+    "legacyEnabledCount": 261,
+    "missingRegionCount": 0,
+    "publicationBlockedUntilProviderAndComponentValidation": true,
+    "roomCostGamesMissingCatalog": [
+      "gd_jd",
+      "gd_ttz",
+      "gdzj_nn",
+      "gdzj_sg",
+      "lz_nn",
+      "mpqz_nn",
+      "mpqz_sg",
+      "njpdk",
+      "nnsz_nn",
+      "nzdl",
+      "scjymj",
+      "sgsz_sg",
+      "sss_dr",
+      "sss_zz",
+      "tb_sg",
+      "tbnn_nn",
+      "xjmj",
+      "zyqz_nn",
+      "zyqz_sg"
+    ],
+    "roomCostPolicyCount": 75180,
+    "roomCostSourceCount": 13108,
+    "uiGameCount": 571,
+    "uiGamesMissingCatalog": [
+      "gdzj_nn",
+      "gdzj_sg",
+      "lz_nn",
+      "mpqz_nn",
+      "mpqz_sg",
+      "nnsz_nn",
+      "nzdl",
+      "sgsz_sg",
+      "sss_dr",
+      "sss_zz",
+      "tb_sg",
+      "tbnn_nn",
+      "xjmj",
+      "zyqz_nn",
+      "zyqz_sg"
+    ],
+    "uiRowCount": 5984
+  },
+  "migrationCount": 148,
+  "migrationHashes": [
+    {
+      "file": "V20260822_01__business_closure.sql",
+      "sha256": "07b9089634ba724d46bf9adf59c846e9309b6c3430fb89da16841efe33143723"
+    },
+    {
+      "file": "V20260822_02__admin_control_plane.sql",
+      "sha256": "f6a806d05ad32236c14210d0951cbeeac0fc75aea0424cd2d089ff488683f1a9"
+    },
+    {
+      "file": "V20260822_03__game_profile_publication.sql",
+      "sha256": "b7bb8dc04ed0785196fbcd3647061c543e9c020388fc4a22a87f04e72f4e1337"
+    },
+    {
+      "file": "V20260822_04_1__room_recovery.sql",
+      "sha256": "d25e2605cb92f91afe60fe1c823518c6e6590440f60c2bb44d0b893a23057324"
+    },
+    {
+      "file": "V20260822_04_2__currency_balance.sql",
+      "sha256": "46fa484931c8b4588abd0dfdd41b2c6de4305a86c2320150ff71b368d08433d3"
+    },
+    {
+      "file": "V20260822_04_3__outbox_retry.sql",
+      "sha256": "6cb760dca036d8b0f0968462fa770064f291d80bc179a2538075d1b71fff7724"
+    },
+    {
+      "file": "V20260822_04__admin_permissions.sql",
+      "sha256": "94cefa0f35de2df7680b9c610b3f006691afe8208b4f979ea55b3fceb5f2b3de"
+    },
+    {
+      "file": "V20260822_05__ledger_reconciliation_indexes.sql",
+      "sha256": "75ac838c17188a67ab7a1cc0b47163e8ea97fea634a42e55d7095a99a8143ef5"
+    },
+    {
+      "file": "V20260822_06__million_member_club_indexes.sql",
+      "sha256": "a5a6e379227b1671167b50bd4281f2b9c4e3384bb1e36d2105ee8b5e9d7ee23b"
+    },
+    {
+      "file": "V20260822_07__ten_million_player_indexes.sql",
+      "sha256": "22e34e81dafe63b42ab8f01f3cc22c0bcffe19aba8e5aff2612ada52560a0eb0"
+    },
+    {
+      "file": "V20260822_08__perspective_replay.sql",
+      "sha256": "bd06b3e7dadc57d80217405e07e9592c0621f1ed5fc1a40f1739318b50e9a5c6"
+    },
+    {
+      "file": "V20260822_09__replay_retention.sql",
+      "sha256": "48548ff3064773fd713a8586563a33eaddc43e1a6b66150f8771b0444965cea9"
+    },
+    {
+      "file": "V20260822_10__perspective_room_events.sql",
+      "sha256": "82d8753b2aeb681e3facf3d39a588cb3d28653a27ba83aa36631ea4955e65345"
+    },
+    {
+      "file": "V20260822_11__consumed_events.sql",
+      "sha256": "c47d7e8ce4f2fb10758a37bea875aa200b10ce4e0cf1a13f6f991fd60b19eb91"
+    },
+    {
+      "file": "V20260822_12__consumed_event_claim.sql",
+      "sha256": "4fcf7bdaf45c3bc50ab895de2e0f5418627a28ce65ce58ed9ce98aa3f3df9f6e"
+    },
+    {
+      "file": "V20260822_13__room_event_visibility_identity.sql",
+      "sha256": "e7c7c9c1ae8e188e5192eda882bd9369db06404c8f3c5a61c1c7dfd6bcc60510"
+    },
+    {
+      "file": "V20260822_14__scalable_club_members.sql",
+      "sha256": "bd85e8153e587d0d1f810fd9b2541177b1421a2dd04e292814ad5c31bd02d375"
+    },
+    {
+      "file": "V20260822_15__account_login_index.sql",
+      "sha256": "c985f46b580e2cd0307690bcd65a57826d7d968d1a1b9c98db57cceb665e1bc6"
+    },
+    {
+      "file": "V20260823_01__room_event_business_identity.sql",
+      "sha256": "baf0084d5a8ffd3ca13d847650b14fdc0edb954688cb7b0dd3edda0c4cacecaf"
+    },
+    {
+      "file": "V20260823_02__outbox_claim_dlq_lifecycle.sql",
+      "sha256": "5b87582327d25f243f67f43fa9e850ace9eab1b344267f3e6c76fbad8334b4e7"
+    },
+    {
+      "file": "V20260823_03__consumed_event_repeatable_result.sql",
+      "sha256": "eeb859d3804a290110d0d5d57c90cd5930ad849485260c5607715d1f2c4ba618"
+    },
+    {
+      "file": "V20260823_04__consumer_dead_letter_replay.sql",
+      "sha256": "0e710e6f7cf10102e90ce8e70b1f97c93bd30a5919a4a6f68944afd1b1081341"
+    },
+    {
+      "file": "V20260823_05__idempotency_result_model.sql",
+      "sha256": "a6adc62245d73890a08b962ae08a6fed9495a0d3af3b611a159cd2231201fd40"
+    },
+    {
+      "file": "V20260823_06__idempotency_business_scope.sql",
+      "sha256": "fcd114ee70d75f6c589aeeb6d0218895ec85d474e91b507ec4d5fd61216aec43"
+    },
+    {
+      "file": "V20260823_07__snapshot_state_version.sql",
+      "sha256": "a1571420de0d09880d27d6a8d83ff3bd686fb87ca01d6bdd451851344be76667"
+    },
+    {
+      "file": "V20260823_08__outbox_schema_version.sql",
+      "sha256": "607f944efa7ae2064a7ab0631b340bc9df63b0fa9a5071b66935894e6915f532"
+    },
+    {
+      "file": "V20260823_09__immutable_room_event_history.sql",
+      "sha256": "ea13e156677d471f56a2ca59a66c6cbdedeade9d487c13df01e6efdc6778a148"
+    },
+    {
+      "file": "V20260823_10__connection_generation.sql",
+      "sha256": "479ca1f71519cd93a74c2d909c3c148ff99cf8669871213375da39472e562951"
+    },
+    {
+      "file": "V20260823_11__required_business_semantics.sql",
+      "sha256": "c391a43f49dcce65dea6e8e07e7213962898bcce591fec6cd87c7dabe48f5fca"
+    },
+    {
+      "file": "V20260823_12__play_member_template_business_keys.sql",
+      "sha256": "b49cabf4cf801d93a84fd848aa828376331b5971a9fa7963ca59b3d530503322"
+    },
+    {
+      "file": "V20260823_13__enforced_domain_checks.sql",
+      "sha256": "d8a8dcde3e4b67ad1800060f49917d61bc8ac9013f368bf1e316b43450040b89"
+    },
+    {
+      "file": "V20260823_14__query_shape_indexes.sql",
+      "sha256": "b19acecce6b193822a746a998a66bf04ec7464a009bfea54cd308575fd02e118"
+    },
+    {
+      "file": "V20260823_15__canonical_column_types.sql",
+      "sha256": "6ed94b56f7376e59efe7f08bdc4b0f28ec1450396fe063d7ff5a0ffe2dd6442c"
+    },
+    {
+      "file": "V20260823_16__utc_millisecond_time.sql",
+      "sha256": "d0bc0546c2e53b0756af98b5242e592aedc6c66c9ac9e7d1f37457aff07604dd"
+    },
+    {
+      "file": "V20260823_17__distributed_id_ownership.sql",
+      "sha256": "ffcff24a6d2f92d93d6f7ef1a627ce8fda3b0b3ff82002855088bbe78d645e53"
+    },
+    {
+      "file": "V20260823_18__club_aggregate_concurrency.sql",
+      "sha256": "b501de594855d56eb160b983a93a665c06ae3a658bf3096628e0d94417e7b352"
+    },
+    {
+      "file": "V20260823_19__canonical_storage_layout.sql",
+      "sha256": "b0d952e64becb5676348b1635126d7a9cfce6d0dcd7a69a0e86b56ed2a0c6654"
+    },
+    {
+      "file": "V20260823_20__account_login_unique_index.sql",
+      "sha256": "cefc2d6d994c86f1d858b327532ffa192a53674a8f1a42b8acf212780d591444"
+    },
+    {
+      "file": "V20260823_21__consumed_event_fenced_lease.sql",
+      "sha256": "ac5ec3cdafe28040601e8def67919389c6bb73428cb0411ec72d409a3a7afa18"
+    },
+    {
+      "file": "V20260823_22__versioned_replay_archive.sql",
+      "sha256": "8bffa21a5cc3ae6582a1e3a045be1bb4e282345063225f79f391604fe07c9d40"
+    },
+    {
+      "file": "V20260823_23__ledger_reconciliation_dimensions.sql",
+      "sha256": "0c2798af341fdd6420ab1f494fffe6ce89be1ad7956ef0581f50069757517f94"
+    },
+    {
+      "file": "V20260823_24__admin_rbac_audit.sql",
+      "sha256": "1c6993c925205e94461f584db249b36df7ba22b00c1bae3b1140e24370e2c457"
+    },
+    {
+      "file": "V20260823_25__outbox_fencing_and_retention.sql",
+      "sha256": "e0f90a2486007ca6d5d5b2f1b13117f8f03f4034f4c3eb632848c41369fda1ac"
+    },
+    {
+      "file": "V20260823_26__currency_catalog_and_authority.sql",
+      "sha256": "033e76c166e2abea450f2b9ba9d758a4a7c4d0158721cedc687853efd4f4e498"
+    },
+    {
+      "file": "V20260824_01__game_catalog_component_model.sql",
+      "sha256": "487a1ac72fdc1604a6953540a854ebb02e5714d7faf4e3a47add7cdeb3af4aaf"
+    },
+    {
+      "file": "V20260824_02__immutable_game_release_index.sql",
+      "sha256": "1c06663b3ada9f46b75ed1e41009ff036c7d1ee879d8de34377abd66f104b317"
+    },
+    {
+      "file": "V20260824_03__data_governance_controls.sql",
+      "sha256": "b4f5b46d3cfc429a5e2d65dfb2864014601d85a4ad441cdd61419d8db68c27db"
+    },
+    {
+      "file": "V20260824_04__database_operational_safety.sql",
+      "sha256": "fbfebad962ba91baf564bf839b37fe7244679cca7cad0a4e454362601063bcf7"
+    },
+    {
+      "file": "V20260824_05__database_integrity_gates.sql",
+      "sha256": "2038e3969901e408654d65aa585719e876d17e43e3cdb1980e5db08ae6b6b080"
+    },
+    {
+      "file": "V20260824_06__governance_workflow_procedures.sql",
+      "sha256": "d3026a3ce374550aa7a1dd17fa72ef66963f87cf725528d36623e197d2e70882"
+    },
+    {
+      "file": "V20260824_07__ledger_scope_and_score_precision.sql",
+      "sha256": "0cfeaedd6a87a8dcd1f1beeab2f1a928dd1293aa440ea22b2d4a8ebd876b2b4f"
+    },
+    {
+      "file": "V20260824_08__concurrency_soft_delete_and_route_contracts.sql",
+      "sha256": "2457b0f08c6d196d37aaad2e4f8cbeef066eb2b1cadc700a9a73f28d95769927"
+    },
+    {
+      "file": "V20260824_21__admin_security_nonce.sql",
+      "sha256": "332cc2be7811cee1095986ab2397dd9d47faae5ca8c3ff559f64112db7ae9749"
+    },
+    {
+      "file": "V20260824_24__edge_runtime_state_guards.sql",
+      "sha256": "2b56fb2957d9afb617118a394b6144f4d2a2568dc0ac1c0c24ffa6284c508af2"
+    },
+    {
+      "file": "V20260824_30__club_backend_consistency.sql",
+      "sha256": "34acf0afa999d6b8575395cfe83edd7189cd8b3fdacd250440a0ea14edda0718"
+    },
+    {
+      "file": "V20260824_31__admin_sensitive_export.sql",
+      "sha256": "41070e3aa8710ab67b55f8f7d4cea5cfdd53eb7f55cc4ed80f4300668c383bbf"
+    },
+    {
+      "file": "V20260824_32__external_platform_identity_and_risk.sql",
+      "sha256": "04f4bcd94238dead3f28ea8639af666f8b9f1a4d6720056b76b86b7defefb928"
+    },
+    {
+      "file": "V20260824_34__billing_payment_api.sql",
+      "sha256": "a1e4b8ce45cb033f8f13205ae1dfb0ab349f20eb13e68e069583eb02c8da2454"
+    },
+    {
+      "file": "V20260824_35__record_replay_api.sql",
+      "sha256": "b020760d26e8eaad48ad6f74540e118d57379f80761bb1aceba7fa7acc7476c6"
+    },
+    {
+      "file": "V20260824_36__hall_catalog_room_api.sql",
+      "sha256": "d33989d63b127063c8acdbb0c14bcd7cf2022134b49c2ab103eb9357356e40c5"
+    },
+    {
+      "file": "V20260824_38__account_session_api.sql",
+      "sha256": "2e4c044b1222c55f53bab7119ae35ce486cda8583d74fc07418b6d0dcd5c71ca"
+    },
+    {
+      "file": "V20260824_39__social_notification_api.sql",
+      "sha256": "a1d368d328da1b8b8fb49a52d60f424181328b571fc26e5434b42bb44f5b4508"
+    },
+    {
+      "file": "V20260824_40__player_support_api.sql",
+      "sha256": "f9a30658cd0cfcbdcc23c95e4b8333c18c9abe8807f175fcf6be64153b1c58cd"
+    },
+    {
+      "file": "V20260824_41__media_upload_api.sql",
+      "sha256": "445211541c1938595f95ac361ba467ea8ec80cf00b42f926be0cb690fcc680fd"
+    },
+    {
+      "file": "V20260824_42__version_notice_update_api.sql",
+      "sha256": "31bccf661d2fb99d0f8c06a223c099bbbca6d88a15879dd58e6024c7f0fd22df"
+    },
+    {
+      "file": "V20260824_43__matchmaking_tournament.sql",
+      "sha256": "065f780faf094d20bd118996d5d07c7acdc730929df9cdbc79732795ffe912d3"
+    },
+    {
+      "file": "V20260824_44__inventory_store_api.sql",
+      "sha256": "df053efcbae34a435c598630508281f837e3f89429a0f6c936235b85f75bc384"
+    },
+    {
+      "file": "V20260824_45__ranking_achievement.sql",
+      "sha256": "3803f990a10e79c5cb775ed13c2a0b461c83cb9ba9be309118b3670961328e0a"
+    },
+    {
+      "file": "V20260824_46__privacy_data_rights_api.sql",
+      "sha256": "6c85750b6f21e8f19225a97459a01bbe7cc3d3abf242fec34507c91a1b4dc315"
+    },
+    {
+      "file": "V20260824_47__telemetry_risk_api.sql",
+      "sha256": "5fb8a980dba09b492edbc9e5f6e4c0a94b526a4a7ad546cf4f7cdfbb79130cda"
+    },
+    {
+      "file": "V20260824_48__share_invite_link_api.sql",
+      "sha256": "36b2495914903d4af7cd21b84e91685564d64c199cf1703e2f9795e95232fd38"
+    },
+    {
+      "file": "V20260824_49__identity_verification_api.sql",
+      "sha256": "d6597de324439e31dfdd4c689267494a6eb56cb442290e9dbeed5d92683cb261"
+    },
+    {
+      "file": "V20260824_50__player_profile_api.sql",
+      "sha256": "c34f60e5019b3a89d2e8126901dd2e6672b299a0f26d84997c7b45a673e1f8d6"
+    },
+    {
+      "file": "V20260824_51__activity_mission_api.sql",
+      "sha256": "c56e62820853f7fea774e23d80a04d340b34b80c2921802806d5fa92d6841b2d"
+    },
+    {
+      "file": "V20260824_52__spectator_game_share_api.sql",
+      "sha256": "d9a0158cdee4a42decc84a9d1dd5713a435469a671c9992775a8d38b76c37979"
+    },
+    {
+      "file": "V20260824_53__referral_agent_api.sql",
+      "sha256": "f5da4a6934eaa793b79f7d6b1f58e08cb30dbc5dfef64e76308f010f8a09eb05"
+    },
+    {
+      "file": "V20260824_54__player_gifting_api.sql",
+      "sha256": "4692014b878e9a74e71c6762532d822d7a4de29a8a34636d914342811422d347"
+    },
+    {
+      "file": "V20260824_55__canonical_game_configuration_repository.sql",
+      "sha256": "5ab9290946024e4032fde4411c33a2176179d79e767d8ebae1907b1931e98a2c"
+    },
+    {
+      "file": "V20260824_56__gateway_ws_ticket.sql",
+      "sha256": "944924aa2c3a32b8a34904be7216888d4baa4bcd9b259f8387bd726547c9e668"
+    },
+    {
+      "file": "V20260824_57__luck_draw_api.sql",
+      "sha256": "bc508badc1e403f212d0f07be09f410d6e2001206393d40f186506cae3f34452"
+    },
+    {
+      "file": "V20260824_58__social_notice_red_dot.sql",
+      "sha256": "e2824b2e2b9620a30c71b5939e48ef672b5dfcf2641829e3a5b7c3404a3be032"
+    },
+    {
+      "file": "V20260824_59__version_feature_flags_server_directory.sql",
+      "sha256": "38ea58bc44109fcb44a3ccbecba34e59fd13a9c2f7f1a1ea050e307eaa0206e8"
+    },
+    {
+      "file": "V20260824_60__support_live_session.sql",
+      "sha256": "bb8ac384afbe86f5c5fb01eca316ba804f59c7169913c255fea03b2cf47b4a0f"
+    },
+    {
+      "file": "V20260824_73__risk_admission_authority.sql",
+      "sha256": "20819e2c5f5d03d6431510085ecb3dee6ff6c18d117a162956fcf13b281b0e71"
+    },
+    {
+      "file": "V20260824_74__room_safety_report_gps.sql",
+      "sha256": "006d1b06adfa4ced889104e43dfaea6969550e89a9b99e476a2db96beb998957"
+    },
+    {
+      "file": "V20260824_76__admin_browser_auth.sql",
+      "sha256": "1ef8fbb8b3fc89d03eb531755b4a447f2c6e021a2bf6facb16a2f65d6c4ff503"
+    },
+    {
+      "file": "V20260824_77__game_release_referential_consistency.sql",
+      "sha256": "970fbc26cc793ff9310192eb11a2868bf3593bdd9a0659f17dcf2fcb3533cde9"
+    },
+    {
+      "file": "V20260825_78__hall_room_id_sequence.sql",
+      "sha256": "123b14a390732ca674f0186266b3441580eda274519718403099185094411738"
+    },
+    {
+      "file": "V20260825_79__room_authority_lifecycle.sql",
+      "sha256": "e225713753b2458cc02f32e4034baa1061e8179c36ff9e24473253ffb4c6693d"
+    },
+    {
+      "file": "V20260825_80__room_create_saga_recovery.sql",
+      "sha256": "0f6a1492b932415ad2a7c561c8f6ce8fb68e864fcdeeccd910446034b0ace3ca"
+    },
+    {
+      "file": "V20260825_81__region_is_classification_only.sql",
+      "sha256": "2bed810db90ca3e5aaa5e652a41e86834eb835dd2d5b7a36db782db025f0ba22"
+    },
+    {
+      "file": "V20260825_82__matchmaking_without_region_partition.sql",
+      "sha256": "a391444d70a2fc9f513e3c2a1c2c3b3320a328b078d64eeb01ef5010ed0012f8"
+    },
+    {
+      "file": "V20260825_83__room_saga_compensation_origin.sql",
+      "sha256": "c295aae99ab68fcbf01188d8214df4bd7ebe4b72b68cc2d6c2de8501454b8e17"
+    },
+    {
+      "file": "V20260825_84__hall_room_region_is_classification.sql",
+      "sha256": "f15795d61ebbd1956a3da83a144ceb0dd0e8c5e082460a7bb7e45421c7eb3a18"
+    },
+    {
+      "file": "V20260825_85__idempotent_room_id_allocation.sql",
+      "sha256": "66892561f8e6609f29ec0722d03d0c350d6877112c62925980911d735aa793ac"
+    },
+    {
+      "file": "V20260825_86__hall_room_scope_and_club_projection.sql",
+      "sha256": "bc13f7a4f522c4c34576a8f7e87b7dff0bbd141771bb7cd215b625d7125465a3"
+    },
+    {
+      "file": "V20260825_87__global_player_wallet.sql",
+      "sha256": "43e3383ac25efd0e43f90065e4823707731d7a979218ea5990c8f8d25a5340e1"
+    },
+    {
+      "file": "V20260825_88__retire_city_runtime_controls.sql",
+      "sha256": "ecabea0c966c6de0704a06a7c5d8c0a32cb5e3b3dd82d32b023e927cd00d8c12"
+    },
+    {
+      "file": "V20260825_90__unified_account_identity.sql",
+      "sha256": "6466e8c95dfd9192078833f305a910dc2aa78c1bb6094ab502882ce3a5d9a0e6"
+    },
+    {
+      "file": "V20260825_91__remove_legacy_account_login.sql",
+      "sha256": "9264b00c0e0934eb066259fa16684c38d65d190475298a0d023611405fe822e6"
+    },
+    {
+      "file": "V20260825_92__retire_region_identity_columns.sql",
+      "sha256": "75c9c4c761f5b4720e35c02f1a296e5045aca004fc2f09bdbda9596c3c49eddf"
+    },
+    {
+      "file": "V20260825_93__rename_remaining_city_audit_columns.sql",
+      "sha256": "e0fdb4e26e313051f388d7019afc4b28e33892d5045e97bab6c5f00be1faa5a0"
+    },
+    {
+      "file": "V20260825_94__late_table_governance_coverage.sql",
+      "sha256": "558e5f6e73f4c9473097d1a13d3d99a7ded348c1587b99a50b93cdf49630e3ec"
+    },
+    {
+      "file": "V20260825_95__hall_room_saga_state.sql",
+      "sha256": "8143575feba920894f64da9a1cd9298236c825d30575500222adb0f894b3eecc"
+    },
+    {
+      "file": "V20260825_96_1__required_pdk_catalog_prerequisites.sql",
+      "sha256": "5131c8e555f5940ac04d9ba293fc867156905544014271e23a212058e0a854d9"
+    },
+    {
+      "file": "V20260825_96__remove_player_profile_region_identity.sql",
+      "sha256": "1b377931e7ab247a436d06fcdd23cbe84063433ea9cadeb728b0915e8f295a9f"
+    },
+    {
+      "file": "V20260825_97__njpdk_native_resource_release.sql",
+      "sha256": "d2ec3eee6c6615dce52050b55fb98817fb637032ec74c4c712dcb7f67cb8af94"
+    },
+    {
+      "file": "V20260826_01__njpdk_four_player_publication.sql",
+      "sha256": "fcd936f77cf98c2683b01bc4fc001435f5e0f0d85396002974c9b2386d46eede"
+    },
+    {
+      "file": "V20260826_02__hall_authoritative_join_reservation.sql",
+      "sha256": "929c339f775ddc9429a394e1e5f7d493ccbd33e0d66efd1db167612f88892d6f"
+    },
+    {
+      "file": "V20260826_03__idempotency_unknown_outcome.sql",
+      "sha256": "19332210201618dcd30462e123f47861865faa5ef538717ab14890ea813f7810"
+    },
+    {
+      "file": "V20260826_04__durable_settlement_outbox_and_score_backfill.sql",
+      "sha256": "ab5eca1af30af0e216433992dc004650991c98be34f5458b4c5127b6e6742229"
+    },
+    {
+      "file": "V20260826_05__settlement_template_catalog_contract.sql",
+      "sha256": "a6a81471dda5003ccba36a725720eabc9cbddd610426b037475af1fda00d9bed"
+    },
+    {
+      "file": "V20260826_06__canonical_poker_family_and_settlement_defaults.sql",
+      "sha256": "3bd95dee66bcb1c6ba01903871dfa08ca3a577a8f20687aeccbb64255737fb86"
+    },
+    {
+      "file": "V20260826_07__njpdk_neijiang_classification.sql",
+      "sha256": "7c3017c2a7aeaaf5bbaea8ef3fde07761ba77be1b28fcaefb50fe95c7b74619e"
+    },
+    {
+      "file": "V20260826_08__publish_chengdu_pdk_catalog.sql",
+      "sha256": "b229b02b57ba51af1e7d39778cf9db593bed2e94ae5c18778179e8ad8c6e850d"
+    },
+    {
+      "file": "V20260827_01__publish_pdk_public_room_rules.sql",
+      "sha256": "4c09e56fa2024111bb8f25ab61120d18c711d213681737f2d16202c5f0d87861"
+    },
+    {
+      "file": "V20260827_02__inherit_pdk_public_rules_in_njpdk.sql",
+      "sha256": "6a973b480f836f9da08b187df9a1f128c4a399e0ed5be498e6b53e92310d969e"
+    },
+    {
+      "file": "V20260827_03__chengdu_pdk_twelve_round_cost_policy.sql",
+      "sha256": "5400ecd0c29deeea3912b634110b389aeb34bb7318e7ed63afc5e5422a04f5a0"
+    },
+    {
+      "file": "V20260827_04__publish_pdk_common_room_bundle.sql",
+      "sha256": "c1072d2bb0329091d0168a8d6138e284fcf419f8b9df8c1b776c62dd2509e629"
+    },
+    {
+      "file": "V20260901_01__default_account_crystal_balance.sql",
+      "sha256": "524ee57700c04c6d54d5513a443d8c1c2b8e329d1f8cce4ee47342c731950274"
+    },
+    {
+      "file": "V20260903_01__durable_waiting_room_expiration.sql",
+      "sha256": "b6d1f55a496a29e6ec0796991841413217f375b966f5433743bc09815247372a"
+    },
+    {
+      "file": "V20260907_01__stable_short_replay_code.sql",
+      "sha256": "5e0d690baf23afb6b2a91378b54f389b996607a5cb30e4ee0f550e8cb4bafeb8"
+    },
+    {
+      "file": "V20260907_02__publish_neijiang_liangshan_pdk_profiles.sql",
+      "sha256": "4af13e4673dacf1aff6cbab56f77afcd7df70aa6c8f86dbfa43332c89afd1bc8"
+    },
+    {
+      "file": "V20260907_03__pdk_business_codes_and_room_history_cleanup.sql",
+      "sha256": "2c61b321861e9cbc68523bfc703e5ea8fe4a57d0162f1ccefc30d99ccce5f9f9"
+    },
+    {
+      "file": "V20260907_04__repair_regional_pdk_create_validators.sql",
+      "sha256": "8ca77f5da784b93e183bedd03eb036707cf32df04c31e3b02927ff35c45909e3"
+    },
+    {
+      "file": "V20260907_05__deduplicate_neijiang_pdk_cost_scope.sql",
+      "sha256": "44b5c8d223f612375cbcb5ade400aea4e43c312bba7d430bb6dc359969adf353"
+    },
+    {
+      "file": "V20260907_06__make_regional_pdk_room_restrictions_optional.sql",
+      "sha256": "c934cc9d6cb7e124b328b47f0fb9314070a6a71628605180ab1dfc1d6e8d6464"
+    },
+    {
+      "file": "V20260907_07__canonicalize_liangshan_pdk_create_defaults.sql",
+      "sha256": "2db1169f80a481dd2993c9d8f80b92cea9d88921b15532c0c3a6e6fc12f33110"
+    },
+    {
+      "file": "V20260907_08__fix_liangshan_pdk_string_defaults.sql",
+      "sha256": "361b2b3749d0fc508f32971efc408ea695dc9f8333e2638afb295796ec917e92"
+    },
+    {
+      "file": "V20260907_09__publish_liangshan_room_rule_ui.sql",
+      "sha256": "bc6074f5e30449b0ff9183d84e62cd086985363136ee559c5390468028871f15"
+    },
+    {
+      "file": "V20260907_10__correct_ls201_xqp_rules_and_deal_schema.sql",
+      "sha256": "6bf2979862a4e7e3f0225e07a038ed343498b37771a1485dfb4edfeb4fa78b46"
+    },
+    {
+      "file": "V20260907_11__repair_ls201_utf8_publication.sql",
+      "sha256": "d9fbc8818e5ef4fcdebc009d0db2ba565b243b694328f76770ac82e07a504918"
+    },
+    {
+      "file": "V20260910_01__publish_cd201_pdk_common_room_bundle.sql",
+      "sha256": "b389310e3c5c8d565a97fe7af56fcdeebd9c0e928b17b6633af78dc83a030e95"
+    },
+    {
+      "file": "V20260910_02__publish_cd201_pdk_common_bundle.sql",
+      "sha256": "6259ddf067fa8fc54b9af3d35e39d275bb9652ea9996f06a125fa72d32443a61"
+    },
+    {
+      "file": "V20260911_01__remove_regional_and_club_card_assets.sql",
+      "sha256": "a1ccb97fca42671730800fdee5acf32ab243b9133fa1ff68ddb1fa175054e5af"
+    },
+    {
+      "file": "V20260911_02__rename_union_total_score.sql",
+      "sha256": "b944391d914f8494274014156460a2524b0f2d5ef48bc7322b5d38fab7616bb4"
+    },
+    {
+      "file": "V20260911_03__rename_legacy_union_total_score.sql",
+      "sha256": "fe74e3bb30ddeb23befc9ab3736c7171f521d2c306f50de5653932b6ad5692b1"
+    },
+    {
+      "file": "V20260915_01__publish_cn298_cn297_poker_families.sql",
+      "sha256": "7cbc2797771bce0c10153d3169b605b8ee6d94497e0ee33c1260a50fed634758"
+    },
+    {
+      "file": "V20260916_01__publish_canonical_poker_cost_policies.sql",
+      "sha256": "c07bbed428ab86213bd943bfc7334da63b42ba6e30f9c5bcbaf04dd34996a5af"
+    },
+    {
+      "file": "V20260918_01__split_pdk_triple_attachment_rules.sql",
+      "sha256": "f02be6e62ea59b69a35039d99793594ff0182b8f6f0e98f7a64aa4ce13641e8b"
+    },
+    {
+      "file": "V20260919_01__started_room_inactivity_expiration.sql",
+      "sha256": "4b057c92e9a1dc696c6b3fef7c35ac0f3e62b98e83f4d67a9c40aeb28678068b"
+    },
+    {
+      "file": "V20260919_02__publish_cn297_room_rule_schema.sql",
+      "sha256": "c9b4b6e5f588fa0eb5c491cb65b8f5236c775a02fc34bf09d3623703c51f08ce"
+    },
+    {
+      "file": "V20260919_03__publish_cn298_room_rule_schema.sql",
+      "sha256": "183e8d224f68beac509ea95b8ea9cca33c8483d3ca3bd0b87688ba5da209cf25"
+    },
+    {
+      "file": "V20260919_04__bind_cd299_runtime_bundle.sql",
+      "sha256": "8b7d2e7d225c50411bd3ed0049bd7b0fe0f47f3c93a9bc42bcffae53d06bb555"
+    },
+    {
+      "file": "V20260919_05__publish_cd299_room_rule_schema.sql",
+      "sha256": "c4b31cba52508ace8c53f790e75cd571106017a67a93f0adc51b8400af533deb"
+    },
+    {
+      "file": "V20260919_06__room_cost_measure_dimension.sql",
+      "sha256": "6055d9baefa98588f967f3f8218a4ecee916615cf9615944666eb82beac4b811"
+    },
+    {
+      "file": "V20260919_07__reject_synthetic_replay_identities.sql",
+      "sha256": "e30b5d33a44ecc5e8e127d75e6b5f7387463ca0dd487e08cb9d4d1ed797b00c2"
+    },
+    {
+      "file": "V20260924_01__room_cost_measure_primary_identity.sql",
+      "sha256": "32096587fc411d1eb9e5d7d599a224b5a493087df12ea75a88065f197e2549da"
+    }
+  ],
+  "nativeProviders": [
+    {
+      "capabilities": {
+        "capabilityManifest": true,
+        "createAuthoritativeSession": true,
+        "reconnectViewProvider": true,
+        "restoreAuthoritativeSession": true,
+        "ruleComponents": false,
+        "settlementProvider": true
+      },
+      "className": "business.global.mj.cdxzmj.CDXZMJGameProvider",
+      "gameCode": "cdxzmj",
+      "javaFiles": [
+        "server/CDXZMJ/src/business/global/mj/cdxzmj/CDXZMJGameProvider.java"
+      ],
+      "serviceFile": "server/CDXZMJ/src/main/resources/META-INF/services/com.aoo.bcg.gamespi.GameProvider"
+    },
+    {
+      "capabilities": {
+        "capabilityManifest": true,
+        "createAuthoritativeSession": true,
+        "reconnectViewProvider": true,
+        "restoreAuthoritativeSession": true,
+        "ruleComponents": false,
+        "settlementProvider": true
+      },
+      "className": "business.global.mj.scjymj.SCJYMJGameProvider",
+      "gameCode": "scjymj",
+      "javaFiles": [
+        "server/SCJYMJ/src/business/global/mj/scjymj/SCJYMJGameProvider.java"
+      ],
+      "serviceFile": "server/SCJYMJ/src/main/resources/META-INF/services/com.aoo.bcg.gamespi.GameProvider"
+    },
+    {
+      "capabilities": {
+        "capabilityManifest": false,
+        "createAuthoritativeSession": true,
+        "reconnectViewProvider": true,
+        "restoreAuthoritativeSession": true,
+        "ruleComponents": false,
+        "settlementProvider": true
+      },
+      "className": "business.global.pk.xcpdk.XCPDKGameProvider",
+      "gameCode": "xcpdk",
+      "javaFiles": [
+        "server/XCPDK/src/business/global/pk/xcpdk/XCPDKGameProvider.java"
+      ],
+      "serviceFile": "server/XCPDK/src/main/resources/META-INF/services/com.aoo.bcg.gamespi.GameProvider"
+    },
+    {
+      "capabilities": {
+        "capabilityManifest": false,
+        "createAuthoritativeSession": false,
+        "reconnectViewProvider": true,
+        "restoreAuthoritativeSession": false,
+        "ruleComponents": false,
+        "settlementProvider": true
+      },
+      "className": "business.global.pk.zypk.ZYPKGameProvider",
+      "gameCode": "zypk",
+      "javaFiles": [
+        "server/ZYPK/src/business/global/pk/zypk/ZYPKGameProvider.java"
+      ],
+      "serviceFile": "server/ZYPK/src/main/resources/META-INF/services/com.aoo.bcg.gamespi.GameProvider"
+    }
+  ],
+  "operationalEnvironmentStatus": {
+    "DBA01_onlineDDL": "WAITING_ENVIRONMENT: observation table/runbook ready; no production-sized topology supplied",
+    "DBA02_slowQuery": "LOCAL_VERIFIED_ONLY: 50k-row MySQL 8.4 plan captured; production dataset/topology absent",
+    "DBA03_connectionPool": "BOUNDARY_BLOCKED: evidence schema ready; service pool load test is outside database/",
+    "DBA04_deadlockRetry": "BOUNDARY_BLOCKED: lock-order policies ready; transaction implementation/load test outside database/",
+    "DBA05_restore": "WAITING_ENVIRONMENT: manifest/drill schema ready; no authorized backup target",
+    "DBA06_failover": "WAITING_ENVIRONMENT: drill schema ready; no replica topology",
+    "DBA07_capacity": "WAITING_ENVIRONMENT: forecast schema ready; production metrics absent",
+    "DBA08_archive": "WAITING_ENVIRONMENT: idempotent archive ledger ready; production partitions absent",
+    "DBA09_repairApproval": "DATABASE_COMPLETE: dry-run/rate/pause/audit/rollback and independent approvals are constrained",
+    "DBA10_statistics": "WAITING_ENVIRONMENT: plan baseline schema ready; production statistics absent"
+  },
+  "passed": false,
+  "runtimeBoundaryBlocks": {
+    "REF03_componentInstantiation": "BOUNDARY_BLOCKED: requires GameProvider/component implementations and behavior tests outside database/",
+    "REF04_componentKeyRuntimeType": "BOUNDARY_BLOCKED: DB uniqueness/type contracts exist; startup ServiceLoader type verification is outside database/",
+    "REF05_uiValidatorRuntime": "BOUNDARY_BLOCKED: DB one-to-one mapping constraints exist; protocol/server validator integration is outside database/",
+    "REF06_combinationRuntime": "BOUNDARY_BLOCKED: DB expression fields exist; publish evaluator integration is outside database/",
+    "REF07_templateWriteGuard": "BOUNDARY_BLOCKED: FK/immutable sidecar exists; application write/lifecycle guard is outside database/",
+    "REF08_snapshotRestore": "BOUNDARY_BLOCKED: immutable lock and version columns exist; provider restore behavior is outside database/",
+    "REF09_historicalDecoder": "BOUNDARY_BLOCKED: release/codec identifiers exist; versioned decoder implementations are outside database/",
+    "REF11_startupScan": "ENVIRONMENT_AND_BOUNDARY_BLOCKED: Java 26 plus bootstrap changes/tests are outside database/",
+    "REF12_transactionSaga": "BOUNDARY_BLOCKED: DB release/room lock and Outbox exist; room/assets/Saga integration is outside database/"
+  },
+  "schemaObjectGroups": {
+    "catalog": {
+      "missing": [],
+      "passed": true
+    },
+    "components": {
+      "missing": [],
+      "passed": true
+    },
+    "historyLocks": {
+      "missing": [],
+      "passed": true
+    },
+    "migrationGovernance": {
+      "missing": [],
+      "passed": true
+    },
+    "qualityPrivacy": {
+      "missing": [],
+      "passed": true
+    },
+    "queryOperations": {
+      "missing": [],
+      "passed": true
+    },
+    "region": {
+      "missing": [],
+      "passed": true
+    },
+    "releaseIndex": {
+      "missing": [],
+      "passed": true
+    },
+    "rulesAndUi": {
+      "missing": [],
+      "passed": true
+    }
+  },
+  "schemaVersion": 1,
+  "sourceCatalog": {
+    "duplicateCodes": 0,
+    "duplicateGameIds": 0,
+    "enabled": 228,
+    "path": "server/Bootstrap/src/main/resources/game-catalog-528.tsv",
+    "rows": 532,
+    "sha256": "c30750351cd9edc23e521b25000da576d4e5644c2356523591b5625a78efb79c",
+    "unmappedRegionReferences": [
+      {
+        "field": "cityCode",
+        "gameCode": "CD201",
+        "gameId": 8,
+        "value": "chengdu"
+      },
+      {
+        "field": "cityCode",
+        "gameCode": "NJ201",
+        "gameId": 629,
+        "value": "neijiang"
+      },
+      {
+        "field": "cityCode",
+        "gameCode": "CD299",
+        "gameId": 630,
+        "value": "chengdu"
+      },
+      {
+        "field": "cityCode",
+        "gameCode": "LS201",
+        "gameId": 90005,
+        "value": "liangshan"
+      }
+    ]
+  },
+  "sourceDatabaseGap": {
+    "catalogBridgeCount": 531,
+    "catalogRows": 532,
+    "databaseProductionCatalogRowsLoaded": 0,
+    "enabledCatalogRows": 228,
+    "nativeProviderCodes": [
+      "cdxzmj",
+      "scjymj",
+      "xcpdk",
+      "zypk"
+    ],
+    "nativeProviderCount": 4,
+    "reason": "converter output is intentionally DRAFT and no deployment database was authorized; provider/component validation must precede load"
+  }
+}

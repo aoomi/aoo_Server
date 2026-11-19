@@ -1,0 +1,23 @@
+{
+  "owner": "/root/chexuan_mingming_low",
+  "task": "DIRECT-20261016T134154Z-6e8b1c20-active-game-naming-migration",
+  "state": "RELEASED",
+  "acquiredAt": "2026-10-16T16:22:13.112788+00:00",
+  "expiresAt": "2026-10-16T16:42:13.112788+00:00",
+  "writePaths": [
+    "server/modules/gameplay/games/poker/cx/pom.xml",
+    "server/modules/gameplay/games/poker/cx/src/main/java/com/aoo/bcg/poker/cx/CxGameProvider.java",
+    "server/modules/gameplay/games/poker/cx/src/main/java/com/aoo/bcg/poker/cx/CxHandEvaluator.java",
+    "server/modules/gameplay/games/poker/cx/src/main/java/com/aoo/bcg/poker/cx/CxRules.java",
+    "server/modules/gameplay/games/poker/cx/src/main/resources/cd299/card-type-order.txt",
+    "server/modules/gameplay/games/poker/cx/src/main/resources/cd299/single-card-order.txt",
+    "server/modules/gameplay/games/poker/cx/src/main/resources/cd299/three-flower.txt",
+    "server/modules/gameplay/games/poker/cx/src/main/resources/cx/card-type-order.txt",
+    "server/modules/gameplay/games/poker/cx/src/main/resources/cx/single-card-order.txt",
+    "server/modules/gameplay/games/poker/cx/src/main/resources/cx/three-flower.txt",
+    "server/modules/gameplay/games/poker/cx/src/test/java/com/aoo/bcg/poker/cx/CxProviderFactoryTest.java",
+    "server/modules/gameplay/games/poker/cx/src/main/resources/cd299",
+    "server/modules/gameplay/games/poker/cx/src/main/resources/cx"
+  ],
+  "releasedAt": "2026-10-16T16:23:18.201015+00:00"
+}

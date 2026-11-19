@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "toolInputs": [
+    "tools",
+    "engineering/audit/tool-inputs",
+    "engineering/benchmark/tool-inputs",
+    "engineering/build/tool-inputs",
+    "engineering/local-dev/tool-inputs",
+    "engineering/release/tool-inputs",
+    "engineering/tests/tool-inputs",
+    "engineering/local-dev/task-only-runtime",
+    "release-input/identity"
+  ],
+  "scriptInputs": [
+    "engineering/audit/script-inputs",
+    "engineering/benchmark/script-inputs",
+    "engineering/tests/script-inputs"
+  ]
+}

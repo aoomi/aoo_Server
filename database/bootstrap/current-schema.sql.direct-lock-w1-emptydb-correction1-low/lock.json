@@ -1,0 +1,10 @@
+{
+  "owner": "/root/shuju_low",
+  "state": "RELEASED_FROZEN_PREIMPORT",
+  "sourceWrite": true,
+  "preimageSha256": "6b6caec54be8f4b3f99821245df5b97349ac59074edd4c8866af6b007f3546f3",
+  "path": "server/database/bootstrap/current-schema.sql",
+  "createdAt": "2026-10-14T09:13:20.974714+00:00",
+  "releasedAt": "2026-10-14T09:20:20.668384+00:00",
+  "postimageSha256": "6b6caec54be8f4b3f99821245df5b97349ac59074edd4c8866af6b007f3546f3"
+}

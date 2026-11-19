@@ -1,0 +1,10 @@
+{
+  "owner": "/root/kuangjia_low",
+  "status": "RELEASED_FOR_INDEPENDENT_REVIEW",
+  "acquiredAt": "2026-10-17T02:23:38.690301+00:00",
+  "expiresAt": "2026-10-17T02:33:38.690301+00:00",
+  "exactWritePaths": [
+    "/Users/aoo/Code/Game/BCG/Aoo/server/modules/infrastructure/Bootstrap/src/test/java/com/aoo/bcg/bootstrap/JdbcRoomBillingLifecyclePortTest.java"
+  ],
+  "releasedAt": "2026-10-17T02:24:36.731649+00:00"
+}

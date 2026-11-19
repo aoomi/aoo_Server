@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "status": "RELEASED_FOR_INDEPENDENT_REVIEW",
+  "owner": "/root/r59_hall_exception_repair",
+  "task": "DIRECT-20261008T084000Z-4a7f1c9e-R59",
+  "attempt": "R59-hall-exception-policy-v1",
+  "acquiredAt": "2026-10-10T04:08:01+08:00",
+  "purpose": "Annotate only sameJson malformed canonical JSON as fail-closed non-equality",
+  "allowlist": ["Server/server/Hall/src/main/java/com/aoo/bcg/hall/room/JdbcHallRepository.java"],
+  "forbidden": ["all other production source", "SQL", "protocol", "database/migration/seed", "Client", "runtime/service start", "commits/pushes"],
+  "preimageSha256": "319410dba38c9b3f5cdfbe9a942e710987a87b2e5fb6963099522201849664bc",
+  "postimageSha256": "e8f3bab07bdf919871b4d93fd0e683b4bcca62afc6b2bbc9f94262af91df0b23",
+  "releasedAt": "2026-10-10T04:10:29+08:00",
+  "releaseReason": "R59_DEV_SELF_CHECK_COMPLETE_PENDING_INDEPENDENT_REVIEW"
+}

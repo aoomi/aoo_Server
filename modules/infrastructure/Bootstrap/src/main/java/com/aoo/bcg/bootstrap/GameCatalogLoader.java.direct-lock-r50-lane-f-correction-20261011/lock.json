@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 2,
+  "lockId": "R50-LANE-F-CORRECTION-20261011T053825Z-GameCatalogLoader",
+  "status": "RELEASED_FOR_INDEPENDENT_REVIEW",
+  "owner": "/root/lane_f_service_input_package",
+  "task": "DIRECT-20261011T052900Z-4a7f1c9e-生产运行时目录收敛.md",
+  "attempt": "R50-review-correction-r2-byte-preserving-receipt",
+  "acquiredAt": "2026-10-11T05:38:25Z",
+  "path": "Server/server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/GameCatalogLoader.java",
+  "preimageSha256": "1351a366d799c727a2425b06af1ce70bf0f4e8ae6787bb3d93b32506adc4efc4",
+  "sourceWrite": true,
+  "supersedes": [
+    "Server/server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/GameCatalogLoader.java.direct-lock-r50-lane-f-20261011/lock.json"
+  ],
+  "oldLocksRemainByteIdentical": true,
+  "custodyBasis": "R50 review correction: prior receipt chronology was rejected; this lock accepts the already-produced bytes as the correction-batch preimage and precedes only the byte-preserving metadata receipt",
+  "taskCardSha256": "948f2c8c0ba5744edf2a0710a19e76654240a36f5c03b70fee947fae1d7b629",
+  "currentPath": "Server/modules/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/GameCatalogLoader.java",
+  "currentPathCustodyReceiptType": "USER_RENAME_CURRENT_PATH_CUSTODY_RECEIPT",
+  "r13ManifestSha256": "ad7894310fa2fddea8fad9413b5ed301b9b8ca171e631ed6c6e85d98056c2475",
+  "r13IndependentReviewSha256": "e989ef9b5895a7f53a58eb3642bddb47b014903bd2b68542a36e229ca24e4683",
+  "releaseReason": "R13_USER_RENAME_CURRENT_PATH_CUSTODY_RECEIPT",
+  "releasedBy": "/root/lane_f_service_input_package",
+  "releasedAt": "2026-10-12T15:16:47Z",
+  "custodyReceiptPath": "/tmp/aoo-r13-gamecatalogloader-current-custody-release-20261012/custody-receipt.md",
+  "sourcePostimageSha256": "1351a366d799c727a2425b06af1ce70bf0f4e8ae6787bb3d93b32506adc4efc4",
+  "independentAcceptance": "PENDING_LANE_G"
+}

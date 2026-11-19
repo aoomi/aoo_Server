@@ -1,0 +1,11 @@
+{
+  "owner": "/root",
+  "state": "RELEASED",
+  "releasedAt": "2026-10-25T14:11:35Z",
+  "attempt": "R33",
+  "acquiredAt": "2026-10-25T14:08:00Z",
+  "expiresAt": "2026-10-25T15:08:00Z",
+  "writePaths": [
+    "/Users/aoo/Code/Game/BCG/Aoo/Server/modules/user-domain/Billing/src/test/java/com/aoo/bcg/billing/RoomCardPricingImportValidatorTest.java"
+  ]
+}

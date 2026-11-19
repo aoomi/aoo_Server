@@ -1,0 +1,10 @@
+{
+  "owner": "/root/kuangjia_login_low",
+  "state": "RELEASED",
+  "status": "RELEASED",
+  "acquiredAt": "2026-10-15T11:11:16.528967+00:00",
+  "writePaths": [
+    "/Users/aoo/Code/Game/BCG/Aoo/server/modules/infrastructure/Bootstrap/src/test/java/com/aoo/bcg/bootstrap/JdbcGatewayCommittedBindingTest.java"
+  ],
+  "releasedAt": "2026-10-15T11:11:54.860296+00:00"
+}

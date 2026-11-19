@@ -1,0 +1,11 @@
+{
+  "owner": "/root/shuju",
+  "state": "RELEASED_SAFE_CHECKPOINT",
+  "sourceWrite": true,
+  "preimage": "661c1cbda4c0589879375e6967360ef3e72d6aa723be2ceb396ddd95a87c9c58",
+  "path": "server/database/bootstrap/manifest.json",
+  "createdAt": "2026-10-14T08:58:25.403766+00:00",
+  "releasedAt": "2026-10-14T09:11:18.220826+00:00",
+  "postimageSha256": "de6cfec7f504d72f5933c9b3bedb63e0770866ddd2dac74cbaa70ca8643a5a77",
+  "reason": "explicit user model configuration replacement"
+}

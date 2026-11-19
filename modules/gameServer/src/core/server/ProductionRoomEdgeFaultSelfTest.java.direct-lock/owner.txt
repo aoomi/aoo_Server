@@ -1,0 +1,5 @@
+Owner=/root
+Task=DIRECT-20261006T151500Z-c41e8b9a
+Attempt=DIRECT-20261006T151500Z-c41e8b9a-v2
+Acquired=2026-10-06T16:45:00+08:00
+Purpose=生产自检使用唯一生产 Registry 工厂，消除兼容默认构造绕过
