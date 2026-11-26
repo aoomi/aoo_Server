@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "playCode": "quanguo2997",
+  "displayName": "全国金花",
+  "gameId": 9,
+  "playVersion": "zjh-v1.0.0",
+  "releaseId": 1318063,
+  "indexGeneration": 1006113,
+  "runtimeSourceHash": "1d7b6785e3c4905cbf482312c54b4fc192726b9274e2dc575cdcf72619d8a546",
+  "tableName": "aoo_room_card_price_quanguo2997",
+  "policies": [
+    {
+      "policyKey": "quanguo2997:play-default:hall-owner-fixed-v1",
+      "matchScope": "PLAY_DEFAULT",
+      "payerMode": "OWNER",
+      "billingKind": "FIXED",
+      "billingContext": "HALL",
+      "currencyCode": "ROOM_CARD",
+      "amountMinor": 0,
+      "status": "ACTIVE",
+      "confirmationStatus": "CONFIRMED",
+      "freePolicyRef": "ROOM_CARD_ALWAYS_FREE_V1",
+      "refundPolicyRef": "ROOM_CARD_ZERO_AMOUNT_NO_LEDGER_V1",
+      "policyVersion": 1,
+      "contentHash": "0504418cdd24add8acb0d307f76caf32fe1ee05362976b7e821bc88654b467f1"
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "playCode": "huaibin2021",
+  "displayName": "淮滨跑得快",
+  "gameId": 2021,
+  "playVersion": "huaibin2021-v1.0.0",
+  "releaseId": 1318237,
+  "indexGeneration": 1006287,
+  "runtimeSourceHash": "1cdbda81f69213ae48db360070b1af4a96aa3bd857b4f7d78e9d7f41d91bba60",
+  "tableName": "aoo_room_card_price_huaibin2021",
+  "policies": [
+    {
+      "policyKey": "huaibin2021:play-default:hall-owner-fixed-v1",
+      "matchScope": "PLAY_DEFAULT",
+      "payerMode": "OWNER",
+      "billingKind": "FIXED",
+      "billingContext": "HALL",
+      "currencyCode": "ROOM_CARD",
+      "amountMinor": 0,
+      "status": "ACTIVE",
+      "confirmationStatus": "CONFIRMED",
+      "freePolicyRef": "ROOM_CARD_ALWAYS_FREE_V1",
+      "refundPolicyRef": "ROOM_CARD_ZERO_AMOUNT_NO_LEDGER_V1",
+      "policyVersion": 1,
+      "contentHash": "6dce4131f1571e96e75626d0cbf6a478fc4470cb4f30249e2035098df683bca6"
+    }
+  ]
+}

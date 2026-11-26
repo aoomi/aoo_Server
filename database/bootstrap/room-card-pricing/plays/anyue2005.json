@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "playCode": "anyue2005",
+  "displayName": "安岳跑得快",
+  "gameId": 2005,
+  "playVersion": "anyue2005-v1.0.0",
+  "releaseId": 1318117,
+  "indexGeneration": 1006167,
+  "runtimeSourceHash": "dabb398a4ebb6dd2700fc7d639ccc7ad589abc1142cd9f00fce2884c5932ce0a",
+  "tableName": "aoo_room_card_price_anyue2005",
+  "policies": [
+    {
+      "policyKey": "anyue2005:play-default:hall-owner-fixed-v1",
+      "matchScope": "PLAY_DEFAULT",
+      "payerMode": "OWNER",
+      "billingKind": "FIXED",
+      "billingContext": "HALL",
+      "currencyCode": "ROOM_CARD",
+      "amountMinor": 0,
+      "status": "ACTIVE",
+      "confirmationStatus": "CONFIRMED",
+      "freePolicyRef": "ROOM_CARD_ALWAYS_FREE_V1",
+      "refundPolicyRef": "ROOM_CARD_ZERO_AMOUNT_NO_LEDGER_V1",
+      "policyVersion": 1,
+      "contentHash": "c9b72f5758deb846de69c4cdb68df9a0e20e2d9079d7a127f916993242ce44c2"
+    }
+  ]
+}

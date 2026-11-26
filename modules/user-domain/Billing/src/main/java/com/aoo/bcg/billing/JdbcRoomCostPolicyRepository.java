@@ -2,16 +2,22 @@ package com.aoo.bcg.billing;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Objects;
+import java.util.regex.Pattern;
 
-/** Reads one explicit immutable publication; never falls back to legacy or live spreadsheets. */
+/** Reads confirmed room-card policies from the authoritative per-play-code registry. */
 public final class JdbcRoomCostPolicyRepository {
+    private static final Pattern PLAY_CODE=Pattern.compile("[a-z][a-z0-9]{2,31}");
+    private static final String TABLE_PREFIX="aoo_room_card_price_";
     private final DataSource dataSource;
     private final boolean isolatedTestProfile;
+
     public JdbcRoomCostPolicyRepository(DataSource source,boolean isolatedTestProfile) {
-        this.dataSource=Objects.requireNonNull(source); this.isolatedTestProfile=isolatedTestProfile;
+        this.dataSource=Objects.requireNonNull(source);this.isolatedTestProfile=isolatedTestProfile;
     }
+
     public record PolicySnapshot(long publicationId,long policyVersion,String contentHash,long unitCost,
             long amount,String currency,String freeRef,String refundRef,long tierMinor) {
         String json() {
@@ -22,75 +28,112 @@ public final class JdbcRoomCostPolicyRepository {
                     +",\"tierMinor\":"+tierMinor+"}";
         }
     }
+
+    private record PlayRegistry(String playCode,String tableName,long releaseId,long indexGeneration,
+            String runtimeSourceHash) {}
+    private record Selected(PolicySnapshot snapshot,int rank) {}
+
     public PolicySnapshot load(Connection connection,RoomChargeOperation operation)throws SQLException {
-        return selectPolicy(connection,operation,null);
+        return selectPolicy(connection,operation,null,null);
     }
-    private PolicySnapshot selectPolicy(Connection connection,RoomChargeOperation operation,Long publicationId)throws SQLException {
-        Objects.requireNonNull(connection); Objects.requireNonNull(operation);
-        if(isolatedTestProfile) requireIsolated(connection);
-        String sql="SELECT p.publication_id,p.policy_version,p.content_hash,p.cost_minor,p.currency_code,"
-                +"p.free_policy_ref,p.refund_policy_ref,p.tier_minor,p.round_count,v.environment "
-                +(publicationId==null?"FROM aoo_room_cost_active a JOIN aoo_room_cost_publication v ON v.publication_id=a.publication_id JOIN aoo_room_cost_policy p ON p.publication_id=a.publication_id WHERE a.pointer_name='roomcard' AND ":
-                    "FROM aoo_room_cost_publication v JOIN aoo_room_cost_policy p ON p.publication_id=v.publication_id WHERE v.publication_id=? AND ")
-                +"p.game_id=? AND p.play_version=? AND p.region_code=? "
-                +"AND p.measure_kind=? AND p.measure_value=? AND p.player_count=? AND p.payer_mode=? "
-                +"AND p.billing_kind=? AND p.billing_context=? AND p.status='ACTIVE' AND p.confirmation_status='CONFIRMED'";
+
+    private PolicySnapshot selectPolicy(Connection connection,RoomChargeOperation operation,Long publicationId,
+            RoomBillingSourceBinding.AuthorityReference authority)throws SQLException {
+        Objects.requireNonNull(connection);Objects.requireNonNull(operation);
+        if(isolatedTestProfile)requireIsolated(connection);
+        PlayRegistry registry=loadRegistry(connection,operation);
+        if(publicationId!=null&&publicationId.longValue()!=registry.releaseId())
+            throw new IllegalArgumentException("billing publication is not active for play code");
+        if(authority!=null)requireAuthority(registry,authority);
+
+        String sql="SELECT policy_version,content_hash,amount_minor,currency_code,free_policy_ref,refund_policy_ref,"
+                +"release_id,index_generation,runtime_source_hash,match_scope FROM `"+registry.tableName()+"` "
+                +"WHERE play_code=? AND play_version=? AND payer_mode=? AND billing_kind=? AND billing_context=? "
+                +"AND status='ACTIVE' AND confirmation_status='CONFIRMED' AND "
+                +"((match_scope='EXACT' AND player_count=? AND measure_kind=? AND measure_value=?) OR "
+                +"(match_scope='PLAY_DEFAULT' AND player_count IS NULL AND measure_kind IS NULL AND measure_value IS NULL)) "
+                +"ORDER BY CASE match_scope WHEN 'EXACT' THEN 0 ELSE 1 END";
         try(var statement=connection.prepareStatement(sql)) {
-            int parameter=1;if(publicationId!=null)statement.setLong(parameter++,publicationId);
-            statement.setLong(parameter++,operation.gameId());statement.setString(parameter++,operation.playVersion());
-            statement.setString(parameter++,operation.regionCode());statement.setString(parameter++,operation.measureKind());
-            statement.setInt(parameter++,operation.measureValue());statement.setInt(parameter++,operation.playerCount());
+            int parameter=1;
+            statement.setString(parameter++,registry.playCode());statement.setString(parameter++,operation.playVersion());
             statement.setString(parameter++,operation.payerMode().name());statement.setString(parameter++,operation.kind().name());
-            statement.setString(parameter,operation.context().name());
-            try(var row=statement.executeQuery()) {
-                if(!row.next())throw new IllegalArgumentException("missing confirmed room-card policy");
-                long publication=row.getLong(1),version=row.getLong(2),cost=row.getLong(4),tier=row.getLong(8);
-                String hash=row.getString(3),currency=row.getString(5),free=row.getString(6),refund=row.getString(7);
-                String environment=row.getString(10);
-                if(!("PRODUCTION".equals(environment) || isolatedTestProfile && "TEST_ONLY".equals(environment)))
-                    throw new IllegalArgumentException("test publication forbidden in production profile");
-                if(publication<=0 || version<=0 || cost<0 || !"ROOM_CARD".equals(currency)
-                        ||hash==null||!hash.matches("[0-9a-f]{64}")||refund==null||refund.isBlank()
-                        ||cost==0&&(free==null||free.isBlank()))
-                    throw new IllegalArgumentException("invalid or ambiguous published policy");
-                long amount=cost;
-                if(operation.kind()==RoomChargeOperation.Kind.CARRY) {
-                    if(tier!=operation.measureValue()||tier!=row.getLong(9)||tier<=0)
-                        throw new IllegalArgumentException("carry tier identity mismatch");
-                    amount=Math.multiplyExact(1+(operation.carryMinor()-1)/tier,cost);
-                } else if(tier!=0)throw new IllegalArgumentException("unexpected carry tier");
-                if(row.next())throw new IllegalArgumentException("overlapping published policies");
-                return new PolicySnapshot(publication,version,hash,cost,amount,currency,free,refund,tier);
+            statement.setString(parameter++,operation.context().name());statement.setInt(parameter++,operation.playerCount());
+            statement.setString(parameter++,operation.measureKind());statement.setInt(parameter,operation.measureValue());
+            try(var rows=statement.executeQuery()) {
+                Selected selected=null;
+                while(rows.next()) {
+                    Selected candidate=read(rows,registry);
+                    if(selected==null)selected=candidate;
+                    else if(candidate.rank()==selected.rank())throw new IllegalArgumentException("overlapping published policies");
+                    else break;
+                }
+                if(selected==null)throw new IllegalArgumentException("missing confirmed room-card policy");
+                return selected.snapshot();
             }
         }
     }
-    /** New production envelope: published provenance and free windows use the trusted current clock. */
+
+    private PlayRegistry loadRegistry(Connection connection,RoomChargeOperation operation)throws SQLException {
+        String sql="SELECT play_code,table_name,release_id,index_generation,runtime_source_hash "
+                +"FROM aoo_room_card_play_registry WHERE game_id=? AND play_version=? AND status='ACTIVE'";
+        try(var statement=connection.prepareStatement(sql)) {
+            statement.setLong(1,operation.gameId());statement.setString(2,operation.playVersion());
+            try(var rows=statement.executeQuery()) {
+                if(!rows.next())throw new IllegalArgumentException("missing active room-card play-code registry");
+                PlayRegistry registry=new PlayRegistry(rows.getString(1),rows.getString(2),rows.getLong(3),
+                        rows.getLong(4),rows.getString(5));
+                if(rows.next())throw new IllegalArgumentException("ambiguous active room-card play-code registry");
+                validateRegistry(registry);return registry;
+            }
+        }
+    }
+
+    private static void validateRegistry(PlayRegistry registry) {
+        String playCode=registry.playCode(),hash=registry.runtimeSourceHash();
+        if(playCode==null||!PLAY_CODE.matcher(playCode).matches()
+                ||!Objects.equals(TABLE_PREFIX+playCode,registry.tableName())
+                ||registry.releaseId()<=0||registry.indexGeneration()<=0
+                ||hash==null||!hash.matches("[0-9a-f]{64}"))
+            throw new IllegalArgumentException("invalid room-card play-code registry");
+    }
+
+    private static Selected read(ResultSet row,PlayRegistry registry)throws SQLException {
+        long version=row.getLong(1),cost=row.getLong(3),release=row.getLong(7),generation=row.getLong(8);
+        String hash=row.getString(2),currency=row.getString(4),free=row.getString(5),refund=row.getString(6);
+        String sourceHash=row.getString(9),scope=row.getString(10);
+        int rank="EXACT".equals(scope)?0:"PLAY_DEFAULT".equals(scope)?1:-1;
+        if(version<=0||cost<0||!"ROOM_CARD".equals(currency)||rank<0
+                ||hash==null||!hash.matches("[0-9a-f]{64}")||refund==null||refund.isBlank()
+                ||cost==0&&(free==null||free.isBlank())
+                ||release!=registry.releaseId()||generation!=registry.indexGeneration()
+                ||!Objects.equals(sourceHash,registry.runtimeSourceHash()))
+            throw new IllegalArgumentException("invalid or ambiguous published policy");
+        return new Selected(new PolicySnapshot(release,version,hash,cost,cost,currency,free,refund,0),rank);
+    }
+
+    /** ACTIVE release provenance is bound to the trusted authority tuple. */
     public PolicySnapshot load(Connection connection,RoomBillingSourceBinding.BoundIntent bound,java.time.Instant at)throws SQLException {
         Objects.requireNonNull(bound);return load(connection,bound.intent().operation(),bound.authority(),at);
     }
+
     PolicySnapshot load(Connection connection,RoomChargeOperation operation,
             RoomBillingSourceBinding.AuthorityReference authority,java.time.Instant at)throws SQLException {
         Objects.requireNonNull(operation);Objects.requireNonNull(authority);Objects.requireNonNull(at);
-        if(!authority.classificationRegionCode().equals(operation.regionCode()))throw new IllegalArgumentException("billing authority region mismatch");
-        return validateProvenance(connection,operation,authority,at,load(connection,operation));
+        return selectPolicy(connection,operation,null,authority);
     }
+
     PolicySnapshot loadAtPublication(Connection connection,RoomChargeOperation operation,
             RoomBillingSourceBinding.AuthorityReference authority,java.time.Instant at,long publicationId)throws SQLException {
-        if(publicationId<=0||!authority.classificationRegionCode().equals(operation.regionCode()))throw new IllegalArgumentException("billing publication authority mismatch");
-        return validateProvenance(connection,operation,authority,at,selectPolicy(connection,operation,publicationId));
+        if(publicationId<=0)throw new IllegalArgumentException("billing publication authority mismatch");
+        Objects.requireNonNull(at);return selectPolicy(connection,operation,publicationId,Objects.requireNonNull(authority));
     }
-    private PolicySnapshot validateProvenance(Connection connection,RoomChargeOperation operation,
-            RoomBillingSourceBinding.AuthorityReference authority,java.time.Instant at,PolicySnapshot selected)throws SQLException {
-        Objects.requireNonNull(at);
-        // This is the same dimension order as RoomCardPricingProvenance.policyKey; no game-code inference.
-        String key=RoomChargeOperation.hash(operation.gameId(),operation.playVersion(),operation.regionCode(),operation.kind(),operation.context(),
-                operation.playerCount(),operation.measureKind(),operation.measureValue(),operation.payerMode(),operation.kind()==RoomChargeOperation.Kind.CARRY?(long)operation.measureValue():0L);
-        var provenance=new JdbcRoomCardPricingProvenanceRepository().load(connection,selected.publicationId(),key);
-        provenance.requireCurrent(new RoomCardPricingImportValidator.SourceBinding(RoomCardPricingImportValidator.SourceClass.CURRENT_PUBLISHED,
-                authority.releaseId(),authority.indexGeneration(),authority.runtimeSourceHash()));
-        if(!Objects.equals(provenance.freeRef(),selected.freeRef()))throw new IllegalArgumentException("published free reference mismatch");
-        provenance.requireValidAt(at,selected.amount()==0);return selected;
+
+    private static void requireAuthority(PlayRegistry registry,RoomBillingSourceBinding.AuthorityReference authority) {
+        if(registry.releaseId()!=authority.releaseId()||registry.indexGeneration()!=authority.indexGeneration()
+                ||!Objects.equals(registry.runtimeSourceHash(),authority.runtimeSourceHash()))
+            throw new IllegalArgumentException("room-card pricing authority mismatch");
     }
+
     static void requireIsolated(Connection connection)throws SQLException {
         try(var statement=connection.createStatement();var row=statement.executeQuery("SELECT DATABASE()")) {
             if(!row.next()||!"aoo_fangka_isolated_25162442_r1".equals(row.getString(1)))

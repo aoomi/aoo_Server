@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "playCode": "jingdezhen2017",
+  "displayName": "景德镇跑得快",
+  "gameId": 2017,
+  "playVersion": "jingdezhen2017-v1.0.0",
+  "releaseId": 1318207,
+  "indexGeneration": 1006257,
+  "runtimeSourceHash": "69283dd4d468617b61245ae2c08913c7ab289fc2339281d7b809d7c38854b7b2",
+  "tableName": "aoo_room_card_price_jingdezhen2017",
+  "policies": [
+    {
+      "policyKey": "jingdezhen2017:play-default:hall-owner-fixed-v1",
+      "matchScope": "PLAY_DEFAULT",
+      "payerMode": "OWNER",
+      "billingKind": "FIXED",
+      "billingContext": "HALL",
+      "currencyCode": "ROOM_CARD",
+      "amountMinor": 0,
+      "status": "ACTIVE",
+      "confirmationStatus": "CONFIRMED",
+      "freePolicyRef": "ROOM_CARD_ALWAYS_FREE_V1",
+      "refundPolicyRef": "ROOM_CARD_ZERO_AMOUNT_NO_LEDGER_V1",
+      "policyVersion": 1,
+      "contentHash": "9f414cbf4261b2b4cbac2eb477358d971cbd1518d9c5d614c24c9a7530ab113d"
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "playCode": "chengdu2001",
+  "displayName": "成都跑得快",
+  "gameId": 2001,
+  "playVersion": "chengdu2001-v1.0.0",
+  "releaseId": 1318087,
+  "indexGeneration": 1006137,
+  "runtimeSourceHash": "ca8ffd29cc851946e304a1e942725adebfe661b40323b3dc3614d9707078ac6b",
+  "tableName": "aoo_room_card_price_chengdu2001",
+  "policies": [
+    {
+      "policyKey": "chengdu2001:play-default:hall-owner-fixed-v1",
+      "matchScope": "PLAY_DEFAULT",
+      "payerMode": "OWNER",
+      "billingKind": "FIXED",
+      "billingContext": "HALL",
+      "currencyCode": "ROOM_CARD",
+      "amountMinor": 0,
+      "status": "ACTIVE",
+      "confirmationStatus": "CONFIRMED",
+      "freePolicyRef": "ROOM_CARD_ALWAYS_FREE_V1",
+      "refundPolicyRef": "ROOM_CARD_ZERO_AMOUNT_NO_LEDGER_V1",
+      "policyVersion": 1,
+      "contentHash": "ede5f318ac6c37c63284df01af894a0f1c502719f06a6495256109bf71c0d0ee"
+    }
+  ]
+}

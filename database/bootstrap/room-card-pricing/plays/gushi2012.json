@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "playCode": "gushi2012",
+  "displayName": "固始跑得快",
+  "gameId": 2012,
+  "playVersion": "gushi2012-v1.0.0",
+  "releaseId": 1318169,
+  "indexGeneration": 1006219,
+  "runtimeSourceHash": "17b3caa687fc6de086995f26199c96f87db2bd33336f402e17f9659b7751d180",
+  "tableName": "aoo_room_card_price_gushi2012",
+  "policies": [
+    {
+      "policyKey": "gushi2012:play-default:hall-owner-fixed-v1",
+      "matchScope": "PLAY_DEFAULT",
+      "payerMode": "OWNER",
+      "billingKind": "FIXED",
+      "billingContext": "HALL",
+      "currencyCode": "ROOM_CARD",
+      "amountMinor": 0,
+      "status": "ACTIVE",
+      "confirmationStatus": "CONFIRMED",
+      "freePolicyRef": "ROOM_CARD_ALWAYS_FREE_V1",
+      "refundPolicyRef": "ROOM_CARD_ZERO_AMOUNT_NO_LEDGER_V1",
+      "policyVersion": 1,
+      "contentHash": "ee57ae70d527659f66284e824d01af0184e07385085ceae8e6c4bffeecbf77c8"
+    }
+  ]
+}

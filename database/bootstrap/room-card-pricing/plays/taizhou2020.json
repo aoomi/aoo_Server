@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "playCode": "taizhou2020",
+  "displayName": "泰州跑得快",
+  "gameId": 2020,
+  "playVersion": "taizhou2020-v1.0.0",
+  "releaseId": 1318229,
+  "indexGeneration": 1006279,
+  "runtimeSourceHash": "e0e8e5763652c506c8a0d18eaefe8bc58f3c6fc272c0a2ded8b1cc3626fa54e9",
+  "tableName": "aoo_room_card_price_taizhou2020",
+  "policies": [
+    {
+      "policyKey": "taizhou2020:play-default:hall-owner-fixed-v1",
+      "matchScope": "PLAY_DEFAULT",
+      "payerMode": "OWNER",
+      "billingKind": "FIXED",
+      "billingContext": "HALL",
+      "currencyCode": "ROOM_CARD",
+      "amountMinor": 0,
+      "status": "ACTIVE",
+      "confirmationStatus": "CONFIRMED",
+      "freePolicyRef": "ROOM_CARD_ALWAYS_FREE_V1",
+      "refundPolicyRef": "ROOM_CARD_ZERO_AMOUNT_NO_LEDGER_V1",
+      "policyVersion": 1,
+      "contentHash": "0a36ce16ae8ea53b97fd6136c85c11f762a21b4a84d6468f08efe01a39cf0bf9"
+    }
+  ]
+}

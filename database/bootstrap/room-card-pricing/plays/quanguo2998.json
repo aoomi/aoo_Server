@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "playCode": "quanguo2998",
+  "displayName": "全国牛牛",
+  "gameId": 5,
+  "playVersion": "nn-v1.0.0",
+  "releaseId": 1318057,
+  "indexGeneration": 1006107,
+  "runtimeSourceHash": "1a4a372aba8f49eb8d7ea224e19680b5532e1d7288d2cfcf091bbf556b63ad52",
+  "tableName": "aoo_room_card_price_quanguo2998",
+  "policies": [
+    {
+      "policyKey": "quanguo2998:play-default:hall-owner-fixed-v1",
+      "matchScope": "PLAY_DEFAULT",
+      "payerMode": "OWNER",
+      "billingKind": "FIXED",
+      "billingContext": "HALL",
+      "currencyCode": "ROOM_CARD",
+      "amountMinor": 0,
+      "status": "ACTIVE",
+      "confirmationStatus": "CONFIRMED",
+      "freePolicyRef": "ROOM_CARD_ALWAYS_FREE_V1",
+      "refundPolicyRef": "ROOM_CARD_ZERO_AMOUNT_NO_LEDGER_V1",
+      "policyVersion": 1,
+      "contentHash": "42c2d2bd7d8ca120323b3b0af60fcaa4855ded390b66cef5b6dcab9762633f3c"
+    }
+  ]
+}

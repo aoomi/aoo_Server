@@ -353,7 +353,7 @@ public final class GameWebSocketRouter {
                     .withTiming(time.epochMillis(), authoritative.operationDeadline());
             timeline.complete(roomId, frame.seq(), frame.requestId(), frame.msgId(),
                     authoritative.operationDeadline());
-            return new RoutedResult(accepted, response, false, false);
+            return new RoutedResult(accepted, response, false, true);
         } catch (RuntimeException | Error failure) {
             timeline.fail(roomId, frame.seq(), frame.requestId(), frame.msgId(), failure);
             throw failure;
@@ -419,7 +419,7 @@ public final class GameWebSocketRouter {
                     .map(com.aoo.bcg.gamespi.AuthoritativeGameSession::operationDeadline)
                     .orElse(OperationDeadline.none());
             timeline.complete(roomId, frame.seq(), frame.requestId(), frame.msgId(), deadline);
-            return new RoutedResult(accepted, result, false, false);
+            return new RoutedResult(accepted, result, false, true);
         } catch (RuntimeException | Error failure) {
             timeline.fail(roomId, frame.seq(), frame.requestId(), frame.msgId(), failure);
             throw failure;

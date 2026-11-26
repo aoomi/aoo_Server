@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "playCode": "jian2011",
+  "displayName": "吉安跑得快",
+  "gameId": 2011,
+  "playVersion": "jian2011-v1.0.0",
+  "releaseId": 1318161,
+  "indexGeneration": 1006211,
+  "runtimeSourceHash": "fb6d8852883d33fa04c9c71f9c604e4ab5fec38a293afa2b75196da10198a42c",
+  "tableName": "aoo_room_card_price_jian2011",
+  "policies": [
+    {
+      "policyKey": "jian2011:play-default:hall-owner-fixed-v1",
+      "matchScope": "PLAY_DEFAULT",
+      "payerMode": "OWNER",
+      "billingKind": "FIXED",
+      "billingContext": "HALL",
+      "currencyCode": "ROOM_CARD",
+      "amountMinor": 0,
+      "status": "ACTIVE",
+      "confirmationStatus": "CONFIRMED",
+      "freePolicyRef": "ROOM_CARD_ALWAYS_FREE_V1",
+      "refundPolicyRef": "ROOM_CARD_ZERO_AMOUNT_NO_LEDGER_V1",
+      "policyVersion": 1,
+      "contentHash": "05764a2e900976470054196852b54cef2d68c02f507c0f4210b5036be184f508"
+    }
+  ]
+}

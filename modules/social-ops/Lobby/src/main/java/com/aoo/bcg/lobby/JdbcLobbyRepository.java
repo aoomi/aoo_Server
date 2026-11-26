@@ -561,8 +561,15 @@ public Map<String,Object> room(long account,long room){try(Connection c=dataSour
         requireHash(index.sourceHash(),"HALL_RULE_SCHEMA_UNAVAILABLE");
         Object publishedUi=document(index.uiSnapshot());
         Object ui=document(index.uiSchema());
-        if(!index.uiHash().equals(sha256(canonicalUiJson(publishedUi))))
+        String computedUiHash=sha256(canonicalUiJson(publishedUi));
+        if(!index.uiHash().equals(computedUiHash)) {
+            System.err.println("[HallCanonicalUiHashMismatch] gameId="+game+" playVersion="+play
+                    +" releaseId="+index.releaseId()+" indexGeneration="+index.generation()
+                    +" publishedHash="+index.uiHash()+" computedHash="+computedUiHash
+                    +" rawHash="+sha256(index.uiSnapshot())+" rawLength="+index.uiSnapshot().length()
+                    +" canonicalLength="+canonicalUiJson(publishedUi).length());
             throw new HallError(503,"HALL_RULE_SCHEMA_UNAVAILABLE","release UI content hash is inconsistent with its published snapshot");
+        }
         if(!Objects.equals(publishedUi,ui))
             throw new HallError(503,"HALL_RULE_SCHEMA_UNAVAILABLE","compiled and release UI snapshots disagree");
         requireVersion(index.snapshotSchemaVersion(),"HALL_ROOM_RULE_SNAPSHOT_UNAVAILABLE");

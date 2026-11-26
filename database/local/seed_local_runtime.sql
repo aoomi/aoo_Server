@@ -55,14 +55,8 @@ INSERT INTO aoo_game_service_route(route_id,game_id,play_version,endpoint,priori
 VALUES(1001000001,1001,@chengdu1001_play_version,'ws://127.0.0.1:8080/api/v2/gateway/ws',1,'ACTIVE')
 ON DUPLICATE KEY UPDATE endpoint=VALUES(endpoint),priority=1,status='ACTIVE';
 
--- Zero is a local-development environment policy, not a production chengdu1001 price.
-INSERT INTO aoo_room_cost_policy(game_id,play_version,region_code,measure_kind,measure_value,round_count,player_count,payer_mode,currency_code,cost_minor,policy_version,content_hash,status)
-SELECT 1001,@chengdu1001_play_version,@chengdu1001_region,'ROUND_COUNT',round_count,round_count,player_count,'OWNER','ROOM_CARD',0,1,
-       SHA2(CONCAT('local-only|1001|',@chengdu1001_play_version,'|',round_count,'|',player_count,'|OWNER|ROOM_CARD|0'),256),'ACTIVE'
-FROM (SELECT 8 round_count UNION ALL SELECT 12 UNION ALL SELECT 16) rounds
-CROSS JOIN (SELECT 2 player_count UNION ALL SELECT 3 UNION ALL SELECT 4) players
-WHERE TRUE
-ON DUPLICATE KEY UPDATE currency_code=VALUES(currency_code),cost_minor=0,policy_version=VALUES(policy_version),content_hash=VALUES(content_hash),status='ACTIVE';
+-- Room-card pricing is seeded only from database/bootstrap/room-card-pricing.
+-- This catalog seed must not create a second pricing authority.
 
 INSERT IGNORE INTO aoo_game_release(release_id,game_id,play_version,source_hash,release_version,release_scope,catalog_snapshot,rule_snapshot,ui_snapshot,component_snapshot,catalog_hash,rule_hash,ui_hash,component_hash,bundle_hash,status,rollout_percent,created_by,reason,validated_at,activated_at)
 VALUES(@chengdu1001_release_id,1001,@chengdu1001_play_version,@chengdu1001_source_hash,2,'REGIONAL',@chengdu1001_catalog_snapshot,@chengdu1001_validator,@chengdu1001_ui,@chengdu1001_component_snapshot,SHA2(CAST(@chengdu1001_catalog_snapshot AS CHAR CHARACTER SET utf8mb4),256),SHA2(CAST(@chengdu1001_validator AS CHAR CHARACTER SET utf8mb4),256),@chengdu1001_source_hash,SHA2(CAST(@chengdu1001_component_chain AS CHAR CHARACTER SET utf8mb4),256),SHA2(CAST(@chengdu1001_bundle_snapshot AS CHAR CHARACTER SET utf8mb4),256),'ACTIVE',100,1,'MJ-015 local-only canonical Chengdu Mahjong room-create schema',CURRENT_TIMESTAMP(3),CURRENT_TIMESTAMP(3));
@@ -163,18 +157,5 @@ UPDATE aoo_game_region SET availability='RETIRED' WHERE game_id=629 AND region_c
 INSERT INTO aoo_play_version(game_id,play_version,default_region_code,rule_schema_version,ui_schema_version,component_schema_version,content_hash,status,activated_at,created_by) VALUES(629,'legacy-equivalent-1','CN-51-10',1,1,1,SHA2('com.aoo.bcg.poker.PdkGameProvider:NJ201@legacy-equivalent-1',256),'ACTIVE',CURRENT_TIMESTAMP(3),1) ON DUPLICATE KEY UPDATE default_region_code=VALUES(default_region_code),status='ACTIVE',content_hash=VALUES(content_hash);
 INSERT INTO aoo_game_service_route(route_id,game_id,play_version,endpoint,priority,status) VALUES(629000001,629,'legacy-equivalent-1','ws://127.0.0.1:8080/api/v2/gateway/ws',1,'ACTIVE') ON DUPLICATE KEY UPDATE endpoint=VALUES(endpoint),status='ACTIVE',priority=1;
 
--- Explicit free local NJ201 policies. Region is a play classification only; all variants share one price.
-INSERT INTO aoo_room_cost_policy(game_id,play_version,region_code,round_count,player_count,payer_mode,currency_code,cost_minor,policy_version,content_hash,status)
-SELECT 629,'legacy-equivalent-1','CN-51',round_count,player_count,'OWNER','ROOM_CARD',0,1,SHA2(CONCAT('629|legacy-equivalent-1|',round_count,'|',player_count,'|OWNER|ROOM_CARD|0'),256),'ACTIVE'
-FROM (SELECT 8 round_count UNION ALL SELECT 10 UNION ALL SELECT 12 UNION ALL SELECT 16) rounds
-CROSS JOIN (SELECT 2 player_count UNION ALL SELECT 3 UNION ALL SELECT 4) players
-WHERE 1=1
-ON DUPLICATE KEY UPDATE currency_code=VALUES(currency_code),cost_minor=VALUES(cost_minor),policy_version=VALUES(policy_version),content_hash=VALUES(content_hash),status='ACTIVE';
-
--- NJ201 is published at the city scope. Billing does not include region in its
--- lookup key, so the historical province rows must remain retired.
-UPDATE aoo_room_cost_policy
-SET status='RETIRED',policy_version=policy_version+1,
-    content_hash=SHA2(CONCAT(content_hash,'|retired-for-CN-51-10'),256)
-WHERE game_id=629 AND play_version='legacy-equivalent-1' AND region_code='CN-51'
-  AND status='ACTIVE';
+-- Room-card pricing is seeded only from database/bootstrap/room-card-pricing;
+-- region classification above is intentionally not a pricing dimension.

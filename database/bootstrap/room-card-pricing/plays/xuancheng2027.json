@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "playCode": "xuancheng2027",
+  "displayName": "宣城跑得快",
+  "gameId": 2027,
+  "playVersion": "xuancheng2027-v1.0.0",
+  "releaseId": 1318281,
+  "indexGeneration": 1006331,
+  "runtimeSourceHash": "b42092ec31bebf63f04cd3918105c5b3db5757588c81f4612d6410689ee57a33",
+  "tableName": "aoo_room_card_price_xuancheng2027",
+  "policies": [
+    {
+      "policyKey": "xuancheng2027:play-default:hall-owner-fixed-v1",
+      "matchScope": "PLAY_DEFAULT",
+      "payerMode": "OWNER",
+      "billingKind": "FIXED",
+      "billingContext": "HALL",
+      "currencyCode": "ROOM_CARD",
+      "amountMinor": 0,
+      "status": "ACTIVE",
+      "confirmationStatus": "CONFIRMED",
+      "freePolicyRef": "ROOM_CARD_ALWAYS_FREE_V1",
+      "refundPolicyRef": "ROOM_CARD_ZERO_AMOUNT_NO_LEDGER_V1",
+      "policyVersion": 1,
+      "contentHash": "a22439bce1072cebfb7e35ddf67809ea18eb5effaf26f7170c95a90a5d1f76d6"
+    }
+  ]
+}

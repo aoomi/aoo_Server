@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "playCode": "bozhou2009",
+  "displayName": "亳州跑得快",
+  "gameId": 2009,
+  "playVersion": "bozhou2009-v1.0.0",
+  "releaseId": 1318147,
+  "indexGeneration": 1006197,
+  "runtimeSourceHash": "1695a3e59c6a5daf33071cf17d442f4d5f73cba2d82ac93353c9b39b09e534d3",
+  "tableName": "aoo_room_card_price_bozhou2009",
+  "policies": [
+    {
+      "policyKey": "bozhou2009:play-default:hall-owner-fixed-v1",
+      "matchScope": "PLAY_DEFAULT",
+      "payerMode": "OWNER",
+      "billingKind": "FIXED",
+      "billingContext": "HALL",
+      "currencyCode": "ROOM_CARD",
+      "amountMinor": 0,
+      "status": "ACTIVE",
+      "confirmationStatus": "CONFIRMED",
+      "freePolicyRef": "ROOM_CARD_ALWAYS_FREE_V1",
+      "refundPolicyRef": "ROOM_CARD_ZERO_AMOUNT_NO_LEDGER_V1",
+      "policyVersion": 1,
+      "contentHash": "87f66cc1acca86dae68a1edd9332b203adea11794239a73aaf4a3d50a18a0eaa"
+    }
+  ]
+}

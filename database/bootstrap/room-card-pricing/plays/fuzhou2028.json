@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "playCode": "fuzhou2028",
+  "displayName": "抚州跑得快",
+  "gameId": 2028,
+  "playVersion": "fuzhou2028-v1.0.0",
+  "releaseId": 1318289,
+  "indexGeneration": 1006339,
+  "runtimeSourceHash": "e3c08c0afa5b3133b2833f08f390c096f0de9c4718068518b71998bf06e78aee",
+  "tableName": "aoo_room_card_price_fuzhou2028",
+  "policies": [
+    {
+      "policyKey": "fuzhou2028:play-default:hall-owner-fixed-v1",
+      "matchScope": "PLAY_DEFAULT",
+      "payerMode": "OWNER",
+      "billingKind": "FIXED",
+      "billingContext": "HALL",
+      "currencyCode": "ROOM_CARD",
+      "amountMinor": 0,
+      "status": "ACTIVE",
+      "confirmationStatus": "CONFIRMED",
+      "freePolicyRef": "ROOM_CARD_ALWAYS_FREE_V1",
+      "refundPolicyRef": "ROOM_CARD_ZERO_AMOUNT_NO_LEDGER_V1",
+      "policyVersion": 1,
+      "contentHash": "154893928b3c695aa143c0123e0b8d8ad7876fce1dda84601de50837b0f6cf4e"
+    }
+  ]
+}

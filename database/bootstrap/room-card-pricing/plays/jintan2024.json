@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "playCode": "jintan2024",
+  "displayName": "金坛跑得快",
+  "gameId": 2024,
+  "playVersion": "jintan2024-v1.0.0",
+  "releaseId": 1318259,
+  "indexGeneration": 1006309,
+  "runtimeSourceHash": "caf2c0631f040188f358fc13823412671b45dee99704ecebf285e4b8ecd5895a",
+  "tableName": "aoo_room_card_price_jintan2024",
+  "policies": [
+    {
+      "policyKey": "jintan2024:play-default:hall-owner-fixed-v1",
+      "matchScope": "PLAY_DEFAULT",
+      "payerMode": "OWNER",
+      "billingKind": "FIXED",
+      "billingContext": "HALL",
+      "currencyCode": "ROOM_CARD",
+      "amountMinor": 0,
+      "status": "ACTIVE",
+      "confirmationStatus": "CONFIRMED",
+      "freePolicyRef": "ROOM_CARD_ALWAYS_FREE_V1",
+      "refundPolicyRef": "ROOM_CARD_ZERO_AMOUNT_NO_LEDGER_V1",
+      "policyVersion": 1,
+      "contentHash": "460a40652c2f03e577614e4ab1ed02aece6fcbdc5db2b3e112735ae4f23d5ba0"
+    }
+  ]
+}

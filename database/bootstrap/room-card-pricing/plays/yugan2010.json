@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "playCode": "yugan2010",
+  "displayName": "余干跑得快",
+  "gameId": 2010,
+  "playVersion": "yugan2010-v1.0.0",
+  "releaseId": 1318153,
+  "indexGeneration": 1006203,
+  "runtimeSourceHash": "8365bf3ebeaa545f9fee2cf4008717833dd96b967f76b4a08002da2e55527627",
+  "tableName": "aoo_room_card_price_yugan2010",
+  "policies": [
+    {
+      "policyKey": "yugan2010:play-default:hall-owner-fixed-v1",
+      "matchScope": "PLAY_DEFAULT",
+      "payerMode": "OWNER",
+      "billingKind": "FIXED",
+      "billingContext": "HALL",
+      "currencyCode": "ROOM_CARD",
+      "amountMinor": 0,
+      "status": "ACTIVE",
+      "confirmationStatus": "CONFIRMED",
+      "freePolicyRef": "ROOM_CARD_ALWAYS_FREE_V1",
+      "refundPolicyRef": "ROOM_CARD_ZERO_AMOUNT_NO_LEDGER_V1",
+      "policyVersion": 1,
+      "contentHash": "53cdd2dfa67f9d5f1fc54caf3335c6b7c0c9f4f2d4b3de262a4291def6c6a654"
+    }
+  ]
+}

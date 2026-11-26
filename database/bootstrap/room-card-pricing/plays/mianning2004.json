@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "playCode": "mianning2004",
+  "displayName": "冕宁跑得快",
+  "gameId": 2004,
+  "playVersion": "mianning2004-v1.0.0",
+  "releaseId": 1318109,
+  "indexGeneration": 1006159,
+  "runtimeSourceHash": "713a219390223ec6926f2c1825a95b28c95a43ef37f86b78a5923d236ef5549a",
+  "tableName": "aoo_room_card_price_mianning2004",
+  "policies": [
+    {
+      "policyKey": "mianning2004:play-default:hall-owner-fixed-v1",
+      "matchScope": "PLAY_DEFAULT",
+      "payerMode": "OWNER",
+      "billingKind": "FIXED",
+      "billingContext": "HALL",
+      "currencyCode": "ROOM_CARD",
+      "amountMinor": 0,
+      "status": "ACTIVE",
+      "confirmationStatus": "CONFIRMED",
+      "freePolicyRef": "ROOM_CARD_ALWAYS_FREE_V1",
+      "refundPolicyRef": "ROOM_CARD_ZERO_AMOUNT_NO_LEDGER_V1",
+      "policyVersion": 1,
+      "contentHash": "f51750ae6a3376df686fb8a3d861efa96a77d0d0d6de4933978ea7eab324038c"
+    }
+  ]
+}

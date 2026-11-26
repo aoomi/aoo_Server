@@ -17,7 +17,7 @@ public final class JdbcRoomCardPricingProvenanceRepository{
         if(connection.getAutoCommit())throw new IllegalArgumentException("provenance save requires caller transaction");
         var existing=find(connection,value.publicationId(),value.policyKey(),true);
         if(existing!=null){requireSame(existing,value,null);return;}
-        String sql="INSERT INTO aoo_room_cost_policy_provenance(publication_id,policy_key,"+COLUMNS+") VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        String sql="INSERT INTO aoo_room_card_policy_provenance(publication_id,policy_key,"+COLUMNS+") VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)";
         try(var q=connection.prepareStatement(sql)){
             int i=1;q.setLong(i++,value.publicationId());q.setString(i++,value.policyKey());
             q.setString(i++,value.configurationVersion());q.setString(i++,value.workbookManifestHash());q.setString(i++,value.authorityHash());
@@ -37,7 +37,7 @@ public final class JdbcRoomCardPricingProvenanceRepository{
         if(result==null)throw new IllegalArgumentException("missing pricing provenance");return result;
     }
     private RoomCardPricingProvenance find(Connection connection,long publicationId,String key,boolean lock)throws SQLException{
-        String sql="SELECT "+COLUMNS+" FROM aoo_room_cost_policy_provenance WHERE publication_id=? AND policy_key=?"+(lock?" FOR UPDATE":"");
+        String sql="SELECT "+COLUMNS+" FROM aoo_room_card_policy_provenance WHERE publication_id=? AND policy_key=?"+(lock?" FOR UPDATE":"");
         try(var q=connection.prepareStatement(sql)){
             q.setLong(1,publicationId);q.setString(2,key);
             try(var row=q.executeQuery()){

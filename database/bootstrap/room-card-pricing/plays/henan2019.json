@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "playCode": "henan2019",
+  "displayName": "河南跑得快",
+  "gameId": 2019,
+  "playVersion": "henan2019-v1.0.0",
+  "releaseId": 1318221,
+  "indexGeneration": 1006271,
+  "runtimeSourceHash": "c7259d1a9542079f5c6a3b52be2255ffd5ee769b965e490cdf8eaaf307b930df",
+  "tableName": "aoo_room_card_price_henan2019",
+  "policies": [
+    {
+      "policyKey": "henan2019:play-default:hall-owner-fixed-v1",
+      "matchScope": "PLAY_DEFAULT",
+      "payerMode": "OWNER",
+      "billingKind": "FIXED",
+      "billingContext": "HALL",
+      "currencyCode": "ROOM_CARD",
+      "amountMinor": 0,
+      "status": "ACTIVE",
+      "confirmationStatus": "CONFIRMED",
+      "freePolicyRef": "ROOM_CARD_ALWAYS_FREE_V1",
+      "refundPolicyRef": "ROOM_CARD_ZERO_AMOUNT_NO_LEDGER_V1",
+      "policyVersion": 1,
+      "contentHash": "01ccff1d2aaae0aeedf537f70721be095a468e06a8171d6339bc5e197cfcf23f"
+    }
+  ]
+}

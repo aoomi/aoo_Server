@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "playCode": "leping2008",
+  "displayName": "乐平跑得快",
+  "gameId": 2008,
+  "playVersion": "leping2008-v1.0.0",
+  "releaseId": 1318139,
+  "indexGeneration": 1006189,
+  "runtimeSourceHash": "d04b51b4cded129fd40dc4ace9fc7ab2fa2d6263e755f5925663b746ac24a933",
+  "tableName": "aoo_room_card_price_leping2008",
+  "policies": [
+    {
+      "policyKey": "leping2008:play-default:hall-owner-fixed-v1",
+      "matchScope": "PLAY_DEFAULT",
+      "payerMode": "OWNER",
+      "billingKind": "FIXED",
+      "billingContext": "HALL",
+      "currencyCode": "ROOM_CARD",
+      "amountMinor": 0,
+      "status": "ACTIVE",
+      "confirmationStatus": "CONFIRMED",
+      "freePolicyRef": "ROOM_CARD_ALWAYS_FREE_V1",
+      "refundPolicyRef": "ROOM_CARD_ZERO_AMOUNT_NO_LEDGER_V1",
+      "policyVersion": 1,
+      "contentHash": "9072bf23488525df589ed309baefa7f79ae185ed562de36dfab0161250d81e1e"
+    }
+  ]
+}

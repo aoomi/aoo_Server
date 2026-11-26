@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "playCode": "poyang2023",
+  "displayName": "鄱阳跑得快",
+  "gameId": 2023,
+  "playVersion": "poyang2023-v1.0.0",
+  "releaseId": 1318251,
+  "indexGeneration": 1006301,
+  "runtimeSourceHash": "2046952da61c13511b5acc164efee81b8475c5b34717fe63cd6b4862a8f673c0",
+  "tableName": "aoo_room_card_price_poyang2023",
+  "policies": [
+    {
+      "policyKey": "poyang2023:play-default:hall-owner-fixed-v1",
+      "matchScope": "PLAY_DEFAULT",
+      "payerMode": "OWNER",
+      "billingKind": "FIXED",
+      "billingContext": "HALL",
+      "currencyCode": "ROOM_CARD",
+      "amountMinor": 0,
+      "status": "ACTIVE",
+      "confirmationStatus": "CONFIRMED",
+      "freePolicyRef": "ROOM_CARD_ALWAYS_FREE_V1",
+      "refundPolicyRef": "ROOM_CARD_ZERO_AMOUNT_NO_LEDGER_V1",
+      "policyVersion": 1,
+      "contentHash": "ace65b005d7583211aecf1c0f663b260b1deb98969316011b4f4aff3fdf98838"
+    }
+  ]
+}

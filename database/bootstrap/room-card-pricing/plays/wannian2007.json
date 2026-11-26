@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "playCode": "wannian2007",
+  "displayName": "万年跑得快",
+  "gameId": 2007,
+  "playVersion": "wannian2007-v1.0.0",
+  "releaseId": 1318131,
+  "indexGeneration": 1006181,
+  "runtimeSourceHash": "b41006caa29b13d1f8a7e17966f9f599cd01a233dcbe331b6588fcfbf5579c8a",
+  "tableName": "aoo_room_card_price_wannian2007",
+  "policies": [
+    {
+      "policyKey": "wannian2007:play-default:hall-owner-fixed-v1",
+      "matchScope": "PLAY_DEFAULT",
+      "payerMode": "OWNER",
+      "billingKind": "FIXED",
+      "billingContext": "HALL",
+      "currencyCode": "ROOM_CARD",
+      "amountMinor": 0,
+      "status": "ACTIVE",
+      "confirmationStatus": "CONFIRMED",
+      "freePolicyRef": "ROOM_CARD_ALWAYS_FREE_V1",
+      "refundPolicyRef": "ROOM_CARD_ZERO_AMOUNT_NO_LEDGER_V1",
+      "policyVersion": 1,
+      "contentHash": "22306184b4b607607a915b176aec202a1a9b2703dee895c4527d3be8c9257399"
+    }
+  ]
+}

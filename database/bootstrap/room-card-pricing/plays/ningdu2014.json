@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "playCode": "ningdu2014",
+  "displayName": "宁都跑得快",
+  "gameId": 2014,
+  "playVersion": "ningdu2014-v1.0.0",
+  "releaseId": 1318183,
+  "indexGeneration": 1006233,
+  "runtimeSourceHash": "65533898342b858c546668393f7fbddd4d161f561862193eb7e681927db68270",
+  "tableName": "aoo_room_card_price_ningdu2014",
+  "policies": [
+    {
+      "policyKey": "ningdu2014:play-default:hall-owner-fixed-v1",
+      "matchScope": "PLAY_DEFAULT",
+      "payerMode": "OWNER",
+      "billingKind": "FIXED",
+      "billingContext": "HALL",
+      "currencyCode": "ROOM_CARD",
+      "amountMinor": 0,
+      "status": "ACTIVE",
+      "confirmationStatus": "CONFIRMED",
+      "freePolicyRef": "ROOM_CARD_ALWAYS_FREE_V1",
+      "refundPolicyRef": "ROOM_CARD_ZERO_AMOUNT_NO_LEDGER_V1",
+      "policyVersion": 1,
+      "contentHash": "4cd5f3ba827ea40a72a9c910765e25b7e480da89b08303b962b477d3a94a6b37"
+    }
+  ]
+}

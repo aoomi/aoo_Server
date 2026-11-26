@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "playCode": "gaoan2025",
+  "displayName": "高安跑得快",
+  "gameId": 2025,
+  "playVersion": "gaoan2025-v1.0.0",
+  "releaseId": 1318267,
+  "indexGeneration": 1006317,
+  "runtimeSourceHash": "abc410a038074f70381c857359c1043a6316c7e6186864321c1c74dd7032e599",
+  "tableName": "aoo_room_card_price_gaoan2025",
+  "policies": [
+    {
+      "policyKey": "gaoan2025:play-default:hall-owner-fixed-v1",
+      "matchScope": "PLAY_DEFAULT",
+      "payerMode": "OWNER",
+      "billingKind": "FIXED",
+      "billingContext": "HALL",
+      "currencyCode": "ROOM_CARD",
+      "amountMinor": 0,
+      "status": "ACTIVE",
+      "confirmationStatus": "CONFIRMED",
+      "freePolicyRef": "ROOM_CARD_ALWAYS_FREE_V1",
+      "refundPolicyRef": "ROOM_CARD_ZERO_AMOUNT_NO_LEDGER_V1",
+      "policyVersion": 1,
+      "contentHash": "c5983db3fbc1836c5cb2306bfd16dc6ebc7f85a8c821f0625c8cd169ee3bcab8"
+    }
+  ]
+}

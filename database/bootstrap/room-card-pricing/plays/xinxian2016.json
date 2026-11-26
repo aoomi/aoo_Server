@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "playCode": "xinxian2016",
+  "displayName": "新县跑得快",
+  "gameId": 2016,
+  "playVersion": "xinxian2016-v1.0.0",
+  "releaseId": 1318199,
+  "indexGeneration": 1006249,
+  "runtimeSourceHash": "459031972aaaf8d25fb025e849712b60df6cf9361f4cf1f3a7e7c97255713b73",
+  "tableName": "aoo_room_card_price_xinxian2016",
+  "policies": [
+    {
+      "policyKey": "xinxian2016:play-default:hall-owner-fixed-v1",
+      "matchScope": "PLAY_DEFAULT",
+      "payerMode": "OWNER",
+      "billingKind": "FIXED",
+      "billingContext": "HALL",
+      "currencyCode": "ROOM_CARD",
+      "amountMinor": 0,
+      "status": "ACTIVE",
+      "confirmationStatus": "CONFIRMED",
+      "freePolicyRef": "ROOM_CARD_ALWAYS_FREE_V1",
+      "refundPolicyRef": "ROOM_CARD_ZERO_AMOUNT_NO_LEDGER_V1",
+      "policyVersion": 1,
+      "contentHash": "e67e1556c999748078a10b41b966fc56c7109937d2ad0a331bcfad9e326a06cc"
+    }
+  ]
+}

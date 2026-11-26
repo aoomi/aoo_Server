@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "playCode": "yixing2026",
+  "displayName": "宜兴跑得快",
+  "gameId": 2026,
+  "playVersion": "yixing2026-v1.0.0",
+  "releaseId": 1318273,
+  "indexGeneration": 1006323,
+  "runtimeSourceHash": "49582391861a51b8fc166f1729670d2f403a8ca6925b023d71148802d08cb252",
+  "tableName": "aoo_room_card_price_yixing2026",
+  "policies": [
+    {
+      "policyKey": "yixing2026:play-default:hall-owner-fixed-v1",
+      "matchScope": "PLAY_DEFAULT",
+      "payerMode": "OWNER",
+      "billingKind": "FIXED",
+      "billingContext": "HALL",
+      "currencyCode": "ROOM_CARD",
+      "amountMinor": 0,
+      "status": "ACTIVE",
+      "confirmationStatus": "CONFIRMED",
+      "freePolicyRef": "ROOM_CARD_ALWAYS_FREE_V1",
+      "refundPolicyRef": "ROOM_CARD_ZERO_AMOUNT_NO_LEDGER_V1",
+      "policyVersion": 1,
+      "contentHash": "d0f6284148d5f44a94d843443f9f1d7d479aa7921a66628e126156c6749bf8cd"
+    }
+  ]
+}

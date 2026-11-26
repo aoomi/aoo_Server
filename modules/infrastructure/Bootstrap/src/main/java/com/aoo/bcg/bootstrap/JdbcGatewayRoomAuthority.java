@@ -31,6 +31,7 @@ import com.aoo.bcg.common.authority.JdbcRoomDissolveAuthorityStore;
 import com.aoo.bcg.common.authority.RoomDissolveAuthorityStore;
 import com.aoo.bcg.gamespi.GameCommandRequest;
 import com.aoo.bcg.gamespi.GameCommandResult;
+import com.aoo.bcg.gamespi.GameCommandHandler;
 
 import javax.sql.DataSource;
 import java.nio.charset.StandardCharsets;
@@ -782,10 +783,6 @@ final class JdbcGatewayRoomAuthority implements GatewayRuntimeProvider.RoomAutho
             if (session.stateVersion() != expectedStateVersion) {
                 throw new IllegalStateException("ROOM_ORCHESTRATOR_EXECUTE_STATE_VERSION_CONFLICT");
             }
-            if (isTerminalAuthoritySession(session, session.authoritativeState())) {
-                throw new IllegalStateException("ROOM_ORCHESTRATOR_EXECUTE_ROOM_STATE_REJECTED");
-            }
-            requireExecutePermission(session.authoritativeState(), command.request());
 
             IdempotencyKey key = new IdempotencyKey(command.request().authenticatedUserId(),
                     command.request().msgId(), roomId, command.request().roundNo(),
@@ -795,6 +792,16 @@ final class JdbcGatewayRoomAuthority implements GatewayRuntimeProvider.RoomAutho
                 return new RoomOrchestrator.ExecuteResult(
                         authorityIdentity(route, stored.identity()), committed);
             }
+            requireNoRequestScopeConflict(key);
+            if (isTerminalAuthoritySession(session, session.authoritativeState())) {
+                throw new IllegalStateException("ROOM_ORCHESTRATOR_EXECUTE_ROOM_STATE_REJECTED");
+            }
+            requireExecutePermission(session.authoritativeState(), command.request());
+
+            GameProvider provider = games.require(route.gameId(), route.playVersion());
+            GameCommandHandler commandHandler = provider.commandHandler().orElseThrow(() ->
+                    new IllegalStateException("ROOM_ORCHESTRATOR_EXECUTE_COMMAND_HANDLER_REQUIRED"));
+
             if (!executeIdempotency.acquire(key, executeIdempotencyRetention)) {
                 throw new IllegalStateException("ROOM_ORCHESTRATOR_EXECUTE_DUPLICATE_COMMAND");
             }
@@ -805,7 +812,7 @@ final class JdbcGatewayRoomAuthority implements GatewayRuntimeProvider.RoomAutho
             GameRoomHandle pendingRoom = null;
             try {
                 mutationStarted = true;
-                GameCommandResult handled = session.execute(command.request());
+                GameCommandResult handled = commandHandler.handle(room, command.request());
                 if (handled == null || !command.request().requestId().equals(handled.requestId())) {
                     throw new IllegalStateException("ROOM_ORCHESTRATOR_EXECUTE_RESULT_CONFLICT");
                 }
@@ -903,9 +910,21 @@ final class JdbcGatewayRoomAuthority implements GatewayRuntimeProvider.RoomAutho
                     command.commandId(), Math.addExact(session.stateVersion(), 1L), roomId, 0,
                     route.playVersion(), Long.toString(command.accountId()), command.seatNo(),
                     command.body().asMap());
-            var carryCheckpoint=beginCarry(room);
+            IdempotencyKey key = new IdempotencyKey(request.authenticatedUserId(), request.msgId(),
+                    roomId, request.roundNo(), request.requestId());
+            GameCommandResult committed = stateStore.findCommitted(room, request).orElse(null);
+            if (committed != null) {
+                throw new IllegalStateException("ROOM_ORCHESTRATOR_READY_ALREADY_COMMITTED");
+            }
+            if (!executeIdempotency.acquire(key, executeIdempotencyRetention)) {
+                throw new IllegalStateException("ROOM_ORCHESTRATOR_READY_DUPLICATE_COMMAND");
+            }
+            JdbcCarryParticipationPort.Checkpoint carryCheckpoint = null;
             boolean mutationStarted = false;
+            RoomRuntimeIdentity pendingIdentity = null;
+            GameRoomHandle pendingRoom = null;
             try {
+                carryCheckpoint = beginCarry(room);
                 mutationStarted = true;
                 GameCommandResult handled = session.execute(request);
                 if (handled == null || !request.requestId().equals(handled.requestId())) {
@@ -918,25 +937,58 @@ final class JdbcGatewayRoomAuthority implements GatewayRuntimeProvider.RoomAutho
                 GameCommandResult result = handled.serverTimeEpochMillis() == 0
                         ? handled.withTiming(clock.millis(), session.operationDeadline()) : handled;
                 result = result.withAuthorityMetadata(nextStateVersion, request.sequence());
-                RoomRuntimeIdentity advanced = carryCheckpoint==null?advanceIdentityIfRequired(roomId,stored.identity(),nextStateVersion):new RoomRuntimeIdentity(stored.identity().roomInstanceId(),stored.identity().lifecycleEpoch(),stored.identity().fencingToken(),nextStateVersion);
-                GameRoomHandle committedRoom = room;
-                if (!advanced.equals(room.runtimeIdentity())) {
-                    committedRoom = copyWithIdentity(room, advanced);
-                    rooms.updateRuntime(committedRoom);
-                }
-                if(carryCheckpoint==null)stateStore.commitResult(committedRoom,request,result);
-                else stateStore.commitResult(committedRoom,request,result,stored.identity());
+                RoomRuntimeIdentity advanced = new RoomRuntimeIdentity(
+                        stored.identity().roomInstanceId(), stored.identity().lifecycleEpoch(),
+                        stored.identity().fencingToken(), nextStateVersion);
+                GameRoomHandle committedRoom = copyWithIdentity(room, advanced);
+                pendingIdentity = advanced;
+                pendingRoom = committedRoom;
+                stateStore.commitResult(committedRoom, request, result, stored.identity());
+                rooms.updateRuntime(committedRoom);
                 stateStore.carryPort().finish(carryCheckpoint,true);
                 return new RoomOrchestrator.ReadyResult(
                         current, command.accountId(), command.seatNo(),
                         RoomOrchestrator.ReadyStatus.ACCEPTED, command.commandId(), nextStateVersion);
             } catch (RuntimeException | Error failure) {
+                // A commit acknowledgement may be lost after the exact snapshot, identity and
+                // receipt were committed. Resolve only from those durable facts; never execute
+                // READY a second time or guess that the transaction succeeded.
+                if (pendingIdentity != null && failure instanceof RuntimeException) {
+                    try {
+                        GameCommandResult resolvedResult = stateStore.findCommitted(room, request)
+                                .orElse(null);
+                        if (resolvedResult != null) {
+                            RoomRuntimeIdentity durableIdentity = roomIdentityStore.require(roomId).identity();
+                            var snapshot = stateStore.latest(roomId).orElseThrow(() ->
+                                    new IllegalStateException("ROOM_ORCHESTRATOR_READY_SNAPSHOT_REQUIRED"));
+                            if (!durableIdentity.equals(pendingIdentity)
+                                    || snapshot.stateVersion() != pendingIdentity.stateVersion()
+                                    || snapshot.lastEventSequence() != pendingIdentity.stateVersion()) {
+                                throw new IllegalStateException("ROOM_ORCHESTRATOR_READY_COMMIT_CONFLICT");
+                            }
+                            if (carryCheckpoint != null) restoreCarryDurable(room, carryCheckpoint);
+                            else if (!pendingIdentity.equals(rooms.require(roomId).runtimeIdentity())) {
+                                rooms.updateRuntime(pendingRoom);
+                            }
+                            stateStore.carryPort().finish(carryCheckpoint, true);
+                            return new RoomOrchestrator.ReadyResult(
+                                    current, command.accountId(), command.seatNo(),
+                                    RoomOrchestrator.ReadyStatus.ACCEPTED, command.commandId(),
+                                    pendingIdentity.stateVersion());
+                        }
+                    } catch (RuntimeException resolutionFailure) {
+                        failure.addSuppressed(resolutionFailure);
+                    }
+                }
                 if(carryCheckpoint!=null){boolean restored=false;try{restoreCarryDurable(room,carryCheckpoint);restored=true;}catch(RuntimeException restoreFailure){failure.addSuppressed(restoreFailure);}stateStore.carryPort().finish(carryCheckpoint,restored);}
                 if (mutationStarted) {
                     // The authoritative session has already mutated; do not report a successful
                     // result if durable snapshot/idempotency persistence failed.
                     failure.addSuppressed(new IllegalStateException(
                             "ROOM_ORCHESTRATOR_READY_MUTATION_REQUIRES_RECOVERY"));
+                    executeIdempotency.markUnknown(key);
+                } else {
+                    executeIdempotency.release(key);
                 }
                 throw failure;
             }
@@ -3115,6 +3167,29 @@ public Map<String, Object> join(Map<String, Object> command) {
     private Object lock(long roomId) {
         stateStore.carryPort().requireAvailable(roomId);
         return roomLocks.computeIfAbsent(roomId, ignored -> new Object());
+    }
+
+    private void requireNoRequestScopeConflict(IdempotencyKey expected) {
+        try (Connection connection = dataSource.getConnection();
+             PreparedStatement query = connection.prepareStatement("""
+                     SELECT user_id,operation,round_no
+                     FROM aoo_business_idempotency
+                     WHERE room_id=? AND client_request_id=?
+                     """)) {
+            query.setLong(1, expected.roomId());
+            query.setString(2, expected.requestId());
+            try (ResultSet rows = query.executeQuery()) {
+                while (rows.next()) {
+                    if (!expected.userId().equals(rows.getString(1))
+                            || !expected.operation().equals(rows.getString(2))
+                            || expected.roundNo() != rows.getInt(3)) {
+                        throw new SecurityException("ROOM_ORCHESTRATOR_EXECUTE_REQUEST_SCOPE_CONFLICT");
+                    }
+                }
+            }
+        } catch (SQLException failure) {
+            throw new IllegalStateException("ROOM_ORCHESTRATOR_EXECUTE_REQUEST_SCOPE_CHECK_FAILED", failure);
+        }
     }
 
     private Map<String, Object> response(Route route) {

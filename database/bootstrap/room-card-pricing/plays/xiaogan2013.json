@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "playCode": "xiaogan2013",
+  "displayName": "孝感跑得快",
+  "gameId": 2013,
+  "playVersion": "xiaogan2013-v1.0.0",
+  "releaseId": 1318177,
+  "indexGeneration": 1006227,
+  "runtimeSourceHash": "d89e9fc10aff8916ce29901b46a51a3d3a1fc398f3b43315e1be9a02a01aa779",
+  "tableName": "aoo_room_card_price_xiaogan2013",
+  "policies": [
+    {
+      "policyKey": "xiaogan2013:play-default:hall-owner-fixed-v1",
+      "matchScope": "PLAY_DEFAULT",
+      "payerMode": "OWNER",
+      "billingKind": "FIXED",
+      "billingContext": "HALL",
+      "currencyCode": "ROOM_CARD",
+      "amountMinor": 0,
+      "status": "ACTIVE",
+      "confirmationStatus": "CONFIRMED",
+      "freePolicyRef": "ROOM_CARD_ALWAYS_FREE_V1",
+      "refundPolicyRef": "ROOM_CARD_ZERO_AMOUNT_NO_LEDGER_V1",
+      "policyVersion": 1,
+      "contentHash": "aee0aeaeac538c7be079bc15fdcad8108c73c75809fd466e5f47b8967f7ee156"
+    }
+  ]
+}

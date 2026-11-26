@@ -1,0 +1,24 @@
+{
+  "owner": "/root/aoo_runtime_lead",
+  "state": "ACTIVE",
+  "acquiredAt": "2026-11-26T05:51:33Z",
+  "expiresAt": "2026-11-27T17:51:33Z",
+  "writePaths": [
+    "/Users/aoo/Code/Game/aoo/Server/docs/05-当前状态/DIRECT-20261126T055133Z-7335c0ef-room-card-play-code-architecture.md",
+    "/Users/aoo/Code/Game/aoo/Server/database/bootstrap/room-card-pricing/**",
+    "/Users/aoo/Code/Game/aoo/Server/database/migrations/V20261126_08__retire_legacy_room_cost_tables.sql",
+    "/Users/aoo/Code/Game/aoo/Server/database/local/seed_local_runtime.sql",
+    "/Users/aoo/Code/Game/aoo/Server/database/tools/legacy_config_converter.py",
+    "/Users/aoo/Code/Game/aoo/Server/modules/user-domain/Billing/**",
+    "/Users/aoo/Code/Game/aoo/Server/modules/infrastructure/Bootstrap/**",
+    "/Users/aoo/Code/Game/aoo/Server/modules/social-ops/Lobby/**",
+    "/Users/aoo/Code/Game/aoo/Client/assets/Games/Common/Code/Runtime/GameRuntimeEntries.ts",
+    "/Users/aoo/Code/Game/aoo/Client/assets/Games/Poker/PDK/Common/Code/Runtime/PdkSwitchCoordinator.ts",
+    "/Users/aoo/Code/Game/aoo/Client/assets/Games/Poker/PDK/Common/Code/Runtime/PdkRuntime.ts",
+    "/Users/aoo/Code/Game/aoo/Client/tests/unit/common-room-seat-lifecycle.test.mjs",
+    "/Users/aoo/Code/Game/aoo/Client/tests/unit/pdk-canonical-command-routing.test.mjs",
+    "/Users/aoo/Code/Game/aoo/work/backups/room-card-play-code-architecture-r2-*",
+    "/Users/aoo/Code/Game/aoo/work/scratch/room-card-play-code-architecture-r2-*"
+  ],
+  "taskId": "DIRECT-20261126T055133Z-7335c0ef"
+}

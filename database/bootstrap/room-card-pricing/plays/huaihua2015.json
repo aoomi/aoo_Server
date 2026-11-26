@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "playCode": "huaihua2015",
+  "displayName": "怀化跑得快",
+  "gameId": 2015,
+  "playVersion": "huaihua2015-v1.0.0",
+  "releaseId": 1318191,
+  "indexGeneration": 1006241,
+  "runtimeSourceHash": "50a363b43bb8ae70c9208726be947572b953edc1dabdb6b11f9abe793672c2f7",
+  "tableName": "aoo_room_card_price_huaihua2015",
+  "policies": [
+    {
+      "policyKey": "huaihua2015:play-default:hall-owner-fixed-v1",
+      "matchScope": "PLAY_DEFAULT",
+      "payerMode": "OWNER",
+      "billingKind": "FIXED",
+      "billingContext": "HALL",
+      "currencyCode": "ROOM_CARD",
+      "amountMinor": 0,
+      "status": "ACTIVE",
+      "confirmationStatus": "CONFIRMED",
+      "freePolicyRef": "ROOM_CARD_ALWAYS_FREE_V1",
+      "refundPolicyRef": "ROOM_CARD_ZERO_AMOUNT_NO_LEDGER_V1",
+      "policyVersion": 1,
+      "contentHash": "b2d75761a45e7d7bdff2e4f9c248585c0dcb2b5f8757171904898a3e303efb3a"
+    }
+  ]
+}

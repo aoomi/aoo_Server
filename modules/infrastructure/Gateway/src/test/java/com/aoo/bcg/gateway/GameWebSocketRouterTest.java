@@ -69,6 +69,7 @@ class GameWebSocketRouterTest {
         var routed = router.route(new ConnectionSession("7", "9010", 0, playVersion, 0), frame);
         assertEquals("common.room.ready_resp", routed.result().msgId());
         assertEquals(List.of(0), routed.result().body().asMap().get("readySeats"));
+        assertTrue(routed.broadcast(), "committed Ready must fan out the authoritative observer views");
         assertEquals(1, authorityCalls.get());
         assertEquals(0, gameplayCalls.get());
     }
@@ -142,7 +143,9 @@ class GameWebSocketRouterTest {
         WebSocketFrame frame = new WebSocketFrame("mahjong.CD101.dispatch", "execute-9001", 1,
                 "9001", 1, playVersion, now.toEpochMilli(), Map.of("action", "play"));
 
-        assertEquals(true, router.route(session, frame).result().body().asMap().get("accepted"));
+        var routed = router.route(session, frame);
+        assertEquals(true, routed.result().body().asMap().get("accepted"));
+        assertTrue(routed.broadcast(), "committed gameplay execute must fan out authoritative observer views");
         assertEquals(1, authorityCalls.get());
         assertEquals(0, gameplayCalls.get());
     }

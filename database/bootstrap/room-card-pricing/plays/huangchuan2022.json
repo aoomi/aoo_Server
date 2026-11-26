@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "playCode": "huangchuan2022",
+  "displayName": "潢川跑得快",
+  "gameId": 2022,
+  "playVersion": "huangchuan2022-v1.0.0",
+  "releaseId": 1318243,
+  "indexGeneration": 1006293,
+  "runtimeSourceHash": "11179dda7de218affa7b30cd4b8f0cd2270857b3220f2a2d27f2bd6230eb85c8",
+  "tableName": "aoo_room_card_price_huangchuan2022",
+  "policies": [
+    {
+      "policyKey": "huangchuan2022:play-default:hall-owner-fixed-v1",
+      "matchScope": "PLAY_DEFAULT",
+      "payerMode": "OWNER",
+      "billingKind": "FIXED",
+      "billingContext": "HALL",
+      "currencyCode": "ROOM_CARD",
+      "amountMinor": 0,
+      "status": "ACTIVE",
+      "confirmationStatus": "CONFIRMED",
+      "freePolicyRef": "ROOM_CARD_ALWAYS_FREE_V1",
+      "refundPolicyRef": "ROOM_CARD_ZERO_AMOUNT_NO_LEDGER_V1",
+      "policyVersion": 1,
+      "contentHash": "2499fa3e3f6270cbc092de7a758812436ba3c79b4e2488c606c135f738ff5b1d"
+    }
+  ]
+}

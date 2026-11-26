@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "playCode": "neijiang2002",
+  "displayName": "内江跑得快",
+  "gameId": 2002,
+  "playVersion": "neijiang2002-v1.0.0",
+  "releaseId": 1318093,
+  "indexGeneration": 1006143,
+  "runtimeSourceHash": "e874258955e09787e77801518830d85bf25527ec38ffff2fa117e83c518e5cad",
+  "tableName": "aoo_room_card_price_neijiang2002",
+  "policies": [
+    {
+      "policyKey": "neijiang2002:play-default:hall-owner-fixed-v1",
+      "matchScope": "PLAY_DEFAULT",
+      "payerMode": "OWNER",
+      "billingKind": "FIXED",
+      "billingContext": "HALL",
+      "currencyCode": "ROOM_CARD",
+      "amountMinor": 0,
+      "status": "ACTIVE",
+      "confirmationStatus": "CONFIRMED",
+      "freePolicyRef": "ROOM_CARD_ALWAYS_FREE_V1",
+      "refundPolicyRef": "ROOM_CARD_ZERO_AMOUNT_NO_LEDGER_V1",
+      "policyVersion": 1,
+      "contentHash": "00265e2f88cba8dd478d80a0739532c75a958471d62e62f097196cf6ce4bed9f"
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "playCode": "liangshan2003",
+  "displayName": "凉山跑得快",
+  "gameId": 2003,
+  "playVersion": "liangshan2003-v1.0.0",
+  "releaseId": 1318101,
+  "indexGeneration": 1006151,
+  "runtimeSourceHash": "c5fe7d0e7078992537ba68c5ae1d96614d4ae0e32822c6dd7a1e0b4e862250c3",
+  "tableName": "aoo_room_card_price_liangshan2003",
+  "policies": [
+    {
+      "policyKey": "liangshan2003:play-default:hall-owner-fixed-v1",
+      "matchScope": "PLAY_DEFAULT",
+      "payerMode": "OWNER",
+      "billingKind": "FIXED",
+      "billingContext": "HALL",
+      "currencyCode": "ROOM_CARD",
+      "amountMinor": 0,
+      "status": "ACTIVE",
+      "confirmationStatus": "CONFIRMED",
+      "freePolicyRef": "ROOM_CARD_ALWAYS_FREE_V1",
+      "refundPolicyRef": "ROOM_CARD_ZERO_AMOUNT_NO_LEDGER_V1",
+      "policyVersion": 1,
+      "contentHash": "56bdc3004bef6006c4cb023de55f3d657d5b5d2e132c2ff51bb391db7403eacf"
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "playCode": "chengdu1001",
+  "displayName": "成都麻将",
+  "gameId": 1001,
+  "playVersion": "chengdu1001-v1.0.0",
+  "releaseId": 1318079,
+  "indexGeneration": 1006129,
+  "runtimeSourceHash": "c2ec22c31e4e965153c942f1f2f3634ce5c216e3dd4c1b971da578d060d85665",
+  "tableName": "aoo_room_card_price_chengdu1001",
+  "policies": [
+    {
+      "policyKey": "chengdu1001:play-default:hall-owner-fixed-v1",
+      "matchScope": "PLAY_DEFAULT",
+      "payerMode": "OWNER",
+      "billingKind": "FIXED",
+      "billingContext": "HALL",
+      "currencyCode": "ROOM_CARD",
+      "amountMinor": 0,
+      "status": "ACTIVE",
+      "confirmationStatus": "CONFIRMED",
+      "freePolicyRef": "ROOM_CARD_ALWAYS_FREE_V1",
+      "refundPolicyRef": "ROOM_CARD_ZERO_AMOUNT_NO_LEDGER_V1",
+      "policyVersion": 1,
+      "contentHash": "2db14a9f79048eb05f04c027a55e78bbb8e933389b497b928c4caac11f244725"
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "playCode": "panzhihua2006",
+  "displayName": "攀枝花跑得快",
+  "gameId": 2006,
+  "playVersion": "panzhihua2006-v1.0.0",
+  "releaseId": 1318123,
+  "indexGeneration": 1006173,
+  "runtimeSourceHash": "2863f927671d0c2bc8dfed680a3388fc68e0f10b2b6ea296a44f6e5e89567fa5",
+  "tableName": "aoo_room_card_price_panzhihua2006",
+  "policies": [
+    {
+      "policyKey": "panzhihua2006:play-default:hall-owner-fixed-v1",
+      "matchScope": "PLAY_DEFAULT",
+      "payerMode": "OWNER",
+      "billingKind": "FIXED",
+      "billingContext": "HALL",
+      "currencyCode": "ROOM_CARD",
+      "amountMinor": 0,
+      "status": "ACTIVE",
+      "confirmationStatus": "CONFIRMED",
+      "freePolicyRef": "ROOM_CARD_ALWAYS_FREE_V1",
+      "refundPolicyRef": "ROOM_CARD_ZERO_AMOUNT_NO_LEDGER_V1",
+      "policyVersion": 1,
+      "contentHash": "5785fc2fc645cca73eec331ef129ae0f5ef6bda265ef3cb71808274c3b2d9195"
+    }
+  ]
+}

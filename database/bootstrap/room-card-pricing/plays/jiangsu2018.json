@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "playCode": "jiangsu2018",
+  "displayName": "江苏跑得快",
+  "gameId": 2018,
+  "playVersion": "jiangsu2018-v1.0.0",
+  "releaseId": 1318213,
+  "indexGeneration": 1006263,
+  "runtimeSourceHash": "f4bd0a78f9398cb120fc6705c8d91786d8efe452cb7ab8c6882b2ae3d472dcc5",
+  "tableName": "aoo_room_card_price_jiangsu2018",
+  "policies": [
+    {
+      "policyKey": "jiangsu2018:play-default:hall-owner-fixed-v1",
+      "matchScope": "PLAY_DEFAULT",
+      "payerMode": "OWNER",
+      "billingKind": "FIXED",
+      "billingContext": "HALL",
+      "currencyCode": "ROOM_CARD",
+      "amountMinor": 0,
+      "status": "ACTIVE",
+      "confirmationStatus": "CONFIRMED",
+      "freePolicyRef": "ROOM_CARD_ALWAYS_FREE_V1",
+      "refundPolicyRef": "ROOM_CARD_ZERO_AMOUNT_NO_LEDGER_V1",
+      "policyVersion": 1,
+      "contentHash": "b7ba71974be2dc59ff6af2f2e54e2aa86d4110081184e4e349c836621c07d9b8"
+    }
+  ]
+}
