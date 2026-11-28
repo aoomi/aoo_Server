@@ -1,0 +1,330 @@
+{
+  "source": "user-specified-local-engineering-dump",
+  "sourceArtifact": {
+    "path": "server/release-input/current32/r32-test-20261127-v4/identity-authority/aoo_login_local-full.sql.gz",
+    "sha256": "bcdc89483e815ed78c40712ecfbfdd6df146797ee31687e13a72e15ce16fa69e"
+  },
+  "rows": [
+    {
+      "gameId": 5,
+      "gameCode": "quanguo2998",
+      "family": "poker:betting",
+      "playVersion": "nn-v1.0.0",
+      "sourceHash": "1a4a372aba8f49eb8d7ea224e19680b5532e1d7288d2cfcf091bbf556b63ad52",
+      "releaseId": 7026112606,
+      "indexGeneration": 2026100668,
+      "releaseVersion": 2026112604
+    },
+    {
+      "gameId": 9,
+      "gameCode": "quanguo2997",
+      "family": "poker:compare-hand",
+      "playVersion": "zjh-v1.0.0",
+      "sourceHash": "1d7b6785e3c4905cbf482312c54b4fc192726b9274e2dc575cdcf72619d8a546",
+      "releaseId": 11026112606,
+      "indexGeneration": 2026100669,
+      "releaseVersion": 2026112604
+    },
+    {
+      "gameId": 1001,
+      "gameCode": "chengdu1001",
+      "family": "mahjong:xue-zhan",
+      "playVersion": "chengdu1001-v1.0.0",
+      "sourceHash": "c2ec22c31e4e965153c942f1f2f3634ce5c216e3dd4c1b971da578d060d85665",
+      "releaseId": 1003026112606,
+      "indexGeneration": 2026100670,
+      "releaseVersion": 2026112604
+    },
+    {
+      "gameId": 2001,
+      "gameCode": "chengdu2001",
+      "family": "poker:pao-de-kuai",
+      "playVersion": "chengdu2001-v1.0.0",
+      "sourceHash": "ca8ffd29cc851946e304a1e942725adebfe661b40323b3dc3614d9707078ac6b",
+      "releaseId": 2003026112606,
+      "indexGeneration": 2026100671,
+      "releaseVersion": 2026112604
+    },
+    {
+      "gameId": 2002,
+      "gameCode": "neijiang2002",
+      "family": "poker:pao-de-kuai",
+      "playVersion": "neijiang2002-v1.0.0",
+      "sourceHash": "e874258955e09787e77801518830d85bf25527ec38ffff2fa117e83c518e5cad",
+      "releaseId": 2004026112606,
+      "indexGeneration": 2026100672,
+      "releaseVersion": 2026112604
+    },
+    {
+      "gameId": 2003,
+      "gameCode": "liangshan2003",
+      "family": "poker:pao-de-kuai",
+      "playVersion": "liangshan2003-v1.0.0",
+      "sourceHash": "c5fe7d0e7078992537ba68c5ae1d96614d4ae0e32822c6dd7a1e0b4e862250c3",
+      "releaseId": 2005026112606,
+      "indexGeneration": 2026100673,
+      "releaseVersion": 2026112604
+    },
+    {
+      "gameId": 2004,
+      "gameCode": "mianning2004",
+      "family": "poker:pao-de-kuai",
+      "playVersion": "mianning2004-v1.0.0",
+      "sourceHash": "713a219390223ec6926f2c1825a95b28c95a43ef37f86b78a5923d236ef5549a",
+      "releaseId": 2006026112606,
+      "indexGeneration": 2026100674,
+      "releaseVersion": 2026112604
+    },
+    {
+      "gameId": 2005,
+      "gameCode": "anyue2005",
+      "family": "poker:pao-de-kuai",
+      "playVersion": "anyue2005-v1.0.0",
+      "sourceHash": "dabb398a4ebb6dd2700fc7d639ccc7ad589abc1142cd9f00fce2884c5932ce0a",
+      "releaseId": 2007026112606,
+      "indexGeneration": 2026100675,
+      "releaseVersion": 2026112604
+    },
+    {
+      "gameId": 2006,
+      "gameCode": "panzhihua2006",
+      "family": "poker:pao-de-kuai",
+      "playVersion": "panzhihua2006-v1.0.0",
+      "sourceHash": "2863f927671d0c2bc8dfed680a3388fc68e0f10b2b6ea296a44f6e5e89567fa5",
+      "releaseId": 2008026112606,
+      "indexGeneration": 2026100676,
+      "releaseVersion": 2026112604
+    },
+    {
+      "gameId": 2007,
+      "gameCode": "wannian2007",
+      "family": "poker:pao-de-kuai",
+      "playVersion": "wannian2007-v1.0.0",
+      "sourceHash": "b41006caa29b13d1f8a7e17966f9f599cd01a233dcbe331b6588fcfbf5579c8a",
+      "releaseId": 2009026112606,
+      "indexGeneration": 2026100677,
+      "releaseVersion": 2026112604
+    },
+    {
+      "gameId": 2008,
+      "gameCode": "leping2008",
+      "family": "poker:pao-de-kuai",
+      "playVersion": "leping2008-v1.0.0",
+      "sourceHash": "d04b51b4cded129fd40dc4ace9fc7ab2fa2d6263e755f5925663b746ac24a933",
+      "releaseId": 2010026112606,
+      "indexGeneration": 2026100678,
+      "releaseVersion": 2026112604
+    },
+    {
+      "gameId": 2009,
+      "gameCode": "bozhou2009",
+      "family": "poker:pao-de-kuai",
+      "playVersion": "bozhou2009-v1.0.0",
+      "sourceHash": "1695a3e59c6a5daf33071cf17d442f4d5f73cba2d82ac93353c9b39b09e534d3",
+      "releaseId": 2011026112606,
+      "indexGeneration": 2026100679,
+      "releaseVersion": 2026112604
+    },
+    {
+      "gameId": 2010,
+      "gameCode": "yugan2010",
+      "family": "poker:pao-de-kuai",
+      "playVersion": "yugan2010-v1.0.0",
+      "sourceHash": "8365bf3ebeaa545f9fee2cf4008717833dd96b967f76b4a08002da2e55527627",
+      "releaseId": 2012026112606,
+      "indexGeneration": 2026100680,
+      "releaseVersion": 2026112604
+    },
+    {
+      "gameId": 2011,
+      "gameCode": "jian2011",
+      "family": "poker:pao-de-kuai",
+      "playVersion": "jian2011-v1.0.0",
+      "sourceHash": "fb6d8852883d33fa04c9c71f9c604e4ab5fec38a293afa2b75196da10198a42c",
+      "releaseId": 2013026112606,
+      "indexGeneration": 2026100681,
+      "releaseVersion": 2026112604
+    },
+    {
+      "gameId": 2012,
+      "gameCode": "gushi2012",
+      "family": "poker:pao-de-kuai",
+      "playVersion": "gushi2012-v1.0.0",
+      "sourceHash": "17b3caa687fc6de086995f26199c96f87db2bd33336f402e17f9659b7751d180",
+      "releaseId": 2014026112606,
+      "indexGeneration": 2026100682,
+      "releaseVersion": 2026112604
+    },
+    {
+      "gameId": 2013,
+      "gameCode": "xiaogan2013",
+      "family": "poker:pao-de-kuai",
+      "playVersion": "xiaogan2013-v1.0.0",
+      "sourceHash": "d89e9fc10aff8916ce29901b46a51a3d3a1fc398f3b43315e1be9a02a01aa779",
+      "releaseId": 2015026112606,
+      "indexGeneration": 2026100683,
+      "releaseVersion": 2026112604
+    },
+    {
+      "gameId": 2014,
+      "gameCode": "ningdu2014",
+      "family": "poker:pao-de-kuai",
+      "playVersion": "ningdu2014-v1.0.0",
+      "sourceHash": "65533898342b858c546668393f7fbddd4d161f561862193eb7e681927db68270",
+      "releaseId": 2016026112606,
+      "indexGeneration": 2026100684,
+      "releaseVersion": 2026112604
+    },
+    {
+      "gameId": 2015,
+      "gameCode": "huaihua2015",
+      "family": "poker:pao-de-kuai",
+      "playVersion": "huaihua2015-v1.0.0",
+      "sourceHash": "50a363b43bb8ae70c9208726be947572b953edc1dabdb6b11f9abe793672c2f7",
+      "releaseId": 2017026112606,
+      "indexGeneration": 2026100685,
+      "releaseVersion": 2026112604
+    },
+    {
+      "gameId": 2016,
+      "gameCode": "xinxian2016",
+      "family": "poker:pao-de-kuai",
+      "playVersion": "xinxian2016-v1.0.0",
+      "sourceHash": "459031972aaaf8d25fb025e849712b60df6cf9361f4cf1f3a7e7c97255713b73",
+      "releaseId": 2018026112606,
+      "indexGeneration": 2026100686,
+      "releaseVersion": 2026112604
+    },
+    {
+      "gameId": 2017,
+      "gameCode": "jingdezhen2017",
+      "family": "poker:pao-de-kuai",
+      "playVersion": "jingdezhen2017-v1.0.0",
+      "sourceHash": "69283dd4d468617b61245ae2c08913c7ab289fc2339281d7b809d7c38854b7b2",
+      "releaseId": 2019026112606,
+      "indexGeneration": 2026100687,
+      "releaseVersion": 2026112604
+    },
+    {
+      "gameId": 2018,
+      "gameCode": "jiangsu2018",
+      "family": "poker:pao-de-kuai",
+      "playVersion": "jiangsu2018-v1.0.0",
+      "sourceHash": "f4bd0a78f9398cb120fc6705c8d91786d8efe452cb7ab8c6882b2ae3d472dcc5",
+      "releaseId": 2020026112606,
+      "indexGeneration": 2026100688,
+      "releaseVersion": 2026112604
+    },
+    {
+      "gameId": 2019,
+      "gameCode": "henan2019",
+      "family": "poker:pao-de-kuai",
+      "playVersion": "henan2019-v1.0.0",
+      "sourceHash": "c7259d1a9542079f5c6a3b52be2255ffd5ee769b965e490cdf8eaaf307b930df",
+      "releaseId": 2021026112606,
+      "indexGeneration": 2026100689,
+      "releaseVersion": 2026112604
+    },
+    {
+      "gameId": 2020,
+      "gameCode": "taizhou2020",
+      "family": "poker:pao-de-kuai",
+      "playVersion": "taizhou2020-v1.0.0",
+      "sourceHash": "e0e8e5763652c506c8a0d18eaefe8bc58f3c6fc272c0a2ded8b1cc3626fa54e9",
+      "releaseId": 2022026112606,
+      "indexGeneration": 2026100690,
+      "releaseVersion": 2026112604
+    },
+    {
+      "gameId": 2021,
+      "gameCode": "huaibin2021",
+      "family": "poker:pao-de-kuai",
+      "playVersion": "huaibin2021-v1.0.0",
+      "sourceHash": "1cdbda81f69213ae48db360070b1af4a96aa3bd857b4f7d78e9d7f41d91bba60",
+      "releaseId": 2023026112606,
+      "indexGeneration": 2026100691,
+      "releaseVersion": 2026112604
+    },
+    {
+      "gameId": 2022,
+      "gameCode": "huangchuan2022",
+      "family": "poker:pao-de-kuai",
+      "playVersion": "huangchuan2022-v1.0.0",
+      "sourceHash": "11179dda7de218affa7b30cd4b8f0cd2270857b3220f2a2d27f2bd6230eb85c8",
+      "releaseId": 2024026112606,
+      "indexGeneration": 2026100692,
+      "releaseVersion": 2026112604
+    },
+    {
+      "gameId": 2023,
+      "gameCode": "poyang2023",
+      "family": "poker:pao-de-kuai",
+      "playVersion": "poyang2023-v1.0.0",
+      "sourceHash": "2046952da61c13511b5acc164efee81b8475c5b34717fe63cd6b4862a8f673c0",
+      "releaseId": 2025026112606,
+      "indexGeneration": 2026100693,
+      "releaseVersion": 2026112604
+    },
+    {
+      "gameId": 2024,
+      "gameCode": "jintan2024",
+      "family": "poker:pao-de-kuai",
+      "playVersion": "jintan2024-v1.0.0",
+      "sourceHash": "caf2c0631f040188f358fc13823412671b45dee99704ecebf285e4b8ecd5895a",
+      "releaseId": 2026026112606,
+      "indexGeneration": 2026100694,
+      "releaseVersion": 2026112604
+    },
+    {
+      "gameId": 2025,
+      "gameCode": "gaoan2025",
+      "family": "poker:pao-de-kuai",
+      "playVersion": "gaoan2025-v1.0.0",
+      "sourceHash": "abc410a038074f70381c857359c1043a6316c7e6186864321c1c74dd7032e599",
+      "releaseId": 2027026112606,
+      "indexGeneration": 2026100695,
+      "releaseVersion": 2026112604
+    },
+    {
+      "gameId": 2026,
+      "gameCode": "yixing2026",
+      "family": "poker:pao-de-kuai",
+      "playVersion": "yixing2026-v1.0.0",
+      "sourceHash": "49582391861a51b8fc166f1729670d2f403a8ca6925b023d71148802d08cb252",
+      "releaseId": 2028026112606,
+      "indexGeneration": 2026100696,
+      "releaseVersion": 2026112604
+    },
+    {
+      "gameId": 2027,
+      "gameCode": "xuancheng2027",
+      "family": "poker:pao-de-kuai",
+      "playVersion": "xuancheng2027-v1.0.0",
+      "sourceHash": "b42092ec31bebf63f04cd3918105c5b3db5757588c81f4612d6410689ee57a33",
+      "releaseId": 2029026112606,
+      "indexGeneration": 2026100697,
+      "releaseVersion": 2026112604
+    },
+    {
+      "gameId": 2028,
+      "gameCode": "fuzhou2028",
+      "family": "poker:pao-de-kuai",
+      "playVersion": "fuzhou2028-v1.0.0",
+      "sourceHash": "e3c08c0afa5b3133b2833f08f390c096f0de9c4718068518b71998bf06e78aee",
+      "releaseId": 2030026112606,
+      "indexGeneration": 2026100698,
+      "releaseVersion": 2026112604
+    },
+    {
+      "gameId": 2999,
+      "gameCode": "chengdu2999",
+      "family": "poker:cx",
+      "playVersion": "cx-v1.0.0",
+      "sourceHash": "f608c559c969209a1bbdf985fe54b7807bd0022c4c4a711a9a75a94aee6dbab5",
+      "releaseId": 3001026112606,
+      "indexGeneration": 2026100699,
+      "releaseVersion": 2026112604
+    }
+  ]
+}
+

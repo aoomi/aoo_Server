@@ -1,0 +1,2 @@
+class	container	container_id	image	state	finished_utc	data_mount_type	data_mount_name_or_path	estimated_size	action
+stopped_artifact	aoo-cd2999-order-fix-r3-mysql-20261012	0d51a2929735bef9d170aaec33389f37c86600f3a7eb761065218fcd3e26253f	mysql:8.4	exited	2026-10-27T06:08:08.258176417Z	volume	cce4bc9628539b8f9d246a670781839323ca0e95f3369fa7ffd592795c75ebf8	287MB	INVENTORY_ONLY_NOT_STARTED_OR_MOUNTED

@@ -1,0 +1,371 @@
+{
+  "manifestKind": "canonical-identity-current-contract",
+  "manifestVersion": "r32-test-20261127-activation-v2",
+  "status": "SIGNED_CANONICAL_INPUT",
+  "issuer": "aoo-test-release-admin",
+  "releaseEdition": "r32-test-20261127",
+  "contractVersion": "common-room-v1",
+  "manifestSha256": "b65c2edce1ba4e6dbabac0993d2ef1cb138f3a7048f6420e2868f14419774916",
+  "registrySha256": "d4a5669948c99a2853aa6711b13ec4b0b08f2222242295d67a2fe5fa62a09521",
+  "sourceHash": "c914b042158a270c7e65857f66b5c16598c0d4545460c58e23c9e9a18cc73f0b",
+  "activation": {
+    "activationAllowed": true,
+    "target": {
+      "environment": "test-server",
+      "host": "8.137.34.190",
+      "sourceRoot": "/opt/aoo/source"
+    },
+    "releaseTarget": "r32-test-20261127-v2",
+    "serviceScope": [
+      "version",
+      "account",
+      "hall",
+      "social",
+      "media",
+      "gateway",
+      "all-deployed-game-providers"
+    ],
+    "artifactPolicy": {
+      "immutableEvidenceDirectory": "release-input/current32/r32-test-20261127-v2/provider-artifacts",
+      "mavenCleanIndependent": true
+    },
+    "verificationPlan": [
+      "clean",
+      "build controlled modules",
+      "fixed artifact hash match",
+      "formal runtime metadata validator",
+      "canonical registry binding validator",
+      "package",
+      "32-provider production assembly"
+    ],
+    "rollback": {
+      "required": true,
+      "strategy": "preserve verified current release and restore current symlink plus service units",
+      "databaseRulesOrPricingWrites": false
+    },
+    "independentReviewRequired": true
+  },
+  "rows": [
+    {
+      "gameId": 5,
+      "gameCode": "quanguo2998",
+      "providerKey": "nn-native",
+      "clientRuntimeEntry": "nn",
+      "contractVersion": "common-room-v1",
+      "sourceHash": "a8f46de72a7d63bb562c8ebdbde2ee7a3d87c7098652c710b520e18185427043",
+      "releaseId": 9320000000001,
+      "indexGeneration": 9330000000001
+    },
+    {
+      "gameId": 9,
+      "gameCode": "quanguo2997",
+      "providerKey": "zjh-native",
+      "clientRuntimeEntry": "zjh",
+      "contractVersion": "common-room-v1",
+      "sourceHash": "436dcf2f7ced8bd7da2d98876230acf788865d26fc42331ac225a0e2d456d4e1",
+      "releaseId": 9320000000002,
+      "indexGeneration": 9330000000002
+    },
+    {
+      "gameId": 1001,
+      "gameCode": "chengdu1001",
+      "providerKey": "native-mahjong-family",
+      "clientRuntimeEntry": "chengdu1001",
+      "contractVersion": "common-room-v1",
+      "sourceHash": "77837f036fe71fa3cbd881ea5215cf5ef62054ac6539f89c1c1735d909bb37e3",
+      "releaseId": 9320000000003,
+      "indexGeneration": 9330000000003
+    },
+    {
+      "gameId": 2001,
+      "gameCode": "chengdu2001",
+      "providerKey": "native-pdk",
+      "clientRuntimeEntry": "common-pdk",
+      "contractVersion": "common-room-v1",
+      "sourceHash": "aa59b66dc29f759a08956398e7c8f0e0780eb339869aebb8a59ac4d394468ddb",
+      "releaseId": 9320000000004,
+      "indexGeneration": 9330000000004
+    },
+    {
+      "gameId": 2002,
+      "gameCode": "neijiang2002",
+      "providerKey": "native-pdk-neijiang2002",
+      "clientRuntimeEntry": "common-pdk",
+      "contractVersion": "common-room-v1",
+      "sourceHash": "b7998609f4e94d5ad0edf1cabdaa42c9955344a3004083486f8ebea0b16b896c",
+      "releaseId": 9320000000005,
+      "indexGeneration": 9330000000005
+    },
+    {
+      "gameId": 2003,
+      "gameCode": "liangshan2003",
+      "providerKey": "native-pdk-liangshan2003",
+      "clientRuntimeEntry": "common-pdk",
+      "contractVersion": "common-room-v1",
+      "sourceHash": "942db3e29ea274ef12b7cf231635b490c392d2f92982433d192dd5d297476aeb",
+      "releaseId": 9320000000006,
+      "indexGeneration": 9330000000006
+    },
+    {
+      "gameId": 2004,
+      "gameCode": "mianning2004",
+      "providerKey": "native-pdk-mianning2004",
+      "clientRuntimeEntry": "common-pdk",
+      "contractVersion": "common-room-v1",
+      "sourceHash": "fb543098ee12c325a83ba4b69912151f34282d7a0743176e41c804d23abe4bbe",
+      "releaseId": 9320000000007,
+      "indexGeneration": 9330000000007
+    },
+    {
+      "gameId": 2005,
+      "gameCode": "anyue2005",
+      "providerKey": "native-pdk-anyue2005",
+      "clientRuntimeEntry": "common-pdk",
+      "contractVersion": "common-room-v1",
+      "sourceHash": "45acd88807e46c6e1fb4ad9f0a082cf1c6def47ae4e81ff0690947729319c820",
+      "releaseId": 9320000000008,
+      "indexGeneration": 9330000000008
+    },
+    {
+      "gameId": 2006,
+      "gameCode": "panzhihua2006",
+      "providerKey": "native-pdk-panzhihua2006",
+      "clientRuntimeEntry": "common-pdk",
+      "contractVersion": "common-room-v1",
+      "sourceHash": "893138bb252c9969f600d1cfc3e513493441ce8e52cc017c43722aee2a561909",
+      "releaseId": 9320000000009,
+      "indexGeneration": 9330000000009
+    },
+    {
+      "gameId": 2007,
+      "gameCode": "wannian2007",
+      "providerKey": "native-pdk-wannian2007",
+      "clientRuntimeEntry": "common-pdk",
+      "contractVersion": "common-room-v1",
+      "sourceHash": "ccf80c5effe925ea816e7c1425fdf26a70afd14b92524321a2ac9335e0e183e6",
+      "releaseId": 9320000000010,
+      "indexGeneration": 9330000000010
+    },
+    {
+      "gameId": 2008,
+      "gameCode": "leping2008",
+      "providerKey": "native-pdk-leping2008",
+      "clientRuntimeEntry": "common-pdk",
+      "contractVersion": "common-room-v1",
+      "sourceHash": "441123f3665f0ea357f5f7398120d16ff532c844809899863f2ceef7f70154a9",
+      "releaseId": 9320000000011,
+      "indexGeneration": 9330000000011
+    },
+    {
+      "gameId": 2009,
+      "gameCode": "bozhou2009",
+      "providerKey": "native-pdk-bozhou2009",
+      "clientRuntimeEntry": "common-pdk",
+      "contractVersion": "common-room-v1",
+      "sourceHash": "29ef07e38aacbd19fddade29a99239866f1b50859873ecbf3defcf9bcd04573e",
+      "releaseId": 9320000000012,
+      "indexGeneration": 9330000000012
+    },
+    {
+      "gameId": 2010,
+      "gameCode": "yugan2010",
+      "providerKey": "native-pdk-yugan2010",
+      "clientRuntimeEntry": "common-pdk",
+      "contractVersion": "common-room-v1",
+      "sourceHash": "ea5c93302be1fabc62398d1c8f330868288d6fd9d3b562d7b1a9afc6694bba22",
+      "releaseId": 9320000000013,
+      "indexGeneration": 9330000000013
+    },
+    {
+      "gameId": 2011,
+      "gameCode": "jian2011",
+      "providerKey": "native-pdk-jian2011",
+      "clientRuntimeEntry": "common-pdk",
+      "contractVersion": "common-room-v1",
+      "sourceHash": "f3efbc168cb5a3b46fabebf3364eaae20b658416d737bfb7df55c4a7b3f8c880",
+      "releaseId": 9320000000014,
+      "indexGeneration": 9330000000014
+    },
+    {
+      "gameId": 2012,
+      "gameCode": "gushi2012",
+      "providerKey": "native-pdk-gushi2012",
+      "clientRuntimeEntry": "common-pdk",
+      "contractVersion": "common-room-v1",
+      "sourceHash": "a18f58e1f3ec606f9dad9e75a2f087526cc63c837eeb3179076e3c8e20a09ef9",
+      "releaseId": 9320000000015,
+      "indexGeneration": 9330000000015
+    },
+    {
+      "gameId": 2013,
+      "gameCode": "xiaogan2013",
+      "providerKey": "native-pdk-xiaogan2013",
+      "clientRuntimeEntry": "common-pdk",
+      "contractVersion": "common-room-v1",
+      "sourceHash": "b78813a3290b53513cfafb1dfc3ea0926ea0bd2253ceed47b3d2bba056fd21f6",
+      "releaseId": 9320000000016,
+      "indexGeneration": 9330000000016
+    },
+    {
+      "gameId": 2014,
+      "gameCode": "ningdu2014",
+      "providerKey": "native-pdk-ningdu2014",
+      "clientRuntimeEntry": "common-pdk",
+      "contractVersion": "common-room-v1",
+      "sourceHash": "02ec3282d456492c008637528f9ff96622d172766747fbb58c04d42e80b217d2",
+      "releaseId": 9320000000017,
+      "indexGeneration": 9330000000017
+    },
+    {
+      "gameId": 2015,
+      "gameCode": "huaihua2015",
+      "providerKey": "native-pdk-huaihua2015",
+      "clientRuntimeEntry": "common-pdk",
+      "contractVersion": "common-room-v1",
+      "sourceHash": "78298cc9412833d2da7fb03906fdca5959f9a8c0121fc59e17682172667ac4c7",
+      "releaseId": 9320000000018,
+      "indexGeneration": 9330000000018
+    },
+    {
+      "gameId": 2016,
+      "gameCode": "xinxian2016",
+      "providerKey": "native-pdk-xinxian2016",
+      "clientRuntimeEntry": "common-pdk",
+      "contractVersion": "common-room-v1",
+      "sourceHash": "c304a187fdaf3833ef00b930807e1fec5e770135c2c9a50dec9e7a52bc3fa6b2",
+      "releaseId": 9320000000019,
+      "indexGeneration": 9330000000019
+    },
+    {
+      "gameId": 2017,
+      "gameCode": "jingdezhen2017",
+      "providerKey": "native-pdk-jingdezhen2017",
+      "clientRuntimeEntry": "common-pdk",
+      "contractVersion": "common-room-v1",
+      "sourceHash": "349ea29eac44ccc2c942475e4f65c17aa90f608715854dcc8446fc0b88a616e9",
+      "releaseId": 9320000000020,
+      "indexGeneration": 9330000000020
+    },
+    {
+      "gameId": 2018,
+      "gameCode": "jiangsu2018",
+      "providerKey": "native-pdk-jiangsu2018",
+      "clientRuntimeEntry": "common-pdk",
+      "contractVersion": "common-room-v1",
+      "sourceHash": "6c2991b188d9bae2d02a7c74d677a1f1638af3ef0ddcd85727323ea659196ca2",
+      "releaseId": 9320000000021,
+      "indexGeneration": 9330000000021
+    },
+    {
+      "gameId": 2019,
+      "gameCode": "henan2019",
+      "providerKey": "native-pdk-henan2019",
+      "clientRuntimeEntry": "common-pdk",
+      "contractVersion": "common-room-v1",
+      "sourceHash": "4ef70c447885c26ebb9639201bda9c22efddd337a1bbce93707f1baabaed17f0",
+      "releaseId": 9320000000022,
+      "indexGeneration": 9330000000022
+    },
+    {
+      "gameId": 2020,
+      "gameCode": "taizhou2020",
+      "providerKey": "native-pdk-taizhou2020",
+      "clientRuntimeEntry": "common-pdk",
+      "contractVersion": "common-room-v1",
+      "sourceHash": "a39b358f8631a0bd0b98e180c786ce9d876d9f7c1a3be97766b535d7e75c12f0",
+      "releaseId": 9320000000023,
+      "indexGeneration": 9330000000023
+    },
+    {
+      "gameId": 2021,
+      "gameCode": "huaibin2021",
+      "providerKey": "native-pdk-huaibin2021",
+      "clientRuntimeEntry": "common-pdk",
+      "contractVersion": "common-room-v1",
+      "sourceHash": "a23281d5ab755c6c228643b4ba7ad37771c9882b8e39467438695c0ecd0b65d3",
+      "releaseId": 9320000000024,
+      "indexGeneration": 9330000000024
+    },
+    {
+      "gameId": 2022,
+      "gameCode": "huangchuan2022",
+      "providerKey": "native-pdk-huangchuan2022",
+      "clientRuntimeEntry": "common-pdk",
+      "contractVersion": "common-room-v1",
+      "sourceHash": "bd59d27bd14a80b1b2e6d09e4dfb798cec0f0189f05aa4378cf69ccd157ff082",
+      "releaseId": 9320000000025,
+      "indexGeneration": 9330000000025
+    },
+    {
+      "gameId": 2023,
+      "gameCode": "poyang2023",
+      "providerKey": "native-pdk-poyang2023",
+      "clientRuntimeEntry": "common-pdk",
+      "contractVersion": "common-room-v1",
+      "sourceHash": "9ad332357668d7e60bdc1bba28ebfc5adf0264ecb8e4621f38240e8443c4a63a",
+      "releaseId": 9320000000026,
+      "indexGeneration": 9330000000026
+    },
+    {
+      "gameId": 2024,
+      "gameCode": "jintan2024",
+      "providerKey": "native-pdk-jintan2024",
+      "clientRuntimeEntry": "common-pdk",
+      "contractVersion": "common-room-v1",
+      "sourceHash": "90bb3c56635c4f310f736e1d35ad76c2193a5460eef905d48954fa58bf6333d8",
+      "releaseId": 9320000000027,
+      "indexGeneration": 9330000000027
+    },
+    {
+      "gameId": 2025,
+      "gameCode": "gaoan2025",
+      "providerKey": "native-pdk-gaoan2025",
+      "clientRuntimeEntry": "common-pdk",
+      "contractVersion": "common-room-v1",
+      "sourceHash": "8f1df15346c6518bfd423c50b9d9762de28759c61f8c4c9e90fc803169a89109",
+      "releaseId": 9320000000028,
+      "indexGeneration": 9330000000028
+    },
+    {
+      "gameId": 2026,
+      "gameCode": "yixing2026",
+      "providerKey": "native-pdk-yixing2026",
+      "clientRuntimeEntry": "common-pdk",
+      "contractVersion": "common-room-v1",
+      "sourceHash": "f10ec942017daae40f39b90a17eee9e1b312dd6b8059753386ae5a4f92d258af",
+      "releaseId": 9320000000029,
+      "indexGeneration": 9330000000029
+    },
+    {
+      "gameId": 2027,
+      "gameCode": "xuancheng2027",
+      "providerKey": "native-pdk-xuancheng2027",
+      "clientRuntimeEntry": "common-pdk",
+      "contractVersion": "common-room-v1",
+      "sourceHash": "65dd01e06107f213b2f9ada21f1e7e6a0dc28e39b927d315139c396423c9b293",
+      "releaseId": 9320000000030,
+      "indexGeneration": 9330000000030
+    },
+    {
+      "gameId": 2028,
+      "gameCode": "fuzhou2028",
+      "providerKey": "native-pdk-fuzhou2028",
+      "clientRuntimeEntry": "common-pdk",
+      "contractVersion": "common-room-v1",
+      "sourceHash": "8e286caea9e557f7c0f298497dbbcbc65fa14508186b78953592c3b758fd29b2",
+      "releaseId": 9320000000031,
+      "indexGeneration": 9330000000031
+    },
+    {
+      "gameId": 2999,
+      "gameCode": "chengdu2999",
+      "providerKey": "cx-native",
+      "clientRuntimeEntry": "cx",
+      "contractVersion": "common-room-v1",
+      "sourceHash": "1da4435275fadffe57b117de3566e49bc8889c4ec633ce2b8a8a63771ed19291",
+      "releaseId": 9320000000032,
+      "indexGeneration": 9330000000032
+    }
+  ]
+}
+

@@ -1,0 +1,232 @@
+{
+  "status": "REGISTERED",
+  "issuer": "aoo-test-release-admin",
+  "edition": "r32-test-20261127",
+  "rows": [
+    {
+      "gameId": 5,
+      "gameCode": "quanguo2998",
+      "releaseId": 7026112606,
+      "indexGeneration": 2026100668,
+      "releaseVersion": 2026112604
+    },
+    {
+      "gameId": 9,
+      "gameCode": "quanguo2997",
+      "releaseId": 11026112606,
+      "indexGeneration": 2026100669,
+      "releaseVersion": 2026112604
+    },
+    {
+      "gameId": 1001,
+      "gameCode": "chengdu1001",
+      "releaseId": 1003026112606,
+      "indexGeneration": 2026100670,
+      "releaseVersion": 2026112604
+    },
+    {
+      "gameId": 2001,
+      "gameCode": "chengdu2001",
+      "releaseId": 2003026112606,
+      "indexGeneration": 2026100671,
+      "releaseVersion": 2026112604
+    },
+    {
+      "gameId": 2002,
+      "gameCode": "neijiang2002",
+      "releaseId": 2004026112606,
+      "indexGeneration": 2026100672,
+      "releaseVersion": 2026112604
+    },
+    {
+      "gameId": 2003,
+      "gameCode": "liangshan2003",
+      "releaseId": 2005026112606,
+      "indexGeneration": 2026100673,
+      "releaseVersion": 2026112604
+    },
+    {
+      "gameId": 2004,
+      "gameCode": "mianning2004",
+      "releaseId": 2006026112606,
+      "indexGeneration": 2026100674,
+      "releaseVersion": 2026112604
+    },
+    {
+      "gameId": 2005,
+      "gameCode": "anyue2005",
+      "releaseId": 2007026112606,
+      "indexGeneration": 2026100675,
+      "releaseVersion": 2026112604
+    },
+    {
+      "gameId": 2006,
+      "gameCode": "panzhihua2006",
+      "releaseId": 2008026112606,
+      "indexGeneration": 2026100676,
+      "releaseVersion": 2026112604
+    },
+    {
+      "gameId": 2007,
+      "gameCode": "wannian2007",
+      "releaseId": 2009026112606,
+      "indexGeneration": 2026100677,
+      "releaseVersion": 2026112604
+    },
+    {
+      "gameId": 2008,
+      "gameCode": "leping2008",
+      "releaseId": 2010026112606,
+      "indexGeneration": 2026100678,
+      "releaseVersion": 2026112604
+    },
+    {
+      "gameId": 2009,
+      "gameCode": "bozhou2009",
+      "releaseId": 2011026112606,
+      "indexGeneration": 2026100679,
+      "releaseVersion": 2026112604
+    },
+    {
+      "gameId": 2010,
+      "gameCode": "yugan2010",
+      "releaseId": 2012026112606,
+      "indexGeneration": 2026100680,
+      "releaseVersion": 2026112604
+    },
+    {
+      "gameId": 2011,
+      "gameCode": "jian2011",
+      "releaseId": 2013026112606,
+      "indexGeneration": 2026100681,
+      "releaseVersion": 2026112604
+    },
+    {
+      "gameId": 2012,
+      "gameCode": "gushi2012",
+      "releaseId": 2014026112606,
+      "indexGeneration": 2026100682,
+      "releaseVersion": 2026112604
+    },
+    {
+      "gameId": 2013,
+      "gameCode": "xiaogan2013",
+      "releaseId": 2015026112606,
+      "indexGeneration": 2026100683,
+      "releaseVersion": 2026112604
+    },
+    {
+      "gameId": 2014,
+      "gameCode": "ningdu2014",
+      "releaseId": 2016026112606,
+      "indexGeneration": 2026100684,
+      "releaseVersion": 2026112604
+    },
+    {
+      "gameId": 2015,
+      "gameCode": "huaihua2015",
+      "releaseId": 2017026112606,
+      "indexGeneration": 2026100685,
+      "releaseVersion": 2026112604
+    },
+    {
+      "gameId": 2016,
+      "gameCode": "xinxian2016",
+      "releaseId": 2018026112606,
+      "indexGeneration": 2026100686,
+      "releaseVersion": 2026112604
+    },
+    {
+      "gameId": 2017,
+      "gameCode": "jingdezhen2017",
+      "releaseId": 2019026112606,
+      "indexGeneration": 2026100687,
+      "releaseVersion": 2026112604
+    },
+    {
+      "gameId": 2018,
+      "gameCode": "jiangsu2018",
+      "releaseId": 2020026112606,
+      "indexGeneration": 2026100688,
+      "releaseVersion": 2026112604
+    },
+    {
+      "gameId": 2019,
+      "gameCode": "henan2019",
+      "releaseId": 2021026112606,
+      "indexGeneration": 2026100689,
+      "releaseVersion": 2026112604
+    },
+    {
+      "gameId": 2020,
+      "gameCode": "taizhou2020",
+      "releaseId": 2022026112606,
+      "indexGeneration": 2026100690,
+      "releaseVersion": 2026112604
+    },
+    {
+      "gameId": 2021,
+      "gameCode": "huaibin2021",
+      "releaseId": 2023026112606,
+      "indexGeneration": 2026100691,
+      "releaseVersion": 2026112604
+    },
+    {
+      "gameId": 2022,
+      "gameCode": "huangchuan2022",
+      "releaseId": 2024026112606,
+      "indexGeneration": 2026100692,
+      "releaseVersion": 2026112604
+    },
+    {
+      "gameId": 2023,
+      "gameCode": "poyang2023",
+      "releaseId": 2025026112606,
+      "indexGeneration": 2026100693,
+      "releaseVersion": 2026112604
+    },
+    {
+      "gameId": 2024,
+      "gameCode": "jintan2024",
+      "releaseId": 2026026112606,
+      "indexGeneration": 2026100694,
+      "releaseVersion": 2026112604
+    },
+    {
+      "gameId": 2025,
+      "gameCode": "gaoan2025",
+      "releaseId": 2027026112606,
+      "indexGeneration": 2026100695,
+      "releaseVersion": 2026112604
+    },
+    {
+      "gameId": 2026,
+      "gameCode": "yixing2026",
+      "releaseId": 2028026112606,
+      "indexGeneration": 2026100696,
+      "releaseVersion": 2026112604
+    },
+    {
+      "gameId": 2027,
+      "gameCode": "xuancheng2027",
+      "releaseId": 2029026112606,
+      "indexGeneration": 2026100697,
+      "releaseVersion": 2026112604
+    },
+    {
+      "gameId": 2028,
+      "gameCode": "fuzhou2028",
+      "releaseId": 2030026112606,
+      "indexGeneration": 2026100698,
+      "releaseVersion": 2026112604
+    },
+    {
+      "gameId": 2999,
+      "gameCode": "chengdu2999",
+      "releaseId": 3001026112606,
+      "indexGeneration": 2026100699,
+      "releaseVersion": 2026112604
+    }
+  ]
+}
+

@@ -1,0 +1,8 @@
+{
+  "status": "ACCEPTED_SOURCE_ONLY",
+  "issuer": "aoo-test-release-admin",
+  "edition": "r32-test-20261127",
+  "materialSha256": "659a6fe87888ec24aca5031b01aba895665b13246641fc79f49f099318c8aafc",
+  "scope": "Identity-preserving Current32 issuance from user-specified local engineering dump; static rules/providers remain authoritative; no database write"
+}
+

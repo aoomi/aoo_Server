@@ -56,7 +56,15 @@ public class JdbcLobbyRepository {
             throw new HallError(503, "HALL_RUNTIME_METADATA_PROJECTION_REQUIRED",
                     "canonical runtime metadata projection is required");
         }
-        return runtimeMetadataProjection;
+        if (runtimeMetadataProjection.trust() == RuntimeMetadataProjection.Trust.SIGNED_CANONICAL) {
+            return runtimeMetadataProjection;
+        }
+        if (runtimeMetadataProjection.trust() == RuntimeMetadataProjection.Trust.VERIFIED_LOCAL_MIRROR
+                && "local-mirror".equals(System.getProperty("aoo.runtime.metadata.mode"))) {
+            return runtimeMetadataProjection;
+        }
+        throw new HallError(503, "HALL_RUNTIME_METADATA_PROJECTION_REQUIRED",
+                "verified canonical runtime metadata projection is required");
     }
 
     public List<Map<String,Object>> playFilters(String clientVersion){

@@ -1,0 +1,209 @@
+{
+  "sourceLocationMap": [
+    {
+      "priorLogicalPath": "Server/server/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/GameCatalogLoader.java",
+      "logicalPath": "server/modules/infrastructure/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/GameCatalogLoader.java",
+      "physicalPath": "server/modules/infrastructure/Bootstrap/src/main/java/com/aoo/bcg/bootstrap/GameCatalogLoader.java",
+      "sha256": "1351a366d799c727a2425b06af1ce70bf0f4e8ae6787bb3d93b32506adc4efc4"
+    },
+    {
+      "priorLogicalPath": "Server/server/Bootstrap/src/main/resources/game-catalog-528.tsv",
+      "logicalPath": "server/modules/infrastructure/Bootstrap/src/main/resources/game-catalog-528.tsv",
+      "physicalPath": "server/modules/infrastructure/Bootstrap/src/main/resources/game-catalog-528.tsv",
+      "sha256": "c3afe02ab65349dd9fe14e5954aa44da012e29b18c58c04a315241954f515b63"
+    },
+    {
+      "priorLogicalPath": "Server/server/Bootstrap/src/main/resources/game-catalog-current-32.tsv",
+      "logicalPath": "server/modules/infrastructure/Bootstrap/src/main/resources/game-catalog-current-32.tsv",
+      "physicalPath": "server/modules/infrastructure/Bootstrap/src/main/resources/game-catalog-current-32.tsv",
+      "sha256": "85172e32b327e1b2df0d9f3187b48f7c035af1758f85e4d030809e2ecef6703b"
+    },
+    {
+      "priorLogicalPath": "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/CanonicalRoomSnapshotMetadataProducer.java",
+      "logicalPath": "server/modules/common/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/CanonicalRoomSnapshotMetadataProducer.java",
+      "physicalPath": "server/modules/common/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/CanonicalRoomSnapshotMetadataProducer.java",
+      "sha256": "1e433e0c3279e4e3c3962c39f45c810d29b6985c2332e37f64e9b7d36fe44094"
+    },
+    {
+      "priorLogicalPath": "Server/server/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java",
+      "logicalPath": "server/modules/common/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java",
+      "physicalPath": "server/modules/common/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java",
+      "sha256": "2b0fc5d1855aea8ba6da8c82275036c0ffaf559321cb56ceae6d7d0146371d4b"
+    },
+    {
+      "priorLogicalPath": "Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/GameDescriptor.java",
+      "logicalPath": "server/modules/infrastructure/GameSPI/src/main/java/com/aoo/bcg/gamespi/GameDescriptor.java",
+      "physicalPath": "server/modules/infrastructure/GameSPI/src/main/java/com/aoo/bcg/gamespi/GameDescriptor.java",
+      "sha256": "08bbe20cfdd3ceef62caf259ac8cdf78934b759156a56fd23a86465720e0655e"
+    },
+    {
+      "priorLogicalPath": "Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/RoomCreationContext.java",
+      "logicalPath": "server/modules/infrastructure/GameSPI/src/main/java/com/aoo/bcg/gamespi/RoomCreationContext.java",
+      "physicalPath": "server/modules/infrastructure/GameSPI/src/main/java/com/aoo/bcg/gamespi/RoomCreationContext.java",
+      "sha256": "1e5841f901a76922510067d61bc640089a023b986d91340cfeed2fc5048243fb"
+    },
+    {
+      "priorLogicalPath": "Server/server/GameSPI/src/main/java/com/aoo/bcg/gamespi/RoomSnapshotMetadataSource.java",
+      "logicalPath": "server/modules/infrastructure/GameSPI/src/main/java/com/aoo/bcg/gamespi/RoomSnapshotMetadataSource.java",
+      "physicalPath": "server/modules/infrastructure/GameSPI/src/main/java/com/aoo/bcg/gamespi/RoomSnapshotMetadataSource.java",
+      "sha256": "f31db29edff055e7d7e8c0cc6a0332a36aa03781a208b4cf69f993e32fd80ab0"
+    },
+    {
+      "priorLogicalPath": "Server/server/GameSPI/src/main/resources/current-game-identities.tsv",
+      "logicalPath": "server/modules/infrastructure/GameSPI/src/main/resources/current-game-identities.tsv",
+      "physicalPath": "server/modules/infrastructure/GameSPI/src/main/resources/current-game-identities.tsv",
+      "sha256": "8f084e011f6f9963f70f8b534f13bf40e602f5b4fe7c639251dcd75bf2e47700"
+    },
+    {
+      "priorLogicalPath": "Server/server/Games/Mahjong/src/main/java/com/aoo/bcg/mahjong/CatalogMahjongFamilyProvider.java",
+      "logicalPath": "server/modules/gameplay/games/mahjong/src/main/java/com/aoo/bcg/mahjong/CatalogMahjongFamilyProvider.java",
+      "physicalPath": "server/modules/gameplay/games/mahjong/src/main/java/com/aoo/bcg/mahjong/CatalogMahjongFamilyProvider.java",
+      "sha256": "909584116a0265d51066be24b347f0399331facab57b02a5644c50eef779d411"
+    },
+    {
+      "priorLogicalPath": "Server/server/Games/Mahjong/src/main/java/com/aoo/bcg/mahjong/MahjongCatalogRuntimeRegistry.java",
+      "logicalPath": "server/modules/gameplay/games/mahjong/src/main/java/com/aoo/bcg/mahjong/MahjongCatalogRuntimeRegistry.java",
+      "physicalPath": "server/modules/gameplay/games/mahjong/src/main/java/com/aoo/bcg/mahjong/MahjongCatalogRuntimeRegistry.java",
+      "sha256": "9a13b1082c4d5e4aa8a8b3afe29e766f44202c80d5b7add982e4c915e1c4798a"
+    },
+    {
+      "priorLogicalPath": "Server/server/Games/Mahjong/src/main/java/com/aoo/bcg/mahjong/MahjongRegionRuntimeProfiles.java",
+      "logicalPath": "server/modules/gameplay/games/mahjong/src/main/java/com/aoo/bcg/mahjong/MahjongRegionRuntimeProfiles.java",
+      "physicalPath": "server/modules/gameplay/games/mahjong/src/main/java/com/aoo/bcg/mahjong/MahjongRegionRuntimeProfiles.java",
+      "sha256": "4100e63ca4450a449d7991d627fa143a6782e920e987879c9206ed09eadcc6d6"
+    },
+    {
+      "priorLogicalPath": "Server/server/Games/Mahjong/src/main/resources/mahjong-family-region-config.tsv",
+      "logicalPath": "server/modules/gameplay/games/mahjong/src/main/resources/mahjong-family-region-config.tsv",
+      "physicalPath": "server/modules/gameplay/games/mahjong/src/main/resources/mahjong-family-region-config.tsv",
+      "sha256": "9b16364b7156b4dced134acd509fe80360abaaa900a6dc36adcac697c57c52d1"
+    },
+    {
+      "priorLogicalPath": "Server/server/Games/Poker/CX/src/main/java/com/aoo/bcg/poker/cd299/Cd299GameProvider.java",
+      "logicalPath": "server/modules/gameplay/games/poker/cx/src/main/java/com/aoo/bcg/poker/cx/CxGameProvider.java",
+      "physicalPath": "server/modules/gameplay/games/poker/cx/src/main/java/com/aoo/bcg/poker/cx/CxGameProvider.java",
+      "sha256": "c57668cba9fcdd98a2cd2e3592021f734363d3dac89ffd838239a893ade09791"
+    },
+    {
+      "priorLogicalPath": "Server/server/Games/Poker/CX/src/main/java/com/aoo/bcg/poker/cd299/Cd299ProviderFactory.java",
+      "logicalPath": "server/modules/gameplay/games/poker/cx/src/main/java/com/aoo/bcg/poker/cx/CxProviderFactory.java",
+      "physicalPath": "server/modules/gameplay/games/poker/cx/src/main/java/com/aoo/bcg/poker/cx/CxProviderFactory.java",
+      "sha256": "0b4857bcb7dea3ed878edddaebcc9846c218e981116cb70198794f7afa715dfb"
+    },
+    {
+      "priorLogicalPath": "Server/server/Games/Poker/CX/src/main/java/com/aoo/bcg/poker/cd299/Cd299Rules.java",
+      "logicalPath": "server/modules/gameplay/games/poker/cx/src/main/java/com/aoo/bcg/poker/cx/CxRules.java",
+      "physicalPath": "server/modules/gameplay/games/poker/cx/src/main/java/com/aoo/bcg/poker/cx/CxRules.java",
+      "sha256": "5421bd65923c5044e58196eb28181fd0c697f9d1bd27224c4b470f7abb1a0af3"
+    },
+    {
+      "priorLogicalPath": "Server/server/Games/Poker/NN/src/main/java/com/aoo/bcg/poker/nn/CN298GameProvider.java",
+      "logicalPath": "server/modules/gameplay/games/poker/nn/src/main/java/com/aoo/bcg/poker/nn/NnGameProvider.java",
+      "physicalPath": "server/modules/gameplay/games/poker/nn/src/main/java/com/aoo/bcg/poker/nn/NnGameProvider.java",
+      "sha256": "0f39435e5ea9619f881a064aef9850138921ee8f776f85994758067ffc2817f2"
+    },
+    {
+      "priorLogicalPath": "Server/server/Games/Poker/NN/src/main/java/com/aoo/bcg/poker/nn/CN298PokerFamilyProviderFactory.java",
+      "logicalPath": "server/modules/gameplay/games/poker/nn/src/main/java/com/aoo/bcg/poker/nn/NnPokerFamilyProviderFactory.java",
+      "physicalPath": "server/modules/gameplay/games/poker/nn/src/main/java/com/aoo/bcg/poker/nn/NnPokerFamilyProviderFactory.java",
+      "sha256": "6e79c241e51b0461d8ad44240329726098e7712295d42e2c913d5c2e6955324a"
+    },
+    {
+      "priorLogicalPath": "Server/server/Games/Poker/NN/src/main/java/com/aoo/bcg/poker/nn/NiuNiuRules.java",
+      "logicalPath": "server/modules/gameplay/games/poker/nn/src/main/java/com/aoo/bcg/poker/nn/NnRules.java",
+      "physicalPath": "server/modules/gameplay/games/poker/nn/src/main/java/com/aoo/bcg/poker/nn/NnRules.java",
+      "sha256": "dcdd8fc5cdf0c822d709456f6ab8f5470c677e44932fb5642a5ebc357a340925"
+    },
+    {
+      "priorLogicalPath": "Server/server/Games/Poker/ZJH/src/business/global/pk/zjh/ZJHGameProvider.java",
+      "logicalPath": "server/modules/gameplay/games/poker/zjh/src/business/global/pk/zjh/ZjhGameProvider.java",
+      "physicalPath": "server/modules/gameplay/games/poker/zjh/src/business/global/pk/zjh/ZjhGameProvider.java",
+      "sha256": "710e94ce5f1f95888df8b99a858ab1973be515fc323450d13236b63ee4c45c36"
+    },
+    {
+      "priorLogicalPath": "Server/server/Games/Poker/ZJH/src/business/global/pk/zjh/ZJHPokerFamilyProviderFactory.java",
+      "logicalPath": "server/modules/gameplay/games/poker/zjh/src/business/global/pk/zjh/ZjhPokerFamilyProviderFactory.java",
+      "physicalPath": "server/modules/gameplay/games/poker/zjh/src/business/global/pk/zjh/ZjhPokerFamilyProviderFactory.java",
+      "sha256": "7bb28db9f9461a02ee2b28c3c2bf9260ab9f70231825c18075bf969db5263259"
+    },
+    {
+      "priorLogicalPath": "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/AnyuePdkRegionRules.java",
+      "logicalPath": "server/modules/gameplay/games/poker/src/main/java/com/aoo/bcg/poker/AnyuePdkRegionRules.java",
+      "physicalPath": "server/modules/gameplay/games/poker/src/main/java/com/aoo/bcg/poker/AnyuePdkRegionRules.java",
+      "sha256": "fb9c662fb1b60e4ed17360f6d11da734ab9dda4d1ae4b92806fdbc3f3c3b2dfd"
+    },
+    {
+      "priorLogicalPath": "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/ChengduPdkRules.java",
+      "logicalPath": "server/modules/gameplay/games/poker/src/main/java/com/aoo/bcg/poker/ChengduPdkRules.java",
+      "physicalPath": "server/modules/gameplay/games/poker/src/main/java/com/aoo/bcg/poker/ChengduPdkRules.java",
+      "sha256": "d170668098319d037a58d90fb377c2e3cbe34b97c8cc1d40fe9957816013ea90"
+    },
+    {
+      "priorLogicalPath": "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/ComparePokerFamily.java",
+      "logicalPath": "server/modules/gameplay/games/poker/src/main/java/com/aoo/bcg/poker/ComparePokerFamily.java",
+      "physicalPath": "server/modules/gameplay/games/poker/src/main/java/com/aoo/bcg/poker/ComparePokerFamily.java",
+      "sha256": "95ed79883f7fd43379ffba99d2ebf994798481f506956bea124c08dfac82f402"
+    },
+    {
+      "priorLogicalPath": "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/LegacyPdkRegionCatalog.java",
+      "logicalPath": "server/modules/gameplay/games/poker/src/main/java/com/aoo/bcg/poker/LegacyPdkRegionCatalog.java",
+      "physicalPath": "server/modules/gameplay/games/poker/src/main/java/com/aoo/bcg/poker/LegacyPdkRegionCatalog.java",
+      "sha256": "290d48cca49c60d3302c629a0549a02b85bab02839f94612906417b22bcd3369"
+    },
+    {
+      "priorLogicalPath": "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/LegacyPdkRegionRules.java",
+      "logicalPath": "server/modules/gameplay/games/poker/src/main/java/com/aoo/bcg/poker/LegacyPdkRegionRules.java",
+      "physicalPath": "server/modules/gameplay/games/poker/src/main/java/com/aoo/bcg/poker/LegacyPdkRegionRules.java",
+      "sha256": "e9c64c0d144c52fa418f6869157d9b19875f307f6f6d26eb17621a28ba5cac25"
+    },
+    {
+      "priorLogicalPath": "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/LiangshanPdkRules.java",
+      "logicalPath": "server/modules/gameplay/games/poker/src/main/java/com/aoo/bcg/poker/LiangshanPdkRules.java",
+      "physicalPath": "server/modules/gameplay/games/poker/src/main/java/com/aoo/bcg/poker/LiangshanPdkRules.java",
+      "sha256": "73184ecd4fbfe3b94e5aceac07be3b96fdf2ebcdf8a86e519e3cafb05836f94b"
+    },
+    {
+      "priorLogicalPath": "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/MianningPdkRegionRules.java",
+      "logicalPath": "server/modules/gameplay/games/poker/src/main/java/com/aoo/bcg/poker/MianningPdkRegionRules.java",
+      "physicalPath": "server/modules/gameplay/games/poker/src/main/java/com/aoo/bcg/poker/MianningPdkRegionRules.java",
+      "sha256": "f1c4db182ce7680f11472d375e08e140b15866cf5c31d910a342489b1d7c457c"
+    },
+    {
+      "priorLogicalPath": "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/NeijiangPdkRules.java",
+      "logicalPath": "server/modules/gameplay/games/poker/src/main/java/com/aoo/bcg/poker/NeijiangPdkRules.java",
+      "physicalPath": "server/modules/gameplay/games/poker/src/main/java/com/aoo/bcg/poker/NeijiangPdkRules.java",
+      "sha256": "b2fc739bf553cf5b7801e1dab6664339167698971800f8049054f7e997a24d68"
+    },
+    {
+      "priorLogicalPath": "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/PanzhihuaPdkRegionRules.java",
+      "logicalPath": "server/modules/gameplay/games/poker/src/main/java/com/aoo/bcg/poker/PanzhihuaPdkRegionRules.java",
+      "physicalPath": "server/modules/gameplay/games/poker/src/main/java/com/aoo/bcg/poker/PanzhihuaPdkRegionRules.java",
+      "sha256": "a904bcb0902271ec570301fee4f011d32f0ea345e105fa2756f86747679aabab"
+    },
+    {
+      "priorLogicalPath": "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/PaoDeKuaiFamily.java",
+      "logicalPath": "server/modules/gameplay/games/poker/src/main/java/com/aoo/bcg/poker/PaoDeKuaiFamily.java",
+      "physicalPath": "server/modules/gameplay/games/poker/src/main/java/com/aoo/bcg/poker/PaoDeKuaiFamily.java",
+      "sha256": "5fc6316646331fdad60ef9139b867ad7463c0acf17db43db32168e48ec53013e"
+    },
+    {
+      "priorLogicalPath": "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/PokerCatalogRuntimeRegistry.java",
+      "logicalPath": "server/modules/gameplay/games/poker/src/main/java/com/aoo/bcg/poker/PokerCatalogRuntimeRegistry.java",
+      "physicalPath": "server/modules/gameplay/games/poker/src/main/java/com/aoo/bcg/poker/PokerCatalogRuntimeRegistry.java",
+      "sha256": "c05e1ac0414c6157d85b2416b807da99cb0f6d8482bbfeb7563aa8059ce5c7a2"
+    },
+    {
+      "priorLogicalPath": "Server/server/Games/Poker/src/main/java/com/aoo/bcg/poker/PokerFamilyProviderFactories.java",
+      "logicalPath": "server/modules/gameplay/games/poker/src/main/java/com/aoo/bcg/poker/PokerFamilyProviderFactories.java",
+      "physicalPath": "server/modules/gameplay/games/poker/src/main/java/com/aoo/bcg/poker/PokerFamilyProviderFactories.java",
+      "sha256": "d4e45baae25e0179b35fa082c22732b9dba7dc479ff91d031b6796f304bfc065"
+    },
+    {
+      "priorLogicalPath": "Server/server/Games/Poker/src/main/resources/poker-family-region-config.tsv",
+      "logicalPath": "server/modules/gameplay/games/poker/src/main/resources/poker-family-region-config.tsv",
+      "physicalPath": "server/modules/gameplay/games/poker/src/main/resources/poker-family-region-config.tsv",
+      "sha256": "5f99c6936274b76b1c216b43c9e6356e80824547ada0a91fa6e40092b6bd3178"
+    }
+  ]
+}
+

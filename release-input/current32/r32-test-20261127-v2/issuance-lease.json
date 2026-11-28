@@ -1,0 +1,17 @@
+{
+  "state": "HELD",
+  "owner": "aoo-test-release-admin",
+  "edition": "r32-test-20261127",
+  "literalSha256": "ef3501cf70f06b800f282bf19b340acf3a1e8076930fee7071fbcbfb61f3bc6a",
+  "acquiredAt": "2026-11-26T18:26:43.516Z",
+  "expiresAt": "2026-11-26T20:16:43.516Z",
+  "supersedes": "server/release-input/current32/r32-test-20261127/issuance-lease.json",
+  "writePaths": [
+    "server/release-input/current32/r32-test-20261127-v2",
+    "server/release-input/runtime-metadata-canonical-manifest-r32-test-20261127-v2.json",
+    "server/release-input/identity/canonical-identity-current-contract-r32-test-20261127-v2.json",
+    "server/engineering/release/tool-inputs/validate-runtime-metadata-manifest.rb"
+  ],
+  "independentReviewRequired": true
+}
+

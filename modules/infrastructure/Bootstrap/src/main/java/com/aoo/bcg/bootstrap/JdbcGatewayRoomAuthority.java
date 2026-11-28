@@ -1159,18 +1159,33 @@ final class JdbcGatewayRoomAuthority implements GatewayRuntimeProvider.RoomAutho
     static boolean shouldReplaceHandoffLease(HandoffLease prior, HandoffLease replacement) {
         Objects.requireNonNull(replacement, "replacement");
         if (prior == null) return true;
-        if (!prior.identity().equals(replacement.identity())
+        if (!sameStableHandoffIdentity(prior.identity(), replacement.identity())
                 || prior.ownerId() != replacement.ownerId()) {
             throw new IllegalStateException("ROOM_ORCHESTRATOR_HANDOFF_OWNER_REGISTRATION_CONFLICT");
         }
-        if (prior.sessionId().equals(replacement.sessionId())
+        if (prior.identity().equals(replacement.identity())
+                && prior.sessionId().equals(replacement.sessionId())
                 && prior.connectionGeneration() == replacement.connectionGeneration()) {
             return false;
+        }
+        if (replacement.identity().stateVersion() < prior.identity().stateVersion()) {
+            throw new IllegalStateException("ROOM_ORCHESTRATOR_HANDOFF_OWNER_REGISTRATION_CONFLICT");
         }
         if (replacement.connectionGeneration() <= prior.connectionGeneration()) {
             throw new IllegalStateException("ROOM_ORCHESTRATOR_HANDOFF_OWNER_REGISTRATION_CONFLICT");
         }
         return true;
+    }
+
+    private static boolean sameStableHandoffIdentity(
+            RoomOrchestrator.RoomIdentity left, RoomOrchestrator.RoomIdentity right) {
+        return left.roomId() == right.roomId()
+                && left.roomInstanceId().equals(right.roomInstanceId())
+                && left.gameId() == right.gameId()
+                && left.gameCode().equals(right.gameCode())
+                && left.playVersion().equals(right.playVersion())
+                && left.lifecycleEpoch() == right.lifecycleEpoch()
+                && left.fencingToken() == right.fencingToken();
     }
 
     /** Production Gateway transport bridge; only the typed adapter may serve reconnect. */

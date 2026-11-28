@@ -4,5 +4,8 @@
     <parent><groupId>com.aoo.bcg</groupId><artifactId>aoo-server-parent</artifactId><version>${revision}</version><relativePath>../../../pom.xml</relativePath></parent>
     <artifactId>game-spi</artifactId>
     <name>Aoo Game SPI</name>
-    <dependencies><dependency><groupId>org.junit.jupiter</groupId><artifactId>junit-jupiter</artifactId><scope>test</scope></dependency></dependencies>
+    <dependencies>
+        <dependency><groupId>com.fasterxml.jackson.core</groupId><artifactId>jackson-databind</artifactId></dependency>
+        <dependency><groupId>org.junit.jupiter</groupId><artifactId>junit-jupiter</artifactId><scope>test</scope></dependency>
+    </dependencies>
 </project>

@@ -1,0 +1,72 @@
+{
+  "mode": "ISSUE_CURRENT32",
+  "contractVersion": "common-room-v1",
+  "issuer": "aoo-test-release-admin",
+  "edition": "r32-test-20261127",
+  "runtimeManifestVersion": "r32-test-20261127-v4",
+  "contractManifestVersion": "r32-test-20261127-v4-contract-v1",
+  "runtimeManifestLogicalPath": "server/release-input/runtime-metadata-canonical-manifest-r32-test-20261127-v4.json",
+  "sourceDataGates": {
+    "identityPreserving": true,
+    "identityAuthority": "user-specified-local-engineering-dump",
+    "targetDatabaseAuthority": false,
+    "databaseWrite": false,
+    "rulesOrPricingDirectWrite": false,
+    "independentReviewRequired": true
+  },
+  "hashImplementation": {
+    "path": "server/database/bootstrap/initialize_empty_database.py",
+    "sha256": "44f3bb64f33445f7f791d8db0ae42312658362ffe0a3ca4df073994c9d6e6768"
+  },
+  "materials": {
+    "baseline": {
+      "path": "server/release-input/runtime-metadata-canonical-manifest-cd2999-current-20261012.json",
+      "sha256": "a453cb986a674f0f6044a581f8e69927a4cfbf94f531567ef021dfaee07a8282"
+    },
+    "identities": {
+      "path": "server/release-input/identity/room-rule-play-identities.json",
+      "sha256": "b1618dce0c8522e7bc6e61fe90659c39521e0253558b782a13ae68e1168773dd"
+    },
+    "bindings": {
+      "path": "server/release-input/current32/r32-test-20261127-v4/bindings.json",
+      "sha256": "b689136d033481d2c2767326135d2451547ea56c8ed455826df97e6a35a43e71"
+    },
+    "sourceMap": {
+      "path": "server/release-input/current32/r32-test-20261127-v4/source-map.json",
+      "sha256": "f0ae81a3ab5a9caf55bf67458ae5368206b53c9e9fd4c2162dbe533e7da58f08"
+    },
+    "workbooks": {
+      "path": "server/release-input/current32/r32-test-20261127-v4/workbook-receipts.json",
+      "sha256": "ed2413fea599340c121ce05710dabda9cecd0155e2407df7d9018eac1e0bbe6f"
+    },
+    "evidence": {
+      "path": "server/release-input/current32/r32-test-20261127-v4/contract-evidence.json",
+      "sha256": "73305bad99c65918fe78a23b15259e05044a5f670989feb87d332c52d8959cb3"
+    },
+    "currentPreimage": {
+      "path": "server/release-input/current32/r32-test-20261127-v4/current-preimage.json",
+      "sha256": "7a3f37d743a3826332adf3e47a06e049e4c0743e0de1bd0274e40598057205a0"
+    },
+    "identityAuthority": {
+      "path": "server/release-input/current32/r32-test-20261127-v4/identity-authority/current32-active-projection.json",
+      "sha256": "6a881107f530cb4fb0ec7271e55592217bf787d2e95c8a7fb1b05c0738d1e4fd"
+    },
+    "literals": {
+      "path": "server/release-input/current32/r32-test-20261127-v4/literals.json",
+      "sha256": "445eb4b80199710eb865bb85b75dcc9973e8f3b2680e7ed188061fffb47c5b6c"
+    },
+    "preflight": {
+      "path": "server/release-input/current32/r32-test-20261127-v4/collision-preflight.json",
+      "sha256": "f3e6c389a1cfcc7d904a0282cc3131b5c13f7cc704264bd80837ba34e9d897ae"
+    },
+    "approval": {
+      "path": "server/release-input/current32/r32-test-20261127-v4/source-approval.json",
+      "sha256": "6e043020e61b8522f5bf6ed849e2864a76b8390d9941a6cfaaca88545f3da81c"
+    },
+    "lease": {
+      "path": "server/release-input/current32/r32-test-20261127-v4/issuance-lease.json",
+      "sha256": "d597e468b9a701fdb8eaecace69ca78059fb6ff2ff3ea8dfea06bc1e6d316b7b"
+    }
+  }
+}
+

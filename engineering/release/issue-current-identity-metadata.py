@@ -78,7 +78,10 @@ def derive(root, packet, now):
     identity_doc = read_ref(root, refs["identities"])
     identities = current32(identity_doc, "plays")
     bindings = current32(read_ref(root, refs["bindings"]), "rows")
+    authority_doc = read_ref(root, refs["identityAuthority"]) if "identityAuthority" in refs else None
+    authority = current32(authority_doc, "rows") if authority_doc else None
     require(old_rows.keys() == identities.keys() == bindings.keys(), "CURRENT32_MEMBERSHIP_DRIFT")
+    require(authority is None or authority.keys() == identities.keys(), "IDENTITY_AUTHORITY_MEMBERSHIP_DRIFT")
     for game_id, identity in identities.items():
         require(identity["gameCode"] == old_rows[game_id]["gameCode"], "BUSINESS_CODE_DRIFT")
         require(identity["regionCode"] == old_rows[game_id]["regionCode"], "REGION_DRIFT")
@@ -141,9 +144,16 @@ def derive(root, packet, now):
                           "artifactVersion": binding["artifactVersion"], "ruleContentHash": rule_hash,
                           "normalizedWorkbookHash": normalized_book, "componentContentHash": component_hash,
                           "sourceRevision": revision, "contractVersion": packet["contractVersion"]}
+        if authority is not None:
+            authoritative = authority[game_id]
+            for field in ("gameCode", "family", "playVersion"):
+                require(authoritative[field] == identity[field], "IDENTITY_AUTHORITY_DRIFT")
+            source_binding_hash = authoritative["sourceHash"]
+        else:
+            source_binding_hash = hash_json(source_binding)
         row = copy.deepcopy(old)
         row.update({key: identity[key] for key in ("gameCode", "playVersion", "family", "regionCode")})
-        row.update({"sourceHash": hash_json(source_binding), "ruleContentHash": rule_hash,
+        row.update({"sourceHash": source_binding_hash, "ruleContentHash": rule_hash,
                     "componentContentHash": component_hash, "sourceRevision": revision,
                     "artifactVersion": binding["artifactVersion"], "contractVersion": packet["contractVersion"],
                     "providerBinding": {"route": binding["providerRoute"], "providerClass": binding["providerClass"],
@@ -151,10 +161,10 @@ def derive(root, packet, now):
                     "runtimeMetadataEvidence": binding["runtimeMetadataEvidence"],
                     "sourceArtifact": {"normalizedIdentitySource": refs["identities"]["path"] + "#plays[" + str(identity_indexes[game_id]) + "]",
                                        "normalizedComponentSource": "SHA-256 over ordered current source and artifact path+hash records",
-                                       "normalizedContentHash": rule_hash,
+                                       "normalizedContentHash": component_hash,
                                        "normalizedWorkbookSource": identity["workbookPath"] + "#normalized-zip-member-sha256-excluding-docProps/core.xml",
                                        "normalizedWorkbookHash": normalized_book},
-                    "issuanceReason": "Explicit current32 source issuance; no business identity or rules upgrade"})
+                    "issuanceReason": "Explicit current32 source issuance with explicit literal registration; no fallback, no business identity or rules upgrade"})
         rows.append(row)
     signed = packet["mode"] == "ISSUE_CURRENT32"
     if signed:
@@ -171,6 +181,11 @@ def derive(root, packet, now):
             values = [r[field] for r in literals.values()]
             require(all(type(v) is int and v > 0 for v in values) and len(set(values)) == 32, "LITERAL_ID_COLLISION")
         require(all(type(r["releaseVersion"]) is int and r["releaseVersion"] > 0 for r in literals.values()), "LITERAL_RELEASE_VERSION")
+        if authority is not None:
+            for game_id, values in literals.items():
+                require(all(values[field] == authority[game_id][field]
+                            for field in ("releaseId", "indexGeneration", "releaseVersion")),
+                        "IDENTITY_AUTHORITY_LITERAL_DRIFT")
         preimage = read_ref(root, refs["currentPreimage"])
         current = current32(preimage, "rows")
         require(current.keys() == identities.keys(), "CURRENT_PREIMAGE_MEMBERSHIP")
@@ -179,9 +194,14 @@ def derive(root, packet, now):
         preflight = read_ref(root, refs["preflight"])
         require(preflight["literalSha256"] == refs["literals"]["sha256"] and
                 preflight["currentPreimageSha256"] == refs["currentPreimage"]["sha256"], "COLLISION_RECEIPT_BINDING")
-        require(preflight["counts"] == [0] * 96, "COLLISION_NOT_CLEAR")
         expected_pairs = [literals[game_id] for game_id in sorted(literals)]
         require(preflight["pairs"] == expected_pairs, "COLLISION_PAIR_DRIFT")
+        if authority is not None:
+            require(preflight.get("mode") == "IDENTITY_PRESERVING_MATCH" and
+                    preflight.get("authoritySha256") == refs["identityAuthority"]["sha256"] and
+                    preflight.get("conflicts") == [], "IDENTITY_PRESERVING_PREFLIGHT_INVALID")
+        else:
+            require(preflight["counts"] == [0] * 96, "COLLISION_NOT_CLEAR")
         checked = datetime.fromisoformat(preflight["checkedAt"])
         expires = datetime.fromisoformat(preflight["expiresAt"])
         require(checked <= now < expires and (expires - checked).total_seconds() <= 7200, "COLLISION_RECEIPT_EXPIRED")
@@ -205,6 +225,11 @@ def derive(root, packet, now):
                     "supersedes": {"sha256": refs["baseline"]["sha256"], "historicalReferenceOnly": True},
                     "sourceDigests": source_digests})
     runtime["sourceContract"].update({"releaseIssuer": packet["issuer"], "releaseEdition": packet["edition"]})
+    if authority_doc is not None:
+        runtime["sourceContract"]["identityAuthority"] = refs["identityAuthority"]
+        runtime["sourceContract"]["identityPreserving"] = True
+        runtime["sourceContract"]["databaseWrite"] = False
+        source_digests[refs["identityAuthority"]["path"]] = refs["identityAuthority"]["sha256"]
     runtime_sha = sha(serialize(runtime))
     evidence_doc = read_ref(root, refs["evidence"])
     evidence = []

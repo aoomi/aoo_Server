@@ -1,0 +1,17 @@
+{
+  "rows": [
+    {
+      "path": "server/modules/common/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java",
+      "physicalPath": "server/modules/common/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java",
+      "sha256": "2b0fc5d1855aea8ba6da8c82275036c0ffaf559321cb56ceae6d7d0146371d4b",
+      "assertion": "current RoomSnapshot metadata contract"
+    },
+    {
+      "path": "server/modules/infrastructure/GameSPI/src/main/java/com/aoo/bcg/gamespi/RuntimeMetadataProjection.java",
+      "physicalPath": "server/modules/infrastructure/GameSPI/src/main/java/com/aoo/bcg/gamespi/RuntimeMetadataProjection.java",
+      "sha256": "b0ba6be8636cabdf5da98bfda1ac86ef2a9813da129ed8c773c548955554d1e2",
+      "assertion": "current RuntimeMetadata projection contract"
+    }
+  ]
+}
+

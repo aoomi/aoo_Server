@@ -1,0 +1,287 @@
+{
+  "contractVersion": "common-room-v1",
+  "evidence": [
+    {
+      "assertion": "current RoomSnapshot metadata contract",
+      "path": "server/modules/common/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java",
+      "sha256": "2b0fc5d1855aea8ba6da8c82275036c0ffaf559321cb56ceae6d7d0146371d4b"
+    },
+    {
+      "assertion": "current RuntimeMetadata projection contract",
+      "path": "server/modules/infrastructure/GameSPI/src/main/java/com/aoo/bcg/gamespi/RuntimeMetadataProjection.java",
+      "sha256": "b0ba6be8636cabdf5da98bfda1ac86ef2a9813da129ed8c773c548955554d1e2"
+    },
+    {
+      "assertion": "current source-backed runtime manifest",
+      "path": "server/release-input/runtime-metadata-canonical-manifest-r32-test-20261127-v4.json",
+      "sha256": "40bc9104d609daaa9bc5d1fbd6a276f11143a459358d7d108efac3791090299b"
+    }
+  ],
+  "issuer": "aoo-test-release-admin",
+  "manifestKind": "canonical-identity-current-contract",
+  "manifestVersion": "r32-test-20261127-v4-contract-v1",
+  "noFallbacks": true,
+  "noHistoricalCompatibilityPromotion": true,
+  "releaseEdition": "r32-test-20261127",
+  "rows": [
+    {
+      "contractVersion": "common-room-v1",
+      "gameCode": "chengdu2001",
+      "gameId": 2001,
+      "indexGeneration": 2026100671,
+      "releaseId": 2003026112606,
+      "sourceHash": "ca8ffd29cc851946e304a1e942725adebfe661b40323b3dc3614d9707078ac6b"
+    },
+    {
+      "contractVersion": "common-room-v1",
+      "gameCode": "neijiang2002",
+      "gameId": 2002,
+      "indexGeneration": 2026100672,
+      "releaseId": 2004026112606,
+      "sourceHash": "e874258955e09787e77801518830d85bf25527ec38ffff2fa117e83c518e5cad"
+    },
+    {
+      "contractVersion": "common-room-v1",
+      "gameCode": "liangshan2003",
+      "gameId": 2003,
+      "indexGeneration": 2026100673,
+      "releaseId": 2005026112606,
+      "sourceHash": "c5fe7d0e7078992537ba68c5ae1d96614d4ae0e32822c6dd7a1e0b4e862250c3"
+    },
+    {
+      "contractVersion": "common-room-v1",
+      "gameCode": "quanguo2998",
+      "gameId": 5,
+      "indexGeneration": 2026100668,
+      "releaseId": 7026112606,
+      "sourceHash": "1a4a372aba8f49eb8d7ea224e19680b5532e1d7288d2cfcf091bbf556b63ad52"
+    },
+    {
+      "contractVersion": "common-room-v1",
+      "gameCode": "quanguo2997",
+      "gameId": 9,
+      "indexGeneration": 2026100669,
+      "releaseId": 11026112606,
+      "sourceHash": "1d7b6785e3c4905cbf482312c54b4fc192726b9274e2dc575cdcf72619d8a546"
+    },
+    {
+      "contractVersion": "common-room-v1",
+      "gameCode": "chengdu2999",
+      "gameId": 2999,
+      "indexGeneration": 2026100699,
+      "releaseId": 3001026112606,
+      "sourceHash": "f608c559c969209a1bbdf985fe54b7807bd0022c4c4a711a9a75a94aee6dbab5"
+    },
+    {
+      "contractVersion": "common-room-v1",
+      "gameCode": "mianning2004",
+      "gameId": 2004,
+      "indexGeneration": 2026100674,
+      "releaseId": 2006026112606,
+      "sourceHash": "713a219390223ec6926f2c1825a95b28c95a43ef37f86b78a5923d236ef5549a"
+    },
+    {
+      "contractVersion": "common-room-v1",
+      "gameCode": "anyue2005",
+      "gameId": 2005,
+      "indexGeneration": 2026100675,
+      "releaseId": 2007026112606,
+      "sourceHash": "dabb398a4ebb6dd2700fc7d639ccc7ad589abc1142cd9f00fce2884c5932ce0a"
+    },
+    {
+      "contractVersion": "common-room-v1",
+      "gameCode": "panzhihua2006",
+      "gameId": 2006,
+      "indexGeneration": 2026100676,
+      "releaseId": 2008026112606,
+      "sourceHash": "2863f927671d0c2bc8dfed680a3388fc68e0f10b2b6ea296a44f6e5e89567fa5"
+    },
+    {
+      "contractVersion": "common-room-v1",
+      "gameCode": "wannian2007",
+      "gameId": 2007,
+      "indexGeneration": 2026100677,
+      "releaseId": 2009026112606,
+      "sourceHash": "b41006caa29b13d1f8a7e17966f9f599cd01a233dcbe331b6588fcfbf5579c8a"
+    },
+    {
+      "contractVersion": "common-room-v1",
+      "gameCode": "leping2008",
+      "gameId": 2008,
+      "indexGeneration": 2026100678,
+      "releaseId": 2010026112606,
+      "sourceHash": "d04b51b4cded129fd40dc4ace9fc7ab2fa2d6263e755f5925663b746ac24a933"
+    },
+    {
+      "contractVersion": "common-room-v1",
+      "gameCode": "bozhou2009",
+      "gameId": 2009,
+      "indexGeneration": 2026100679,
+      "releaseId": 2011026112606,
+      "sourceHash": "1695a3e59c6a5daf33071cf17d442f4d5f73cba2d82ac93353c9b39b09e534d3"
+    },
+    {
+      "contractVersion": "common-room-v1",
+      "gameCode": "yugan2010",
+      "gameId": 2010,
+      "indexGeneration": 2026100680,
+      "releaseId": 2012026112606,
+      "sourceHash": "8365bf3ebeaa545f9fee2cf4008717833dd96b967f76b4a08002da2e55527627"
+    },
+    {
+      "contractVersion": "common-room-v1",
+      "gameCode": "jian2011",
+      "gameId": 2011,
+      "indexGeneration": 2026100681,
+      "releaseId": 2013026112606,
+      "sourceHash": "fb6d8852883d33fa04c9c71f9c604e4ab5fec38a293afa2b75196da10198a42c"
+    },
+    {
+      "contractVersion": "common-room-v1",
+      "gameCode": "gushi2012",
+      "gameId": 2012,
+      "indexGeneration": 2026100682,
+      "releaseId": 2014026112606,
+      "sourceHash": "17b3caa687fc6de086995f26199c96f87db2bd33336f402e17f9659b7751d180"
+    },
+    {
+      "contractVersion": "common-room-v1",
+      "gameCode": "xiaogan2013",
+      "gameId": 2013,
+      "indexGeneration": 2026100683,
+      "releaseId": 2015026112606,
+      "sourceHash": "d89e9fc10aff8916ce29901b46a51a3d3a1fc398f3b43315e1be9a02a01aa779"
+    },
+    {
+      "contractVersion": "common-room-v1",
+      "gameCode": "ningdu2014",
+      "gameId": 2014,
+      "indexGeneration": 2026100684,
+      "releaseId": 2016026112606,
+      "sourceHash": "65533898342b858c546668393f7fbddd4d161f561862193eb7e681927db68270"
+    },
+    {
+      "contractVersion": "common-room-v1",
+      "gameCode": "huaihua2015",
+      "gameId": 2015,
+      "indexGeneration": 2026100685,
+      "releaseId": 2017026112606,
+      "sourceHash": "50a363b43bb8ae70c9208726be947572b953edc1dabdb6b11f9abe793672c2f7"
+    },
+    {
+      "contractVersion": "common-room-v1",
+      "gameCode": "xinxian2016",
+      "gameId": 2016,
+      "indexGeneration": 2026100686,
+      "releaseId": 2018026112606,
+      "sourceHash": "459031972aaaf8d25fb025e849712b60df6cf9361f4cf1f3a7e7c97255713b73"
+    },
+    {
+      "contractVersion": "common-room-v1",
+      "gameCode": "jingdezhen2017",
+      "gameId": 2017,
+      "indexGeneration": 2026100687,
+      "releaseId": 2019026112606,
+      "sourceHash": "69283dd4d468617b61245ae2c08913c7ab289fc2339281d7b809d7c38854b7b2"
+    },
+    {
+      "contractVersion": "common-room-v1",
+      "gameCode": "jiangsu2018",
+      "gameId": 2018,
+      "indexGeneration": 2026100688,
+      "releaseId": 2020026112606,
+      "sourceHash": "f4bd0a78f9398cb120fc6705c8d91786d8efe452cb7ab8c6882b2ae3d472dcc5"
+    },
+    {
+      "contractVersion": "common-room-v1",
+      "gameCode": "henan2019",
+      "gameId": 2019,
+      "indexGeneration": 2026100689,
+      "releaseId": 2021026112606,
+      "sourceHash": "c7259d1a9542079f5c6a3b52be2255ffd5ee769b965e490cdf8eaaf307b930df"
+    },
+    {
+      "contractVersion": "common-room-v1",
+      "gameCode": "taizhou2020",
+      "gameId": 2020,
+      "indexGeneration": 2026100690,
+      "releaseId": 2022026112606,
+      "sourceHash": "e0e8e5763652c506c8a0d18eaefe8bc58f3c6fc272c0a2ded8b1cc3626fa54e9"
+    },
+    {
+      "contractVersion": "common-room-v1",
+      "gameCode": "huaibin2021",
+      "gameId": 2021,
+      "indexGeneration": 2026100691,
+      "releaseId": 2023026112606,
+      "sourceHash": "1cdbda81f69213ae48db360070b1af4a96aa3bd857b4f7d78e9d7f41d91bba60"
+    },
+    {
+      "contractVersion": "common-room-v1",
+      "gameCode": "huangchuan2022",
+      "gameId": 2022,
+      "indexGeneration": 2026100692,
+      "releaseId": 2024026112606,
+      "sourceHash": "11179dda7de218affa7b30cd4b8f0cd2270857b3220f2a2d27f2bd6230eb85c8"
+    },
+    {
+      "contractVersion": "common-room-v1",
+      "gameCode": "poyang2023",
+      "gameId": 2023,
+      "indexGeneration": 2026100693,
+      "releaseId": 2025026112606,
+      "sourceHash": "2046952da61c13511b5acc164efee81b8475c5b34717fe63cd6b4862a8f673c0"
+    },
+    {
+      "contractVersion": "common-room-v1",
+      "gameCode": "jintan2024",
+      "gameId": 2024,
+      "indexGeneration": 2026100694,
+      "releaseId": 2026026112606,
+      "sourceHash": "caf2c0631f040188f358fc13823412671b45dee99704ecebf285e4b8ecd5895a"
+    },
+    {
+      "contractVersion": "common-room-v1",
+      "gameCode": "gaoan2025",
+      "gameId": 2025,
+      "indexGeneration": 2026100695,
+      "releaseId": 2027026112606,
+      "sourceHash": "abc410a038074f70381c857359c1043a6316c7e6186864321c1c74dd7032e599"
+    },
+    {
+      "contractVersion": "common-room-v1",
+      "gameCode": "yixing2026",
+      "gameId": 2026,
+      "indexGeneration": 2026100696,
+      "releaseId": 2028026112606,
+      "sourceHash": "49582391861a51b8fc166f1729670d2f403a8ca6925b023d71148802d08cb252"
+    },
+    {
+      "contractVersion": "common-room-v1",
+      "gameCode": "xuancheng2027",
+      "gameId": 2027,
+      "indexGeneration": 2026100697,
+      "releaseId": 2029026112606,
+      "sourceHash": "b42092ec31bebf63f04cd3918105c5b3db5757588c81f4612d6410689ee57a33"
+    },
+    {
+      "contractVersion": "common-room-v1",
+      "gameCode": "fuzhou2028",
+      "gameId": 2028,
+      "indexGeneration": 2026100698,
+      "releaseId": 2030026112606,
+      "sourceHash": "e3c08c0afa5b3133b2833f08f390c096f0de9c4718068518b71998bf06e78aee"
+    },
+    {
+      "contractVersion": "common-room-v1",
+      "gameCode": "chengdu1001",
+      "gameId": 1001,
+      "indexGeneration": 2026100670,
+      "releaseId": 1003026112606,
+      "sourceHash": "c2ec22c31e4e965153c942f1f2f3634ce5c216e3dd4c1b971da578d060d85665"
+    }
+  ],
+  "sourceHash": "c74ba46c9c601490bf0a1aa0e583141f1a9ee200bd7e98302d51c95a496b345f",
+  "sourceHashAlgorithm": "SHA-256(contractVersion + accepted runtime manifest digest + explicit current RoomSnapshot/Runtime evidence digests)",
+  "status": "SIGNED_CANONICAL_INPUT"
+}

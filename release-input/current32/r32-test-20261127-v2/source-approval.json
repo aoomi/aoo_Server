@@ -1,0 +1,8 @@
+{
+  "status": "ACCEPTED_SOURCE_ONLY",
+  "issuer": "aoo-test-release-admin",
+  "edition": "r32-test-20261127",
+  "materialSha256": "b63f6549d52da2502d852b798481c5ae65cbb6743eb6980216c7bf0883a2b605",
+  "scope": "Current32 v2 immutable provider artifact source issuance; no database rules or pricing writes; independent review required"
+}
+

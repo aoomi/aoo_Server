@@ -264,7 +264,7 @@ def resolve_client(play, client_root, client_entries, pdk_client_codes, pdk_runt
   mapping = {
     'quanguo2998' => ['nn', 'NnRuntimeEntry.ts', "id = 'nn'"],
     'quanguo2997' => ['zjh', 'ZjhGameRuntimeEntry.ts', "id = 'zjh'"],
-    'chengdu2999' => ['cx', 'CxGameRuntimeEntry.ts', "id = 'cx'"],
+    'chengdu2999' => ['cx', 'CxEntry.ts', "id = 'cx'"],
     'chengdu1001' => ['chengdu1001', 'Chengdu1001RuntimeEntry.ts', "id = 'chengdu1001'"]
   }
   value, file_name, assertion = mapping.fetch(code) { raise RegistryError, "CLIENT_RUNTIME_NOT_MAPPED gameCode=#{code}" }

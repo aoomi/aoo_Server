@@ -1,0 +1,2 @@
+role	engine	version	host	port	database	dump	validation
+PRIMARY_RUNTIME	MySQL	8.0.46	127.0.0.1	3306	aoo_login_local	dumps/aoo_login_local.sql.gz	PASS_SAME_VERSION_ISOLATED_RESTORE

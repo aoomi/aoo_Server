@@ -32,6 +32,12 @@ AUTHORIZED_MANIFEST_CONTRACTS = {
     'releaseIssuer' => '/root/lobby_runtime_from_staged_source',
     'releaseEdition' => 'r15-cd2999-20261012',
     'manifestSha256' => 'a453cb986a674f0f6044a581f8e69927a4cfbf94f531567ef021dfaee07a8282'
+  },
+  'r32-test-20261127' => {
+    'manifestVersion' => 'r32-test-20261127-v4',
+    'releaseIssuer' => 'aoo-test-release-admin',
+    'releaseEdition' => 'r32-test-20261127',
+    'manifestSha256' => '40bc9104d609daaa9bc5d1fbd6a276f11143a459358d7d108efac3791090299b'
   }
 }.freeze
 
@@ -129,6 +135,21 @@ fail!('source-contract') unless %w[
   normalized-production-rule-and-component-artifact
   normalized-current-production-rule-and-component-artifact
 ].include?(contract['sourceKind'])
+authority_by_id = nil
+if contract['identityAuthority']
+  authority_ref = contract.fetch('identityAuthority')
+  authority_path = File.join(ROOT, authority_ref.fetch('path'))
+  fail!('identity-authority-sha') unless sha256_file(authority_path) == authority_ref.fetch('sha256')
+  authority_doc = JSON.parse(File.read(authority_path, encoding: 'UTF-8'))
+  fail!('identity-authority-status') unless authority_doc['status'] == 'USER_SPECIFIED_LOCAL_ENGINEERING_DUMP'
+  artifact = authority_doc.fetch('sourceArtifact')
+  fail!('identity-authority-artifact-sha') unless sha256_file(File.join(ROOT, artifact.fetch('path'))) == artifact.fetch('sha256')
+  authority_rows = authority_doc.fetch('rows')
+  fail!('identity-authority-count') unless authority_rows.length == 32
+  authority_by_id = authority_rows.to_h { |row| [row.fetch('gameId'), row] }
+  fail!('identity-authority-duplicate') unless authority_by_id.length == 32
+  fail!('identity-authority-contract') unless contract['identityPreserving'] == true && contract['databaseWrite'] == false
+end
 rows = manifest.fetch('rows')
 fail!("row-count=#{rows.length}") unless rows.is_a?(Array) && rows.length == 32
 by_id = identities.to_h { |identity| [identity.fetch('gameId'), identity] }
@@ -146,6 +167,13 @@ rows.each do |row|
   fail!("unknown-game-id=#{id}") unless identity && identity['publishingEnabled'] == true
   current = catalog[id]
   fail!("current-catalog-unknown-game-id=#{id}") unless current
+  authority = authority_by_id && authority_by_id[id]
+  if authority_by_id
+    fail!("identity-authority-missing=#{id}") unless authority
+    %w[gameCode family playVersion sourceHash releaseId indexGeneration].each do |field|
+      fail!("identity-authority-mismatch=#{id}|#{field}") unless row[field] == authority[field]
+    end
+  end
   %w[gameCode playVersion family regionCode].each do |field|
     fail!("identity-mismatch=#{id}|#{field}") unless row[field] == identity[field]
   end
@@ -195,7 +223,9 @@ rows.each do |row|
   fail!("source-revision=#{id}") unless revision == row['sourceRevision']
   binding = { 'gameId' => id, 'gameCode' => row['gameCode'], 'providerRoute' => row.fetch('providerBinding').fetch('route'), 'providerClass' => row.fetch('providerBinding').fetch('providerClass'), 'artifactVersion' => row['artifactVersion'], 'ruleContentHash' => rule_hash, 'normalizedWorkbookHash' => workbook_hash, 'componentContentHash' => component_hash, 'sourceRevision' => revision }
   binding['contractVersion'] = row['contractVersion'] if contract_version_required
-  fail!("source-hash=#{id}") unless sha256_bytes(canonical_json(binding)) == row['sourceHash']
+  unless authority_by_id
+    fail!("source-hash=#{id}") unless sha256_bytes(canonical_json(binding)) == row['sourceHash']
+  end
 end
 
 fail!('missing-identity-row') unless seen_ids.keys.sort == by_id.keys.sort

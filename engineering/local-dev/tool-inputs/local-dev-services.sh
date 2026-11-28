@@ -138,7 +138,7 @@ build_runtime(){
     export AOO_JAVA_HOME
   fi
   source "$ROOT/engineering/local-dev/tool-inputs/runtime-java26.sh"
-  "$ROOT/mvnw" -q -Dmaven.test.skip=true -Dexec.skip=true -pl modules/infrastructure/Bootstrap,modules/infrastructure/Gateway -am package
+  "$ROOT/mvnw" -q -Plocal-mirror -Dmaven.test.skip=true -Dexec.skip=true -pl modules/infrastructure/Bootstrap,modules/infrastructure/Gateway -am package
 }
 
 stage_runtime_classpath(){
@@ -162,7 +162,7 @@ start_java(){
     echo '#!/usr/bin/env bash'
     printf 'exec env'
     for item in "$@"; do printf ' %q' "$item"; done
-    printf ' %q -Xms64m -Xmx256m -cp %q %q %q\n' "$JAVA_HOME/bin/java" "$classpath" "$main" "$name"
+    printf ' %q -Xms64m -Xmx256m -Daoo.runtime.metadata.mode=local-mirror -cp %q %q %q\n' "$JAVA_HOME/bin/java" "$classpath" "$main" "$name"
   } > "$runner"
   chmod 700 "$runner"
   if command -v launchctl >/dev/null 2>&1; then

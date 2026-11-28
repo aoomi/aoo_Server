@@ -110,14 +110,30 @@ class JdbcGatewayRoomAuthorityTest {
         assertTrue(!JdbcGatewayRoomAuthority.shouldReplaceHandoffLease(initial, initial));
         assertTrue(JdbcGatewayRoomAuthority.shouldReplaceHandoffLease(initial,
                 new JdbcGatewayRoomAuthority.HandoffLease(identity, 17, "connection-2", 5)));
+        RoomOrchestrator.RoomIdentity advanced = new RoomOrchestrator.RoomIdentity(
+                ROOM_ID, "instance-742001", GAME_ID, GAME_CODE, PLAY_VERSION, 3, 8, 63);
+        assertTrue(JdbcGatewayRoomAuthority.shouldReplaceHandoffLease(initial,
+                new JdbcGatewayRoomAuthority.HandoffLease(advanced, 17, "connection-3", 6)));
         IllegalStateException stale = assertThrows(IllegalStateException.class,
                 () -> JdbcGatewayRoomAuthority.shouldReplaceHandoffLease(initial,
                         new JdbcGatewayRoomAuthority.HandoffLease(identity, 17, "connection-2", 3)));
         assertEquals("ROOM_ORCHESTRATOR_HANDOFF_OWNER_REGISTRATION_CONFLICT", stale.getMessage());
+        RoomOrchestrator.RoomIdentity regressed = new RoomOrchestrator.RoomIdentity(
+                ROOM_ID, "instance-742001", GAME_ID, GAME_CODE, PLAY_VERSION, 3, 8, 3);
+        IllegalStateException stateRegression = assertThrows(IllegalStateException.class,
+                () -> JdbcGatewayRoomAuthority.shouldReplaceHandoffLease(initial,
+                        new JdbcGatewayRoomAuthority.HandoffLease(regressed, 17, "connection-3", 6)));
+        assertEquals("ROOM_ORCHESTRATOR_HANDOFF_OWNER_REGISTRATION_CONFLICT", stateRegression.getMessage());
         IllegalStateException ownerConflict = assertThrows(IllegalStateException.class,
                 () -> JdbcGatewayRoomAuthority.shouldReplaceHandoffLease(initial,
                         new JdbcGatewayRoomAuthority.HandoffLease(identity, 18, "connection-2", 5)));
         assertEquals("ROOM_ORCHESTRATOR_HANDOFF_OWNER_REGISTRATION_CONFLICT", ownerConflict.getMessage());
+        RoomOrchestrator.RoomIdentity differentInstance = new RoomOrchestrator.RoomIdentity(
+                ROOM_ID, "instance-other", GAME_ID, GAME_CODE, PLAY_VERSION, 3, 8, 63);
+        IllegalStateException identityConflict = assertThrows(IllegalStateException.class,
+                () -> JdbcGatewayRoomAuthority.shouldReplaceHandoffLease(initial,
+                        new JdbcGatewayRoomAuthority.HandoffLease(differentInstance, 17, "connection-3", 6)));
+        assertEquals("ROOM_ORCHESTRATOR_HANDOFF_OWNER_REGISTRATION_CONFLICT", identityConflict.getMessage());
     }
 
     @Test

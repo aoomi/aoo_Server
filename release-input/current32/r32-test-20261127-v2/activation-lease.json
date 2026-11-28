@@ -1,0 +1,46 @@
+{
+  "state": "HELD",
+  "owner": "aoo-test-release-admin",
+  "issuer": "aoo-test-release-admin",
+  "edition": "r32-test-20261127",
+  "candidateRevision": "v2-immutable-provider-artifacts",
+  "manifestSha256": "b65c2edce1ba4e6dbabac0993d2ef1cb138f3a7048f6420e2868f14419774916",
+  "registrySha256": "d4a5669948c99a2853aa6711b13ec4b0b08f2222242295d67a2fe5fa62a09521",
+  "contractSha256": "bbb6f9f6282c99e48768568c5aa7cab25b70bda0ed78044b6455050dfc06561c",
+  "releaseTarget": "test-server:8.137.34.190:r32-test-20261127-v2",
+  "serviceScope": [
+    "version",
+    "account",
+    "hall",
+    "social",
+    "media",
+    "gateway",
+    "all-deployed-game-providers"
+  ],
+  "acquiredAt": "2026-11-26T18:28:47.897Z",
+  "expiresAt": "2026-11-26T20:18:47.897Z",
+  "supersedes": "server/release-input/current32/r32-test-20261127/activation-lease.json",
+  "toolHashes": {
+    "engineering/release/issue-current-identity-metadata.py": "59f630fffa955ad3b6fc3d2677a1ec9f521aba0578ad8c423ed1cffeec1210d2",
+    "engineering/release/project-canonical-identity-registry.rb": "0df79bc205cbbf6990c1acbea3e6e17cc28e804e326323417bf3ad37e6b606cc",
+    "engineering/release/tool-inputs/validate-runtime-metadata-manifest.rb": "5a8263cac83cd5a2f04c87f65d4fe9200333e7955b98c98f9685f04d9fbd72d0",
+    "engineering/release/validate-canonical-registry-runtime-binding.rb": "9a351f173c144caa6d80a2e6a590eb444e73a3c2e0c96615f66bacbff21f8a93",
+    "/opt/aoo/source/update-server.py": "df863a92abc5ba056bfdb2073393f4cb8e283cdba9e7e7a99fbc94d6366d9b93"
+  },
+  "writePaths": [
+    "server/engineering/release/issue-current-identity-metadata.py",
+    "server/engineering/release/project-canonical-identity-registry.rb",
+    "server/engineering/release/tool-inputs/validate-runtime-metadata-manifest.rb",
+    "server/engineering/release/validate-canonical-registry-runtime-binding.rb",
+    "server/release-input/runtime-metadata-canonical-manifest-r32-test-20261127-v2.json",
+    "server/release-input/identity/canonical-identity-current-contract-r32-test-20261127-v2.json",
+    "server/release-input/identity/canonical-identity-runtime-registry-r32-test-20261127-v2.json",
+    "server/release-input/identity/canonical-identity-activation-contract-r32-test-20261127-v2.json",
+    "server/release-input/current32/r32-test-20261127-v2",
+    "/opt/aoo/source/update-server.py",
+    "/opt/aoo/server",
+    "/opt/aoo/Client/docs/开房规则表"
+  ],
+  "independentReviewRequired": true
+}
+

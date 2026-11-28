@@ -18,6 +18,11 @@ import java.util.regex.Pattern;
  * walking a developer checkout or by deriving fields from an identity.</p>
  */
 public final class RuntimeMetadataProjection {
+    public enum Trust {
+        UNVERIFIED,
+        SIGNED_CANONICAL,
+        VERIFIED_LOCAL_MIRROR
+    }
     public static final int REQUIRED_ROW_COUNT = 32;
     public static final List<String> REQUIRED_FIELDS = List.of(
             "snapshotSchemaVersion", "cardCodecVersion", "eventInterpreterVersion",
@@ -29,14 +34,28 @@ public final class RuntimeMetadataProjection {
 
     private final String manifestSha256;
     private final String edition;
+    private final Trust trust;
+    private final String canonicalRowsDigest;
     private final List<Entry> rows;
     private final Map<Integer, Entry> byId;
     private final Map<IdentityKey, Entry> byIdentity;
 
     public RuntimeMetadataProjection(String manifestSha256, String edition,
                                      Collection<? extends Entry> rows) {
+        this(manifestSha256, edition, rows, Trust.UNVERIFIED);
+    }
+
+    static RuntimeMetadataProjection trusted(String manifestSha256, String edition,
+                                             Collection<? extends Entry> rows, Trust trust) {
+        if (trust == Trust.UNVERIFIED) throw new IllegalArgumentException("trusted projection authority required");
+        return new RuntimeMetadataProjection(manifestSha256, edition, rows, trust);
+    }
+
+    private RuntimeMetadataProjection(String manifestSha256, String edition,
+                                      Collection<? extends Entry> rows, Trust trust) {
         this.manifestSha256 = requireSha(manifestSha256, "RUNTIME_METADATA_MANIFEST_SHA_REQUIRED");
         this.edition = requireEdition(edition);
+        this.trust = Objects.requireNonNull(trust, "trust");
         Objects.requireNonNull(rows, "rows");
         List<Entry> normalized = new ArrayList<>(rows);
         if (normalized.size() != REQUIRED_ROW_COUNT) {
@@ -75,6 +94,7 @@ public final class RuntimeMetadataProjection {
         this.rows = List.copyOf(normalized);
         this.byId = Map.copyOf(ids);
         this.byIdentity = Map.copyOf(identities);
+        this.canonicalRowsDigest = digestRows(this.rows);
     }
 
     public String manifestSha256() { return manifestSha256; }
@@ -83,6 +103,10 @@ public final class RuntimeMetadataProjection {
     public String manifestSha() { return manifestSha256; }
 
     public String edition() { return edition; }
+
+    public Trust trust() { return trust; }
+
+    public String canonicalRowsDigest() { return canonicalRowsDigest; }
 
     /** Alias matching the signed manifest's top-level field. */
     public String releaseEdition() { return edition; }
@@ -126,11 +150,11 @@ public final class RuntimeMetadataProjection {
     @Override public boolean equals(Object other) {
         if (!(other instanceof RuntimeMetadataProjection that)) return false;
         return manifestSha256.equals(that.manifestSha256)
-                && edition.equals(that.edition) && rows.equals(that.rows);
+                && edition.equals(that.edition) && trust == that.trust && rows.equals(that.rows);
     }
 
     @Override public int hashCode() {
-        return Objects.hash(manifestSha256, edition, rows);
+        return Objects.hash(manifestSha256, edition, trust, rows);
     }
 
     private static String requireSha(String value, String error) {
@@ -148,6 +172,24 @@ public final class RuntimeMetadataProjection {
     private static String requireText(String value, String field) {
         if (value == null || value.isBlank()) throw new IllegalArgumentException(field + " must not be blank");
         return value.trim();
+    }
+
+    private static String digestRows(List<Entry> rows) {
+        try {
+            var digest = java.security.MessageDigest.getInstance("SHA-256");
+            for (Entry row : rows) {
+                String canonical = row.gameId() + "\u001f" + row.gameCode() + "\u001f" + row.family()
+                        + "\u001f" + row.playVersion() + "\u001f" + row.regionCode() + "\u001f"
+                        + row.snapshotSchemaVersion() + "\u001f" + row.cardCodecVersion() + "\u001f"
+                        + row.eventInterpreterVersion() + "\u001f" + row.protocolVersion() + "\u001f"
+                        + row.contractVersion() + "\u001f" + row.sourceHash() + "\u001f"
+                        + row.releaseId() + "\u001f" + row.indexGeneration() + "\n";
+                digest.update(canonical.getBytes(java.nio.charset.StandardCharsets.UTF_8));
+            }
+            return java.util.HexFormat.of().formatHex(digest.digest());
+        } catch (java.security.NoSuchAlgorithmException impossible) {
+            throw new IllegalStateException("SHA-256 unavailable", impossible);
+        }
     }
 
     public static class Entry {

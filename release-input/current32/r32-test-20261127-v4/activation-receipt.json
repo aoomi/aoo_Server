@@ -1,0 +1,37 @@
+{
+  "status": "FROZEN_PENDING_INDEPENDENT_REVIEW",
+  "issuer": "aoo-test-release-admin",
+  "edition": "r32-test-20261127",
+  "candidateRevision": "v4-identity-preserving",
+  "manifestSha256": "40bc9104d609daaa9bc5d1fbd6a276f11143a459358d7d108efac3791090299b",
+  "registrySha256": "a44c877283216c5d3ea28f0254e0d26cf95cb43f84b68ceee5a0833b33cbb446",
+  "contractSha256": "a79f24cc045ea3b1c7a537aca34167eb265a27a29884f5046c94f76a53bdb07a",
+  "identityAuthority": {
+    "dumpSha256": "bcdc89483e815ed78c40712ecfbfdd6df146797ee31687e13a72e15ce16fa69e",
+    "projectionSha256": "6a881107f530cb4fb0ec7271e55592217bf787d2e95c8a7fb1b05c0738d1e4fd"
+  },
+  "releaseTarget": "test-server:8.137.34.190:r32-test-20261127-v4",
+  "identityPreserving": true,
+  "databaseWrite": false,
+  "serviceScope": [
+    "version",
+    "account",
+    "hall",
+    "social",
+    "media",
+    "gateway",
+    "all-deployed-game-providers"
+  ],
+  "approvalStatus": "ACCEPTED_TEST_SERVER_ACTIVATION_CANDIDATE",
+  "leaseExpiresAt": "2026-11-26T20:45:35.906Z",
+  "activationExecuted": false,
+  "databaseWritten": false,
+  "servicesRestarted": false,
+  "verificationResults": {
+    "offlineDumpProjection": "PASS_32",
+    "targetDatabaseReadOnlyEquality": "PENDING_REMOTE_SYNC",
+    "hallCatalogCheck": "PENDING",
+    "fullDryChain": "PENDING"
+  }
+}
+

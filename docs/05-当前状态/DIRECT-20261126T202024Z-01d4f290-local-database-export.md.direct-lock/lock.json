@@ -1,0 +1,12 @@
+{
+  "task_id": "DIRECT-20261126T202024Z-01d4f290",
+  "owner": "/root/aoo_runtime_lead",
+  "scope": [
+    "/Users/aoo/Code/Game/aoo/Server/docs/05-当前状态/DIRECT-20261126T202024Z-01d4f290-local-database-export.md",
+    "/Users/aoo/Code/Game/aoo/Server/docs/05-当前状态/DIRECT-20261126T202024Z-01d4f290-local-database-export.md.direct-lock/**",
+    "/Users/aoo/Code/Game/数据库/Aoo-lowercase-local-databases-20261126T202024Z/**"
+  ],
+  "state": "RELEASED",
+  "acquired_at_utc": "2026-11-26T20:20:24Z",
+  "released_at_utc": "2026-11-26T20:25:00Z"
+}

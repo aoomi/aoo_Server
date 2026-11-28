@@ -560,8 +560,7 @@ import java.util.*;
           initialPatternCounts.clear();
           initialPatternsBySeat.clear();
           readySeats.clear();
-          readySeats.addAll(players.keySet());
-          start();
+          continueSeats.clear();
         }
         body = viewFor(player);
       }

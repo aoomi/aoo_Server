@@ -1,0 +1,39 @@
+{
+  "status": "FROZEN_PENDING_INDEPENDENT_REVIEW",
+  "issuer": "aoo-test-release-admin",
+  "edition": "r32-test-20261127",
+  "candidateRevision": "v2-immutable-provider-artifacts",
+  "manifestSha256": "b65c2edce1ba4e6dbabac0993d2ef1cb138f3a7048f6420e2868f14419774916",
+  "registrySha256": "d4a5669948c99a2853aa6711b13ec4b0b08f2222242295d67a2fe5fa62a09521",
+  "contractSha256": "bbb6f9f6282c99e48768568c5aa7cab25b70bda0ed78044b6455050dfc06561c",
+  "releaseTarget": "test-server:8.137.34.190:r32-test-20261127-v2",
+  "serviceScope": [
+    "version",
+    "account",
+    "hall",
+    "social",
+    "media",
+    "gateway",
+    "all-deployed-game-providers"
+  ],
+  "approvalStatus": "ACCEPTED_TEST_SERVER_ACTIVATION_CANDIDATE",
+  "leaseExpiresAt": "2026-11-26T20:18:47.897Z",
+  "activationExecuted": false,
+  "databaseWritten": false,
+  "servicesRestarted": false,
+  "sourceIssuanceEvidenceImmutable": true,
+  "replacedCandidate": {
+    "manifestSha256": "8eac22fb514b3d65906aa726b898db45210819af534449d4eca4779d273c0495",
+    "reason": "target provider artifacts were deleted by Maven clean before formal validation"
+  },
+  "verificationResults": {
+    "sourceIssuance": "PASS_32",
+    "runtimeManifestValidator": "PASS_LOCAL_AND_REMOTE_AFTER_MAVEN_CLEAN",
+    "registryProjection": "PASS_32",
+    "registryBindingValidator": "PASS_32",
+    "cleanSurvivalRegression": "PASS_TARGET_JAR_REMOVED_IMMUTABLE_ARTIFACT_RETAINED_VALIDATOR_PASS",
+    "productionAssembler": "PASS_V2_COUNT_32",
+    "toctouNegativeTests": "PASS_MANIFEST_AND_REGISTRY_SHA_DRIFT_REJECTED"
+  }
+}
+

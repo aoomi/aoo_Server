@@ -1,0 +1,3 @@
+aoo-source-clone-v6-r7-mysql	mysql:8.4.5	127.0.0.1:13328->3306/tcp	aoo.owner=source-clone-b-v6-r7,desktop.docker.io/mounts/1/Source=/tmp/aoo-source-clone-b-v6-r1/runtime-r7/target-client.cnf,desktop.docker.io/mounts/1/SourceKind=hostFile,desktop.docker.io/mounts/1/Target=/run/clone-client.cnf,desktop.docker.io/ports.scheme=v2,desktop.docker.io/ports/3306/tcp=127.0.0.1:13328
+aoo-local-lobby-r1-mysql	mysql:8.4.5	127.0.0.1:13306->3306/tcp	aoo.owner=local-lobby-r1,desktop.docker.io/ports.scheme=v2,desktop.docker.io/ports/3306/tcp=127.0.0.1:13306
+aoo-mysql	mysql:8.0	127.0.0.1:3306->3306/tcp	desktop.docker.io/ports.scheme=v2,desktop.docker.io/ports/3306/tcp=127.0.0.1:3306

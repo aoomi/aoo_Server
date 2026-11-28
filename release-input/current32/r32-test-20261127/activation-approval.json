@@ -1,0 +1,55 @@
+{
+  "status": "ACCEPTED_TEST_SERVER_ACTIVATION_CANDIDATE",
+  "issuer": "aoo-test-release-admin",
+  "edition": "r32-test-20261127",
+  "manifestSha256": "8eac22fb514b3d65906aa726b898db45210819af534449d4eca4779d273c0495",
+  "registrySha256": "edd487957a429ac0d405cfbd478295276cfa1aa47c4a06a98f9c0adbb6558b41",
+  "contractSha256": "28830294527ea2395b1eb00537c53f3f7ff903315eaaa03955f47e16c2db31f7",
+  "releaseTarget": "test-server:8.137.34.190:r32-test-20261127",
+  "serviceScope": [
+    "version",
+    "account",
+    "hall",
+    "social",
+    "media",
+    "gateway",
+    "all-deployed-game-providers"
+  ],
+  "activationBindingProjectionSha256": "fa9153b9e72dbf2cd0d9dea374e59d44b9de85c585e8fb90dbbad7e0b99e6ad3",
+  "toolHashes": {
+    "engineering/release/issue-current-identity-metadata.py": "59f630fffa955ad3b6fc3d2677a1ec9f521aba0578ad8c423ed1cffeec1210d2",
+    "engineering/release/project-canonical-identity-registry.rb": "0df79bc205cbbf6990c1acbea3e6e17cc28e804e326323417bf3ad37e6b606cc",
+    "engineering/release/tool-inputs/validate-runtime-metadata-manifest.rb": "d8c7fc67f0b822bc7593e4d928b1f0092302a7c6d4dedc1b2c8960bea3656f8c",
+    "engineering/release/validate-canonical-registry-runtime-binding.rb": "9a351f173c144caa6d80a2e6a590eb444e73a3c2e0c96615f66bacbff21f8a93",
+    "/opt/aoo/source/update-server.py": "a22ff5f457c2c431f4772a8a9ae30069e3b0277867b2c442b000cb938a178c80"
+  },
+  "verificationPlan": [
+    "formal runtime metadata validator",
+    "canonical registry runtime binding validator",
+    "manifest and registry TOCTOU negative tests",
+    "32-provider production assembly",
+    "post-deployment readiness and user-path smoke test"
+  ],
+  "rollback": {
+    "required": true,
+    "backup": "verified current release plus /opt/aoo/backups/20261127T-current32-r32-test",
+    "strategy": "restore update-server backup/current release symlink and restart only previously running service scope",
+    "databaseRulesOrPricingWrites": false
+  },
+  "independentReviewRequired": true,
+  "validationInputs": {
+    "repositoryAlias": "/opt/aoo/server -> /opt/aoo/source",
+    "workbookRoot": "/opt/aoo/Client/docs/开房规则表",
+    "workbookArchiveSha256": "14360d2eb71febed5f1ed917b3fb55c983e15b599e6c5ad00facd557d4f93f74",
+    "providerArtifactSha256": {
+      "game-category-poker-1.0.0-SNAPSHOT.jar": "abffd54ec0d7f05684dfde3dc05d1f434444f9ed52c4b948e020f558168fcb83",
+      "game-category-mahjong-1.0.0-SNAPSHOT.jar": "3cc2d4e2a1ad544ea2fd2dd6308a21f17906d773fdb6416d828ff51d86953551",
+      "game-poker-nn-1.0.0-SNAPSHOT.jar": "7b4baa195e73b02038768918f8cc4913502e31ffb5c51ef4ee2a37d06483971c",
+      "zjh-1.0.0-SNAPSHOT.jar": "e77879a2df1b10ec52789592c7aaf36250ba5a9d2a50541b86be91c6b627f8b0",
+      "game-poker-cx-1.0.0-SNAPSHOT.jar": "5e8b9069cb330505be45ab49e9659cc7447dadac16c858bb720b9084504fed81"
+    },
+    "purpose": "read-only formal manifest validation inputs"
+  },
+  "activationExecuted": false
+}
+

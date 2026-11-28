@@ -1,0 +1,5 @@
+class	confidence	container	container_id	image	state	server_version	host_port	schema_count	note
+auxiliary_shared	MEDIUM	aoo-mysql	42eafff716ef2fea8dd0bf4d2c12b9a3d146a496c7ec55f6d6e56d2c5ef5016a	mysql:8.0	running	8.0.46	127.0.0.1:3306	22	exported
+isolated_active	HIGH	aoo-local-lobby-r1-mysql	b8a4e11c1b607a913721524623f52c4c0e599787eedb0b7a880af8d6bef74a0c	mysql:8.4.5	running	8.4.5	127.0.0.1:13306	1	exported
+isolated_active	HIGH	aoo-source-clone-v6-r7-mysql	0792811ee1c38912d303293681cc9c31bc5fac664b48b7de34d14b42ad80486e	mysql:8.4.5	running	8.4.5	127.0.0.1:13328	1	exported
+primary_runtime	HIGH	aoo-mysql	42eafff716ef2fea8dd0bf4d2c12b9a3d146a496c7ec55f6d6e56d2c5ef5016a	mysql:8.0	running	8.0.46	127.0.0.1:3306	1	exported

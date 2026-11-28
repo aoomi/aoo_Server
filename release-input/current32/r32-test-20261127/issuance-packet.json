@@ -1,0 +1,66 @@
+{
+  "mode": "ISSUE_CURRENT32",
+  "contractVersion": "common-room-v1",
+  "issuer": "aoo-test-release-admin",
+  "edition": "r32-test-20261127",
+  "runtimeManifestVersion": "r32-test-20261127",
+  "contractManifestVersion": "r32-test-20261127-contract-v1",
+  "runtimeManifestLogicalPath": "server/release-input/runtime-metadata-canonical-manifest-r32-test-20261127.json",
+  "sourceDataGates": {
+    "databaseAuthority": false,
+    "rulesOrPricingDirectWrite": false,
+    "staticInputsOnly": true,
+    "independentReviewRequired": true
+  },
+  "hashImplementation": {
+    "path": "server/database/bootstrap/initialize_empty_database.py",
+    "sha256": "44f3bb64f33445f7f791d8db0ae42312658362ffe0a3ca4df073994c9d6e6768"
+  },
+  "materials": {
+    "baseline": {
+      "path": "server/release-input/runtime-metadata-canonical-manifest-cd2999-current-20261012.json",
+      "sha256": "a453cb986a674f0f6044a581f8e69927a4cfbf94f531567ef021dfaee07a8282"
+    },
+    "identities": {
+      "path": "server/release-input/identity/room-rule-play-identities.json",
+      "sha256": "b1618dce0c8522e7bc6e61fe90659c39521e0253558b782a13ae68e1168773dd"
+    },
+    "bindings": {
+      "path": "server/release-input/current32/r32-test-20261127/bindings.json",
+      "sha256": "e6098fdac73e5d4de469908d5acfd40a8b777ef69bfbddfb2c0f3fc0565b0151"
+    },
+    "sourceMap": {
+      "path": "server/release-input/current32/r32-test-20261127/source-map.json",
+      "sha256": "f0ae81a3ab5a9caf55bf67458ae5368206b53c9e9fd4c2162dbe533e7da58f08"
+    },
+    "workbooks": {
+      "path": "server/release-input/current32/r32-test-20261127/workbook-receipts.json",
+      "sha256": "ed2413fea599340c121ce05710dabda9cecd0155e2407df7d9018eac1e0bbe6f"
+    },
+    "evidence": {
+      "path": "server/release-input/current32/r32-test-20261127/contract-evidence.json",
+      "sha256": "73305bad99c65918fe78a23b15259e05044a5f670989feb87d332c52d8959cb3"
+    },
+    "currentPreimage": {
+      "path": "server/release-input/current32/r32-test-20261127/current-preimage.json",
+      "sha256": "67f18e48820b3be81ef4d013195ab2685b0260ad78e858750ec9d0a04efa73f9"
+    },
+    "literals": {
+      "path": "server/release-input/current32/r32-test-20261127/literals.json",
+      "sha256": "ef3501cf70f06b800f282bf19b340acf3a1e8076930fee7071fbcbfb61f3bc6a"
+    },
+    "preflight": {
+      "path": "server/release-input/current32/r32-test-20261127/collision-preflight.json",
+      "sha256": "316fd360d550f20fd53c6ff49f7c96b3114c089a82710d4aa2ae7ea506d9535c"
+    },
+    "approval": {
+      "path": "server/release-input/current32/r32-test-20261127/source-approval.json",
+      "sha256": "671d6f2d3fec0534ca775e13f625c6cb91618f09f8e2334e73b58d1ca4e6dd27"
+    },
+    "lease": {
+      "path": "server/release-input/current32/r32-test-20261127/issuance-lease.json",
+      "sha256": "9945660db3b27ba441489c9219c8a5cc80b60b6bad9b670015406de981b1f9de"
+    }
+  }
+}
+

@@ -1,0 +1,198 @@
+{
+  "rows": [
+    {
+      "gameId": 2001,
+      "gameCode": "chengdu2001",
+      "playVersion": "chengdu2001-v1.0.0",
+      "family": "poker:pao-de-kuai"
+    },
+    {
+      "gameId": 2002,
+      "gameCode": "neijiang2002",
+      "playVersion": "neijiang2002-v1.0.0",
+      "family": "poker:pao-de-kuai"
+    },
+    {
+      "gameId": 2003,
+      "gameCode": "liangshan2003",
+      "playVersion": "liangshan2003-v1.0.0",
+      "family": "poker:pao-de-kuai"
+    },
+    {
+      "gameId": 5,
+      "gameCode": "quanguo2998",
+      "playVersion": "nn-v1.0.0",
+      "family": "poker:betting"
+    },
+    {
+      "gameId": 9,
+      "gameCode": "quanguo2997",
+      "playVersion": "zjh-v1.0.0",
+      "family": "poker:compare-hand"
+    },
+    {
+      "gameId": 2999,
+      "gameCode": "chengdu2999",
+      "playVersion": "cx-v1.0.0",
+      "family": "poker:cx"
+    },
+    {
+      "gameId": 2004,
+      "gameCode": "mianning2004",
+      "playVersion": "mianning2004-v1.0.0",
+      "family": "poker:pao-de-kuai"
+    },
+    {
+      "gameId": 2005,
+      "gameCode": "anyue2005",
+      "playVersion": "anyue2005-v1.0.0",
+      "family": "poker:pao-de-kuai"
+    },
+    {
+      "gameId": 2006,
+      "gameCode": "panzhihua2006",
+      "playVersion": "panzhihua2006-v1.0.0",
+      "family": "poker:pao-de-kuai"
+    },
+    {
+      "gameId": 2007,
+      "gameCode": "wannian2007",
+      "playVersion": "wannian2007-v1.0.0",
+      "family": "poker:pao-de-kuai"
+    },
+    {
+      "gameId": 2008,
+      "gameCode": "leping2008",
+      "playVersion": "leping2008-v1.0.0",
+      "family": "poker:pao-de-kuai"
+    },
+    {
+      "gameId": 2009,
+      "gameCode": "bozhou2009",
+      "playVersion": "bozhou2009-v1.0.0",
+      "family": "poker:pao-de-kuai"
+    },
+    {
+      "gameId": 2010,
+      "gameCode": "yugan2010",
+      "playVersion": "yugan2010-v1.0.0",
+      "family": "poker:pao-de-kuai"
+    },
+    {
+      "gameId": 2011,
+      "gameCode": "jian2011",
+      "playVersion": "jian2011-v1.0.0",
+      "family": "poker:pao-de-kuai"
+    },
+    {
+      "gameId": 2012,
+      "gameCode": "gushi2012",
+      "playVersion": "gushi2012-v1.0.0",
+      "family": "poker:pao-de-kuai"
+    },
+    {
+      "gameId": 2013,
+      "gameCode": "xiaogan2013",
+      "playVersion": "xiaogan2013-v1.0.0",
+      "family": "poker:pao-de-kuai"
+    },
+    {
+      "gameId": 2014,
+      "gameCode": "ningdu2014",
+      "playVersion": "ningdu2014-v1.0.0",
+      "family": "poker:pao-de-kuai"
+    },
+    {
+      "gameId": 2015,
+      "gameCode": "huaihua2015",
+      "playVersion": "huaihua2015-v1.0.0",
+      "family": "poker:pao-de-kuai"
+    },
+    {
+      "gameId": 2016,
+      "gameCode": "xinxian2016",
+      "playVersion": "xinxian2016-v1.0.0",
+      "family": "poker:pao-de-kuai"
+    },
+    {
+      "gameId": 2017,
+      "gameCode": "jingdezhen2017",
+      "playVersion": "jingdezhen2017-v1.0.0",
+      "family": "poker:pao-de-kuai"
+    },
+    {
+      "gameId": 2018,
+      "gameCode": "jiangsu2018",
+      "playVersion": "jiangsu2018-v1.0.0",
+      "family": "poker:pao-de-kuai"
+    },
+    {
+      "gameId": 2019,
+      "gameCode": "henan2019",
+      "playVersion": "henan2019-v1.0.0",
+      "family": "poker:pao-de-kuai"
+    },
+    {
+      "gameId": 2020,
+      "gameCode": "taizhou2020",
+      "playVersion": "taizhou2020-v1.0.0",
+      "family": "poker:pao-de-kuai"
+    },
+    {
+      "gameId": 2021,
+      "gameCode": "huaibin2021",
+      "playVersion": "huaibin2021-v1.0.0",
+      "family": "poker:pao-de-kuai"
+    },
+    {
+      "gameId": 2022,
+      "gameCode": "huangchuan2022",
+      "playVersion": "huangchuan2022-v1.0.0",
+      "family": "poker:pao-de-kuai"
+    },
+    {
+      "gameId": 2023,
+      "gameCode": "poyang2023",
+      "playVersion": "poyang2023-v1.0.0",
+      "family": "poker:pao-de-kuai"
+    },
+    {
+      "gameId": 2024,
+      "gameCode": "jintan2024",
+      "playVersion": "jintan2024-v1.0.0",
+      "family": "poker:pao-de-kuai"
+    },
+    {
+      "gameId": 2025,
+      "gameCode": "gaoan2025",
+      "playVersion": "gaoan2025-v1.0.0",
+      "family": "poker:pao-de-kuai"
+    },
+    {
+      "gameId": 2026,
+      "gameCode": "yixing2026",
+      "playVersion": "yixing2026-v1.0.0",
+      "family": "poker:pao-de-kuai"
+    },
+    {
+      "gameId": 2027,
+      "gameCode": "xuancheng2027",
+      "playVersion": "xuancheng2027-v1.0.0",
+      "family": "poker:pao-de-kuai"
+    },
+    {
+      "gameId": 2028,
+      "gameCode": "fuzhou2028",
+      "playVersion": "fuzhou2028-v1.0.0",
+      "family": "poker:pao-de-kuai"
+    },
+    {
+      "gameId": 1001,
+      "gameCode": "chengdu1001",
+      "playVersion": "chengdu1001-v1.0.0",
+      "family": "mahjong:xue-zhan"
+    }
+  ],
+  "source": "engineering current identity registry and current-game-identities.tsv"
+}
+

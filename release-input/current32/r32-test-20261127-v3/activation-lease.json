@@ -1,0 +1,44 @@
+{
+  "state": "HELD",
+  "owner": "aoo-test-release-admin",
+  "issuer": "aoo-test-release-admin",
+  "edition": "r32-test-20261127",
+  "candidateRevision": "v3-relative-manifest-path-contract",
+  "manifestSha256": "b65c2edce1ba4e6dbabac0993d2ef1cb138f3a7048f6420e2868f14419774916",
+  "registrySha256": "add2ed397876e8e8289a21494a4b4a826b3ecfbdbf1d92e568ef81c980bc1f30",
+  "contractSha256": "b2cb69d2c37a56fb469d1085163e94d2c9f0a838dc37f7a7ffabae8d73ed8c57",
+  "releaseTarget": "test-server:8.137.34.190:r32-test-20261127-v3",
+  "manifestPathContract": {
+    "workingDirectory": "/opt/aoo/source",
+    "argument": "release-input/runtime-metadata-canonical-manifest-r32-test-20261127-v3.json",
+    "mode": "repository-relative-exact-string"
+  },
+  "serviceScope": [
+    "version",
+    "account",
+    "hall",
+    "social",
+    "media",
+    "gateway",
+    "all-deployed-game-providers"
+  ],
+  "acquiredAt": "2026-11-26T18:41:15.825Z",
+  "expiresAt": "2026-11-26T20:31:15.825Z",
+  "supersedes": "server/release-input/current32/r32-test-20261127-v2/activation-lease.json",
+  "toolHashes": {
+    "/opt/aoo/source/update-server.py": "b2ae96148cd323cd5518ebc0dad58e3e6cffb17f196ba4b06765384a0f2115d3",
+    "engineering/release/validate-canonical-registry-runtime-binding.rb": "9a351f173c144caa6d80a2e6a590eb444e73a3c2e0c96615f66bacbff21f8a93",
+    "engineering/release/project-canonical-identity-registry.rb": "0df79bc205cbbf6990c1acbea3e6e17cc28e804e326323417bf3ad37e6b606cc",
+    "engineering/release/tool-inputs/validate-runtime-metadata-manifest.rb": "5a8263cac83cd5a2f04c87f65d4fe9200333e7955b98c98f9685f04d9fbd72d0"
+  },
+  "writePaths": [
+    "server/release-input/runtime-metadata-canonical-manifest-r32-test-20261127-v3.json",
+    "server/release-input/identity/canonical-identity-runtime-registry-r32-test-20261127-v3.json",
+    "server/release-input/identity/canonical-identity-activation-contract-r32-test-20261127-v3.json",
+    "server/release-input/current32/r32-test-20261127-v3",
+    "server/release-input/current32/r32-test-20261127-v2/provider-artifacts",
+    "/opt/aoo/source/update-server.py"
+  ],
+  "independentReviewRequired": true
+}
+

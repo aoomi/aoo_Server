@@ -1,6 +1,7 @@
 package com.aoo.bcg.gamespi;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.util.ArrayList;
@@ -10,6 +11,18 @@ import java.util.concurrent.atomic.AtomicInteger;
 import org.junit.jupiter.api.Test;
 
 final class RuntimeMetadataProjectionContractTest {
+    @Test
+    void publicApiCannotConstructOrPromoteTrustedProjection() {
+        RuntimeMetadataProjection projection = projection();
+        assertEquals(RuntimeMetadataProjection.Trust.UNVERIFIED, projection.trust());
+        assertFalse(java.util.Arrays.stream(RuntimeMetadataProjection.class.getMethods())
+                .anyMatch(method -> method.getName().equals("signedCanonical")
+                        || method.getName().equals("verifiedLocalMirror")
+                        || method.getName().equals("trusted")));
+        assertFalse(java.util.Arrays.stream(RuntimeMetadataProjection.class.getConstructors())
+                .anyMatch(constructor -> java.util.Arrays.asList(constructor.getParameterTypes())
+                        .contains(RuntimeMetadataProjection.Trust.class)));
+    }
     @Test
     void projectionCarriesTheSignedEnvelopeAndAllEightFields() {
         RuntimeMetadataProjection projection = projection();

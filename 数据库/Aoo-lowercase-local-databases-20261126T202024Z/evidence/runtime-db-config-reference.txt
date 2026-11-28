@@ -1,0 +1,1 @@
+23:DB_URL = ('jdbc:mysql://127.0.0.1:3306/aoo_login_local?useUnicode=true&characterEncoding=UTF-8'

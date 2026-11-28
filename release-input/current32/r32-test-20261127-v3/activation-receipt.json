@@ -1,0 +1,40 @@
+{
+  "status": "FROZEN_PENDING_INDEPENDENT_REVIEW",
+  "issuer": "aoo-test-release-admin",
+  "edition": "r32-test-20261127",
+  "candidateRevision": "v3-relative-manifest-path-contract",
+  "manifestSha256": "b65c2edce1ba4e6dbabac0993d2ef1cb138f3a7048f6420e2868f14419774916",
+  "registrySha256": "add2ed397876e8e8289a21494a4b4a826b3ecfbdbf1d92e568ef81c980bc1f30",
+  "contractSha256": "b2cb69d2c37a56fb469d1085163e94d2c9f0a838dc37f7a7ffabae8d73ed8c57",
+  "releaseTarget": "test-server:8.137.34.190:r32-test-20261127-v3",
+  "manifestPathContract": {
+    "workingDirectory": "/opt/aoo/source",
+    "argument": "release-input/runtime-metadata-canonical-manifest-r32-test-20261127-v3.json",
+    "mode": "repository-relative-exact-string"
+  },
+  "serviceScope": [
+    "version",
+    "account",
+    "hall",
+    "social",
+    "media",
+    "gateway",
+    "all-deployed-game-providers"
+  ],
+  "approvalStatus": "ACCEPTED_TEST_SERVER_ACTIVATION_CANDIDATE",
+  "leaseExpiresAt": "2026-11-26T20:31:15.825Z",
+  "activationExecuted": false,
+  "databaseWritten": false,
+  "servicesRestarted": false,
+  "supersedes": {
+    "candidateRevision": "v2-immutable-provider-artifacts",
+    "registrySha256": "d4a5669948c99a2853aa6711b13ec4b0b08f2222242295d67a2fe5fa62a09521",
+    "reason": "registry recorded repository-relative manifest path while update-server supplied absolute path"
+  },
+  "verificationResults": {
+    "exactRemoteBindingInvocation": "PASS_CWD_OPT_AOO_SOURCE_RELATIVE_ARGUMENTS",
+    "absolutePathNegative": "PASS_REGISTRY_MANIFEST_PATH_MISMATCH",
+    "fullDryChain": "PASS_CLEAN_COMPILE_MANIFEST_BINDING_PROJECTOR_PACKAGE_CATALOG_32"
+  }
+}
+

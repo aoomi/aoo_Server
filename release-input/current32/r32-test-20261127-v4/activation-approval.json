@@ -1,0 +1,50 @@
+{
+  "status": "ACCEPTED_TEST_SERVER_ACTIVATION_CANDIDATE",
+  "issuer": "aoo-test-release-admin",
+  "edition": "r32-test-20261127",
+  "candidateRevision": "v4-identity-preserving",
+  "manifestSha256": "40bc9104d609daaa9bc5d1fbd6a276f11143a459358d7d108efac3791090299b",
+  "registrySha256": "a44c877283216c5d3ea28f0254e0d26cf95cb43f84b68ceee5a0833b33cbb446",
+  "contractSha256": "a79f24cc045ea3b1c7a537aca34167eb265a27a29884f5046c94f76a53bdb07a",
+  "identityAuthority": {
+    "dumpSha256": "bcdc89483e815ed78c40712ecfbfdd6df146797ee31687e13a72e15ce16fa69e",
+    "projectionSha256": "6a881107f530cb4fb0ec7271e55592217bf787d2e95c8a7fb1b05c0738d1e4fd"
+  },
+  "releaseTarget": "test-server:8.137.34.190:r32-test-20261127-v4",
+  "identityPreserving": true,
+  "databaseWrite": false,
+  "serviceScope": [
+    "version",
+    "account",
+    "hall",
+    "social",
+    "media",
+    "gateway",
+    "all-deployed-game-providers"
+  ],
+  "activationBindingProjectionSha256": "01f369ea204e912fc1c7ac5fda008efaaf7137cc0477958a67ce488c69e8c153",
+  "toolHashes": {
+    "engineering/release/issue-current-identity-metadata.py": "84fc56aa0a87d8442982fc20e1f6489e91911f48a99176fe6ffeb3c70cebaa82",
+    "engineering/release/tool-inputs/validate-runtime-metadata-manifest.rb": "b3165bdfe6a7aac6a6bc730138d8277c4be240aa6f165ec54625b411ba601e0c",
+    "engineering/release/project-canonical-identity-registry.rb": "0df79bc205cbbf6990c1acbea3e6e17cc28e804e326323417bf3ad37e6b606cc",
+    "engineering/release/validate-canonical-registry-runtime-binding.rb": "9a351f173c144caa6d80a2e6a590eb444e73a3c2e0c96615f66bacbff21f8a93",
+    "/opt/aoo/source/update-server.py": "f3f0fc57e66cea29c02ebcd64a2d3c58560dcad3e5329ccee66fa6eb4d57d155"
+  },
+  "supersedes": {
+    "candidateRevision": "v3-relative-manifest-path-contract",
+    "reason": "new literal IDs diverged from user-specified local engineering DB active projection"
+  },
+  "verificationPlan": [
+    "offline dump shadow extraction 32",
+    "target DB read-only identity equality",
+    "HallCatalogCheck against shadow/current read-only",
+    "clean compile validators projector package catalog readiness"
+  ],
+  "rollback": {
+    "required": true,
+    "databaseRulesOrPricingWrites": false
+  },
+  "independentReviewRequired": true,
+  "activationExecuted": false
+}
+

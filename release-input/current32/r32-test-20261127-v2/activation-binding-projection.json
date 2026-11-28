@@ -1,0 +1,9 @@
+{
+  "consumable": true,
+  "manifestSha256": "b65c2edce1ba4e6dbabac0993d2ef1cb138f3a7048f6420e2868f14419774916",
+  "registrySha256": "d4a5669948c99a2853aa6711b13ec4b0b08f2222242295d67a2fe5fa62a09521",
+  "contractSourceSha256": "bbb6f9f6282c99e48768568c5aa7cab25b70bda0ed78044b6455050dfc06561c",
+  "releaseEdition": "r32-test-20261127",
+  "contractVersion": "common-room-v1",
+  "rowCount": 32
+}

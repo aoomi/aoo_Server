@@ -1,0 +1,33 @@
+{
+  "status": "FROZEN_PENDING_INDEPENDENT_REVIEW",
+  "issuer": "aoo-test-release-admin",
+  "edition": "r32-test-20261127",
+  "manifestSha256": "8eac22fb514b3d65906aa726b898db45210819af534449d4eca4779d273c0495",
+  "registrySha256": "edd487957a429ac0d405cfbd478295276cfa1aa47c4a06a98f9c0adbb6558b41",
+  "contractSha256": "28830294527ea2395b1eb00537c53f3f7ff903315eaaa03955f47e16c2db31f7",
+  "releaseTarget": "test-server:8.137.34.190:r32-test-20261127",
+  "serviceScope": [
+    "version",
+    "account",
+    "hall",
+    "social",
+    "media",
+    "gateway",
+    "all-deployed-game-providers"
+  ],
+  "approvalStatus": "ACCEPTED_TEST_SERVER_ACTIVATION_CANDIDATE",
+  "leaseExpiresAt": "2026-11-26T20:06:41.679Z",
+  "activationExecuted": false,
+  "databaseWritten": false,
+  "servicesRestarted": false,
+  "sourceIssuanceEvidenceImmutable": true,
+  "verificationResults": {
+    "runtimeManifestValidator": "PASS",
+    "registryProjection": "PASS_32",
+    "registryBindingValidator": "PASS_32",
+    "productionAssembler": "PASS_32",
+    "nnProviderTests": "PASS_6",
+    "toctouNegativeTests": "PASS_MANIFEST_AND_REGISTRY_SHA_DRIFT_REJECTED"
+  }
+}
+

@@ -1,0 +1,2845 @@
+{
+  "manifestKind": "canonical-identity-runtime-registry",
+  "manifestVersion": "batch2-r2",
+  "schemaVersion": 1,
+  "registryStatus": "SIGNED_CANONICAL_INPUT",
+  "consumable": true,
+  "requiredFields": [
+    "gameId",
+    "gameCode",
+    "family",
+    "playVersion",
+    "regionCode",
+    "providerKey",
+    "clientRuntimeEntry",
+    "contractVersion",
+    "snapshotSchemaVersion",
+    "cardCodecVersion",
+    "eventInterpreterVersion",
+    "protocolVersion",
+    "sourceHash",
+    "releaseId",
+    "indexGeneration"
+  ],
+  "sourceContract": {
+    "sourceKind": "current-identity-source-plus-accepted-release-manifest-plus-production-runtime-evidence",
+    "noFallbacks": true,
+    "noGameIdDerivation": true,
+    "projectionBoundary": [
+      "serverDescriptor",
+      "provider",
+      "lobby",
+      "gateway",
+      "client"
+    ],
+    "currentContractSource": {
+      "path": "release-input/identity/canonical-identity-current-contract-r32-test-20261127-v4.json",
+      "sha256": "6aa0bc990305976c8071277838eb4bc5092f5d5e04fb59d24fd93e1d66b5b02b",
+      "issuer": "aoo-test-release-admin",
+      "contractVersion": "common-room-v1"
+    }
+  },
+  "releaseEdition": "r32-test-20261127",
+  "sourceDigests": {
+    "identitySource": {
+      "path": "release-input/identity/room-rule-play-identities.json",
+      "sha256": "b1618dce0c8522e7bc6e61fe90659c39521e0253558b782a13ae68e1168773dd"
+    },
+    "releaseManifest": {
+      "path": "release-input/runtime-metadata-canonical-manifest-r32-test-20261127-v4.json",
+      "sha256": "40bc9104d609daaa9bc5d1fbd6a276f11143a459358d7d108efac3791090299b"
+    },
+    "serverCatalog": {
+      "path": "modules/infrastructure/Bootstrap/src/main/resources/game-catalog-current-32.tsv",
+      "sha256": "85172e32b327e1b2df0d9f3187b48f7c035af1758f85e4d030809e2ecef6703b"
+    },
+    "currentContractSource": {
+      "path": "release-input/identity/canonical-identity-current-contract-r32-test-20261127-v4.json",
+      "sha256": "6aa0bc990305976c8071277838eb4bc5092f5d5e04fb59d24fd93e1d66b5b02b"
+    }
+  },
+  "rows": [
+    {
+      "gameId": 5,
+      "gameCode": "quanguo2998",
+      "displayName": "全国牛牛",
+      "category": "POKER",
+      "family": "poker:betting",
+      "regionCode": "GLOBAL",
+      "provinceCode": "",
+      "cityCode": "",
+      "playVersion": "nn-v1.0.0",
+      "snapshotSchemaVersion": "room-snapshot-v1",
+      "cardCodecVersion": "card-v3",
+      "eventInterpreterVersion": "events-v4",
+      "protocolVersion": "protocol-v2",
+      "sourceHash": "1a4a372aba8f49eb8d7ea224e19680b5532e1d7288d2cfcf091bbf556b63ad52",
+      "releaseId": 7026112606,
+      "indexGeneration": 2026100668,
+      "providerKey": "nn-native",
+      "clientRuntimeEntry": "nn",
+      "contractVersion": "common-room-v1",
+      "status": "CONSUMABLE",
+      "failureCodes": [
+
+      ],
+      "evidence": {
+        "providerKey": [
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Server/modules/gameplay/games/poker/nn/src/main/java/com/aoo/bcg/poker/nn/NnGameProvider.java",
+            "sha256": "0f39435e5ea9619f881a064aef9850138921ee8f776f85994758067ffc2817f2",
+            "role": "provider",
+            "assertion": "Map.entry(\"provider\", \"nn-native\")"
+          }
+        ],
+        "clientRuntimeEntry": [
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Client/assets/Games/Poker/NN/Common/Code/NnRuntimeEntry.ts",
+            "sha256": "f03c627fc8e3ee2c11c75650da18e15647f29ceb557db226baca1f1a395b5f2e",
+            "role": "clientRuntimeEntry",
+            "assertion": "id = 'nn'"
+          }
+        ],
+        "contractVersion": [
+          {
+            "path": "release-input/identity/canonical-identity-current-contract-r32-test-20261127-v4.json",
+            "sha256": "6aa0bc990305976c8071277838eb4bc5092f5d5e04fb59d24fd93e1d66b5b02b",
+            "role": "contractVersion",
+            "assertion": "signed current release contract source row"
+          },
+          {
+            "assertion": "current RoomSnapshot metadata contract",
+            "path": "server/modules/common/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java",
+            "sha256": "2b0fc5d1855aea8ba6da8c82275036c0ffaf559321cb56ceae6d7d0146371d4b",
+            "role": "contractVersion"
+          },
+          {
+            "assertion": "current RuntimeMetadata projection contract",
+            "path": "server/modules/infrastructure/GameSPI/src/main/java/com/aoo/bcg/gamespi/RuntimeMetadataProjection.java",
+            "sha256": "b0ba6be8636cabdf5da98bfda1ac86ef2a9813da129ed8c773c548955554d1e2",
+            "role": "contractVersion"
+          },
+          {
+            "assertion": "current source-backed runtime manifest",
+            "path": "server/release-input/runtime-metadata-canonical-manifest-r32-test-20261127-v4.json",
+            "sha256": "40bc9104d609daaa9bc5d1fbd6a276f11143a459358d7d108efac3791090299b",
+            "role": "contractVersion"
+          }
+        ],
+        "historicalCompatibilityExclusion": [
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Server/modules/infrastructure/GameSPI/src/main/java/com/aoo/bcg/gamespi/RoomCreationContext.java",
+            "sha256": "1e5841f901a76922510067d61bc640089a023b986d91340cfeed2fc5048243fb",
+            "role": "excluded",
+            "assertion": "RoomCreationContext compatibility-v1 is historical-only and never promoted"
+          }
+        ]
+      }
+    },
+    {
+      "gameId": 9,
+      "gameCode": "quanguo2997",
+      "displayName": "全国金花",
+      "category": "POKER",
+      "family": "poker:compare-hand",
+      "regionCode": "GLOBAL",
+      "provinceCode": "",
+      "cityCode": "",
+      "playVersion": "zjh-v1.0.0",
+      "snapshotSchemaVersion": "room-snapshot-v1",
+      "cardCodecVersion": "card-v3",
+      "eventInterpreterVersion": "events-v4",
+      "protocolVersion": "protocol-v2",
+      "sourceHash": "1d7b6785e3c4905cbf482312c54b4fc192726b9274e2dc575cdcf72619d8a546",
+      "releaseId": 11026112606,
+      "indexGeneration": 2026100669,
+      "providerKey": "zjh-native",
+      "clientRuntimeEntry": "zjh",
+      "contractVersion": "common-room-v1",
+      "status": "CONSUMABLE",
+      "failureCodes": [
+
+      ],
+      "evidence": {
+        "providerKey": [
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Server/modules/gameplay/games/poker/zjh/src/business/global/pk/zjh/ZjhGameProvider.java",
+            "sha256": "710e94ce5f1f95888df8b99a858ab1973be515fc323450d13236b63ee4c45c36",
+            "role": "provider",
+            "assertion": "explicit production ZJH PROVIDER_KEY and defaultConfiguration provider literal"
+          },
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Server/modules/gameplay/games/poker/zjh/test/business/global/pk/zjh/ZjhGameProviderTest.java",
+            "sha256": "239b232556d4e7cfa9f09bf08089b1a99b755806ad5eb2b178ea36004845700b",
+            "role": "provider",
+            "assertion": "focused provider test asserts the exact ZJH provider key/default configuration"
+          },
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Server/modules/gameplay/games/poker/zjh/src/business/global/pk/zjh/ZjhPokerFamilyProviderFactory.java",
+            "sha256": "7bb28db9f9461a02ee2b28c3c2bf9260ab9f70231825c18075bf969db5263259",
+            "role": "provider",
+            "assertion": "ZjhPokerFamilyProviderFactory binds descriptor only and declares no providerKey"
+          },
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Server/modules/infrastructure/GameSPI/src/main/java/com/aoo/bcg/gamespi/GameProvider.java",
+            "sha256": "a1616d62e1cb63ef559b755e3de3bcd782d2b4489538202070926db43bd54d8a",
+            "role": "provider",
+            "assertion": "GameProvider defaultConfiguration has no provider field and is not a ZJH provider key"
+          }
+        ],
+        "clientRuntimeEntry": [
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Client/assets/Games/Poker/ZJH/Common/Code/ZjhGameRuntimeEntry.ts",
+            "sha256": "fb39c9913d218d0736f2aadaf038cbc0bf6dd98953a359c51f2a89a766fe875d",
+            "role": "clientRuntimeEntry",
+            "assertion": "id = 'zjh'"
+          }
+        ],
+        "contractVersion": [
+          {
+            "path": "release-input/identity/canonical-identity-current-contract-r32-test-20261127-v4.json",
+            "sha256": "6aa0bc990305976c8071277838eb4bc5092f5d5e04fb59d24fd93e1d66b5b02b",
+            "role": "contractVersion",
+            "assertion": "signed current release contract source row"
+          },
+          {
+            "assertion": "current RoomSnapshot metadata contract",
+            "path": "server/modules/common/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java",
+            "sha256": "2b0fc5d1855aea8ba6da8c82275036c0ffaf559321cb56ceae6d7d0146371d4b",
+            "role": "contractVersion"
+          },
+          {
+            "assertion": "current RuntimeMetadata projection contract",
+            "path": "server/modules/infrastructure/GameSPI/src/main/java/com/aoo/bcg/gamespi/RuntimeMetadataProjection.java",
+            "sha256": "b0ba6be8636cabdf5da98bfda1ac86ef2a9813da129ed8c773c548955554d1e2",
+            "role": "contractVersion"
+          },
+          {
+            "assertion": "current source-backed runtime manifest",
+            "path": "server/release-input/runtime-metadata-canonical-manifest-r32-test-20261127-v4.json",
+            "sha256": "40bc9104d609daaa9bc5d1fbd6a276f11143a459358d7d108efac3791090299b",
+            "role": "contractVersion"
+          }
+        ],
+        "historicalCompatibilityExclusion": [
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Server/modules/infrastructure/GameSPI/src/main/java/com/aoo/bcg/gamespi/RoomCreationContext.java",
+            "sha256": "1e5841f901a76922510067d61bc640089a023b986d91340cfeed2fc5048243fb",
+            "role": "excluded",
+            "assertion": "RoomCreationContext compatibility-v1 is historical-only and never promoted"
+          }
+        ]
+      }
+    },
+    {
+      "gameId": 1001,
+      "gameCode": "chengdu1001",
+      "displayName": "成都麻将",
+      "category": "MAHJONG",
+      "family": "mahjong:xue-zhan",
+      "regionCode": "CN-51-01",
+      "provinceCode": "SC",
+      "cityCode": "CD",
+      "playVersion": "chengdu1001-v1.0.0",
+      "snapshotSchemaVersion": "room-snapshot-v1",
+      "cardCodecVersion": "card-v3",
+      "eventInterpreterVersion": "events-v4",
+      "protocolVersion": "protocol-v2",
+      "sourceHash": "c2ec22c31e4e965153c942f1f2f3634ce5c216e3dd4c1b971da578d060d85665",
+      "releaseId": 1003026112606,
+      "indexGeneration": 2026100670,
+      "providerKey": "native-mahjong-family",
+      "clientRuntimeEntry": "chengdu1001",
+      "contractVersion": "common-room-v1",
+      "status": "CONSUMABLE",
+      "failureCodes": [
+
+      ],
+      "evidence": {
+        "providerKey": [
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Server/modules/gameplay/games/mahjong/src/main/java/com/aoo/bcg/mahjong/CatalogMahjongFamilyProvider.java",
+            "sha256": "909584116a0265d51066be24b347f0399331facab57b02a5644c50eef779d411",
+            "role": "provider",
+            "assertion": "out.put(\"provider\",\"native-mahjong-family\")"
+          }
+        ],
+        "clientRuntimeEntry": [
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Client/assets/Games/Mahjong/Chengdu1001/Chengdu1001RuntimeEntry.ts",
+            "sha256": "70017a20a1c820f586d9c62060583f9f4710e6ad5c20f2512fcc4d5f5ce0e197",
+            "role": "clientRuntimeEntry",
+            "assertion": "id = 'chengdu1001'"
+          }
+        ],
+        "contractVersion": [
+          {
+            "path": "release-input/identity/canonical-identity-current-contract-r32-test-20261127-v4.json",
+            "sha256": "6aa0bc990305976c8071277838eb4bc5092f5d5e04fb59d24fd93e1d66b5b02b",
+            "role": "contractVersion",
+            "assertion": "signed current release contract source row"
+          },
+          {
+            "assertion": "current RoomSnapshot metadata contract",
+            "path": "server/modules/common/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java",
+            "sha256": "2b0fc5d1855aea8ba6da8c82275036c0ffaf559321cb56ceae6d7d0146371d4b",
+            "role": "contractVersion"
+          },
+          {
+            "assertion": "current RuntimeMetadata projection contract",
+            "path": "server/modules/infrastructure/GameSPI/src/main/java/com/aoo/bcg/gamespi/RuntimeMetadataProjection.java",
+            "sha256": "b0ba6be8636cabdf5da98bfda1ac86ef2a9813da129ed8c773c548955554d1e2",
+            "role": "contractVersion"
+          },
+          {
+            "assertion": "current source-backed runtime manifest",
+            "path": "server/release-input/runtime-metadata-canonical-manifest-r32-test-20261127-v4.json",
+            "sha256": "40bc9104d609daaa9bc5d1fbd6a276f11143a459358d7d108efac3791090299b",
+            "role": "contractVersion"
+          }
+        ],
+        "historicalCompatibilityExclusion": [
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Server/modules/infrastructure/GameSPI/src/main/java/com/aoo/bcg/gamespi/RoomCreationContext.java",
+            "sha256": "1e5841f901a76922510067d61bc640089a023b986d91340cfeed2fc5048243fb",
+            "role": "excluded",
+            "assertion": "RoomCreationContext compatibility-v1 is historical-only and never promoted"
+          }
+        ]
+      }
+    },
+    {
+      "gameId": 2001,
+      "gameCode": "chengdu2001",
+      "displayName": "成都跑得快",
+      "category": "POKER",
+      "family": "poker:pao-de-kuai",
+      "regionCode": "CN-51-01",
+      "provinceCode": "sichuan",
+      "cityCode": "chengdu",
+      "playVersion": "chengdu2001-v1.0.0",
+      "snapshotSchemaVersion": "room-snapshot-v1",
+      "cardCodecVersion": "card-v3",
+      "eventInterpreterVersion": "events-v4",
+      "protocolVersion": "protocol-v2",
+      "sourceHash": "ca8ffd29cc851946e304a1e942725adebfe661b40323b3dc3614d9707078ac6b",
+      "releaseId": 2003026112606,
+      "indexGeneration": 2026100671,
+      "providerKey": "native-pdk",
+      "clientRuntimeEntry": "common-pdk",
+      "contractVersion": "common-room-v1",
+      "status": "CONSUMABLE",
+      "failureCodes": [
+
+      ],
+      "evidence": {
+        "providerKey": [
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Server/modules/gameplay/games/poker/src/main/java/com/aoo/bcg/poker/PokerCatalogRuntimeRegistry.java",
+            "sha256": "c05e1ac0414c6157d85b2416b807da99cb0f6d8482bbfeb7563aa8059ce5c7a2",
+            "role": "provider",
+            "assertion": "PdkGameProvider.defaultConfiguration uses regionalRules==null ? native-pdk : region provider; descriptor is current chengdu2001"
+          }
+        ],
+        "clientRuntimeEntry": [
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Client/assets/Games/Poker/PDK/Common/Code/Regional/PdkBusinessCodes.ts",
+            "sha256": "857f7e8dff494b018f8d95584e1b62a5a3b0f28133bc269bdea84f4c6a0a6ab0",
+            "role": "clientRuntimeEntry",
+            "assertion": "PDK_BUSINESS_CODE_LIST contains chengdu2001"
+          },
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Client/assets/Games/Poker/PDK/Common/Code/Runtime/PdkRuntimeEntry.ts",
+            "sha256": "2cec8f17eb7fad459da19570c38c0b784c316eb3bd9e0bb5c7158bec9cbca2d0",
+            "role": "clientRuntimeEntry",
+            "assertion": "id common-pdk owns PDK_BUSINESS_CODE_LIST"
+          }
+        ],
+        "contractVersion": [
+          {
+            "path": "release-input/identity/canonical-identity-current-contract-r32-test-20261127-v4.json",
+            "sha256": "6aa0bc990305976c8071277838eb4bc5092f5d5e04fb59d24fd93e1d66b5b02b",
+            "role": "contractVersion",
+            "assertion": "signed current release contract source row"
+          },
+          {
+            "assertion": "current RoomSnapshot metadata contract",
+            "path": "server/modules/common/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java",
+            "sha256": "2b0fc5d1855aea8ba6da8c82275036c0ffaf559321cb56ceae6d7d0146371d4b",
+            "role": "contractVersion"
+          },
+          {
+            "assertion": "current RuntimeMetadata projection contract",
+            "path": "server/modules/infrastructure/GameSPI/src/main/java/com/aoo/bcg/gamespi/RuntimeMetadataProjection.java",
+            "sha256": "b0ba6be8636cabdf5da98bfda1ac86ef2a9813da129ed8c773c548955554d1e2",
+            "role": "contractVersion"
+          },
+          {
+            "assertion": "current source-backed runtime manifest",
+            "path": "server/release-input/runtime-metadata-canonical-manifest-r32-test-20261127-v4.json",
+            "sha256": "40bc9104d609daaa9bc5d1fbd6a276f11143a459358d7d108efac3791090299b",
+            "role": "contractVersion"
+          }
+        ],
+        "historicalCompatibilityExclusion": [
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Server/modules/infrastructure/GameSPI/src/main/java/com/aoo/bcg/gamespi/RoomCreationContext.java",
+            "sha256": "1e5841f901a76922510067d61bc640089a023b986d91340cfeed2fc5048243fb",
+            "role": "excluded",
+            "assertion": "RoomCreationContext compatibility-v1 is historical-only and never promoted"
+          }
+        ]
+      }
+    },
+    {
+      "gameId": 2002,
+      "gameCode": "neijiang2002",
+      "displayName": "内江跑得快",
+      "category": "POKER",
+      "family": "poker:pao-de-kuai",
+      "regionCode": "CN-51-10",
+      "provinceCode": "sichuan",
+      "cityCode": "neijiang",
+      "playVersion": "neijiang2002-v1.0.0",
+      "snapshotSchemaVersion": "room-snapshot-v1",
+      "cardCodecVersion": "card-v3",
+      "eventInterpreterVersion": "events-v4",
+      "protocolVersion": "protocol-v2",
+      "sourceHash": "e874258955e09787e77801518830d85bf25527ec38ffff2fa117e83c518e5cad",
+      "releaseId": 2004026112606,
+      "indexGeneration": 2026100672,
+      "providerKey": "native-pdk-neijiang2002",
+      "clientRuntimeEntry": "common-pdk",
+      "contractVersion": "common-room-v1",
+      "status": "CONSUMABLE",
+      "failureCodes": [
+
+      ],
+      "evidence": {
+        "providerKey": [
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Server/modules/gameplay/games/poker/src/main/java/com/aoo/bcg/poker/NeijiangPdkRules.java",
+            "sha256": "b2fc739bf553cf5b7801e1dab6664339167698971800f8049054f7e997a24d68",
+            "role": "provider",
+            "assertion": "providerKey returns native-pdk-NEIJIANG and NEIJIANG is neijiang2002"
+          }
+        ],
+        "clientRuntimeEntry": [
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Client/assets/Games/Poker/PDK/Common/Code/Regional/PdkBusinessCodes.ts",
+            "sha256": "857f7e8dff494b018f8d95584e1b62a5a3b0f28133bc269bdea84f4c6a0a6ab0",
+            "role": "clientRuntimeEntry",
+            "assertion": "PDK_BUSINESS_CODE_LIST contains neijiang2002"
+          },
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Client/assets/Games/Poker/PDK/Common/Code/Runtime/PdkRuntimeEntry.ts",
+            "sha256": "2cec8f17eb7fad459da19570c38c0b784c316eb3bd9e0bb5c7158bec9cbca2d0",
+            "role": "clientRuntimeEntry",
+            "assertion": "id common-pdk owns PDK_BUSINESS_CODE_LIST"
+          }
+        ],
+        "contractVersion": [
+          {
+            "path": "release-input/identity/canonical-identity-current-contract-r32-test-20261127-v4.json",
+            "sha256": "6aa0bc990305976c8071277838eb4bc5092f5d5e04fb59d24fd93e1d66b5b02b",
+            "role": "contractVersion",
+            "assertion": "signed current release contract source row"
+          },
+          {
+            "assertion": "current RoomSnapshot metadata contract",
+            "path": "server/modules/common/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java",
+            "sha256": "2b0fc5d1855aea8ba6da8c82275036c0ffaf559321cb56ceae6d7d0146371d4b",
+            "role": "contractVersion"
+          },
+          {
+            "assertion": "current RuntimeMetadata projection contract",
+            "path": "server/modules/infrastructure/GameSPI/src/main/java/com/aoo/bcg/gamespi/RuntimeMetadataProjection.java",
+            "sha256": "b0ba6be8636cabdf5da98bfda1ac86ef2a9813da129ed8c773c548955554d1e2",
+            "role": "contractVersion"
+          },
+          {
+            "assertion": "current source-backed runtime manifest",
+            "path": "server/release-input/runtime-metadata-canonical-manifest-r32-test-20261127-v4.json",
+            "sha256": "40bc9104d609daaa9bc5d1fbd6a276f11143a459358d7d108efac3791090299b",
+            "role": "contractVersion"
+          }
+        ],
+        "historicalCompatibilityExclusion": [
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Server/modules/infrastructure/GameSPI/src/main/java/com/aoo/bcg/gamespi/RoomCreationContext.java",
+            "sha256": "1e5841f901a76922510067d61bc640089a023b986d91340cfeed2fc5048243fb",
+            "role": "excluded",
+            "assertion": "RoomCreationContext compatibility-v1 is historical-only and never promoted"
+          }
+        ]
+      }
+    },
+    {
+      "gameId": 2003,
+      "gameCode": "liangshan2003",
+      "displayName": "凉山跑得快",
+      "category": "POKER",
+      "family": "poker:pao-de-kuai",
+      "regionCode": "CN-51-34",
+      "provinceCode": "sichuan",
+      "cityCode": "liangshan",
+      "playVersion": "liangshan2003-v1.0.0",
+      "snapshotSchemaVersion": "room-snapshot-v1",
+      "cardCodecVersion": "card-v3",
+      "eventInterpreterVersion": "events-v4",
+      "protocolVersion": "protocol-v2",
+      "sourceHash": "c5fe7d0e7078992537ba68c5ae1d96614d4ae0e32822c6dd7a1e0b4e862250c3",
+      "releaseId": 2005026112606,
+      "indexGeneration": 2026100673,
+      "providerKey": "native-pdk-liangshan2003",
+      "clientRuntimeEntry": "common-pdk",
+      "contractVersion": "common-room-v1",
+      "status": "CONSUMABLE",
+      "failureCodes": [
+
+      ],
+      "evidence": {
+        "providerKey": [
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Server/modules/gameplay/games/poker/src/main/java/com/aoo/bcg/poker/LiangshanPdkRules.java",
+            "sha256": "73184ecd4fbfe3b94e5aceac07be3b96fdf2ebcdf8a86e519e3cafb05836f94b",
+            "role": "provider",
+            "assertion": "providerKey returns native-pdk-LIANGSHAN and LIANGSHAN is liangshan2003"
+          }
+        ],
+        "clientRuntimeEntry": [
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Client/assets/Games/Poker/PDK/Common/Code/Regional/PdkBusinessCodes.ts",
+            "sha256": "857f7e8dff494b018f8d95584e1b62a5a3b0f28133bc269bdea84f4c6a0a6ab0",
+            "role": "clientRuntimeEntry",
+            "assertion": "PDK_BUSINESS_CODE_LIST contains liangshan2003"
+          },
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Client/assets/Games/Poker/PDK/Common/Code/Runtime/PdkRuntimeEntry.ts",
+            "sha256": "2cec8f17eb7fad459da19570c38c0b784c316eb3bd9e0bb5c7158bec9cbca2d0",
+            "role": "clientRuntimeEntry",
+            "assertion": "id common-pdk owns PDK_BUSINESS_CODE_LIST"
+          }
+        ],
+        "contractVersion": [
+          {
+            "path": "release-input/identity/canonical-identity-current-contract-r32-test-20261127-v4.json",
+            "sha256": "6aa0bc990305976c8071277838eb4bc5092f5d5e04fb59d24fd93e1d66b5b02b",
+            "role": "contractVersion",
+            "assertion": "signed current release contract source row"
+          },
+          {
+            "assertion": "current RoomSnapshot metadata contract",
+            "path": "server/modules/common/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java",
+            "sha256": "2b0fc5d1855aea8ba6da8c82275036c0ffaf559321cb56ceae6d7d0146371d4b",
+            "role": "contractVersion"
+          },
+          {
+            "assertion": "current RuntimeMetadata projection contract",
+            "path": "server/modules/infrastructure/GameSPI/src/main/java/com/aoo/bcg/gamespi/RuntimeMetadataProjection.java",
+            "sha256": "b0ba6be8636cabdf5da98bfda1ac86ef2a9813da129ed8c773c548955554d1e2",
+            "role": "contractVersion"
+          },
+          {
+            "assertion": "current source-backed runtime manifest",
+            "path": "server/release-input/runtime-metadata-canonical-manifest-r32-test-20261127-v4.json",
+            "sha256": "40bc9104d609daaa9bc5d1fbd6a276f11143a459358d7d108efac3791090299b",
+            "role": "contractVersion"
+          }
+        ],
+        "historicalCompatibilityExclusion": [
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Server/modules/infrastructure/GameSPI/src/main/java/com/aoo/bcg/gamespi/RoomCreationContext.java",
+            "sha256": "1e5841f901a76922510067d61bc640089a023b986d91340cfeed2fc5048243fb",
+            "role": "excluded",
+            "assertion": "RoomCreationContext compatibility-v1 is historical-only and never promoted"
+          }
+        ]
+      }
+    },
+    {
+      "gameId": 2004,
+      "gameCode": "mianning2004",
+      "displayName": "冕宁跑得快",
+      "category": "POKER",
+      "family": "poker:pao-de-kuai",
+      "regionCode": "CN-51-34-33",
+      "provinceCode": "sichuan",
+      "cityCode": "mianning",
+      "playVersion": "mianning2004-v1.0.0",
+      "snapshotSchemaVersion": "room-snapshot-v1",
+      "cardCodecVersion": "card-v3",
+      "eventInterpreterVersion": "events-v4",
+      "protocolVersion": "protocol-v2",
+      "sourceHash": "713a219390223ec6926f2c1825a95b28c95a43ef37f86b78a5923d236ef5549a",
+      "releaseId": 2006026112606,
+      "indexGeneration": 2026100674,
+      "providerKey": "native-pdk-mianning2004",
+      "clientRuntimeEntry": "common-pdk",
+      "contractVersion": "common-room-v1",
+      "status": "CONSUMABLE",
+      "failureCodes": [
+
+      ],
+      "evidence": {
+        "providerKey": [
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Server/modules/gameplay/games/poker/src/main/java/com/aoo/bcg/poker/MianningPdkRegionRules.java",
+            "sha256": "f1c4db182ce7680f11472d375e08e140b15866cf5c31d910a342489b1d7c457c",
+            "role": "provider",
+            "assertion": "providerKey returns native-pdk-MIANNING and MIANNING is mianning2004"
+          }
+        ],
+        "clientRuntimeEntry": [
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Client/assets/Games/Poker/PDK/Common/Code/Regional/PdkBusinessCodes.ts",
+            "sha256": "857f7e8dff494b018f8d95584e1b62a5a3b0f28133bc269bdea84f4c6a0a6ab0",
+            "role": "clientRuntimeEntry",
+            "assertion": "PDK_BUSINESS_CODE_LIST contains mianning2004"
+          },
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Client/assets/Games/Poker/PDK/Common/Code/Runtime/PdkRuntimeEntry.ts",
+            "sha256": "2cec8f17eb7fad459da19570c38c0b784c316eb3bd9e0bb5c7158bec9cbca2d0",
+            "role": "clientRuntimeEntry",
+            "assertion": "id common-pdk owns PDK_BUSINESS_CODE_LIST"
+          }
+        ],
+        "contractVersion": [
+          {
+            "path": "release-input/identity/canonical-identity-current-contract-r32-test-20261127-v4.json",
+            "sha256": "6aa0bc990305976c8071277838eb4bc5092f5d5e04fb59d24fd93e1d66b5b02b",
+            "role": "contractVersion",
+            "assertion": "signed current release contract source row"
+          },
+          {
+            "assertion": "current RoomSnapshot metadata contract",
+            "path": "server/modules/common/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java",
+            "sha256": "2b0fc5d1855aea8ba6da8c82275036c0ffaf559321cb56ceae6d7d0146371d4b",
+            "role": "contractVersion"
+          },
+          {
+            "assertion": "current RuntimeMetadata projection contract",
+            "path": "server/modules/infrastructure/GameSPI/src/main/java/com/aoo/bcg/gamespi/RuntimeMetadataProjection.java",
+            "sha256": "b0ba6be8636cabdf5da98bfda1ac86ef2a9813da129ed8c773c548955554d1e2",
+            "role": "contractVersion"
+          },
+          {
+            "assertion": "current source-backed runtime manifest",
+            "path": "server/release-input/runtime-metadata-canonical-manifest-r32-test-20261127-v4.json",
+            "sha256": "40bc9104d609daaa9bc5d1fbd6a276f11143a459358d7d108efac3791090299b",
+            "role": "contractVersion"
+          }
+        ],
+        "historicalCompatibilityExclusion": [
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Server/modules/infrastructure/GameSPI/src/main/java/com/aoo/bcg/gamespi/RoomCreationContext.java",
+            "sha256": "1e5841f901a76922510067d61bc640089a023b986d91340cfeed2fc5048243fb",
+            "role": "excluded",
+            "assertion": "RoomCreationContext compatibility-v1 is historical-only and never promoted"
+          }
+        ]
+      }
+    },
+    {
+      "gameId": 2005,
+      "gameCode": "anyue2005",
+      "displayName": "安岳跑得快",
+      "category": "POKER",
+      "family": "poker:pao-de-kuai",
+      "regionCode": "CN-51-20-21",
+      "provinceCode": "sichuan",
+      "cityCode": "anyue",
+      "playVersion": "anyue2005-v1.0.0",
+      "snapshotSchemaVersion": "room-snapshot-v1",
+      "cardCodecVersion": "card-v3",
+      "eventInterpreterVersion": "events-v4",
+      "protocolVersion": "protocol-v2",
+      "sourceHash": "dabb398a4ebb6dd2700fc7d639ccc7ad589abc1142cd9f00fce2884c5932ce0a",
+      "releaseId": 2007026112606,
+      "indexGeneration": 2026100675,
+      "providerKey": "native-pdk-anyue2005",
+      "clientRuntimeEntry": "common-pdk",
+      "contractVersion": "common-room-v1",
+      "status": "CONSUMABLE",
+      "failureCodes": [
+
+      ],
+      "evidence": {
+        "providerKey": [
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Server/modules/gameplay/games/poker/src/main/java/com/aoo/bcg/poker/AnyuePdkRegionRules.java",
+            "sha256": "fb9c662fb1b60e4ed17360f6d11da734ab9dda4d1ae4b92806fdbc3f3c3b2dfd",
+            "role": "provider",
+            "assertion": "providerKey returns native-pdk-ANYUE and ANYUE is anyue2005"
+          }
+        ],
+        "clientRuntimeEntry": [
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Client/assets/Games/Poker/PDK/Common/Code/Regional/PdkBusinessCodes.ts",
+            "sha256": "857f7e8dff494b018f8d95584e1b62a5a3b0f28133bc269bdea84f4c6a0a6ab0",
+            "role": "clientRuntimeEntry",
+            "assertion": "PDK_BUSINESS_CODE_LIST contains anyue2005"
+          },
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Client/assets/Games/Poker/PDK/Common/Code/Runtime/PdkRuntimeEntry.ts",
+            "sha256": "2cec8f17eb7fad459da19570c38c0b784c316eb3bd9e0bb5c7158bec9cbca2d0",
+            "role": "clientRuntimeEntry",
+            "assertion": "id common-pdk owns PDK_BUSINESS_CODE_LIST"
+          }
+        ],
+        "contractVersion": [
+          {
+            "path": "release-input/identity/canonical-identity-current-contract-r32-test-20261127-v4.json",
+            "sha256": "6aa0bc990305976c8071277838eb4bc5092f5d5e04fb59d24fd93e1d66b5b02b",
+            "role": "contractVersion",
+            "assertion": "signed current release contract source row"
+          },
+          {
+            "assertion": "current RoomSnapshot metadata contract",
+            "path": "server/modules/common/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java",
+            "sha256": "2b0fc5d1855aea8ba6da8c82275036c0ffaf559321cb56ceae6d7d0146371d4b",
+            "role": "contractVersion"
+          },
+          {
+            "assertion": "current RuntimeMetadata projection contract",
+            "path": "server/modules/infrastructure/GameSPI/src/main/java/com/aoo/bcg/gamespi/RuntimeMetadataProjection.java",
+            "sha256": "b0ba6be8636cabdf5da98bfda1ac86ef2a9813da129ed8c773c548955554d1e2",
+            "role": "contractVersion"
+          },
+          {
+            "assertion": "current source-backed runtime manifest",
+            "path": "server/release-input/runtime-metadata-canonical-manifest-r32-test-20261127-v4.json",
+            "sha256": "40bc9104d609daaa9bc5d1fbd6a276f11143a459358d7d108efac3791090299b",
+            "role": "contractVersion"
+          }
+        ],
+        "historicalCompatibilityExclusion": [
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Server/modules/infrastructure/GameSPI/src/main/java/com/aoo/bcg/gamespi/RoomCreationContext.java",
+            "sha256": "1e5841f901a76922510067d61bc640089a023b986d91340cfeed2fc5048243fb",
+            "role": "excluded",
+            "assertion": "RoomCreationContext compatibility-v1 is historical-only and never promoted"
+          }
+        ]
+      }
+    },
+    {
+      "gameId": 2006,
+      "gameCode": "panzhihua2006",
+      "displayName": "攀枝花跑得快",
+      "category": "POKER",
+      "family": "poker:pao-de-kuai",
+      "regionCode": "CN-51-04",
+      "provinceCode": "sichuan",
+      "cityCode": "panzhihua",
+      "playVersion": "panzhihua2006-v1.0.0",
+      "snapshotSchemaVersion": "room-snapshot-v1",
+      "cardCodecVersion": "card-v3",
+      "eventInterpreterVersion": "events-v4",
+      "protocolVersion": "protocol-v2",
+      "sourceHash": "2863f927671d0c2bc8dfed680a3388fc68e0f10b2b6ea296a44f6e5e89567fa5",
+      "releaseId": 2008026112606,
+      "indexGeneration": 2026100676,
+      "providerKey": "native-pdk-panzhihua2006",
+      "clientRuntimeEntry": "common-pdk",
+      "contractVersion": "common-room-v1",
+      "status": "CONSUMABLE",
+      "failureCodes": [
+
+      ],
+      "evidence": {
+        "providerKey": [
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Server/modules/gameplay/games/poker/src/main/java/com/aoo/bcg/poker/PanzhihuaPdkRegionRules.java",
+            "sha256": "a904bcb0902271ec570301fee4f011d32f0ea345e105fa2756f86747679aabab",
+            "role": "provider",
+            "assertion": "providerKey returns native-pdk-PANZHIHUA and PANZHIHUA is panzhihua2006"
+          }
+        ],
+        "clientRuntimeEntry": [
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Client/assets/Games/Poker/PDK/Common/Code/Regional/PdkBusinessCodes.ts",
+            "sha256": "857f7e8dff494b018f8d95584e1b62a5a3b0f28133bc269bdea84f4c6a0a6ab0",
+            "role": "clientRuntimeEntry",
+            "assertion": "PDK_BUSINESS_CODE_LIST contains panzhihua2006"
+          },
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Client/assets/Games/Poker/PDK/Common/Code/Runtime/PdkRuntimeEntry.ts",
+            "sha256": "2cec8f17eb7fad459da19570c38c0b784c316eb3bd9e0bb5c7158bec9cbca2d0",
+            "role": "clientRuntimeEntry",
+            "assertion": "id common-pdk owns PDK_BUSINESS_CODE_LIST"
+          }
+        ],
+        "contractVersion": [
+          {
+            "path": "release-input/identity/canonical-identity-current-contract-r32-test-20261127-v4.json",
+            "sha256": "6aa0bc990305976c8071277838eb4bc5092f5d5e04fb59d24fd93e1d66b5b02b",
+            "role": "contractVersion",
+            "assertion": "signed current release contract source row"
+          },
+          {
+            "assertion": "current RoomSnapshot metadata contract",
+            "path": "server/modules/common/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java",
+            "sha256": "2b0fc5d1855aea8ba6da8c82275036c0ffaf559321cb56ceae6d7d0146371d4b",
+            "role": "contractVersion"
+          },
+          {
+            "assertion": "current RuntimeMetadata projection contract",
+            "path": "server/modules/infrastructure/GameSPI/src/main/java/com/aoo/bcg/gamespi/RuntimeMetadataProjection.java",
+            "sha256": "b0ba6be8636cabdf5da98bfda1ac86ef2a9813da129ed8c773c548955554d1e2",
+            "role": "contractVersion"
+          },
+          {
+            "assertion": "current source-backed runtime manifest",
+            "path": "server/release-input/runtime-metadata-canonical-manifest-r32-test-20261127-v4.json",
+            "sha256": "40bc9104d609daaa9bc5d1fbd6a276f11143a459358d7d108efac3791090299b",
+            "role": "contractVersion"
+          }
+        ],
+        "historicalCompatibilityExclusion": [
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Server/modules/infrastructure/GameSPI/src/main/java/com/aoo/bcg/gamespi/RoomCreationContext.java",
+            "sha256": "1e5841f901a76922510067d61bc640089a023b986d91340cfeed2fc5048243fb",
+            "role": "excluded",
+            "assertion": "RoomCreationContext compatibility-v1 is historical-only and never promoted"
+          }
+        ]
+      }
+    },
+    {
+      "gameId": 2007,
+      "gameCode": "wannian2007",
+      "displayName": "万年跑得快",
+      "category": "POKER",
+      "family": "poker:pao-de-kuai",
+      "regionCode": "CN-36-11-29",
+      "provinceCode": "jiangxi",
+      "cityCode": "wannian",
+      "playVersion": "wannian2007-v1.0.0",
+      "snapshotSchemaVersion": "room-snapshot-v1",
+      "cardCodecVersion": "card-v3",
+      "eventInterpreterVersion": "events-v4",
+      "protocolVersion": "protocol-v2",
+      "sourceHash": "b41006caa29b13d1f8a7e17966f9f599cd01a233dcbe331b6588fcfbf5579c8a",
+      "releaseId": 2009026112606,
+      "indexGeneration": 2026100677,
+      "providerKey": "native-pdk-wannian2007",
+      "clientRuntimeEntry": "common-pdk",
+      "contractVersion": "common-room-v1",
+      "status": "CONSUMABLE",
+      "failureCodes": [
+
+      ],
+      "evidence": {
+        "providerKey": [
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Server/modules/gameplay/games/poker/src/main/java/com/aoo/bcg/poker/LegacyPdkRegionRules.java",
+            "sha256": "e9c64c0d144c52fa418f6869157d9b19875f307f6f6d26eb17621a28ba5cac25",
+            "role": "provider",
+            "assertion": "LegacyPdkRegionRules.providerKey returns native-pdk- plus its dispatched gameCode"
+          },
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Server/modules/gameplay/games/poker/src/main/java/com/aoo/bcg/poker/PokerCatalogRuntimeRegistry.java",
+            "sha256": "c05e1ac0414c6157d85b2416b807da99cb0f6d8482bbfeb7563aa8059ce5c7a2",
+            "role": "provider",
+            "assertion": "PdkBusinessCodes::WANNIAN is dispatched to LegacyPdkRegionRules"
+          }
+        ],
+        "clientRuntimeEntry": [
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Client/assets/Games/Poker/PDK/Common/Code/Regional/PdkBusinessCodes.ts",
+            "sha256": "857f7e8dff494b018f8d95584e1b62a5a3b0f28133bc269bdea84f4c6a0a6ab0",
+            "role": "clientRuntimeEntry",
+            "assertion": "PDK_BUSINESS_CODE_LIST contains wannian2007"
+          },
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Client/assets/Games/Poker/PDK/Common/Code/Runtime/PdkRuntimeEntry.ts",
+            "sha256": "2cec8f17eb7fad459da19570c38c0b784c316eb3bd9e0bb5c7158bec9cbca2d0",
+            "role": "clientRuntimeEntry",
+            "assertion": "id common-pdk owns PDK_BUSINESS_CODE_LIST"
+          }
+        ],
+        "contractVersion": [
+          {
+            "path": "release-input/identity/canonical-identity-current-contract-r32-test-20261127-v4.json",
+            "sha256": "6aa0bc990305976c8071277838eb4bc5092f5d5e04fb59d24fd93e1d66b5b02b",
+            "role": "contractVersion",
+            "assertion": "signed current release contract source row"
+          },
+          {
+            "assertion": "current RoomSnapshot metadata contract",
+            "path": "server/modules/common/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java",
+            "sha256": "2b0fc5d1855aea8ba6da8c82275036c0ffaf559321cb56ceae6d7d0146371d4b",
+            "role": "contractVersion"
+          },
+          {
+            "assertion": "current RuntimeMetadata projection contract",
+            "path": "server/modules/infrastructure/GameSPI/src/main/java/com/aoo/bcg/gamespi/RuntimeMetadataProjection.java",
+            "sha256": "b0ba6be8636cabdf5da98bfda1ac86ef2a9813da129ed8c773c548955554d1e2",
+            "role": "contractVersion"
+          },
+          {
+            "assertion": "current source-backed runtime manifest",
+            "path": "server/release-input/runtime-metadata-canonical-manifest-r32-test-20261127-v4.json",
+            "sha256": "40bc9104d609daaa9bc5d1fbd6a276f11143a459358d7d108efac3791090299b",
+            "role": "contractVersion"
+          }
+        ],
+        "historicalCompatibilityExclusion": [
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Server/modules/infrastructure/GameSPI/src/main/java/com/aoo/bcg/gamespi/RoomCreationContext.java",
+            "sha256": "1e5841f901a76922510067d61bc640089a023b986d91340cfeed2fc5048243fb",
+            "role": "excluded",
+            "assertion": "RoomCreationContext compatibility-v1 is historical-only and never promoted"
+          }
+        ]
+      }
+    },
+    {
+      "gameId": 2008,
+      "gameCode": "leping2008",
+      "displayName": "乐平跑得快",
+      "category": "POKER",
+      "family": "poker:pao-de-kuai",
+      "regionCode": "CN-36-02-81",
+      "provinceCode": "jiangxi",
+      "cityCode": "leping",
+      "playVersion": "leping2008-v1.0.0",
+      "snapshotSchemaVersion": "room-snapshot-v1",
+      "cardCodecVersion": "card-v3",
+      "eventInterpreterVersion": "events-v4",
+      "protocolVersion": "protocol-v2",
+      "sourceHash": "d04b51b4cded129fd40dc4ace9fc7ab2fa2d6263e755f5925663b746ac24a933",
+      "releaseId": 2010026112606,
+      "indexGeneration": 2026100678,
+      "providerKey": "native-pdk-leping2008",
+      "clientRuntimeEntry": "common-pdk",
+      "contractVersion": "common-room-v1",
+      "status": "CONSUMABLE",
+      "failureCodes": [
+
+      ],
+      "evidence": {
+        "providerKey": [
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Server/modules/gameplay/games/poker/src/main/java/com/aoo/bcg/poker/LegacyPdkRegionRules.java",
+            "sha256": "e9c64c0d144c52fa418f6869157d9b19875f307f6f6d26eb17621a28ba5cac25",
+            "role": "provider",
+            "assertion": "LegacyPdkRegionRules.providerKey returns native-pdk- plus its dispatched gameCode"
+          },
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Server/modules/gameplay/games/poker/src/main/java/com/aoo/bcg/poker/PokerCatalogRuntimeRegistry.java",
+            "sha256": "c05e1ac0414c6157d85b2416b807da99cb0f6d8482bbfeb7563aa8059ce5c7a2",
+            "role": "provider",
+            "assertion": "PdkBusinessCodes::LEPING is dispatched to LegacyPdkRegionRules"
+          }
+        ],
+        "clientRuntimeEntry": [
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Client/assets/Games/Poker/PDK/Common/Code/Regional/PdkBusinessCodes.ts",
+            "sha256": "857f7e8dff494b018f8d95584e1b62a5a3b0f28133bc269bdea84f4c6a0a6ab0",
+            "role": "clientRuntimeEntry",
+            "assertion": "PDK_BUSINESS_CODE_LIST contains leping2008"
+          },
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Client/assets/Games/Poker/PDK/Common/Code/Runtime/PdkRuntimeEntry.ts",
+            "sha256": "2cec8f17eb7fad459da19570c38c0b784c316eb3bd9e0bb5c7158bec9cbca2d0",
+            "role": "clientRuntimeEntry",
+            "assertion": "id common-pdk owns PDK_BUSINESS_CODE_LIST"
+          }
+        ],
+        "contractVersion": [
+          {
+            "path": "release-input/identity/canonical-identity-current-contract-r32-test-20261127-v4.json",
+            "sha256": "6aa0bc990305976c8071277838eb4bc5092f5d5e04fb59d24fd93e1d66b5b02b",
+            "role": "contractVersion",
+            "assertion": "signed current release contract source row"
+          },
+          {
+            "assertion": "current RoomSnapshot metadata contract",
+            "path": "server/modules/common/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java",
+            "sha256": "2b0fc5d1855aea8ba6da8c82275036c0ffaf559321cb56ceae6d7d0146371d4b",
+            "role": "contractVersion"
+          },
+          {
+            "assertion": "current RuntimeMetadata projection contract",
+            "path": "server/modules/infrastructure/GameSPI/src/main/java/com/aoo/bcg/gamespi/RuntimeMetadataProjection.java",
+            "sha256": "b0ba6be8636cabdf5da98bfda1ac86ef2a9813da129ed8c773c548955554d1e2",
+            "role": "contractVersion"
+          },
+          {
+            "assertion": "current source-backed runtime manifest",
+            "path": "server/release-input/runtime-metadata-canonical-manifest-r32-test-20261127-v4.json",
+            "sha256": "40bc9104d609daaa9bc5d1fbd6a276f11143a459358d7d108efac3791090299b",
+            "role": "contractVersion"
+          }
+        ],
+        "historicalCompatibilityExclusion": [
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Server/modules/infrastructure/GameSPI/src/main/java/com/aoo/bcg/gamespi/RoomCreationContext.java",
+            "sha256": "1e5841f901a76922510067d61bc640089a023b986d91340cfeed2fc5048243fb",
+            "role": "excluded",
+            "assertion": "RoomCreationContext compatibility-v1 is historical-only and never promoted"
+          }
+        ]
+      }
+    },
+    {
+      "gameId": 2009,
+      "gameCode": "bozhou2009",
+      "displayName": "亳州跑得快",
+      "category": "POKER",
+      "family": "poker:pao-de-kuai",
+      "regionCode": "CN-34-16",
+      "provinceCode": "anhui",
+      "cityCode": "bozhou",
+      "playVersion": "bozhou2009-v1.0.0",
+      "snapshotSchemaVersion": "room-snapshot-v1",
+      "cardCodecVersion": "card-v3",
+      "eventInterpreterVersion": "events-v4",
+      "protocolVersion": "protocol-v2",
+      "sourceHash": "1695a3e59c6a5daf33071cf17d442f4d5f73cba2d82ac93353c9b39b09e534d3",
+      "releaseId": 2011026112606,
+      "indexGeneration": 2026100679,
+      "providerKey": "native-pdk-bozhou2009",
+      "clientRuntimeEntry": "common-pdk",
+      "contractVersion": "common-room-v1",
+      "status": "CONSUMABLE",
+      "failureCodes": [
+
+      ],
+      "evidence": {
+        "providerKey": [
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Server/modules/gameplay/games/poker/src/main/java/com/aoo/bcg/poker/LegacyPdkRegionRules.java",
+            "sha256": "e9c64c0d144c52fa418f6869157d9b19875f307f6f6d26eb17621a28ba5cac25",
+            "role": "provider",
+            "assertion": "LegacyPdkRegionRules.providerKey returns native-pdk- plus its dispatched gameCode"
+          },
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Server/modules/gameplay/games/poker/src/main/java/com/aoo/bcg/poker/PokerCatalogRuntimeRegistry.java",
+            "sha256": "c05e1ac0414c6157d85b2416b807da99cb0f6d8482bbfeb7563aa8059ce5c7a2",
+            "role": "provider",
+            "assertion": "PdkBusinessCodes::BOZHOU is dispatched to LegacyPdkRegionRules"
+          }
+        ],
+        "clientRuntimeEntry": [
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Client/assets/Games/Poker/PDK/Common/Code/Regional/PdkBusinessCodes.ts",
+            "sha256": "857f7e8dff494b018f8d95584e1b62a5a3b0f28133bc269bdea84f4c6a0a6ab0",
+            "role": "clientRuntimeEntry",
+            "assertion": "PDK_BUSINESS_CODE_LIST contains bozhou2009"
+          },
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Client/assets/Games/Poker/PDK/Common/Code/Runtime/PdkRuntimeEntry.ts",
+            "sha256": "2cec8f17eb7fad459da19570c38c0b784c316eb3bd9e0bb5c7158bec9cbca2d0",
+            "role": "clientRuntimeEntry",
+            "assertion": "id common-pdk owns PDK_BUSINESS_CODE_LIST"
+          }
+        ],
+        "contractVersion": [
+          {
+            "path": "release-input/identity/canonical-identity-current-contract-r32-test-20261127-v4.json",
+            "sha256": "6aa0bc990305976c8071277838eb4bc5092f5d5e04fb59d24fd93e1d66b5b02b",
+            "role": "contractVersion",
+            "assertion": "signed current release contract source row"
+          },
+          {
+            "assertion": "current RoomSnapshot metadata contract",
+            "path": "server/modules/common/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java",
+            "sha256": "2b0fc5d1855aea8ba6da8c82275036c0ffaf559321cb56ceae6d7d0146371d4b",
+            "role": "contractVersion"
+          },
+          {
+            "assertion": "current RuntimeMetadata projection contract",
+            "path": "server/modules/infrastructure/GameSPI/src/main/java/com/aoo/bcg/gamespi/RuntimeMetadataProjection.java",
+            "sha256": "b0ba6be8636cabdf5da98bfda1ac86ef2a9813da129ed8c773c548955554d1e2",
+            "role": "contractVersion"
+          },
+          {
+            "assertion": "current source-backed runtime manifest",
+            "path": "server/release-input/runtime-metadata-canonical-manifest-r32-test-20261127-v4.json",
+            "sha256": "40bc9104d609daaa9bc5d1fbd6a276f11143a459358d7d108efac3791090299b",
+            "role": "contractVersion"
+          }
+        ],
+        "historicalCompatibilityExclusion": [
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Server/modules/infrastructure/GameSPI/src/main/java/com/aoo/bcg/gamespi/RoomCreationContext.java",
+            "sha256": "1e5841f901a76922510067d61bc640089a023b986d91340cfeed2fc5048243fb",
+            "role": "excluded",
+            "assertion": "RoomCreationContext compatibility-v1 is historical-only and never promoted"
+          }
+        ]
+      }
+    },
+    {
+      "gameId": 2010,
+      "gameCode": "yugan2010",
+      "displayName": "余干跑得快",
+      "category": "POKER",
+      "family": "poker:pao-de-kuai",
+      "regionCode": "CN-36-11-27",
+      "provinceCode": "jiangxi",
+      "cityCode": "yugan",
+      "playVersion": "yugan2010-v1.0.0",
+      "snapshotSchemaVersion": "room-snapshot-v1",
+      "cardCodecVersion": "card-v3",
+      "eventInterpreterVersion": "events-v4",
+      "protocolVersion": "protocol-v2",
+      "sourceHash": "8365bf3ebeaa545f9fee2cf4008717833dd96b967f76b4a08002da2e55527627",
+      "releaseId": 2012026112606,
+      "indexGeneration": 2026100680,
+      "providerKey": "native-pdk-yugan2010",
+      "clientRuntimeEntry": "common-pdk",
+      "contractVersion": "common-room-v1",
+      "status": "CONSUMABLE",
+      "failureCodes": [
+
+      ],
+      "evidence": {
+        "providerKey": [
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Server/modules/gameplay/games/poker/src/main/java/com/aoo/bcg/poker/LegacyPdkRegionRules.java",
+            "sha256": "e9c64c0d144c52fa418f6869157d9b19875f307f6f6d26eb17621a28ba5cac25",
+            "role": "provider",
+            "assertion": "LegacyPdkRegionRules.providerKey returns native-pdk- plus its dispatched gameCode"
+          },
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Server/modules/gameplay/games/poker/src/main/java/com/aoo/bcg/poker/PokerCatalogRuntimeRegistry.java",
+            "sha256": "c05e1ac0414c6157d85b2416b807da99cb0f6d8482bbfeb7563aa8059ce5c7a2",
+            "role": "provider",
+            "assertion": "PdkBusinessCodes::YUGAN is dispatched to LegacyPdkRegionRules"
+          }
+        ],
+        "clientRuntimeEntry": [
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Client/assets/Games/Poker/PDK/Common/Code/Regional/PdkBusinessCodes.ts",
+            "sha256": "857f7e8dff494b018f8d95584e1b62a5a3b0f28133bc269bdea84f4c6a0a6ab0",
+            "role": "clientRuntimeEntry",
+            "assertion": "PDK_BUSINESS_CODE_LIST contains yugan2010"
+          },
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Client/assets/Games/Poker/PDK/Common/Code/Runtime/PdkRuntimeEntry.ts",
+            "sha256": "2cec8f17eb7fad459da19570c38c0b784c316eb3bd9e0bb5c7158bec9cbca2d0",
+            "role": "clientRuntimeEntry",
+            "assertion": "id common-pdk owns PDK_BUSINESS_CODE_LIST"
+          }
+        ],
+        "contractVersion": [
+          {
+            "path": "release-input/identity/canonical-identity-current-contract-r32-test-20261127-v4.json",
+            "sha256": "6aa0bc990305976c8071277838eb4bc5092f5d5e04fb59d24fd93e1d66b5b02b",
+            "role": "contractVersion",
+            "assertion": "signed current release contract source row"
+          },
+          {
+            "assertion": "current RoomSnapshot metadata contract",
+            "path": "server/modules/common/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java",
+            "sha256": "2b0fc5d1855aea8ba6da8c82275036c0ffaf559321cb56ceae6d7d0146371d4b",
+            "role": "contractVersion"
+          },
+          {
+            "assertion": "current RuntimeMetadata projection contract",
+            "path": "server/modules/infrastructure/GameSPI/src/main/java/com/aoo/bcg/gamespi/RuntimeMetadataProjection.java",
+            "sha256": "b0ba6be8636cabdf5da98bfda1ac86ef2a9813da129ed8c773c548955554d1e2",
+            "role": "contractVersion"
+          },
+          {
+            "assertion": "current source-backed runtime manifest",
+            "path": "server/release-input/runtime-metadata-canonical-manifest-r32-test-20261127-v4.json",
+            "sha256": "40bc9104d609daaa9bc5d1fbd6a276f11143a459358d7d108efac3791090299b",
+            "role": "contractVersion"
+          }
+        ],
+        "historicalCompatibilityExclusion": [
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Server/modules/infrastructure/GameSPI/src/main/java/com/aoo/bcg/gamespi/RoomCreationContext.java",
+            "sha256": "1e5841f901a76922510067d61bc640089a023b986d91340cfeed2fc5048243fb",
+            "role": "excluded",
+            "assertion": "RoomCreationContext compatibility-v1 is historical-only and never promoted"
+          }
+        ]
+      }
+    },
+    {
+      "gameId": 2011,
+      "gameCode": "jian2011",
+      "displayName": "吉安跑得快",
+      "category": "POKER",
+      "family": "poker:pao-de-kuai",
+      "regionCode": "CN-36-08",
+      "provinceCode": "jiangxi",
+      "cityCode": "jian",
+      "playVersion": "jian2011-v1.0.0",
+      "snapshotSchemaVersion": "room-snapshot-v1",
+      "cardCodecVersion": "card-v3",
+      "eventInterpreterVersion": "events-v4",
+      "protocolVersion": "protocol-v2",
+      "sourceHash": "fb6d8852883d33fa04c9c71f9c604e4ab5fec38a293afa2b75196da10198a42c",
+      "releaseId": 2013026112606,
+      "indexGeneration": 2026100681,
+      "providerKey": "native-pdk-jian2011",
+      "clientRuntimeEntry": "common-pdk",
+      "contractVersion": "common-room-v1",
+      "status": "CONSUMABLE",
+      "failureCodes": [
+
+      ],
+      "evidence": {
+        "providerKey": [
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Server/modules/gameplay/games/poker/src/main/java/com/aoo/bcg/poker/LegacyPdkRegionRules.java",
+            "sha256": "e9c64c0d144c52fa418f6869157d9b19875f307f6f6d26eb17621a28ba5cac25",
+            "role": "provider",
+            "assertion": "LegacyPdkRegionRules.providerKey returns native-pdk- plus its dispatched gameCode"
+          },
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Server/modules/gameplay/games/poker/src/main/java/com/aoo/bcg/poker/PokerCatalogRuntimeRegistry.java",
+            "sha256": "c05e1ac0414c6157d85b2416b807da99cb0f6d8482bbfeb7563aa8059ce5c7a2",
+            "role": "provider",
+            "assertion": "PdkBusinessCodes::JIAN is dispatched to LegacyPdkRegionRules"
+          }
+        ],
+        "clientRuntimeEntry": [
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Client/assets/Games/Poker/PDK/Common/Code/Regional/PdkBusinessCodes.ts",
+            "sha256": "857f7e8dff494b018f8d95584e1b62a5a3b0f28133bc269bdea84f4c6a0a6ab0",
+            "role": "clientRuntimeEntry",
+            "assertion": "PDK_BUSINESS_CODE_LIST contains jian2011"
+          },
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Client/assets/Games/Poker/PDK/Common/Code/Runtime/PdkRuntimeEntry.ts",
+            "sha256": "2cec8f17eb7fad459da19570c38c0b784c316eb3bd9e0bb5c7158bec9cbca2d0",
+            "role": "clientRuntimeEntry",
+            "assertion": "id common-pdk owns PDK_BUSINESS_CODE_LIST"
+          }
+        ],
+        "contractVersion": [
+          {
+            "path": "release-input/identity/canonical-identity-current-contract-r32-test-20261127-v4.json",
+            "sha256": "6aa0bc990305976c8071277838eb4bc5092f5d5e04fb59d24fd93e1d66b5b02b",
+            "role": "contractVersion",
+            "assertion": "signed current release contract source row"
+          },
+          {
+            "assertion": "current RoomSnapshot metadata contract",
+            "path": "server/modules/common/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java",
+            "sha256": "2b0fc5d1855aea8ba6da8c82275036c0ffaf559321cb56ceae6d7d0146371d4b",
+            "role": "contractVersion"
+          },
+          {
+            "assertion": "current RuntimeMetadata projection contract",
+            "path": "server/modules/infrastructure/GameSPI/src/main/java/com/aoo/bcg/gamespi/RuntimeMetadataProjection.java",
+            "sha256": "b0ba6be8636cabdf5da98bfda1ac86ef2a9813da129ed8c773c548955554d1e2",
+            "role": "contractVersion"
+          },
+          {
+            "assertion": "current source-backed runtime manifest",
+            "path": "server/release-input/runtime-metadata-canonical-manifest-r32-test-20261127-v4.json",
+            "sha256": "40bc9104d609daaa9bc5d1fbd6a276f11143a459358d7d108efac3791090299b",
+            "role": "contractVersion"
+          }
+        ],
+        "historicalCompatibilityExclusion": [
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Server/modules/infrastructure/GameSPI/src/main/java/com/aoo/bcg/gamespi/RoomCreationContext.java",
+            "sha256": "1e5841f901a76922510067d61bc640089a023b986d91340cfeed2fc5048243fb",
+            "role": "excluded",
+            "assertion": "RoomCreationContext compatibility-v1 is historical-only and never promoted"
+          }
+        ]
+      }
+    },
+    {
+      "gameId": 2012,
+      "gameCode": "gushi2012",
+      "displayName": "固始跑得快",
+      "category": "POKER",
+      "family": "poker:pao-de-kuai",
+      "regionCode": "CN-41-15-25",
+      "provinceCode": "henan",
+      "cityCode": "gushi",
+      "playVersion": "gushi2012-v1.0.0",
+      "snapshotSchemaVersion": "room-snapshot-v1",
+      "cardCodecVersion": "card-v3",
+      "eventInterpreterVersion": "events-v4",
+      "protocolVersion": "protocol-v2",
+      "sourceHash": "17b3caa687fc6de086995f26199c96f87db2bd33336f402e17f9659b7751d180",
+      "releaseId": 2014026112606,
+      "indexGeneration": 2026100682,
+      "providerKey": "native-pdk-gushi2012",
+      "clientRuntimeEntry": "common-pdk",
+      "contractVersion": "common-room-v1",
+      "status": "CONSUMABLE",
+      "failureCodes": [
+
+      ],
+      "evidence": {
+        "providerKey": [
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Server/modules/gameplay/games/poker/src/main/java/com/aoo/bcg/poker/LegacyPdkRegionRules.java",
+            "sha256": "e9c64c0d144c52fa418f6869157d9b19875f307f6f6d26eb17621a28ba5cac25",
+            "role": "provider",
+            "assertion": "LegacyPdkRegionRules.providerKey returns native-pdk- plus its dispatched gameCode"
+          },
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Server/modules/gameplay/games/poker/src/main/java/com/aoo/bcg/poker/PokerCatalogRuntimeRegistry.java",
+            "sha256": "c05e1ac0414c6157d85b2416b807da99cb0f6d8482bbfeb7563aa8059ce5c7a2",
+            "role": "provider",
+            "assertion": "PdkBusinessCodes::GUSHI is dispatched to LegacyPdkRegionRules"
+          }
+        ],
+        "clientRuntimeEntry": [
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Client/assets/Games/Poker/PDK/Common/Code/Regional/PdkBusinessCodes.ts",
+            "sha256": "857f7e8dff494b018f8d95584e1b62a5a3b0f28133bc269bdea84f4c6a0a6ab0",
+            "role": "clientRuntimeEntry",
+            "assertion": "PDK_BUSINESS_CODE_LIST contains gushi2012"
+          },
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Client/assets/Games/Poker/PDK/Common/Code/Runtime/PdkRuntimeEntry.ts",
+            "sha256": "2cec8f17eb7fad459da19570c38c0b784c316eb3bd9e0bb5c7158bec9cbca2d0",
+            "role": "clientRuntimeEntry",
+            "assertion": "id common-pdk owns PDK_BUSINESS_CODE_LIST"
+          }
+        ],
+        "contractVersion": [
+          {
+            "path": "release-input/identity/canonical-identity-current-contract-r32-test-20261127-v4.json",
+            "sha256": "6aa0bc990305976c8071277838eb4bc5092f5d5e04fb59d24fd93e1d66b5b02b",
+            "role": "contractVersion",
+            "assertion": "signed current release contract source row"
+          },
+          {
+            "assertion": "current RoomSnapshot metadata contract",
+            "path": "server/modules/common/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java",
+            "sha256": "2b0fc5d1855aea8ba6da8c82275036c0ffaf559321cb56ceae6d7d0146371d4b",
+            "role": "contractVersion"
+          },
+          {
+            "assertion": "current RuntimeMetadata projection contract",
+            "path": "server/modules/infrastructure/GameSPI/src/main/java/com/aoo/bcg/gamespi/RuntimeMetadataProjection.java",
+            "sha256": "b0ba6be8636cabdf5da98bfda1ac86ef2a9813da129ed8c773c548955554d1e2",
+            "role": "contractVersion"
+          },
+          {
+            "assertion": "current source-backed runtime manifest",
+            "path": "server/release-input/runtime-metadata-canonical-manifest-r32-test-20261127-v4.json",
+            "sha256": "40bc9104d609daaa9bc5d1fbd6a276f11143a459358d7d108efac3791090299b",
+            "role": "contractVersion"
+          }
+        ],
+        "historicalCompatibilityExclusion": [
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Server/modules/infrastructure/GameSPI/src/main/java/com/aoo/bcg/gamespi/RoomCreationContext.java",
+            "sha256": "1e5841f901a76922510067d61bc640089a023b986d91340cfeed2fc5048243fb",
+            "role": "excluded",
+            "assertion": "RoomCreationContext compatibility-v1 is historical-only and never promoted"
+          }
+        ]
+      }
+    },
+    {
+      "gameId": 2013,
+      "gameCode": "xiaogan2013",
+      "displayName": "孝感跑得快",
+      "category": "POKER",
+      "family": "poker:pao-de-kuai",
+      "regionCode": "CN-42-09",
+      "provinceCode": "hubei",
+      "cityCode": "xiaogan",
+      "playVersion": "xiaogan2013-v1.0.0",
+      "snapshotSchemaVersion": "room-snapshot-v1",
+      "cardCodecVersion": "card-v3",
+      "eventInterpreterVersion": "events-v4",
+      "protocolVersion": "protocol-v2",
+      "sourceHash": "d89e9fc10aff8916ce29901b46a51a3d3a1fc398f3b43315e1be9a02a01aa779",
+      "releaseId": 2015026112606,
+      "indexGeneration": 2026100683,
+      "providerKey": "native-pdk-xiaogan2013",
+      "clientRuntimeEntry": "common-pdk",
+      "contractVersion": "common-room-v1",
+      "status": "CONSUMABLE",
+      "failureCodes": [
+
+      ],
+      "evidence": {
+        "providerKey": [
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Server/modules/gameplay/games/poker/src/main/java/com/aoo/bcg/poker/LegacyPdkRegionRules.java",
+            "sha256": "e9c64c0d144c52fa418f6869157d9b19875f307f6f6d26eb17621a28ba5cac25",
+            "role": "provider",
+            "assertion": "LegacyPdkRegionRules.providerKey returns native-pdk- plus its dispatched gameCode"
+          },
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Server/modules/gameplay/games/poker/src/main/java/com/aoo/bcg/poker/PokerCatalogRuntimeRegistry.java",
+            "sha256": "c05e1ac0414c6157d85b2416b807da99cb0f6d8482bbfeb7563aa8059ce5c7a2",
+            "role": "provider",
+            "assertion": "PdkBusinessCodes::XIAOGAN is dispatched to LegacyPdkRegionRules"
+          }
+        ],
+        "clientRuntimeEntry": [
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Client/assets/Games/Poker/PDK/Common/Code/Regional/PdkBusinessCodes.ts",
+            "sha256": "857f7e8dff494b018f8d95584e1b62a5a3b0f28133bc269bdea84f4c6a0a6ab0",
+            "role": "clientRuntimeEntry",
+            "assertion": "PDK_BUSINESS_CODE_LIST contains xiaogan2013"
+          },
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Client/assets/Games/Poker/PDK/Common/Code/Runtime/PdkRuntimeEntry.ts",
+            "sha256": "2cec8f17eb7fad459da19570c38c0b784c316eb3bd9e0bb5c7158bec9cbca2d0",
+            "role": "clientRuntimeEntry",
+            "assertion": "id common-pdk owns PDK_BUSINESS_CODE_LIST"
+          }
+        ],
+        "contractVersion": [
+          {
+            "path": "release-input/identity/canonical-identity-current-contract-r32-test-20261127-v4.json",
+            "sha256": "6aa0bc990305976c8071277838eb4bc5092f5d5e04fb59d24fd93e1d66b5b02b",
+            "role": "contractVersion",
+            "assertion": "signed current release contract source row"
+          },
+          {
+            "assertion": "current RoomSnapshot metadata contract",
+            "path": "server/modules/common/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java",
+            "sha256": "2b0fc5d1855aea8ba6da8c82275036c0ffaf559321cb56ceae6d7d0146371d4b",
+            "role": "contractVersion"
+          },
+          {
+            "assertion": "current RuntimeMetadata projection contract",
+            "path": "server/modules/infrastructure/GameSPI/src/main/java/com/aoo/bcg/gamespi/RuntimeMetadataProjection.java",
+            "sha256": "b0ba6be8636cabdf5da98bfda1ac86ef2a9813da129ed8c773c548955554d1e2",
+            "role": "contractVersion"
+          },
+          {
+            "assertion": "current source-backed runtime manifest",
+            "path": "server/release-input/runtime-metadata-canonical-manifest-r32-test-20261127-v4.json",
+            "sha256": "40bc9104d609daaa9bc5d1fbd6a276f11143a459358d7d108efac3791090299b",
+            "role": "contractVersion"
+          }
+        ],
+        "historicalCompatibilityExclusion": [
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Server/modules/infrastructure/GameSPI/src/main/java/com/aoo/bcg/gamespi/RoomCreationContext.java",
+            "sha256": "1e5841f901a76922510067d61bc640089a023b986d91340cfeed2fc5048243fb",
+            "role": "excluded",
+            "assertion": "RoomCreationContext compatibility-v1 is historical-only and never promoted"
+          }
+        ]
+      }
+    },
+    {
+      "gameId": 2014,
+      "gameCode": "ningdu2014",
+      "displayName": "宁都跑得快",
+      "category": "POKER",
+      "family": "poker:pao-de-kuai",
+      "regionCode": "CN-36-07-30",
+      "provinceCode": "jiangxi",
+      "cityCode": "ningdu",
+      "playVersion": "ningdu2014-v1.0.0",
+      "snapshotSchemaVersion": "room-snapshot-v1",
+      "cardCodecVersion": "card-v3",
+      "eventInterpreterVersion": "events-v4",
+      "protocolVersion": "protocol-v2",
+      "sourceHash": "65533898342b858c546668393f7fbddd4d161f561862193eb7e681927db68270",
+      "releaseId": 2016026112606,
+      "indexGeneration": 2026100684,
+      "providerKey": "native-pdk-ningdu2014",
+      "clientRuntimeEntry": "common-pdk",
+      "contractVersion": "common-room-v1",
+      "status": "CONSUMABLE",
+      "failureCodes": [
+
+      ],
+      "evidence": {
+        "providerKey": [
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Server/modules/gameplay/games/poker/src/main/java/com/aoo/bcg/poker/LegacyPdkRegionRules.java",
+            "sha256": "e9c64c0d144c52fa418f6869157d9b19875f307f6f6d26eb17621a28ba5cac25",
+            "role": "provider",
+            "assertion": "LegacyPdkRegionRules.providerKey returns native-pdk- plus its dispatched gameCode"
+          },
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Server/modules/gameplay/games/poker/src/main/java/com/aoo/bcg/poker/PokerCatalogRuntimeRegistry.java",
+            "sha256": "c05e1ac0414c6157d85b2416b807da99cb0f6d8482bbfeb7563aa8059ce5c7a2",
+            "role": "provider",
+            "assertion": "PdkBusinessCodes::NINGDU is dispatched to LegacyPdkRegionRules"
+          }
+        ],
+        "clientRuntimeEntry": [
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Client/assets/Games/Poker/PDK/Common/Code/Regional/PdkBusinessCodes.ts",
+            "sha256": "857f7e8dff494b018f8d95584e1b62a5a3b0f28133bc269bdea84f4c6a0a6ab0",
+            "role": "clientRuntimeEntry",
+            "assertion": "PDK_BUSINESS_CODE_LIST contains ningdu2014"
+          },
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Client/assets/Games/Poker/PDK/Common/Code/Runtime/PdkRuntimeEntry.ts",
+            "sha256": "2cec8f17eb7fad459da19570c38c0b784c316eb3bd9e0bb5c7158bec9cbca2d0",
+            "role": "clientRuntimeEntry",
+            "assertion": "id common-pdk owns PDK_BUSINESS_CODE_LIST"
+          }
+        ],
+        "contractVersion": [
+          {
+            "path": "release-input/identity/canonical-identity-current-contract-r32-test-20261127-v4.json",
+            "sha256": "6aa0bc990305976c8071277838eb4bc5092f5d5e04fb59d24fd93e1d66b5b02b",
+            "role": "contractVersion",
+            "assertion": "signed current release contract source row"
+          },
+          {
+            "assertion": "current RoomSnapshot metadata contract",
+            "path": "server/modules/common/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java",
+            "sha256": "2b0fc5d1855aea8ba6da8c82275036c0ffaf559321cb56ceae6d7d0146371d4b",
+            "role": "contractVersion"
+          },
+          {
+            "assertion": "current RuntimeMetadata projection contract",
+            "path": "server/modules/infrastructure/GameSPI/src/main/java/com/aoo/bcg/gamespi/RuntimeMetadataProjection.java",
+            "sha256": "b0ba6be8636cabdf5da98bfda1ac86ef2a9813da129ed8c773c548955554d1e2",
+            "role": "contractVersion"
+          },
+          {
+            "assertion": "current source-backed runtime manifest",
+            "path": "server/release-input/runtime-metadata-canonical-manifest-r32-test-20261127-v4.json",
+            "sha256": "40bc9104d609daaa9bc5d1fbd6a276f11143a459358d7d108efac3791090299b",
+            "role": "contractVersion"
+          }
+        ],
+        "historicalCompatibilityExclusion": [
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Server/modules/infrastructure/GameSPI/src/main/java/com/aoo/bcg/gamespi/RoomCreationContext.java",
+            "sha256": "1e5841f901a76922510067d61bc640089a023b986d91340cfeed2fc5048243fb",
+            "role": "excluded",
+            "assertion": "RoomCreationContext compatibility-v1 is historical-only and never promoted"
+          }
+        ]
+      }
+    },
+    {
+      "gameId": 2015,
+      "gameCode": "huaihua2015",
+      "displayName": "怀化跑得快",
+      "category": "POKER",
+      "family": "poker:pao-de-kuai",
+      "regionCode": "CN-43-12",
+      "provinceCode": "hunan",
+      "cityCode": "huaihua",
+      "playVersion": "huaihua2015-v1.0.0",
+      "snapshotSchemaVersion": "room-snapshot-v1",
+      "cardCodecVersion": "card-v3",
+      "eventInterpreterVersion": "events-v4",
+      "protocolVersion": "protocol-v2",
+      "sourceHash": "50a363b43bb8ae70c9208726be947572b953edc1dabdb6b11f9abe793672c2f7",
+      "releaseId": 2017026112606,
+      "indexGeneration": 2026100685,
+      "providerKey": "native-pdk-huaihua2015",
+      "clientRuntimeEntry": "common-pdk",
+      "contractVersion": "common-room-v1",
+      "status": "CONSUMABLE",
+      "failureCodes": [
+
+      ],
+      "evidence": {
+        "providerKey": [
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Server/modules/gameplay/games/poker/src/main/java/com/aoo/bcg/poker/LegacyPdkRegionRules.java",
+            "sha256": "e9c64c0d144c52fa418f6869157d9b19875f307f6f6d26eb17621a28ba5cac25",
+            "role": "provider",
+            "assertion": "LegacyPdkRegionRules.providerKey returns native-pdk- plus its dispatched gameCode"
+          },
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Server/modules/gameplay/games/poker/src/main/java/com/aoo/bcg/poker/PokerCatalogRuntimeRegistry.java",
+            "sha256": "c05e1ac0414c6157d85b2416b807da99cb0f6d8482bbfeb7563aa8059ce5c7a2",
+            "role": "provider",
+            "assertion": "PdkBusinessCodes::HUAIHUA is dispatched to LegacyPdkRegionRules"
+          }
+        ],
+        "clientRuntimeEntry": [
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Client/assets/Games/Poker/PDK/Common/Code/Regional/PdkBusinessCodes.ts",
+            "sha256": "857f7e8dff494b018f8d95584e1b62a5a3b0f28133bc269bdea84f4c6a0a6ab0",
+            "role": "clientRuntimeEntry",
+            "assertion": "PDK_BUSINESS_CODE_LIST contains huaihua2015"
+          },
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Client/assets/Games/Poker/PDK/Common/Code/Runtime/PdkRuntimeEntry.ts",
+            "sha256": "2cec8f17eb7fad459da19570c38c0b784c316eb3bd9e0bb5c7158bec9cbca2d0",
+            "role": "clientRuntimeEntry",
+            "assertion": "id common-pdk owns PDK_BUSINESS_CODE_LIST"
+          }
+        ],
+        "contractVersion": [
+          {
+            "path": "release-input/identity/canonical-identity-current-contract-r32-test-20261127-v4.json",
+            "sha256": "6aa0bc990305976c8071277838eb4bc5092f5d5e04fb59d24fd93e1d66b5b02b",
+            "role": "contractVersion",
+            "assertion": "signed current release contract source row"
+          },
+          {
+            "assertion": "current RoomSnapshot metadata contract",
+            "path": "server/modules/common/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java",
+            "sha256": "2b0fc5d1855aea8ba6da8c82275036c0ffaf559321cb56ceae6d7d0146371d4b",
+            "role": "contractVersion"
+          },
+          {
+            "assertion": "current RuntimeMetadata projection contract",
+            "path": "server/modules/infrastructure/GameSPI/src/main/java/com/aoo/bcg/gamespi/RuntimeMetadataProjection.java",
+            "sha256": "b0ba6be8636cabdf5da98bfda1ac86ef2a9813da129ed8c773c548955554d1e2",
+            "role": "contractVersion"
+          },
+          {
+            "assertion": "current source-backed runtime manifest",
+            "path": "server/release-input/runtime-metadata-canonical-manifest-r32-test-20261127-v4.json",
+            "sha256": "40bc9104d609daaa9bc5d1fbd6a276f11143a459358d7d108efac3791090299b",
+            "role": "contractVersion"
+          }
+        ],
+        "historicalCompatibilityExclusion": [
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Server/modules/infrastructure/GameSPI/src/main/java/com/aoo/bcg/gamespi/RoomCreationContext.java",
+            "sha256": "1e5841f901a76922510067d61bc640089a023b986d91340cfeed2fc5048243fb",
+            "role": "excluded",
+            "assertion": "RoomCreationContext compatibility-v1 is historical-only and never promoted"
+          }
+        ]
+      }
+    },
+    {
+      "gameId": 2016,
+      "gameCode": "xinxian2016",
+      "displayName": "新县跑得快",
+      "category": "POKER",
+      "family": "poker:pao-de-kuai",
+      "regionCode": "CN-41-15-23",
+      "provinceCode": "henan",
+      "cityCode": "xinxian",
+      "playVersion": "xinxian2016-v1.0.0",
+      "snapshotSchemaVersion": "room-snapshot-v1",
+      "cardCodecVersion": "card-v3",
+      "eventInterpreterVersion": "events-v4",
+      "protocolVersion": "protocol-v2",
+      "sourceHash": "459031972aaaf8d25fb025e849712b60df6cf9361f4cf1f3a7e7c97255713b73",
+      "releaseId": 2018026112606,
+      "indexGeneration": 2026100686,
+      "providerKey": "native-pdk-xinxian2016",
+      "clientRuntimeEntry": "common-pdk",
+      "contractVersion": "common-room-v1",
+      "status": "CONSUMABLE",
+      "failureCodes": [
+
+      ],
+      "evidence": {
+        "providerKey": [
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Server/modules/gameplay/games/poker/src/main/java/com/aoo/bcg/poker/LegacyPdkRegionRules.java",
+            "sha256": "e9c64c0d144c52fa418f6869157d9b19875f307f6f6d26eb17621a28ba5cac25",
+            "role": "provider",
+            "assertion": "LegacyPdkRegionRules.providerKey returns native-pdk- plus its dispatched gameCode"
+          },
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Server/modules/gameplay/games/poker/src/main/java/com/aoo/bcg/poker/PokerCatalogRuntimeRegistry.java",
+            "sha256": "c05e1ac0414c6157d85b2416b807da99cb0f6d8482bbfeb7563aa8059ce5c7a2",
+            "role": "provider",
+            "assertion": "PdkBusinessCodes::XINXIAN is dispatched to LegacyPdkRegionRules"
+          }
+        ],
+        "clientRuntimeEntry": [
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Client/assets/Games/Poker/PDK/Common/Code/Regional/PdkBusinessCodes.ts",
+            "sha256": "857f7e8dff494b018f8d95584e1b62a5a3b0f28133bc269bdea84f4c6a0a6ab0",
+            "role": "clientRuntimeEntry",
+            "assertion": "PDK_BUSINESS_CODE_LIST contains xinxian2016"
+          },
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Client/assets/Games/Poker/PDK/Common/Code/Runtime/PdkRuntimeEntry.ts",
+            "sha256": "2cec8f17eb7fad459da19570c38c0b784c316eb3bd9e0bb5c7158bec9cbca2d0",
+            "role": "clientRuntimeEntry",
+            "assertion": "id common-pdk owns PDK_BUSINESS_CODE_LIST"
+          }
+        ],
+        "contractVersion": [
+          {
+            "path": "release-input/identity/canonical-identity-current-contract-r32-test-20261127-v4.json",
+            "sha256": "6aa0bc990305976c8071277838eb4bc5092f5d5e04fb59d24fd93e1d66b5b02b",
+            "role": "contractVersion",
+            "assertion": "signed current release contract source row"
+          },
+          {
+            "assertion": "current RoomSnapshot metadata contract",
+            "path": "server/modules/common/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java",
+            "sha256": "2b0fc5d1855aea8ba6da8c82275036c0ffaf559321cb56ceae6d7d0146371d4b",
+            "role": "contractVersion"
+          },
+          {
+            "assertion": "current RuntimeMetadata projection contract",
+            "path": "server/modules/infrastructure/GameSPI/src/main/java/com/aoo/bcg/gamespi/RuntimeMetadataProjection.java",
+            "sha256": "b0ba6be8636cabdf5da98bfda1ac86ef2a9813da129ed8c773c548955554d1e2",
+            "role": "contractVersion"
+          },
+          {
+            "assertion": "current source-backed runtime manifest",
+            "path": "server/release-input/runtime-metadata-canonical-manifest-r32-test-20261127-v4.json",
+            "sha256": "40bc9104d609daaa9bc5d1fbd6a276f11143a459358d7d108efac3791090299b",
+            "role": "contractVersion"
+          }
+        ],
+        "historicalCompatibilityExclusion": [
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Server/modules/infrastructure/GameSPI/src/main/java/com/aoo/bcg/gamespi/RoomCreationContext.java",
+            "sha256": "1e5841f901a76922510067d61bc640089a023b986d91340cfeed2fc5048243fb",
+            "role": "excluded",
+            "assertion": "RoomCreationContext compatibility-v1 is historical-only and never promoted"
+          }
+        ]
+      }
+    },
+    {
+      "gameId": 2017,
+      "gameCode": "jingdezhen2017",
+      "displayName": "景德镇跑得快",
+      "category": "POKER",
+      "family": "poker:pao-de-kuai",
+      "regionCode": "CN-36-02",
+      "provinceCode": "jiangxi",
+      "cityCode": "jingdezhen",
+      "playVersion": "jingdezhen2017-v1.0.0",
+      "snapshotSchemaVersion": "room-snapshot-v1",
+      "cardCodecVersion": "card-v3",
+      "eventInterpreterVersion": "events-v4",
+      "protocolVersion": "protocol-v2",
+      "sourceHash": "69283dd4d468617b61245ae2c08913c7ab289fc2339281d7b809d7c38854b7b2",
+      "releaseId": 2019026112606,
+      "indexGeneration": 2026100687,
+      "providerKey": "native-pdk-jingdezhen2017",
+      "clientRuntimeEntry": "common-pdk",
+      "contractVersion": "common-room-v1",
+      "status": "CONSUMABLE",
+      "failureCodes": [
+
+      ],
+      "evidence": {
+        "providerKey": [
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Server/modules/gameplay/games/poker/src/main/java/com/aoo/bcg/poker/LegacyPdkRegionRules.java",
+            "sha256": "e9c64c0d144c52fa418f6869157d9b19875f307f6f6d26eb17621a28ba5cac25",
+            "role": "provider",
+            "assertion": "LegacyPdkRegionRules.providerKey returns native-pdk- plus its dispatched gameCode"
+          },
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Server/modules/gameplay/games/poker/src/main/java/com/aoo/bcg/poker/PokerCatalogRuntimeRegistry.java",
+            "sha256": "c05e1ac0414c6157d85b2416b807da99cb0f6d8482bbfeb7563aa8059ce5c7a2",
+            "role": "provider",
+            "assertion": "PdkBusinessCodes::JINGDEZHEN is dispatched to LegacyPdkRegionRules"
+          }
+        ],
+        "clientRuntimeEntry": [
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Client/assets/Games/Poker/PDK/Common/Code/Regional/PdkBusinessCodes.ts",
+            "sha256": "857f7e8dff494b018f8d95584e1b62a5a3b0f28133bc269bdea84f4c6a0a6ab0",
+            "role": "clientRuntimeEntry",
+            "assertion": "PDK_BUSINESS_CODE_LIST contains jingdezhen2017"
+          },
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Client/assets/Games/Poker/PDK/Common/Code/Runtime/PdkRuntimeEntry.ts",
+            "sha256": "2cec8f17eb7fad459da19570c38c0b784c316eb3bd9e0bb5c7158bec9cbca2d0",
+            "role": "clientRuntimeEntry",
+            "assertion": "id common-pdk owns PDK_BUSINESS_CODE_LIST"
+          }
+        ],
+        "contractVersion": [
+          {
+            "path": "release-input/identity/canonical-identity-current-contract-r32-test-20261127-v4.json",
+            "sha256": "6aa0bc990305976c8071277838eb4bc5092f5d5e04fb59d24fd93e1d66b5b02b",
+            "role": "contractVersion",
+            "assertion": "signed current release contract source row"
+          },
+          {
+            "assertion": "current RoomSnapshot metadata contract",
+            "path": "server/modules/common/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java",
+            "sha256": "2b0fc5d1855aea8ba6da8c82275036c0ffaf559321cb56ceae6d7d0146371d4b",
+            "role": "contractVersion"
+          },
+          {
+            "assertion": "current RuntimeMetadata projection contract",
+            "path": "server/modules/infrastructure/GameSPI/src/main/java/com/aoo/bcg/gamespi/RuntimeMetadataProjection.java",
+            "sha256": "b0ba6be8636cabdf5da98bfda1ac86ef2a9813da129ed8c773c548955554d1e2",
+            "role": "contractVersion"
+          },
+          {
+            "assertion": "current source-backed runtime manifest",
+            "path": "server/release-input/runtime-metadata-canonical-manifest-r32-test-20261127-v4.json",
+            "sha256": "40bc9104d609daaa9bc5d1fbd6a276f11143a459358d7d108efac3791090299b",
+            "role": "contractVersion"
+          }
+        ],
+        "historicalCompatibilityExclusion": [
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Server/modules/infrastructure/GameSPI/src/main/java/com/aoo/bcg/gamespi/RoomCreationContext.java",
+            "sha256": "1e5841f901a76922510067d61bc640089a023b986d91340cfeed2fc5048243fb",
+            "role": "excluded",
+            "assertion": "RoomCreationContext compatibility-v1 is historical-only and never promoted"
+          }
+        ]
+      }
+    },
+    {
+      "gameId": 2018,
+      "gameCode": "jiangsu2018",
+      "displayName": "江苏跑得快",
+      "category": "POKER",
+      "family": "poker:pao-de-kuai",
+      "regionCode": "CN-32",
+      "provinceCode": "jiangsu",
+      "cityCode": "",
+      "playVersion": "jiangsu2018-v1.0.0",
+      "snapshotSchemaVersion": "room-snapshot-v1",
+      "cardCodecVersion": "card-v3",
+      "eventInterpreterVersion": "events-v4",
+      "protocolVersion": "protocol-v2",
+      "sourceHash": "f4bd0a78f9398cb120fc6705c8d91786d8efe452cb7ab8c6882b2ae3d472dcc5",
+      "releaseId": 2020026112606,
+      "indexGeneration": 2026100688,
+      "providerKey": "native-pdk-jiangsu2018",
+      "clientRuntimeEntry": "common-pdk",
+      "contractVersion": "common-room-v1",
+      "status": "CONSUMABLE",
+      "failureCodes": [
+
+      ],
+      "evidence": {
+        "providerKey": [
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Server/modules/gameplay/games/poker/src/main/java/com/aoo/bcg/poker/LegacyPdkRegionRules.java",
+            "sha256": "e9c64c0d144c52fa418f6869157d9b19875f307f6f6d26eb17621a28ba5cac25",
+            "role": "provider",
+            "assertion": "LegacyPdkRegionRules.providerKey returns native-pdk- plus its dispatched gameCode"
+          },
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Server/modules/gameplay/games/poker/src/main/java/com/aoo/bcg/poker/PokerCatalogRuntimeRegistry.java",
+            "sha256": "c05e1ac0414c6157d85b2416b807da99cb0f6d8482bbfeb7563aa8059ce5c7a2",
+            "role": "provider",
+            "assertion": "PdkBusinessCodes::JIANGSU is dispatched to LegacyPdkRegionRules"
+          }
+        ],
+        "clientRuntimeEntry": [
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Client/assets/Games/Poker/PDK/Common/Code/Regional/PdkBusinessCodes.ts",
+            "sha256": "857f7e8dff494b018f8d95584e1b62a5a3b0f28133bc269bdea84f4c6a0a6ab0",
+            "role": "clientRuntimeEntry",
+            "assertion": "PDK_BUSINESS_CODE_LIST contains jiangsu2018"
+          },
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Client/assets/Games/Poker/PDK/Common/Code/Runtime/PdkRuntimeEntry.ts",
+            "sha256": "2cec8f17eb7fad459da19570c38c0b784c316eb3bd9e0bb5c7158bec9cbca2d0",
+            "role": "clientRuntimeEntry",
+            "assertion": "id common-pdk owns PDK_BUSINESS_CODE_LIST"
+          }
+        ],
+        "contractVersion": [
+          {
+            "path": "release-input/identity/canonical-identity-current-contract-r32-test-20261127-v4.json",
+            "sha256": "6aa0bc990305976c8071277838eb4bc5092f5d5e04fb59d24fd93e1d66b5b02b",
+            "role": "contractVersion",
+            "assertion": "signed current release contract source row"
+          },
+          {
+            "assertion": "current RoomSnapshot metadata contract",
+            "path": "server/modules/common/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java",
+            "sha256": "2b0fc5d1855aea8ba6da8c82275036c0ffaf559321cb56ceae6d7d0146371d4b",
+            "role": "contractVersion"
+          },
+          {
+            "assertion": "current RuntimeMetadata projection contract",
+            "path": "server/modules/infrastructure/GameSPI/src/main/java/com/aoo/bcg/gamespi/RuntimeMetadataProjection.java",
+            "sha256": "b0ba6be8636cabdf5da98bfda1ac86ef2a9813da129ed8c773c548955554d1e2",
+            "role": "contractVersion"
+          },
+          {
+            "assertion": "current source-backed runtime manifest",
+            "path": "server/release-input/runtime-metadata-canonical-manifest-r32-test-20261127-v4.json",
+            "sha256": "40bc9104d609daaa9bc5d1fbd6a276f11143a459358d7d108efac3791090299b",
+            "role": "contractVersion"
+          }
+        ],
+        "historicalCompatibilityExclusion": [
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Server/modules/infrastructure/GameSPI/src/main/java/com/aoo/bcg/gamespi/RoomCreationContext.java",
+            "sha256": "1e5841f901a76922510067d61bc640089a023b986d91340cfeed2fc5048243fb",
+            "role": "excluded",
+            "assertion": "RoomCreationContext compatibility-v1 is historical-only and never promoted"
+          }
+        ]
+      }
+    },
+    {
+      "gameId": 2019,
+      "gameCode": "henan2019",
+      "displayName": "河南跑得快",
+      "category": "POKER",
+      "family": "poker:pao-de-kuai",
+      "regionCode": "CN-41",
+      "provinceCode": "henan",
+      "cityCode": "",
+      "playVersion": "henan2019-v1.0.0",
+      "snapshotSchemaVersion": "room-snapshot-v1",
+      "cardCodecVersion": "card-v3",
+      "eventInterpreterVersion": "events-v4",
+      "protocolVersion": "protocol-v2",
+      "sourceHash": "c7259d1a9542079f5c6a3b52be2255ffd5ee769b965e490cdf8eaaf307b930df",
+      "releaseId": 2021026112606,
+      "indexGeneration": 2026100689,
+      "providerKey": "native-pdk-henan2019",
+      "clientRuntimeEntry": "common-pdk",
+      "contractVersion": "common-room-v1",
+      "status": "CONSUMABLE",
+      "failureCodes": [
+
+      ],
+      "evidence": {
+        "providerKey": [
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Server/modules/gameplay/games/poker/src/main/java/com/aoo/bcg/poker/LegacyPdkRegionRules.java",
+            "sha256": "e9c64c0d144c52fa418f6869157d9b19875f307f6f6d26eb17621a28ba5cac25",
+            "role": "provider",
+            "assertion": "LegacyPdkRegionRules.providerKey returns native-pdk- plus its dispatched gameCode"
+          },
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Server/modules/gameplay/games/poker/src/main/java/com/aoo/bcg/poker/PokerCatalogRuntimeRegistry.java",
+            "sha256": "c05e1ac0414c6157d85b2416b807da99cb0f6d8482bbfeb7563aa8059ce5c7a2",
+            "role": "provider",
+            "assertion": "PdkBusinessCodes::HENAN is dispatched to LegacyPdkRegionRules"
+          }
+        ],
+        "clientRuntimeEntry": [
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Client/assets/Games/Poker/PDK/Common/Code/Regional/PdkBusinessCodes.ts",
+            "sha256": "857f7e8dff494b018f8d95584e1b62a5a3b0f28133bc269bdea84f4c6a0a6ab0",
+            "role": "clientRuntimeEntry",
+            "assertion": "PDK_BUSINESS_CODE_LIST contains henan2019"
+          },
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Client/assets/Games/Poker/PDK/Common/Code/Runtime/PdkRuntimeEntry.ts",
+            "sha256": "2cec8f17eb7fad459da19570c38c0b784c316eb3bd9e0bb5c7158bec9cbca2d0",
+            "role": "clientRuntimeEntry",
+            "assertion": "id common-pdk owns PDK_BUSINESS_CODE_LIST"
+          }
+        ],
+        "contractVersion": [
+          {
+            "path": "release-input/identity/canonical-identity-current-contract-r32-test-20261127-v4.json",
+            "sha256": "6aa0bc990305976c8071277838eb4bc5092f5d5e04fb59d24fd93e1d66b5b02b",
+            "role": "contractVersion",
+            "assertion": "signed current release contract source row"
+          },
+          {
+            "assertion": "current RoomSnapshot metadata contract",
+            "path": "server/modules/common/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java",
+            "sha256": "2b0fc5d1855aea8ba6da8c82275036c0ffaf559321cb56ceae6d7d0146371d4b",
+            "role": "contractVersion"
+          },
+          {
+            "assertion": "current RuntimeMetadata projection contract",
+            "path": "server/modules/infrastructure/GameSPI/src/main/java/com/aoo/bcg/gamespi/RuntimeMetadataProjection.java",
+            "sha256": "b0ba6be8636cabdf5da98bfda1ac86ef2a9813da129ed8c773c548955554d1e2",
+            "role": "contractVersion"
+          },
+          {
+            "assertion": "current source-backed runtime manifest",
+            "path": "server/release-input/runtime-metadata-canonical-manifest-r32-test-20261127-v4.json",
+            "sha256": "40bc9104d609daaa9bc5d1fbd6a276f11143a459358d7d108efac3791090299b",
+            "role": "contractVersion"
+          }
+        ],
+        "historicalCompatibilityExclusion": [
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Server/modules/infrastructure/GameSPI/src/main/java/com/aoo/bcg/gamespi/RoomCreationContext.java",
+            "sha256": "1e5841f901a76922510067d61bc640089a023b986d91340cfeed2fc5048243fb",
+            "role": "excluded",
+            "assertion": "RoomCreationContext compatibility-v1 is historical-only and never promoted"
+          }
+        ]
+      }
+    },
+    {
+      "gameId": 2020,
+      "gameCode": "taizhou2020",
+      "displayName": "泰州跑得快",
+      "category": "POKER",
+      "family": "poker:pao-de-kuai",
+      "regionCode": "CN-32-12",
+      "provinceCode": "jiangsu",
+      "cityCode": "taizhou",
+      "playVersion": "taizhou2020-v1.0.0",
+      "snapshotSchemaVersion": "room-snapshot-v1",
+      "cardCodecVersion": "card-v3",
+      "eventInterpreterVersion": "events-v4",
+      "protocolVersion": "protocol-v2",
+      "sourceHash": "e0e8e5763652c506c8a0d18eaefe8bc58f3c6fc272c0a2ded8b1cc3626fa54e9",
+      "releaseId": 2022026112606,
+      "indexGeneration": 2026100690,
+      "providerKey": "native-pdk-taizhou2020",
+      "clientRuntimeEntry": "common-pdk",
+      "contractVersion": "common-room-v1",
+      "status": "CONSUMABLE",
+      "failureCodes": [
+
+      ],
+      "evidence": {
+        "providerKey": [
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Server/modules/gameplay/games/poker/src/main/java/com/aoo/bcg/poker/LegacyPdkRegionRules.java",
+            "sha256": "e9c64c0d144c52fa418f6869157d9b19875f307f6f6d26eb17621a28ba5cac25",
+            "role": "provider",
+            "assertion": "LegacyPdkRegionRules.providerKey returns native-pdk- plus its dispatched gameCode"
+          },
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Server/modules/gameplay/games/poker/src/main/java/com/aoo/bcg/poker/PokerCatalogRuntimeRegistry.java",
+            "sha256": "c05e1ac0414c6157d85b2416b807da99cb0f6d8482bbfeb7563aa8059ce5c7a2",
+            "role": "provider",
+            "assertion": "PdkBusinessCodes::TAIZHOU is dispatched to LegacyPdkRegionRules"
+          }
+        ],
+        "clientRuntimeEntry": [
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Client/assets/Games/Poker/PDK/Common/Code/Regional/PdkBusinessCodes.ts",
+            "sha256": "857f7e8dff494b018f8d95584e1b62a5a3b0f28133bc269bdea84f4c6a0a6ab0",
+            "role": "clientRuntimeEntry",
+            "assertion": "PDK_BUSINESS_CODE_LIST contains taizhou2020"
+          },
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Client/assets/Games/Poker/PDK/Common/Code/Runtime/PdkRuntimeEntry.ts",
+            "sha256": "2cec8f17eb7fad459da19570c38c0b784c316eb3bd9e0bb5c7158bec9cbca2d0",
+            "role": "clientRuntimeEntry",
+            "assertion": "id common-pdk owns PDK_BUSINESS_CODE_LIST"
+          }
+        ],
+        "contractVersion": [
+          {
+            "path": "release-input/identity/canonical-identity-current-contract-r32-test-20261127-v4.json",
+            "sha256": "6aa0bc990305976c8071277838eb4bc5092f5d5e04fb59d24fd93e1d66b5b02b",
+            "role": "contractVersion",
+            "assertion": "signed current release contract source row"
+          },
+          {
+            "assertion": "current RoomSnapshot metadata contract",
+            "path": "server/modules/common/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java",
+            "sha256": "2b0fc5d1855aea8ba6da8c82275036c0ffaf559321cb56ceae6d7d0146371d4b",
+            "role": "contractVersion"
+          },
+          {
+            "assertion": "current RuntimeMetadata projection contract",
+            "path": "server/modules/infrastructure/GameSPI/src/main/java/com/aoo/bcg/gamespi/RuntimeMetadataProjection.java",
+            "sha256": "b0ba6be8636cabdf5da98bfda1ac86ef2a9813da129ed8c773c548955554d1e2",
+            "role": "contractVersion"
+          },
+          {
+            "assertion": "current source-backed runtime manifest",
+            "path": "server/release-input/runtime-metadata-canonical-manifest-r32-test-20261127-v4.json",
+            "sha256": "40bc9104d609daaa9bc5d1fbd6a276f11143a459358d7d108efac3791090299b",
+            "role": "contractVersion"
+          }
+        ],
+        "historicalCompatibilityExclusion": [
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Server/modules/infrastructure/GameSPI/src/main/java/com/aoo/bcg/gamespi/RoomCreationContext.java",
+            "sha256": "1e5841f901a76922510067d61bc640089a023b986d91340cfeed2fc5048243fb",
+            "role": "excluded",
+            "assertion": "RoomCreationContext compatibility-v1 is historical-only and never promoted"
+          }
+        ]
+      }
+    },
+    {
+      "gameId": 2021,
+      "gameCode": "huaibin2021",
+      "displayName": "淮滨跑得快",
+      "category": "POKER",
+      "family": "poker:pao-de-kuai",
+      "regionCode": "CN-41-15-27",
+      "provinceCode": "henan",
+      "cityCode": "huaibin",
+      "playVersion": "huaibin2021-v1.0.0",
+      "snapshotSchemaVersion": "room-snapshot-v1",
+      "cardCodecVersion": "card-v3",
+      "eventInterpreterVersion": "events-v4",
+      "protocolVersion": "protocol-v2",
+      "sourceHash": "1cdbda81f69213ae48db360070b1af4a96aa3bd857b4f7d78e9d7f41d91bba60",
+      "releaseId": 2023026112606,
+      "indexGeneration": 2026100691,
+      "providerKey": "native-pdk-huaibin2021",
+      "clientRuntimeEntry": "common-pdk",
+      "contractVersion": "common-room-v1",
+      "status": "CONSUMABLE",
+      "failureCodes": [
+
+      ],
+      "evidence": {
+        "providerKey": [
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Server/modules/gameplay/games/poker/src/main/java/com/aoo/bcg/poker/LegacyPdkRegionRules.java",
+            "sha256": "e9c64c0d144c52fa418f6869157d9b19875f307f6f6d26eb17621a28ba5cac25",
+            "role": "provider",
+            "assertion": "LegacyPdkRegionRules.providerKey returns native-pdk- plus its dispatched gameCode"
+          },
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Server/modules/gameplay/games/poker/src/main/java/com/aoo/bcg/poker/PokerCatalogRuntimeRegistry.java",
+            "sha256": "c05e1ac0414c6157d85b2416b807da99cb0f6d8482bbfeb7563aa8059ce5c7a2",
+            "role": "provider",
+            "assertion": "PdkBusinessCodes::HUAIBIN is dispatched to LegacyPdkRegionRules"
+          }
+        ],
+        "clientRuntimeEntry": [
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Client/assets/Games/Poker/PDK/Common/Code/Regional/PdkBusinessCodes.ts",
+            "sha256": "857f7e8dff494b018f8d95584e1b62a5a3b0f28133bc269bdea84f4c6a0a6ab0",
+            "role": "clientRuntimeEntry",
+            "assertion": "PDK_BUSINESS_CODE_LIST contains huaibin2021"
+          },
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Client/assets/Games/Poker/PDK/Common/Code/Runtime/PdkRuntimeEntry.ts",
+            "sha256": "2cec8f17eb7fad459da19570c38c0b784c316eb3bd9e0bb5c7158bec9cbca2d0",
+            "role": "clientRuntimeEntry",
+            "assertion": "id common-pdk owns PDK_BUSINESS_CODE_LIST"
+          }
+        ],
+        "contractVersion": [
+          {
+            "path": "release-input/identity/canonical-identity-current-contract-r32-test-20261127-v4.json",
+            "sha256": "6aa0bc990305976c8071277838eb4bc5092f5d5e04fb59d24fd93e1d66b5b02b",
+            "role": "contractVersion",
+            "assertion": "signed current release contract source row"
+          },
+          {
+            "assertion": "current RoomSnapshot metadata contract",
+            "path": "server/modules/common/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java",
+            "sha256": "2b0fc5d1855aea8ba6da8c82275036c0ffaf559321cb56ceae6d7d0146371d4b",
+            "role": "contractVersion"
+          },
+          {
+            "assertion": "current RuntimeMetadata projection contract",
+            "path": "server/modules/infrastructure/GameSPI/src/main/java/com/aoo/bcg/gamespi/RuntimeMetadataProjection.java",
+            "sha256": "b0ba6be8636cabdf5da98bfda1ac86ef2a9813da129ed8c773c548955554d1e2",
+            "role": "contractVersion"
+          },
+          {
+            "assertion": "current source-backed runtime manifest",
+            "path": "server/release-input/runtime-metadata-canonical-manifest-r32-test-20261127-v4.json",
+            "sha256": "40bc9104d609daaa9bc5d1fbd6a276f11143a459358d7d108efac3791090299b",
+            "role": "contractVersion"
+          }
+        ],
+        "historicalCompatibilityExclusion": [
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Server/modules/infrastructure/GameSPI/src/main/java/com/aoo/bcg/gamespi/RoomCreationContext.java",
+            "sha256": "1e5841f901a76922510067d61bc640089a023b986d91340cfeed2fc5048243fb",
+            "role": "excluded",
+            "assertion": "RoomCreationContext compatibility-v1 is historical-only and never promoted"
+          }
+        ]
+      }
+    },
+    {
+      "gameId": 2022,
+      "gameCode": "huangchuan2022",
+      "displayName": "潢川跑得快",
+      "category": "POKER",
+      "family": "poker:pao-de-kuai",
+      "regionCode": "CN-41-15-26",
+      "provinceCode": "henan",
+      "cityCode": "huangchuan",
+      "playVersion": "huangchuan2022-v1.0.0",
+      "snapshotSchemaVersion": "room-snapshot-v1",
+      "cardCodecVersion": "card-v3",
+      "eventInterpreterVersion": "events-v4",
+      "protocolVersion": "protocol-v2",
+      "sourceHash": "11179dda7de218affa7b30cd4b8f0cd2270857b3220f2a2d27f2bd6230eb85c8",
+      "releaseId": 2024026112606,
+      "indexGeneration": 2026100692,
+      "providerKey": "native-pdk-huangchuan2022",
+      "clientRuntimeEntry": "common-pdk",
+      "contractVersion": "common-room-v1",
+      "status": "CONSUMABLE",
+      "failureCodes": [
+
+      ],
+      "evidence": {
+        "providerKey": [
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Server/modules/gameplay/games/poker/src/main/java/com/aoo/bcg/poker/LegacyPdkRegionRules.java",
+            "sha256": "e9c64c0d144c52fa418f6869157d9b19875f307f6f6d26eb17621a28ba5cac25",
+            "role": "provider",
+            "assertion": "LegacyPdkRegionRules.providerKey returns native-pdk- plus its dispatched gameCode"
+          },
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Server/modules/gameplay/games/poker/src/main/java/com/aoo/bcg/poker/PokerCatalogRuntimeRegistry.java",
+            "sha256": "c05e1ac0414c6157d85b2416b807da99cb0f6d8482bbfeb7563aa8059ce5c7a2",
+            "role": "provider",
+            "assertion": "PdkBusinessCodes::HUANGCHUAN is dispatched to LegacyPdkRegionRules"
+          }
+        ],
+        "clientRuntimeEntry": [
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Client/assets/Games/Poker/PDK/Common/Code/Regional/PdkBusinessCodes.ts",
+            "sha256": "857f7e8dff494b018f8d95584e1b62a5a3b0f28133bc269bdea84f4c6a0a6ab0",
+            "role": "clientRuntimeEntry",
+            "assertion": "PDK_BUSINESS_CODE_LIST contains huangchuan2022"
+          },
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Client/assets/Games/Poker/PDK/Common/Code/Runtime/PdkRuntimeEntry.ts",
+            "sha256": "2cec8f17eb7fad459da19570c38c0b784c316eb3bd9e0bb5c7158bec9cbca2d0",
+            "role": "clientRuntimeEntry",
+            "assertion": "id common-pdk owns PDK_BUSINESS_CODE_LIST"
+          }
+        ],
+        "contractVersion": [
+          {
+            "path": "release-input/identity/canonical-identity-current-contract-r32-test-20261127-v4.json",
+            "sha256": "6aa0bc990305976c8071277838eb4bc5092f5d5e04fb59d24fd93e1d66b5b02b",
+            "role": "contractVersion",
+            "assertion": "signed current release contract source row"
+          },
+          {
+            "assertion": "current RoomSnapshot metadata contract",
+            "path": "server/modules/common/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java",
+            "sha256": "2b0fc5d1855aea8ba6da8c82275036c0ffaf559321cb56ceae6d7d0146371d4b",
+            "role": "contractVersion"
+          },
+          {
+            "assertion": "current RuntimeMetadata projection contract",
+            "path": "server/modules/infrastructure/GameSPI/src/main/java/com/aoo/bcg/gamespi/RuntimeMetadataProjection.java",
+            "sha256": "b0ba6be8636cabdf5da98bfda1ac86ef2a9813da129ed8c773c548955554d1e2",
+            "role": "contractVersion"
+          },
+          {
+            "assertion": "current source-backed runtime manifest",
+            "path": "server/release-input/runtime-metadata-canonical-manifest-r32-test-20261127-v4.json",
+            "sha256": "40bc9104d609daaa9bc5d1fbd6a276f11143a459358d7d108efac3791090299b",
+            "role": "contractVersion"
+          }
+        ],
+        "historicalCompatibilityExclusion": [
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Server/modules/infrastructure/GameSPI/src/main/java/com/aoo/bcg/gamespi/RoomCreationContext.java",
+            "sha256": "1e5841f901a76922510067d61bc640089a023b986d91340cfeed2fc5048243fb",
+            "role": "excluded",
+            "assertion": "RoomCreationContext compatibility-v1 is historical-only and never promoted"
+          }
+        ]
+      }
+    },
+    {
+      "gameId": 2023,
+      "gameCode": "poyang2023",
+      "displayName": "鄱阳跑得快",
+      "category": "POKER",
+      "family": "poker:pao-de-kuai",
+      "regionCode": "CN-36-11-28",
+      "provinceCode": "jiangxi",
+      "cityCode": "poyang",
+      "playVersion": "poyang2023-v1.0.0",
+      "snapshotSchemaVersion": "room-snapshot-v1",
+      "cardCodecVersion": "card-v3",
+      "eventInterpreterVersion": "events-v4",
+      "protocolVersion": "protocol-v2",
+      "sourceHash": "2046952da61c13511b5acc164efee81b8475c5b34717fe63cd6b4862a8f673c0",
+      "releaseId": 2025026112606,
+      "indexGeneration": 2026100693,
+      "providerKey": "native-pdk-poyang2023",
+      "clientRuntimeEntry": "common-pdk",
+      "contractVersion": "common-room-v1",
+      "status": "CONSUMABLE",
+      "failureCodes": [
+
+      ],
+      "evidence": {
+        "providerKey": [
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Server/modules/gameplay/games/poker/src/main/java/com/aoo/bcg/poker/LegacyPdkRegionRules.java",
+            "sha256": "e9c64c0d144c52fa418f6869157d9b19875f307f6f6d26eb17621a28ba5cac25",
+            "role": "provider",
+            "assertion": "LegacyPdkRegionRules.providerKey returns native-pdk- plus its dispatched gameCode"
+          },
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Server/modules/gameplay/games/poker/src/main/java/com/aoo/bcg/poker/PokerCatalogRuntimeRegistry.java",
+            "sha256": "c05e1ac0414c6157d85b2416b807da99cb0f6d8482bbfeb7563aa8059ce5c7a2",
+            "role": "provider",
+            "assertion": "PdkBusinessCodes::POYANG is dispatched to LegacyPdkRegionRules"
+          }
+        ],
+        "clientRuntimeEntry": [
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Client/assets/Games/Poker/PDK/Common/Code/Regional/PdkBusinessCodes.ts",
+            "sha256": "857f7e8dff494b018f8d95584e1b62a5a3b0f28133bc269bdea84f4c6a0a6ab0",
+            "role": "clientRuntimeEntry",
+            "assertion": "PDK_BUSINESS_CODE_LIST contains poyang2023"
+          },
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Client/assets/Games/Poker/PDK/Common/Code/Runtime/PdkRuntimeEntry.ts",
+            "sha256": "2cec8f17eb7fad459da19570c38c0b784c316eb3bd9e0bb5c7158bec9cbca2d0",
+            "role": "clientRuntimeEntry",
+            "assertion": "id common-pdk owns PDK_BUSINESS_CODE_LIST"
+          }
+        ],
+        "contractVersion": [
+          {
+            "path": "release-input/identity/canonical-identity-current-contract-r32-test-20261127-v4.json",
+            "sha256": "6aa0bc990305976c8071277838eb4bc5092f5d5e04fb59d24fd93e1d66b5b02b",
+            "role": "contractVersion",
+            "assertion": "signed current release contract source row"
+          },
+          {
+            "assertion": "current RoomSnapshot metadata contract",
+            "path": "server/modules/common/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java",
+            "sha256": "2b0fc5d1855aea8ba6da8c82275036c0ffaf559321cb56ceae6d7d0146371d4b",
+            "role": "contractVersion"
+          },
+          {
+            "assertion": "current RuntimeMetadata projection contract",
+            "path": "server/modules/infrastructure/GameSPI/src/main/java/com/aoo/bcg/gamespi/RuntimeMetadataProjection.java",
+            "sha256": "b0ba6be8636cabdf5da98bfda1ac86ef2a9813da129ed8c773c548955554d1e2",
+            "role": "contractVersion"
+          },
+          {
+            "assertion": "current source-backed runtime manifest",
+            "path": "server/release-input/runtime-metadata-canonical-manifest-r32-test-20261127-v4.json",
+            "sha256": "40bc9104d609daaa9bc5d1fbd6a276f11143a459358d7d108efac3791090299b",
+            "role": "contractVersion"
+          }
+        ],
+        "historicalCompatibilityExclusion": [
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Server/modules/infrastructure/GameSPI/src/main/java/com/aoo/bcg/gamespi/RoomCreationContext.java",
+            "sha256": "1e5841f901a76922510067d61bc640089a023b986d91340cfeed2fc5048243fb",
+            "role": "excluded",
+            "assertion": "RoomCreationContext compatibility-v1 is historical-only and never promoted"
+          }
+        ]
+      }
+    },
+    {
+      "gameId": 2024,
+      "gameCode": "jintan2024",
+      "displayName": "金坛跑得快",
+      "category": "POKER",
+      "family": "poker:pao-de-kuai",
+      "regionCode": "CN-32-04-13",
+      "provinceCode": "jiangsu",
+      "cityCode": "jintan",
+      "playVersion": "jintan2024-v1.0.0",
+      "snapshotSchemaVersion": "room-snapshot-v1",
+      "cardCodecVersion": "card-v3",
+      "eventInterpreterVersion": "events-v4",
+      "protocolVersion": "protocol-v2",
+      "sourceHash": "caf2c0631f040188f358fc13823412671b45dee99704ecebf285e4b8ecd5895a",
+      "releaseId": 2026026112606,
+      "indexGeneration": 2026100694,
+      "providerKey": "native-pdk-jintan2024",
+      "clientRuntimeEntry": "common-pdk",
+      "contractVersion": "common-room-v1",
+      "status": "CONSUMABLE",
+      "failureCodes": [
+
+      ],
+      "evidence": {
+        "providerKey": [
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Server/modules/gameplay/games/poker/src/main/java/com/aoo/bcg/poker/LegacyPdkRegionRules.java",
+            "sha256": "e9c64c0d144c52fa418f6869157d9b19875f307f6f6d26eb17621a28ba5cac25",
+            "role": "provider",
+            "assertion": "LegacyPdkRegionRules.providerKey returns native-pdk- plus its dispatched gameCode"
+          },
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Server/modules/gameplay/games/poker/src/main/java/com/aoo/bcg/poker/PokerCatalogRuntimeRegistry.java",
+            "sha256": "c05e1ac0414c6157d85b2416b807da99cb0f6d8482bbfeb7563aa8059ce5c7a2",
+            "role": "provider",
+            "assertion": "PdkBusinessCodes::JINTAN is dispatched to LegacyPdkRegionRules"
+          }
+        ],
+        "clientRuntimeEntry": [
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Client/assets/Games/Poker/PDK/Common/Code/Regional/PdkBusinessCodes.ts",
+            "sha256": "857f7e8dff494b018f8d95584e1b62a5a3b0f28133bc269bdea84f4c6a0a6ab0",
+            "role": "clientRuntimeEntry",
+            "assertion": "PDK_BUSINESS_CODE_LIST contains jintan2024"
+          },
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Client/assets/Games/Poker/PDK/Common/Code/Runtime/PdkRuntimeEntry.ts",
+            "sha256": "2cec8f17eb7fad459da19570c38c0b784c316eb3bd9e0bb5c7158bec9cbca2d0",
+            "role": "clientRuntimeEntry",
+            "assertion": "id common-pdk owns PDK_BUSINESS_CODE_LIST"
+          }
+        ],
+        "contractVersion": [
+          {
+            "path": "release-input/identity/canonical-identity-current-contract-r32-test-20261127-v4.json",
+            "sha256": "6aa0bc990305976c8071277838eb4bc5092f5d5e04fb59d24fd93e1d66b5b02b",
+            "role": "contractVersion",
+            "assertion": "signed current release contract source row"
+          },
+          {
+            "assertion": "current RoomSnapshot metadata contract",
+            "path": "server/modules/common/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java",
+            "sha256": "2b0fc5d1855aea8ba6da8c82275036c0ffaf559321cb56ceae6d7d0146371d4b",
+            "role": "contractVersion"
+          },
+          {
+            "assertion": "current RuntimeMetadata projection contract",
+            "path": "server/modules/infrastructure/GameSPI/src/main/java/com/aoo/bcg/gamespi/RuntimeMetadataProjection.java",
+            "sha256": "b0ba6be8636cabdf5da98bfda1ac86ef2a9813da129ed8c773c548955554d1e2",
+            "role": "contractVersion"
+          },
+          {
+            "assertion": "current source-backed runtime manifest",
+            "path": "server/release-input/runtime-metadata-canonical-manifest-r32-test-20261127-v4.json",
+            "sha256": "40bc9104d609daaa9bc5d1fbd6a276f11143a459358d7d108efac3791090299b",
+            "role": "contractVersion"
+          }
+        ],
+        "historicalCompatibilityExclusion": [
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Server/modules/infrastructure/GameSPI/src/main/java/com/aoo/bcg/gamespi/RoomCreationContext.java",
+            "sha256": "1e5841f901a76922510067d61bc640089a023b986d91340cfeed2fc5048243fb",
+            "role": "excluded",
+            "assertion": "RoomCreationContext compatibility-v1 is historical-only and never promoted"
+          }
+        ]
+      }
+    },
+    {
+      "gameId": 2025,
+      "gameCode": "gaoan2025",
+      "displayName": "高安跑得快",
+      "category": "POKER",
+      "family": "poker:pao-de-kuai",
+      "regionCode": "CN-36-09-83",
+      "provinceCode": "jiangxi",
+      "cityCode": "gaoan",
+      "playVersion": "gaoan2025-v1.0.0",
+      "snapshotSchemaVersion": "room-snapshot-v1",
+      "cardCodecVersion": "card-v3",
+      "eventInterpreterVersion": "events-v4",
+      "protocolVersion": "protocol-v2",
+      "sourceHash": "abc410a038074f70381c857359c1043a6316c7e6186864321c1c74dd7032e599",
+      "releaseId": 2027026112606,
+      "indexGeneration": 2026100695,
+      "providerKey": "native-pdk-gaoan2025",
+      "clientRuntimeEntry": "common-pdk",
+      "contractVersion": "common-room-v1",
+      "status": "CONSUMABLE",
+      "failureCodes": [
+
+      ],
+      "evidence": {
+        "providerKey": [
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Server/modules/gameplay/games/poker/src/main/java/com/aoo/bcg/poker/LegacyPdkRegionRules.java",
+            "sha256": "e9c64c0d144c52fa418f6869157d9b19875f307f6f6d26eb17621a28ba5cac25",
+            "role": "provider",
+            "assertion": "LegacyPdkRegionRules.providerKey returns native-pdk- plus its dispatched gameCode"
+          },
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Server/modules/gameplay/games/poker/src/main/java/com/aoo/bcg/poker/PokerCatalogRuntimeRegistry.java",
+            "sha256": "c05e1ac0414c6157d85b2416b807da99cb0f6d8482bbfeb7563aa8059ce5c7a2",
+            "role": "provider",
+            "assertion": "PdkBusinessCodes::GAOAN is dispatched to LegacyPdkRegionRules"
+          }
+        ],
+        "clientRuntimeEntry": [
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Client/assets/Games/Poker/PDK/Common/Code/Regional/PdkBusinessCodes.ts",
+            "sha256": "857f7e8dff494b018f8d95584e1b62a5a3b0f28133bc269bdea84f4c6a0a6ab0",
+            "role": "clientRuntimeEntry",
+            "assertion": "PDK_BUSINESS_CODE_LIST contains gaoan2025"
+          },
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Client/assets/Games/Poker/PDK/Common/Code/Runtime/PdkRuntimeEntry.ts",
+            "sha256": "2cec8f17eb7fad459da19570c38c0b784c316eb3bd9e0bb5c7158bec9cbca2d0",
+            "role": "clientRuntimeEntry",
+            "assertion": "id common-pdk owns PDK_BUSINESS_CODE_LIST"
+          }
+        ],
+        "contractVersion": [
+          {
+            "path": "release-input/identity/canonical-identity-current-contract-r32-test-20261127-v4.json",
+            "sha256": "6aa0bc990305976c8071277838eb4bc5092f5d5e04fb59d24fd93e1d66b5b02b",
+            "role": "contractVersion",
+            "assertion": "signed current release contract source row"
+          },
+          {
+            "assertion": "current RoomSnapshot metadata contract",
+            "path": "server/modules/common/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java",
+            "sha256": "2b0fc5d1855aea8ba6da8c82275036c0ffaf559321cb56ceae6d7d0146371d4b",
+            "role": "contractVersion"
+          },
+          {
+            "assertion": "current RuntimeMetadata projection contract",
+            "path": "server/modules/infrastructure/GameSPI/src/main/java/com/aoo/bcg/gamespi/RuntimeMetadataProjection.java",
+            "sha256": "b0ba6be8636cabdf5da98bfda1ac86ef2a9813da129ed8c773c548955554d1e2",
+            "role": "contractVersion"
+          },
+          {
+            "assertion": "current source-backed runtime manifest",
+            "path": "server/release-input/runtime-metadata-canonical-manifest-r32-test-20261127-v4.json",
+            "sha256": "40bc9104d609daaa9bc5d1fbd6a276f11143a459358d7d108efac3791090299b",
+            "role": "contractVersion"
+          }
+        ],
+        "historicalCompatibilityExclusion": [
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Server/modules/infrastructure/GameSPI/src/main/java/com/aoo/bcg/gamespi/RoomCreationContext.java",
+            "sha256": "1e5841f901a76922510067d61bc640089a023b986d91340cfeed2fc5048243fb",
+            "role": "excluded",
+            "assertion": "RoomCreationContext compatibility-v1 is historical-only and never promoted"
+          }
+        ]
+      }
+    },
+    {
+      "gameId": 2026,
+      "gameCode": "yixing2026",
+      "displayName": "宜兴跑得快",
+      "category": "POKER",
+      "family": "poker:pao-de-kuai",
+      "regionCode": "CN-32-02-82",
+      "provinceCode": "jiangsu",
+      "cityCode": "yixing",
+      "playVersion": "yixing2026-v1.0.0",
+      "snapshotSchemaVersion": "room-snapshot-v1",
+      "cardCodecVersion": "card-v3",
+      "eventInterpreterVersion": "events-v4",
+      "protocolVersion": "protocol-v2",
+      "sourceHash": "49582391861a51b8fc166f1729670d2f403a8ca6925b023d71148802d08cb252",
+      "releaseId": 2028026112606,
+      "indexGeneration": 2026100696,
+      "providerKey": "native-pdk-yixing2026",
+      "clientRuntimeEntry": "common-pdk",
+      "contractVersion": "common-room-v1",
+      "status": "CONSUMABLE",
+      "failureCodes": [
+
+      ],
+      "evidence": {
+        "providerKey": [
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Server/modules/gameplay/games/poker/src/main/java/com/aoo/bcg/poker/LegacyPdkRegionRules.java",
+            "sha256": "e9c64c0d144c52fa418f6869157d9b19875f307f6f6d26eb17621a28ba5cac25",
+            "role": "provider",
+            "assertion": "LegacyPdkRegionRules.providerKey returns native-pdk- plus its dispatched gameCode"
+          },
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Server/modules/gameplay/games/poker/src/main/java/com/aoo/bcg/poker/PokerCatalogRuntimeRegistry.java",
+            "sha256": "c05e1ac0414c6157d85b2416b807da99cb0f6d8482bbfeb7563aa8059ce5c7a2",
+            "role": "provider",
+            "assertion": "PdkBusinessCodes::YIXING is dispatched to LegacyPdkRegionRules"
+          }
+        ],
+        "clientRuntimeEntry": [
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Client/assets/Games/Poker/PDK/Common/Code/Regional/PdkBusinessCodes.ts",
+            "sha256": "857f7e8dff494b018f8d95584e1b62a5a3b0f28133bc269bdea84f4c6a0a6ab0",
+            "role": "clientRuntimeEntry",
+            "assertion": "PDK_BUSINESS_CODE_LIST contains yixing2026"
+          },
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Client/assets/Games/Poker/PDK/Common/Code/Runtime/PdkRuntimeEntry.ts",
+            "sha256": "2cec8f17eb7fad459da19570c38c0b784c316eb3bd9e0bb5c7158bec9cbca2d0",
+            "role": "clientRuntimeEntry",
+            "assertion": "id common-pdk owns PDK_BUSINESS_CODE_LIST"
+          }
+        ],
+        "contractVersion": [
+          {
+            "path": "release-input/identity/canonical-identity-current-contract-r32-test-20261127-v4.json",
+            "sha256": "6aa0bc990305976c8071277838eb4bc5092f5d5e04fb59d24fd93e1d66b5b02b",
+            "role": "contractVersion",
+            "assertion": "signed current release contract source row"
+          },
+          {
+            "assertion": "current RoomSnapshot metadata contract",
+            "path": "server/modules/common/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java",
+            "sha256": "2b0fc5d1855aea8ba6da8c82275036c0ffaf559321cb56ceae6d7d0146371d4b",
+            "role": "contractVersion"
+          },
+          {
+            "assertion": "current RuntimeMetadata projection contract",
+            "path": "server/modules/infrastructure/GameSPI/src/main/java/com/aoo/bcg/gamespi/RuntimeMetadataProjection.java",
+            "sha256": "b0ba6be8636cabdf5da98bfda1ac86ef2a9813da129ed8c773c548955554d1e2",
+            "role": "contractVersion"
+          },
+          {
+            "assertion": "current source-backed runtime manifest",
+            "path": "server/release-input/runtime-metadata-canonical-manifest-r32-test-20261127-v4.json",
+            "sha256": "40bc9104d609daaa9bc5d1fbd6a276f11143a459358d7d108efac3791090299b",
+            "role": "contractVersion"
+          }
+        ],
+        "historicalCompatibilityExclusion": [
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Server/modules/infrastructure/GameSPI/src/main/java/com/aoo/bcg/gamespi/RoomCreationContext.java",
+            "sha256": "1e5841f901a76922510067d61bc640089a023b986d91340cfeed2fc5048243fb",
+            "role": "excluded",
+            "assertion": "RoomCreationContext compatibility-v1 is historical-only and never promoted"
+          }
+        ]
+      }
+    },
+    {
+      "gameId": 2027,
+      "gameCode": "xuancheng2027",
+      "displayName": "宣城跑得快",
+      "category": "POKER",
+      "family": "poker:pao-de-kuai",
+      "regionCode": "CN-34-18",
+      "provinceCode": "anhui",
+      "cityCode": "xuancheng",
+      "playVersion": "xuancheng2027-v1.0.0",
+      "snapshotSchemaVersion": "room-snapshot-v1",
+      "cardCodecVersion": "card-v3",
+      "eventInterpreterVersion": "events-v4",
+      "protocolVersion": "protocol-v2",
+      "sourceHash": "b42092ec31bebf63f04cd3918105c5b3db5757588c81f4612d6410689ee57a33",
+      "releaseId": 2029026112606,
+      "indexGeneration": 2026100697,
+      "providerKey": "native-pdk-xuancheng2027",
+      "clientRuntimeEntry": "common-pdk",
+      "contractVersion": "common-room-v1",
+      "status": "CONSUMABLE",
+      "failureCodes": [
+
+      ],
+      "evidence": {
+        "providerKey": [
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Server/modules/gameplay/games/poker/src/main/java/com/aoo/bcg/poker/LegacyPdkRegionRules.java",
+            "sha256": "e9c64c0d144c52fa418f6869157d9b19875f307f6f6d26eb17621a28ba5cac25",
+            "role": "provider",
+            "assertion": "LegacyPdkRegionRules.providerKey returns native-pdk- plus its dispatched gameCode"
+          },
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Server/modules/gameplay/games/poker/src/main/java/com/aoo/bcg/poker/PokerCatalogRuntimeRegistry.java",
+            "sha256": "c05e1ac0414c6157d85b2416b807da99cb0f6d8482bbfeb7563aa8059ce5c7a2",
+            "role": "provider",
+            "assertion": "PdkBusinessCodes::XUANCHENG is dispatched to LegacyPdkRegionRules"
+          }
+        ],
+        "clientRuntimeEntry": [
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Client/assets/Games/Poker/PDK/Common/Code/Regional/PdkBusinessCodes.ts",
+            "sha256": "857f7e8dff494b018f8d95584e1b62a5a3b0f28133bc269bdea84f4c6a0a6ab0",
+            "role": "clientRuntimeEntry",
+            "assertion": "PDK_BUSINESS_CODE_LIST contains xuancheng2027"
+          },
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Client/assets/Games/Poker/PDK/Common/Code/Runtime/PdkRuntimeEntry.ts",
+            "sha256": "2cec8f17eb7fad459da19570c38c0b784c316eb3bd9e0bb5c7158bec9cbca2d0",
+            "role": "clientRuntimeEntry",
+            "assertion": "id common-pdk owns PDK_BUSINESS_CODE_LIST"
+          }
+        ],
+        "contractVersion": [
+          {
+            "path": "release-input/identity/canonical-identity-current-contract-r32-test-20261127-v4.json",
+            "sha256": "6aa0bc990305976c8071277838eb4bc5092f5d5e04fb59d24fd93e1d66b5b02b",
+            "role": "contractVersion",
+            "assertion": "signed current release contract source row"
+          },
+          {
+            "assertion": "current RoomSnapshot metadata contract",
+            "path": "server/modules/common/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java",
+            "sha256": "2b0fc5d1855aea8ba6da8c82275036c0ffaf559321cb56ceae6d7d0146371d4b",
+            "role": "contractVersion"
+          },
+          {
+            "assertion": "current RuntimeMetadata projection contract",
+            "path": "server/modules/infrastructure/GameSPI/src/main/java/com/aoo/bcg/gamespi/RuntimeMetadataProjection.java",
+            "sha256": "b0ba6be8636cabdf5da98bfda1ac86ef2a9813da129ed8c773c548955554d1e2",
+            "role": "contractVersion"
+          },
+          {
+            "assertion": "current source-backed runtime manifest",
+            "path": "server/release-input/runtime-metadata-canonical-manifest-r32-test-20261127-v4.json",
+            "sha256": "40bc9104d609daaa9bc5d1fbd6a276f11143a459358d7d108efac3791090299b",
+            "role": "contractVersion"
+          }
+        ],
+        "historicalCompatibilityExclusion": [
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Server/modules/infrastructure/GameSPI/src/main/java/com/aoo/bcg/gamespi/RoomCreationContext.java",
+            "sha256": "1e5841f901a76922510067d61bc640089a023b986d91340cfeed2fc5048243fb",
+            "role": "excluded",
+            "assertion": "RoomCreationContext compatibility-v1 is historical-only and never promoted"
+          }
+        ]
+      }
+    },
+    {
+      "gameId": 2028,
+      "gameCode": "fuzhou2028",
+      "displayName": "抚州跑得快",
+      "category": "POKER",
+      "family": "poker:pao-de-kuai",
+      "regionCode": "CN-36-10",
+      "provinceCode": "jiangxi",
+      "cityCode": "fuzhou",
+      "playVersion": "fuzhou2028-v1.0.0",
+      "snapshotSchemaVersion": "room-snapshot-v1",
+      "cardCodecVersion": "card-v3",
+      "eventInterpreterVersion": "events-v4",
+      "protocolVersion": "protocol-v2",
+      "sourceHash": "e3c08c0afa5b3133b2833f08f390c096f0de9c4718068518b71998bf06e78aee",
+      "releaseId": 2030026112606,
+      "indexGeneration": 2026100698,
+      "providerKey": "native-pdk-fuzhou2028",
+      "clientRuntimeEntry": "common-pdk",
+      "contractVersion": "common-room-v1",
+      "status": "CONSUMABLE",
+      "failureCodes": [
+
+      ],
+      "evidence": {
+        "providerKey": [
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Server/modules/gameplay/games/poker/src/main/java/com/aoo/bcg/poker/LegacyPdkRegionRules.java",
+            "sha256": "e9c64c0d144c52fa418f6869157d9b19875f307f6f6d26eb17621a28ba5cac25",
+            "role": "provider",
+            "assertion": "LegacyPdkRegionRules.providerKey returns native-pdk- plus its dispatched gameCode"
+          },
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Server/modules/gameplay/games/poker/src/main/java/com/aoo/bcg/poker/PokerCatalogRuntimeRegistry.java",
+            "sha256": "c05e1ac0414c6157d85b2416b807da99cb0f6d8482bbfeb7563aa8059ce5c7a2",
+            "role": "provider",
+            "assertion": "PdkBusinessCodes::FUZHOU is dispatched to LegacyPdkRegionRules"
+          }
+        ],
+        "clientRuntimeEntry": [
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Client/assets/Games/Poker/PDK/Common/Code/Regional/PdkBusinessCodes.ts",
+            "sha256": "857f7e8dff494b018f8d95584e1b62a5a3b0f28133bc269bdea84f4c6a0a6ab0",
+            "role": "clientRuntimeEntry",
+            "assertion": "PDK_BUSINESS_CODE_LIST contains fuzhou2028"
+          },
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Client/assets/Games/Poker/PDK/Common/Code/Runtime/PdkRuntimeEntry.ts",
+            "sha256": "2cec8f17eb7fad459da19570c38c0b784c316eb3bd9e0bb5c7158bec9cbca2d0",
+            "role": "clientRuntimeEntry",
+            "assertion": "id common-pdk owns PDK_BUSINESS_CODE_LIST"
+          }
+        ],
+        "contractVersion": [
+          {
+            "path": "release-input/identity/canonical-identity-current-contract-r32-test-20261127-v4.json",
+            "sha256": "6aa0bc990305976c8071277838eb4bc5092f5d5e04fb59d24fd93e1d66b5b02b",
+            "role": "contractVersion",
+            "assertion": "signed current release contract source row"
+          },
+          {
+            "assertion": "current RoomSnapshot metadata contract",
+            "path": "server/modules/common/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java",
+            "sha256": "2b0fc5d1855aea8ba6da8c82275036c0ffaf559321cb56ceae6d7d0146371d4b",
+            "role": "contractVersion"
+          },
+          {
+            "assertion": "current RuntimeMetadata projection contract",
+            "path": "server/modules/infrastructure/GameSPI/src/main/java/com/aoo/bcg/gamespi/RuntimeMetadataProjection.java",
+            "sha256": "b0ba6be8636cabdf5da98bfda1ac86ef2a9813da129ed8c773c548955554d1e2",
+            "role": "contractVersion"
+          },
+          {
+            "assertion": "current source-backed runtime manifest",
+            "path": "server/release-input/runtime-metadata-canonical-manifest-r32-test-20261127-v4.json",
+            "sha256": "40bc9104d609daaa9bc5d1fbd6a276f11143a459358d7d108efac3791090299b",
+            "role": "contractVersion"
+          }
+        ],
+        "historicalCompatibilityExclusion": [
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Server/modules/infrastructure/GameSPI/src/main/java/com/aoo/bcg/gamespi/RoomCreationContext.java",
+            "sha256": "1e5841f901a76922510067d61bc640089a023b986d91340cfeed2fc5048243fb",
+            "role": "excluded",
+            "assertion": "RoomCreationContext compatibility-v1 is historical-only and never promoted"
+          }
+        ]
+      }
+    },
+    {
+      "gameId": 2999,
+      "gameCode": "chengdu2999",
+      "displayName": "成都扯旋",
+      "category": "POKER",
+      "family": "poker:cx",
+      "regionCode": "CN-51-01",
+      "provinceCode": "sichuan",
+      "cityCode": "chengdu",
+      "playVersion": "cx-v1.0.0",
+      "snapshotSchemaVersion": "room-snapshot-v1",
+      "cardCodecVersion": "card-v3",
+      "eventInterpreterVersion": "events-v4",
+      "protocolVersion": "protocol-v2",
+      "sourceHash": "f608c559c969209a1bbdf985fe54b7807bd0022c4c4a711a9a75a94aee6dbab5",
+      "releaseId": 3001026112606,
+      "indexGeneration": 2026100699,
+      "providerKey": "cx-native",
+      "clientRuntimeEntry": "cx",
+      "contractVersion": "common-room-v1",
+      "status": "CONSUMABLE",
+      "failureCodes": [
+
+      ],
+      "evidence": {
+        "providerKey": [
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Server/modules/gameplay/games/poker/cx/src/main/java/com/aoo/bcg/poker/cx/CxGameProvider.java",
+            "sha256": "c57668cba9fcdd98a2cd2e3592021f734363d3dac89ffd838239a893ade09791",
+            "role": "provider",
+            "assertion": "config.put(\"provider\",\"cx-native\")"
+          }
+        ],
+        "clientRuntimeEntry": [
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Client/assets/Games/Poker/CX/Code/CxEntry.ts",
+            "sha256": "b257cbf7ef60ed0ed56bf28217397fc5528fc407c1e4e9bcd3e0188dbc8bc074",
+            "role": "clientRuntimeEntry",
+            "assertion": "id = 'cx'"
+          }
+        ],
+        "contractVersion": [
+          {
+            "path": "release-input/identity/canonical-identity-current-contract-r32-test-20261127-v4.json",
+            "sha256": "6aa0bc990305976c8071277838eb4bc5092f5d5e04fb59d24fd93e1d66b5b02b",
+            "role": "contractVersion",
+            "assertion": "signed current release contract source row"
+          },
+          {
+            "assertion": "current RoomSnapshot metadata contract",
+            "path": "server/modules/common/CommonRoom/src/main/java/com/aoo/bcg/common/recovery/RoomSnapshotReadGate.java",
+            "sha256": "2b0fc5d1855aea8ba6da8c82275036c0ffaf559321cb56ceae6d7d0146371d4b",
+            "role": "contractVersion"
+          },
+          {
+            "assertion": "current RuntimeMetadata projection contract",
+            "path": "server/modules/infrastructure/GameSPI/src/main/java/com/aoo/bcg/gamespi/RuntimeMetadataProjection.java",
+            "sha256": "b0ba6be8636cabdf5da98bfda1ac86ef2a9813da129ed8c773c548955554d1e2",
+            "role": "contractVersion"
+          },
+          {
+            "assertion": "current source-backed runtime manifest",
+            "path": "server/release-input/runtime-metadata-canonical-manifest-r32-test-20261127-v4.json",
+            "sha256": "40bc9104d609daaa9bc5d1fbd6a276f11143a459358d7d108efac3791090299b",
+            "role": "contractVersion"
+          }
+        ],
+        "historicalCompatibilityExclusion": [
+          {
+            "path": "/Users/aoo/Code/Game/aoo/Server/modules/infrastructure/GameSPI/src/main/java/com/aoo/bcg/gamespi/RoomCreationContext.java",
+            "sha256": "1e5841f901a76922510067d61bc640089a023b986d91340cfeed2fc5048243fb",
+            "role": "excluded",
+            "assertion": "RoomCreationContext compatibility-v1 is historical-only and never promoted"
+          }
+        ]
+      }
+    }
+  ]
+}

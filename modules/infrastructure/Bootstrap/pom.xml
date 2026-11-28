@@ -57,4 +57,16 @@
             <plugin><groupId>org.apache.maven.plugins</groupId><artifactId>maven-jar-plugin</artifactId><configuration><archive><manifest><mainClass>com.aoo.bcg.bootstrap.BootstrapAPP</mainClass></manifest></archive></configuration></plugin>
         </plugins>
     </build>
+    <profiles>
+        <profile>
+            <id>local-mirror</id>
+            <build>
+                <resources>
+                    <resource><directory>src/main/resources</directory></resource>
+                    <resource><directory>${project.build.directory}/generated-resources</directory><filtering>false</filtering></resource>
+                    <resource><directory>src/local-mirror/resources</directory><filtering>false</filtering></resource>
+                </resources>
+            </build>
+        </profile>
+    </profiles>
 </project>
